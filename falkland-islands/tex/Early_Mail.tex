@@ -1,0 +1,409 @@
+% This is a sample LaTeX input file.  (Version of 12 August 2004.)
+%
+% A '%' character causes TeX to ignore all remaining text on the line,
+% and is used for comments like this one.
+
+% options
+
+\documentclass[10pt,justified,oneside,a4paper]{tufte-book}     % Specifies the document class
+%% decide on fonts
+\usepackage{ifxetex}
+\ifxetex
+  \usepackage{fontspec}
+  \defaultfontfeatures{Mapping=tex-text}
+  \setmainfont{Minion Pro}
+  %\setsansfont{Georgia}
+\else
+  \usepackage{mathpazo}
+  \usepackage[T1]{fontenc}
+\fi
+%
+%\usepackage{url}
+\usepackage{booktabs}
+\usepackage{numprint,textcomp,verbatim}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{makeidx}
+\usepackage{xcolor}
+\usepackage{caption}
+\usepackage{lettrine}
+\usepackage{comment}
+
+\RequirePackage{listings}
+%
+%% Listings default settings
+%% Must move to a definition file
+
+\lstdefinelanguage{Verse}%
+{morekeywords={poemtitle, poemtoc, versewidth, vin, poemlines,poemtitlefont, 
+ProvidesClass,IfFileExists,RequirePackage,ifthenelse,chapter,includegraphics, newarray,readarray,of
+}}
+
+\lstloadlanguages{[LaTeX]TeX, [primitive]TeX, Verse}
+
+
+\lstset{%
+	%frame=tblr,
+     framesep=5pt,
+	basicstyle=\normalsize\ttfamily,
+	showstringspaces=false,
+	keywordstyle=\itshape\color{blue},
+	%identifierstyle=\ttfamily,
+	stringstyle=\color{maroon},
+	commentstyle=\color{black},
+	rulecolor=\color{gray!10},
+	xleftmargin=5pt,
+	xrightmargin=5pt,
+	aboveskip=\bigskipamount,
+	belowskip=\bigskipamount,
+            %backgroundcolor=\color{LightGray!.50}
+}
+
+%% We need an environment for pretty printing of Tex/LateX
+%% code
+
+\lstnewenvironment{teX}[1][]
+  {\lstset{language=[LaTeX]TeX}\lstset{escapeinside={(*@}{@*)},
+   numbers=left,numberstyle=\normalsize,stepnumber=1,numbersep=5pt,
+   breaklines=true,
+   %firstnumber=last,
+       %frame=tblr,
+       framesep=5pt,
+       basicstyle=\normalsize\ttfamily,
+       showstringspaces=false,
+       keywordstyle=\itshape\color{blue},
+      %identifierstyle=\ttfamily,
+       stringstyle=\color{maroon},
+	commentstyle=\color{black},
+	rulecolor=\color{gray!10},
+	xleftmargin=0pt,
+	xrightmargin=0pt,
+	aboveskip=\medskipamount,
+	belowskip=\medskipamount,
+           backgroundcolor=\color{LightGray!20}, #1
+}}
+{}
+
+\lstnewenvironment{teXX}[1][]
+  {\lstset{language=[LaTeX]TeX}\lstset{%
+      breaklines=true,
+      framesep=5pt,
+      basicstyle=\normalsize\ttfamily,
+      showstringspaces=false,
+      keywordstyle=\itshape\color{blue},
+      stringstyle=\color{maroon},
+	 commentstyle=\color{black},
+	 rulecolor=\color{Gray},
+      breakatwhitespace=true,
+	 xleftmargin=0pt,
+	 xrightmargin=5pt,
+	 aboveskip=\medskipamount,
+	 belowskip=\medskipamount,
+      backgroundcolor=\color{gray!10}, #1
+}}
+{}
+
+%% Emphasis
+
+\gdef\emphasis#1{\lstset{emph={write,void,writeln,Hello,#1},
+   emphstyle={\itshape\ttfamily\textcolor{blue}}}}
+
+\lstnewenvironment{teXXX}[1][]
+  {\lstset{language=[LaTeX]TeX}\lstset{%
+      escapeinside={{(*@}{@*)}},
+      breaklines=true,
+      framesep=5pt,
+      basicstyle=\normalsize\ttfamily,
+      showstringspaces=false,
+      keywordstyle=\itshape\color{blue},
+      stringstyle=\color{maroon},
+	 commentstyle=\color{black},
+	 rulecolor=\color{gray!10},
+      breakatwhitespace=true,
+	 xleftmargin=0pt,
+	 xrightmargin=5pt,
+	 aboveskip=\medskipamount,
+	 belowskip=\medskipamount,
+      backgroundcolor=\color{gray!10}, #1
+}}
+{}
+
+
+
+
+
+
+
+\lstnewenvironment{cCode}[1][]
+  {\lstset{language=C}\lstset{%
+   numbers=left,numberstyle=\normalsize,stepnumber=1,numbersep=5pt,
+   %firstnumber=last,
+       %frame=tblr,
+       framesep=5pt,
+       basicstyle=\normalsize\ttfamily,
+       showstringspaces=false,
+       keywordstyle=\itshape\color{blue},
+   %identifierstyle=\ttfamily,
+       stringstyle=\color{maroon},
+	commentstyle=\color{black},
+	rulecolor=\color{Gray},
+	xleftmargin=5pt,
+	xrightmargin=5pt,
+	aboveskip=\bigskipamount,
+	belowskip=\bigskipamount,
+     backgroundcolor=\color{LightGray!.50}, #1
+}}
+{}
+
+
+%
+%%% Always I forget this so I created some aliases
+\def\continueLineNumber{\lstset{firstnumber=last}}
+\def\startLineAt#1{\lstset{firstnumber=#1}}
+\let\numberLineAt\startLineAt
+
+
+\lstdefinelanguage{JavaScript} {
+	morekeywords={
+		break,const,continue,delete,do,while,export,for,in,function,
+		if,else,import,in,instanceOf,label,let,new,return,switch,this,
+		throw,try,catch,typeof,var,void,with,yield
+	},
+	sensitive=false,
+	morecomment=[l]{//},
+	morecomment=[s]{/*}{*/},
+	morestring=[b]",
+	morestring=[d]'
+}
+
+\lstset{
+	%frame=tb,
+	framesep=5pt,
+	basicstyle=\normalsize, %\ttfamily,
+	showstringspaces=false,
+	keywordstyle=\rmfamily\color{blue},
+	identifierstyle=\ttfamily,
+	stringstyle=\ttfamily\color{orange},
+	commentstyle=\color{orange},
+	rulecolor=\color{Gray},
+	xleftmargin=5pt,
+	xrightmargin=5pt,
+	aboveskip=\bigskipamount,
+	belowskip=\bigskipamount,
+            backgroundcolor=\color{LightGray!.50}
+}
+
+
+\DeclareRobustCommand\captionlorem{Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nibh justo,  et blandit lorem.}
+
+
+
+
+
+\usepackage{hyperref}
+\hypersetup{%
+  colorlinks=true,
+  linkcolor=black,
+  urlcolor=blue,
+  bookmarks=true,
+  bookmarksopen=false,
+  bookmarksnumbered=false,
+  hyperfootnotes=false,
+  plainpages=false,
+  pdfpagelabels=true,
+  pdfpagemode=UseOutlines,
+  pdfview=FitH,
+  pdfstartview=FitH}
+                             % The preamble begins here.
+\title{\jobname}  % Declares the document's title.
+\author{Dr. Yiannis Lazarides}      % Declares the author's name.
+% Checks for the file in the local directory. If not found
+% it looks in the main tex-template directory.
+% This permits editing title and author normally.
+% One can add further commands here.
+\IfFileExists{../titlepage.dat}{\input{../titlepage.dat}}{\input{../../../tex-templates/titlepage.tex}}
+%\input{titlepage}                              % Deleting this command produces today's date.
+
+\def\lorem{Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nibh justo, dictum sed cursus ac, lobortis et lacus. Vestibulum vitae justo enim. Quisque laoreet elementum felis, ut sodales arcu viverra a. Sed molestie odio vulputate sem rutrum a sagittis est rutrum. Morbi dapibus hendrerit magna, sit amet commodo massa posuere sit amet. Duis pharetra quam scelerisque est lobortis fringilla. Maecenas venenatis feugiat lectus, vel facilisis odio pharetra quis. Etiam at nisl eros, sit amet suscipit lorem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed augue nunc, ornare eget congue sit amet, laoreet vel augue. Morbi vel justo quis ipsum adipiscing egestas vitae non est. Vivamus ac quam quam. Nullam pharetrainterdum mauris, rutrum pulvinar ligula condimentum id. Donec et blandit lorem. }
+
+\newcommand{\wrapleft}[3][1]{}
+\newcommand{\wrapright}[3][1]{}
+
+
+\newcommand{\ph}[3][1]{%
+ \begin{figure}[htbp]
+   \centering
+   \includegraphics[#1]{#2}%
+    \caption{#3 }
+ \end{figure}}
+
+\newcommand{\phl}[3][1]{%
+   \fboxsep0pt%
+   \fboxrule0pt%
+   \fbox{\begin{minipage}[t]{#1}%
+     \mbox{}
+     \includegraphics[width=\linewidth]{#2}%
+     
+    \vbox{%
+     \vspace{1em}
+      \leftskip5pt\rightskip5pt\RaggedRight
+      \footnotesize\noindent#3}%
+      \vspace{1em}
+   \end{minipage}}%
+}
+
+
+\def\euro{EU }
+\def\pound{\pounds}
+\def\textprime{$'$}
+\let\textdegrees\textdegree
+
+
+
+\def\heading#1{{\centering\textbf{#1}}}
+\def\halfd{1/2 }
+\def\half{1/2 }
+\let\subsubsection\subsection
+
+ \def\soldd#1#2{Estimate \$#1, sold for \$#2}
+
+
+\IfFileExists{../falkland-islands/cover-image.jpg}{
+    \def\coverpicture{../falkland-islands/cover-image}}%
+{\def\coverpicture{../../../tex-templates/cover-image}% 
+}
+
+
+%% We define a command for the second page of the documentation
+
+\newcommand\secondpage{\clearpage\null\vfill\vfill
+\thispagestyle{empty}
+\begin{minipage}[b]{0.9\textwidth}
+\includegraphics[width=3cm]{\coverpicture}\par
+\raggedright
+ \textit{Cover image: } 
+The cover image shows Jo Bodeon, a back-roper in the mule room at Chace Cotton Mill. Burlington, Vermont. This and other similar images in this book were taken by Lewis W. Hine, in the period between 1908-1912. These images as well as social campaigns by many including Hine, helped to formulate America's anti-child labour laws.
+\end{minipage}\par
+ \vspace*{\baselineskip}
+\begin{minipage}[b]{0.9\textwidth}
+\raggedright
+\setlength{\parskip}{0.5\baselineskip}
+Copyright \copyright 2012  Dr Yiannis Lazarides\par
+Permission is granted to copy, distribute and\slash or modify this document under the terms of the GNU Free Documentation License, version 1.2, with no invariant sections, no front-cover texts, and no back-cover texts.\par
+A copy of the license is included in the appendix.\par
+This document is distributed in the hope that it will be useful, but without any warranty; without even the implied warranty of merchantability or fitness for a particular purpose.
+\end{minipage}
+
+\vspace*{2\baselineskip}
+\clearpage
+}
+
+%% PRODUCES THE COVER PAGE OF THE DOCUMENTATION
+\newcommand\coverpage[3]{%
+\hfill\hfill%
+\hbox{\vbox{%
+  \vspace*{2cm}
+  \includegraphics[width=0.6\paperwidth]{#1}\par
+  \vspace*{3\baselineskip}
+   \hbox to \hsize{\Huge \hfill\hfill{\MakeUppercase{\bfseries \textsf{falkland-islands STAMPS}}}}
+   \vspace*{0.3cm}
+   \hbox to \hsize{\Huge \hfill\hfill{\MakeUppercase{\bfseries \textsf{AND POSTAL HISTORY}}}}
+  \vspace*{2\baselineskip}
+   \hbox to \hsize{\huge \hfill\hfill\textsf{\hbox{#2}}}
+    \vspace*{1.35cm}
+   \hbox to \hsize{\huge \hfill\hfill\textsf{\hbox{#3}}}
+}}
+
+}
+
+\def\cent{cent}
+
+\setcounter{tocdepth}{3}
+
+
+
+
+%\usepackage{hyperref}
+
+\begin{document}             % End of preamble and beginning of text.
+\frontmatter
+\pagestyle{empty}
+
+\IfFileExists{../falkland-islands/cover-image.jpg}{
+     \coverpage{../falkland-islands/cover-image.jpg}{Yiannis Lazarides}{Published by Camel  Press}}%
+{\coverpage{\coverpicture}{Yiannis Lazarides}{Published by Camel Press NF}% 
+}
+
+\secondpage
+\maketitle
+\tableofcontents
+\listoftables
+\listoffigures
+
+\mainmatter
+
+
+
+\chapter{Falkland Islands: Postal History and Stamps}
+
+The earliest incoming letter addressed to the Falkland Islands appears to be from a whaling correspondence in 1831. There is another letter claiming that it was the earliest known cover and the reason for one to be careful not to state the
+same.
+
+\ph[width=.90\textwidth]{../falkland-island/earliest-incoming-letter.jpg}{
+1831 whaling letter from New London, Connecticut, addressed to "Capt Lyman Allyn, Ship Jno & Edward, Falkland Islands". On the reverse are written instructions that read: "Should the Capt. of Ship Franklin fall in with the ships Julius Caesar, Flora or Comm. Perry before he see the Jno T Edwards, he is requested to deliver this to their captains who has the permission of the writers to open same". Very interesting contents which discusses the capture of sealmen by the pirate Disnet. He also discusses whaling and the hopes that US naval ships in Brazil will protect whalers. Also a detailed list of where whales are found from the Red Sea to the Antarctic. A remarkable letter, and believed THE EARLIEST RECORDED INGOING POSTAL ITEM TO THE FALKLAND ISLANDS.
+
+\$22000
+DAVID MORRISON Dealer
+}
+
+
+The earliest letter addressed to the Falkland Islands appears to have been transmitted to the island by the _Sarah Anne_ in 1843.
+
+\ph[width=.90\textwidth]{../falkland-island/9348.jpg}{
+2589	
+Falkland Islands: THE EARLIEST KNOWN LETTER ADDRESSED TO THE FALKLANDS. 1843, part lettersheet headed "On Her Majesty's Service. Pursuant to Act of Parliament."
+
+Sent from London addressed to Lieut. R C Moody, R.E./Falkland Islands, the first civil Governor of the Islands, with red crowned datestamp PAID/4 FE 4/1843 and transit datestamp RIO-JANEIRO/MR31/43, carried by the "Sarah Anne" from Rio to Port Louis, arriving on Apr. 16. Copy of original contents enclosed. An exceptional, very important item. Heijtz certificate (2011). 
+Estimate: \pound 7000 - \pound;9000
+
+}
+auction: Grosvenor, 65
+
+
+\subsection{The Black Frank}
+
+\ph[width=.90\textwidth]{../falkland-island/9349.jpg}{
+2590	
+Falkland Islands: THE BLACK FRANK: 1873 envelope registered to England with clear strikes of the Black Frank, the (crown)/REGISTERED marking and F.1 JA 3/1872 (error for 1873) c.d.s., rated 10d and carried on the Black Hawk. Some small faults and part of flap missing, but one of the most attractive Black Frank covers. Only seven registered Black Franks covers recorded. R.P.S. certificate (1966). Barnes 2/73. Ex Ayre (1979), Laycock (1988). 
+Estimate: \pound;8000 - \pound;10000
+
+auction: Grosvenor, 69
+}
+
+
+\subsection{The Red Frank}
+
+\ph[width=.90\textwidth]{../falkland-island/9352.jpg}{
+2593	
+Falkland Islands: THE RED FRANK: 1878 registered cover to England with clear strikes of the Red Frank, the "(crown)/REGISTERED" marking and F.1 "JA 2/1878" c.d.s., carried by the "Sparrow Hawk". Some small faults and small part of flap missing, but the most attractive of the three recorded registered Red Frank covers. B.P.A. certificate (1974). Barnes 1/78.  (1998). 
+Estimate: \pound;10000 - \pound;12000.
+}
+auction: Grosvenor, 69
+
+
+
+\ph[width=.90\textwidth]{../falkland-island/9496.jpg}{Lot\#: 2005 Falkland Islands And Antarctica
+ 
+Falkland Islands: THE RED FRANK, FIRST RECORDED USAGE: 1876 (Nov. 15) envelope to Hampshire with clear strike of the Red Frank and Falkland Islands NO 15/1876 despatch c.d.s., ms. rating "6" in purple and with Alresford Jan. 1 1877 arrival backstamp, carried on the "Black Hawk" to Montevideo and the "Mondago" to Southampton. The first recorded usage and the only example found from the year 1876. Barnes 1/76 (featured on front cover). Photo. [Proposed price \pound10,000-\pound12,000]
+Price: \pound 10,000.00}
+
+
+
+\begin{comment}
+http://www.grosvenorauctions.com/dyn_pages/current_sale_summary.php?Sale_no=69&main_cat=British%20Empire%20and%20Foreign%20Countries&page=8
+\end{comment}
+
+
+
+                                                  
+\end{document}
