@@ -1,0 +1,84 @@
+           
+           
+           
+       %% Background                              
+       \input{Dutch_India_Company}
+       
+       %% Prestamp correspondence
+       \input{Briefstock_Letters}
+       \input{Batavian_Republic}
+       \input{Packet_Letters}
+       \input{Forwarding_Agents}
+       \input{Palimpsest_Letters}
+       \input{Unstamped_letters}
+       
+       %% Circular Postmarks
+       \input{Circular_Date_Stamps_CDS_15}
+       \input{Circular_datestamps_CGH}
+       
+       %% Experimental Postmarks
+       \input{Experimental_handstamps_introduction}
+       \input{Experimental_handstamps_compass_wheel} 
+       \input{Experimental_handstamps_square_octagon}
+       \input{Experimental_handstamps_truncated_double_circle} 
+       \input{Experimental_handstamps_hooded_circle}
+       \input{Experimental_handstamps_divided_inner_circle} 
+       
+       %% Pen Cancellations
+       \input{Pen_Cancellations}
+       
+       %% Registration
+       \input{Registered_Letters} 
+       
+       %% Telegraph Office
+       \input{Telegraph_Office_Introduction} 
+       
+       %% Money Office
+       \input{Money_Order_Office}  
+       \input{Post_Office_Bank}
+       
+       %% Private Boxes
+       \input{Private_Box_Section}
+       
+       %% Newspaper branch
+       
+       %% Cheap rate Markings
+       \input{Cheap_Rate_Postmarks}
+       
+       %% Parcel Posts
+       \input{Posted_out_of_course}
+       \input{Parcel_post_kimberley}
+       
+       %% Auxiliary markings
+       \input{Advertized_and_Unclaimed}
+       \input{Missent_letters}
+       \input{Officially_Sealed_Letters}
+       \input{Redirected_Letters}
+       
+       %% Exhibition Postmarks
+       \input{Exhibition_Kimberley}
+       \input{Cape_Town_Exhibition}
+       
+       %% Railways
+       \input{Railway-Postcards}
+       \input{TPO_no-name}
+       \input{TPO_Zwartkops}
+       
+       %% Adhesives
+       %% Triangulars
+       \input{Earl_of_Crawford_Trials}
+       \input{De_La_Rue_Covers}
+       \input{Triangular_Postmarks_on_Revenue_Stamps}
+       \input{Cape_Triangulars_Spiro_Forgeries}
+       
+       
+       %% Rectangulars
+       \input{First_Definitives_with_frame}
+       \input{Three_Pence_On_Four}
+       \input{3_on_Three_Overprint}
+       \input{Two-and-half-pence-permanent}
+       \input{1893_One_penny_surcharge}
+       
+       
+       
+                                                                 
