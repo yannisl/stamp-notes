@@ -2,7 +2,10 @@ stamp-notes
 ===========
 
 Stamp and postal history notes for most of the world's countries. Pretty much work
-in progress.
+in progress. Some of the images are copyrighted to their respective owners.
 
-Some of the images are copyrighted to their respective owners.
+Countries
+=========
+
+[Abu-Dhabi](git://github.com/yannisl/stamp-notes.git)
 
