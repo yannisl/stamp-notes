@@ -1,0 +1,4 @@
+\contentsline {chapter}{Natal}{5}{chapter*.2}
+\contentsline {section}{The Embossed Stamps}{5}{section*.3}
+\contentsline {section}{1867 Overprints}{6}{section*.4}
+\contentsfinish 

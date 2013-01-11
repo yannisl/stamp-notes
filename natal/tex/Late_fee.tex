@@ -1,0 +1,86 @@
+% This is a sample LaTeX input file.  (Version of 12 August 2004.)
+%
+% A '%' character causes TeX to ignore all remaining text on the line,
+% and is used for comments like this one.
+
+\documentclass[10pt,oneside,justified]{tufte-book}     % Specifies the document class
+%% decide on fonts
+\usepackage{ifxetex}
+\ifxetex
+  \usepackage{fontspec}
+  \defaultfontfeatures{Mapping=tex-text}
+  \setmainfont{Minion Pro}
+  %\setsansfont{Georgia}
+\else
+  \usepackage{mathpazo}
+  \usepackage[T1]{fontenc}
+\fi
+%
+%\usepackage{url}
+\usepackage{booktabs}
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{makeidx}
+\usepackage{xcolor}
+\usepackage{caption}
+\usepackage{hyperref}
+\hypersetup{%
+  colorlinks=true,
+  linkcolor=black,
+  urlcolor=blue,
+  bookmarks=true,
+  bookmarksopen=false,
+  bookmarksnumbered=false,
+  hyperfootnotes=false,
+  plainpages=false,
+  pdfpagelabels=true,
+  pdfpagemode=UseOutlines,
+  pdfview=FitH,
+  pdfstartview=FitH}
+                             % The preamble begins here.
+\title{An Example Document}  % Declares the document's title.
+\author{Dr. Yiannis Lazarides}      % Declares the author's name.
+%\input{titlepage}                              % Deleting this command produces today's date.
+
+\def\lorem{Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nibh justo, dictum sed cursus ac, lobortis et lacus. Vestibulum vitae justo enim. Quisque laoreet elementum felis, ut sodales arcu viverra a. Sed molestie odio vulputate sem rutrum a sagittis est rutrum. Morbi dapibus hendrerit magna, sit amet commodo massa posuere sit amet. Duis pharetra quam scelerisque est lobortis fringilla. Maecenas venenatis feugiat lectus, vel facilisis odio pharetra quis. Etiam at nisl eros, sit amet suscipit lorem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed augue nunc, ornare eget congue sit amet, laoreet vel augue. Morbi vel justo quis ipsum adipiscing egestas vitae non est. Vivamus ac quam quam. Nullam pharetrainterdum mauris, rutrum pulvinar ligula condimentum id. Donec et blandit lorem. }
+
+\newcommand{\wrapleft}[3][1]{}
+\newcommand{\wrapright}[3][1]{}
+\newcommand{\ph}[3][1]{%
+ \begin{figure}[htbp]
+   \includegraphics[#1]{#2}
+   \caption{#3}
+ \end{figure}}
+
+\def\euro{EU }
+\def\pound{\pounds}
+\newcommand{\phl}[3][1]{}
+
+\def\heading#1{{\centering\textbf{#1}}}
+
+\usepackage{hyperref}
+\begin{document}             % End of preamble and beginning of text.
+
+\maketitle                   % Produces the title.
+\tableofcontents
+
+%\end{document}
+
+\section{Natal}
+
+
+\section{Late fee}
+
+\begin{figure}[htbp]
+\includegraphics[width=.70\textwidth]{../natal/late-fee.jpg}
+\captionof{Natal 1909 Late Fee Cover to Sunderland J.Binns Department Store Family Manuscript Late Fee Cancellation, Sunderland Backstamp Estimated \$20.}
+\end{figure}
+
+
+
+
+
+
+                                                                
+\end{document}
