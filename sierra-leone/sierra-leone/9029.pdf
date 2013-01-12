@@ -1,0 +1,841 @@
+
+ <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" />
+  <script type="text/javascript" src="/scripts/spin.min.js"></script>
+    <script type="text/javascript" src="/scripts/jquery.js"></script>
+    <script type="text/javascript" src="/scripts/jquery.tools.min.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script type="text/javascript" src="/scripts/shadowbox.js"></script>
+ 
+  <link rel="stylesheet" type="text/css" href="/css/shadowbox.css" />
+  <script type="text/javascript">
+Shadowbox.init();
+    
+    function getCookie(c_name)
+{
+var i,x,y,ARRcookies=document.cookie.split(";");
+for (i=0;i<ARRcookies.length;i++)
+{
+  x=ARRcookies[i].substr(0,ARRcookies[i].indexOf("="));
+  y=ARRcookies[i].substr(ARRcookies[i].indexOf("=")+1);
+  x=x.replace(/^\s+|\s+$/g,"");
+  if (x==c_name)
+    {
+    return unescape(y);
+    }
+  }
+}
+</script>
+
+ <script type="text/javascript">
+    
+         var _gaq = _gaq || [];
+         _gaq.push(['_setAccount', 'UA-2320768-1']);
+         _gaq.push(['_trackPageview']);
+
+         (function () {
+             var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+             ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+         })();
+    
+</script>
+
+  </head>
+ 
+  <form method="post" action="/notfound.aspx?404;http://www.spink.com:80/files/catalogue/9029.pdf" id="ctl00">
+<div class="aspNetHidden">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUENTM4MWRks2nGGOFwBQJCzkNcgHm6nG+ElEX0lF5rVKbdW3jmEw0=" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['ctl00'];
+if (!theForm) {
+    theForm = document.ctl00;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=f8YM-8X_PJR5xuW0jElgF2ydfKjFJrYD0XBj2vNDnSbKbNkT5wn_siP9Iid_hjE5XraOzoIp2xAQ9yXXSGULUGq0UuzJnqTL5eFJNZ57O6M1&amp;t=634672266062903750" type="text/javascript"></script>
+
+
+<script src="/ScriptResource.axd?d=UdLqftebjxnKlLaoVAUcqQg-t1fxWyxhETdfGbFzQUfz3t1n2lYouhsCIr0cxnj5mNYukuLMTk1EmQBJL0BXGsoFuz0RlVPGWKHqwO1TH1ZYNZQZ5K-CokqWX5ifIFj_0&amp;t=ffffffffbad362a4" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=mdNFK9o94B9K8oEuqav2fAPCOuBW3F4IrBZjz4zK_9rgxHObrRfcnREcwwEHq0sdhacDapZO2k-t1bqo3M_Le77wSY6AvgZB4dPjdhKq0hAsCPZtY1F7AiiqjRUQy9oiGavwV41xWG3xmtTWo2aBHQ2&amp;t=ffffffffbad362a4" type="text/javascript"></script>
+  <script type="text/javascript" src="/scripts/jquery.js"></script>
+  <link href="style.css" rel="stylesheet" type="text/css">
+  <script type="text/javascript" src="/scripts/jquery.cycle.all.js"></script>
+<script type="text/javascript" src="/scripts/jquery.tools.min.js"></script>
+<link href="/css/spink.css" rel="stylesheet" type="text/css">
+<!--[if lte IE 9]><link rel="stylesheet" type="text/css" media="all" href="/css/ie9.css" /></script><![endif]-->
+<!--[if lte IE 7]><link rel="stylesheet" type="text/css" media="all" href="/css/ie7.css" /></script><![endif]-->
+ <!--[if lte IE 8]><link rel="stylesheet" type="text/css" media="all" href="/css/ie8.css" /></script><![endif]-->
+  <title>Not Found</title>
+  <div id="header" class="default">
+    <div id="wrap-header">
+      <div id="top-header">
+        <a href="/" id="logo" title="Spink">&nbsp;</a>
+       <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ctl00$ctl00$ctl00$ContentPlaceHolderDefault$default$login_rfc_2$ScriptManager1', 'ctl00', ['tctl00$ctl00$ctl00$ContentPlaceHolderDefault$default$login_rfc_2$LoginUpdatePanel','ContentPlaceHolderDefault_default_login_rfc_2_LoginUpdatePanel','tctl00$ctl00$ctl00$ContentPlaceHolderDefault$default$login_rfc_2$forgottenPasswordPanel','ContentPlaceHolderDefault_default_login_rfc_2_forgottenPasswordPanel'], ['ctl00$ctl00$ctl00$ContentPlaceHolderDefault$default$login_rfc_2$login_button','ContentPlaceHolderDefault_default_login_rfc_2_login_button','ctl00$ctl00$ctl00$ContentPlaceHolderDefault$default$login_rfc_2$ForgottenSubmit','ContentPlaceHolderDefault_default_login_rfc_2_ForgottenSubmit'], [], 90, 'ctl00$ctl00$ctl00');
+//]]>
+</script>
+
+<script type="text/javascript">
+    var j = jQuery.noConflict();
+    j(document).ready(function () {
+
+        j('#ContentPlaceHolderDefault_default_login_rfc_2_ForgottenSubmit').click(function () {
+
+            var flag = true;
+            if (j('#ContentPlaceHolderDefault_default_login_rfc_2_ForgottenEmail').val() == "") {
+                j('#ContentPlaceHolderDefault_default_login_rfc_2_ForgottenEmail').attr("style", "border:1px solid red");
+                j('#ContentPlaceHolderDefault_default_login_rfc_2_Success').html("Please enter your email address");
+                flag = false;
+            }
+            return flag;
+
+
+        });
+        j('#ContentPlaceHolderDefault_default_login_rfc_2_ForgottenEmail').focus(function () {
+            j('#ContentPlaceHolderDefault_default_login_rfc_2_ForgottenEmail').attr("style", "border:1px solid black");
+        });
+        j('#ContentPlaceHolderDefault_default_login_rfc_2_login').focus(function () {
+            j('#ContentPlaceHolderDefault_default_login_rfc_2_login').attr("style", "border:1px solid black");
+
+        });
+        j('#ContentPlaceHolderDefault_default_login_rfc_2_password').focus(function () {
+            j('#ContentPlaceHolderDefault_default_login_rfc_2_password').attr("style", "border:1px solid black");
+        });
+        j('#ContentPlaceHolderDefault_default_login_rfc_2_login_button').click(function () {
+            var flag = true;
+            var message = "";
+            var message2 = "";
+            if ((j('#ContentPlaceHolderDefault_default_login_rfc_2_login').val() * 1) != j('#ContentPlaceHolderDefault_default_login_rfc_2_login').val()) {
+                message = "Your client number must be numeric";
+                flag = false;
+            }
+            if (j('#ContentPlaceHolderDefault_default_login_rfc_2_login').val() == "") {
+                j('#ContentPlaceHolderDefault_default_login_rfc_2_login').attr("style", "border:1px solid red;");
+                message = "Please enter your client number";
+                flag = false;
+            }
+            if (j('#ContentPlaceHolderDefault_default_login_rfc_2_password').val() == "") {
+                j('#ContentPlaceHolderDefault_default_login_rfc_2_password').attr("style", "border:1px solid red");
+                flag = false;
+                message2 = "Please enter your password";
+            }
+
+            if (message != "" && (message2 != "")) {
+                j('#ContentPlaceHolderDefault_default_login_rfc_2_WrongCredentials').attr("style", "display:block");
+                j('#ContentPlaceHolderDefault_default_login_rfc_2_WrongCredentials').html("Please enter your Client Number and Password");
+
+
+            }
+            if (message != "" && message2 == "") {
+                j('#ContentPlaceHolderDefault_default_login_rfc_2_WrongCredentials').attr("style", "display:block");
+                j('#ContentPlaceHolderDefault_default_login_rfc_2_WrongCredentials').html(message);
+            }
+            if (message == "" && message2 != "") {
+                j('#ContentPlaceHolderDefault_default_login_rfc_2_WrongCredentials').attr("style", "display:block");
+                j('#ContentPlaceHolderDefault_default_login_rfc_2_WrongCredentials').html("Please enter your Password");
+            }
+            return flag;
+
+
+        });
+        j('#cancel-login').click(function () {
+
+            j('.top-labels').show();
+            j('.bottom-labels').hide();
+            j('.log-in').show();
+            j('.search').show();
+            j('.forgotten-password-section').hide();
+            return false;
+
+        });
+        j('#cancel-forgotten').click(function () {
+
+            j('.top-labels').show();
+            j('.bottom-labels').hide();
+            j('.log-in').show();
+            j('.search').show();
+            j('.forgotten-password-section').hide();
+            return false;
+        });
+        j('.search').show();
+
+        if (j('#ContentPlaceHolderDefault_default_login_rfc_2_forgottenPasswordPanel').is(':visible')) {
+            j('.search').hide();
+        }
+        if (j('#ContentPlaceHolderDefault_default_login_rfc_2_WrongCredentials').html() == "") {
+
+        }
+        else {
+            j('.top-labels').hide();
+            j('.bottom-labels').show();
+
+        }
+
+        j('#login-link').click(function () {
+
+            j('.top-labels').hide();
+            j('.bottom-labels').show();
+            j('.search').hide();
+            return false;
+        });
+        j('#forgotten-password').click(function () {
+
+
+
+            j('.forgotten-password-section').show();
+            j('.log-in').hide();
+            j('.log-out').hide();
+            j('.search').hide();
+            return false;
+        });
+        j('#forgot-pass').click(function () {
+
+
+
+            j('.forgotten-password-section').show();
+            j('.log-in').hide();
+            j('.log-out').hide();
+            j('.search').hide();
+            return false;
+        });
+        j('#ContentPlaceHolderDefault_default_login_rfc_2_ForgottenEmail').focus(function () {
+            j(this).val("");
+        });
+        j('#ContentPlaceHolderDefault_default_login_rfc_2_login').click(function () {
+            // j(this).val("");
+        });
+        j('#ContentPlaceHolderDefault_default_login_rfc_2_password').focus(function () {
+            j(this).val("");
+        });
+        j('#ContentPlaceHolderDefault_default_login_rfc_2_logBackIn').click(function () {
+
+            j('.top-labels').hide();
+            j('.bottom-labels').show();
+            //    j('.success-message').hide();
+
+            j('#ContentPlaceHolderDefault_default_login_rfc_2_WrongCredentials').hide();
+            j('.log-in').show();
+            j('.forgotten-password-section').hide();
+            j('.log-out').hide();
+            j('.search').hide();
+            return false;
+        });
+    });
+
+</script>
+
+<div class="log-in" >
+    <div id="ContentPlaceHolderDefault_default_login_rfc_2_LoginUpdatePanel">
+	
+            <script type="text/javascript">
+                var prm = Sys.WebForms.PageRequestManager.getInstance();
+
+                prm.add_endRequest(function () {
+                    var j = jQuery.noConflict();
+
+                    j(document).ready(function () {
+
+
+                        j('#ContentPlaceHolderDefault_default_login_rfc_2_ForgottenSubmit').click(function () {
+
+                            var flag = true;
+                            if (j('#ContentPlaceHolderDefault_default_login_rfc_2_ForgottenEmail').val() == "") {
+                                j('#ContentPlaceHolderDefault_default_login_rfc_2_ForgottenEmail').attr("style", "border:1px solid red");
+                                j('#ContentPlaceHolderDefault_default_login_rfc_2_Success').html("Please enter your email address");
+                                flag = false;
+                            }
+                            return flag;
+
+
+                        });
+                        j('#ContentPlaceHolderDefault_default_login_rfc_2_ForgottenEmail').focus(function () {
+                            j('#ContentPlaceHolderDefault_default_login_rfc_2_ForgottenEmail').attr("style", "border:1px solid black");
+                        });
+                        j('#ContentPlaceHolderDefault_default_login_rfc_2_login').focus(function () {
+                            j('#ContentPlaceHolderDefault_default_login_rfc_2_login').attr("style", "border:1px solid black");
+
+                        });
+                        j('#ContentPlaceHolderDefault_default_login_rfc_2_password').focus(function () {
+                            j('#ContentPlaceHolderDefault_default_login_rfc_2_password').attr("style", "border:1px solid black");
+                        });
+                        j('#ContentPlaceHolderDefault_default_login_rfc_2_login_button').click(function () {
+                            var flag = true;
+                            var message = "";
+                            var message2 = "";
+                            if ((j('#ContentPlaceHolderDefault_default_login_rfc_2_login').val() * 1) != j('#ContentPlaceHolderDefault_default_login_rfc_2_login').val()) {
+                                message = "Your client number must be numeric";
+                                flag = false;
+                            }
+                            if (j('#ContentPlaceHolderDefault_default_login_rfc_2_login').val() == "") {
+                                j('#ContentPlaceHolderDefault_default_login_rfc_2_login').attr("style", "border:1px solid red;");
+                                message = "Please enter your client number";
+                                flag = false;
+                            }
+                            if (j('#ContentPlaceHolderDefault_default_login_rfc_2_password').val() == "") {
+                                j('#ContentPlaceHolderDefault_default_login_rfc_2_password').attr("style", "border:1px solid red");
+                                flag = false;
+                                message2 = "Please enter your password";
+                            }
+
+                            if (message != "" && (message2 != "")) {
+                                j('#ContentPlaceHolderDefault_default_login_rfc_2_WrongCredentials').attr("style", "display:block");
+                                j('#ContentPlaceHolderDefault_default_login_rfc_2_WrongCredentials').html("Please enter your Client Number and Password");
+
+
+                            }
+                            if (message != "" && message2 == "") {
+                                j('#ContentPlaceHolderDefault_default_login_rfc_2_WrongCredentials').attr("style", "display:block");
+                                j('#ContentPlaceHolderDefault_default_login_rfc_2_WrongCredentials').html(message);
+                            }
+                            if (message == "" && message2 != "") {
+                                j('#ContentPlaceHolderDefault_default_login_rfc_2_WrongCredentials').attr("style", "display:block");
+                                j('#ContentPlaceHolderDefault_default_login_rfc_2_WrongCredentials').html("Please enter your Password");
+                            }
+                            return flag;
+
+
+                        });
+                        j('.search').show();
+                        j('#cancel-login').click(function () {
+                            j('.top-labels').show();
+                            j('.bottom-labels').hide();
+                            j('.log-in').show();
+                            j('.search').show();
+                            j('.forgotten-password-section').hide();
+                            return false;
+
+                        });
+                        if (j('#ContentPlaceHolderDefault_default_login_rfc_2_forgottenPasswordPanel').is(':visible')) {
+                            j('.search').hide();
+                        }
+                        //  alert(j('#ContentPlaceHolderDefault_default_login_rfc_2_WrongCredentials').html());
+                        if (j('#ContentPlaceHolderDefault_default_login_rfc_2_WrongCredentials').html() == "") {
+
+                        }
+                        else {
+                            j('.top-labels').hide();
+                            j('.bottom-labels').show();
+
+                        }
+
+                        j('#login-link').click(function () {
+                           
+                         
+                            j('#ContentPlaceHolderDefault_default_login_rfc_2_login').attr('tabindex', '2');
+                            j('#ContentPlaceHolderDefault_default_login_rfc_2_password').attr('tabindex', '3');
+                            j('#ContentPlaceHolderDefault_default_login_rfc_2_login_button').attr('tabindex', '4');
+                            j('#cancel-login').attr('tabindex', '5');
+                            j('.top-labels').hide();
+                            j('.bottom-labels').show();
+                            j('.search').hide();
+                            return false;
+                        });
+                        j('#forgotten-password').click(function () {
+                            
+                            j('.forgotten-password-section').show();
+                            j('.log-in').hide();
+                            j('.log-out').hide();
+                            j('.search').hide();
+                            return false;
+                        });
+                        j('#forgot-pass').click(function () {
+                            
+                            j('.forgotten-password-section').show();
+                            j('.log-in').hide();
+                            j('.log-out').hide();
+                            j('.search').hide();
+                            return false;
+                        });
+                        j('#ContentPlaceHolderDefault_default_login_rfc_2_ForgottenEmail').focus(function () {
+                            j(this).val("");
+                        });
+                        j('#ContentPlaceHolderDefault_default_login_rfc_2_login').click(function () {
+                            j(this).val("");
+                        });
+                        j('#ContentPlaceHolderDefault_default_login_rfc_2_password').focus(function () {
+                            j(this).val("");
+                        });
+                        j('#ContentPlaceHolderDefault_default_login_rfc_2_logBackIn').click(function () {
+                           
+                            j('.top-labels').hide();
+                            j('.bottom-labels').show();
+                         //   j('.success-message').hide();
+
+                            j('#ContentPlaceHolderDefault_default_login_rfc_2_WrongCredentials').hide();
+                            j('.forgotten-password-section').hide();
+                            j('.log-in').show();
+                            j('.log-out').hide();
+                            j('.search').hide();
+                            return false;
+                        });
+
+                        j('#cancel-forgotten').click(function () {
+                           
+                            j('.top-labels').show();
+                            j('.bottom-labels').hide();
+                            j('.log-in').show();
+                            j('.search').show();
+                            j('.forgotten-password-section').hide();
+                            return false;
+                        });
+                    });
+                });
+            </script>
+            <div id="login-form">
+               <div id="ContentPlaceHolderDefault_default_login_rfc_2_linksPanel">
+		
+                    <div class="top-labels">
+                        <label>
+                            <a href="#" id="forgotten-password">Forgotten password? <span>&raquo;</span></a>
+                        </label>
+                        <label>
+                            <a href="/register.aspx">Register <span>&raquo;</span></a>
+                        </label>
+                        <label>
+                            <a href="" id="login-link">Log in <span>&raquo;</span></a></label>
+                    </div>
+                
+	</div>
+                <div id="ContentPlaceHolderDefault_default_login_rfc_2_FieldsPanel">
+		
+                <div class="bottom-labels">
+                <div class="row" style="width: 80px;">
+                    <label>&nbsp;</label>
+                       <a href="#" id="cancel-login" tabindex="4" style="font-weight:normal;font-size:12px;font-family:'LucidaGrandeRegular';margin-left:16px;margin-top:8px;float:left;">Cancel</a>
+                    </div>
+                    <div class="row" style="width: 80px;">
+                    <label>&nbsp;</label>
+                        <input type="submit" name="ctl00$ctl00$ctl00$ContentPlaceHolderDefault$default$login_rfc_2$login_button" value="Log in" id="ContentPlaceHolderDefault_default_login_rfc_2_login_button" tabindex="3" class="submit-login" />
+                    </div>
+                    <div class="row">
+                   <label> Password</label>
+                        <input name="ctl00$ctl00$ctl00$ContentPlaceHolderDefault$default$login_rfc_2$password" type="password" id="ContentPlaceHolderDefault_default_login_rfc_2_password" tabindex="2" class="text" />
+                    </div>
+                    <div class="row">
+                     <label> Client Number</label>
+                        <input name="ctl00$ctl00$ctl00$ContentPlaceHolderDefault$default$login_rfc_2$login" type="text" id="ContentPlaceHolderDefault_default_login_rfc_2_login" tabindex="1" class="text" />
+                    </div>
+                    <p class="success-message">
+                        <span id="ContentPlaceHolderDefault_default_login_rfc_2_WrongCredentials"></span>
+                    </p>
+                </div>
+                
+	</div>
+            </div>
+        
+</div>
+</div>
+<div class="forgotten-password-section" style="display: none;">
+    <div id="ContentPlaceHolderDefault_default_login_rfc_2_forgottenPasswordPanel">
+	
+            <script type="text/javascript">
+                var prm = Sys.WebForms.PageRequestManager.getInstance();
+
+                prm.add_endRequest(function () {
+                    var j = jQuery.noConflict();
+                    j(document).ready(function () {
+                        j('#ContentPlaceHolderDefault_default_login_rfc_2_ForgottenSubmit').click(function () {
+
+                            var flag = true;
+                            if (j('#ContentPlaceHolderDefault_default_login_rfc_2_ForgottenEmail').val() == "") {
+                                j('#ContentPlaceHolderDefault_default_login_rfc_2_ForgottenEmail').attr("style", "border:1px solid red");
+                                j('#ContentPlaceHolderDefault_default_login_rfc_2_Success').html("Please enter your email address");
+                                flag = false;
+                            }
+                            return flag;
+
+
+                        });
+                        j('#ContentPlaceHolderDefault_default_login_rfc_2_ForgottenEmail').focus(function () {
+                            j('#ContentPlaceHolderDefault_default_login_rfc_2_ForgottenEmail').attr("style", "border:1px solid black");
+                        });
+                        j('#ContentPlaceHolderDefault_default_login_rfc_2_login').focus(function () {
+                            j('#ContentPlaceHolderDefault_default_login_rfc_2_login').attr("style", "border:1px solid black");
+
+                        });
+                        j('#ContentPlaceHolderDefault_default_login_rfc_2_password').focus(function () {
+                            j('#ContentPlaceHolderDefault_default_login_rfc_2_password').attr("style", "border:1px solid black");
+                        });
+                        j('#ContentPlaceHolderDefault_default_login_rfc_2_login_button').click(function () {
+                            var flag = true;
+                            var message = "";
+                            var message2 = "";
+                            if ((j('#ContentPlaceHolderDefault_default_login_rfc_2_login').val() * 1) != j('#ContentPlaceHolderDefault_default_login_rfc_2_login').val()) {
+                                message = "Your client number must be numeric";
+                                flag = false;
+                            }
+                            if (j('#ContentPlaceHolderDefault_default_login_rfc_2_login').val() == "") {
+                                j('#ContentPlaceHolderDefault_default_login_rfc_2_login').attr("style", "border:1px solid red;");
+                                message = "Please enter your client number";
+                                flag = false;
+                            }
+                            if (j('#ContentPlaceHolderDefault_default_login_rfc_2_password').val() == "") {
+                                j('#ContentPlaceHolderDefault_default_login_rfc_2_password').attr("style", "border:1px solid red");
+                                flag = false;
+                                message2 = "Please enter your password";
+                            }
+
+                            if (message != "" && (message2 != "")) {
+                                j('#ContentPlaceHolderDefault_default_login_rfc_2_WrongCredentials').attr("style", "display:block");
+                                j('#ContentPlaceHolderDefault_default_login_rfc_2_WrongCredentials').html("Please enter your Client Number and Password");
+
+
+                            }
+                            if (message != "" && message2 == "") {
+                                j('#ContentPlaceHolderDefault_default_login_rfc_2_WrongCredentials').attr("style", "display:block");
+                                j('#ContentPlaceHolderDefault_default_login_rfc_2_WrongCredentials').html(message);
+                            }
+                            if (message == "" && message2 != "") {
+                                j('#ContentPlaceHolderDefault_default_login_rfc_2_WrongCredentials').attr("style", "display:block");
+                                j('#ContentPlaceHolderDefault_default_login_rfc_2_WrongCredentials').html("Please enter your Password");
+                            }
+                            return flag;
+
+
+                        });
+                        j('.search').show();
+
+                        j('#cancel-login').click(function () {
+                            j('.top-labels').show();
+                            j('.bottom-labels').hide();
+                            j('.log-in').show();
+                            j('.search').show();
+                            j('.forgotten-password-section').hide();
+                            return false;
+
+                        });
+                        if (j('#ContentPlaceHolderDefault_default_login_rfc_2_forgottenPasswordPanel').is(':visible')) {
+                            j('.search').hide();
+                        }
+                        //  alert(j('#ContentPlaceHolderDefault_default_login_rfc_2_WrongCredentials').html());
+                        if (j('#ContentPlaceHolderDefault_default_login_rfc_2_WrongCredentials').html() == "") {
+
+                        }
+                        else {
+                            j('.top-labels').hide();
+                            j('.bottom-labels').show();
+                         
+                        }
+
+                        j('#login-link').click(function () {
+
+                            j('.top-labels').hide();
+                            j('.bottom-labels').show();
+                            j('.search').hide();
+                            return false;
+                        });
+                        j('#forgotten-password').click(function () {
+
+                            j('.forgotten-password-section').show();
+                            j('.log-in').hide();
+                            j('.log-out').hide();
+                            j('.search').hide();
+                            return false;
+                        });
+                        j('#forgot-pass').click(function () {
+                            j('.forgotten-password-section').show();
+                            j('.log-in').hide();
+                            j('.log-out').hide();
+                            j('.search').hide();
+                            return false;
+                        });
+                        j('#ContentPlaceHolderDefault_default_login_rfc_2_ForgottenEmail').focus(function () {
+                            j(this).val("");
+                        });
+                        j('#ContentPlaceHolderDefault_default_login_rfc_2_login').click(function () {
+                             j(this).val("");
+                        });
+                        j('#ContentPlaceHolderDefault_default_login_rfc_2_password').focus(function () {
+                            j(this).val("");
+                        });
+                        j('#ContentPlaceHolderDefault_default_login_rfc_2_logBackIn').click(function () {
+                            j('.top-labels').hide();
+                            j('.bottom-labels').show();
+                        //    j('.success-message').hide();
+
+                            j('#ContentPlaceHolderDefault_default_login_rfc_2_WrongCredentials').hide();
+                            j('.forgotten-password-section').hide();
+                            j('.log-in').show();
+                            j('.log-out').hide();
+                            j('.search').hide();
+                            return false;
+                        });
+                        j('#cancel-forgotten').click(function () {
+                            j('.top-labels').show();
+                            j('.bottom-labels').hide();
+                            j('.log-in').show();
+                            j('.search').show();
+                            j('.forgotten-password-section').hide();
+                            return false;
+                        });
+
+                    });
+                });
+            </script>
+            <div class="row" style="padding-top:16px;width:190px;">
+                <a style="float:right;font-size:12px;font-weight:normal;margin-left:5px;margin-right:58px;margin-top:9px;font-family:'LucidaGrandeRegular';" href="#" id="cancel-forgotten">Cancel</a>
+                <a id="ContentPlaceHolderDefault_default_login_rfc_2_ForgottenSubmit" class="submit-forgot" href="javascript:__doPostBack(&#39;ctl00$ctl00$ctl00$ContentPlaceHolderDefault$default$login_rfc_2$ForgottenSubmit&#39;,&#39;&#39;)">Send</a>
+            </div>
+            <div class="row">
+            <label>Enter your email address</label>
+                <input name="ctl00$ctl00$ctl00$ContentPlaceHolderDefault$default$login_rfc_2$ForgottenEmail" type="text" id="ContentPlaceHolderDefault_default_login_rfc_2_ForgottenEmail" class="text" />
+            </div>
+          
+            <p class="success-message">
+                <span id="ContentPlaceHolderDefault_default_login_rfc_2_Success"></span>
+                </p>
+        
+</div>
+</div>
+
+        <div class="search">
+          <form id="search">
+            
+    <script type="text/javascript">
+        var j = jQuery.noConflict();
+        j(document).ready(function () {
+           
+            j('#ContentPlaceHolderDefault_default_HeaderSearch_3_searchHeaderButton').click(function () {
+                j(this).hide();
+                j('#loading-header-search').attr('src', '/images/ajax-loader.gif');
+                j('#loader-cont').html("<img src='/images/ajax-loader.gif' style='margin-right:10px;float:right;margin-top:-27px;'/>");
+                j('#loading-header-search').show();
+            });
+        });
+    </script>
+<div class="row-search">
+    <input name="ctl00$ctl00$ctl00$ContentPlaceHolderDefault$default$HeaderSearch_3$SearchText" type="text" id="ContentPlaceHolderDefault_default_HeaderSearch_3_SearchText" class="text" />
+    <a id="ContentPlaceHolderDefault_default_HeaderSearch_3_searchHeaderButton" class="search-submit" href="javascript:__doPostBack(&#39;ctl00$ctl00$ctl00$ContentPlaceHolderDefault$default$HeaderSearch_3$searchHeaderButton&#39;,&#39;&#39;)">Search</a>
+        <div id="loader-cont"><img src="/images/ajax-loader.gif" id="loading-header-search" style="display:none;margin-right:32px;float:right"/></div>
+        
+</div>
+
+          </form>
+        </div>
+      </div>
+      <div class="bottom-header">
+         <ul class="main-nav">
+          <li><a href="/">Home</a></li>
+          <li><a href="/find-auctions.aspx">Auctions</a></li>
+          <li><a href="/archive.aspx">Archive</a></li>
+          <li><a href="/private-treaty.aspx">Private Treaty</a></li>
+          <li><a href="/departments.aspx">Departments</a></li>
+          <li><a href="/media.aspx" >Media</a>
+            </li>
+          <li><a href="/spink-today.aspx">About</a></li>
+          <li><a href="/contact-us.aspx">Contact</a></li>
+          </ul>
+      </div>
+    </div>
+  </div>
+  <div id="wrapper" class="default">
+    
+    <div class="media-wrapper">
+      <div id="content-wrapper">
+        <h1>Not Found</h1>
+        <p>We couldn't find what you were looking for</p>
+      </div>
+    </div>
+  </div></form>
+
+   <div style="display:none" id="c-wrapper">
+  <div id="cookie-message">
+    <div id="cookie-container">
+      <div class="inside-cookie">
+        <h3>Cookie Policy</h3>
+        <h4>You will only see this message once</h4>
+        <div class="cookie-message-wrapper">
+          <p>
+         The settings for cookies on this site are set to “allow all cookies” in order to give you the best possible experience when using the site.  By continuing without changing these settings, you are consenting to this.  If you do not consent, you must disable the cookies or refrain from using the site.
+          </p>
+        </div>
+        <p style="margin-left:10px;"><a style="float:left;color:#fff" rel="shadowbox;height=450;width=600"  href="/cookies-settings">Change settings <span style="color:#6AAFAE">&raquo;</span></a>  <a class="visit-spink" id="accept-cookie" style="margin-top:0px;margin-lefT:10px;" href="#"><span>Accept and Continue</span></a></p>
+        <p style="margin-left:10px;text-align:right;float:right"><a href="/more-about-cookies" rel="shadowbox;height=250;width=600" style="float:right;color:#fff">Find out more about cookies <span style="color:#6AAFAE">&raquo;</span></a></p>
+      </div>
+    </div>
+  </div>
+  </div>
+ <div id="foot">
+    <div class="footer">
+      
+<div class="top-foot">
+    <div class="section-foot">
+        <div class="image-title">
+           <a href=""> Spink Live</a></div>
+        <a href=""><img src="/media/4181/spink-live-image.png" alt="Spink Live"/></a>
+        <p>
+            Watch, listen and bid as if you were in the room. Now available for auctions worldwide.</p>
+        
+    </div>
+    <div class="section-foot">
+        <div class="image-title">
+        <a href="/private-treaty.aspx">    Private Treaty Sale</a></div>
+       <a href="/private-treaty.aspx"> <img src="/media/4199/coins-foot.png" alt="Private Treaty Sale"/></a>
+        <p>
+            An exclusive and confidential service for the discerning collector or vendor.</p>
+        
+<p><a href="/private-treaty.aspx" title="My Spink"
+class="my-spink"><span>View the Gallery 
+<!--cloudlabcheckstring--></span></a></p>
+
+    </div>
+    <div class="section-foot last-foot">
+        <div class="image-title">
+            <a href="http://itunes.apple.com/gb/app/spink-auctioneers/id441915393?mt=8">Spink App</a></div>
+       <a href="http://itunes.apple.com/gb/app/spink-auctioneers/id441915393?mt=8"> <img src="/media/4211/itunes.png" alt="Spink App"/></a>
+        <p>
+            Download every Spink catalogue on your iPad, iPod or iPhone using free Spink app.</p>
+        
+<p><a
+href="http://itunes.apple.com/gb/app/spink-auctioneers/id441915393?mt=8"
+ target="_blank" title="My Spink" class="my-spink"><span>Download
+From iTunes</span></a></p>
+
+    </div>
+</div>
+
+      <div class="bottom-foot">
+       <div class="menu-block">
+          <h2>About Us</h2>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/contact-us.aspx">Contact</a></li>
+            <li><a href="/spink-today.aspx">Spink Today</a></li>
+            <li><a href="/achievements-at-auction.aspx">Achievements at Auction</a></li>
+            <li><a href="/spink-staff.aspx">Spink Staff</a></li>
+            <li><a href="/careers-with-spink.aspx">Careers with Spink</a></li>
+            
+          </ul>
+          <h2>Auctions</h2>
+          <ul>
+            <li><a href="/find-auctions.aspx">Find Auctions</a></li>
+            <li><a href="/prices-realised.aspx">Prices Realised</a></li>
+            <li><a href="/find-lots.aspx">Find Lots</a></li>
+            <li><a href="/salesroom-notices.aspx">Saleroom Notices</a></li>
+          </ul>
+          </div>
+          <div class="menu-block">
+          <h2>Departments</h2>
+          <ul>
+            <li><a href="/departments.aspx?id=1209">Stamps</a></li>
+            <li><a href="/departments.aspx?id=1204">Coins</a></li>
+            <li><a href="/departments.aspx?id=1205">Banknotes</a></li>
+            <li><a href="/departments.aspx?id=1206">Medals</a></li>
+            <li><a href="/departments.aspx?id=1400">Bonds &amp; Shares</a></li>
+            <li><a href="/departments.aspx?id=1208">Autographs</a></li>
+            <li><a href="/departments.aspx?id=1207">Special Commissions</a></li>
+            <li><a href="/departments.aspx?id=1210">Books</a></li>
+          </ul>
+          <h2>Help</h2>
+          <ul>
+            <li><a href="/buying-online.aspx">Buying Online</a></li>
+            <li><a href="/buying-at-auction.aspx">Buying at Auction</a></li>
+            <li><a href="/selling-at-auction.aspx">Selling at Auction</a></li>
+            <li><a href="/other-ways-to-sell.aspx">Other Ways To Sell</a></li>
+            <li><a href="/spink-live-help.aspx">Spink Live Help</a></li>
+            <li><a href="/valuations.aspx">Valuations</a></li>
+            <li><a href="/glossary.aspx">Glossary</a></li>
+          </ul>
+          </div>
+          <div class="menu-block">
+          <h2>Media</h2>
+          <ul>
+            <li><a href="/books-publications.aspx">Books &amp; Publications</a></li>
+             <li><a href="/books-publications/book-categories.aspx">Book Categories</a></li>
+            <li><a href="/press-releases.aspx">Press Releases</a></li>
+            <li><a href="/research-articles.aspx">Research Articles</a></li>
+ 
+            <li><a href="/events.aspx">Events</a></li>
+            <li><a href="/numismatic-circular.aspx">Numismatic Circular Archive</a></li>
+            <li><a href="/spink-tv.aspx">Spink TV</a></li>
+            <li><a href="/useful-links.aspx">Useful Links</a></li>
+          </ul>
+          <h2>More Information</h2>
+          <ul>
+            <li><a href="/faqs.aspx">FAQs</a></li>
+            <li><a href="/privacy-policy.aspx">Privacy Policy</a></li>
+            <li><a href="/terms-and-conditions.aspx">Terms &amp; Conditions</a></li>
+            <li><a href="/sitemap.aspx">Sitemap</a></li>
+          </ul>
+          </div>
+      </div>
+      <div id="follow-us-panel">
+        <div class="central-follow">
+        <p><span>Join Us Online</span><a href="https://twitter.com/#!/Spink_auctions" target="_blank" class="twitter" title="Twitter">&nbsp;</a><a href="http://www.youtube.com/user/Spinkauctions/videos" class="youtube" title="You Tube" target="_blank">&nbsp;</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="brand-section">
+      <div class="central-info">
+        <div class="copy">
+        <!-- macro here -->
+          
+
+<p>&copy; 2012 Spink &amp; Son. All rights reserved.</p>
+
+        </div>
+        <div class="spring">
+          <p><a href="http://www.springdigital.co.uk" target="_blank">Website Design</a> by Spring Digital</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+  
+   var j = jQuery.noConflict();
+    var msie6 = j.browser == 'msie' && j.browser.version < 7;
+  if (!msie6) {
+    var top = j('#cookie-message').offset().top;
+    j(window).scroll(function (event) {
+      var y = j(this).scrollTop();
+      if (y >= top) { j('#cookie-message').addClass('fixed'); }
+      else { j('#cookie-message').removeClass('fixed'); }
+    });
+  }
+    
+    
+    function setCookie(c_name, value, exdays) {
+                var exdate = new Date();
+                exdate.setDate(exdate.getDate() + exdays);
+                var c_value = escape(value) + ((exdays == null) ? "" : "; expires=" + exdate.toUTCString());
+                document.cookie = c_name + "=" + c_value;
+            }
+    j(document).ready(function(){
+      if(getCookie("cookie")=="yes")
+      {
+       j('#c-wrapper').remove();
+      }
+      else
+      {
+      j('#c-wrapper').show();
+      }
+      if(!getCookie("cookie"))
+      {
+        j('#c-wrapper').show();
+      }
+      j('#accept-cookie').click(function(){
+        j('#c-wrapper').remove();
+        setCookie("cookie","yes",1);
+        window.location.reload();
+      
+      });
+    });
+  </script>

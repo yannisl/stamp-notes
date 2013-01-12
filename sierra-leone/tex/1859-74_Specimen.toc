@@ -1,0 +1,5 @@
+\contentsline {chapter}{West Africa - Postal History}{5}{chapter*.2}
+\contentsline {section}{Sierra Leone}{5}{section*.3}
+\contentsline {subsection}{1859-74 Specimen}{5}{subsection*.4}
+\contentsline {section}{De La Rue Archives specimen}{5}{section*.5}
+\contentsfinish 

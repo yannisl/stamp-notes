@@ -1,0 +1,29 @@
+\contentsline {chapter}{Russian Post Offices in China}{7}{chapter*.2}
+\contentsline {subsection}{Russian Merchant's Post}{7}{subsection*.3}
+\contentsline {subsection}{Earliest Known Cover}{7}{subsection*.4}
+\contentsline {chapter}{Russian Post Offices in China}{11}{chapter*.5}
+\contentsline {subsection}{Russian Merchant's Post}{11}{subsection*.6}
+\contentsline {subsection}{Earliest Known Cover}{11}{subsection*.7}
+\contentsline {chapter}{Russian Post Offices in China}{15}{chapter*.8}
+\contentsline {subsection}{Russian Embassy Post}{15}{subsection*.9}
+\contentsline {chapter}{Tientsin}{17}{chapter*.10}
+\contentsline {subsection}{T\&S Type 1}{17}{subsection*.11}
+\contentsline {subsection}{TS Type 3B}{17}{subsection*.12}
+\contentsline {chapter}{Tientsin}{21}{chapter*.13}
+\contentsline {subsection}{TS Type 4}{21}{subsection*.14}
+\contentsline {section}{Bulletin D'Expedition}{27}{section*.15}
+\contentsline {section}{Red Cross}{27}{section*.16}
+\contentsline {section}{Distress Cover}{27}{section*.17}
+\contentsline {chapter}{Peking}{31}{chapter*.18}
+\contentsline {chapter}{Peking}{35}{chapter*.19}
+\contentsline {section}{Type 3}{35}{section*.20}
+\contentsline {section}{Type 4}{35}{section*.21}
+\contentsline {section}{Type 4}{35}{section*.22}
+\contentsline {section}{Stationery Envelope}{39}{section*.23}
+\contentsline {chapter}{Kalgan}{47}{chapter*.24}
+\contentsline {chapter}{Shanghai}{53}{chapter*.25}
+\contentsline {chapter}{Chefoo}{77}{chapter*.26}
+\contentsline {chapter}{Hankow}{85}{chapter*.27}
+\contentsline {subsection}{Newspaper Wrapper}{85}{subsection*.28}
+\contentsline {subsection}{Registered Envelope}{85}{subsection*.29}
+\contentsfinish 

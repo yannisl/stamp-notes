@@ -1,0 +1,2708 @@
+This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9 Beta 1) (preloaded format=pdflatex 2011.4.5)  3 DEC 2012 06:51
+entering extended mode
+**C:/wamp/www/countries/russian-post-offices-in-china/tex/main.tex
+(C:/wamp/www/countries/russian-post-offices-in-china/tex/main.tex
+LaTeX2e <2009/09/24>
+Babel <v3.8l> and hyphenation patterns for english, arabic, bulgarian, panjabi,
+ kurmanji, basque, russian, estonian, hungarian, czech, german-x-2009-06-19, ma
+layalam, armenian, portuguese, ngerman-x-2009-06-19, nynorsk, ancientgreek, mon
+golianlmc, catalan, sanskrit, pinyin, irish, gujarati, assamese, ukenglish, cop
+tic, croatian, slovenian, danish, dutch, serbian, usenglishmax, esperanto, fars
+i, swedish, finnish, french, galician, german, spanish, kannada, oriya, ngerman
+, swissgerman, monogreek, interlingua, greek, icelandic, bengali, hindi, bokmal
+, marathi, tamil, telugu, indonesian, italian, lao, latin, latvian, lithuanian,
+ mongolian, polish, romanian, slovak, turkish, turkmen, ukrainian, uppersorbian
+, welsh, loaded.
+("C:\Program Files\MiKTeX 2.9\tex\latex\tufte-latex\tufte-book.cls"
+Document Class: tufte-book 2009/12/11 v3.5.0 Tufte-book class
+("C:\Program Files\MiKTeX 2.9\tex\latex\tufte-latex\tufte-common.def"
+File: tufte-common.def 2009/12/11 v3.5.0 Common code for the Tufte-LaTeX styles
+
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\xkeyval\xkeyval.sty"
+Package: xkeyval 2008/08/13 v2.6a package option processing (HA)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\xkeyval\xkeyval.tex"
+\XKV@toks=\toks14
+\XKV@tempa@toks=\toks15
+\XKV@depth=\count79
+File: xkeyval.tex 2008/08/13 v2.6a key=value parser (HA)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\xkeyval\keyval.tex")))
+("C:\Program Files\MiKTeX 2.9\tex\latex\xifthen\xifthen.sty"
+Package: xifthen 2009/04/17 v1.3 Extended ifthen features
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\misc\etex.sty"
+Package: etex 1998/03/26 v2.0 eTeX basic definition package (PEB)
+\et@xins=\count80
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\calc.sty"
+Package: calc 2007/08/22 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count81
+\calc@Bcount=\count82
+\calc@Adimen=\dimen102
+\calc@Bdimen=\dimen103
+\calc@Askip=\skip41
+\calc@Bskip=\skip42
+LaTeX Info: Redefining \setlength on input line 76.
+LaTeX Info: Redefining \addtolength on input line 77.
+\calc@Ccount=\count83
+\calc@Cskip=\skip43
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\ifthen.sty"
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\ifmtarg\ifmtarg.sty"
+Package: ifmtarg 2009/09/02 v1.2a check for an empty argument
+))
+
+Class tufte-book Warning: Option `10pt' is not supported -- 
+(tufte-book)              ignoring option.
+
+Class tufte-book Info: Passing oneside to the `book' class..
+Class tufte-book Info: Loading the base class `book'.
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\book.cls"
+Document Class: book 2007/10/19 v1.4h Standard LaTeX document class
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\bk10.clo"
+File: bk10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count84
+\c@chapter=\count85
+\c@section=\count86
+\c@subsection=\count87
+\c@subsubsection=\count88
+\c@paragraph=\count89
+\c@subparagraph=\count90
+\c@figure=\count91
+\c@table=\count92
+\abovecaptionskip=\skip44
+\belowcaptionskip=\skip45
+\bibindent=\dimen104
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.sty"
+Package: ifpdf 2010/01/28 v2.1 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in pdf mode detected.
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\ifxetex\ifxetex.sty"
+Package: ifxetex 2009/01/23 v0.5 Provides ifxetex conditional
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\titlesec\titlesec.sty"
+Package: titlesec 2007/08/12 v2.8 Sectioning titles
+\ttl@box=\box26
+\beforetitleunit=\skip46
+\aftertitleunit=\skip47
+\ttl@plus=\dimen105
+\ttl@minus=\dimen106
+\ttl@toksa=\toks16
+\titlewidth=\dimen107
+\titlewidthlast=\dimen108
+\titlewidthfirst=\dimen109
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\titlesec\titletoc.sty"
+Package: titletoc 2007/08/12 v1.6 TOC entries
+\ttl@leftsep=\dimen110
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\hyperref.sty"
+Package: hyperref 2010/06/18 v6.81g Hypertext links for LaTeX
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
+Package: ltxcmds 2010/04/26 v1.7 LaTeX kernel commands for general use (HO)
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\kvsetkeys.sty"
+Package: kvsetkeys 2010/03/01 v1.9 Key value parser (HO)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/message (HO)
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\etexcmds.sty"
+Package: etexcmds 2010/01/28 v1.3 Prefix for e-TeX command names (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+))
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\pdfescape.sty"
+Package: pdfescape 2010/03/01 v1.9 Provides hex, PDF name and string conversion
+s (HO)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\pdftexcmds.sty"
+Package: pdftexcmds 2010/04/01 v0.9 Utility functions of pdfTeX for LuaTeX (HO)
+
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifluatex.sty"
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+))
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifvtex.sty"
+Package: ifvtex 2010/03/01 v1.5 Switches for detecting VTeX and its modes (HO)
+Package ifvtex Info: VTeX not detected.
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\hycolor.sty"
+Package: hycolor 2009/12/12 v1.6 Color options of hyperref/bookmark (HO)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\xcolor-patch.sty"
+Package: xcolor-patch 2009/12/12 xcolor patch
+))
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\letltxmacro.sty"
+Package: letltxmacro 2008/06/24 v1.3 Let assignment for LaTeX macros (HO)
+)
+\@linkdim=\dimen111
+\Hy@linkcounter=\count93
+\Hy@pagecounter=\count94
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\pd1enc.def"
+File: pd1enc.def 2010/06/18 v6.81g Hyperref: PDFDocEncoding definition (HO)
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\intcalc.sty"
+Package: intcalc 2007/09/27 v1.1 Expandable integer calculations (HO)
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\hyperref.cfg"
+File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\kvoptions.sty"
+Package: kvoptions 2010/02/22 v3.7 Keyval support for LaTeX options (HO)
+)
+Package hyperref Info: Option `unicode' set `true' on input line 3577.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\puenc.def"
+File: puenc.def 2010/06/18 v6.81g Hyperref: PDF Unicode definition (HO)
+)
+Package hyperref Info: Option `hyperfootnotes' set `false' on input line 3577.
+Package hyperref Info: Hyper figures OFF on input line 3658.
+Package hyperref Info: Link nesting OFF on input line 3663.
+Package hyperref Info: Hyper index ON on input line 3666.
+Package hyperref Info: Plain pages OFF on input line 3673.
+Package hyperref Info: Backreferencing OFF on input line 3678.
+
+Implicit mode ON; LaTeX internals redefined
+Package hyperref Info: Bookmarks ON on input line 3874.
+("C:\Program Files\MiKTeX 2.9\tex\latex\ltxmisc\url.sty"
+\Urlmuskip=\muskip10
+Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 4159.
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\bitset.sty"
+Package: bitset 2007/09/28 v1.0 Data type bit set (HO)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\bigintcalc.sty"
+Package: bigintcalc 2007/11/11 v1.1 Expandable big integer calculations (HO)
+))
+\Fld@menulength=\count95
+\Field@Width=\dimen112
+\Fld@charsize=\dimen113
+\Field@toks=\toks17
+Package hyperref Info: Hyper figures OFF on input line 5137.
+Package hyperref Info: Link nesting OFF on input line 5142.
+Package hyperref Info: Hyper index ON on input line 5145.
+Package hyperref Info: backreferencing OFF on input line 5152.
+Package hyperref Info: Link coloring OFF on input line 5157.
+Package hyperref Info: Link coloring with OCG OFF on input line 5162.
+Package hyperref Info: PDF/A mode OFF on input line 5167.
+LaTeX Info: Redefining \ref on input line 5207.
+LaTeX Info: Redefining \pageref on input line 5211.
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\atbegshi.sty"
+Package: atbegshi 2010/03/25 v1.12 At begin shipout hook (HO)
+)
+\Hy@abspage=\count96
+\c@Item=\count97
+)
+* hyperref using default driver hpdftex *
+("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\hpdftex.def"
+File: hpdftex.def 2010/06/18 v6.81g Hyperref driver for pdfTeX
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\atveryend.sty"
+Package: atveryend 2010/03/24 v1.5 Hooks at very end of document (HO)
+Package atveryend Info: \enddocument detected (standard).
+)
+\Fld@listcount=\count98
+\c@bookmark@seq@number=\count99
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\rerunfilecheck.sty"
+Package: rerunfilecheck 2010/03/16 v1.6 Rerun checks for auxiliary files (HO)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\uniquecounter.sty"
+Package: uniquecounter 2009/12/18 v1.1 Provides unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+71.
+)
+\Hy@SectionHShift=\skip48
+)
+
+Package hyperref Warning: Option `pagecolor' is not available anymore.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\ms\ragged2e.sty"
+Package: ragged2e 2009/05/21 v2.1 ragged2e Package (MS)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\ms\everysel.sty"
+Package: everysel 2009/05/30 v1.1 EverySelectfont Package (MS)
+)
+\CenteringLeftskip=\skip49
+\RaggedLeftLeftskip=\skip50
+\RaggedRightLeftskip=\skip51
+\CenteringRightskip=\skip52
+\RaggedLeftRightskip=\skip53
+\RaggedRightRightskip=\skip54
+\CenteringParfillskip=\skip55
+\RaggedLeftParfillskip=\skip56
+\RaggedRightParfillskip=\skip57
+\JustifyingParfillskip=\skip58
+\CenteringParindent=\skip59
+\RaggedLeftParindent=\skip60
+\RaggedRightParindent=\skip61
+\JustifyingParindent=\skip62
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.sty"
+Package: geometry 2010/07/13 v5.5 Page Geometry
+\Gm@cnth=\count100
+\Gm@cntv=\count101
+\c@Gm@tempcnt=\count102
+\Gm@bindingoffset=\dimen114
+\Gm@wd@mp=\dimen115
+\Gm@odd@mp=\dimen116
+\Gm@even@mp=\dimen117
+\Gm@layoutwidth=\dimen118
+\Gm@layoutheight=\dimen119
+\Gm@layouthoffset=\dimen120
+\Gm@layoutvoffset=\dimen121
+\Gm@dimlist=\toks18
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.cfg"))
+("C:\Program Files\MiKTeX 2.9\tex\latex\changepage\changepage.sty"
+Package: changepage 2009/10/20 v1.0c check page and change page layout
+\c@cp@cntr=\count103
+\cp@tempcnt=\count104
+)
+\@tufte@overhang=\skip63
+\@tufte@fullwidth=\skip64
+\@tufte@caption@fill=\skip65
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\paralist\paralist.sty"
+Package: paralist 2002/03/18 v2.3b Extended list environments (BS)
+\pltopsep=\skip66
+\plpartopsep=\skip67
+\plitemsep=\skip68
+\plparsep=\skip69
+\pl@lab=\toks19
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\textcase\textcase.sty"
+Package: textcase 2004/10/07 v0.07 Text only upper/lower case changing (DPC)
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\microtype\letterspace.sty"
+Package: letterspace 2010/01/10 v2.4 Robust letterspacing (RS)
+LaTeX Info: Redefining \lsstyle on input line 277.
+LaTeX Info: Redefining \lslig on input line 278.
+LaTeX Info: Redefining \textls on input line 303.
+\MT@outer@kern=\dimen122
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\setspace\setspace.sty"
+Package: setspace 2000/12/01 6.7 Contributed and Supported LaTeX2e package
+
+Package: `setspace' 6.7 <2000/12/01>
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\natbib\natbib.sty"
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip70
+\bibsep=\skip71
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count105
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\natbib\bibentry.sty"
+Package: bibentry 2007/10/30 1.5 (PWD)
+)
+No file main.bbl.
+\c@@tufte@num@bibkeys=\count106
+("C:\Program Files\MiKTeX 2.9\tex\latex\sauerj\optparams.sty"
+Package: optparams 2004/08/14 v0.9 multiple optional parameters in macros
+)
+\@tufte@sidenote@vertical@offset=\skip72
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\placeins\placeins.sty"
+Package: placeins 2005/04/18  v 2.2
+)
+\@tufte@margin@floatbox=\box27
+\@tufte@figure@box=\box28
+\@tufte@caption@box=\box29
+\@tufte@caption@vertical@offset=\skip73
+\@tufte@float@contents@width=\skip74
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\mathpazo.sty"
+Package: mathpazo 2005/04/12 PSNFSS-v9.2a Palatino w/ Pazo Math (D.Puga, WaS) 
+\symupright=\mathgroup4
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\helvet.sty"
+Package: helvet 2005/04/12 PSNFSS-v9.2a (WaS) 
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\bera\beramono.sty"
+Package: beramono 2004/01/31 (WaS)
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\fontenc.sty"
+Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\t1enc.def"
+File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
+))
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\textcomp.sty"
+Package: textcomp 2005/09/27 v1.99g Standard LaTeX package
+Package textcomp Info: Sub-encoding information:
+(textcomp)               5 = only ISO-Adobe without \textcurrency
+(textcomp)               4 = 5 + \texteuro
+(textcomp)               3 = 4 + \textohm
+(textcomp)               2 = 3 + \textestimated + \textcurrency
+(textcomp)               1 = TS1 - \textcircled - \t
+(textcomp)               0 = TS1 (full)
+(textcomp)             Font families with sub-encoding setting implement
+(textcomp)             only a restricted character set as indicated.
+(textcomp)             Family '?' is the default used for unknown fonts.
+(textcomp)             See the documentation for details.
+Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 71.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\ts1enc.def"
+File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
+)
+LaTeX Info: Redefining \oldstylenums on input line 266.
+Package textcomp Info: Setting cmr sub-encoding to TS1/0 on input line 281.
+Package textcomp Info: Setting cmss sub-encoding to TS1/0 on input line 282.
+Package textcomp Info: Setting cmtt sub-encoding to TS1/0 on input line 283.
+Package textcomp Info: Setting cmvtt sub-encoding to TS1/0 on input line 284.
+Package textcomp Info: Setting cmbr sub-encoding to TS1/0 on input line 285.
+Package textcomp Info: Setting cmtl sub-encoding to TS1/0 on input line 286.
+Package textcomp Info: Setting ccr sub-encoding to TS1/0 on input line 287.
+Package textcomp Info: Setting ptm sub-encoding to TS1/4 on input line 288.
+Package textcomp Info: Setting pcr sub-encoding to TS1/4 on input line 289.
+Package textcomp Info: Setting phv sub-encoding to TS1/4 on input line 290.
+Package textcomp Info: Setting ppl sub-encoding to TS1/3 on input line 291.
+Package textcomp Info: Setting pag sub-encoding to TS1/4 on input line 292.
+Package textcomp Info: Setting pbk sub-encoding to TS1/4 on input line 293.
+Package textcomp Info: Setting pnc sub-encoding to TS1/4 on input line 294.
+Package textcomp Info: Setting pzc sub-encoding to TS1/4 on input line 295.
+Package textcomp Info: Setting bch sub-encoding to TS1/4 on input line 296.
+Package textcomp Info: Setting put sub-encoding to TS1/5 on input line 297.
+Package textcomp Info: Setting uag sub-encoding to TS1/5 on input line 298.
+Package textcomp Info: Setting ugq sub-encoding to TS1/5 on input line 299.
+Package textcomp Info: Setting ul8 sub-encoding to TS1/4 on input line 300.
+Package textcomp Info: Setting ul9 sub-encoding to TS1/4 on input line 301.
+Package textcomp Info: Setting augie sub-encoding to TS1/5 on input line 302.
+Package textcomp Info: Setting dayrom sub-encoding to TS1/3 on input line 303.
+Package textcomp Info: Setting dayroms sub-encoding to TS1/3 on input line 304.
+
+Package textcomp Info: Setting pxr sub-encoding to TS1/0 on input line 305.
+Package textcomp Info: Setting pxss sub-encoding to TS1/0 on input line 306.
+Package textcomp Info: Setting pxtt sub-encoding to TS1/0 on input line 307.
+Package textcomp Info: Setting txr sub-encoding to TS1/0 on input line 308.
+Package textcomp Info: Setting txss sub-encoding to TS1/0 on input line 309.
+Package textcomp Info: Setting txtt sub-encoding to TS1/0 on input line 310.
+Package textcomp Info: Setting futs sub-encoding to TS1/4 on input line 311.
+Package textcomp Info: Setting futx sub-encoding to TS1/4 on input line 312.
+Package textcomp Info: Setting futj sub-encoding to TS1/4 on input line 313.
+Package textcomp Info: Setting hlh sub-encoding to TS1/3 on input line 314.
+Package textcomp Info: Setting hls sub-encoding to TS1/3 on input line 315.
+Package textcomp Info: Setting hlst sub-encoding to TS1/3 on input line 316.
+Package textcomp Info: Setting hlct sub-encoding to TS1/5 on input line 317.
+Package textcomp Info: Setting hlx sub-encoding to TS1/5 on input line 318.
+Package textcomp Info: Setting hlce sub-encoding to TS1/5 on input line 319.
+Package textcomp Info: Setting hlcn sub-encoding to TS1/5 on input line 320.
+Package textcomp Info: Setting hlcw sub-encoding to TS1/5 on input line 321.
+Package textcomp Info: Setting hlcf sub-encoding to TS1/5 on input line 322.
+Package textcomp Info: Setting pplx sub-encoding to TS1/3 on input line 323.
+Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 324.
+Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 325.
+Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 326.
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\fancyhdr\fancyhdr.sty"
+\fancy@headwidth=\skip75
+\f@ncyO@elh=\skip76
+\f@ncyO@erh=\skip77
+\f@ncyO@olh=\skip78
+\f@ncyO@orh=\skip79
+\f@ncyO@elf=\skip80
+\f@ncyO@erf=\skip81
+\f@ncyO@olf=\skip82
+\f@ncyO@orf=\skip83
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\xcolor\xcolor.sty"
+Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\color.cfg"
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package xcolor Info: Package option `usenames' ignored on input line 216.
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
+File: pdftex.def 2010/02/14 v0.04n Graphics/color for pdfTeX
+\Gread@gobject=\count107
+)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1341.
+Package xcolor Info: Model `RGB' extended on input line 1353.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1357.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\dvipsnam.def"
+File: dvipsnam.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\xcolor\svgnam.def"
+File: svgnam.def 2007/01/21 v2.11 Predefined colors according to SVG 1.1 (UK)
+))
+\langwohyphens=\language69
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\multicol.sty"
+Package: multicol 2008/12/05 v1.6h multicolumn formatting (FMi)
+\c@tracingmulticols=\count108
+\mult@box=\box30
+\multicol@leftmargin=\dimen123
+\c@unbalance=\count109
+\c@collectmore=\count110
+\doublecol@number=\count111
+\multicoltolerance=\count112
+\multicolpretolerance=\count113
+\full@width=\dimen124
+\page@free=\dimen125
+\premulticols=\dimen126
+\postmulticols=\dimen127
+\multicolsep=\skip84
+\multicolbaselineskip=\skip85
+\partial@page=\box31
+\last@line=\box32
+\mult@rightbox=\box33
+\mult@grightbox=\box34
+\mult@gfirstbox=\box35
+\mult@firstbox=\box36
+\@tempa=\box37
+\@tempa=\box38
+\@tempa=\box39
+\@tempa=\box40
+\@tempa=\box41
+\@tempa=\box42
+\@tempa=\box43
+\@tempa=\box44
+\@tempa=\box45
+\@tempa=\box46
+\@tempa=\box47
+\@tempa=\box48
+\@tempa=\box49
+\@tempa=\box50
+\@tempa=\box51
+\@tempa=\box52
+\@tempa=\box53
+\c@columnbadness=\count114
+\c@finalcolumnbadness=\count115
+\last@try=\dimen128
+\multicolovershoot=\dimen129
+\multicolundershoot=\dimen130
+\mult@nat@firstbox=\box54
+\colbreak@box=\box55
+)))
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\fontenc.sty"
+Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\t1enc.def"
+File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
+))
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\xspace.sty"
+Package: xspace 2006/05/08 v1.12 Space after command names (DPC,MH)
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\booktabs\booktabs.sty"
+Package: booktabs 2005/04/14 v1.61803 publication quality tables
+\heavyrulewidth=\dimen131
+\lightrulewidth=\dimen132
+\cmidrulewidth=\dimen133
+\belowrulesep=\dimen134
+\belowbottomsep=\dimen135
+\aboverulesep=\dimen136
+\abovetopsep=\dimen137
+\cmidrulesep=\dimen138
+\cmidrulekern=\dimen139
+\defaultaddspace=\dimen140
+\@cmidla=\count116
+\@cmidlb=\count117
+\@aboverulesep=\dimen141
+\@belowrulesep=\dimen142
+\@thisruleclass=\count118
+\@lastruleclass=\count119
+\@thisrulewidth=\dimen143
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\numprint\numprint.sty"
+Package: numprint 2008/02/17 v1.38 Print numbers (HH)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\array.sty"
+Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
+\col@sep=\dimen144
+\extrarowheight=\dimen145
+\NC@list=\toks20
+\extratabsurround=\skip86
+\backup@length=\skip87
+)
+\c@nprt@mantissa@digitsbefore=\count120
+\c@nprt@mantissa@digitsafter=\count121
+\c@nprt@exponent@digitsbefore=\count122
+\c@nprt@exponent@digitsafter=\count123
+\nprt@digitwidth=\skip88
+\nprt@sepwidth=\skip89
+\nprt@decimalwidth=\skip90
+\nprt@blockwidth=\skip91
+\nprt@digittoks=\toks21
+\nprt@pretoks=\toks22
+\nprt@posttoks=\toks23
+\nprt@thisdigit=\count124
+\nprt@curpos=\count125
+\nprt@rndpos=\count126
+\c@nprt@digitsfirstblock=\count127
+\c@nprt@blockcnt=\count128
+\c@nprt@cntprint=\count129
+
+No configuration file `numprint.cfg' found.)
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\verbatim.sty"
+Package: verbatim 2003/08/22 v1.5q LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks24
+\verbatim@line=\toks25
+\verbatim@in@stream=\read1
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\marvosym\marvosym.sty"
+Package: marvosym 2006/05/11 v2.1 Martin Vogel's Symbols font definitions
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
+File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+)
+\Gin@req@height=\dimen146
+\Gin@req@width=\dimen147
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\ams\math\amsmath.sty"
+Package: amsmath 2000/07/18 v2.13 AMS math features
+\@mathmargin=\skip92
+
+For additional information on amsmath, use the `?' option.
+("C:\Program Files\MiKTeX 2.9\tex\latex\ams\math\amstext.sty"
+Package: amstext 2000/06/29 v2.01
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\ams\math\amsgen.sty"
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks26
+\ex@=\dimen148
+))
+("C:\Program Files\MiKTeX 2.9\tex\latex\ams\math\amsbsy.sty"
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen149
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\ams\math\amsopn.sty"
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count130
+LaTeX Info: Redefining \frac on input line 211.
+\uproot@=\count131
+\leftroot@=\count132
+LaTeX Info: Redefining \overline on input line 307.
+\classnum@=\count133
+\DOTSCASE@=\count134
+LaTeX Info: Redefining \ldots on input line 379.
+LaTeX Info: Redefining \dots on input line 382.
+LaTeX Info: Redefining \cdots on input line 467.
+\Mathstrutbox@=\box56
+\strutbox@=\box57
+\big@size=\dimen150
+LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
+\macc@depth=\count135
+\c@MaxMatrixCols=\count136
+\dotsspace@=\muskip11
+\c@parentequation=\count137
+\dspbrk@lvl=\count138
+\tag@help=\toks27
+\row@=\count139
+\column@=\count140
+\maxfields@=\count141
+\andhelp@=\toks28
+\eqnshift@=\dimen151
+\alignsep@=\dimen152
+\tagshift@=\dimen153
+\tagwidth@=\dimen154
+\totwidth@=\dimen155
+\lineht@=\dimen156
+\@envbody=\toks29
+\multlinegap=\skip93
+\multlinetaggap=\skip94
+\mathdisplay@stack=\toks30
+LaTeX Info: Redefining \[ on input line 2666.
+LaTeX Info: Redefining \] on input line 2667.
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\makeidx.sty"
+Package: makeidx 2000/03/29 v1.0m Standard LaTeX package
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption.sty"
+Package: caption 2010/01/09 v3.1m Customizing captions (AR)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption3.sty"
+Package: caption3 2010/01/14 v3.1m caption3 kernel (AR)
+\captionmargin=\dimen157
+\captionmargin@=\dimen158
+\captionwidth=\dimen159
+\caption@indent=\dimen160
+\caption@parindent=\dimen161
+\caption@hangindent=\dimen162
+)
+\c@ContinuedFloat=\count142
+Package caption Info: hyperref package is loaded.
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\lettrine\lettrine.sty"
+File: lettrine.sty 2007/08/08 v1.62 (Daniel Flipo)
+\c@DefaultLines=\count143
+\DefaultFindent=\dimen163
+\DefaultNindent=\dimen164
+\DefaultSlope=\dimen165
+\L@lbox=\box58
+\L@tbox=\box59
+\c@L@lines=\count144
+\L@Pindent=\dimen166
+\L@Findent=\dimen167
+\L@Nindent=\dimen168
+\L@lraise=\dimen169
+\L@first=\dimen170
+\L@next=\dimen171
+\L@slope=\dimen172
+\L@height=\dimen173
+\LettrineWidth=\dimen174
+
+Loading lettrine.cfg
+("C:\Program Files\MiKTeX 2.9\tex\latex\lettrine\lettrine.cfg"))
+("C:\Program Files\MiKTeX 2.9\tex\latex\comment\comment.sty"
+\CommentStream=\write3
+
+Excluding comment 'comment')
+("C:\Program Files\MiKTeX 2.9\tex\latex\listings\listings.sty"
+\lst@mode=\count145
+\lst@gtempboxa=\box60
+\lst@token=\toks31
+\lst@length=\count146
+\lst@currlwidth=\dimen175
+\lst@column=\count147
+\lst@pos=\count148
+\lst@lostspace=\dimen176
+\lst@width=\dimen177
+\lst@newlines=\count149
+\lst@lineno=\count150
+\lst@maxwidth=\dimen178
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstmisc.sty"
+File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
+\c@lstnumber=\count151
+\lst@skipnumbers=\count152
+\lst@framebox=\box61
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\listings\listings.cfg"
+File: listings.cfg 2007/02/22 1.4 listings configuration
+))
+Package: listings 2007/02/22 1.4 (Carsten Heinz)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\pgf\frontendlayer\tikz.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\pgf\basiclayer\pgf.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\pgf\utilities\pgfrcs.sty"
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\utilities\pgfutil-common.tex"
+\pgfutil@everybye=\toks32
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\utilities\pgfutil-latex.def"
+\pgfutil@abb=\box62
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\ms\everyshi.sty"
+Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
+))
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\utilities\pgfrcs.code.tex"
+Package: pgfrcs 2010/10/25 v2.10 (rcs-revision 1.24)
+))
+Package: pgf 2008/01/15 v2.10 (rcs-revision 1.12)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\pgf\basiclayer\pgfcore.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\pgf\systemlayer\pgfsys.sty"
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsys.code.tex"
+Package: pgfsys 2010/06/30 v2.10 (rcs-revision 1.37)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\utilities\pgfkeys.code.tex"
+\pgfkeys@pathtoks=\toks33
+\pgfkeys@temptoks=\toks34
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\utilities\pgfkeysfiltered.code.te
+x"
+\pgfkeys@tmptoks=\toks35
+))
+\pgf@x=\dimen179
+\pgf@y=\dimen180
+\pgf@xa=\dimen181
+\pgf@ya=\dimen182
+\pgf@xb=\dimen183
+\pgf@yb=\dimen184
+\pgf@xc=\dimen185
+\pgf@yc=\dimen186
+\w@pgf@writea=\write4
+\r@pgf@reada=\read2
+\c@pgf@counta=\count153
+\c@pgf@countb=\count154
+\c@pgf@countc=\count155
+\c@pgf@countd=\count156
+ ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgf.cfg"
+File: pgf.cfg 2008/05/14  (rcs-revision 1.7)
+)
+Package pgfsys Info: Driver file for pgf: pgfsys-pdftex.def on input line 900.
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsys-pdftex.def"
+File: pgfsys-pdftex.def 2009/05/22  (rcs-revision 1.26)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsys-common-pdf.def
+"
+File: pgfsys-common-pdf.def 2008/05/19  (rcs-revision 1.10)
+)))
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsyssoftpath.code.t
+ex"
+File: pgfsyssoftpath.code.tex 2008/07/18  (rcs-revision 1.7)
+\pgfsyssoftpath@smallbuffer@items=\count157
+\pgfsyssoftpath@bigbuffer@items=\count158
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsysprotocol.code.t
+ex"
+File: pgfsysprotocol.code.tex 2006/10/16  (rcs-revision 1.4)
+)) ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcore.code.tex"
+Package: pgfcore 2010/04/11 v2.10 (rcs-revision 1.7)
+ ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmath.code.tex"
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathcalc.code.tex"
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathutil.code.tex")
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathparser.code.tex"
+\pgfmath@dimen=\dimen187
+\pgfmath@count=\count159
+\pgfmath@box=\box63
+\pgfmath@toks=\toks36
+\pgfmath@stack@operand=\toks37
+\pgfmath@stack@operation=\toks38
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.code.tex"
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.basic.code.
+tex")
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.trigonometr
+ic.code.tex")
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.random.code
+.tex")
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.comparison.
+code.tex")
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.base.code.t
+ex")
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.round.code.
+tex")
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.misc.code.t
+ex"))) ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfloat.code.tex
+"
+\c@pgfmathroundto@lastzeros=\count160
+))
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorepoints.code.tex
+"
+File: pgfcorepoints.code.tex 2010/04/09  (rcs-revision 1.20)
+\pgf@picminx=\dimen188
+\pgf@picmaxx=\dimen189
+\pgf@picminy=\dimen190
+\pgf@picmaxy=\dimen191
+\pgf@pathminx=\dimen192
+\pgf@pathmaxx=\dimen193
+\pgf@pathminy=\dimen194
+\pgf@pathmaxy=\dimen195
+\pgf@xx=\dimen196
+\pgf@xy=\dimen197
+\pgf@yx=\dimen198
+\pgf@yy=\dimen199
+\pgf@zx=\dimen200
+\pgf@zy=\dimen201
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorepathconstruct.c
+ode.tex"
+File: pgfcorepathconstruct.code.tex 2010/08/03  (rcs-revision 1.24)
+\pgf@path@lastx=\dimen202
+\pgf@path@lasty=\dimen203
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorepathusage.code.
+tex"
+File: pgfcorepathusage.code.tex 2008/04/22  (rcs-revision 1.12)
+\pgf@shorten@end@additional=\dimen204
+\pgf@shorten@start@additional=\dimen205
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorescopes.code.tex
+"
+File: pgfcorescopes.code.tex 2010/09/08  (rcs-revision 1.34)
+\pgfpic=\box64
+\pgf@hbox=\box65
+\pgf@layerbox@main=\box66
+\pgf@picture@serial@count=\count161
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoregraphicstate.co
+de.tex"
+File: pgfcoregraphicstate.code.tex 2008/04/22  (rcs-revision 1.9)
+\pgflinewidth=\dimen206
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoretransformations
+.code.tex"
+File: pgfcoretransformations.code.tex 2009/06/10  (rcs-revision 1.11)
+\pgf@pt@x=\dimen207
+\pgf@pt@y=\dimen208
+\pgf@pt@temp=\dimen209
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorequick.code.tex"
+File: pgfcorequick.code.tex 2008/10/09  (rcs-revision 1.3)
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoreobjects.code.te
+x"
+File: pgfcoreobjects.code.tex 2006/10/11  (rcs-revision 1.2)
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorepathprocessing.
+code.tex"
+File: pgfcorepathprocessing.code.tex 2008/10/09  (rcs-revision 1.8)
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorearrows.code.tex
+"
+File: pgfcorearrows.code.tex 2008/04/23  (rcs-revision 1.11)
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoreshade.code.tex"
+File: pgfcoreshade.code.tex 2008/11/23  (rcs-revision 1.13)
+\pgf@max=\dimen210
+\pgf@sys@shading@range@num=\count162
+) ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoreimage.code.te
+x"
+File: pgfcoreimage.code.tex 2010/03/25  (rcs-revision 1.16)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoreexternal.code.t
+ex"
+File: pgfcoreexternal.code.tex 2010/09/01  (rcs-revision 1.17)
+\pgfexternal@startupbox=\box67
+))
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorelayers.code.tex
+"
+File: pgfcorelayers.code.tex 2010/08/27  (rcs-revision 1.2)
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoretransparency.co
+de.tex"
+File: pgfcoretransparency.code.tex 2008/01/17  (rcs-revision 1.2)
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorepatterns.code.t
+ex"
+File: pgfcorepatterns.code.tex 2009/07/02  (rcs-revision 1.3)
+)))
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\modules\pgfmoduleshapes.code.tex"
+File: pgfmoduleshapes.code.tex 2010/09/09  (rcs-revision 1.13)
+\pgfnodeparttextbox=\box68
+) ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\modules\pgfmoduleplot.code.tex"
+File: pgfmoduleplot.code.tex 2010/10/22  (rcs-revision 1.8)
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\pgf\compatibility\pgfcomp-version-0-65.
+sty"
+Package: pgfcomp-version-0-65 2007/07/03 v2.10 (rcs-revision 1.7)
+\pgf@nodesepstart=\dimen211
+\pgf@nodesepend=\dimen212
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\pgf\compatibility\pgfcomp-version-1-18.
+sty"
+Package: pgfcomp-version-1-18 2007/07/23 v2.10 (rcs-revision 1.1)
+)) ("C:\Program Files\MiKTeX 2.9\tex\latex\pgf\utilities\pgffor.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\pgf\utilities\pgfkeys.sty"
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\utilities\pgfkeys.code.tex"))
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\utilities\pgffor.code.tex"
+Package: pgffor 2010/03/23 v2.10 (rcs-revision 1.18)
+\pgffor@iter=\dimen213
+\pgffor@skip=\dimen214
+\pgffor@stack=\toks39
+\pgffor@toks=\toks40
+))
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\frontendlayer\tikz\tikz.code.tex"
+Package: tikz 2010/10/13 v2.10 (rcs-revision 1.76)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\libraries\pgflibraryplothandlers.
+code.tex"
+File: pgflibraryplothandlers.code.tex 2010/05/31 v2.10 (rcs-revision 1.15)
+\pgf@plot@mark@count=\count163
+\pgfplotmarksize=\dimen215
+)
+\tikz@lastx=\dimen216
+\tikz@lasty=\dimen217
+\tikz@lastxsaved=\dimen218
+\tikz@lastysaved=\dimen219
+\tikzleveldistance=\dimen220
+\tikzsiblingdistance=\dimen221
+\tikz@figbox=\box69
+\tikz@tempbox=\box70
+\tikztreelevel=\count164
+\tikznumberofchildren=\count165
+\tikznumberofcurrentchild=\count166
+\tikz@fig@count=\count167
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\modules\pgfmodulematrix.code.tex"
+File: pgfmodulematrix.code.tex 2010/08/24  (rcs-revision 1.4)
+\pgfmatrixcurrentrow=\count168
+\pgfmatrixcurrentcolumn=\count169
+\pgf@matrix@numberofcolumns=\count170
+)
+\tikz@expandcount=\count171
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\frontendlayer\tikz\libraries\tikz
+librarytopaths.code.tex"
+File: tikzlibrarytopaths.code.tex 2008/06/17 v2.10 (rcs-revision 1.2)
+)))
+("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstlang1.sty"
+File: lstlang1.sty 2004/09/05 1.3 listings language file
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstlang2.sty"
+File: lstlang2.sty 2004/09/05 1.3 listings language file
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstlang3.sty"
+File: lstlang3.sty 2004/09/05 1.3 listings language file
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstmisc.sty"
+File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 215.
+
+
+Package hyperref Warning: Option `bookmarks' has already been used,
+(hyperref)                setting the option has no effect on input line 215.
+
+Package hyperref Info: Option `bookmarksopen' set `false' on input line 215.
+Package hyperref Info: Option `bookmarksnumbered' set `false' on input line 215
+.
+
+Package hyperref Warning: Option `hyperfootnotes' has already been used,
+(hyperref)                setting the option has no effect on input line 215.
+
+Package hyperref Info: Option `plainpages' set `false' on input line 215.
+
+Package hyperref Warning: Option `pdfpagelabels' has already been used,
+(hyperref)                setting the option has no effect on input line 215.
+
+(C:\wamp\www\countries\russian-post-offices-in-china\titlepage.dat
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\\' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\\' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\\' on input line 1.
+
+)
+
+LaTeX Warning: Unused global option(s):
+    [10pt].
+
+(C:\wamp\www\countries\russian-post-offices-in-china\tex\main.aux)
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 518.
+LaTeX Font Info:    ... okay on input line 518.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 518.
+LaTeX Font Info:    ... okay on input line 518.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 518.
+LaTeX Font Info:    ... okay on input line 518.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 518.
+LaTeX Font Info:    ... okay on input line 518.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 518.
+LaTeX Font Info:    ... okay on input line 518.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 518.
+LaTeX Font Info:    ... okay on input line 518.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 518.
+LaTeX Font Info:    ... okay on input line 518.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 518.
+LaTeX Font Info:    ... okay on input line 518.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 518.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 518.
+
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\ts1cmr.fd"
+File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    ... okay on input line 518.
+LaTeX Font Info:    Try loading font information for T1+pplj on input line 518.
+
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\t1pplj.fd"
+File: t1pplj.fd 2004/09/06 font definitions for T1/pplj.
+)
+\AtBeginShipoutBox=\box71
+Package hyperref Info: Link coloring ON on input line 518.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
+Package: nameref 2010/04/30 v2.40 Cross-referencing by name of section
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\refcount.sty"
+Package: refcount 2008/08/11 v3.1 Data extraction from references (HO)
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
+Package: gettitlestring 2009/12/18 v1.3 Cleanup title references (HO)
+)
+\c@section@level=\count172
+)
+LaTeX Info: Redefining \ref on input line 518.
+LaTeX Info: Redefining \pageref on input line 518.
+LaTeX Info: Redefining \nameref on input line 518.
+
+(C:\wamp\www\countries\russian-post-offices-in-china\tex\main.out)
+(C:\wamp\www\countries\russian-post-offices-in-china\tex\main.out)
+\@outlinefile=\write5
+LaTeX Info: Redefining \selectfont on input line 518.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: twoside asymmetric 
+* h-part:(L,W,R)=(70.56284pt, 304.44447pt, 222.50056pt)
+* v-part:(T,H,B)=(77.96053pt, 686.0pt, 81.08632pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=304.44447pt
+* \textheight=686.0pt
+* \oddsidemargin=-1.70715pt
+* \evensidemargin=-1.70715pt
+* \topmargin=-36.30946pt
+* \headheight=14.0pt
+* \headsep=28.0pt
+* \topskip=10.0pt
+* \footskip=25.29494pt
+* \marginparwidth=140.5566pt
+* \marginparsep=23.33124pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidetrue
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count173
+\scratchdimen=\dimen222
+\scratchbox=\box72
+\nofMPsegments=\count174
+\nofMParguments=\count175
+\everyMPshowfont=\toks41
+\MPscratchCnt=\count176
+\MPscratchDim=\dimen223
+\MPnumerator=\count177
+\everyMPtoPDFconversion=\toks42
+)
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: Incompatible package detected (regarding \@caption).
+(caption)             \@caption = \long macro:#1[#2]#3->\par \addcontentsline {
+\csname ext@#1\endcsname }{#1}{\protect \numberline {\csname the#1\endcsname }{
+\ignorespaces #2}}\begingroup \@parboxrestore \if@minipage \@setminipage \fi \@
+tufte@caption@font \@tufte@caption@justification \noindent \csname fnum@#1\endc
+sname : \ignorespaces #3\par \endgroup .
+
+
+Package caption Warning: \caption will not be redefined since it's already
+(caption)                redefined by a document class or package which is
+(caption)                unknown to the caption package.
+See the caption package documentation for explanation.
+
+Package caption Info: listings package is loaded.
+Package caption Info: End \AtBeginDocument code.
+\c@lstlisting=\count178
+ABD: EveryShipout initializing macros
+<../russian-post-offices-in-china/cover-image.jpg, id=74, 803.0pt x 477.785pt>
+File: ../russian-post-offices-in-china/cover-image.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/cover-image.jpg>
+Overfull \hbox (188.56364pt too wide) in paragraph at lines 525--525
+[][] 
+ []
+
+LaTeX Font Info:    Font shape `T1/pplj/bx/n' in size <24> not available
+(Font)              Font shape `T1/pplj/b/n' tried instead on input line 525.
+LaTeX Font Info:    Try loading font information for T1+phv on input line 525.
+("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\t1phv.fd"
+File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
+)
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <24> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 525.
+LaTeX Font Info:    Font shape `T1/phv/b/n' will be
+(Font)              scaled to size 21.59985pt on input line 525.
+
+Overfull \hbox (153.5537pt too wide) detected at line 525
+  \T1/phv/b/n/24 RUSSIAN-POST-OFFICES-IN-CHINA STAMPS
+ []
+
+LaTeX Font Info:    Font shape `T1/phv/m/n' will be
+(Font)              scaled to size 18.66588pt on input line 525.
+
+Overfull \hbox (15.0pt too wide) in paragraph at lines 525--526
+[]  []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 525--526
+
+ []
+
+[1
+
+
+{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map} <C:/wamp/www/countries/rus
+sian-post-offices-in-china/russian-post-offices-in-china/cover-image.jpg>]
+File: ../russian-post-offices-in-china/cover-image.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/cover-image.jpg>
+LaTeX Font Info:    Try loading font information for TS1+pplj on input line 527
+.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ts1pplj.fd"
+File: ts1pplj.fd 2004/09/06 font definitions for TS1/pplj.
+) [2
+
+]
+LaTeX Font Info:    Font shape `T1/phv/m/n' will be
+(Font)              scaled to size 8.99994pt on input line 528.
+LaTeX Font Info:    Font shape `T1/phv/m/n' will be
+(Font)              scaled to size 16.19989pt on input line 528.
+LaTeX Font Info:    Font shape `T1/phv/m/n' will be
+(Font)              scaled to size 32.39978pt on input line 528.
+LaTeX Font Info:    Font shape `T1/phv/m/n' will be
+(Font)              scaled to size 12.59991pt on input line 528.
+ [3
+
+
+] [4
+
+
+]
+(C:\wamp\www\countries\russian-post-offices-in-china\tex\main.toc [5])
+\tf@toc=\write6
+ [6]
+(C:\wamp\www\countries\russian-post-offices-in-china\tex\Introduction.tex
+<../russian-post-offices-in-china/10000.jpg, id=165, 803.0pt x 691.58376pt>
+File: ../russian-post-offices-in-china/10000.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10000.jpg>
+<../russian-post-offices-in-china/10000-1.jpg, id=166, 803.0pt x 692.5875pt>
+File: ../russian-post-offices-in-china/10000-1.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10000-1.jpg>
+Underfull \hbox (badness 10000) in paragraph at lines 18--30
+[][]
+ []
+
+
+Underfull \hbox (badness 1902) in paragraph at lines 31--31
+\T1/pplj/m/n/8 Figure 1: 10000 QUASI OF-FI-CIAL
+ []
+
+
+Underfull \hbox (badness 1694) in paragraph at lines 31--31
+\T1/pplj/m/n/8 MER-CHANTS POST: 1871 En-ve-lope
+ []
+
+
+Underfull \hbox (badness 1253) in paragraph at lines 31--31
+\T1/pplj/m/n/8 still unique and the ear-li-est known
+ []
+
+
+Underfull \hbox (badness 1931) in paragraph at lines 31--31
+\T1/pplj/m/n/8 Note: De-scribed and il-lus-trated in
+ []
+
+<../russian-post-offices-in-china/10001.jpg, id=167, 803.0pt x 634.37pt>
+File: ../russian-post-offices-in-china/10001.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10001.jpg>
+<../russian-post-offices-in-china/10001-1.jpg, id=168, 803.0pt x 635.37375pt>
+File: ../russian-post-offices-in-china/10001-1.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10001-1.jpg>
+Underfull \hbox (badness 10000) in paragraph at lines 35--46
+[][]
+ []
+
+
+Underfull \hbox (badness 1902) in paragraph at lines 46--46
+\T1/pplj/m/n/8 Figure 2: 10001 QUASI OF-FI-CIAL
+ []
+
+
+Underfull \hbox (badness 1314) in paragraph at lines 46--46
+\T1/pplj/m/n/8 MER-CHANTS POST: 1871 In-com-ing
+ []
+
+
+Underfull \hbox (badness 2057) in paragraph at lines 46--46
+\T1/pplj/m/n/8 is-sue) sent to the Bor-der Com-mis-
+ []
+
+
+Underfull \hbox (badness 4739) in paragraph at lines 46--46
+\T1/pplj/m/n/8 sar at Kyakhta on the Siberia /
+ []
+
+
+Underfull \hbox (badness 1092) in paragraph at lines 46--46
+\T1/pplj/m/n/8 a mem-ber of the Rus-sian Ec-cle-si-as-
+ []
+
+
+Underfull \hbox (badness 2158) in paragraph at lines 46--46
+\T1/pplj/m/n/8 ti-cal Mis-sion at Peking, placed on
+ []
+
+
+Underfull \hbox (badness 3735) in paragraph at lines 46--46
+\T1/pplj/m/n/8 ceived 10.8.71 (ms note) Cur-rently
+ []
+
+)
+(C:\wamp\www\countries\russian-post-offices-in-china\tex\Quasi_Official_Merchan
+ts_Post.tex [7
+
+
+] [8 <C:/wamp/www/countries/russian-post-offices-in-china/russian-post-offices-
+in-china/10000.jpg> <C:/wamp/www/countries/russian-post-offices-in-china/russia
+n-post-offices-in-china/10000-1.jpg>] [9 <C:/wamp/www/countries/russian-post-of
+fices-in-china/russian-post-offices-in-china/10001.jpg> <C:/wamp/www/countries/
+russian-post-offices-in-china/russian-post-offices-in-china/10001-1.jpg>] [10
+
+]
+<../russian-post-offices-in-china/20000.jpg, id=186, 803.0pt x 444.66125pt>
+File: ../russian-post-offices-in-china/20000.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/20000.jpg>
+Underfull \hbox (badness 1215) in paragraph at lines 34--34
+\T1/pplj/m/n/8 re-alised: 20'000 EUR QUASI OF-FI-
+ []
+
+File: ../russian-post-offices-in-china/10000.jpg Graphic file (type jpg)
+<use ../russian-post-offices-in-china/10000.jpg>
+File: ../russian-post-offices-in-china/10000-1.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10000-1.jpg>
+Underfull \hbox (badness 10000) in paragraph at lines 43--55
+[][]
+ []
+
+
+Underfull \hbox (badness 1902) in paragraph at lines 56--56
+\T1/pplj/m/n/8 Figure 4: 10000 QUASI OF-FI-CIAL
+ []
+
+
+Underfull \hbox (badness 1694) in paragraph at lines 56--56
+\T1/pplj/m/n/8 MER-CHANTS POST: 1871 En-ve-lope
+ []
+
+
+Underfull \hbox (badness 1253) in paragraph at lines 56--56
+\T1/pplj/m/n/8 still unique and the ear-li-est known
+ []
+
+
+Underfull \hbox (badness 1931) in paragraph at lines 56--56
+\T1/pplj/m/n/8 Note: De-scribed and il-lus-trated in
+ []
+
+File: ../russian-post-offices-in-china/10001.jpg Graphic file (type jpg)
+<use ../russian-post-offices-in-china/10001.jpg>
+File: ../russian-post-offices-in-china/10001-1.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10001-1.jpg>
+Underfull \hbox (badness 10000) in paragraph at lines 60--71
+[][]
+ []
+
+
+Underfull \hbox (badness 1902) in paragraph at lines 71--71
+\T1/pplj/m/n/8 Figure 5: 10001 QUASI OF-FI-CIAL
+ []
+
+
+Underfull \hbox (badness 1314) in paragraph at lines 71--71
+\T1/pplj/m/n/8 MER-CHANTS POST: 1871 In-com-ing
+ []
+
+
+Underfull \hbox (badness 2057) in paragraph at lines 71--71
+\T1/pplj/m/n/8 is-sue) sent to the Bor-der Com-mis-
+ []
+
+
+Underfull \hbox (badness 4739) in paragraph at lines 71--71
+\T1/pplj/m/n/8 sar at Kyakhta on the Siberia /
+ []
+
+
+Underfull \hbox (badness 1092) in paragraph at lines 71--71
+\T1/pplj/m/n/8 a mem-ber of the Rus-sian Ec-cle-si-as-
+ []
+
+
+Underfull \hbox (badness 2158) in paragraph at lines 71--71
+\T1/pplj/m/n/8 ti-cal Mis-sion at Peking, placed on
+ []
+
+
+Underfull \hbox (badness 3735) in paragraph at lines 71--71
+\T1/pplj/m/n/8 ceived 10.8.71 (ms note) Cur-rently
+ []
+
+)
+(C:\wamp\www\countries\russian-post-offices-in-china\tex\Russian_Embassy_Post.t
+ex [11 <C:/wamp/www/countries/russian-post-offices-in-china/russian-post-office
+s-in-china/20000.jpg>] [12] [13] [14
+
+]
+<../russian-post-offices-in-china/10002.jpg, id=205, 803.0pt x 459.7175pt>
+File: ../russian-post-offices-in-china/10002.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10002.jpg>
+<../russian-post-offices-in-china/10002-1.jpg, id=206, 803.0pt x 460.72125pt>
+File: ../russian-post-offices-in-china/10002-1.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10002-1.jpg>
+Underfull \hbox (badness 10000) in paragraph at lines 7--25
+[][]
+ []
+
+
+Underfull \hbox (badness 1831) in paragraph at lines 26--26
+\T1/pplj/m/n/8 to France incl. con-tents date-lined
+ []
+
+) (C:\wamp\www\countries\russian-post-offices-in-china\tex\Tientsin.tex
+[15 <C:/wamp/www/countries/russian-post-offices-in-china/russian-post-offices-i
+n-china/10002.jpg> <C:/wamp/www/countries/russian-post-offices-in-china/russian
+-post-offices-in-china/10002-1.jpg>] [16
+
+]
+<../russian-post-offices-in-china/10003.jpg, id=216, 62.634pt x 78.49326pt>
+File: ../russian-post-offices-in-china/10003.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10003.jpg>
+<../russian-post-offices-in-china/10003-1.jpg, id=217, 57.21375pt x 73.67525pt>
+File: ../russian-post-offices-in-china/10003-1.jpg Graphic file (type jpg)
+<use ../russian-post-offices-in-china/10003-1.jpg>
+<../russian-post-offices-in-china/10004.jpg, id=218, 803.0pt x 614.295pt>
+File: ../russian-post-offices-in-china/10004.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10004.jpg>
+<../russian-post-offices-in-china/10004-1.jpg, id=219, 803.0pt x 615.29875pt>
+File: ../russian-post-offices-in-china/10004-1.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10004-1.jpg>
+<../russian-post-offices-in-china/10005.jpg, id=220, 803.0pt x 623.32875pt>
+File: ../russian-post-offices-in-china/10005.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10005.jpg>
+<../russian-post-offices-in-china/10006.jpg, id=221, 745.78625pt x 536.0025pt>
+File: ../russian-post-offices-in-china/10006.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10006.jpg>
+<../russian-post-offices-in-china/10006-1.jpg, id=222, 744.7825pt x 533.995pt>
+File: ../russian-post-offices-in-china/10006-1.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10006-1.jpg>)
+(C:\wamp\www\countries\russian-post-offices-in-china\tex\Tientsin_Part2.tex
+[17 <C:/wamp/www/countries/russian-post-offices-in-china/russian-post-offices-i
+n-china/10003.jpg> <C:/wamp/www/countries/russian-post-offices-in-china/russian
+-post-offices-in-china/10003-1.jpg>] [18 <C:/wamp/www/countries/russian-post-of
+fices-in-china/russian-post-offices-in-china/10004.jpg> <C:/wamp/www/countries/
+russian-post-offices-in-china/russian-post-offices-in-china/10004-1.jpg>]
+[19 <C:/wamp/www/countries/russian-post-offices-in-china/russian-post-offices-i
+n-china/10005.jpg> <C:/wamp/www/countries/russian-post-offices-in-china/russian
+-post-offices-in-china/10006.jpg> <C:/wamp/www/countries/russian-post-offices-i
+n-china/russian-post-offices-in-china/10006-1.jpg>] [20
+
+]
+<../russian-post-offices-in-china/10008.jpg, id=241, 193.72375pt x 246.9225pt>
+File: ../russian-post-offices-in-china/10008.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10008.jpg>
+<../russian-post-offices-in-china/10007.jpg, id=242, 803.0pt x 645.41125pt>
+File: ../russian-post-offices-in-china/10007.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10007.jpg>
+Underfull \hbox (badness 2698) in paragraph at lines 23--23
+\T1/pplj/m/n/8 ING: 1897 Cover from Vologda to
+ []
+
+
+<../russian-post-offices-in-china/10009.jpg, id=243, 761.84625pt x 460.72125pt>
+File: ../russian-post-offices-in-china/10009.jpg Graphic file (type jpg)
+<use ../russian-post-offices-in-china/10009.jpg>
+Underfull \hbox (badness 1755) in paragraph at lines 36--36
+\T1/pplj/m/n/8 Or-di-nary Rus-sian 10k letter-card to
+ []
+
+
+Underfull \hbox (badness 2735) in paragraph at lines 36--36
+\T1/pplj/m/n/8 cds in red (T&S type 4X, char-ac-
+ []
+
+
+Underfull \hbox (badness 1484) in paragraph at lines 36--36
+\T1/pplj/m/n/8 terised by de-fec-tive year nu-mer-als),
+ []
+
+<../russian-post-offices-in-china/10010.jpg, id=244, 803.0pt x 641.39626pt>
+File: ../russian-post-offices-in-china/10010.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10010.jpg>
+<../russian-post-offices-in-china/10010-1.jpg, id=245, 803.0pt x 641.39626pt>
+File: ../russian-post-offices-in-china/10010-1.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10010-1.jpg>)
+(C:\wamp\www\countries\russian-post-offices-in-china\tex\Tientsin_Part3.tex
+<../russian-post-offices-in-china/10011.jpg, id=246, 803.0pt x 1030.85126pt>
+File: ../russian-post-offices-in-china/10011.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10011.jpg>
+Underfull \hbox (badness 3138) in paragraph at lines 15--15
+\T1/pplj/m/n/8 Figure 15: 10011 TIENTSIN: 1912
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 15--15
+\T1/pplj/m/n/8 Dis-patch doc-u-ment (Bul-letin
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 15--15
+\T1/pplj/m/n/8 D'Expedition) for con-sign-ment to
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 15--15
+\T1/pplj/m/n/8 Moscow with-out de-clared value,
+ []
+
+
+Underfull \hbox (badness 1596) in paragraph at lines 15--15
+\T1/pplj/m/n/8 (Manchuria) and Moscow, rare and
+ []
+
+<../russian-post-offices-in-china/10012.jpg, id=247, 803.0pt x 656.4525pt>
+File: ../russian-post-offices-in-china/10012.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10012.jpg>
+<../russian-post-offices-in-china/10012-1.jpg, id=248, 803.0pt x 659.46375pt>
+File: ../russian-post-offices-in-china/10012-1.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10012-1.jpg>
+Underfull \hbox (badness 2591) in paragraph at lines 30--30
+\T1/pplj/m/n/8 the Japanese P.O.s at Tientsin and
+ []
+
+<../russian-post-offices-in-china/10013.jpg, id=249, 803.0pt x 982.67125pt>
+File: ../russian-post-offices-in-china/10013.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10013.jpg>
+Underfull \hbox (badness 3138) in paragraph at lines 45--45
+\T1/pplj/m/n/8 Figure 17: 10013 TIENTSIN: 1916
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 45--45
+\T1/pplj/m/n/8 Despatch card ( du des-ti-nataire)
+ []
+
+
+Underfull \hbox (badness 3417) in paragraph at lines 45--45
+\T1/pplj/m/n/8 (SINKIANG), franked with "KI-TAI"
+ []
+
+
+Underfull \hbox (badness 1248) in paragraph at lines 45--45
+\T1/pplj/m/n/8 14.6.16 cds (T&S type 6), with red
+ []
+
+
+Underfull \hbox (badness 4217) in paragraph at lines 45--45
+\T1/pplj/m/n/8 Harbin, ar-riv-ing in Kuldja 20.7.16
+ []
+
+
+Underfull \hbox (badness 3209) in paragraph at lines 45--45
+\T1/pplj/m/n/8 China, re-entering via the Rus-sian
+ []
+
+<../russian-post-offices-in-china/10014.jpg, id=250, 803.0pt x 718.685pt>
+File: ../russian-post-offices-in-china/10014.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10014.jpg>
+Underfull \hbox (badness 2173) in paragraph at lines 58--58
+\T1/pplj/m/n/8 with "KI-TAI" 4k, 14k and 70k (3)
+ []
+
+
+Underfull \hbox (badness 1082) in paragraph at lines 58--58
+\T1/pplj/m/n/8 la-bel, sent via the Japanese P.O. at
+ []
+
+<../russian-post-offices-in-china/10015.jpg, id=251, 803.0pt x 662.475pt>
+File: ../russian-post-offices-in-china/10015.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10015.jpg>
+<../russian-post-offices-in-china/10015-1.jpg, id=252, 803.0pt x 660.4675pt>
+File: ../russian-post-offices-in-china/10015-1.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10015-1.jpg>)
+(C:\wamp\www\countries\russian-post-offices-in-china\tex\Tientsin_Part4.tex
+<../russian-post-offices-in-china/10016.jpg, id=253, 803.0pt x 698.61pt>
+File: ../russian-post-offices-in-china/10016.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10016.jpg>
+Underfull \hbox (badness 1895) in paragraph at lines 15--15
+\T1/pplj/m/n/8 for used by the Red Cross P.O.W.
+ []
+
+[21 <C:/wamp/www/countries/russian-post-offices-in-china/russian-post-offices-i
+n-china/10008.jpg> <C:/wamp/www/countries/russian-post-offices-in-china/russian
+-post-offices-in-china/10007.jpg>] [22 <C:/wamp/www/countries/russian-post-offi
+ces-in-china/russian-post-offices-in-china/10009.jpg> <C:/wamp/www/countries/ru
+ssian-post-offices-in-china/russian-post-offices-in-china/10010.jpg> <C:/wamp/w
+ww/countries/russian-post-offices-in-china/russian-post-offices-in-china/10010-
+1.jpg>] [23 <C:/wamp/www/countries/russian-post-offices-in-china/russian-post-o
+ffices-in-china/10011.jpg>] [24 <C:/wamp/www/countries/russian-post-offices-in-
+china/russian-post-offices-in-china/10012.jpg> <C:/wamp/www/countries/russian-p
+ost-offices-in-china/russian-post-offices-in-china/10012-1.jpg>] [25 <C:/wamp/w
+ww/countries/russian-post-offices-in-china/russian-post-offices-in-china/10013.
+jpg> <C:/wamp/www/countries/russian-post-offices-in-china/russian-post-offices-
+in-china/10014.jpg>] [26 <C:/wamp/www/countries/russian-post-offices-in-china/r
+ussian-post-offices-in-china/10015.jpg> <C:/wamp/www/countries/russian-post-off
+ices-in-china/russian-post-offices-in-china/10015-1.jpg>]
+<../russian-post-offices-in-china/10017.jpg, id=281, 803.0pt x 653.44125pt>
+File: ../russian-post-offices-in-china/10017.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10017.jpg>
+Underfull \hbox (badness 2653) in paragraph at lines 28--28
+\T1/pplj/m/n/8 at Tientsin on ob-verse (un-recorded
+ []
+
+<../russian-post-offices-in-china/10019.jpg, id=282, 803.0pt x 655.44875pt>
+File: ../russian-post-offices-in-china/10019.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10019.jpg>
+<../russian-post-offices-in-china/10019-1.jpg, id=283, 803.0pt x 656.4525pt>
+File: ../russian-post-offices-in-china/10019-1.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10019-1.jpg>)
+(C:\wamp\www\countries\russian-post-offices-in-china\tex\Wreck_cover.tex
+<../russian-post-offices-in-china/10018.jpg, id=284, 757.83125pt x 448.67625pt>
+File: ../russian-post-offices-in-china/10018.jpg Graphic file (type jpg)
+<use ../russian-post-offices-in-china/10018.jpg>
+<../russian-post-offices-in-china/10018-1.jpg, id=285, 757.83125pt x 449.68pt>
+File: ../russian-post-offices-in-china/10018-1.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10018-1.jpg>)
+(C:\wamp\www\countries\russian-post-offices-in-china\tex\Peking_Part1.tex
+[27 <C:/wamp/www/countries/russian-post-offices-in-china/russian-post-offices-i
+n-china/10016.jpg> <C:/wamp/www/countries/russian-post-offices-in-china/russian
+-post-offices-in-china/10017.jpg>] [28 <C:/wamp/www/countries/russian-post-offi
+ces-in-china/russian-post-offices-in-china/10019.jpg> <C:/wamp/www/countries/ru
+ssian-post-offices-in-china/russian-post-offices-in-china/10019-1.jpg>]
+[29 <C:/wamp/www/countries/russian-post-offices-in-china/russian-post-offices-i
+n-china/10018.jpg> <C:/wamp/www/countries/russian-post-offices-in-china/russian
+-post-offices-in-china/10018-1.jpg>] [30
+
+]
+<../russian-post-offices-in-china/10021.jpg, id=304, 803.0pt x 521.95pt>
+File: ../russian-post-offices-in-china/10021.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10021.jpg>
+<../russian-post-offices-in-china/10021-1.jpg, id=305, 803.0pt x 521.95pt>
+File: ../russian-post-offices-in-china/10021-1.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10021-1.jpg>
+<../russian-post-offices-in-china/10022.jpg, id=306, 803.0pt x 644.4075pt>
+File: ../russian-post-offices-in-china/10022.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10022.jpg>
+<../russian-post-offices-in-china/10022-1.jpg, id=307, 803.0pt x 646.415pt>
+File: ../russian-post-offices-in-china/10022-1.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10022-1.jpg>
+<../russian-post-offices-in-china/10023.jpg, id=308, 803.0pt x 444.66125pt>
+File: ../russian-post-offices-in-china/10023.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10023.jpg>
+<../russian-post-offices-in-china/10023-1.jpg, id=309, 803.0pt x 444.66125pt>
+File: ../russian-post-offices-in-china/10023-1.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10023-1.jpg>
+Underfull \hbox (badness 2221) in paragraph at lines 44--44
+\T1/pplj/m/n/8 7k tied by dou-ble oval Peking ds
+ []
+
+
+Underfull \hbox (badness 2503) in paragraph at lines 44--44
+\T1/pplj/m/n/8 (Tchilinghirian type 3 va-ri-ety, with
+ []
+
+
+Underfull \hbox (badness 4765) in paragraph at lines 44--44
+\T1/pplj/m/n/8 month above day), with Kyakhta,
+ []
+
+) (C:\wamp\www\countries\russian-post-offices-in-china\tex\Peking_Part2.tex
+[31 <C:/wamp/www/countries/russian-post-offices-in-china/russian-post-offices-i
+n-china/10021.jpg> <C:/wamp/www/countries/russian-post-offices-in-china/russian
+-post-offices-in-china/10021-1.jpg>] [32 <C:/wamp/www/countries/russian-post-of
+fices-in-china/russian-post-offices-in-china/10022.jpg> <C:/wamp/www/countries/
+russian-post-offices-in-china/russian-post-offices-in-china/10022-1.jpg>]
+[33 <C:/wamp/www/countries/russian-post-offices-in-china/russian-post-offices-i
+n-china/10023.jpg> <C:/wamp/www/countries/russian-post-offices-in-china/russian
+-post-offices-in-china/10023-1.jpg>] [34
+
+]
+<../russian-post-offices-in-china/10024.jpg, id=328, 745.78625pt x 541.02126pt>
+File: ../russian-post-offices-in-china/10024.jpg Graphic file (type jpg)
+<use ../russian-post-offices-in-china/10024.jpg>
+Underfull \hbox (badness 1845) in paragraph at lines 13--13
+\T1/pplj/m/n/8 Ger-many, can-celled by dou-ble oval
+ []
+
+<../russian-post-offices-in-china/10025.jpg, id=329, 803.0pt x 449.68pt>
+File: ../russian-post-offices-in-china/10025.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10025.jpg>)
+(C:\wamp\www\countries\russian-post-offices-in-china\tex\Peking_Part3.tex
+<../russian-post-offices-in-china/10028.jpg, id=330, 325.215pt x 1260.71pt>
+File: ../russian-post-offices-in-china/10028.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10028.jpg>
+
+LaTeX Warning: Float too large for page by 27.1281pt on input line 12.
+
+<../russian-post-offices-in-china/10029.jpg, id=331, 803.0pt x 517.935pt>
+File: ../russian-post-offices-in-china/10029.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10029.jpg>
+Underfull \hbox (badness 1210) in paragraph at lines 26--26
+\T1/pplj/m/n/8 4k (+4k) Reply-paid post-card (re-ply
+ []
+
+<../russian-post-offices-in-china/10030.jpg, id=332, 803.0pt x 531.9875pt>
+File: ../russian-post-offices-in-china/10030.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10030.jpg>
+<../russian-post-offices-in-china/10031.jpg, id=333, 803.0pt x 543.02875pt>
+File: ../russian-post-offices-in-china/10031.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10031.jpg>
+<../russian-post-offices-in-china/10031-1.jpg, id=334, 803.0pt x 545.03625pt>
+File: ../russian-post-offices-in-china/10031-1.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10031-1.jpg>) [35 <C:/wamp/www/countries/
+russian-post-offices-in-china/russian-post-offices-in-china/10024.jpg> <C:/wamp
+/www/countries/russian-post-offices-in-china/russian-post-offices-in-china/1002
+5.jpg>] [36 <C:/wamp/www/countries/russian-post-offices-in-china/russian-post-o
+ffices-in-china/10028.jpg>] [37 <C:/wamp/www/countries/russian-post-offices-in-
+china/russian-post-offices-in-china/10029.jpg> <C:/wamp/www/countries/russian-p
+ost-offices-in-china/russian-post-offices-in-china/10030.jpg>] [38 <C:/wamp/www
+/countries/russian-post-offices-in-china/russian-post-offices-in-china/10031.jp
+g> <C:/wamp/www/countries/russian-post-offices-in-china/russian-post-offices-in
+-china/10031-1.jpg>]
+(C:\wamp\www\countries\russian-post-offices-in-china\tex\Peking_Part4.tex
+<../russian-post-offices-in-china/10032.jpg, id=355, 803.0pt x 641.39626pt>
+File: ../russian-post-offices-in-china/10032.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10032.jpg>
+<../russian-post-offices-in-china/10033.jpg, id=356, 803.0pt x 508.90125pt>
+File: ../russian-post-offices-in-china/10033.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10033.jpg>
+<../russian-post-offices-in-china/10033-1.jpg, id=357, 803.0pt x 508.90125pt>
+File: ../russian-post-offices-in-china/10033-1.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10033-1.jpg>
+<../russian-post-offices-in-china/10034.jpg, id=358, 803.0pt x 522.95375pt>
+File: ../russian-post-offices-in-china/10034.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10034.jpg>
+<../russian-post-offices-in-china/10034-1.jpg, id=359, 803.0pt x 516.93124pt>
+File: ../russian-post-offices-in-china/10034-1.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10034-1.jpg>
+<../russian-post-offices-in-china/10035.jpg, id=360, 803.0pt x 612.2875pt>
+File: ../russian-post-offices-in-china/10035.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10035.jpg>
+Underfull \hbox (badness 5036) in paragraph at lines 50--50
+\T1/pplj/m/n/8 Bank reg-is-tered to their of-fice in
+ []
+
+) (C:\wamp\www\countries\russian-post-offices-in-china\tex\Peking_Part5.tex
+<../russian-post-offices-in-china/10037.jpg, id=361, 803.0pt x 540.0175pt>
+File: ../russian-post-offices-in-china/10037.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10037.jpg>
+<../russian-post-offices-in-china/10037-1.jpg, id=362, 803.0pt x 539.01375pt>
+File: ../russian-post-offices-in-china/10037-1.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10037-1.jpg>
+Underfull \hbox (badness 2644) in paragraph at lines 13--13
+\T1/pplj/m/n/8 reg-is-tered to Tientsin franked with
+ []
+
+<../russian-post-offices-in-china/10038.jpg, id=363, 803.0pt x 514.92375pt>
+File: ../russian-post-offices-in-china/10038.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10038.jpg>
+<../russian-post-offices-in-china/10039.jpg, id=364, 803.0pt x 545.03625pt>
+File: ../russian-post-offices-in-china/10039.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10039.jpg>
+<../russian-post-offices-in-china/10039-1.jpg, id=365, 803.0pt x 547.04375pt>
+File: ../russian-post-offices-in-china/10039-1.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10039-1.jpg>
+<../russian-post-offices-in-china/10040.jpg, id=366, 803.0pt x 645.41125pt>
+File: ../russian-post-offices-in-china/10040.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10040.jpg>
+Underfull \hbox (badness 5802) in paragraph at lines 59--59
+\T1/pplj/m/n/8 reg-is-tered from the Post-mas-ter at
+ []
+
+<../russian-post-offices-in-china/10041.jpg, id=367, 803.0pt x 634.37pt>
+File: ../russian-post-offices-in-china/10041.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10041.jpg>)
+(C:\wamp\www\countries\russian-post-offices-in-china\tex\Peking_Part6.tex
+<../russian-post-offices-in-china/10043.jpg, id=368, 803.0pt x 451.6875pt>
+File: ../russian-post-offices-in-china/10043.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10043.jpg>
+<../russian-post-offices-in-china/10044.jpg, id=369, 803.0pt x 628.3475pt>
+File: ../russian-post-offices-in-china/10044.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10044.jpg> [39
+
+ <C:/wamp/www/countries/russian-post-offices-in-china/russian-post-offices-in-c
+hina/10032.jpg>] [40 <C:/wamp/www/countries/russian-post-offices-in-china/russi
+an-post-offices-in-china/10033.jpg> <C:/wamp/www/countries/russian-post-offices
+-in-china/russian-post-offices-in-china/10033-1.jpg>] [41 <C:/wamp/www/countrie
+s/russian-post-offices-in-china/russian-post-offices-in-china/10034.jpg> <C:/wa
+mp/www/countries/russian-post-offices-in-china/russian-post-offices-in-china/10
+034-1.jpg> <C:/wamp/www/countries/russian-post-offices-in-china/russian-post-of
+fices-in-china/10035.jpg>]
+[42 <C:/wamp/www/countries/russian-post-offices-in-china/russian-post-offices-i
+n-china/10037.jpg> <C:/wamp/www/countries/russian-post-offices-in-china/russian
+-post-offices-in-china/10037-1.jpg> <C:/wamp/www/countries/russian-post-offices
+-in-china/russian-post-offices-in-china/10038.jpg>] [43 <C:/wamp/www/countries/
+russian-post-offices-in-china/russian-post-offices-in-china/10039.jpg> <C:/wamp
+/www/countries/russian-post-offices-in-china/russian-post-offices-in-china/1003
+9-1.jpg> <C:/wamp/www/countries/russian-post-offices-in-china/russian-post-offi
+ces-in-china/10040.jpg>] [44 <C:/wamp/www/countries/russian-post-offices-in-chi
+na/russian-post-offices-in-china/10041.jpg> <C:/wamp/www/countries/russian-post
+-offices-in-china/russian-post-offices-in-china/10043.jpg> <C:/wamp/www/countri
+es/russian-post-offices-in-china/russian-post-offices-in-china/10044.jpg>]
+<../russian-post-offices-in-china/10045.jpg, id=396, 803.0pt x 502.87875pt>
+File: ../russian-post-offices-in-china/10045.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10045.jpg>
+Underfull \hbox (badness 2781) in paragraph at lines 53--53
+\T1/pplj/m/n/8 Peking 23.11.16 (T&S type7B), sent
+ []
+
+
+Underfull \hbox (badness 1009) in paragraph at lines 53--53
+\T1/pplj/m/n/8 rival cds, a very rare frank-ing and
+ []
+
+
+Underfull \hbox (badness 2134) in paragraph at lines 53--53
+\T1/pplj/m/n/8 route, show-ing re-entry into China
+ []
+
+
+<../russian-post-offices-in-china/10046.jpg, id=397, 113.42375pt x 149.55875pt>
+File: ../russian-post-offices-in-china/10046.jpg Graphic file (type jpg)
+<use ../russian-post-offices-in-china/10046.jpg>)
+(C:\wamp\www\countries\russian-post-offices-in-china\tex\Kalgan_Part1.tex
+[45
+
+ <C:/wamp/www/countries/russian-post-offices-in-china/russian-post-offices-in-c
+hina/10045.jpg> <C:/wamp/www/countries/russian-post-offices-in-china/russian-po
+st-offices-in-china/10046.jpg>] [46
+
+]
+File: ../russian-post-offices-in-china/10046.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10046.jpg>
+Overfull \hbox (13.1853pt too wide) in paragraph at lines 18--29
+[]\T1/pplj/m/n/10 In Au-gust 1211, there raised the Bad-ger's Mount Cam-paign, 
+Genghis
+ []
+
+
+<../russian-post-offices-in-china/10047.jpg, id=406, 356.33125pt x 335.2525pt>
+File: ../russian-post-offices-in-china/10047.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10047.jpg>
+<../russian-post-offices-in-china/10047-1.jpg, id=407, 314.17375pt x 344.28625p
+t>
+File: ../russian-post-offices-in-china/10047-1.jpg Graphic file (type jpg)
+ <use ../russian-post-offices-in-china/10047-1.jpg>
+<../russian-post-offices-in-china/10048-1.jpg, id=408, 178.6675pt x 201.75375pt
+>
+File: ../russian-post-offices-in-china/10048-1.jpg Graphic file (type jpg)
+ <use ../russian-post-offices-in-china/10048-1.jpg>
+<../russian-post-offices-in-china/10048-2.jpg, id=409, 173.64874pt x 197.73875p
+t>
+File: ../russian-post-offices-in-china/10048-2.jpg Graphic file (type jpg)
+ <use ../russian-post-offices-in-china/10048-2.jpg>
+<../russian-post-offices-in-china/10048.jpg, id=410, 476.78125pt x 208.78pt>
+File: ../russian-post-offices-in-china/10048.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10048.jpg>
+<../russian-post-offices-in-china/10049.jpg, id=411, 803.0pt x 454.69875pt>
+File: ../russian-post-offices-in-china/10049.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10049.jpg>
+<../russian-post-offices-in-china/10049-1.jpg, id=412, 803.0pt x 455.7025pt>
+File: ../russian-post-offices-in-china/10049-1.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10049-1.jpg>
+<../russian-post-offices-in-china/10050.jpg, id=413, 803.0pt x 406.51875pt>
+File: ../russian-post-offices-in-china/10050.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10050.jpg>
+<../russian-post-offices-in-china/10051.jpg, id=414, 803.0pt x 638.385pt>
+File: ../russian-post-offices-in-china/10051.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10051.jpg>
+<../russian-post-offices-in-china/10051-1.jpg, id=415, 803.0pt x 636.3775pt>
+File: ../russian-post-offices-in-china/10051-1.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10051-1.jpg>) [47] [48 <C:/wamp/www/count
+ries/russian-post-offices-in-china/russian-post-offices-in-china/10047.jpg> <C:
+/wamp/www/countries/russian-post-offices-in-china/russian-post-offices-in-china
+/10047-1.jpg> <C:/wamp/www/countries/russian-post-offices-in-china/russian-post
+-offices-in-china/10048-1.jpg> <C:/wamp/www/countries/russian-post-offices-in-c
+hina/russian-post-offices-in-china/10048-2.jpg> <C:/wamp/www/countries/russian-
+post-offices-in-china/russian-post-offices-in-china/10048.jpg>] [49 <C:/wamp/ww
+w/countries/russian-post-offices-in-china/russian-post-offices-in-china/10049.j
+pg> <C:/wamp/www/countries/russian-post-offices-in-china/russian-post-offices-i
+n-china/10049-1.jpg> <C:/wamp/www/countries/russian-post-offices-in-china/russi
+an-post-offices-in-china/10050.jpg>] [50 <C:/wamp/www/countries/russian-post-of
+fices-in-china/russian-post-offices-in-china/10051.jpg> <C:/wamp/www/countries/
+russian-post-offices-in-china/russian-post-offices-in-china/10051-1.jpg>]
+(C:\wamp\www\countries\russian-post-offices-in-china\tex\Shanghai_Part1.tex
+[51] [52
+
+]
+<../russian-post-offices-in-china/10052.jpg, id=441, 803.0pt x 455.7025pt>
+File: ../russian-post-offices-in-china/10052.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10052.jpg>
+<../russian-post-offices-in-china/10052-1.jpg, id=442, 803.0pt x 455.7025pt>
+File: ../russian-post-offices-in-china/10052-1.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10052-1.jpg>
+Underfull \hbox (badness 3417) in paragraph at lines 41--41
+\T1/pplj/m/n/8 Figure 52: 10052 SHANG-HAI: 2c
+ []
+
+
+Underfull \hbox (badness 2376) in paragraph at lines 41--41
+\T1/pplj/m/n/8 Shang-hai Lo-cal Post em-bossed sta-
+ []
+
+
+Underfull \hbox (badness 1577) in paragraph at lines 41--41
+\T1/pplj/m/n/8 paque-bot ds ("Ligne N" Yokohama-
+ []
+
+<../russian-post-offices-in-china/10053.jpg, id=443, 803.0pt x 490.83376pt>
+File: ../russian-post-offices-in-china/10053.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10053.jpg>
+File: ../russian-post-offices-in-china/10052-1.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10052-1.jpg>
+<../russian-post-offices-in-china/10054.jpg, id=444, 803.0pt x 514.92375pt>
+File: ../russian-post-offices-in-china/10054.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10054.jpg>
+<../russian-post-offices-in-china/10055.jpg, id=445, 803.0pt x 556.0775pt>
+File: ../russian-post-offices-in-china/10055.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10055.jpg>) [53] [54 <C:/wamp/www/countri
+es/russian-post-offices-in-china/russian-post-offices-in-china/10052.jpg> <C:/w
+amp/www/countries/russian-post-offices-in-china/russian-post-offices-in-china/1
+0052-1.jpg>] [55 <C:/wamp/www/countries/russian-post-offices-in-china/russian-p
+ost-offices-in-china/10053.jpg> <C:/wamp/www/countries/russian-post-offices-in-
+china/russian-post-offices-in-china/10054.jpg>] [56 <C:/wamp/www/countries/russ
+ian-post-offices-in-china/russian-post-offices-in-china/10055.jpg>]
+(C:\wamp\www\countries\russian-post-offices-in-china\tex\Shanghai_Part2.tex
+<../russian-post-offices-in-china/10056.jpg, id=464, 803.0pt x 642.4pt>
+File: ../russian-post-offices-in-china/10056.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10056.jpg>
+<../russian-post-offices-in-china/10057.jpg, id=465, 799.98875pt x 473.77pt>
+File: ../russian-post-offices-in-china/10057.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10057.jpg>
+<../russian-post-offices-in-china/10057-1.jpg, id=466, 799.98875pt x 473.77pt>
+File: ../russian-post-offices-in-china/10057-1.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10057-1.jpg>
+<../russian-post-offices-in-china/10058.jpg, id=467, 803.0pt x 475.7775pt>
+File: ../russian-post-offices-in-china/10058.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10058.jpg>
+<../russian-post-offices-in-china/10059.jpg, id=468, 803.0pt x 541.02126pt>
+File: ../russian-post-offices-in-china/10059.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10059.jpg>
+<../russian-post-offices-in-china/10059-1.jpg, id=469, 803.0pt x 542.025pt>
+File: ../russian-post-offices-in-china/10059-1.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10059-1.jpg>)
+(C:\wamp\www\countries\russian-post-offices-in-china\tex\Shanghai_Part3.tex
+<../russian-post-offices-in-china/10060.jpg, id=470, 803.0pt x 472.76625pt>
+File: ../russian-post-offices-in-china/10060.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10060.jpg>
+<../russian-post-offices-in-china/10061.jpg, id=471, 803.0pt x 636.3775pt>
+File: ../russian-post-offices-in-china/10061.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10061.jpg>
+<../russian-post-offices-in-china/10062.jpg, id=472, 803.0pt x 527.9725pt>
+File: ../russian-post-offices-in-china/10062.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10062.jpg>
+<../russian-post-offices-in-china/10063.jpg, id=473, 803.0pt x 541.02126pt>
+File: ../russian-post-offices-in-china/10063.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10063.jpg>
+<../russian-post-offices-in-china/10064.jpg, id=474, 803.0pt x 599.23875pt>
+File: ../russian-post-offices-in-china/10064.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10064.jpg>
+Underfull \hbox (badness 1983) in paragraph at lines 72--72
+\T1/pplj/m/n/8 1903 Cover sent reg-is-tered to Italy
+ []
+
+
+Underfull \hbox (badness 1048) in paragraph at lines 72--72
+\T1/pplj/m/n/8 newly opened Tran-Siberian Rail-way
+ []
+
+<../russian-post-offices-in-china/10065.jpg, id=475, 803.0pt x 664.4825pt>
+File: ../russian-post-offices-in-china/10065.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10065.jpg>)
+(C:\wamp\www\countries\russian-post-offices-in-china\tex\Shanghai_Part4.tex
+<../russian-post-offices-in-china/10066.jpg, id=476, 803.0pt x 441.65pt>
+File: ../russian-post-offices-in-china/10066.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10066.jpg>
+<../russian-post-offices-in-china/10067.jpg, id=477, 803.0pt x 548.0475pt>
+File: ../russian-post-offices-in-china/10067.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10067.jpg>
+<../russian-post-offices-in-china/10068.jpg, id=478, 803.0pt x 477.785pt>
+File: ../russian-post-offices-in-china/10068.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10068.jpg>
+<../russian-post-offices-in-china/10069.jpg, id=479, 803.0pt x 638.385pt>
+File: ../russian-post-offices-in-china/10069.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10069.jpg>
+<../russian-post-offices-in-china/10069-1.jpg, id=480, 803.0pt x 636.3775pt>
+File: ../russian-post-offices-in-china/10069-1.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10069-1.jpg>
+Underfull \hbox (badness 7814) in paragraph at lines 50--50
+\T1/pplj/m/n/8 1907 Cover reg-is-tered to Staraya,
+ []
+
+<../russian-post-offices-in-china/10070.jpg, id=481, 803.0pt x 513.92pt>
+File: ../russian-post-offices-in-china/10070.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10070.jpg>
+Underfull \hbox (badness 1769) in paragraph at lines 70--70
+\T1/pplj/m/n/8 3k 'Ki-tai' sta-tionery card (over-print
+ []
+
+) (C:\wamp\www\countries\russian-post-offices-in-china\tex\Shanghai_Part5.tex
+<../russian-post-offices-in-china/10071.jpg, id=482, 803.0pt x 516.93124pt>
+File: ../russian-post-offices-in-china/10071.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10071.jpg> [57
+
+ <C:/wamp/www/countries/russian-post-offices-in-china/russian-post-offices-in-c
+hina/10056.jpg>] [58 <C:/wamp/www/countries/russian-post-offices-in-china/russi
+an-post-offices-in-china/10057.jpg> <C:/wamp/www/countries/russian-post-offices
+-in-china/russian-post-offices-in-china/10057-1.jpg> <C:/wamp/www/countries/rus
+sian-post-offices-in-china/russian-post-offices-in-china/10058.jpg>] [59 <C:/wa
+mp/www/countries/russian-post-offices-in-china/russian-post-offices-in-china/10
+059.jpg> <C:/wamp/www/countries/russian-post-offices-in-china/russian-post-offi
+ces-in-china/10059-1.jpg> <C:/wamp/www/countries/russian-post-offices-in-china/
+russian-post-offices-in-china/10060.jpg>] [60 <C:/wamp/www/countries/russian-po
+st-offices-in-china/russian-post-offices-in-china/10061.jpg> <C:/wamp/www/count
+ries/russian-post-offices-in-china/russian-post-offices-in-china/10062.jpg> <C:
+/wamp/www/countries/russian-post-offices-in-china/russian-post-offices-in-china
+/10063.jpg>] [61 <C:/wamp/www/countries/russian-post-offices-in-china/russian-p
+ost-offices-in-china/10064.jpg> <C:/wamp/www/countries/russian-post-offices-in-
+china/russian-post-offices-in-china/10065.jpg> <C:/wamp/www/countries/russian-p
+ost-offices-in-china/russian-post-offices-in-china/10066.jpg>] [62 <C:/wamp/www
+/countries/russian-post-offices-in-china/russian-post-offices-in-china/10067.jp
+g> <C:/wamp/www/countries/russian-post-offices-in-china/russian-post-offices-in
+-china/10068.jpg>] [63 <C:/wamp/www/countries/russian-post-offices-in-china/rus
+sian-post-offices-in-china/10069.jpg> <C:/wamp/www/countries/russian-post-offic
+es-in-china/russian-post-offices-in-china/10069-1.jpg> <C:/wamp/www/countries/r
+ussian-post-offices-in-china/russian-post-offices-in-china/10070.jpg>]
+<../russian-post-offices-in-china/10072.jpg, id=512, 803.0pt x 510.90875pt>
+File: ../russian-post-offices-in-china/10072.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10072.jpg>
+Underfull \hbox (badness 1092) in paragraph at lines 29--29
+\T1/pplj/m/n/8 6B, Gre-go-rian cal-en-dar), with reg-is-
+ []
+
+[64 <C:/wamp/www/countries/russian-post-offices-in-china/russian-post-offices-i
+n-china/10071.jpg> <C:/wamp/www/countries/russian-post-offices-in-china/russian
+-post-offices-in-china/10072.jpg>]
+<../russian-post-offices-in-china/10073.jpg, id=517, 538.01pt x 464.73625pt>
+File: ../russian-post-offices-in-china/10073.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10073.jpg>
+<../russian-post-offices-in-china/10074.jpg, id=518, 803.0pt x 573.14125pt>
+File: ../russian-post-offices-in-china/10074.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10074.jpg>
+<../russian-post-offices-in-china/10075.jpg, id=519, 803.0pt x 672.5125pt>
+File: ../russian-post-offices-in-china/10075.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10075.jpg>
+<../russian-post-offices-in-china/10075-1.jpg, id=520, 803.0pt x 676.5275pt>
+File: ../russian-post-offices-in-china/10075-1.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10075-1.jpg>)
+(C:\wamp\www\countries\russian-post-offices-in-china\tex\Shanghai_Part7.tex
+<../russian-post-offices-in-china/10076.jpg, id=521, 342.27875pt x 392.46625pt>
+File: ../russian-post-offices-in-china/10076.jpg Graphic file (type jpg)
+<use ../russian-post-offices-in-china/10076.jpg> [65 <C:/wamp/www/countries/rus
+sian-post-offices-in-china/russian-post-offices-in-china/10073.jpg> <C:/wamp/ww
+w/countries/russian-post-offices-in-china/russian-post-offices-in-china/10074.j
+pg>] [66 <C:/wamp/www/countries/russian-post-offices-in-china/russian-post-offi
+ces-in-china/10075.jpg> <C:/wamp/www/countries/russian-post-offices-in-china/ru
+ssian-post-offices-in-china/10075-1.jpg>]
+<../russian-post-offices-in-china/10077.jpg, id=530, 803.0pt x 625.33624pt>
+File: ../russian-post-offices-in-china/10077.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10077.jpg>
+Underfull \hbox (badness 2600) in paragraph at lines 25--25
+\T1/pplj/m/n/8 Figure 77: 10077SHANG-HAI: 1910
+ []
+
+
+Underfull \hbox (badness 1365) in paragraph at lines 25--25
+\T1/pplj/m/n/8 "KI-TAI" 10k pair tied by "SHANG-
+ []
+
+<../russian-post-offices-in-china/10078.jpg, id=531, 803.0pt x 656.4525pt>
+File: ../russian-post-offices-in-china/10078.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10078.jpg>
+File: ../russian-post-offices-in-china/10078.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10078.jpg>
+<../russian-post-offices-in-china/10079.jpg, id=532, 803.0pt x 551.05875pt>
+File: ../russian-post-offices-in-china/10079.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10079.jpg>
+Underfull \hbox (badness 2181) in paragraph at lines 64--64
+\T1/pplj/m/n/8 Ad-dress card ac-com-pa-ny-ing a par-
+ []
+
+) (C:\wamp\www\countries\russian-post-offices-in-china\tex\Shanghai_Part8.tex
+<../russian-post-offices-in-china/10080.jpg, id=533, 803.0pt x 633.36626pt>
+File: ../russian-post-offices-in-china/10080.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10080.jpg>
+<../russian-post-offices-in-china/10081.jpg, id=534, 803.0pt x 621.32124pt>
+File: ../russian-post-offices-in-china/10081.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10081.jpg>
+Underfull \hbox (badness 2326) in paragraph at lines 24--24
+\T1/pplj/m/n/8 verse with Moscow cen-sor hs and
+ []
+
+<../russian-post-offices-in-china/10082.jpg, id=535, 803.0pt x 546.04pt>
+File: ../russian-post-offices-in-china/10082.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10082.jpg>
+<../russian-post-offices-in-china/10082-1.jpg, id=536, 803.0pt x 549.05125pt>
+File: ../russian-post-offices-in-china/10082-1.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10082-1.jpg>
+Underfull \hbox (badness 10000) in paragraph at lines 40--40
+\T1/pplj/m/n/8 Figure 83: 10082 SHANG-HAI:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 40--40
+\T1/pplj/m/n/8 1916 Despatch doc-u-ment (Bul-letin
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 40--40
+\T1/pplj/m/n/8 D'Expédition) for con-sign-ment to
+ []
+
+
+Underfull \hbox (badness 1163) in paragraph at lines 40--40
+\T1/pplj/m/n/8 can-celled by Shang-hai 24.3.16 cds (
+ []
+
+
+Underfull \hbox (badness 2050) in paragraph at lines 40--40
+\T1/pplj/m/n/8 Post Of-fice Abroad" Im-pe-rial Ea-gle
+ []
+
+
+Underfull \hbox (badness 5741) in paragraph at lines 40--40
+[]\T1/pplj/m/n/8 Provenance: ex Mizuhara EU
+ []
+
+<../russian-post-offices-in-china/10083.jpg, id=537, 803.0pt x 913.4125pt>
+File: ../russian-post-offices-in-china/10083.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10083.jpg>
+<../russian-post-offices-in-china/10084.jpg, id=538, 803.0pt x 788.9475pt>
+File: ../russian-post-offices-in-china/10084.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10084.jpg>
+<../russian-post-offices-in-china/10084-1.jpg, id=539, 803.0pt x 799.98875pt>
+File: ../russian-post-offices-in-china/10084-1.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10084-1.jpg>
+Underfull \hbox (badness 10000) in paragraph at lines 63--63
+\T1/pplj/m/n/8 1916 Dis-patch doc-u-ment (Bul-letin
+ []
+
+
+Underfull \hbox (badness 2401) in paragraph at lines 63--63
+\T1/pplj/m/n/8 D'Expédition) for 21 pack-ages sent
+ []
+
+<../russian-post-offices-in-china/10085.jpg, id=540, 803.0pt x 647.41875pt>
+File: ../russian-post-offices-in-china/10085.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10085.jpg>)
+(C:\wamp\www\countries\russian-post-offices-in-china\tex\Shanghai_Part9.tex
+<../russian-post-offices-in-china/10086.jpg, id=541, 803.0pt x 519.9425pt>
+File: ../russian-post-offices-in-china/10086.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10086.jpg>
+<../russian-post-offices-in-china/10087.jpg, id=542, 803.0pt x 515.9275pt>
+File: ../russian-post-offices-in-china/10087.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10087.jpg>
+<../russian-post-offices-in-china/10088.jpg, id=543, 803.0pt x 509.905pt>
+File: ../russian-post-offices-in-china/10088.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10088.jpg>
+Underfull \hbox (badness 1609) in paragraph at lines 45--45
+\T1/pplj/m/n/8 Cross post-free card from a P.O.W.
+ []
+
+<../russian-post-offices-in-china/10089.jpg, id=544, 803.0pt x 625.33624pt>
+File: ../russian-post-offices-in-china/10089.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10089.jpg>
+Underfull \hbox (badness 2600) in paragraph at lines 64--64
+\T1/pplj/m/n/8 Figure 90: 10089SHANG-HAI: 1919
+ []
+
+
+Underfull \hbox (badness 1762) in paragraph at lines 64--64
+[]\T1/pplj/m/n/8 NOTE: From the be-gin-ning the
+ []
+
+<../russian-post-offices-in-china/10090.jpg, id=545, 803.0pt x 521.95pt>
+File: ../russian-post-offices-in-china/10090.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10090.jpg>
+<../russian-post-offices-in-china/10091.jpg, id=546, 803.0pt x 391.4625pt>
+File: ../russian-post-offices-in-china/10091.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10091.jpg>
+Underfull \hbox (badness 5105) in paragraph at lines 87--87
+\T1/pplj/m/n/8 1920 Large en-ve-lope reg-is-tered to
+ []
+
+) (C:\wamp\www\countries\russian-post-offices-in-china\tex\Shanghai_Part10.tex
+<../russian-post-offices-in-china/10092.jpg, id=547, 803.0pt x 387.4475pt>
+File: ../russian-post-offices-in-china/10092.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10092.jpg>)
+(C:\wamp\www\countries\russian-post-offices-in-china\tex\Chefoo_Part1.tex
+[67 <C:/wamp/www/countries/russian-post-offices-in-china/russian-post-offices-i
+n-china/10076.jpg> <C:/wamp/www/countries/russian-post-offices-in-china/russian
+-post-offices-in-china/10077.jpg>] [68 <C:/wamp/www/countries/russian-post-offi
+ces-in-china/russian-post-offices-in-china/10078.jpg>] [69 <C:/wamp/www/countri
+es/russian-post-offices-in-china/russian-post-offices-in-china/10079.jpg> <C:/w
+amp/www/countries/russian-post-offices-in-china/russian-post-offices-in-china/1
+0080.jpg> <C:/wamp/www/countries/russian-post-offices-in-china/russian-post-off
+ices-in-china/10081.jpg>] [70 <C:/wamp/www/countries/russian-post-offices-in-ch
+ina/russian-post-offices-in-china/10082.jpg> <C:/wamp/www/countries/russian-pos
+t-offices-in-china/russian-post-offices-in-china/10082-1.jpg>] [71 <C:/wamp/www
+/countries/russian-post-offices-in-china/russian-post-offices-in-china/10083.jp
+g>] [72 <C:/wamp/www/countries/russian-post-offices-in-china/russian-post-offic
+es-in-china/10084.jpg> <C:/wamp/www/countries/russian-post-offices-in-china/rus
+sian-post-offices-in-china/10084-1.jpg>] [73 <C:/wamp/www/countries/russian-pos
+t-offices-in-china/russian-post-offices-in-china/10085.jpg> <C:/wamp/www/countr
+ies/russian-post-offices-in-china/russian-post-offices-in-china/10086.jpg> <C:/
+wamp/www/countries/russian-post-offices-in-china/russian-post-offices-in-china/
+10087.jpg>] [74 <C:/wamp/www/countries/russian-post-offices-in-china/russian-po
+st-offices-in-china/10088.jpg> <C:/wamp/www/countries/russian-post-offices-in-c
+hina/russian-post-offices-in-china/10089.jpg> <C:/wamp/www/countries/russian-po
+st-offices-in-china/russian-post-offices-in-china/10090.jpg>] [75 <C:/wamp/www/
+countries/russian-post-offices-in-china/russian-post-offices-in-china/10091.jpg
+> <C:/wamp/www/countries/russian-post-offices-in-china/russian-post-offices-in-
+china/10092.jpg>] [76
+
+]
+<../russian-post-offices-in-china/10093.jpg, id=590, 232.87pt x 302.12875pt>
+File: ../russian-post-offices-in-china/10093.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10093.jpg>
+<../russian-post-offices-in-china/10093-1.jpg, id=591, 232.87pt x 306.14375pt>
+File: ../russian-post-offices-in-china/10093-1.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10093-1.jpg>
+<../russian-post-offices-in-china/10093-2.jpg, id=592, 220.825pt x 237.88875pt>
+File: ../russian-post-offices-in-china/10093-2.jpg Graphic file (type jpg)
+<use ../russian-post-offices-in-china/10093-2.jpg>
+<../russian-post-offices-in-china/10093-3.jpg, id=593, 240.9pt x 308.15125pt>
+File: ../russian-post-offices-in-china/10093-3.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10093-3.jpg>
+<../russian-post-offices-in-china/10094.jpg, id=594, 803.0pt x 481.8pt>
+File: ../russian-post-offices-in-china/10094.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10094.jpg>
+<../russian-post-offices-in-china/10095.jpg, id=595, 803.0pt x 521.95pt>
+File: ../russian-post-offices-in-china/10095.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10095.jpg>
+Underfull \hbox (badness 1087) in paragraph at lines 44--44
+[]\T1/pplj/m/n/8 Note: Or-di-nary Rus-sian stamps
+ []
+
+<../russian-post-offices-in-china/10096.jpg, id=596, 803.0pt x 464.73625pt>
+File: ../russian-post-offices-in-china/10096.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10096.jpg>
+Underfull \hbox (badness 1888) in paragraph at lines 58--58
+\T1/pplj/m/n/8 la-bel, with Shang-hai Japanese P.O.,
+ []
+
+<../russian-post-offices-in-china/10097.jpg, id=597, 803.0pt x 510.90875pt>
+File: ../russian-post-offices-in-china/10097.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10097.jpg>
+Underfull \hbox (badness 2837) in paragraph at lines 73--73
+\T1/pplj/m/n/8 o-ra-tive post-card (with gilt Chi-nese
+ []
+
+<../russian-post-offices-in-china/10098.jpg, id=598, 803.0pt x 495.8525pt>
+File: ../russian-post-offices-in-china/10098.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10098.jpg>
+<../russian-post-offices-in-china/10098-1.jpg, id=599, 803.0pt x 496.85625pt>
+File: ../russian-post-offices-in-china/10098-1.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10098-1.jpg>
+<../russian-post-offices-in-china/10099.jpg, id=600, 706.64pt x 587.19376pt>
+File: ../russian-post-offices-in-china/10099.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10099.jpg>
+<../russian-post-offices-in-china/10099-1.jpg, id=601, 707.64375pt x 588.1975pt
+>
+File: ../russian-post-offices-in-china/10099-1.jpg Graphic file (type jpg)
+ <use ../russian-post-offices-in-china/10099-1.jpg>)
+(C:\wamp\www\countries\russian-post-offices-in-china\tex\Chefoo_Part2.tex
+<../russian-post-offices-in-china/10100.jpg, id=602, 721.69624pt x 562.1pt>
+File: ../russian-post-offices-in-china/10100.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10100.jpg>
+Underfull \hbox (badness 2865) in paragraph at lines 16--16
+\T1/pplj/m/n/8 Figure 101: 10100 CHEFOO: 1902
+ []
+
+
+Underfull \hbox (badness 1199) in paragraph at lines 16--16
+\T1/pplj/m/n/8 phitrite" (printed on the re-verse) at
+ []
+
+<../russian-post-offices-in-china/10101.jpg, id=603, 803.0pt x 435.6275pt>
+File: ../russian-post-offices-in-china/10101.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10101.jpg>
+<../russian-post-offices-in-china/10102.jpg, id=604, 803.0pt x 614.295pt>
+File: ../russian-post-offices-in-china/10102.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10102.jpg>
+Underfull \hbox (badness 2865) in paragraph at lines 48--48
+\T1/pplj/m/n/8 Figure 103: 10102 CHEFOO: 1903
+ []
+
+<../russian-post-offices-in-china/10103.jpg, id=605, 369.38pt x 237.88875pt>
+File: ../russian-post-offices-in-china/10103.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10103.jpg>
+<../russian-post-offices-in-china/10104.jpg, id=606, 803.0pt x 477.785pt>
+File: ../russian-post-offices-in-china/10104.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10104.jpg>
+<../russian-post-offices-in-china/10105.jpg, id=607, 803.0pt x 516.93124pt>
+File: ../russian-post-offices-in-china/10105.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10105.jpg>
+<../russian-post-offices-in-china/10106.jpg, id=608, 383.4325pt x 806.01125pt>
+File: ../russian-post-offices-in-china/10106.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10106.jpg>
+<../russian-post-offices-in-china/10106-1.jpg, id=609, 383.4325pt x 803.0pt>
+File: ../russian-post-offices-in-china/10106-1.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10106-1.jpg>
+Underfull \hbox (badness 1009) in paragraph at lines 97--97
+\T1/pplj/m/n/8 tive cover to Vladi-vos-tok with 1916
+ []
+
+<../russian-post-offices-in-china/10107.jpg, id=610, 803.0pt x 542.025pt>
+File: ../russian-post-offices-in-china/10107.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10107.jpg>)
+(C:\wamp\www\countries\russian-post-offices-in-china\tex\Hankow_Part1.tex
+[77 <C:/wamp/www/countries/russian-post-offices-in-china/russian-post-offices-i
+n-china/10093.jpg> <C:/wamp/www/countries/russian-post-offices-in-china/russian
+-post-offices-in-china/10093-1.jpg> <C:/wamp/www/countries/russian-post-offices
+-in-china/russian-post-offices-in-china/10093-2.jpg> <C:/wamp/www/countries/rus
+sian-post-offices-in-china/russian-post-offices-in-china/10093-3.jpg> <C:/wamp/
+www/countries/russian-post-offices-in-china/russian-post-offices-in-china/10094
+.jpg>] [78 <C:/wamp/www/countries/russian-post-offices-in-china/russian-post-of
+fices-in-china/10095.jpg> <C:/wamp/www/countries/russian-post-offices-in-china/
+russian-post-offices-in-china/10096.jpg> <C:/wamp/www/countries/russian-post-of
+fices-in-china/russian-post-offices-in-china/10097.jpg>] [79 <C:/wamp/www/count
+ries/russian-post-offices-in-china/russian-post-offices-in-china/10098.jpg> <C:
+/wamp/www/countries/russian-post-offices-in-china/russian-post-offices-in-china
+/10098-1.jpg>] [80 <C:/wamp/www/countries/russian-post-offices-in-china/russian
+-post-offices-in-china/10099.jpg> <C:/wamp/www/countries/russian-post-offices-i
+n-china/russian-post-offices-in-china/10099-1.jpg>] [81 <C:/wamp/www/countries/
+russian-post-offices-in-china/russian-post-offices-in-china/10100.jpg> <C:/wamp
+/www/countries/russian-post-offices-in-china/russian-post-offices-in-china/1010
+1.jpg> <C:/wamp/www/countries/russian-post-offices-in-china/russian-post-office
+s-in-china/10102.jpg>] [82 <C:/wamp/www/countries/russian-post-offices-in-china
+/russian-post-offices-in-china/10103.jpg> <C:/wamp/www/countries/russian-post-o
+ffices-in-china/russian-post-offices-in-china/10104.jpg> <C:/wamp/www/countries
+/russian-post-offices-in-china/russian-post-offices-in-china/10105.jpg>]
+[83 <C:/wamp/www/countries/russian-post-offices-in-china/russian-post-offices-i
+n-china/10106.jpg> <C:/wamp/www/countries/russian-post-offices-in-china/russian
+-post-offices-in-china/10106-1.jpg> <C:/wamp/www/countries/russian-post-offices
+-in-china/russian-post-offices-in-china/10107.jpg>] [84
+
+]
+<../russian-post-offices-in-china/10108.jpg, id=645, 803.0pt x 631.35875pt>
+File: ../russian-post-offices-in-china/10108.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10108.jpg>
+Underfull \hbox (badness 1237) in paragraph at lines 11--11
+\T1/pplj/m/n/8 Figure 109: 10108 HAN-KOW: 1897
+ []
+
+<../russian-post-offices-in-china/10109.jpg, id=646, 731.73375pt x 582.175pt>
+File: ../russian-post-offices-in-china/10109.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10109.jpg>
+<../russian-post-offices-in-china/10109-1.jpg, id=647, 731.73375pt x 581.17125p
+t>
+File: ../russian-post-offices-in-china/10109-1.jpg Graphic file (type jpg)
+ <use ../russian-post-offices-in-china/10109-1.jpg>
+Underfull \hbox (badness 1237) in paragraph at lines 27--27
+\T1/pplj/m/n/8 Figure 110: 10109 HAN-KOW: 1903
+ []
+
+
+Underfull \hbox (badness 1215) in paragraph at lines 27--27
+\T1/pplj/m/n/8 Rus-sian P.O. and franked with two
+ []
+
+<../russian-post-offices-in-china/10110.jpg, id=648, 803.0pt x 517.935pt>
+File: ../russian-post-offices-in-china/10110.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10110.jpg>
+<../russian-post-offices-in-china/10110-1.jpg, id=649, 803.0pt x 515.9275pt>
+File: ../russian-post-offices-in-china/10110-1.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10110-1.jpg>
+Underfull \hbox (badness 1910) in paragraph at lines 44--44
+\T1/pplj/m/n/8 ser-vice down the River Yangtze to
+ []
+
+<../russian-post-offices-in-china/10111.jpg, id=650, 803.0pt x 514.92375pt>
+File: ../russian-post-offices-in-china/10111.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10111.jpg>
+Underfull \hbox (badness 1910) in paragraph at lines 60--60
+\T1/pplj/m/n/8 ser-vice down the River Yangtze to
+ []
+
+<../russian-post-offices-in-china/10112.jpg, id=651, 542.025pt x 893.3375pt>
+File: ../russian-post-offices-in-china/10112.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10112.jpg>
+<../russian-post-offices-in-china/10113.jpg, id=652, 803.0pt x 654.445pt>
+File: ../russian-post-offices-in-china/10113.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10113.jpg>
+<../russian-post-offices-in-china/10113-1.jpg, id=653, 803.0pt x 654.445pt>
+File: ../russian-post-offices-in-china/10113-1.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10113-1.jpg>)
+(C:\wamp\www\countries\russian-post-offices-in-china\tex\Hankow_Part2.tex
+<../russian-post-offices-in-china/10114.jpg, id=654, 177.66376pt x 203.76125pt>
+File: ../russian-post-offices-in-china/10114.jpg Graphic file (type jpg)
+<use ../russian-post-offices-in-china/10114.jpg>
+<../russian-post-offices-in-china/10114-1.jpg, id=655, 173.64874pt x 195.73125p
+t>
+File: ../russian-post-offices-in-china/10114-1.jpg Graphic file (type jpg)
+ <use ../russian-post-offices-in-china/10114-1.jpg>
+<../russian-post-offices-in-china/10114-2.jpg, id=656, 210.7875pt x 221.82875pt
+>
+File: ../russian-post-offices-in-china/10114-2.jpg Graphic file (type jpg)
+ <use ../russian-post-offices-in-china/10114-2.jpg>
+File: ../russian-post-offices-in-china/10015.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10015.jpg>
+Underfull \hbox (badness 1237) in paragraph at lines 25--25
+\T1/pplj/m/n/8 Figure 116: 10115 HAN-KOW: 1908
+ []
+
+
+<../russian-post-offices-in-china/10116.jpg, id=657, 137.51375pt x 197.73875pt>
+File: ../russian-post-offices-in-china/10116.jpg Graphic file (type jpg)
+<use ../russian-post-offices-in-china/10116.jpg>
+Underfull \hbox (badness 1194) in paragraph at lines 36--36
+\T1/pplj/m/n/8 10k on VER-TI-CALLY LAID PA-PER,
+ []
+
+
+<../russian-post-offices-in-china/10117.jpg, id=658, 458.71375pt x 454.69875pt>
+File: ../russian-post-offices-in-china/10117.jpg Graphic file (type jpg)
+<use ../russian-post-offices-in-china/10117.jpg>
+Underfull \hbox (badness 1622) in paragraph at lines 51--51
+\T1/pplj/m/n/8 with seven "KI-TAI" 10k on VER-TI-
+ []
+
+
+Underfull \hbox (badness 1270) in paragraph at lines 51--51
+\T1/pplj/m/n/8 and pair) plus 1k and 3k, tied by
+ []
+
+
+Underfull \hbox (badness 3108) in paragraph at lines 51--51
+[]\T1/pplj/m/n/8 Provenance: Ex Lip-schutz and
+ []
+
+<../russian-post-offices-in-china/10118.jpg, id=659, 803.0pt x 507.8975pt>
+File: ../russian-post-offices-in-china/10118.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10118.jpg>
+<../russian-post-offices-in-china/10119.jpg, id=660, 803.0pt x 450.68375pt>
+File: ../russian-post-offices-in-china/10119.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10119.jpg>
+Underfull \hbox (badness 1237) in paragraph at lines 76--76
+\T1/pplj/m/n/8 Figure 120: 10119 HAN-KOW: 1910
+ []
+
+
+Underfull \hbox (badness 1888) in paragraph at lines 76--76
+\T1/pplj/m/n/8 "KI-TAI" 14k postal sta-tionery en-ve-
+ []
+
+
+Underfull \hbox (badness 1067) in paragraph at lines 76--76
+\T1/pplj/m/n/8 kow 31.5.10 cds (Tchilinghirian type
+ []
+
+<../russian-post-offices-in-china/10120.jpg, id=661, 803.0pt x 385.44pt>
+File: ../russian-post-offices-in-china/10120.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10120.jpg>
+<../russian-post-offices-in-china/10120-1.jpg, id=662, 803.0pt x 390.45876pt>
+File: ../russian-post-offices-in-china/10120-1.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10120-1.jpg>
+<../russian-post-offices-in-china/10121.jpg, id=663, 803.0pt x 434.62375pt>
+File: ../russian-post-offices-in-china/10121.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10121.jpg>
+Underfull \hbox (badness 1237) in paragraph at lines 104--104
+\T1/pplj/m/n/8 Figure 122: 10121 HAN-KOW: 1919
+ []
+
+
+Underfull \hbox (badness 1132) in paragraph at lines 104--104
+\T1/pplj/m/n/8 a frank-ing sel-dom seen from there,
+ []
+
+<../russian-post-offices-in-china/10122.jpg, id=664, 803.0pt x 505.89pt>
+File: ../russian-post-offices-in-china/10122.jpg Graphic file (type jpg)
+
+<use ../russian-post-offices-in-china/10122.jpg>
+Underfull \hbox (badness 1354) in paragraph at lines 116--116
+\T1/pplj/m/n/8 Figure 123: 10122 GER-MAN POST
+ []
+
+
+Underfull \hbox (badness 3029) in paragraph at lines 116--116
+\T1/pplj/m/n/8 IN FOO-CHOW: 1909 Pic-ture post-
+ []
+
+
+Underfull \hbox (badness 3713) in paragraph at lines 116--116
+\T1/pplj/m/n/8 "FUTSCHAU" 10.2.09 cds, how-ever
+ []
+
+)
+
+Package bibentry Warning: You have used \nobibliography* 
+(bibentry)                without a following \bibliography.
+(bibentry)                You may not be able to run BibTeX.
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 613.
+[85 <C:/wamp/www/countries/russian-post-offices-in-china/russian-post-offices-i
+n-china/10108.jpg>] [86 <C:/wamp/www/countries/russian-post-offices-in-china/ru
+ssian-post-offices-in-china/10109.jpg> <C:/wamp/www/countries/russian-post-offi
+ces-in-china/russian-post-offices-in-china/10109-1.jpg>] [87 <C:/wamp/www/count
+ries/russian-post-offices-in-china/russian-post-offices-in-china/10110.jpg> <C:
+/wamp/www/countries/russian-post-offices-in-china/russian-post-offices-in-china
+/10110-1.jpg> <C:/wamp/www/countries/russian-post-offices-in-china/russian-post
+-offices-in-china/10111.jpg>] [88 <C:/wamp/www/countries/russian-post-offices-i
+n-china/russian-post-offices-in-china/10112.jpg>] [89 <C:/wamp/www/countries/ru
+ssian-post-offices-in-china/russian-post-offices-in-china/10113.jpg> <C:/wamp/w
+ww/countries/russian-post-offices-in-china/russian-post-offices-in-china/10113-
+1.jpg> <C:/wamp/www/countries/russian-post-offices-in-china/russian-post-office
+s-in-china/10114.jpg> <C:/wamp/www/countries/russian-post-offices-in-china/russ
+ian-post-offices-in-china/10114-1.jpg> <C:/wamp/www/countries/russian-post-offi
+ces-in-china/russian-post-offices-in-china/10114-2.jpg>] [90 <C:/wamp/www/count
+ries/russian-post-offices-in-china/russian-post-offices-in-china/10116.jpg>]
+[91 <C:/wamp/www/countries/russian-post-offices-in-china/russian-post-offices-i
+n-china/10117.jpg> <C:/wamp/www/countries/russian-post-offices-in-china/russian
+-post-offices-in-china/10118.jpg> <C:/wamp/www/countries/russian-post-offices-i
+n-china/russian-post-offices-in-china/10119.jpg>] [92 <C:/wamp/www/countries/ru
+ssian-post-offices-in-china/russian-post-offices-in-china/10120.jpg> <C:/wamp/w
+ww/countries/russian-post-offices-in-china/russian-post-offices-in-china/10120-
+1.jpg> <C:/wamp/www/countries/russian-post-offices-in-china/russian-post-office
+s-in-china/10121.jpg> <C:/wamp/www/countries/russian-post-offices-in-china/russ
+ian-post-offices-in-china/10122.jpg>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 613.
+
+(C:\wamp\www\countries\russian-post-offices-in-china\tex\main.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 613.
+
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: DCBBC3B831BE2410F5E294A083EBD2BB;1874
+(rerunfilecheck)             After:  852917CDA54654048B701D4707956776;2078.
+ ) 
+Here is how much of TeX's memory you used:
+ 22222 strings out of 494028
+ 389522 string characters out of 3146983
+ 485015 words of memory out of 3000000
+ 24623 multiletter control sequences out of 15000+200000
+ 68174 words of font info for 75 fonts, out of 3000000 for 9000
+ 714 hyphenation exceptions out of 8191
+ 56i,11n,92p,1171b,435s stack positions out of 5000i,500n,10000p,200000b,50000s
+pdfTeX warning (dest): name{subsection*.26} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection*.25} has been referenced but does not ex
+ist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection*.8} has been referenced but does not exi
+st, replaced by a fixed one
+
+pdfTeX warning (dest): name{chapter*.23} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{chapter*.22} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{chapter*.21} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{section*.19} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{section*.18} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{chapter*.16} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{chapter*.15} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{section*.14} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{section*.13} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{section*.12} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{chapter*.7} has been referenced but does not exist,
+ replaced by a fixed one
+
+{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program Files/
+MiKTeX 2.9/fonts/type1/public/fpl/fplrc8a.pfb><C:/Program Files/MiKTeX 2.9/font
+s/type1/public/fpl/fplrij8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/he
+lvetic/uhvb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.
+pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/palatino/uplr8a.pfb><C:/Progra
+m Files/MiKTeX 2.9/fonts/type1/urw/palatino/uplri8a.pfb>
+Output written on main.pdf (92 pages, 23601382 bytes).
+PDF statistics:
+ 756 PDF objects out of 1000 (max. 8388607)
+ 136 named destinations out of 1000 (max. 500000)
+ 3519 words of extra memory for PDF output out of 10000 (max. 10000000)
+
