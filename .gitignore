@@ -173,6 +173,9 @@ pip-log.txt
 *.idxs
 *.lof
 *.lot
+*.jpg
+*.png
+*.pdf
 
 
 
