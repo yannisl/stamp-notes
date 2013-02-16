@@ -4,17 +4,16 @@
 
 
 
-<div style="clear:both"></div>
 
-<div style="width:90%;margin:0 auto">
-<img src="http://localhost/egypt/cyprus-stamps/788_001.jpg" style="width:99%;float:left" />
-<p style="font-size:smaller"> 
-PRESS CYPRUS newspaper, dated 7 November 1878 fr. with 1d. british stamp used in Cyprus (plate 179), canc. "942", addressed to Birmingham. Foreign newpaper rate of one penny if it didn't exceed four ounces. One of the two recorded to date.
-EU 9000
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.95\textwidth]{../cyprus/788_001.jpg}
+\caption{PRESS CYPRUS newspaper, dated 7 November 1878 fr. with 1d. british stamp used in Cyprus (plate 179), canc. "942", addressed to Birmingham. Foreign newpaper rate of one penny if it didn't exceed four ounces. One of the two recorded to date.
+EU 9000}
+
+\end{figure}
 {{K420}}
-</p>
-</div>
 
 
 
@@ -23,4 +22,6 @@ EU 9000
 
 
 
-                                  
+
+
+                                          

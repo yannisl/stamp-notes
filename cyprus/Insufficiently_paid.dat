@@ -15,18 +15,17 @@ EU 8000
 K420
 
 
-<div style="clear:both"></div>
 
-<div style="width:90%;margin:0 auto">
-<img src="http://localhost/egypt/cyprus-stamps/467_001.jpg" style="width:80%;" class="center"/>
-<p style="font-size:smaller"> 
-C 19.1.1937. Incoming airmail cover from Acton-London to Limassol (arr. on back), with the boxed instructional marking "INSUFFICIENTLY PAID". Worth noting is the fact that the cover traveled by air to Athens as indicated on the top left and from there by ship to Cyprus as it was the common practice at the time.
 
-EU50
+\begin{figure}[htp]
+\includegraphics[width=.85\textwidth]{../cyprus/467_001.jpg}
+\caption{C 19.1.1937. Incoming airmail cover from Acton-London to Limassol (arr. on back), with the boxed instructional marking "INSUFFICIENTLY PAID". Worth noting is the fact that the cover traveled by air to Athens as indicated on the top left and from there by ship to Cyprus as it was the common practice at the time.
+EU50}
+\end{figure}
 
 {{K420}}
-</p>
-</div>
+
+
 
 
 <div style="width:90%;margin:0 auto">
@@ -52,4 +51,4 @@ EU550
 {{K420}}
 </p>
 </div>
-                                                                
+                                                                        

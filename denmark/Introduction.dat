@@ -3,15 +3,12 @@ One can consider the 2rbs stamp as a Government issued local stamp. It was only 
 
 
 
-<div style="width:90%;margin:0 auto">
-<h4></h4>
-<img src="http://localhost/egypt/denmark/280.jpg" style="width:43%;margin:0 auto;display:block" />
+\begin{figure}[htb]
+\includegraphics[width=.40\textwidth]{../denmark/280.jpg}
 
-<p style="font-size:smaller"> 
-1851 Thiele 2nd printing, 2rs blue, unused without gum, margins all around, good color, tiny inconsequential abrasion at bottom left, fine and very scarce unused, with clear 2009 APS certificate (Facit 1 II, cat. SEK 25,000), cat. $3000 (Cat No. 1) (Image)	 $750 
+\caption{1851 Thiele 2nd printing, 2rs blue, unused without gum, margins all around, good color, tiny inconsequential abrasion at bottom left, fine and very scarce unused, with clear 2009 APS certificate (Facit 1 II, cat. SEK 25,000), cat. $3000 (Cat No. 1) 	 $750.}
+\end{figure}
 
-</p>
-</div>
 
 Information on plating and printings can generally be found on specialized books or the Facit catalogues. It is a difficult issue to understand and collect.   
 
@@ -26,7 +23,7 @@ Such rare stamps have attracted forgeries an one needs to be careful when buying
 </div>
 
 <div style="width:32.5%;float:left">
-<img src="http://localhost/egypt/denmark/282.jpg" style="width:98%;" />
+<img src="/stamp-images/denmark/282.jpg" style="width:98%;" />
 <p style="font-size:smaller"> 
 1854-57 4s brown, never hinged, margins all around, v.f., with 2008 Moeller cert., cat. $650 (Cat No. 4) (Image)	 $300
 </p>
@@ -37,4 +34,4 @@ Such rare stamps have attracted forgeries an one needs to be careful when buying
 <p style="font-size:smaller"> 
 1854-57 8s green, never hinged, margins all around, v.f., with Moeller cert., cat. $600 (Cat No. 5) (Image)	 $250
 </p>
-</div>                  
+</div>                      
