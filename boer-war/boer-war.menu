@@ -1,0 +1,12 @@
+<div><a href="http://localhost/application-latest/adminSTAMPS/menu/edit/stamp-notes/boer-war/introduction"><i class="icon-edit"></a></i></div>
+\begin{accordion}
+
+ \begin{category}{General}
+   \mitem{Introduction}{Introduction}
+ \end{category}
+ \begin{category}{Ceylon P.O.W. Camps}
+  \mitem{Ahmednagar Camp}{Ahmednagar_Camp}
+  \mitem{Bellevue Camp}{Bellevue_Camp}
+  \mitem{Trichinopoly Camp}{Trichinopoly_Camp}
+ \end{category}
+\end{accordion}              

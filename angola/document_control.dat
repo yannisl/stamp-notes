@@ -1,0 +1,174 @@
+\chapter{Document Control}
+
+\section{What problem are we trying to solve?}
+
+If you ever lost a document you will agree that there is always a need to keep control of important documents. The document control system has been designed to aid in the  filing of documents and provide an easy way of retrieving this information.
+Some documents we keep because is required by law to keep them. Others we need them in order to control the flow of money in a Company. To summarize the system described in this chapter will help you file your documents better and enable you to retrieve these documents easier.
+
+
+\begin{marginfigure}
+\includegraphics[width=.99\linewidth]{../angola/gudea-plans.jpg}
+\caption{Clay plans of a six-room building, a sanctuary or a private house. From Telloh, ancient Girsu circa 2125.}
+  \label{fig:marginfig1}
+\end{marginfigure}
+
+
+
+\section*{What is document control?}
+
+Document control means that the right persons have the current version of the documents they need, while unauthorized persons are prevented access to them.
+
+We all handle many documents every day. These documents include forms that we fill out, instructions that we follow, invoices that we enter into the computer system, holiday schedules that we check for the next day off, rate sheet that we use to bill out customers, and many more.
+
+An error on any of these documents could lead to problems. Using an outdated version could lead to problems. Not knowing if we have the latest version or not could lead to problems. And so on.
+
+The Document control system affects our entire company, and all business related documents must be controlled. Only documents that don't have an impact on our products, services or company don't need to be controlled all others need to be controlled. This means, basically, that any business related documents must be controlled. 
+
+\section*{Whose responsibility?}
+
+\begin{marginfigure}
+  \includegraphics[width=.99\linewidth]{../angola/gudea.jpg}
+  \caption{Diorite statue od the earliest known document Controller. Mesopotamia circa 2150 BC.}
+  \label{fig:marginfig1}
+\end{marginfigure}
+
+Document control is the responsibility of all employees. It is important that all employees understand the purpose of document control and the tools (requirements) that help us control our documents.
+
+Please be aware that if you copy a document or print one out and then distribute it, you are responsible for controlling the distribution! The original author won't know that you distributed more of his documents, so the original author can't control that distribution. That is why on critical job sites all copies, faxing and distribution is via our DCC (Document Control Center)
+
+<hr/>
+
+\section*{Project Filing}
+
+
+
+\begin{marginfigure}
+  \includegraphics[width=.99\linewidth]{../angola/labels.png}
+  \caption{Calorifier plant-room in Merweb.}
+  \label{fig:marginfig1}
+\end{marginfigure}
+
+Project filing, follows closely to the system set up at Head Office. You can think of Document Control a bit like the post office where communication is always between one office to another. In many respects filing on sites is more difficult and challenging due to its temporary nature and the changing number of employees as the Project moves through the different phases.
+
+Files are labeled with letters and numbers:
+
+\begin{center}
+
+\fbox{
+        FILE REF. NO. A/1
+
+        Outgoing Correspondence.
+       
+}
+
+\end{center}
+        
+When files overflow we number them consequentially as follows:
+
+\begin{center}
+\fbox{
+       
+        FILE REF. NO. A/1-001
+
+        Outgoing Correspondence.
+
+        FILE REF. NO. A/1-002
+
+        Outgoing Correspondence.
+
+}
+\end{center}
+
+Files are labeled with letters and numbers:
+
+\begin{center}
+\fbox{
+       \begin{minipage}{6.0cm}
+        FILE REF. NO. A/1
+
+        Outgoing Correspondence.
+       \end{minipage}
+}
+\end{center}
+        
+When files overflow we number them consequentially as follows:
+
+\begin{center}
+\fbox{
+       \begin{minipage}{6.0cm}
+        FILE REF. NO. A/1-001
+
+        Outgoing Correspondence.
+
+        FILE REF. NO. A/1-002
+
+        Outgoing Correspondence.
+      \end{minipage}
+}
+\end{center}
+
+The file references are initially chosen to represent a comprehensive Master File list. An extract from such a Master List is in Table\ref{masterlist}.
+
+
+\begin{fullwidth}
+\begin{table}[htb]
+\vspace{0.5cm}
+
+\small
+\hskip-10pt\begin{tabular}{|l|l|l|l||l|l||l|l||l|l|l|}
+\hline
+File &Category        &Control              & Person       &Copy 1  &Person        &Copy 2        &Person      &Copy 3 &Person\\
+     &                &Copy location        & resp. &        &resp.   &resp.   &resp. &      &resp.\\
+\hline
+A/1    & Corresp (in).       & H.O. Sec.           & H.O. Secr. & Site & PM           &              &            &      & \\
+A/2    & Corresp.(out)       & H.O. Sec.           & H.O. Secr. & Site & PM           &              &            &      & \\
+A/3    & memos (in)          & H.O. Sec.           & H.O. Secr. & Site & PM           &              &            &      & \\
+A/4    & memos (out)         & H.O. Sec.           & H.O. Secr. & Site & PM           &              &            &      & \\
+\hline
+\end{tabular} 	
+\caption{Extract from a typical filing list.}
+\label{masterlist}
+\end{table}
+\end{fullwidth}
+
+What is important to notice in the Table above, that in many cases the filing system allows for up to three copies to be kept, but there is always a two tier system where there is a \textit{control copy}, normally kept at head office and one or two copies kept at other locations. If the site is far from head office or for cases where there is no need to keep copies at Head Office the Document Control Department always keeps the master copy.
+
+It is also important to note that documents have \textit{owners}. In the extract shown in Table\ref{masterlist}. The owner is the responsible person to make sure that the documents have been filed properly. In most cases this person in the Project Document Controller, but for example for orders the Materials Control Manager is the ultimate responsible person to ensure that MCD documents are filed properly.
+
+\section*{Document Order}
+
+In general document are filed by \textit{date order}. Numbered documents such as submittals, Quality Assurance Documents and the like bear that bear \textit{reference numbers} are filed \textit{sequentially}. Accounting documents
+such as creditors invoices are filed by \textit{date} in the master file and a second copy by \textit{Creditors name}. By choosing
+carefully the method of filing and normally by having two different methods enables retrieval of the document easier. In general if the system
+is computerized retrieval becomes easier.
+
+\section*{Setting up the system}
+
+The filing system should be set at the begining of a new Project. Although this sounds simple and intuitive most Projects start without adequate
+space, building shelving as we go and continuously buying files. On a well designed system \textit{all} file categories are set up when the Project starts, they are labelled uniformly. As a rule of thumb the minimum space is that of a 20 foot container - and this assuming that files with multiple volumes are archived at certain points. If you do not give it attention at the beginning of the Project you will literally
+drawn in paper work nobody will be able to find anything and  everyone will build their own system as they will not have any \textit{faith} in yours!
+
+The empirical equation below, can be used to estimate the number of files that will be required for a project:
+
+
+
+\begin{equation}
+   N = \frac{p^{0.8}(t + d)}{d} 
+\end{equation}
+
+
+where,
+
+N = number of files
+
+p = mean personnel on project
+
+t = duration of project (months)
+
+d = number of departments
+
+
+
+
+
+                                                                                                                                                                    
