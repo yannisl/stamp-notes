@@ -1,0 +1,12 @@
+<div style="width:230px">
+<ul id="LHnav" style="margin-left:0px;width:210px">
+<li><a href="../ceylon/introduction">Historical Background.</a></li>
+<li><a href="../ceylon/introduction">Postal History Introduction</a></li>
+</ul>
+
+<h4 class="country" style="background:#000040">Censorship</h4>
+<ul class = "LHnav nav" style="margin-left:0px;width:210px">
+  <li><a href="../ceylon/WWI_censorship">World War I</a></li>
+  <li><a href="../ceylon/ ">...</a></li>
+</ul>
+</div>  
