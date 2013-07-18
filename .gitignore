@@ -164,6 +164,7 @@ pip-log.txt
 
 
 #LaTeX
+*.xcf
 *.txt
 *.tex
 *.toc
@@ -175,6 +176,8 @@ pip-log.txt
 *.lof
 *.lot
 *.jpg
+*.JPEG
+*.html
 *.png
 *.gif
 *.pdf
