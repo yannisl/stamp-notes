@@ -1,5 +1,0 @@
-\contentsline {chapter}{\numberline {1}Slovakia}{5}{chapter.1}
-\contentsline {subsection}{\numberline {1.0.1}Czechoslovak Republic}{5}{subsection.1.0.1}
-\contentsline {subsection}{\numberline {1.0.2}Republic of Slovakia}{5}{subsection.1.0.2}
-\contentsline {subsection}{\numberline {1.0.3}1945 to 1992}{6}{subsection.1.0.3}
-\contentsline {subsection}{\numberline {1.0.4}The Slovak Republic}{6}{subsection.1.0.4}
