@@ -1,0 +1,10 @@
+\chapter{Guadeloupe}
+
+The figure below shows a map of Guadeloupe
+
+\begin{figure}
+\centering
+\includegraphics[width=.80\textwidth]{../guadeloupe/Guadeloupe_map.png}
+\end{figure}
+
+                     
