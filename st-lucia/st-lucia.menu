@@ -1,0 +1,48 @@
+\begin{accordion}
+ \begin{category}{General}
+  \mitem{Introduction}{Introduction}
+ \end{category}
+ \begin{category}{Prestamp}
+  \mitem{Early Mail}{Early_Letters}
+  \mitem{Crowned Circles}{Crowned_Circles}
+  \mitem{}{}
+\end{category}
+ \begin{category}{GB Used in St. Lucia}
+  \mitem{GB Used in St Lucia}{GB_used_in_St_Lucia}
+ \end{category}
+
+ \begin{category}{Queen Victoria}
+   \mitem{1860 Perkins Bacon Issues}{1860_Issue}
+   \mitem{1861 Cancelled Obliterator}{1861_Cancelled_Obliterator}
+  \mitem{1863 6d Unissued}{1863_6d_unissued}
+
+  \mitem{1891-98 Watermark Crown CA}{1891-98_Watermark_Crown_CA}
+  \mitem{1891-92 Surcharges}{1891-92_Surcharges}
+  \mitem{Postal Fiscals}{Postal_Fiscals}
+ \end{category}
+
+\begin{category}{King Edward VII}
+  \mitem{1902 Anniversary of Discovery}{1902_Anniversary_of_Discovery}
+  \mitem{1904-10 King Edward VII}{1904-1910_King_Edward}
+\end{category}
+
+\begin{category}{King George V}
+  \mitem{1921-30 Definitives}{1921-30_King_George_V_definitives}
+  \mitem{1936 Pictorials}{1936_Pictorials}
+  
+\end{category}
+
+\begin{category}{King George VI}
+  \mitem{1938-48 Definitives}{1938-48_Definitives}
+   \mitem{1949-50 Definitives}{1949-50_Definitives}
+  \mitem{German Propaganda Forgeries}{German_Propaganda_Forgeries}
+\end{category}
+
+\begin{category}{Postage Dues}
+ \mitem{Postage Dues}{Postage_dues}
+\end{category}
+
+\begin{category}{Cancellations}
+ \mitem{1927 Provisional Handstamp}{1927_Provisional_Handstamp}
+\end{category}
+\end{accordion}                                        
