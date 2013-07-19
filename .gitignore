@@ -164,6 +164,8 @@ pip-log.txt
 
 
 #LaTeX
+*.doc
+*.docx
 *.xcf
 *.txt
 *.tex
@@ -178,6 +180,8 @@ pip-log.txt
 *.jpg
 *.JPEG
 *.html
+*.htm
+SAfrica.Khoizan\
 *.png
 *.gif
 *.pdf
