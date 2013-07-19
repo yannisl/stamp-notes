@@ -1,11 +1,41 @@
-<div style="width:230px">
-<ul id="LHnav" style="margin-left:0px;width:210px">
-<li><a href="../lundy\introduction">Historical Background.</a></li>
-<li><a href="../lundy\introduction">Postal History Introduction</a></li>
-</ul>
-<h4 class="country" style="background:#000040">...</h4>
-<ul id="LHnav" style="margin-left:0px;width:210px">
-  <li><a href="../lundy/  ">...</a></li>
-  <li><a href="../lundy/ ">...</a></li>
-</ul>
-</div>
+\begin{accordion}
+
+ \begin{category}{Early 19th Century}
+ \mitem{Introduction}{Introduction}
+ \mitem{Early Mail}{Early_Mail}
+ \end{category}
+
+ \begin{category}{1900-1929}
+  \mitem{1900s Mail}{1900-1927}
+  \mitem{1906 Montagu Shipwreck}{Montagu_Shipwreck}
+ \end{category}
+ \begin{category}{First Definitives}
+ \mitem{Printer's Records}{1929-30_Puffins_Issue}
+ \mitem{Puffins Complete Sheets}{1929-30_Puffins_full_sheets}
+ \end{category}
+ \begin{category}{1930-39}
+  \mitem{1936 Large Map Issue}{1936_Large_Map_Issue}
+  \mitem{1936 Large Map Issue}{1936_Large_Map_Issue}
+  \mitem{1939 Atlantic Air Services}{1939_Atlantic_Air_Services}
+ \end{category}
+
+ \begin{category}{1940-52}
+ \mitem{1940 Red Cross Surcharges}{1940_Red_Cross_surcharges}
+ \mitem{1941 V Plane}{1941_V_and_Plane}
+ \mitem{1942 Tighearna}{1942_Tighearna}
+ \mitem{1943 IX Anniversary Overprints}{1943_IX_Anniversary_Overprint}
+ \mitem{1943 Lundy Philatelic Bureau}{1943_Lundy_Philatelic_Bureau}
+ \end{category}
+
+ \begin{category}{1953-60}
+ \mitem{1953 Coronation}{1953_Coronation}
+ \mitem{1957 Definitives}{1957_Puffin_Definitives}
+ \end{category} 
+
+ \begin{category}{1961-1970}
+ \mitem{1965 Churchill}{1965_Churchill}
+ \mitem{1969 40th Anniversary of Lundy Posts}{1969_40th_Anniversary_of_Lundy_Posts}
+ \mitem{1969 Provisional}{1969_Provisional_Overprint}
+ \mitem{1969 Lundy Appeal Overprint}{1969_Lundy_Appeal_Overprint}
+ \end{category}
+\end{accordion}                                              
