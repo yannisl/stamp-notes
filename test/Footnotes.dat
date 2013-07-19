@@ -1,0 +1,5 @@
+\chapter{Footnotes}    
+
+We provide several style of footnotes similar to TeX.
+
+This is the first one \footnote{First footnote} and this is the second one\footnote{Second footnote.}.  

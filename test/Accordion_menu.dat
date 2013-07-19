@@ -1,0 +1,25 @@
+\chapter{Introduction}
+
+
+\begin{accordion}
+\begin{accordiongroup}{Queen Victoria}
+\mitem{Introduction}{../natal/introduction}
+\end{accordiongroup}
+
+\begin{accordiongroup}{King Edward}
+\mitem{Stamps of King Edward VII}{Introduction}
+\end{accordiongroup}
+
+\begin{accordiongroup}{Queen Elizabeth Reign}
+\end{accordiongroup}
+
+
+\end{accordion}
+
+
+The accordion maker will create a menu based on an accordion as shown here.
+
+
+
+
+                                          
