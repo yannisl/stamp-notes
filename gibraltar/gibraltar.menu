@@ -1,0 +1,25 @@
+\begin{accordion}
+   \begin{category}{Early Mail}
+   \mitem{Early Mail}{Early_Mail}
+   \end{category}
+   \begin{category}{Queen Victoria Issues}
+    \mitem{1886 Overprints on Bermuda Stamps}{1886_Issue}
+    \mitem{1886 Part II}{1886_Part_II}
+    \mitem{1889-96 Issue}{1889-96_Issue}
+  \end{category}
+  \begin{category}{King Edward VII Issues}
+
+  \end{category}
+ \begin{category}{King George V Issues}
+
+  \end{category}
+  \begin{category}{King George VI Issues}
+
+  \end{category}
+
+   \begin{category}{Queen Elizabeth II Issues}
+
+  \end{category}
+
+
+\end{accordion}            

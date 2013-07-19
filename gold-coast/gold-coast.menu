@@ -1,0 +1,33 @@
+\begin{accordion}
+ \begin{category}{General}
+  \mitem{Introduction}{Introduction}
+  \mitem{Gold Coast History}{Gold_Coast_History}
+  \mitem{Early Mail}{Prestamp}
+ \end{category}
+
+  \begin{category}{Queen Victoria Issues}
+  \mitem{1875-1876 First Issue}{1875-1876_First_Issue}
+  \mitem{1876-1884 Second Issue}{1876-1884_Second_Issue}
+  \mitem{1883 Issue}{1883}
+  \mitem{1884 Bisects}{1884_Stamp_Shortage_and_Bisects}
+  \mitem{1889-94 Key Plate Issue}{1889-94}
+  \mitem{1901 Provisional}{1901_Provisional}
+ \end{category}
+
+  \begin{category}{King Edward VII Issues}
+   \mitem{1902-1906 Issue}{1902-1906_King_Edward}
+   \mitem{1907-1913 Issue}{1907-13_Issue}
+   \mitem{1913-21 Issue}{1913-21_Issue}
+  \end{category}
+
+  \begin{category}{King George V Issues}
+   \mitem{1918 War Tax}{1918_War_Tax}
+   \mitem{1921-24 Issue}{1921-24_Issues}
+   \mitem{1926 Unissued}{1926_Unissued}
+  \end{category}
+
+ \begin{category}{Ashanti Wars}
+ \mitem{Ashanti Wars}{ashanti}
+ \end{category}
+\end{accordion}
+                                     
