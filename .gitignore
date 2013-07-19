@@ -181,7 +181,7 @@ pip-log.txt
 *.png
 *.gif
 *.pdf
-
+*.zip
 .tex/
 
 
