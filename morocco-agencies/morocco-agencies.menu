@@ -31,5 +31,12 @@
  
   \begin{category}{Postal Stationery}
    \mitem{Postal Stationery}{Postal_stationery}
+   \mitem{King George VII Period}{Postal_stationery_King_George_VII}
+   \mitem{QE II Period}{Postal_stationery_QE_II}
   \end{category}
-\end{accordion}                                
+
+  \begin{category}{Ancillary Services}
+    \mitem{Parcel Post}{Parcel_Post}
+    \mitem{Money Order Office}{Money_Order_Office}
+  \end{category}
+\end{accordion}                                          
