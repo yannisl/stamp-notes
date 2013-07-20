@@ -1,5 +1,6 @@
 \begin{accordion}
- \begin{category}{Early Mail}
+ \begin{category}{Background}
+  \mitem{Introduction}{Introduction}
   \mitem{Early Mail}{Early_Letters_and_Documents}
  \end{category}
 
@@ -27,8 +28,14 @@
   \begin{category}{King George VI}
   \mitem{1935-37 British Currency}{1935-37_Issues}
   \mitem{1937 Coronation}{1937_Coronation}
+  \mitem{1948 Silver Wedding}{1948_Silver_Wedding}
  \end{category}
  
+ \begin{category}{Queen Elizabeth II}
+  \mitem{1952 Definitives}{1952_QEII_Definitives}
+  \mitem{1955-57 Definitves}{1957_QEII_Definitives}
+ \end{category}
+
   \begin{category}{Postal Stationery}
    \mitem{Postal Stationery}{Postal_stationery}
    \mitem{King George VII Period}{Postal_stationery_King_George_VII}
@@ -39,4 +46,4 @@
     \mitem{Parcel Post}{Parcel_Post}
     \mitem{Money Order Office}{Money_Order_Office}
   \end{category}
-\end{accordion}                                          
+\end{accordion}                                                  
