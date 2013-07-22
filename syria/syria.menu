@@ -1,0 +1,10 @@
+
+\begin{accordion}
+  \begin{category}{Early Mails}
+   \mitem{18th Century Mail}{}
+   \mitem{19th Century Prestamp}{}
+  \end{category}
+  \begin{category}{French Post Office}
+   \mitem{French Post Office}{French_Post_Office}
+ \end{category}
+\end{accordion}  
