@@ -1,7 +1,11 @@
 \begin{accordion}
    \begin{category}{Early Mail}
    \mitem{Early Mail}{Early_Mail}
+   \mitem{1779-1783 Siege of Gibraltar}{1779-1783_Siege_of_Gibraltar}
    \end{category}
+    \begin{category}{GB Used Abroad}
+    \mitem{Great Britain Used in Gibraltar}{Great_Britain_Used_in_Gibraltar}
+    \end{category}
    \begin{category}{Queen Victoria Issues}
     \mitem{1886 Overprints on Bermuda Stamps}{1886_Issue}
     \mitem{1886 Part II}{1886_Part_II}
@@ -22,4 +26,4 @@
   \end{category}
 
 
-\end{accordion}            
+\end{accordion}                

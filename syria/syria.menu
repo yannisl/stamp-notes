@@ -1,10 +1,15 @@
-
 \begin{accordion}
   \begin{category}{Early Mails}
-   \mitem{18th Century Mail}{}
+   \mitem{18th Century Mail}{Early_Mail}
    \mitem{19th Century Prestamp}{}
   \end{category}
   \begin{category}{French Post Office}
    \mitem{French Post Office}{French_Post_Office}
  \end{category}
-\end{accordion}  
+ \begin{category}{Ottoman Post Office}
+  \mitem{1877-1918 Ottoman Post Office}{1877-1918_Ottoman_Post_Offices}
+ \end{category}
+ \begin{category}{Arab Kingdom}
+  \mitem{1920 Arab Kingdom}{Arab_Kingdom}
+ \end{category} 
+\end{accordion}          
