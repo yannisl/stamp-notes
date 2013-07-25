@@ -1,11 +1,11 @@
-<div style="width:200px">
+<div>
 <ul class="LHnav nav" style="margin-left:0px;width:210px">
 <li><a href="../cyprus/introduction">Historical Background...</a></li>
 <li><a href="../cyprus/introduction">Postal History Introduction</a></li>
 </ul>
 
 
-<h4 class="country" style="background:#000040">Early Letters</h4>
+<h4  style="background:#000040">Early Letters</h4>
 <ul class="LHnav nav" style="margin-left:0px;width:210px">
 <li><a href="../cyprus/1192_1489_Lusignan_Period">1192-1489 Lusignan Period</a></li>
 <li><a href="../cyprus/1489_1571_Venetian_Administration">1489-1571 Venetian Administration</a></li>
@@ -14,8 +14,8 @@
 <li><a href="../cyprus/1700_1800_Turkish_Period">1700-1800 Mails</a></li>
 </ul>
 
-<h4 class="country" style="background:#000040">Austrian Post Office</h4>
-<ul class="LHnav nav" style="margin-left:0px;width:210px">
+<h4  style="background:#000040">Austrian Post Office</h4>
+<ul class="LHnav nav" style="margin-left:0px;">
 <li><a href="../cyprus/Lloyd_Austriaco">Lloyd Austriaco</a></li>
 <li><a href="../cyprus/Austrian_Post_Office_Larnaca_Straight_Line_Cancellation">Larnaka Straight Line</a></li>
 <li><a href="../cyprus/Austrian_Post_Office_Larnaca_de_Cipro">Larnaka de Cipro</a></li>
@@ -194,4 +194,4 @@
 
 
 
-                                                                                        
+                                                                                            
