@@ -1,6 +1,1 @@
-\chapter{Typesetting Code}  
-
-\begin{codeblock}
-  \def#1#2{#1, #2}
-  \ifx ab this is cool \else something %
-\end{codeblock}  
+\chapter{Write your title here}
