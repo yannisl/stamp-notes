@@ -28,8 +28,17 @@ with a blank space (although it might work without the space).
 
 \beginblockquote    
   
+\salutation{Dear John}
+
  A  \lorem 
 
 \endblockquote
 
-                                                                
+
+
+
+\salutation{Dear John} 
+
+
+
+                                                                        
