@@ -1,5 +1,8 @@
 \chapter{Blockquotes}    
 
+For discussion on the semantics of `blockquote` and `cite` elements there
+is a very good article on [blockquote](http://html5doctor.com/blockquote-q-cite/) and cite t the html5doctor website. 
+
 \begin{blockquote}[]  Blockquotes tend to appear more in webpages rather than books, where normal
 quotations are used. Translating them to TeX normally they will be printed
 in a more plain style, although we provide a number of them with rather more
@@ -29,4 +32,4 @@ with a blank space (although it might work without the space).
 
 \endblockquote
 
-                                                              
+                                                                
