@@ -16,15 +16,13 @@ SOLD for $110.00
 
 
 
-<div style="width:67%;margin:0 auto">
-<img src="http://localhost/egypt/egypt-stamps/232602.jpg"  style="width:87%;margin:0 auto;display:block"/>
-<p style="font-size:smaller"> 
+\ph[70%]{../egypt/232602.jpg}{
 Egypt, 1712, splendid ship mail folded letter from Alexandria to Venice, carried by Con Polacha, Santa Maria Madeline, with God's Guard (Che Deo Guarde), beautiful, clean cover, Very Fine. 
 Estimate $250 - 350.
 Realized $1,003.
-</p>
+}
 {{ex: Delta Collection}}
-</div>
+
 
 
 
@@ -57,4 +55,4 @@ Realized $189
 </div>
 
 232603
-<div style="clear:both"></div>                                                        
+<div style="clear:both"></div>                                                        										
