@@ -1,0 +1,13 @@
+\chapter{Blocks}
+
+Blocks are only used to call attention; they are useful in instructional books and common in webpages, where the user normally scans rather than reads.
+
+{{pinnote: Don't forget about something!}}
+
+If you only want them on the webpage, use the wiki-style commands, i.e `{{function:  }}`
+
+{{nutshell: Don't forget about something!}}
+
+If you want them to appera in both use `\nutshell{..}` or other similar commands.
+
+They are highly customizable via CSS (each command has its own class, as well as via LaTeX commands, which they can be overwritten). For example to customize `nutshell` you will need to both customize the CSS as well as the LaTeX command `\nutshell`

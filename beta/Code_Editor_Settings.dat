@@ -1,0 +1,16 @@
+
+
+\chapter{Code Editor}
+
+I have experimnted quite a bit with CodeMirror, but sadly had to let go. We are now using ACE, as it has proven to be much more robust and I am quite satisfied with the wrappinf function which is important, if the user is typing a lot of text. I also think that it has a good commercial backing, in addition to the open community and can only be improved with time.
+
+\section{Settings for the Code Editor}
+
+How much should one give the user control here? Personally I don't think much, except for the user that will install a totally new Project. 
+
+In this case, possibly a hard pressed serf like a PhD student it is quite likely that tehy will want to use more, as they will be expected to be typing quite a bit.
+
+Anyway this can be left for a future release.
+
+
+

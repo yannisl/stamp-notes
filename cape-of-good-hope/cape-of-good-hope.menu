@@ -1,5 +1,5 @@
 <div style="width:180px">
-<h4 class="country" style="background:#000040">Introduction</h4>
+<h4 class="country" style="background:#000040;color:white">Introduction</h4>
 <ul class="LHnav nav" style="margin-left:0px;width:180px">
 <li><a href="../cape-of-good-hope/introduction">Historical Background.</a></li>
 <li><a href="../cape-of-good-hope/Batavian_Republic">Batavian Republic</a></li>
@@ -169,4 +169,4 @@
 </div>
 
 
-                      
+                        
