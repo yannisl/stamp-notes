@@ -6,6 +6,8 @@
 \end{category}
 
 \begin{category}{Sydney View}
+ \mitem{Introduction}{introduction}
+ \mitem{1849 Essays}{1849_Essays}
  \mitem{1850 Sydney View}{1850_Sydney_View}
 \end{category}
 
@@ -27,6 +29,9 @@
 \end{category}
 
 \begin{category}{QV Other Issues}
+ \mitem{1856-63 Registered Sixpence}{1856-63_Registered_Sixpence}
+
+\mitem{1861-88 Coin}{1861-88_Coin}
  \mitem{1890 Allegorical Figure}{1890_Allegorical_Figure}
  \mitem{1897 Consumptive Homes}{1897_Consumptive_Homes}
  \mitem{1897 Reissue of the 5s}{1897_Reissue_of_the_5s}
@@ -50,4 +55,4 @@
 
 \end{accordion}  
 
-                                            
+                                                    
