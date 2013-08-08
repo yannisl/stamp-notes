@@ -7,6 +7,14 @@ For writers and authors, The Chicago Manual of Style recommends using a block qu
 Use of the block quotation for shorter passages is a stylistic choice that may or 
 may not be acceptable depending on the situation.
 
+\codeblocks
+  \begin{blockquote}[shadow]
+    Some Text
+  \end{blockquote}
+\endcodeblocks
+
+
+
 \begin{blockquote}[]  Blockquotes tend to appear more in webpages rather than books, where normal
 quotations are used. Translating them to TeX normally they will be printed
 in a more plain style, although we provide a number of them with rather more

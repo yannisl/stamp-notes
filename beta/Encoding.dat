@@ -1,0 +1,3 @@
+\chapter{Encoding}
+
+Although, we allow the use of any TeX engine and also encoding packages, since we are parsing the input and have two way filters, one for html and another for TeX, wherever possible we change symbols to their LaTeX counterpart for convenience. For example the \pound sign can be typed in, before incorporating the text we change it to its command form `\ pound`

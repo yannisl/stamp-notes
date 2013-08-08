@@ -1,3 +1,47 @@
-12344567
+\parindent0pt
+\parskip10pt
 
-testt 
+2.14.9.3 LEOs on the front of the controller shall display the following status information : program
+running, watchdog timer timed-out, and power supply on.
+
+
+
+<span style="width:50px;font-weight:bold">2.14.10</span> Common Features
+
+<span style="width:50px;font-weight:bold">2.14.10.1</span>The only difference between the range of fixed inpuUoutput controllers and the modular
+controller is that they provide a controller with fewer hardware inputs and outputs. They
+shall use the same engineering tools and communications software to ensure total
+compatibility with all the other controllers on the system.
+
+{{pinnote: Please ensure that the above is complied with}}
+
+
+2.14.10.2 Both types shall be compatible with the same operator terminal as the modular controller so
+that data may be read from any controller.
+
+2.14.10.3 These small controllers shall also offer the same standard software capabilities as
+described in the Standard Software Functionality section.
+
+2.14.10.4 The CPUs shall have, as a minimum a 16-bit microprocessor with a clock speed of 10 MHz.
+They shall have at least 512 Kbytes of RAM with the application program stored in 128
+Kbytes of flash EEPROM. No battery back-up shall be necessary; instead a maintenancefree
+solution such as a Goldcap capacitor shall provide 72-hour back-up power for the
+RAM.
+
+2.14.10.5 An RS232 port shall provide local and remote access to all data in the controller to which it
+is connected as well as to other controllers on the same communication bus.
+
+2.14.10.6 The internal power supply shall provide all power sources necessary for the complete
+operation of the contro ller. It shall incorporate a watchdog timer with potential-free relay
+contacts to provide remote alarm indication.
+
+2.14.10.7 The combination of analog and digital points as inputs and outputs shall be optimized to suit
+the application for which the controller is being used.
+
+2.14.10.8 While it shall be possible to use supplier-specific analog inputs, the facility shall also exist
+for industry-standard inputs, e.g. 0 to 10 Vdc, 0 to 20mA, 4 to 20 mA, NTC 20K ohm,
+PT100, PT1000, PT3000. Any combination of analog input types must be possible. The
+resolution shall be 12-bil.
+
+2.14.10.9 Analog inputs may be used in place of digital inputs except when a pulsed input from a
+utility meter is connected . In this situation only a pure digital input shall be used.
