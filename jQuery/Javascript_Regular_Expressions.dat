@@ -1,0 +1,370 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<h2>Javascript Regular Expressions</h2>
+[Regular expressions](http://en.wikipedia.org/wiki/Regular_expression) are powerful. Too powerful as a matter of fact so that most
+human brains have difficulty to understand their symbolism. 
+
+<h3>Creating a new Regular Expression</h3>
+
+Regular expressions can be constructed using three methods, the first one you just enclose the expression in <strong> / ...... / </strong>. The second one is constructed, just like you construct a new Object with the keyword <strong>new</strong>. In the third one you can just use _RegExp()_ as a normal function. 
+
+{{plain:  var re =/ab/i  }}
+
+or
+
+{{plain:  
+re=new RegExp('ab','g');
+}}
+
+or
+
+{{plain:
+ re=RegExp('ab','g'); 
+}}
+
+Use the first method, if your regular expression is constant and the latter when you need input from your users or the regular expression needs some input from other sections of your program.
+
+
+
+<div class="code-block console-wrap">
+<div class="code code-block">
+<code>
+// defining regular expressions
+
+re = /anna/i;
+re1 = new RegExp('anna', 'i');
+re2= RegExp('anna','i');  //omitted new
+
+z = re.test('Anna');
+z1 = re1.test('Annaaaa');
+z2 = re2.test('Anna');
+log(re);
+log(re1.toString());
+log(z,z1,z2);
+</code>
+</div>
+<div class="msg" ></div>
+  <button class="eval">Run</button>
+<ol class="results"></ol>
+</div>
+Regular expressions go through multiple phases of execution - understanding what happens during each of
+these phases can help you to write optimized JavaScript code. The two prominent phases are __compilation__
+and __execution__. Compilation occurs whenever the regular expression is first defined. The expression is
+parsed by the JavaScript engine and converted into its internal representation (whatever that may be).
+
+This phase of parsing and conversion must occur every time a regular expression is encountered (unless
+optimizations are done by the browser).
+Frequently, browsers are smart enough to determine that if an identically-defined regular expression is
+compiled again-and-again to cache the compilation results for that particular expression. However, this
+is not necessarily the case in all browsers. 
+
+For complex expressions, in particular, we can begin to get
+some noticeable speed improvements by pre-defining (and, thus, pre-compiling) our regular expressions
+for later use.
+
+<h3>The Regular Expression Object</h3>
+
+<h4>exec()</h4>
+
+The __RegExp__ provides a method called __exec()__. This method is used when you like to test whether a given string matches a pattern and would additionally like more information about the match. For example, the offset in the string of the pattern at which it first appears. You can also repeatedly apply this method to a string in order to step through the portions of the string that match, one by one.
+
+<div class="code-block console-wrap">
+<div class="code code-block">
+<code>
+// defining regular expressions
+var pattern = /http/;
+var S = 'http://myexample.com/';
+var z1 = pattern.exec(S);
+var z2 = pattern(S);
+
+log(z1[0], z1.length);
+log(z2[0], z2.length);
+log(typeof z2);
+
+
+</code>
+</div>
+<div class="msg" ></div>
+  <button class="eval">Run</button>
+<ol class="results"></ol>
+</div>
+
+<h3>Looping through a Result Set</h3>
+
+<div class="code-block console-wrap">
+<div class="code code-block">
+<code>
+// using exec()
+// looping through results
+var sentence = 'a string of natural language tokens';
+var pattern = /\b\w+\b/g;
+var token = pattern.exec(sentence);
+for (var prop in token) {
+  if (token.hasOwnProperty(prop)) {
+    log(prop)
+  };
+}
+while (token != null) {
+  log(token[0], token.index, token.input);
+  token = pattern.exec(sentence);
+}
+</code>
+</div>
+<div class="msg" ></div>
+  <button class="eval">Run</button>
+<ol class="results"></ol>
+</div>
+
+
+<h3>RegEx Properties</h3>
+Examining the internals of regular expression instance objects as well as the static (class) properties of the RegExp object can be helpful when performing complex matching tasks.
+
+
+<div class="code-block console-wrap">
+<div class="code code-block">
+<code>
+
+// properties of RegEx instances
+// source, ignoreCase, global, lastIndex
+var sentence = 'a string of natural language tokens';
+var pattern = /\b\w+\b/gm;
+var token = pattern.exec(sentence);
+log(pattern.source, pattern.ignoreCase, pattern.global, pattern.lastIndex, pattern.multiline);
+
+</code>
+</div>
+<div class="msg" ></div>
+  <button class="eval">Run</button>
+<ol class="results"></ol>
+</div>
+
+
+
+
+
+
+<h3>A Practical Example</h3>
+
+In the example below we will create a function, that will get all the elements with a certain class (we will check for the class, using regular expressions).
+
+<div class="code-block console-wrap">
+<div class="code code-block">
+<code>
+// function to find all elements with class code
+function find(className, type) {
+
+  var elems = document.getElementsByTagName(type || "*");
+
+  // define new regular expression
+  var re = new RegExp("(^|\\s)" + className + "(\\s|$)");
+  var results = [];
+
+  //iterate through the array 
+  for (var i = 0, length = elems.length; i < length; i++)
+  if (re.test(elems[i].className)) results.push(elems[i]);
+  return results;
+}
+
+// find all the divs with class code and log length
+log(find("code", "div").length);
+
+
+
+</code>
+</div>
+<p id="msg" class="msg" ></p>
+  <button class="eval">Button</button>
+</div>
+
+There are many ways to create Regular Expression objects in the above we have used:
+
+{{plain:   var re = new RegExp("(^|\\s)" + className + "(\\s|$)");
+}}
+
+There are a number of things that we can learn from Listing 6-2. To start, note the use of new
+RegExp(...) to compile a regular expression based upon the input of the user. 
+
+We construct this
+expression once, at the top of the function, in order to avoid frequent calls for re-compilation. Since the
+contents of the expression are dynamic (based upon the incoming className argument) we can get a
+major performance savings by handling the expression in this manner.
+
+Another thing to notice is the use of a double-escape within new RegExp: \\s. Normally, when creating
+regular expressions with the /\s/ syntax we only have to provide the backslash once. However, since
+we're writing these backslashes within a string, we must doubly-escape them. 
+
+This is a nuisance, to be
+sure, but one that you must be aware of when constructing custom expressions.
+
+
+The first statement we write before we can use a Regular Expression in Javascript is the regular expression, we write it so:
+
+{{plain:
+myRe = <span class="highlight">/d(b+)d/g<span>
+}}
+
+<div class="code-block console-wrap">
+<div class="code code-block">
+  myRe1 = /anna/g;
+  myArray1 = myRe1.exec("Marianna");
+  s=myArray1.toString();
+  $('#msg1').text(s);
+</code>
+</div>
+<p id="msg1" style="width:400px;font-size:24px;font-weight:bold;background:#fff">Test Area</p>
+  <button class="eval">Button</button>
+<ol class="results"></ol>
+</div>
+
+
+
+
+
+<h2>Regular Expression Flags</h2>
+Regular expressions can have flags to match lower case letters, to search through multiline blocks etc.
+For example using <strong>i</strong>, will search for upper or lower cases.
+<div class="code-block">
+<div class="code">
+  var pattern = "(.nna)+";
+  myRe2 = new RegExp(pattern, "mgi");
+  myArray2 = myRe2.exec("Vnna Anna");
+  s=myArray2.toString();
+  $('#msg2').text(s);
+</code>
+</div>
+<p id="msg2" style="width:400px;font-size:24px;font-weight:bold;background:#fff">Test Area</p>
+  <button class="eval">Button</button>
+</div>
+
+<h2>Using Parenthesized Substring Matches</h2>
+
+Including parentheses in a regular expression pattern causes the corresponding submatch to be remembered. For example, /a(b)c/ matches the characters 'abc' and remembers 'b'. To recall these parenthesized substring matches, use the Array elements [1], ..., [n].
+
+The number of possible parenthesized substrings is unlimited. The returned array holds all that were found. The following examples illustrate how to use parenthesized substring matches.
+
+<div class="code-block console-wrap">
+<div class="code code-block">
+  var pattern = "(.nna)+";
+  re = /(\w+)\s(\w+)/;
+ str = "John Smith";
+ newstr = str.replace(re, "$2, $1");
+   $('#msg3').text(newstr);
+</code>
+</div>
+<p id="msg3" style="width:400px;font-size:24px;font-weight:bold;background:#fff">Test Area</p>
+  <button class="eval">Button</button>
+</div>
+
+<h2>Testing for matches using test()</h2>
+The last method we will examine is the test(). This method,
+executes the search for a match between a regular expression and a specified string and returns true or false.
+
+<div class="code-block console-wrap">
+<div class="code code-block">
+function isValidDate(userinput){
+    var dateformat = /^\d{1,2}(\-|\/|\.)\d{1,2}\1\d{4}$/
+    return dateformat.test(userinput);
+}
+
+var userinput='01.12.2009';
+
+s=isValidDate(userinput);
+
+$('#msg4').text(s);
+</code>
+</div>
+<p id="msg4" style="width:400px;font-size:24px;font-weight:bold;background:#fff">Test Area</p>
+  <button class="eval">Button</button>
+</div>
+
+Since we are dealing with jQuery as well as Javascript let us now modify the above so that we can actually type the regular expression and test!
+
+<div class="code-block">
+<div class="code"></code>
+</div>
+<h4>Regular Expression Tester</h4>
+
+(Type In a Regular Expression to Test)
+
+<form class="myForm">
+
+<textarea id="regex" style="width:50%;height:100px;clear:both;display:block"/>
+^\d{1,2}(\-|\/|\.)\d{1,2}\1\d{4}$\s*\n*\r*</textarea>
+<textarea id="input" style="width:40%;height:100px;clear:both">
+</textarea>
+
+</form>
+
+<p id="msg5" style="width:400px;font-size:24px;font-weight:bold;background:#fff">Test Area</p>
+</div>
+
+Now, knowing how a RegExp is written is only half the game. To gain anything from them you have to know how to use them too. There are a number of ways to implement a RegExp, some through methods belonging to the String object, some through methods belonging to the RegExp object. Whether the regular expression is declared through an object constructor or a literal makes no difference as to the usage.
+
+To use Regular Expressions properly you need to memorize quite a few of them. You will get the feel for them after a while. They are a coding 'language' on their own.
+
+
+
+##Further Reading
+
+You can visit Regular Expression Ninja Blog
+http://blog.stevenlevithan.com/
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+$('button.eval').click(function(){
+   var code=$(this).siblings('.code').text();
+   eval(code);
+});
+
+
+$("#input").keyup(function(){
+    var s=$(this).val();
+    s=isValid(s);
+     $('p#msg5').text(s);
+});
+
+$("#regex").keyup(function(){
+    var s=$('#input').val();
+    s=isValid(s);
+     $('p#msg5').text(s);
+});
+});
+
+function isValid(str){
+   var pattern=$('#regex').val(); 
+  s=pattern;//alert(s);
+   var dateformat =new RegExp(pattern,'msi');
+    //alert(dateformat);
+   return dateformat.test(str);
+}
+ </script>
+
+<h3>Notes</h3>
+Regular Expression Literals
+A regular expression literal is an input element that is converted to a RegExp object (section 15.10)
+when it is scanned. The object is created before evaluation of the containing program or function begins.
+Evaluation of the literal produces a reference to that object; it does not create a new object. Two regular
+expression literals in a program evaluate to regular expression objects that never compare as === to each
+other even if the two literals' contents are identical. A RegExp object may also be created at runtime by
+new RegExp (section 15.10.4) or calling the RegExp constructor as a function (section 15.10.3).
+  
+###Internet Resources
+
+[Very good samples](http://lawrence.ecorp.net/inet/samples/regexp-format.php)
+
+
+
+
+
+
+
+        

@@ -1,0 +1,142 @@
+<style type="text/css">
+ol{width:400px}
+</style>
+##Capturing numbers
+
+Atlhough using regular expressions to find numbers and number related information during pre-processing of textual information appears to be simple, it is quite involved if you consider the various forms of number formats:
+
+Here is some text with numbers.
+
+
+This is a sample text with some number such as 12/34 and 1,200.561 or 1200.56 or 99.8%.
+larger numbers and dollar or other symbols, can also be captured:
+ {{plain:      
+$562.78
+$ 14,567,890.01
+$ 14 567 890.01}}
+  
+       It can become eceedingly difficult to pick up this 5.2*6.2=33.89
+       
+{{plain:
+
+       French 14 567 890,01 or
+       french 14.567.890,01
+       01:20 am, or 12:00:01 hrs or 24:00pm or 11:02 (a.m.)
+}}
+
+       1994-11-05T08:15:30-05:00 corresponds to November 5, 1994, 8:15:30 am, US Eastern Standard Time.
+
+1994-11-05T13:15:30Z corresponds to the same instant. 
+
+###Formats
+
+Different standards may need different levels of granularity in the date and time, so this profile defines six levels. Standards that reference this profile should specify one or more of these granularities. If a given standard allows more than one granularity, it should specify the meaning of the dates and times with reduced precision, for example, the result of comparing two dates with different precisions.
+
+The formats are as follows. Exactly the components shown here must be present, with exactly this punctuation. Note that the "T" appears literally in the string, to indicate the beginning of the time element, as specified in ISO 8601.
+
+{{plain:
+   Year:
+      YYYY (eg 1997)
+   Year and month:
+      YYYY-MM (eg 1997-07)
+   Complete date:
+      YYYY-MM-DD (eg 1997-07-16)
+   Complete date plus hours and minutes:
+      YYYY-MM-DDThh:mmTZD (eg 1997-07-16T19:20+01:00)
+   Complete date plus hours, minutes and seconds:
+      YYYY-MM-DDThh:mm:ssTZD (eg 1997-07-16T19:20:30+01:00)
+   Complete date plus hours, minutes, seconds and a decimal fraction of a
+second
+      YYYY-MM-DDThh:mm:ss.sTZD (eg 1997-07-16T19:20:30.45+01:00)
+}}
+
+{{plain:
+where:
+
+     YYYY = four-digit year
+     MM   = two-digit month (01=January, etc.)
+     DD   = two-digit day of month (01 through 31)
+     hh   = two digits of hour (00 through 23) (am/pm NOT allowed)
+     mm   = two digits of minute (00 through 59)
+     ss   = two digits of second (00 through 59)
+     s    = one or more digits representing a decimal fraction of a second
+     TZD  = time zone designator (Z or +hh:mm or -hh:mm)
+}}
+
+This profile does not specify how many digits may be used to represent the decimal fraction of a second. An adopting standard that permits fractions of a second must specify both the minimum number of digits (a number greater than or equal to one) and the maximum number of digits (the maximum may be stated to be "unlimited").
+
+This profile defines two ways of handling time zone offsets:
+
+   1. Times are expressed in UTC (Coordinated Universal Time), with a special UTC designator ("Z").
+   2. Times are expressed in local time, together with a time zone offset in hours and minutes. A time zone offset of "+hh:mm" indicates that the date/time uses a local time zone which is "hh" hours and "mm" minutes ahead of UTC. A time zone offset of "-hh:mm" indicates that the date/time uses a local time zone which is "hh" hours and "mm" minutes behind UTC. 
+
+A standard referencing this profile should permit one or both of these ways of handling time zone offsets.
+Examples
+
+1994-11-05T08:15:30-05:00 corresponds to November 5, 1994, 8:15:30 am, US Eastern Standard Time.
+
+1994-11-05T13:15:30Z corresponds to the same instant.
+
+
+
+<div class="code-block console-wrap">
+<div class="code-block code">
+<code>
+ (function () {
+  var pattern = /\w([0-9.])+s?/g,
+  result = '',
+  s = 'a time to go in the year 2011 and in 1900 \n';
+  s += '1239.001 or 1,23\n';
+  if (result !== null) {
+    log(result = s.match(pattern));
+  }
+  else {
+    log('not found');
+  }
+})();
+</code>
+</div>
+<p class= "msg" id="msg" style="white-space:pre"></p>
+  <button class="eval">Button</button>
+<ol class="results"></ol>
+</div>
+
+
+
+###Julian Calendar
+
+By 46 BCE the Roman calendar was a major mess. Among other things the lack of leap years had gradually lost enough days to make the calendar claim spring, the start of a new year, the Calends of March, actually occurred in what was really late November, a few days before the Calends of December. Not a good time to plant your spring crops.
+
+Julius Caesar, under the advice of the astronomer {{wi:Sosigenes}} of Alexandria, issued a decree that lengthened 46 BCE to 445 days to bring the calendar year into line with the solar year. This made the longest year on record.
+
+As part of the 46 BCE correction, subsequent years had an extra day added six days before the Calends of March every fourth year. Rather than making a separate day number, this month had two "six days before the Calends of March", or "two sixes", which the current word bissextile is derived from. Thus February-24 is historically the leap day, not February-29. In the America and the European community this is often called the "Old Style Date" or "Old Style Calendar".
+
+Ignoring differing leap years, the months used in this calendar match the months in the current Gregorian Calendar.
+
+Unfortunately, the priests of the time greatly botched leap year calculations after this calendar correction and it took a few decades to discover this fact. Claus nderings Calendar FAQ details the aftermath of these errors lasting through 4 CE, which omitted 0004-02-29 
+2000-12-12 . 21345-12-12   
+    
+The abbreviation BCE, just as with BC, always follows the year number. Unlike AD, which traditionally precedes the year number, CE always follows the year number (if context requires that it be written at all).[13] Thus, the current year is written as 2008 A.D. or 2008 AD in both systems (or, if further clarity is needed, as 2008 CE, or as AD 2008), and the year Socrates died is represented as 399 BCE (the same year that is represented by 399 BC in the BC/AD system). The abbreviations are sometimes written with small capital letters, or with periods (e.g., "BCE" or "C.E.").
+
+Consider also the problems if one extends this to languages other than English or to Old english texts.
+
+1649 use of  Christian in English book 
+
+1st usage found in English. Retrieved on 2008-01-13. 
+
+WING, Vincent (1649). 
+
+
+
+###The regular expression for times
+
+The regular expression is part of a plugin called <dfn>regex_pi.</dfn> The plugin loads automatically as long as you include it in your files. The plugin includes routines for common regular expressions:
+
+   {{field: regex(TIME,$string);}}
+
+Will return all tokens found in a string that are suspected of being related to time. 
+
+
+
+
+           

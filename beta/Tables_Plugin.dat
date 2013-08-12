@@ -1,0 +1,53 @@
+\chapter{LaTeX Style Tables Plugin}
+
+Tables in LaTeX are substantially different from the way tables are rendered in html, hence a way to handle them and finding meanigful and user friendly way to handle them both ways, is albeit difficult. We will demonstrate these techniques, from plain vanilla
+tables to more complicated ones.
+
+\section{Simple Tables}
+
+A simple table in LaTeX is marked as per the listing below. A tabular alone can be typeset by omitting the \verb++ \begin{table}...\end{table}++.
+
+\begin{verbatim}
+  \begin{table}[htbp]
+   \centering
+   \begin{tabular}{lll}
+     1 & 2 & 3\\
+   \end{tabular}
+  \end{table}
+\end{verbatim}
+
+In html a table has in many ways got a more complicated structure. The only use for the table command is to set an enclosing environment for captions, centering and sizing.
+
+
+
+\begin{table}[htbp]
+   \centering
+   \tablecaption{testing}
+   \begin{tabular}{llllp{3.5cm}}
+    a & b & c & d & Some remarks\\   
+    e & f & g & h &\\ 
+    e & f & g & h & This is some long test.
+   \end{tabular}
+   
+   \begin{center}
+   
+   \end{center}
+\end{table}
+
+
+
+\begin{table}[htbp]
+   \centering
+   \tablecaption{testing}
+   \begin{tabular}{llllp{3.5cm}}
+    a & b & c & d & Some ver very lond remarks we will get it to wrap.\\   
+    
+   \end{tabular}
+   
+   
+\end{table}
+
+
+
+
+

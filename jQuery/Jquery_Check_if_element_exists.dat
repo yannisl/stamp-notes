@@ -1,0 +1,22 @@
+ \begin{comment}
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+\end{comment}
+
+
+\section{How to check if an element exists with jQuery}
+
+We can easily check if an element exists with jQuery, by using the \texttt{length} property or by checking if the selector evaluates to \texttt{true}.
+
+\begin{jscodeblock}
+var z = $('#aTest').length;
+log('z', typeof z);
+z === 0 ? log('true') : log('false');
+\end{jscodeblock}
+
+                                                

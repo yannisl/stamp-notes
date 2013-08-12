@@ -1,0 +1,394 @@
+<!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<script type="text/javascript">
+$(document).ready(function(){
+ $('#saveasform').submit(function(){
+    alert('succesful');
+    return false;
+ });
+)};
+</script>
+
+<style> 
+    .goog-tabpane {
+      background: threedface;
+      padding: 5px;
+      position: relative;
+      width:95%;
+      margin:0 auto;
+    }
+ 
+    .goog-tabpane-tabs {
+      list-style: none;
+      margin: 0px;
+      padding: 0px;
+      height: 1ex;
+      position: relative;
+    }
+ 
+    .goog-tabpane-left .goog-tabpane-tabs {
+      float: left;
+    }
+ 
+    .goog-tabpane-right .goog-tabpane-tabs {
+      float: right;
+    }
+ 
+    .goog-tabpane-cont {
+      overflow: auto;
+      background: threedface;
+      border: 1px solid;
+      border-color: threedhighlight threedshadow threedshadow threedhighlight;
+      padding: 2px;
+      height: 800px;
+    }
+ 
+    .goog-tabpane-tab, .goog-tabpane-tab-selected {
+      display: block;
+      padding: 0px 3ex;
+      background: threedface;
+      border: 1px solid;
+      margin: 0px;
+    }
+ 
+    .goog-tabpane-top .goog-tabpane-tab,
+    .goog-tabpane-top .goog-tabpane-tab-selected,
+    .goog-tabpane-bottom .goog-tabpane-tab,
+    .goog-tabpane-bottom .goog-tabpane-tab-selected {
+      float: left;
+    }
+ 
+    .goog-tabpane-top .goog-tabpane-tab,
+    .goog-tabpane-top .goog-tabpane-tab-selected {
+      border-color: threedhighlight threedshadow threedface threedhighlight;
+    }
+ 
+    .goog-tabpane-bottom .goog-tabpane-tab,
+    .goog-tabpane-bottom .goog-tabpane-tab-selected {
+    border-color: threedface threedshadow threedshadow threedhighlight;
+    }
+ 
+    .goog-tabpane-left .goog-tabpane-tab,
+    .goog-tabpane-left .goog-tabpane-tab-selected {
+      border-color: threedhighlight threedface threedshadow threedhighlight;
+    }
+ 
+    .goog-tabpane-right .goog-tabpane-tab,
+    .goog-tabpane-right .goog-tabpane-tab-selected {
+      border-color: threedhighlight threedshadow threedshadow threedface;
+    }
+ 
+    .goog-tabpane-top .goog-tabpane-tab {
+      margin-top: 3px;
+    }
+ 
+    .goog-tabpane-tab-selected {
+      font-weight: bold;
+    }
+ 
+    .goog-tabpane-tab-selected,
+    .goog-tabpane-tab-selected {
+      padding-bottom: 2px;
+      padding-top: 2px;
+    }
+ 
+    .goog-tabpane-top .goog-tabpane-tab-selected {
+      position: relative;
+      top: 1px;
+    }
+ 
+    .goog-tabpane-bottom .goog-tabpane-tab-selected {
+      position: relative;
+      top: -1px;
+    }
+ 
+    .goog-tabpane-left .goog-tabpane-tab-selected {
+      position: relative;
+      left: 1px;
+    }
+ 
+    .goog-tabpane-right .goog-tabpane-tab-selected {
+      position: relative;
+      left: -1px;
+    }
+ 
+    #tabpane2 .goog-tabpane-tab {
+      margin-top: 0px;
+    }
+ 
+    p {
+      margin-top: 0px;
+    }
+ 
+</style> 
+
+
+<script type="text/javascript">
+goog.require('goog.string');
+goog.require('goog.ui.TabPane');
+</script>
+
+##Method Statements
+
+This section will provide helpers to produce Method Statements. All Method Statements will be printed using LaTeX or word format via a web interface. This section details some of the challenges in interfacing external programs to a web interface.
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+var s='\\addMSName{Method Statement Sample}\n'
+   + '\\addMSNumber{MS-HS-118-MC-999}\n'
+   + '\\addMSRevNumber{1}\n'
+   + '\\addMSIssueDate{13.12.10}\n'
+   + '\\addMSProjectName{Doha Project}\n';
+
+logPRE(s);
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+###Saving the files to the server
+
+This is done via ajax and a simple API
+
+{{plain: /ms/save/title}}
+
+The title is saved using underscores to ensure that no filing and retrieving issues arise due to undue spaces.
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+/**
+ * Method Statements Class
+ * Class for managing method statements
+ * Controls all documents of type MS
+ * has web interface for building new
+ */
+function MS(){
+ this.prefix = 'HVAC/'; 
+ this.refNumber = '001';
+ this.ref = function (){
+   return this.prefix+this.refNumber;
+ };
+ this.basepath = '/mep/ms/';
+ this.dashedTitle = function title(s){
+   s = s.humanize(s);
+   return s.dasherize();
+ };
+}
+
+MS.prototype.persons = {
+  preparedBy: '',
+  checkedBy: '',
+  approvedBy : ''
+};
+
+ms = new MS();
+ms.dashedTitle('Sample Method Statement');
+logPRE(s);
+logPRE(ms.basepath);
+logPRE(ms.ref());
+
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+###Saving the Information to the Server
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+function MS(){
+ this.msname = 'Sample Name';
+ this.prefix = 'HVAC/'; 
+ this.refNumber = '001';
+ this.ref = function (){
+   return this.prefix+this.refNumber;
+ };
+ this.basepath = '/mep/ms/';
+ this.dashedTitle = function title(s){
+   s = s.humanize(s);
+   return s.dasherize();
+ };
+ this.sections = ['overview','general',
+      'safety','spec','lights'];
+}
+
+// sets or gets title
+MS.prototype.name = function (title){
+  if (title !== undefined && title !==''){this.msname = title;} 
+  return this.msname;
+};
+
+MS.prototype.persons = {
+  preparedBy: '',
+  checkedBy: '',
+  approvedBy : ''
+};
+ms = new MS();
+ms.dashedTitle('Sample Method Statement');
+logPRE(ms.basepath);
+logPRE(ms.ref());
+s=ms.name('Wild Air Method Statement');
+log(s);
+assert(ms.sections[0]==='overview');
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+###Algorithm
+Most of the MEP objects require information about the Project. A simple mock-up object is shown next. A more detailed class is to be developed, once the components are more advanced.
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+function Project (obj){
+// defaults are used to highlight
+// missing info and for testing
+ var defaults = {
+   number : 'HS-118',
+   name : 'City Center Phase III',
+   location:'Doha, Qatar',
+   description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Cras et nisi id lorem tempor semper. Suspendisse ante. Integer ligula urna, venenatis quis, placerat vitae, commodo quis, sapien. Quisque nec lectus. Sed non dolor. Sed congue, nisi in pharetra consequat, odio diam pulvinar arcu, in laoreet elit',
+   team : {},
+   divisions : {},
+   prefix: 'project',
+   view:'/CodeIgniter/data/tabpane.html'
+  }
+ 
+ this.settings = {};
+
+ // extend object
+ for (var prop in defaults){
+  if (defaults.hasOwnProperty(prop)){
+    this.settings[prop]=defaults[prop];
+    if (obj!==undefined && obj[prop]!==undefined){this.settings[prop]=obj[prop];};
+  }
+ }
+
+
+ this.get = function (){
+   // gets values from server
+ }
+
+ this.save = function (){
+  // saves values to server
+ }
+
+this.populate = function (){
+ var tempS = '';
+ for (var prop in this.settings){
+   tempS ='#'+this.settings.prefix + prop.capitalize();
+   $(tempS).val(this.settings[prop]);
+ }
+}
+
+this.view = function (url,callback){
+  $('#pane').load(url,callback);
+};
+
+};
+
+// set some option parameters
+// 
+var options = {
+ name : 'North Gate Development',
+ number: 'HS-126',
+}
+// create new project
+project = new Project(options);
+
+//log(project.settings.name);
+//log(project.settings.number);
+
+project.settings.number='HS-226';
+project.view(project.settings.view, function(){project.populate()});
+//log(project.settings.view)
+
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+
+<form id="saveasform1" style="display:block;float:right">
+<input type="text" />
+<input type="button"  class="small_button" id="saveAsJS" value="Save As JS"/>
+
+<textarea id="code1" class="hidden"></textarea>
+</form>
+<ol class="results"></ol> 
+</div>
+
+<div id="pane" class="clearfix"></div>     
+
+
+###Notes
+
+So far we are on the right direction. Still we need to think about splitting, between model, view controller and for a new component, actually _save_ the raw template to the server. This way everything can be arranged from the console here.
+
+We also need to save into a new page. This should not be too difficult. We save the JavaScript under its own name and the rest under data using editpost.
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+    var a=11;
+    
+    $("#saveasform1").submit(function() {
+      $("#saveasform1 > input:first").val('filename');
+      if (a < 10) {logPRE(z); return false}
+      else{
+      return false;}
+    });
+
+   $('#saveAsJS').click(function(){
+       $(this).css({'color':'blue'});
+       $(this).val('Saved as JS');
+       log('button pressed');
+       log(project.settings.number);
+       var url="http://localhost/CodeIgniter/admin/post/saveAsJS/jQuery/js_bak";
+       $('#saveasform1').attr({'action':url})
+       $('#saveasform1').submit();
+   });
+    
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span id="chapter" class="hidden">2</span>
+##Further Reading
+                                                                                                                                                        

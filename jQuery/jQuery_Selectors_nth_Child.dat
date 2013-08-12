@@ -1,0 +1,119 @@
+ <!--
+{{feature: .. The take home message: seek the signal, avoid the noise, and do your own homework .. zerohedge.com}}
+{{feature-image:http://localhost/CodeIgniter/images/run_time_error.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: UI, jQuery, Visibility Filters, CSS Visibility }}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<style>
+  #test {}
+ul.ex {font-size:13px;display:block}
+ul.ex {list-type:none;list-style-type:none}
+ul.ex li{display:block;width:90%;border:1px solid #ececec;margin-bottom:1px}
+
+</style>
+
+
+
+<h2>
+jQuery Content Filters the :nth-child Selector
+</h2>
+
+<dfn> :nth-child(index/even/odd/equation) </dfn>
+
+Matches all elements that are the nth-child of their parent or that are the parent's even or odd children.
+
+While :eq(index) matches only a single element, this matches more than one: One for each parent with index. Multiple for each parent with even, odd, or equation. The specified index is one-indexed, in contrast to :eq() which starts at zero.
+
+
+
+
+
+<script>
+
+  $(document).ready(function(){
+    $("#eval").click(function(){
+    $(".ex li:nth-child(3)").prepend('<img src="http://localhost/CodeIgniter/images/fox-02.jpg"  />');
+     });    
+  });
+
+ </script>
+  
+<hr/>
+
+{{example:
+
+<h3>Example-1</h3>
+
+<p>In this example we will prepend an image on the third child of the list.</p>
+
+<div  style="width:190px;float:left" c >
+<ul class="ex" id="test" >
+    <li>John</li>
+    <li>Karl</li>
+    <li>Brandon</li>
+  </ul>
+</div>
+
+
+ <div  style="width:30%;float:left" >
+<ul class="ex">
+    <li>Sam</li>
+    <li>Mary</li>
+    <li>John</li>
+  </ul>
+</div>
+
+
+ <div style="width:30%;float:left"  >
+
+<ul class="ex">
+    <li>Glen</li>
+    <li>Tane</li>
+    <li>Ralph</li>
+    <li>David</li>
+  </ul>
+<hr/>
+<button id="eval" style="float:left" >Run Code</button>
+</div>
+
+<hr/>
+<p>Although this example seems silly, it opens ways for selecting, intelligently
+record fields in tables etc. For example we might only want to
+highlight a particular td.</p>
+
+}}
+
+The script is actually very simple:
+
+
+{{plain:
+<code class="js">
+<h4 class="red">The nth Child!</h4>
+$(document).ready(function()&#123;
+    $(".ex li:nth-child(3)").prepend('&lt;img src="fox-02.jpg"  /&gt;');
+&#125;);
+</code>
+}}
+
+<hr/>
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+    

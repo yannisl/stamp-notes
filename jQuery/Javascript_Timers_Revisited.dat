@@ -1,0 +1,63 @@
+ <!--
+
+{{feature-image:/codeigniter/images/china/beauty_03.jpg}}
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+
+
+<h2>Timers Revisited</h2>
+
+<div  class="code-block console-wrap"><div class="code code-block"><code>
+var count = 0;
+
+var timerID = null;
+
+var timer = setInterval(function () {
+
+  if (count < 5) {
+    log("Timer call: ", count);
+    count = count + 1;
+  } else {
+    assert(count == 5, "Count came via a closure, accessed each step.");
+    assert(timer, "The timer reference is also via a closure.");
+    clearInterval(timer);
+  }
+},
+500);
+
+log(timer);
+
+</code>
+</div>
+<p id="msg1" class="msg" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+<hr/>
+
+  
+
+
+
+  
+  
+
+
+
+
+
+
+

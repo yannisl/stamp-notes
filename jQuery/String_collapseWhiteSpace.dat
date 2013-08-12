@@ -1,0 +1,85 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+
+
+<h2>String Collapse White Space</h2>
+
+This function removes extraneous whitespaces from text collapsing them to a single whitespace. It is useful for preprocessing texts before parsing them.
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+U.string = {};
+/**
+ * Converts multiple whitespace chars (spaces, non-breaking-spaces, new lines
+ * and tabs) to a single space, and strips leading and trailing whitespace.
+ * @param {string} str Input string.
+ * @return {string} A copy of {@code str} with collapsed whitespace.
+ */
+U.string.collapseWhitespace = function (str) {
+  // Since IE doesn't include non-breaking-space (0xa0) in their \s character
+  // class (as required by section 7.2 of the ECMAScript spec), we explicitly
+  // include it in the regexp to enforce consistent cross-browser behavior.
+  return str.replace(/[\s\xa0]+/g, ' ').replace(/^\s+|\s+$/g, '');
+};
+
+var text = '"     this is some text " \n ';
+log(text);
+log(U.string.collapseWhitespace(text));
+</code>
+</div>
+
+<div  id ="msg" class="msg" style="white-space:pre">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+7.2 White Space
+
+White space characters are used to improve source text readability and to separate tokens (indivisible
+lexical units) from each other, but are otherwise insignificant. White space may occur between any two
+tokens, and may occur within strings (where they are considered significant characters forming part of the
+literal string value), but cannot appear within any other kind of token.
+The following characters are considered to be white space:
+
+|Code Point| Value Name |Formal Name|
+|-------------|---------------|----------------|
+|\u0009| Tab |&lt;TAB&gt;|
+|\u000B| Vertical Tab| &lt;VT&gt;|
+|\u000C |Form Feed |&lt;FF&gt;|
+|\u0020| Space| &lt;SP&gt;|
+|\u00A0 |No-break space| &lt;NBSP&gt;|
+
+
+
+See also [Make white-space visible](http://127.0.0.1/CodeIgniter/index.php/Blogs/stamps/jQuery/Strings_and_whitespace).
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+

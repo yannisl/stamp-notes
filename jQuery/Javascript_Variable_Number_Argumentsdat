@@ -1,0 +1,71 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+<h2>Using a Variable Number of Arguments in a Function</h2>
+In many instances to make a system more flexible we may want to have a variable number of arguments in a function. Such a function is called a <em>{{wi:variadic}} function</em> that is, its <em>{{wi:arity}}</em> is not fixed.
+
+Javascript will not complain but just return <em>'undefined'</em>,  if we actually send more or less arguments onto a function. Consider this:
+
+<div  class="code-block console-wrap"><div class="code">
+<span class="green">//40: Using a variable number of arguments. </span>
+<code>
+function merge(root1, root2, root3, root4){ 
+    var root = root1+root2+root3+root4;
+    return root; 
+} 
+log('abcd : ', merge("a","b","c", "d")); 
+log('ab :  ',  merge("a","b"));
+</code>
+</div>
+<div class="msg" style="width:400px;font-weight:bold;background:#fff">
+</div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<h3>A variadic function </h3>
+
+<div  class="code-block console-wrap"><div class="code"><code>
+<span class="green">//40: Using a variable number of arguments. </span>
+function merge(root){ 
+  for ( var i = 0; i < <span class="highlight">arguments.length; i++ ) </span>
+    for ( var key in arguments[i] ) 
+      root[key] = arguments[i][key]; 
+  return root; 
+} 
+ 
+var merged = merge({name: "John"}, {city: "Boston"}); 
+alert(typeof merged);
+assert( merged.name == "John", "The original name is intact." ); 
+assert( merged.city == "Boston", "And the city has been copied over." );
+</code>
+</div>
+<p id="msg1" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<hr/>
+
+
+
+
+  
+  
+
+
+
+
+
+
+

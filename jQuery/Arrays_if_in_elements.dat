@@ -1,0 +1,42 @@
+##Your Title Here  
+
+I first saw this a [bennadel.com](http://www.bennadel.com/blog/177-Javascript-Short-Hand-IF-Within-Object-Notation.htm)
+
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+// Create an array of friends.
+var arrFriends = new Array("Molly", "Sarah", "Dave", "Luke");
+
+// Get the day of the week.
+var intDayOfWeek = 6 //:(new Date()).getDay();
+// Figure out which friend to call based on
+// the given day of the week. Call Luke on saturday.
+// For every other day, call Molly (my girlfriend).
+var strFriendToCall = arrFriends[(intDayOfWeek == 6) ? 3 : intDayOfWeek];
+
+log(strFriendToCall);
+
+var i = 2;
+(i > 2) ? log('ok') : log('notok');
+</code>
+</div>
+
+<div  class="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>  
+
+Nothing earth shuttering, but neat. Just a reminder about the ternary conditional statement:
+
+{{plain:
+   conditionExpr ? thenExpr : elseExpr; 
+}}   
+
+<div style="background:url('http://localhost/CodeIgniter/images/angela.jp');width:400px;height:600px" class="bordered clearfix">
+<img style="display:none" src="providerSrc" onerror="this.parentNode.style.backgroundImage='url(http://localhost/codeigniter/images/china/beauty_01.jpg)'"  />       
+</div>   
+
+                

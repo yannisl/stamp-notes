@@ -1,0 +1,65 @@
+ <!--
+
+{{feature-image:/codeigniter/images/china/beauty_02.jpg}}
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+
+
+<h2>Color Experiments</h2>
+{{bulb: Closure circular buffer}}
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+
+$('#contrast').click(function () {
+  $('body').css('backgroundColor', '#2e3131');
+});
+
+$('#light').click(function () {
+  $('body').css('backgroundColor', '#ececec');
+});
+
+</code>
+</div>
+
+
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<button id="contrast">Contrast</button>
+<button id="light">Light</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+            

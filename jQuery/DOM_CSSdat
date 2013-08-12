@@ -1,0 +1,300 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<style>
+pre{white-space: pre}
+
+</style>
+
+
+<h3>Working with the Style Property/Attributes</h3>
+
+<div  class="code-block console-wrap">
+<div id="a">Im am going to be removed</div>
+<div id="b">Me too</div>
+<div class="code code-block"><code>
+<span class="green">// define the class</span>
+
+function changeCSS() {
+    var div = document.getElementById("a");
+    div.style.backgroundColor="#f00";
+    div.style.width="500px";
+    div.style.color="#fff";
+    div.style.height="200px";
+    div.style.paddingLeft="50px";
+   div.style.paddingTop="50px";
+   div.style.fontFamily="Verdana";
+   div.style.borderColor="#000";
+}
+changeCSS();
+
+</code>
+</div>
+<p id="msg1" class="msg">
+</p>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol>
+</div>
+</code>
+
+The Style Property/Attributes
+Typically, you retrieve and set CSS style properties via the style property. The concept
+of style as a property originated with Microsoft, but the World Wide Web Consortium
+(W3C) adopted and included it in the DOM Level 2 CSS module. Through the W3C
+DOM, all nodes have an associated style object as a property, which means you can
+change any page element’s style properties with JavaScript.
+
+<h3>DRY</h3>
+If you have a good look at the above, it is actually very badly written and done on purpose. We kept repeating ourselves, as well as well as created a function that cannot really be re-used. The Do not Repeat Yourself is a programming concept that can help you write better programs. Every time you type the same thing over and over think of ways to simplify it. Generally code can hold data and functions. An ideal place to hold data is an object literal (JSON).
+
+
+<div  class="code-block console-wrap">
+<div id="b1">I will change my CSS</div>
+<div class="code code-block"><code>
+<span class="green">// define the class</span>
+
+
+var options ={
+  backgroundColor: '#f00',
+  width : "500px",
+  color : "#fff",
+  height : "200px",
+  paddingLeft : "50px", 
+  paddingRight : "50px",
+  fontFamily:"Verdana",
+  borderColor: "#000"
+};
+
+
+function changeCSS(element, obj) {
+ 
+    for (var prop in obj){
+            
+           element.style[prop] = obj[prop];
+    }
+};
+
+var element = document.getElementById("b1");
+changeCSS(element, options);
+
+</code>
+</div>
+<p id="msg1" class="msg">
+</p>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol>
+</div>
+</code>
+
+By now, having probably used libraries you will be nodding your head and saying that this should be a method and not a function and you are right. However, the purpose of this tutorial was to give you a taste of manipulating CSS with the DOM and I have use this example to gently introduce you to DRY.
+
+We could now quickly run our own 'jQuery' library that can only work on CSS and id's for demonstration purposes.
+
+<div  class="code-block console-wrap">
+<div id="b2">I will change my CSS</div>
+<div class="code code-block"><code>
+<span class="green">// define the class</span>
+
+(function (){
+var options ={
+  backgroundColor: '#f00',
+  width : "500px",
+  color : "#fff",
+  height : "200px",
+  paddingLeft : "50px", 
+  paddingRight : "50px",
+  fontFamily:"Verdana",
+  borderColor: "#000"
+};
+
+function Library () {
+}
+
+// better to add all methods in one object .fn
+// this will allow for it to be extended sort of init 
+
+Library.prototype.fn = function(){};
+Library.prototype.fn.author = "Yiannis"; 
+Library.prototype.fn.gender = "girl"
+<span class="green">// routine to facilitate adding members to Constructor</span>
+function extend (method, aFunction){
+       return Library.prototype.fn[method] = aFunction;
+}
+
+
+//extend('test', function(){log(' ','in test');return 10 });
+//extend('test2', 12345);
+
+
+$el = function (selector ){return new Library(selector);}
+
+$el('b3');
+log(' ',$el.fn.test);
+log('author',$el.fn.author);
+z = $el.fn.test();
+z1=$el.fn.test2;
+log('last test ', z);
+log('last',z1);
+})();
+
+
+
+
+</code>
+</div>
+<p id="msg1" class="msg">
+</p>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol>
+</div>
+</code>
+
+
+<h2>More Refactoring</h2>
+
+<div  class="code-block console-wrap">
+<div id="b3">I will change my CSS</div>
+<div id="b4">I will change my CSS</div>
+
+<div class="code code-block"><code>
+<span class="green">// define the class</span>
+
+
+var options ={
+  backgroundColor: '#f00',
+  width : "500px",
+  color : "#fff",
+  height : "200px",
+  paddingLeft : "50px", 
+  paddingRight : "50px",
+  fontFamily:"Verdana",
+  borderColor: "#000"
+};
+
+function Library (element) {
+
+   // selector engine
+    this.el = document.getElementById(element);
+    this.changeCSS = function(obj){
+ 
+        for (var prop in obj){
+         
+           this.el.style[prop] = obj[prop];
+          }
+         return this;
+    };
+   // we want the return to be the selected elements
+ };
+                   
+
+
+
+
+// better to add all methods in one object .fn
+// this will allow for it to be extended sort of init 
+
+Library.prototype.fn = function(){};
+Library.prototype.fn.author = "Yiannis"; 
+Library.prototype.fn.gender = "girl"
+<span class="green">// routine to facilitate adding members to Constructor</span>
+function extend (method, aFunction){
+       return Library.prototype.fn[method] = aFunction;
+}
+
+
+extend('test', function(){log(' ','in test');return 10 });
+extend('test2', 12345);
+//$el  =  new Library('b3');
+ $el = function (selector ){return new Library(selector);}
+
+// $el('b3');
+var options2 ={
+  backgroundColor: '#000',
+  width : "500px",
+  color : "#fff",
+  height : "200px",
+  paddingLeft : "50px", 
+  paddingRight : "50px",
+  fontFamily:"Verdana",
+  borderColor: "#000"
+};
+          
+$el('b3').changeCSS(options).changeCSS(options2);
+$el('b4').changeCSS(options);
+
+
+
+
+
+
+
+
+
+
+
+log(' getId ', $el('b3').el);
+
+
+
+
+
+log(' ',$el('b3').fn.test);
+log('author',$el('b3').fn.author);
+z = $el('b3').fn.test();
+z1=$el('b3').fn.test2;
+log('last test ', z);
+log('last',z1);
+
+
+</code>
+</div>
+<p id="msg1" class="msg">
+</p>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol>
+</div>
+</code>
+
+
+##References:
+
+The Module Pattern
+http://yuiblog.com/blog/2007/06/12/module-pattern/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+##Further Reading
+
+
+
+
+  
+  
+
+
+
+
+
+
+

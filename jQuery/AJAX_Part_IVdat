@@ -1,0 +1,160 @@
+ <!--
+{{feature: .. The take home message: seek the signal, avoid the noise, and do your own homework .. zerohedge.com}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: UI, jQuery, Visibility Filters, CSS Visibility }}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<style type="text/css">
+ul.ex {font-size:13px;display:block}
+ul.ex {list-type:none;list-style-type:none}
+ul.ex li, ul.ex1 li{display:block;width:90%;border:1px solid #ececec;margin-bottom:1px}
+ul.ex li span{cursor:pointer}
+</style>
+
+
+
+<h3>
+Handling Ajax Events Globally
+</h3>
+
+You can handle Ajax events such as a success or error event locally in the
+$.ajax() function, but jQuery also provides functions to connect a callback function to any of those events globally to handle all your Ajax operations (saving you the trouble of setting up local event handlers for each operation).
+
+These global event handlers are <tt>AjaxStart()</tt>, <tt>AjaxSend()</tt>, <tt>AjaxSuccess()</tt>, <tt>AjaxError()</tt>, <tt>AjaxComplete()</tt> and <tt>AjaxError()</tt>.
+
+We will explore these with the following examples:
+
+
+<h3>Handling Ajax global events</h3>
+
+{{plain:
+$('#start').hide();
+$('#send').hide();
+$('#success').hide();
+$('#complete').hide();
+$('#results').hide();
+
+$('#start').bind("ajaxStart", 
+       function()&#123;
+        $(this).show();
+&#125;);
+
+$('#send').bind("ajaxStart", 
+       function()&#123;
+        $(this).show();
+&#125;);
+
+$('#success').bind("ajaxSuccess", 
+       function()&#123;
+        $(this).show();
+&#125;);
+
+$('#complete').bind("ajaxComplete", 
+       function()&#123;
+        $(this).show();
+&#125;);
+
+
+}}
+
+We now incorporate these in our previous programs and add the necessary divs.
+
+
+<div  class="code-block console-wrap">
+<div class="code">
+
+<code>
+var options={ 
+        width: "70%",
+        opacity: 0.4,
+        marginLeft: "0.6in",
+        fontSize: "2.5em", 
+        borderWidth: "10px"
+      };
+$('#start').bind("ajaxStart", 
+       function()&#123;
+        $(this).show().animate(options, 1500 );
+&#125;);
+
+$('#send').bind("ajaxStart", 
+       function()&#123;
+        $(this).show().animate(options, 1500 );
+&#125;);
+
+$('#success').bind("ajaxSuccess", 
+       function()&#123;
+        $(this).show().animate(options, 1500 );
+&#125;);
+
+$('#complete').bind("ajaxComplete", 
+       function()&#123;
+        $(this).show().animate(options, 1500 );
+&#125;);
+
+$.ajax({
+    type : "GET",
+    url : "/CodeIgniter/Blogs/ajax_post/1",
+    success: callback,
+    error: err
+});
+
+function callback(data, status)
+{
+  $that.siblings('.fullresponse').html(data);
+}
+
+function err(xhr, reason,ex)
+{
+  reason = '&lt;div class="error"&gt;' + reason + '&lt;/div&gt;';
+  $that.siblings('.fullresponse').html(reason);
+}
+</code>
+
+</div>
+<div  id="start" >starting ...</div>
+<div  id="send" >sending ...</div>
+<div  id="success" >success ...</div>
+<div  id="complete" >completed ...</div>
+<div   class="msg">
+ </div>
+
+<div class="fullresponse" style="width:98%">Something</div>
+<div class="console"></div>
+<hr/>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+With the above we have managed to provide global event handlers for our Ajax calls and some visual effects to let the user know what i shappening with our communication with the Server. As you will have noticed, we have used <tt>bind()</tt> to bind the events and <tt>animate()</tt> to animate them. As you can observe all the events were fired almost simultaneously since the communication with the server was so quick. It would have been better to ually queue the events. 
+
+ With all the variations to consider when applying effects, it can become difficult to remember whether the effects will occur simultaneously or sequentially. A brief outline might help:
+
+Effects on a single set of elements are:
+
+- simultaneous when applied as multiple properties in a single .animate() method
+- queued when applied in a chain of methods, unless the queue option is set to false.
+
+Effects on multiple sets of elements are:
+
+- simultaneous by default
+- queued when applied within the callback of another effect or within the callback of the .queue() method
+
+
+
+
+<script>
+$(document).ready(function(){
+$('#start').hide();
+$('#send').hide();
+$('#success').hide();
+$('#complete').hide();
+});
+</script>
+
+
+
+

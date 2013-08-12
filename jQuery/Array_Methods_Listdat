@@ -1,0 +1,111 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<style type="text/css">
+table{width:450px;font-size:14px;float:left;
+          margin:0 auto}
+</style>
+
+<h2>Array Reference</h2>
+This page lists all the built-in and other functions available for arrays, either from public libraries or through articles mentioned here.
+
+<h3>JavaScript Methods</h3>
+|Method| Description|Remarks|
+|---------|--------------|----------|
+| [prototype](/CodeIgniter/index.php/Blogs/tutorials/jQuery/Array_prototype )|  The initial value of Array.prototype.constructor is the built-in Array constructor.                  |                        |
+| length       | The original length property is 1  | some libraries also alias to size|
+|[ concat(item<sub>1</sub>..item<sub>n</sub>)](/CodeIgniter/index.php/Blogs/tutorials/jQuery/Array_concat )       | When the concat method is called with zero or more arguments item1, item2, etc., it returns an array containing the array elements of the object followed by the array elements of each argument in order. |                        |
+| [join (separator)](/CodeIgniter/index.php/Blogs/tutorials/jQuery/Array_convert_to_string) |  The elements of the array are converted to strings, and these strings are then concatenated, separated by occurrences of the separator. If no separator is provided, a single comma is used as the separator.   |               |
+|[pop](/CodeIgniter/index.php/Blogs/tutorials/jQuery/Array_pop_and_push )         | The last element of the array is removed from the array and returned.                       |                |
+|[push](/CodeIgniter/index.php/Blogs/tutorials/jQuery/Array_pop_and_push )|The arguments are appended to the end of the array, in the order in which they appear. The new length of the array is returned as the result of the call.   |                 |
+|[reverse](/CodeIgniter/index.php/Blogs/tutorials/jQuery/Array_reverse ) | The elements of the array are rearranged so as to reverse their order. The object is returned as the result of the call.                        |                  |
+|[shift](/CodeIgniter/index.php/Blogs/tutorials/jQuery/Array_shift_and_unshift )|  The first element of the array is removed from the array and returned                       |                 |
+| [slice(start,end)](/CodeIgniter/index.php/Blogs/tutorials/jQuery/Array_slice_and_splice )  | The slice method takes two arguments, start and end, and returns an array containing the elements of the array from element start up to, but not including, element end (or through the end of the array if end is undefined). If start is negative, it is treated as (length+start) where length is the length of the array. If end is negative, it is treated as (length+end) where length is the length of the array.   |                 |
+|[sort(CompareFn)](/CodeIgniter/index.php/Blogs/tutorials/jQuery/Array_sort )        | The elements of this array are sorted. The sort is not necessarily stable (that is, elements that compare equal do not necessarily remain in their original order). If comparefn is not undefined, it should be a function that accepts two arguments x and y and returns a negative value if x < y, zero if x = y, or a positive value if x > y.                         |                |
+|[splice](/CodeIgniter/Blogs/tutorials/jQuery/Array_slice_and_splice )     | When the splice method is called with two or more arguments start, deleteCount and (optionally) item1, item2, etc., the deleteCount elements of the array starting at array index start are replaced by the arguments item1, item2, etc.  |                 |
+|[toString](/CodeIgniter/index.php/Blogs/tutorials/jQuery/Array_convert_to_string )| The result of calling this function is the same as if the built-in join method were invoked for this object with no argument. ||
+|[unshift](/CodeIgniter/index.php/Blogs/tutorials/jQuery/Array_shift_and_unshift)|  The arguments are prepended to the start of the array, such that their order within the array is the same as the order in which they appear in the argument list. |                  |
+|See ECMA section 15.4 for more details|
+
+<hr/>
+<h3>Standard Library Methods</h3>
+|Method| Description|Remarks|
+|---------|--------------|----------|
+| eachSlice|  eachSlice |                 |
+|   all|        all| |
+|  every|      all| |
+|any|        any|  |
+|    some|       any| |
+|    collect|    collect| |
+|    map|        collect| |
+|    detect|     detect|  |
+|    [expose](/CodeIgniter/Blogs/tutorials/jQuery/Javascript_Functions_Recursion_Part_II) |  | similar to flatten but returns a string instead of an array, an alias of inspect  |
+|    findAll|    findAll| |
+|    select|     findAll| |
+|    filter|     findAll| |
+|reject|     reject ||
+|    flatten|  flatten|  flattens an array and returns the new array|
+|    grep|       grep| |
+|    include|    include| |
+|    member|     include| |
+|    inGroupsOf| inGroupsOf| |
+|    inject|     inject| |
+|    invoke|     invoke| |
+|    max|        max| |
+|    min|        min| |
+|    partition|  partition| |
+|    pluck|      pluck| |
+|    reject|     reject ||
+|    sortBy|     sortBy| |
+|    toArray|    toArray| |
+|    entries|    toArray| |
+|    zip|        zip| |
+|    size|       size| |
+|    inspect|    inspect| |
+|    find|       detect| |
+|   [repeat](/CodeIgniter/index.php/Blogs/tutorials/jQuery/Array_repeat ) |                | an alias for fill |
+|   [fill()](/CodeIgniter/index.php/Blogs/tutorials/jQuery/Array_repeat ) |               | |
+|[fillNumeric(start,n)](/CodeIgniter/index.php/Blogs/tutorials/jQuery/Array_repeat ) |    | |
+
+<hr/>
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+

@@ -1,0 +1,6 @@
+\chapter{Sandboxed Code}
+
+\begin{PHP}
+ self::afuction($test);
+
+\end{PHP}

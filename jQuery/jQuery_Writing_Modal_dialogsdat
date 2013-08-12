@@ -1,0 +1,130 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+
+<h2>Using the jQuery UI Library: Creating Dialogs</h2>
+
+Question: How do I open a new browser window?
+
+Answer: To open a new browser window, use the window.open() method. For example, the following code opens this page in a new window.
+
+myRef = window.open(''+self.location,'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0');
+
+
+
+<div  class="code-block console-wrap"><div class="code code-block"><code>
+<span class="green">/* 
+    How to write a simple popup
+    using jQuery UI library
+*/
+</span>
+function popitup() {
+	newwindow2=window.open('','name','height=200,width=150, left=300, top = 300');
+	var tmp = newwindow2.document;
+	tmp.write('&lt;html&gt;&lt;head&gt;&lt;title&gt;popup&lt;/title&gt;');
+	tmp.write('&lt;link rel="stylesheet" href="js.css"&gt;');
+	tmp.write('&lt;/head&gt;&lt;body&gt;&lt;p&gt;this is once again a popup.&lt;/p&gt;');
+	tmp.write('&lt;p&gt;&lt;a href="javascript:alert(self.location.href)"&gt;view location&lt;a&gt;.&lt;/p&gt;');
+	tmp.write('&lt;p&gt;&lt;a href="javascript:self.close()"&gt;close&lt;/a&gt; the popup.&lt;/p&gt;');
+	tmp.write('&lt;/body&gt;&lt;/html&gt;');
+	tmp.close();
+}
+
+$("#traditional").click(function(){
+     popitup();
+});
+
+//<div id="dialog" title="Basic modal dialog">
+// This is a modal window
+//</div>
+$('#modal').click(function(){
+$('#dialog').text('this is a test');
+$("#dialog").dialog({
+            bgiframe: false,
+            height: 340,
+            width:  400,
+            modal: true,
+            closeOnEscape: true,
+            title: "Modal Window Demo",
+            hide: "explode",
+            buttons: {
+				'Delete all items in recycle bin': function() {
+					$(this).dialog('close');
+				},
+				Cancel: function() {
+					$(this).dialog('close');
+				}
+			}
+        });
+});
+
+function function1()
+{
+    event.srcElement.blur();
+    window.showModalDialog("http://www.en.wikipedia.org", "", 
+        "dialogWidth:5cm; dialogHeight:10cm")
+}
+</code>
+</div>
+<div id="msg" class="msg">
+</div>
+<button class="eval">Run Code!</button>
+<button id="modal">Test Modal Dialog</button>
+<button id="traditional">Traditional Pop-up</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+##Further Reading
+
+<div  class="code-block console-wrap"><div class="code code-block"><code>
+<span class="green">/* 
+    How to write a simple popup
+    using jQuery UI library
+*/
+</span>
+     
+
+function function1()
+{
+    event.srcElement.blur();
+    window.showModalDialog("http://www.en.wikipedia.org", "", 
+        "dialogWidth:5cm; dialogHeight:10cm")
+}
+
+function1();
+</code>
+</div>
+<div id="msg" class="msg">
+</div>
+<button class="eval">Run Code!</button>
+<button id="modal">Test Modal Dialog</button>
+<button id="traditional">Traditional Pop-up</button>
+<ol class="results"></ol> 
+</div>
+
+
+ 
+
+
+
+  
+  
+
+
+
+
+
+
+

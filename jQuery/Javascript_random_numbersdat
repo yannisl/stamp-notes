@@ -1,0 +1,302 @@
+ <!--
+{{feature: Donald E Knuth  Random numbers should not be generated with a method chosen at random..}}
+{{feature-image:http://localhost/CodeIgniter/images/run_time_error.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: UI, jQuery, Visibility Filters, CSS Visibility }}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+<style>
+  .ex1 { background:yellow; font-weight:bold; cursor:pointer; 
+      padding:5px; }
+  .ex2{ background:#bebebe; font-weight:bold; cursor:pointer; 
+      padding:5px; }
+ .over { background: #ccc; }
+a#cbutton,a#cbutton1,a#cbutton2,a#cbutton3,a#cbutton4,a#cbutton5{color:blue}
+.out{};
+p#rnumber,p#rnumber1,p#rnumber2,p#rnumber3,p#rnumber4,p#piout{font-size:42px;font-weight:bold}
+ </style>
+
+
+
+
+<h2>
+Random Numbers and Javascript
+</h2>
+
+<p>Before we start let me be absolutely clear. Only nature can produce truly random events! Any computer would produce random numbers, based on algorithms and it will come pretty close, so wherever you read in this article the word random, I actually mean pseudo-random. We will start with refreshing your memory about the Math.random() and we will end calculating the value of &pi; using a {{wi:Monte Carlo}} simulation and a bunch of needles!</p>
+
+{{example:
+<p><strong>Problem</strong></p>
+<p>A plane is ruled with parallel lines 1 cm apart. A needle of length 1 cm is dropped randomly on the plane. What is the probability that the needle will be lying across one of the lines?</p>
+
+<p><strong>Answer </strong>: 2/Pi.</p>
+
+<p>This gives an interesting way to calculate Pi! If you throw down a large number of needles, the fraction of needles which lie across a line will get closer to 2/Pi the more needles that you throw. So, you can just throw down needles and count them to get an estimate for Pi!</p>
+
+<img src="http://localhost/CodeIgniter/images/needles.gif" />
+
+<hr/>
+<p>Image from Su, Francis E., et al. "Buffon Needle Problem." Mudd Math Fun Facts. <http://www.math.hmc.edu/funfacts>.</p>
+}}
+
+<h2>The Math.random() method</h2>
+With the Math object it is fairly trivial to obtain a random number in javascript.
+
+{{example:
+
+var numRand = Math.random()
+
+<p id="rnumber">0.1</p>
+
+<a href="#" id="cbutton">Click Me</a>
+}}
+
+
+The JavaScript function <code>Math.random()</code> randomly generates a number from 0 to slightly less than 1 (shown as <1). This is great, and all, but when was the last time someone told you to pick a number between 0 and slightly less than 1? Never? How do we transform these numbers into something useable, say a whole number between 1 and 3. (One and ten are more common, but the illustrations would be too huge.) First, we could multiply. Let's try multiplying by 3.
+
+
+
+{{example:
+<p>Math.random() * 3</p>
+<p id="rnumber1">2</p>
+<a href="#" id="cbutton1">Click Me</a>
+}}
+
+This gets us numbers from 0 to <3. But we want between 1 and 3. We’ll try multiplying and adding.
+{{plain:
+Math.random() * 2 + 1}}
+
+Great. This will get us numbers from 1 to <3. (First it generates a number from 0 to <2, then adds 1.) Lets see how this looks on a number line:
+		
+1 1.5 2 2.5 3 
+|-----|-----|-----|-----|
+
+Good. But this still gives us decimal numbers such as 1.56734. We want whole number. So naturally we should round. Lets try:
+
+<h2>Using round()</h2>
+
+{{example:
+Math.round(Math.random*2+1)
+
+<p id="rnumber2">2</p>
+<a href="#" id="cbutton2">Click Me</a>
+}}
+This will produce whole numbers between 1 and 3 inclusive. However, the numbers are not perfectly random. To be perfectly random each number should appear the same number of times, but in this case the number 2 will appear most often. Let’s put this on a number line. Recall from elementary school that things <.5 round down and >.5 round up.
+			
+1 1.5 2 2.5 3 
+|-----|-----|-----|-----|
+1<<<<< >>>>>2<<<<< >>>>>3
+
+So as you can see, the segment that rounds to two is twice as long as the segments that round to one or three.
+
+
+<h2>The real fix Using floor()</h2>
+
+We don’t have to round to get integers. We can truncate. This means that we just throw away anything after the decimal point. OK, so this is technically the same as always rounding down, but whatever. This function is called the floor function.
+
+{{example:
+Math.floor(Math.random()*3+1)
+
+
+<p id="rnumber3">2</p>
+<a href="#" id="cbutton3">Click Me</a>
+}}
+
+Lets go through it. First we get a number between 0 and <3 and then add 1 to it. This gives us 1 to <4. Remember that slightly less than 4 could be 3.99999 but it will never be 4. So when we floor the number we will always get a whole number between 1 and 3 inclusive. Check out the number line:
+
+1 1.5 2 2.5 3 3.5 4
+|-----|-----|-----|-----|-----|-----|
+1<<<<<<<<<<<2<<<<<<<<<<<3<<<<<<<<<<<
+
+In conclusion, random numbers are only purely random if you transform them correctly. Otherwise you get skewed and unexpected results. Use:
+
+Math.floor(Math.random()*max+1)
+
+<h2>Some Random Colors</h2>
+{{example:
+<p id="rnumber4">Random Colors</p>
+<a href="#" id="cbutton4">Click Me</a>
+}}
+
+In order to simplify the code we will use the CSS property for color
+rgb(c1,c2,c3).
+
+{{plain:
+$('a#cbutton4').click(function()&#123;
+    var  red = Math.round(Math.random()*254+1);
+    var  green = Math.round(Math.random()*254+1);
+    var   blue=Math.round(Math.random()*254+1);
+    var color='rgb('+red+','+green+','+blue+')';
+    var reverse='rgb('+ (255-red) + ','+ (255-green) + ',' + (255-blue) +')';
+   
+    $('p#rnumber4').css('background',color).css('color',reverse)
+                                      .fadeTo('slow','0.35').fadeTo('slow',1.0);
+     return false;
+   &#125;);
+}}
+
+
+<h2>Back to &pi;</h2>
+<div style="width:40%;float:left;margin-right:10px">
+<img src="http://localhost/CodeIgniter/images/Buffon.jpeg" style="margin:0 auto;width:98%" title="Buffon" />
+<p class="credit"><em>Comte de Buffon</em></p>
+</div>
+Buffon’s Needle is a problem first posed by the French naturalist and mathematician, the {{wi:Comte_de_Buffon}} (1707-1788) and you have probably come along it during your high school maths class. 
+
+Buffon was an interesting character that was a 'naturalist'. He was a contemporary of Linnaeus who had a very low opinion of him and is reputed to have name the from <em>bufo bufo</em> after Buffon.
+
+Besides his many insights, he also propounded a theory that nature in the New World was inferior to that of Eurasia. He argued that the Americas were lacking in large and powerful creatures, and that even the people were far less virile than their European counterparts. He ascribed this to the marsh odours and dense forests of the continent. These remarks so incensed Thomas Jefferson that he immediately dispatched twenty soldiers to the New Hampshire woods to find a bull moose for Buffon as proof of the "stature and majesty of American quadrapeds." 10 It took over two weeks and when shot, the moose lacked imposing horns. Before being shipped back to France, a rack of antlers from a different stag was attached.10
+
+Consider a plane, ruled with equidistant parallel lines, where the distance between the lines is D. A needle of length L is tossed onto the plane. What is the probability that the needle intersects one or more lines. The original problem had the condition that L < D, but in this version, we will also consider the probability where D £ L.
+
+With no more information than this, we have no way of knowing which part of the plane the needle is most likely to fall on. We do not know if the orientation of the needle is affected by the orientation of the lines, or by the needle’s location. Since we do not have this information, we can only assume that there are no such predictable relationships. Next, we must define appropriate random variables.
+
+Orient the plane so that the parallel lines run horizontally. Now consider the lower end of the needle. If the needle is horizontal, it will not have a lower end. In that event (which has a probability of zero), choose the right end. Let Y be the distance from the lower end to the nearest line above it. We need not consider its horizontal position because a change in that direction would have no effect on the problem. And since the lines are equally spaced, it does not matter which lines the needle falls near. Now let the needle’s orientation angle, Q, be defined as shown in the diagram. It may have a value ranging from zero (right) counterclockwise to p (left). Q cannot be greater than p, because then the vertex of the angle would no longer be the lower end of the needle.
+
+0 < Y < D
+
+0 < Q < p
+
+When plotted on the q-y plane, the pair (Q,Y) is distributed over a rectangle with width p, and height D. We are assuming that the random variables, Q and Y, are independent and uniformly distributed. Both of these conditions are important. If they are met, then the variables’ joint distribution is uniform. All subregions of equal area have equal probability of containing the point (Q,Y). We now must define the region representing successes. The probability is the ratio of the area of the success region to the area of the region of distribution.
+
+<div style="background:url(http://localhost/CodeIgniter/images/code-bg.gif)">
+<h4>Buffon's Needles</h4>
+<form>
+How many needles?
+<input type="text" value="5000"  class="iterations" name="test_1" id="test_1" />
+</form>
+<p id="piout">&pi;</p>
+
+<a href="#" id="cbutton5">Click Me</a>
+
+(With Chrome you can go up to 2,000,000 iterations in less than a minute)
+</div>
+
+
+
+<hr/>
+The script is a slight modification of one presented by in c and is shown below:
+<pre style="background:url(http://localhost/CodeIgniter/images/code-bg.gif)">
+
+var hits = 0;
+var darts = 0;
+var i = 0;
+while (i<=200000) {
+  x = Math.random();
+  y = Math.random();
+  t = Math.sqrt(2.0);
+  dist = Math.sqrt((x*x)+(y*y));
+  if (dist<=1.0) {
+         hits = hits+1;
+   }
+  if (dist<=t) {
+        darts = darts+1;
+  }
+  pi = 4*(hits/darts);
+  i = i+1;
+}
+document.write(pi);
+</pre>
+
+
+
+<script>
+  $(document).ready(function(){
+   $('.out').text(($("input[name='test_1']").attr("value")));
+
+   $('a#cbutton').click(function(){
+    var numRand = Math.random();
+   $('p#rnumber').text(numRand).css('background','yellow').fadeTo('slow','0.35').fadeTo('slow',1.0);return false;
+   });
+
+ $('a#cbutton1').click(function(){
+     numRand = Math.random()*2+1;
+     $('p#rnumber1').text(numRand).css('background','yellow').fadeTo('slow','0.35').fadeTo('slow',1.0);
+     return false;
+   });
+
+ $('a#cbutton2').click(function(){
+     numRand = Math.round(Math.random()*2+1);
+     $('p#rnumber2').text(numRand).css('background','yellow').fadeTo('slow','0.35').fadeTo('slow',1.0);
+     return false;
+   });
+
+ $('a#cbutton3').click(function(){
+     numRand = Math.round(Math.random()*2+1);
+     $('p#rnumber3').text(numRand).css('background','yellow').fadeTo('slow','0.35').fadeTo('slow',1.0);
+     return false;
+   });
+
+ $('a#cbutton4').click(function(){
+   var  red = Math.round(Math.random()*254+1);
+   var  green = Math.round(Math.random()*254+1);
+   var   blue=Math.round(Math.random()*254+1);
+   var color='rgb('+red+','+green+','+blue+')';
+   var reverse='rgb('+ (255-red) + ','+ (255-green) + ',' + (255-blue) +')';
+$('p#rnumber4').text(color).css('background',color).css('color',reverse)
+.fadeTo('slow','0.35').fadeTo('slow',1.0);
+     return false;
+   });
+
+$('a#cbutton5').click(function(){
+var hits = 0;
+var darts = 0;
+var i = 0;
+var it=$('input#test_1').val();
+//alert(it);
+while (i<=it) {
+  x = Math.random();
+  y = Math.random();
+  t = Math.sqrt(2.0);
+  dist = Math.sqrt((x*x)+(y*y));
+  if (dist<=1.0) {
+         hits = hits+1;
+   }
+  if (dist<=t) {
+        darts = darts+1;
+  }
+  pi = 4*(hits/darts);
+  
+  i = i+1;
+ 
+}
+   $('p#piout').text('iterations: '+ (i-1)  + '  ' + pi);
+     return false;
+});
+
+
+
+
+  });
+  </script>
+<h2>Ants and Buffon's Needles</h2>
+<div style="width:40%;float:left;margin-right:10px">
+<img src="http://localhost/CodeIgniter/images/leptothorax.jpg" style="margin:0 auto;width:98%" title="Leptothorax albipennis" />
+<p class="credit"><em>Leptothorax albipennis</em><a href="http://eol.org/pages/37745">Encyclopedia of Life</a></p>
+</div>
+Although you might struggle to find a practical application of Buffon's needles, some biologists think that ants use it!  S. T. Mugford, E. B. Mallon, and N. R. Franks
+of the Centre for Mathematical Biology and Department of Biology and Biochemistry, University of Bath, published a [paper](http://beheco.oxfordjournals.org/cgi/reprint/12/6/655.pdf) [pdf] about how 
+colonies of the ant <em>Leptothorax albipennis</em> naturally inhabit flat rock crevices. Scouts can determine, before initiating an emigration,
+if a nest has sufficient area to house their colony. they think that they achieve this using Buffon's needle's method. So here you go, while you have to program this ants instinctively have it in their genes!
+
+
+
+
+
+<hr/>
+<h2>Further Reading</h2>
+
+http://www.protonfish.com/random.shtml
+
+http://james.padolsey.com/projects/
+
+http://www.erikoest.dk/rng.htm
+
+http://www.shawnolson.net/a/789/make-javascript-mathrandom-useful.html
+
+http://beheco.oxfordjournals.org/cgi/reprint/12/6/655.pdf

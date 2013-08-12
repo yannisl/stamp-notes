@@ -1,0 +1,110 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+
+
+<h2>Utilities Developing a Debug Plugin</h2>
+
+Coders coming from other background to JavaScript vainly google to find if there is a JavaScript function that can dump and object or array onto the screen, similar to PHP's function <tt>print_r</tt>. There was also a need that I had while developing these pages to develop similar routines so that we can iterate over the properties of an array or object.
+
+There is a small but  handy plugin, you should have Firebug
+http://www.prodevtips.com/wp-content/uploads/2009/07/print_r.js. This had a lot of limitations and adding it onto the jQuery Object seemed to be giving me trouble. jQuery's extend has some handy function that one could use.
+
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+$('#debug').text('test');
+(function($){
+  $.debug = {
+    dump: function(arr, level) {
+      var dumped_text = "";
+      if(!level) level = 0;
+      var level_padding = "";
+      for(var j=0;j&lt;level+1;j++) level_padding += "    ";
+     // limit recursion
+     if (level&gt;4) return;
+      if(typeof(arr) == 'object') { //Array/Hashes/Objects
+       for(var item in arr) {
+        var value = arr[item];
+       
+        if(typeof(value) == 'object') { //If it is an array,
+         dumped_text += level_padding + "'" + item + "' ...\n";
+         dumped_text += $.debug.dump(value,level+1);
+        } else {
+         dumped_text += level_padding + "'" + item + "' =&gt; \"" + value + "\"\n";
+        }
+       }
+      } else { //Stings/Chars/Numbers etc.
+       dumped_text = "===&gt;"+arr+"&lt;===("+typeof(arr)+")";
+      }
+      return dumped_text;
+    },
+    print_r: function(obj, contId){
+      $('#debug').text('debugiing');
+      $("#"+contId).css({
+        display: "block",
+        position: "relative",
+        top: "0px",
+        right: "0px",
+        padding: "10px",
+         height: "auto"
+         }).html("&lt;div"+'class="code-block"'+           "&gt;"+$.debug.dump(obj)+"&lt;/div&gt;&lt;div id='close-debug'&gt;Close&lt;/div&gt;");
+      
+     $("#close-debug").css({cursor: "pointer"}).click(function(){
+          $('#debug').toggle();
+      });
+    }
+  };
+})(jQuery);
+
+var arr = [1, 2, {javascript: "interpreted", anobject: {java: "compiled"}, anarray: [1, 2, "three"]}, [1, 2, 3]]; 
+logPRE($.debug.dump(arr) );
+$.debug.print_r(arr,"debug");
+var obj={test: '1',
+                  test2:'3'
+                 };
+//$.debug.print_r(obj,"debug");
+
+</code>
+</div>
+
+<div  class="msg" class="msg">
+</div>
+<div class="console"></div>
+<div id="debug" style="white-space:pre;background:#fff;width:98%;height:300px "></div>
+
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+
+</div>
+
+
+
+
+##Further Reading
+
+
+
+ 
+
+
+
+  
+  
+
+
+
+
+
+
+
+    

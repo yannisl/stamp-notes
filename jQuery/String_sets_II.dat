@@ -1,0 +1,139 @@
+ <!--
+{{feature-image: /egypt/amato-01/aa_112.jpg}}
+{{credit: /codeigniter/blogs/gallery/amato-01/37}}
+{{credit-source:Allan Amato}}
+{{feature: If you start with a vague idea of what you'll be testing, you'll never get started. <a href="http://www.xprogramming.com/testfram.htm">Kent Beck</a> }}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<script type="text/javascript">
+ goog.require('goog.array');
+ goog.require('goog.iter');
+
+goog.require('goog.structs.Set');
+ goog.require('goog.structs.StringSet');
+ 
+
+</script>
+
+<h2>String sets</h2>
+In computer science, a set is an abstract data structure that can store certain values, without any particular order, and no repeated values. It is a computer implementation of the mathematical concept of a {{wi:finite set}}.
+
+Other computer languages such as Python include a data type for sets. A set is an
+unordered collection with no duplicate elements. Basic uses include membership testing and eliminating duplicate entries. Set objects also support mathematical operations like union, intersection, difference, and symmetric difference.
+
+Here is a brief demonstration of the Class capabilities:
+
+<h3>Creating a StringSet</h3>
+As documentation is rather sparse for this data structure we will enumerate the object properties first to view the available methods.
+<div  class="code-block console-wrap" title="Properties of StringSet Class">
+<div class="code-block code">
+<code>
+ var s = new goog.structs.StringSet(['test','test1']);
+ for (var prop in s) {
+   log(prop);
+ }
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+As you can see this follows the style of Closure where an adequate set of methods are provided for each Class to enable the handling of the Object in an efficient manner and to limit errors that can be generated once you are tinkering with the object. It lets you worry about yuor own implementation rather than the basic constructs.
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+ var s = new goog.structs.StringSet(['test', 'test1', 'test3']);
+s.add('test5');
+log(s.contains('test'));
+log(s.contains('test5'));
+s.remove('test1');
+log(s.contains('test1'));
+
+// let us peek at the elements_ object
+for (var key in s.elements_) {
+  if (s.elements_.hasOwnProperty(key)) {
+    log(key, s.elements_[key]);
+
+  }
+}
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+As you can see the actual strings become the keys of the element_ object. All we are interested in a set is that the key exists or not, so all the values are actually set to null during the creation of the Object.
+
+<h3>Intersection and Union</h3>
+
+Calculates the union of this set and another set.
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+
+var s = new goog.structs.StringSet(['aa', 'bb', 'cc', 'dd']);
+var s1 = new goog.structs.StringSet(['aa', 'ee', 'ff', 'dd']);
+var s3 = s.getUnion(s1);
+var s4 = s.getIntersection(s1);
+
+// union
+log('UNION OF S WITH S1');
+for (var key in s3.elements_) {
+  if (s3.elements_.hasOwnProperty(key)) {
+    log(key);
+
+  }
+}
+
+//intersection
+log('INTERSECTION OF S with S1');
+for (var key in s4.elements_) {
+  if (s4.elements_.hasOwnProperty(key)) {
+    log(key);
+
+  }
+}
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+In conclusion you can use the __StringSet__ class when you need an __unordered__ set of elements. The __StringSet__ is much simpler than the __Set__ class which we cover separately in these articles. 
+
+
+
+
+##Further Reading
+
+
+
+  
+  
+
+
+
+
+
+
+
+                                                                                                                                                          

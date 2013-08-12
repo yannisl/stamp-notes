@@ -1,0 +1,73 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+<h2>Chapter 2,  Testing two strings for equality</h2>
+
+When comparing two strings, normally convert the the strings to all uppercase or all lowercase characters. 
+
+You can convert the string to either upper-case or lower-case , using
+
+{{plain:
+         .toUpperCase();
+         .toLowerCase();
+}}
+
+We can then use the JavaScript equality
+operator (==) to make the comparison. Javascript always attempts to convert the type of strings before a comparison. The strict operator (===), will compare including the type. Consider the following:
+
+<div  class="code-block console-wrap">
+<div class="code code-block">
+<code>
+var s,s1;
+       s = "washington";
+       s2="Washington";
+       s3=new String("washington");
+      assert(s==s2,'strings are not equal');
+assert(s.toUpperCase()==s2.toUpperCase(),'strings are equal');
+assert(s===s3,'strings are not equal');
+assert(s==s3,'strings are equal');
+</code>
+
+</div>
+<p id="msg1" class="msg"  style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+These two variables might contain the same series of characters but are different data types. The first is a <strong>string value</strong>,
+while the second is an instance of a <strong>String object</strong>. If you place these two values on either side of an equality (= =)
+operator, JavaScript tries various evaluations of the values to see if there is a coincidence somewhere. In this case,
+the two variable values would show to be equal, and the following expression:
+
+{{plain:
+stringA = = stringB
+}}
+
+returns true.
+
+In most cases using the equality operator will suffice.
+
+##Further Reading
+
+
+
+
+  
+  
+
+
+
+
+
+
+

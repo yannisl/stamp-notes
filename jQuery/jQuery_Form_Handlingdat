@@ -1,0 +1,277 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+{{feature-image:http://localhost/egypt/CMS/accordion.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+	
+##Form Handling
+
+In previous articles I have discussed jQuery selectors extensively. In 
+[Introduction to jQuery Selectors](http://127.0.0.1/CodeIgniter/index.php/Blogs/stamps/jQuery/jQuery_Selectors_Introduction), there is a good discussion of various ways to capture elements based on their classes, id's and attributes. In this article I will show you how to use jQuery selectors with forms. If forms have been giving you trouble don't worry you are not alone. Most web developers have gone through hard times to digest the proper handling of forms and as form me it appears I am in a perpetual learning curve. they seem so simple but below there is a steep learning curve.
+
+###The need for Javascript Form Checking
+
+One very annoying thing for users is to fill a long form on a Web site only to have it returned from the server with some form of error. With Javascript we can minimize this frustration (there is always a need to validate at the server). This way we can improve the {{wi:usability}} of web forms by checking the data _before_ it is submitted to the server for processing.
+
+There are two primary approaches we can take to validate form entries using Javascript. The first involves checking each filed as it is filled in. The second approach is to check all the fields of a form when the user submits the form. Finally we can improve upon validation by creating a field-mask to keep bad data from being entered in the first place.
+
+Although it may appear at first glance that Javascript is only used a s a usability tool there is the added benefit in reducing the load on the server. For very busy Web sites this can be of importance to reduce bandwidth.
+
+###Form Basics
+
+
+###Quick jQuery Selector Guide for Forms
+
+#### :input
+
+  <script>
+  $(document).ready(function(){
+    
+    var allInputs = $(":input");
+    var formChildren = $("form > *");
+    $("#messages").text("Found " + allInputs.length + " inputs and the form has " +
+                             formChildren.length + " children.");
+	
+	// so it won't submit
+    $("form").submit(function () { return false; }); 
+  });
+
+  </script>
+
+{{plain:
+   <form>
+    <input type="button" value="Input Button"/>
+    <input type="checkbox" />
+    <input type="file" />
+    <input type="hidden" />
+    <input type="image" />
+    <input type="password" />
+    <input type="radio" />
+    <input type="reset" />
+    <input type="submit" />
+    <input type="text" />
+    <select><option>Option</option></select>
+    <textarea></textarea>
+    <button>Button</button>
+  </form>
+}}
+
+
+ <div id="messages">
+
+ </div>
+
+{{plain:
+$(document).ready(function()&#123;
+    
+    var allInputs = $(":input");
+    var formChildren = $("form > *");
+    $("#messages").text("Found " + allInputs.length + " inputs and the form has " +
+                             formChildren.length + " children.");
+	
+	// so it won't submit
+    $("form").submit(function () &#123; return false; &#125;); 
+  &#125;);
+}}
+
+The mark-up you need to notice is the way the selector is invoked using
+
+{{plain:  :input}}
+
+and all the form children are selected using
+
+{{plain: form>* }}
+<hr/>
+
+
+###Typical Tasks (find how many checkboxes are checked)
+
+The form below shows 5 check boxes. A short function is invoked when an input is checked and the result is shown in a message box.
+
+{{example:
+<form>
+    <label>Hourly</label><input type="checkbox" name="newsletter" checked="checked" value="Hourly" 
+ />
+    
+<label>Daily</label><input type="checkbox" name="newsletter" value="Daily" />
+    
+<label>Weekly</label><input type="checkbox" name="newsletter" value="Weekly" />
+    
+<label>Monthly</label><input type="checkbox" name="newsletter" checked="checked" value="Monthly" />
+
+<label>Yearly</label>    <input type="checkbox" name="newsletter" value="Yearly" />
+  </form>
+
+<div id="msg"></div>
+
+}}
+
+<script>
+function countChecked() {
+      var n = $("input:checked").length;
+      $("#msg").text(n + (n <= 1 ? " is" : " are") + " checked!");
+  }
+    countChecked();
+    $(":checkbox").click(countChecked);
+</script>
+
+{{plain:
+
+function countChecked() &#123;
+      var n = $("<span style="background:yellow">input:checked</span>").length;
+      $("#msg").text(n + (n <= 1 ? " is" : " are") + " checked!");
+&#125;
+    countChecked();
+    $(":checkbox").click(countChecked);
+
+}}
+
+###Typical Tasks (On blur change the color of an element)
+A common task with forms is to catch the blur event, i.e., when the user
+navigates away from the input. This is achieved using the jQuery __blur()__ method.
+
+<div id="colorBox" style="width:100px;height:100px;background-color:#ececec">Test</div>
+
+<form>
+<label>Background Color</label>
+<input type="text" id="colorField" name="colorField"  value="#dd0000"><br/>
+
+<label>Background Color</label>
+<input type="text" id="colorField2" name="colorField"  value="#ffffff"><br />
+
+
+</form>
+
+<script>
+
+//changes background color properties
+function backgroundColor() {
+     var n = $("input#colorField").val();
+     $("#colorBox").css('backgroundColor',n);
+  }
+
+//changes Text color
+function color(n){
+ // var n = $("input#colorField2").val();
+     $("#colorBox").css('color',n);
+}
+
+
+$("input#colorField").blur(backgroundColor);
+
+$("input#colorField2").blur(function(){
+  var textColor=$(this).val();
+  color(textColor);
+});
+
+</script>
+
+<hr/>
+
+###Typical tasks (Change something based on select options)
+
+This is another typical task, where based on a select list we want to get the
+selection. On change we want to do something with the value. In our example below we just echo the value to a div.
+
+{{example:
+<strong>Example</strong>: Capturing the value of a &lt;select&gt;
+Click on the selection to see the message.
+<form>
+<select name="continents" multiple="multiple">
+    <option>America</option>
+    <option selected="selected">Australia</option>
+    <option>Asia</option>
+    <option>Africa</option>
+    <option>Europe</option>
+    <option>Antartica</option>
+    <option>Artic</option>
+ </select>
+</form>
+<div id="msg3">message Box</div>
+}}
+
+<script>
+$("select").change(function () {
+          var str = "";
+          $("select option:selected").each(function () {
+                str += $(this).val() + " ";
+              });
+          $("#msg3").text(str);
+        })
+        .change();
+</script>
+
+<hr/>
+
+To capture the value we use the change() method.
+
+{{plain:
+
+$("select").change(function () &#123;
+          var str = "";
+          $("select option:selected").each(function () &#123;
+                str += $(this).val() + " ";
+              &#125;);
+          $("#msg3").text(str);
+        &#125;)
+        .change();
+
+}}
+
+
+###Typical tasks (Change something based on select options) 
+
+This is another typical task, where based on a select list we want to get the
+selection. On change we want to do something with the value. In our example below we change the css of a list-type.
+
+{{example:
+<strong>Example</strong>: Capturing the value of a &lt;select&gt;
+Click on the selection to see the message.
+<form>
+<select id="#test" name="continents" multiple="multiple">
+    <option>disc</option>
+    <option selected="selected">circle</option>
+    <option>square</option>
+    <option>decimal</option>
+    <option>lower-roman</option>
+    <option>upper-roman</option>
+    <option>lower-alpha</option>
+ </select>
+</form>
+<ul id="msg3">
+<li>Test</li>
+</ul>
+}}
+
+<script>
+$(#test).change(function () {
+          var str = "";
+          $("#test option:selected").each(function () {
+                str += $(this).val() + " ";
+              });
+          $("#msg3").css({'list-style-type': 'square'});
+        })
+        .change();
+</script>
+
+<hr/>
+
+
+##Summary
+
+We have examined very briefly, how to select form elements with jQuery. This is actually the tip of the iceberg and in future articles we will revisit the topic.
+
+Providing interactivity for users is one of the most absolute essential features for a successful web presence. Unfortunately it has to be embroidered stitch by stitch. Plugins and libraries can simplify the task a bit, but ultimately the onus will be on you to turn all these instruments into an orchestra. Getting back to basics and spending time there to obtain a solid foundation is essential both for productivity as well as for correctly formed code. Don't cut corners they will come back and haunt you in the future.
+
+
+
+
+
+
+

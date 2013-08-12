@@ -1,0 +1,202 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+
+-->
+<style>
+.symbol{font-weight:bold;font-style:italic}
+</style>
+<h2>Standard Air</h2>
+The temperature as well as the {{wi:barometric_pressure}} of atmospheric air vary with
+altitude. The standard atmosphere gives a standard of reference for estimating properties at various altitudes.
+
+At sea level the standard temperature is 15 &deg;C and the standard atmospheric pressure is 101.325 kPa. The temperature is assumed to have a linear relationship to altitude throughout the {{wi:troposphere}} and to be constant at the lower reaches of the {{wi:stratosphere}}. The lower atmosphere is assumed to consist of {{wi:dry_air}} that behaves as a {{wi:perfect_gas}}. The {{wi:Earth's_gravity}} is also assumed constant at the standard value, 9.80665 m/s<sup>2</sup>.
+
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+/**Equations (3) and (4) are accurate from &#8722;5000 m to 11 000 m.
+*For higher altitudes, comprehensive tables of barometric pressure
+*and other physical properties of the standard atmosphere, in both SI
+*and I-P units, can be found in NASA (1976).
+*/
+
+P=function(){};
+P.prototype.pressure=function (z){
+var p= (1-2.25577e-5*z);
+return p=101.325*Math.pow(p,  5.2559);
+t = 15 - 0.0065*z;
+}
+P.prototype.temperature=function (z){
+var  t;
+return t = 15 - 0.0065*z;
+}
+
+
+p=new P;
+
+$('#altitude').keyup(function(){
+   var z=p.pressure($(this).val());
+   var z1=p.temperature($(this).val());
+
+   $('#msg1').text('pressure : '+z.toFixed(5)+' kPa,   temperature: '+z1.toFixed(5)+' deg C');
+});
+</code>
+
+<label> <strong>altitude</strong></label>
+<input type="text" id="altitude" value="2000" />
+</div>
+
+<div  id ="msg1" class="msg">
+
+
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+<hr />
+
+<h3>Thermodynamic properties of water at saturation</h3>
+The water vapour saturation pressure is required to detrmine a number of moist air properties, principally the saturation humidity ratio. Values can be calculated from formulas provided by Hyland and wexler 1983b. The 1983 formulas are within 300 ppm of the latest IAPWS formulations. For higher accuracy, developers of software and other are referred to by ASHRAE
+to IAPWS(2007) and (2008).
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+/*Equations (3) and (4) are accurate from &#8722;5000 m to 11 000 m.
+For higher altitudes, comprehensive tables of barometric pressure
+and other physical properties of the standard atmosphere, in both SI
+and I-P units, can be found in NASA (1976).
+*/
+
+P=function(){};
+P.prototype.pws=function (T){
+var pws,C1,C2,C3,C4,C5,C6,C7,C8,C9,C10,C11,C12,C13;
+C8 = -(5.8002206*1000);
+C9=1.3914993;
+C10=-4.8640239/100;
+C11=4.1764768/100000;
+C12=-1.4452093/100000000;
+C13=6.5459673;
+pws=(C8/T)+C9+(C10*T)+(C11*T*T)+(C12*T*T*T)+(C13*Math.log(T));
+log(C8,'');
+log(C8/T,'');
+log(C10*T,'');
+log(C11*T*T,'');
+log(C12*T*T*T,'');
+log(C13*Math.log(T,''));
+log(Math.E,'');
+log(pws,'pws');
+pw=Math.pow(Math.E,pws);
+return pw/1000;
+};
+
+P.prototype.humidityRatio=function (p,t){
+  var ws;
+  return ws=0.621945*(this.pws(t)/(p-this.pws(t)));
+};
+
+P.prototype.enthalpyDryAir=function (t){
+ var h;
+  return h=1.006*t;
+};
+
+P.prototype.Rda={
+   value:287.042 ,
+   units : 'J/(kgda.K)'   };
+
+P.prototype.Rw={
+   value: 461.524,
+   units: 'J/(kgw.K)'
+}
+p=new P;
+alert(p.pws(313).toFixed(5));
+alert(p.humidityRatio(101.325,303).toFixed(5));
+alert(p.enthalpyDryAir(283).toFixed(5));
+log(p.Rda.value,p.Rda.units);
+log(p.Rw.value,p.Rw.units);
+
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+<hr />
+
+<h3>Perfect Gas Relationships for Dry and Moist Air</h3>
+When moist air is considered a mixture of independent perfect gases (i.e., dry air and water vapour), each is assumed to obey the perfect gas equation of state as follows:
+
+Dry air : <i>p<sub>da</sub>V=n<sub>da</sub>RT</i>
+
+Water vapour: <i>p<sub>w</sub>V=n<sub>w</sub>RT</i>
+
+where
+
+<i>p<sub>da</sub></i> = partial pressure of dry air
+
+<i>p<sub>w</sub></i>  = partial pressure of water vapour
+
+<i>V</i>=total mixture volume
+
+<i>n<sub>da</sub></i>=number of moles of dry air
+
+<i>n<sub>w</sub></i>=number of moles of water vapour
+
+<i>R</i>=universal gas constant, 8314.472 J/(kmol.K)
+
+<i>T</i>=absolute temperature, K
+
+<h3>Humidity Parameters Involving Satuartion</h3>
+The following definitions of humidity involve the concept of
+moist air saturation:
+
+<h4>Saturation humidity ratio Ws(t,p)</h4>
+Saturation humidity ratio is the humidity ratio of moist air saturated with respect to water or ice at the same temperature and pressure.
+
+<h4>Degree of saturation &mu;</h4>
+This is the ratio of air humidity ratio W to humidity ratio Ws of saturated moist air at the same temperature and pressure:
+
+<img src="http://localhost/CodeIgniter/images/eq-12.jpg" style="display:block:margin:0 auto" />
+
+<hr/>
+<h4>Relative Humidity &phi;</h4>
+
+The Relative Humidity <span class="symbol"><strong><i>&phi;</i></strong></span> is the ratio of the mole fraction of vapour <span class="symbol">x<sub>w</sub></span> in a given moist air sample to the mole fraction xws in an air sample saturated at the same temperature and pressure:
+
+<img src="http://localhost/CodeIgniter/images/eq-14.jpg" style="display:block:margin:0 auto" />
+<hr/>
+
+<h3>Calculations API</h3>
+The best software expose only a limited but flexible API. In our case:
+
+- property.air.temp
+- property.air.pda
+- property.air.pw
+- property.helium etc..
+
+It should enable the calculation of parameters given certain information 
+
+i.e design temperature 22.5 &deg;C; 50% R.H. calculate balance
+
+
+
+##Further Reading
+
+http://ajaxian.com/archives/javascript-associative-arrays-considered-harmful
+
+http://andrewdupont.net/2006/05/18/javascript-associative-arrays-considered-harmful/
+
+
+
+                                                                                                                                            

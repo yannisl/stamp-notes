@@ -1,0 +1,116 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<style>
+pre{white-space: pre}
+
+</style>
+
+
+<h3>Creating Text Nodes</h3>
+
+If you have a good knowledge of X(HTML), it is not all that difficult to use native DOM methods to create and manipulating __nodes__ in your web applications. 
+
+A new node is created with the :
+
+{{plain:
+     document.createElement('p');
+}}
+
+<div  class="code-block console-wrap">
+
+<div id="b">Me too</div>
+<div class="code code-block"><code>
+// creates new node
+var newNode = document.createElement('h4');
+
+// append new text node
+var newText = document.createTextNode('Hello DOM');
+newNode.appendChild(newText);
+
+// append to element with id ="msg"
+var el = document.getElementById('msg1');
+el.appendChild(newNode);
+
+
+</code>
+</div>
+<p id="msg1" class="msg">
+</p>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol>
+</div>
+</code>
+
+
+The __Node__ object supports some useful methods for inserting content:
+
+- insertBefore()
+- appendChild
+- append()
+
+None, of them is as simple as jQuery, but remember that jQuery hides a lot of this complexity for you.
+
+<div  class="code-block console-wrap">
+
+<div id="b">Me too</div>
+<div class="code code-block"><code>
+// creates new node
+var newNode = document.createElement('h4');
+
+// append new text node
+var newText = document.createTextNode('Hello DOM');
+newNode.appendChild(newText);
+
+// append to element with id ="msg"
+var el = document.getElementById('msg2');
+el.appendChild(newNode);
+
+$('.msg').properties(newNode);
+
+$('#msg2').properties(newNode);
+</code>
+</div>
+<p id="msg2" class="msg">
+</p>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol>
+</div>
+</code>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+##Further Reading
+
+
+
+
+  
+  
+
+
+
+
+
+
+

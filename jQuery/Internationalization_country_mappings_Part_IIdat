@@ -1,0 +1,121 @@
+       
+<!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<h3>Country and Language Mappings Part II : handling dates and times</h3>
+In the previous tutorial we have seen how to handle the Country and Currency codes. In this section we will investigate time and date problems related to Internationalization.
+
+The i18n Standard defines a series of constants for these, which are available at their website for downloading. We will only be using extracts, here.
+
+For example let us view the different ways that English (en) and French(fr) handle these:
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code style="font-size:smaller">
+
+/**
+ * Date/time formatting symbols for locale en.
+ */
+
+goog.i18n.DateTimeSymbols_en = {
+  ERAS: ['BC', 'AD'],
+  ERANAMES: ['Before Christ', 'Anno Domini'],
+  NARROWMONTHS: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
+  STANDALONENARROWMONTHS: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
+  MONTHS: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+  STANDALONEMONTHS: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+  SHORTMONTHS: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+  STANDALONESHORTMONTHS: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+  WEEKDAYS: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+  STANDALONEWEEKDAYS: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+  SHORTWEEKDAYS: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+  STANDALONESHORTWEEKDAYS: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+  NARROWWEEKDAYS: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
+  STANDALONENARROWWEEKDAYS: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
+  SHORTQUARTERS: ['Q1', 'Q2', 'Q3', 'Q4'],
+  QUARTERS: ['1st quarter', '2nd quarter', '3rd quarter', '4th quarter'],
+  AMPMS: ['AM', 'PM'],
+  DATEFORMATS: ['EEEE, MMMM d, y', 'MMMM d, y', 'MMM d, y', 'M/d/yy'],
+  TIMEFORMATS: ['h:mm:ss a zzzz', 'h:mm:ss a z', 'h:mm:ss a', 'h:mm a'],
+  AVAILABLEFORMATS: {
+    'Md': 'M/d',
+    'MMMMd': 'MMMM d',
+    'MMMd': 'MMM d'
+  },
+  FIRSTDAYOFWEEK: 6,
+  WEEKENDRANGE: [5, 6],
+  FIRSTWEEKCUTOFFDAY: 2
+};
+
+/**
+ * Date/time formatting symbols for locale fr.
+ */
+goog.i18n.DateTimeSymbols_fr = {
+  ERAS: ['av. J.-C.', 'ap. J.-C.'],
+  ERANAMES: ['avant JÃ�ï¿½Ã�Â©sus-Christ', 'aprÃ�ï¿½Ã�Â¨s JÃ�ï¿½Ã�Â©sus-Christ'],
+  NARROWMONTHS: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
+  STANDALONENARROWMONTHS: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
+  MONTHS: ['janvier', 'fÃ�ï¿½Ã�Â©vrier', 'mars', 'avril', 'mai', 'juin', 'juillet', 'aoÃ�ï¿½Ã�Â»t', 'septembre', 'octobre', 'novembre', 'dÃ�ï¿½Ã�Â©cembre'],
+  STANDALONEMONTHS: ['janvier', 'fÃ�ï¿½Ã�Â©vrier', 'mars', 'avril', 'mai', 'juin', 'juillet', 'aoÃ�ï¿½Ã�Â»t', 'septembre', 'octobre', 'novembre', 'dÃ�ï¿½Ã�Â©cembre'],
+  SHORTMONTHS: ['janv.', 'fÃ�ï¿½Ã�Â©vr.', 'mars', 'avr.', 'mai', 'juin', 'juil.', 'aoÃ�ï¿½Ã�Â»t', 'sept.', 'oct.', 'nov.', 'dÃ�ï¿½Ã�Â©c.'],
+  STANDALONESHORTMONTHS: ['janv.', 'fÃ�ï¿½Ã�Â©vr.', 'mars', 'avr.', 'mai', 'juin', 'juil.', 'aoÃ�ï¿½Ã�Â»t', 'sept.', 'oct.', 'nov.', 'dÃ�ï¿½Ã�Â©c.'],
+  WEEKDAYS: ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'],
+  STANDALONEWEEKDAYS: ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'],
+  SHORTWEEKDAYS: ['dim.', 'lun.', 'mar.', 'mer.', 'jeu.', 'ven.', 'sam.'],
+  STANDALONESHORTWEEKDAYS: ['dim.', 'lun.', 'mar.', 'mer.', 'jeu.', 'ven.', 'sam.'],
+  NARROWWEEKDAYS: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
+  STANDALONENARROWWEEKDAYS: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
+  SHORTQUARTERS: ['T1', 'T2', 'T3', 'T4'],
+  QUARTERS: ['1er trimestre', '2e trimestre', '3e trimestre', '4e trimestre'],
+  AMPMS: ['AM', 'PM'],
+  DATEFORMATS: ['EEEE d MMMM y', 'd MMMM y', 'd MMM y', 'dd/MM/yy'],
+  TIMEFORMATS: ['HH:mm:ss zzzz', 'HH:mm:ss z', 'HH:mm:ss', 'HH:mm'],
+  AVAILABLEFORMATS: {
+    'Md': 'd/M',
+    'MMMMd': 'd MMMM',
+    'MMMd': 'd MMM'
+  },
+  FIRSTDAYOFWEEK: 0,
+  WEEKENDRANGE: [5, 6],
+  FIRSTWEEKCUTOFFDAY: 3
+};
+
+log('en ', goog.i18n.DateTimeSymbols_en.SHORTWEEKDAYS);
+log('fr ', goog.i18n.DateTimeSymbols_fr.SHORTWEEKDAYS);
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+

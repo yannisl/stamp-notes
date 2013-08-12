@@ -1,0 +1,66 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<style type="text/javascript">
+.exercise{padding:10px;
+                  white-space:pre;}
+.jsGym:hover {height:
+            100px}
+</style>
+
+<h2>The jsGym </h2>
+The <tt>jsGym</tt> is a gym for you to exercise your JavaScript skills. As you progress it will offer you more and more difficult exercises, as well as easy one's that will reinforce your current knowledge. It is available by clicking on the Gym tab.  
+
+<div  style="width:100px;border-left:1px solid #bebebe;border-top:1px solid #bebebe;border-right:#bebebe;float:left;line-height:1.5;background-color:#ececec;text-align:center" class="jsGym ui-corner-tl ui-corner-tr"><span style="color:#dd0000">js</span>Gym</div>
+<div style="clear:both"></div>
+<div  class="code-block console-wrap">
+<div class="exercise">
+<h4>Exercise</h4>
+
+- The function below converts a color from hex to rgb
+
+-  Add a function to covert rgb values to hex
+
+-  Test that the conversion is correct
+
+</div>
+<div class="code-block code">
+<code>
+U.color = {};
+U.color.hexToRgb = function (hexColor) {
+  var r = parseInt(hexColor.substr(1, 2), 16);
+  var g = parseInt(hexColor.substr(3, 2), 16);
+  var b = parseInt(hexColor.substr(5, 2), 16);
+
+  return[r, g, b];
+};
+
+a = U.color.hexToRgb('#ececec');
+
+$that.siblings('.msg').css('background-color', '#ececec');
+log(a);
+
+</code>
+</div>
+
+<div   class="msg" style="white-space:pre">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+<span id="chapter" class="hidden">11</span>
+
+##Further Reading
+
+                                        

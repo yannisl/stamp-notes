@@ -1,0 +1,101 @@
+##Conditional probabilities
+
+The probability that event \\(A\\) occurs, given that event \\(B\\) has occurred, is called a _conditional probability_.
+
+The conditional probability of A, given B, is denoted by the symbol P(A|B).
+
+In general, the probability of an [[event (probability theory)|event]] depends on the circumstances in which it occurs. A _conditional probability_ is the probability of an event, assuming a particular set of circumstances. More formally, a conditional probability is the probability that event \\(A\\) occurs when the _sample space_ is limited to event \\(B\\). This is denoted by $$P(A|B).$$ 
+
+You read this as "the probability of A, given B".
+
+__Joint probability__ is the probability of two events in conjunction. That is, it is the probability of both events together. The joint probability of  \\(A\\) and \\(B\\) is written \\(\scriptstyle P(A \cap B), P(AB)\\) or \\(\scriptstyle P(A, B)\\)
+
+__Multiplication Rule 2__: When two events, \\(A\\) and \\(B\\), are dependent, the probability of both occurring is:
+
+$$P(A\quad \text{and}\quad B) = P(A)\cdot P(B|A)$$
+
+This can be re-written as:
+
+$$P(A\quad \text{and}\quad B) = P(A)\cdot P(B|A)$$
+
+$$P(B|A) = \frac{P(A\quad and \quad B)}{P(A)}$$
+
+This is known as the conditional probability equation.
+
+You can think of these equations as Venn diagrams to visualize the concepts.
+
+<img src="http://localhost/CodeIgniter/images/conditional-venn.gif" style="display:block:margin:0 auto"/>
+
+A small problem is shown in Listing 1. 
+
+__Marginal probability__ is then the unconditional probability ''P''(''A'') of the event ''A''; that is, the probability of ''A'', regardless of whether event ''B'' did or did not occur. If ''B'' can be thought of as the event of a [[random variable]] ''X'' having a given outcome, the marginal probability of ''A'' can be obtained by [[summation|summing]] (or [[Integral|integrating]], more generally) the joint probabilities over all outcomes for ''X''. For example, if there are two possible outcomes for ''X'' with corresponding events ''B'' and ''B<nowiki>'</nowiki>'', this means that $$\scriptstyle P(A) = P(A \cap B) + P(A \cap B^')$$. This is called '''marginalization'''.
+
+In these definitions, note that there need not be a [[causal]] or [[time|temporal]] relation between ''A'' and ''B''. ''A'' may precede ''B'' or vice versa or they may happen at the same time. ''A'' may [[cause]] ''B'' or vice versa or they may have no causal relation at all. Notice, however, that causal and temporal relations are informal notions, not belonging to the probabilistic framework. They may apply in some examples, depending on the interpretation given to events.
+
+__Conditioning__ of probabilities, i.e. updating them to take account of (possibly new) information, may be achieved through [[Bayes' theorem]].
+In such conditioning, the probability of A given only initial information I, ''P''(''A''|''I''), is known as the [[prior probability]].  The updated conditional probability of A, given I and the outcome of the event B, is known as the [[posterior probability]], ''P''(''A''|''B'',''I'').
+
+
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+/*
+  A class took two tests. 29% of the class passed 
+  both tests and 12% of the class passed the first test. 
+ What percent of those who passed the first test also passed the second test?
+*/
+var Pf_and_s = 0.29,
+Pf=0.12;
+Ps_when_f = Pf_and_s/Pf;
+log(Ps_when_f);
+</code>
+</div>
+<div  class="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+         
+###More Trials
+
+
+
+
+
+
+
+
+http://20bits.com/articles/graph-theory-part-i-introduction/
+
+
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<script>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+  }
+});
+
+</script>
+
+
+###More to explore
+
+A chapter from [darmouth](http://www.dartmouth.edu/~chance/teaching_aids/books_articles/probability_book/Chapter4.pdf) with some good examples, including a good explanation of the Monty Hall problem.
+
+
+
+
+
+
+
+
+
+
+
+                                          

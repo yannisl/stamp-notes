@@ -1,0 +1,317 @@
+      
+<!--
+ directives
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{feature-image:/codeigniter/images/china/beauty_06.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+<h2>A JavaScript Recycle Bin with jQuery</h2>
+
+In this article we will explore a simple drag and drop recycle bin using jQuery, we will be using the jquery UI library, so make sure you have it installed. We will start with a number of images, in containers and use the jQuery UI library to add image handlers in them (for example the recycle sprite). We will also use Ajax later on to replace these images as a revision to what we have been doing so far with ajax.
+
+<div id="dialog" ></div>
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+</code>
+</div>
+
+<div id="tools" class="demo ui-widget ui-helper-clearfix curvy" style="background:#fff;border:1px solid #ececec;padding:15px"> 
+<ul id="gallery" class="gallery ui-helper-reset ui-helper-clearfix"> 
+<li class="ui-widget-content ui-corner-tr" style="z-index:9999"> 
+<h5 class="ui-widget-header">HVAC-018</h5>
+<!-- <img src="/CodeIgniter/images/china/beauty_02.jpg" width="80" height="72" /> -->
+<a href= "#"  class="ui-icon ui-icon-zoomin">
+View larger</a> 
+<a href="#" title="Delete this image" class="ui-icon ui-icon-hide">
+Delete image
+</a> 
+</li> 
+
+<li class="ui-widget-content ui-corner-tr" style="z-index:9999"> 
+<h5 class="ui-widget-header">illusions</h5>
+<img src="http://localhost/CodeIgniter/images/china/beauty_03.jpg" width="80" height="72" /> 
+<a href= "http://localhost/CodeIgniter/images/china/beauty_02.jpg"  class="ui-icon ui-icon-zoomin">View larger</a> 
+<a href="" title="Delete this image" class="ui-icon ui-icon-trash">
+Delete image
+</a> 
+</li> 
+
+
+<li class="ui-widget-content ui-corner-tr" style="z-index:9999"> 
+<h5 class="ui-widget-header">illusions</h5>
+<img src="/CodeIgniter/images/china/beauty_04.jpg" width="80" height="72" /> 
+<a href= "#"  class="ui-icon ui-icon-zoomin">
+View larger</a> 
+<a href="#" title="Delete this image" class="ui-icon ui-icon-trash">
+Delete image
+</a> 
+</li> 
+
+
+<li class="ui-widget-content ui-corner-tr" style="z-index:9999"> 
+<h5 class="ui-widget-header">illusions</h5>
+<img src="/CodeIgniter/images/china/beauty_05.jpg" width="80" height="72" /> 
+<a href= "#"  class="ui-icon ui-icon-zoomin">
+View larger</a> 
+<a href="#" title="Delete this image" class="ui-icon ui-icon-trash">
+Delete image
+</a> 
+</li> 
+
+<li class="ui-widget-content ui-corner-tr" style="z-index:9999"> 
+<h5 class="ui-widget-header">illusions</h5>
+
+<img src="/CodeIgniter/images/china/beauty_06.jpg" width="80" height="72" /> 
+<a href= "#"  class="ui-icon ui-icon-zoomin">
+View larger</a> 
+<a href="#" title="Delete this image" class="ui-icon ui-icon-trash">
+Delete image
+</a> 
+</li> 
+
+<li class="ui-widget-content ui-corner-tr" style="z-index:9999"> 
+<h5 class="ui-widget-header">illusions</h5>
+<img src="/CodeIgniter/images/china/beauty_07.jpg" width="80" height="72" />
+<a href= "#"  class="ui-icon ui-icon-zoomin">
+View larger</a> 
+<a href="#" title="Delete this image" class="ui-icon ui-icon-trash">
+Delete image
+</a> 
+</li> 
+</ul> 
+
+<div id="trash" class="ui-widget-content ui-state-default draggable trash"> 
+<h5>Recycle Bin</h5> 
+</div> 
+</div>
+
+
+<ul style="font-size:11px;width:98%">
+
+<li> You can delete an image either by dragging it to
+   the Trash or by clicking the trash icon.</li>
+
+<li> You can "recycle" an image by dragging it back to
+    the gallery or by clicking the recycle icon.</li>
+
+<li>  You can view larger image by clicking the zoom
+    icon. jQuery UI dialog widget is used for the modal
+    window.</li>
+</ul>  
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+<h3>Building the API</h3>
+<div id="dialog" ></div>
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+var $gallery = $('.gallery2');
+
+$('li', $gallery).draggable({
+  cancel: 'a.ui-icon',
+  revert: 'invalid',
+  //containment: $('#demo-frame').length ? '#demo-frame' : 'document',
+  helper: 'clone',
+  cursor: 'move'
+});
+
+$('.gallery2 > li').live('click',function (ev) {
+  var $item = $(this);
+  var $target = $(ev.target);
+  if ($target.is('a.ui-icon-trash')) {
+    log('deleteImage');
+  } else if ($target.is('a.ui-icon-zoomin')) {
+    log('viewLargerImage');
+  } else if ($target.is('a.ui-icon-refresh')) {
+    log('recycleImage');
+  }
+  return false;
+});
+$('#img_01').load('/CodeIgniter/Blogs/ajax_gallery/02', function () {
+  setTimeout(
+  function () {
+    $('#img_01 img').attr('style', 'width:95px');
+    $gallery.css('backgroundColor', '#666').addClass('curvy');
+    var c = $('li', '.gallery2').eq(0).clone();
+    log(c);
+    $gallery.append(c);
+  },
+  1);
+});
+
+
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div id="tools" class="demo ui-widget ui-helper-clearfix curvy" style="background:#fff;border:1px solid #ececec;padding:15px"> 
+<ul class="gallery2 gallery ui-helper-reset ui-helper-clearfix" style="padding:3px">
+<li class="ui-widget-content ui-corner-tr" style="z-index:9999;"> 
+<h5 class="ui-widget-header">illusions</h5>
+<div id="img_01" style="width:90px;padding:0;text-align:center">
+<img src="/CodeIgniter/images/china/beauty_05.jpg" 
+style="float:none;margin:0 auto;width:95%" /> 
+</div>
+<a href= "#"  class="ui-icon ui-icon-zoomin">
+View larger</a> 
+<a href="#" title="Delete this image" class="ui-icon ui-icon-trash">
+Delete image
+</a> 
+</li>
+</ul>
+</div>
+<div class="console"></div>
+<div id="ajax"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<h3>Cloning</h3>
+Be sure to capture the click event with a 'live' method, otherwise the cloned objects will not be able to inherit the events. I have changed the above code to do so.
+
+<h3>The Server Side Set-up</h3>
+I am using PHP on the Server side and CodeIgniter as the framework. The Ajax is just a mock, that sends a picture based on the end number of the url. When the Ajax request is received it returns an image tag which can then just be inserted in the right place, using jQuery, selectors.
+
+{{plain:
+function ajax_gallery()
+&#123;
+   $n=$this->uri->segment(3);
+   $z='&lt;img src="http://localhost/CodeIgniter/images/china/beauty_'.$n.'.jpg" /&gt;';
+   echo $z;
+&#125;
+}}
+
+Before you fully deploy an application especially if you are going to use a Test Driven Development approach, it is easier to just mock behaviors at the early stages of development.
+You will also have to built-up the Ajax routines to cater for errors and network problems.
+
+
+<h3>Summary</h3>
+
+With a few lines of jQuery code we have managed to make a set of li elements draggable and droppable. We also have used Ajax to change the image content within these list elements. 
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+<script type="text/javascript">
+$(document).ready(function(){
+$(function() {
+    // there's the gallery and the trash
+    var $gallery = $('#gallery'), $trash = $('.trash');
+    // let the gallery items be draggable
+    $('li',$gallery).draggable({
+        cancel: 'a.ui-icon',// clicking an icon won't initiate dragging
+        revert: 'invalid', // when not dropped, the item will revert back to its initial position
+        containment: $('#demo-frame').length ? '#demo-frame' : 'document', // stick to demo-frame if present
+        helper: 'clone',
+        cursor: 'move'
+    });
+
+    // let the trash be droppable, accepting the gallery items
+    $trash.droppable({
+        accept: '#gallery > li',
+        activeClass: 'ui-state-highlight',
+        drop: function(ev, ui) {
+            deleteImage(ui.draggable);
+        }
+    });
+
+    // let the gallery be droppable as well, accepting items from the trash
+    $gallery.droppable({
+        accept: '.trash li',                     //changed from id
+        activeClass: 'custom-state-active',
+        drop: function(ev, ui) {
+            recycleImage(ui.draggable);
+        }
+    });
+
+    // image deletion function
+    var recycle_icon = '<' + 'a class="ui-icon ui-icon-refresh">Recycle image'+ '<'+ '/a>';
+    function deleteImage($item) {
+        $item.fadeOut(function() {
+            var $list = $('ul',$trash).length ? $('ul',$trash) : $('<' + 'ul class="gallery ui-helper-reset"'+' />').appendTo($trash);
+            $item.find('a.ui-icon-trash').remove();
+            $item.append(recycle_icon).appendTo($list).fadeIn(function() {
+                $item.animate({
+                    width: '48px'
+                }).find('img').animate({
+                    height: '36px'
+                });
+            });
+        });
+    }
+
+    // image recycle function
+    var trash_icon = '<'+'a href="#" title="Delete this image" class="ui-icon ui-icon-trash">Delete image'+'< '+' /a>';
+    function recycleImage($item) {
+        $item.fadeOut(function() {
+            $item.find('a.ui-icon-refresh').remove();
+            $item.css('width','96px').append(trash_icon).find('img').css('height','72px').end().appendTo($gallery).fadeIn();
+        });
+    }
+
+    // image preview function, demonstrating the ui.dialog used as a modal window
+    function viewLargerImage($link) {
+        var src = $link.attr('href');
+        var title = $link.siblings('img').attr('alt');
+        var $modal = $('img[src$="'+src+'"]');
+       log($modal.length);
+       log(src);
+        if ($modal.length) {
+            $modal.dialog('open')
+        } else {
+            var img = $('<'+' img alt="'+title+'" style="padding:0;margin:0;width:90%;margin:0 auto;display:block" '+' />').attr('src',src).appendTo('body');
+            setTimeout(function() {
+                img.dialog({
+                    title: title,
+                    width: 600,
+                    modal: true
+                });
+            }, 1);
+        }
+    }
+
+    // resolve the icons behavior with event delegation
+    $('ul#gallery > li').click(function(ev) {
+        var $item = $(this);
+        var $target = $(ev.target);
+        if ($target.is('a.ui-icon-trash')) {
+            deleteImage($item);
+        } else if ($target.is('a.ui-icon-zoomin')) {
+            viewLargerImage($target);
+        } else if ($target.is('a.ui-icon-refresh')) {
+            recycleImage($item);
+        }
+        return false;
+    });
+});
+});
+</script>
+
+
+  
+  
+
+
+
+
+
+
+
+                                                                                                                                                                                                                                                                        

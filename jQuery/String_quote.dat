@@ -1,0 +1,135 @@
+ <!--
+{{feature-image:http://localhost/codeigniter/images/china/beauty_02.jpg}}
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+
+
+<h3>Standard Library string methods: quote()</h3>
+
+These series of functions test the start and end of string for a character and are faster than regular expression tests. They have complimentary functions for case insensitivity.
+
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+U.string.caseInsensitiveCompare = function (str1, str2) {
+  var test1 = String(str1).toLowerCase();
+  var test2 = String(str2).toLowerCase();
+
+  if (test1 < test2) {
+    return -1;
+  } else if (test1 == test2) {
+    return 0;
+  } else {
+    return 1;
+  }
+};
+
+/**
+ * Fast prefix-checker.
+ * @param {string} str The string to check.
+ * @param {string} prefix A string to look for at the start of {@code str}.
+ * @return {boolean} True if {@code str} begins with {@code prefix}.
+ */
+U.string.startsWith = function (str, prefix) {
+  return str.indexOf(prefix) === 0;
+};
+
+/**
+ * Fast suffix-checker.
+ * @param {string} str The string to check.
+ * @param {string} suffix A string to look for at the end of {@code str}.
+ * @return {boolean} True if {@code str} ends with {@code suffix}.
+ */
+U.string.endsWith = function (str, suffix) {
+  var l = str.length - suffix.length;
+  return l >= 0 && str.lastIndexOf(suffix, l) == l;
+};
+
+/**
+ * Case-insensitive prefix-checker.
+ * @param {string} str The string to check.
+ * @param {string} prefix  A string to look for at the end of {@code str}.
+ * @return {boolean} True if {@code str} begins with {@code prefix} (ignoring
+ *     case).
+ */
+U.string.caseInsensitiveStartsWith = function (str, prefix) {
+  return U.string.caseInsensitiveCompare(
+  prefix, str.substr(0, prefix.length)) === 0;
+};
+
+/**
+ * Case-insensitive suffix-checker.
+ * @param {string} str The string to check.
+ * @param {string} suffix A string to look for at the end of {@code str}.
+ * @return {boolean} True if {@code str} ends with {@code suffix} (ignoring
+ *     case).
+ */
+U.string.caseInsensitiveEndsWith = function (str, suffix) {
+  return U.string.caseInsensitiveCompare(
+  suffix, str.substr(str.length - suffix.length, suffix.length)) === 0;
+};
+
+var s = 'Yiannis';
+
+log(U.string.startsWith(s, 'Y'));
+log(U.string.caseInsensitiveStartsWith(s, 'y'));
+log(U.string.endsWith(s, 's'));
+
+log(U.string.caseInsensitiveEndsWith(s, 'S'));
+</code>
+</div>
+
+<div  id ="msg" class="msg" style="white-space:pre">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+7.2 White Space
+
+White space characters are used to improve source text readability and to separate tokens (indivisible
+lexical units) from each other, but are otherwise insignificant. White space may occur between any two
+tokens, and may occur within strings (where they are considered significant characters forming part of the
+literal string value), but cannot appear within any other kind of token.
+The following characters are considered to be white space:
+
+|Code Point| Value Name |Formal Name|
+|-------------|---------------|----------------|
+|\u0009| Tab |&lt;TAB&gt;|
+|\u000B| Vertical Tab| &lt;VT&gt;|
+|\u000C |Form Feed |&lt;FF&gt;|
+|\u0020| Space| &lt;SP&gt;|
+|\u00A0 |No-break space| &lt;NBSP&gt;|
+
+
+
+See also [Make white-space visible](http://127.0.0.1/CodeIgniter/index.php/Blogs/stamps/jQuery/Strings_and_whitespace).
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+

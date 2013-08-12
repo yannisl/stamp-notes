@@ -1,0 +1,179 @@
+      
+<!--
+ directives
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{feature-image:/codeigniter/images/china/beauty_07.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<script type="text/javascript"> 
+goog.require('goog.events');
+  goog.require('goog.ui.Ratings');
+</script>
+
+ 
+<h3>Ratings Widget</h3>
+
+I am not very impressed with this one. It took me over an hour to sort out the css and I still don't feel that what we are achieving here is the best!. I just don't like negative margins. 
+
+
+You can see it in action at [knol](http://knol.google.com/k/frank-w-sweet/why-are-europeans-white-e1/k16kl3c2f2au/14). By the way this article as to why are wuropeans white drew a bit of controversy at [HN](http://news.ycombinator.com/item?id=994292).
+
+
+The file overview states that this a base ratings widget that allows the user to select a rating,
+ like "star video" in Google Video. This fires a "change" event when the user
+ selects a rating.
+
+ Keyboard:
+
+- ESC = Clear (if supported)
+- Home = 1 star
+- End = Full rating
+- Left arrow = Decrease rating
+-  Right arrow = Increase rating
+- 0 = Clear (if supported)
+- 1 - 9 = nth star
+
+The events monitored are :
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+goog.ui.Ratings.EventType = {
+  CHANGE: 'change',
+  HIGHLIGHT_CHANGE: 'highlightchange',
+  HIGHLIGHT: 'highlight',
+  UNHIGHLIGHT: 'unhighlight'
+};
+
+
+</code>
+
+</div>
+</div>
+<div style="height:30px;white-space:wrap">
+<SPAN id="star" style="border:1px solid #bebebe;float:left"></SPAN>
+<SPAN id="star" style="border:1px solid #bebebe;float:left"></SPAN>
+<SPAN id="star" style="border:1px solid #bebebe;float:left"></SPAN>
+<SPAN id="star" style="border:1px solid #bebebe;float:left"></SPAN>
+<SPAN id="star" style="border:1px solid #bebebe;float:left"></SPAN>
+<SPAN id="star" style="border:1px solid #bebebe;float:left"></SPAN>
+<SPAN id="star" style="border:1px solid #bebebe;float:left"></SPAN>
+<SPAN id="star" style="border:1px solid #bebebe;float:left"></SPAN>
+<SPAN id="star" style="border:1px solid #bebebe;float:left"></SPAN>
+<SPAN id="star" style="border:1px solid #bebebe;float:left"></SPAN>
+</div>
+<SELECT name="sel"> 
+    <OPTION>Aweful</OPTION> 
+    <OPTION>Bad</OPTION> 
+    <OPTION selected="">Ok</OPTION> 
+    <OPTION>Good</OPTION> 
+    <OPTION>Excellent</OPTION> 
+  </SELECT> <LABEL id="lab" for="sel">Ok</LABEL> 
+</DIV> 
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+filesLoaded();
+
+var rw1 = new goog.ui.Ratings();
+  var defaultText = 'Rate this...';
+  goog.events.listen(rw1, 'change', function(e) {
+    defaultText = e.target.getValue() || 'Rate this...';
+    document.getElementById('lab').innerHTML = defaultText;
+  });
+  goog.events.listen(rw1, 'highlightchange', function(e) {
+    document.getElementById('lab').innerHTML =
+        e.target.getHighlightedValue() || defaultText;
+  });
+  rw1.decorate(document.getElementById('test1'));
+  
+  
+  var rw2 = new goog.ui.Ratings();
+  rw2.setRatings([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+  rw2.render(document.getElementById('test2'));
+  rw2.setSelectedIndex(3);
+  
+  setTimeout(function() { rw2.setSelectedIndex(8); }, 500);
+  setTimeout(function() { rw2.setSelectedIndex(5); }, 750);
+  setTimeout(function() { rw2.exitDocument(); }, 1000);
+  setTimeout(function() { rw2.setSelectedIndex(1); }, 1250);
+  setTimeout(function() { rw2.render(document.getElementById('test3')); }, 1500);
+  setTimeout(function() { rw2.setSelectedIndex(4); }, 1750);
+  setTimeout(function() { rw2.setSelectedIndex(8); }, 2000);
+  setTimeout(function() { rw2.exitDocument(); }, 3000);
+
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="sandbox-console curvy clearfix">
+
+<DIV id="test1" class="clearfix"> 
+<DIV tabindex="0" class="goog-ratings" class="clearfix">
+<SPAN title="Aweful" class="goog-ratings-star goog-ratings-firststar-on">
+<img src='http://localhost/codeigniter/images/ico_star_red.gif ' />
+</SPAN>
+<SPAN title="Bad" class="goog-ratings-star goog-ratings-midstar-on"></SPAN>
+<SPAN title="Ok" class="goog-ratings-star goog-ratings-midstar-on"></SPAN>
+<SPAN title="Good" class="goog-ratings-star goog-ratings-midstar-off"></SPAN><SPAN title="Excellent" class="goog-ratings-star goog-ratings-laststar-off"></SPAN>
+</DIV>
+
+<SELECT name="sel" style="display: none; "> 
+    <OPTION>Aweful</OPTION> 
+    <OPTION>Bad</OPTION> 
+    <OPTION selected="">Ok</OPTION> 
+    <OPTION>Good</OPTION> 
+    <OPTION>Excellent</OPTION> 
+  </SELECT> <LABEL id="lab" for="sel">Ok</LABEL> 
+</DIV> 
+
+<DIV id="test2" style="height: 40px;">
+</DIV> 
+<DIV id="test3" style="height: 40px;">
+<DIV tabindex="0" class="goog-ratings">
+</DIV>
+</DIV>
+
+<img src='http://localhost/codeigniter/images/ico_star_red.gif ' />
+
+<span style="background:url( http://localhost/codeigniter/images/ico_star_red.gif ) no-repeat;
+display:block;width:13px;height:13px;border:1px solid #f60;float:left " ></span>
+
+
+
+
+</div>
+<div class="timer" style="font-size:10px"></div>
+<div id="log" class="console" style="white-space:pre"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+You will agree with me that this i snot the greatest or sexiest of widgets  that I came across and what Google Engineers did was perhaps an overkill. Maybe some summer work for a student?
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+
+
+ 
+  
+
+
+
+
+
+
+
+                                                                                                                                                                            

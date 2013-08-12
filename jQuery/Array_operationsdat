@@ -1,0 +1,174 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+{{feature-image: http://localhost/egypt/elliott-erwitt/EE-1150.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<h3>Array Operations</h3>
+
+Two or more arrays can be joined by using the <strong>concat()</strong> method.
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+var oneArray=['blue','red'];
+var twoArray=['yellow','orange'];
+var threeArray=['green','purple'];
+oneArray=oneArray.concat(twoArray,threeArray);
+log('',oneArray);
+</code>
+
+</div>
+
+<div  class="msg" class="msg" style="white-space:pre;font-family:monospace;line-height:1.3">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<h3>Adding Utilities</h3>
+
+Arrays joined through the concat( ) method are not altered. Instead, the concat( ) method returns the combined array
+as a new value, which you can preserve in a separate variable. The base array (the one used to invoke the concat( )
+method) comes first in the combined array.
+
+The concat( ) method is not limited to tacking one array onto another. Comma-delimited parameters to the method
+can be any data type. A value of any data type other than an array becomes another entry in the main array—in the
+same sequence as the parameters. You can even combine arrays and other data types in the group of parameters
+passed to the method.
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+var oneArray=['blue','red'];
+var twoArray=['yellow','orange'];
+var threeArray=['green','purple'];
+var oArray={one:'test',
+                          two:'test2'};
+var mixedArray=oneArray.concat(twoArray,threeArray,oArray);
+log('',mixedArray);
+</code>
+
+</div>
+
+<div  class="msg" class="msg" style="white-space:pre;font-family:monospace;line-height:1.3">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+In addition to the concat( ) method, a quartet of array methods let you treat an array like a stack for tacking on and
+removing items from the front or backends of the array. The push( ) method lets you append one or more items to
+the end of an array; the corresponding pop( ) method removes the last item from the array and returns its value. You
+can perform the same operations at the beginning of the array with the unshift( ) (append) and shift( ) (remove)
+methods. 
+
+<h3>Dividing an Array into two or more segments</h3>
+
+To divide an array into two pieces, use the splice( ) method on the original array 
+The splice( ) method requires two parameters that signify the zero-based
+index of the first item, and the number of items from there to be removed from the original array. For example,
+consider the following starting array:
+
+var myArray = [10, 20, 30, 40, 50, 60, 70];
+
+To create two arrays that have three and four items, respectively, first decide which items are to remain in the original
+array. For this example, we'll remove the first three items to their own array:
+
+var subArray = myArray.splice(0, 3);
+
+After the splice( ) method executes, there are now two arrays as follows:
+
+myArray = [40, 50, 60, 70]
+subArray = [10, 20, 30]
+
+
+You can extract any sequence of contiguous items from the original array. After the extraction, the original array
+collapses to its most compact size, reducing its length to the number of items remaining. The two arrays do not
+maintain any connection with each other after the splice( ) method executes.
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+var oneArray=[10,20,30,40,50,60,70,80,90,100];
+var subArray=oneArray.splice(0,4);
+
+log(' subArray = '+subArray);
+log(' oneArray = '+oneArray);
+
+</code>
+
+</div>
+
+<div  class="msg" class="msg" style="white-space:pre;font-family:monospace;line-height:1.3">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+The splice( ) method does more than merely cut out a group of entries from an array. Optional parameters to the
+method let you both remove and insert items in their place all in one step. Moreover, you don't have to replace
+removed items with the same quantity of new items. To demonstrate, we'll start with a simple array:
+
+var myArray = [10, 20, 30, 40, 50, 60, 70];
+
+Our goal is to extract the middle three items (preserved as their own array for use elsewhere), and replace these
+items with two new items:
+
+var subArray = myArray.splice(2, 3, "Jane", "Joe");
+
+After the splice( ) statement executes, the two arrays have the following content:
+
+myArray: [10, 20, "Jane", "Joe", 60, 70]
+subArray: [30, 40, 50]
+
+Using the splice( ) method is the best way to delete entries from within an array. If you simply invoke the method
+without capturing the returned result, the items specified by attributes are gone, and the length of the array closes up
+to the remaining items.
+
+One other array method, slice( ), allows you to copy a contiguous section of an array and create a separate, new
+array with those entries. 
+
+The difference between slice( ) and splice( ) is that slice( ) does not alter the original array.
+
+Parameters to slice( ) are integers of the starting index of the group to extract and the ending index. (Or else, omit the
+ending index to take every entry to the end of the array.)
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+var oneArray=[10,20,30,40,50,60,70,80,90,100];
+var subArray=oneArray.slice(0,4);
+
+log(' subArray = '+subArray);
+log(' oneArray = '+oneArray);
+
+</code>
+
+</div>
+
+<div  class="msg" class="msg" style="white-space:pre;font-family:monospace;line-height:1.3">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+##Further Reading
+
+
+
+ 
+
+
+
+  
+  
+
+
+
+
+
+
+

@@ -1,0 +1,194 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+{{feature-image: http://localhost/egypt/elliott-erwitt/EE-1150.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<style>
+div#music span{font-size:48px;color:gold}
+</style>
+
+<h2>Library Development</h2>
+
+<div style="width:300px;height:100px;border:1px solid #bebebe"  id="music">
+<span>M</span>
+<span>U</span>
+<span>S</span>
+<span>I</span>
+<span>C</span>
+</div>
+
+<script>
+$(document).ready(function(){
+   $('div#music span').each(function(){
+       $(this).css('color',1000).fadeOut('slow').fadeIn(1000);
+  });
+});
+
+
+</script>
+
+<h3>Detecting When the DOM Is Available</h3>
+
+A major bugbear of JavaScript programmers is that the DOM is sometimes not available for
+use at the point when an executing script needs it to be. If the script is referred to within the
+{{tag:head}} section of an HTML page, it will be executed before the <body> of that page has loaded,
+meaning it will not be able to locate page elements at that time. Previously, developers would
+add their entire code to the window.onload event, meaning it would execute when the entire
+page—including any external images, CSS, and JavaScript files—had loaded. The more images
+on the page, the longer the user would wait before the script was executed.
+Eventually, several browser manufacturers, together with the W3C, introduced a
+DOMContentLoaded event, which fired at the point when the page elements were loaded and
+could be accessed through JavaScript. This event fired before the window.onload event and
+before the external files had finished loading, meaning that developers could have their scripts
+executing against the DOM without needing to wait for the entire page contents to load.
+Unfortunately, the DOMContentLoaded event is not yet implemented in all common browsers,
+notably IE 6, 7, and 8. To smooth over this inconsistency and provide support for this
+event where it exists and a work-around where it doesn’t, you need to write your own method
+to execute your code when the DOM is ready to be used. Listing
+2&#8209;10 shows one way of achieving
+this behavior in all browsers as part of your $ library.
+
+<div  class="code-block console-wrap "><div class="code code-block">
+<code>
+var $$ = function() {};
+
+ $$.prototype.onDomReady = function(callback){ // callback should be a function
+if (document.addEventListener) {
+
+/* If the browser supports the DOMContentLoaded event,
+     assign the callback function to execute when that event fires
+*/
+
+document.addEventListener("DOMContentLoaded", callback, false);
+} else {
+if(document.body && document.body.lastChild){
+
+// If the DOM is available for access, execute the callback function
+
+callback();
+} else {
+
+// Reexecute the current function, denoted by arguments.callee,
+// after waiting a brief nanosecond so as not to lock up the browser
+
+return setTimeout(arguments.callee, 0);
+}
+}
+callback();
+}
+// Example usage
+// Instantiate the $ library object as a singleton for use on a page
+$$ = new $$();
+// Outputs "The DOM is ready!" when the DOM is ready for access
+$$.onDomReady(function() {
+log('',"The DOM is ready!");
+});
+</code>
+
+</div>
+
+<div  class="msg" class="msg" style="white-space:pre;font-family:monospace;line-height:1.3">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+<img src="http://localhost/codeigniter/images/jquery.png" style="float:right; width:85px"/>
+</div>
+
+<h3>Adding Utilities</h3>
+
+You can add more utilities to your library by extending the prototype.
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+var $$ = function () {};
+$$.prototype.Utils={
+
+// The replaceText method takes a text string containing placeholder values and
+// replaces those placeholders with actual values passed in through the values
+// object literal.
+// For example: "You have {count} messages in the {folderName} folder"
+// Each placeholder, marked with braces – { } – will be replaced with the
+// actual value from the values object literal, the properties count and
+// folderName will be sought in this case
+replaceText: function(text, values) {
+for (var key in values) {
+if (values.hasOwnProperty(key)) {
+// Loop through all properties in the value object literal
+if (typeof values[key] == undefined) { // Code defensively
+values[key] = "";
+}
+// Replace the property name wrapped in braces from the text
+// string with the actual value of that property. The regular
+// expression ensures that multiple occurrences are replaced
+text = text.replace(new RegExp("{" + key +"}", "g"), values[key]);
+}
+}
+// Return the text with all placeholder values replaced with real ones
+return text;
+},
+// The toCamelCase method takes a hyphenated value and converts it into
+// a camel case equivalent, e.g., margin-left becomes marginLeft. Hyphens
+// are removed, and each word after the first begins with a capital letter
+
+toCamelCase: function(hyphenatedValue) {
+var result = hyphenatedValue.
+replace(/-\D/g, function(character) {
+return character.charAt(1).toUpperCase();
+});
+return result;
+},
+
+// The toHyphens method performs the opposite conversion, taking a camel
+// case string and converting it into a hyphenated one.
+// e.g., marginLeft becomes margin-left
+
+toHyphens: function(camelCaseValue) {
+var result = camelCaseValue.replace(/[A-Z]/g, function(character) {
+return ('-'+ character.charAt(0).toLowerCase());
+});
+return result;
+}
+
+
+}
+$$=new $$();
+var z = 'This is a test {user} ';
+z = $$.Utils.replaceText(z,{user: 'yiannis'});
+alert(z);
+var z1=$$.Utils.toHyphens('thisIsATest');
+alert(z1);
+</code>
+
+</div>
+
+<div  class="msg" class="msg" style="white-space:pre;font-family:monospace;line-height:1.3">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+<img src="http://localhost/codeigniter/images/jquery.png" style="float:right; width:85px"/>
+</div>
+
+##Further Reading
+
+
+
+ 
+
+
+
+  
+  
+
+
+
+
+
+
+

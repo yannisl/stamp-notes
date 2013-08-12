@@ -1,0 +1,105 @@
+ <!--
+{{feature-image: /egypt/amato-01/aa_098.jpg }}
+{{credit-source: Allan Amato}}
+{{credit: /codeigniter/blogs/gallery/amato-01/29}}
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<script type="text/javascript"> 
+goog.require('goog.structs.LinkedMap');
+goog.require('goog.structs');
+goog.require('goog.array');
+goog.require('goog.structs.Map');
+
+</script> 
+
+
+<h2>Linked Map</h2>
+<!--TOC-->
+Class for a LinkedMap datastructure, which combines O(1) map access for
+ key/value pairs with a linked list for a consistent iteration order. 
+ 
+{{plain:
+ * @param &#123;number&#125; opt_maxCount The maximum number of objects to store in the
+ *     LinkedMap. If unspecified or 0, there is no maximum.
+ * @param &#123;boolean&#125; opt_cache When set, the LinkedMap stores items in order from
+ *     most recently used to least recently used, instead of insertion order.
+ * @constructor
+}}
+
+
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+var m = new goog.structs.LinkedMap(100);
+m.set('param1', 'A');
+m.set('param2', 'B');
+m.set('param3', 'C');
+log(m.getKeys()); // param1, param2, param3
+// has a limit of 100
+var c = new goog.structs.LinkedMap(20, true);
+for (var k = 0; k < 20; k++) {
+  var temp = 'a-' + k;
+  c.set(temp, false);
+}
+log(c.getKeys()); // entry9, entry8, entry7, entry6, entry5
+c.set('entry5', true);
+c.set('entry1', false);
+log(c.getKeys()); // entry1, entry5, entry9, entry8, entry7
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+
+
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+<img src="http://chart.apis.google.com/chart?cht=bvg&chs=250x150&chd=s:Monkeys&chxt=x,y&chxs=0,ff0000,12,0,lt|1,0000ff,10,1,lt" />
+
+
+
+  
+  
+
+
+
+
+
+
+
+                                                                                                                

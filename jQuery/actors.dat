@@ -1,0 +1,130 @@
+##Your Title Here  
+
+<script type="text/javascript">
+    var my_user = null;
+    $(document).ready(function(){
+    // Start user_actor
+      var user_actor = function(guess_dom_target, accuracy_dom_target)
+      {
+        this._target_element = guess_dom_target;
+        this._accuracy_target_element = accuracy_dom_target;
+      };
+      user_actor.prototype.send_guesses_to = function(channel)
+      {
+        this._guess_channel = channel;
+      }
+      user_actor.prototype.value_entered = function(value)
+      {
+        this._guess_channel.next(value);
+      };
+      user_actor.prototype.previously_guessed_value_updated = function(guess_value)
+      {
+        this._target_element.html(guess_value);
+      };
+      user_actor.prototype.accuracy_updated = function(accuracy_value)
+      {
+        this._accuracy_target_element.html(accuracy_value * 100);
+      };
+      
+    // Start learning_actor
+      var learning_actor = function()
+      {
+        this._markov_chain = {};
+        this._guessed_value = "";
+        this._previous_value = "";
+      };
+      learning_actor.prototype.set_guess_channel_to = function(channel)
+      {
+        this._guess_channel = channel;
+      };
+      learning_actor.prototype._make_best_guess = function(current_value)
+      {
+        var value_to_guess = current_value;
+        var score_to_beat = -1;
+        
+        var guess_list = this._markov_chain[current_value];
+        for(var previously_guessed_value in guess_list)
+        {
+          var score = guess_list[previously_guessed_value];
+          if(score > score_to_beat)
+          {
+            value_to_guess = previously_guessed_value;
+            score_to_beat = score;
+          }
+        }
+        
+        return value_to_guess;
+      };
+      learning_actor.prototype._learn_from_new_information = function(previous_value, current_value)
+      {
+        if(this._markov_chain[previous_value] == null)
+        {
+          this._markov_chain[previous_value] = {};
+          this._markov_chain[previous_value][current_value] = 0;
+        }
+        
+        var likely_values_based_on_prev_value = this._markov_chain[previous_value];
+        
+        if(isNaN(likely_values_based_on_prev_value[current_value]))
+          likely_values_based_on_prev_value[current_value] = 0;
+          
+        likely_values_based_on_prev_value[current_value] = likely_values_based_on_prev_value[current_value] + 1;
+      };
+      learning_actor.prototype.next = function(value)
+      {        
+        this._guess_channel.guessed(this._guessed_value, value);
+      
+        this._learn_from_new_information(this._previous_value, value);
+        this._guessed_value = this._make_best_guess(value);
+        this._previous_value = value;
+      };
+      
+    // Start scoreboard_actor
+      var scoreboard_actor = function()
+      {
+        this._values_entered_count = 0;
+        this._correctly_guessed_value_count = 0;
+      };
+      scoreboard_actor.prototype.set_display_channel_to = function(channel)
+      {
+        this._display_channel = channel;
+      };
+      scoreboard_actor.prototype.guessed = function(my_guess, correct_guess)
+      {
+        this._values_entered_count = this._values_entered_count + 1;
+        
+        if(my_guess == correct_guess)
+        {
+          this._correctly_guessed_value_count = this._correctly_guessed_value_count + 1;
+        }
+        
+        var guess_accuracy = this._correctly_guessed_value_count / this._values_entered_count;
+        this._display_channel.accuracy_updated(guess_accuracy);
+        this._display_channel.previously_guessed_value_updated(my_guess);
+      };
+      
+      //Create actors
+      // my_user needs to be global so UI can use it.
+      var computer_guess_display = $('#computer_guess');
+      var computer_guess_accuracy_display = $('#computer_guess_accuracy');
+      
+      my_user = new user_actor(computer_guess_display, computer_guess_accuracy_display);
+      var my_learner = new learning_actor();
+      var my_scoreboard = new scoreboard_actor();
+      
+      my_user.send_guesses_to(my_learner);
+      my_learner.set_guess_channel_to(my_scoreboard);
+      my_scoreboard.set_display_channel_to(my_user);
+    });
+  </script>
+</head>
+<body>
+	<div>
+    You: <input name="human_value" value="" onclick="this.select();" onfocus="this.select();" maxlength="1" onkeyup="my_user.value_entered(this.value); this.select();" />
+  </div>
+  <div>
+    My Guess: <span id="computer_guess"></span>
+  </div>
+  <div>
+    My Accuracy: <span id="computer_guess_accuracy">0</span>%
+  </div>  

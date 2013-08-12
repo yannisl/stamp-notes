@@ -1,0 +1,33 @@
+##Substrings
+
+The _substring()_ method extracts characters from a string:
+
+{{plain:
+var str="Hello world!";
+document.write(str.substring(3)+"<br />");
+document.write(str.substring(3,7));
+}}
+
+This is based on the numerical position of the string. You can use indexOf() to find the position.
+
+{{plain:
+var str="Hello world!";
+document.write(str.indexOf("d") + "<br />");
+document.write(str.indexOf("WORLD") + "<br />");
+document.write(str.indexOf("world"));
+}}
+
+
+
+The _lastIndexOf()_ method returns the position of the last found occurrence of a specified value in a string.
+
+Note: The string is searched backward, but the index returned is the character position from left to right (starting at 0).
+
+This method returns -1 if the value to search for never occurs.
+
+{{plain:
+var str="Hello world!";
+document.write(str.lastIndexOf("d") + "<br />");
+document.write(str.lastIndexOf("WORLD") + "<br />");
+document.write(str.lastIndexOf("world"));
+}}

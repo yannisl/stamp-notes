@@ -1,0 +1,81 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+
+<h2>Getting rid of local variables</h2>
+In many cases using local variables within functions maybe unnecessary. One can easily use self-executing functions to replace such variables.
+
+<div  class="code-block console-wrap"><div class="code-block code"><code>
+// with local vars
+function withvars(y){
+     var x = 12;
+     return x + y;
+}
+
+log(withvars(12));
+
+// can be written as 
+function novars(y){
+     //var x = 12;
+     return (function(){return 12 + y;})();
+}
+
+log(novars(12));
+</code>
+</div>
+
+<div  class="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+
+</code>
+</div>
+
+<div  class="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+##Further Reading
+
+
+
+
+
+
+
+                

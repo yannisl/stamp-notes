@@ -1,0 +1,320 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<style type="text/css">
+.exercise{padding:10px;
+                  white-space:pre;}
+.cell{width:16px;height:16px;border:1px solid #bebebe;margin:1px;padding:0}
+</style>
+
+<h2>Pattern Matching</h2>
+In many instances, such as genomics, exact matching is not always pertinent.
+It is rather more important to find objects which match a pattern in a reasonably approximate way. Approximation is measured mainly by the so-called <strong>edit </strong> distance: the minimal number of local edit operations to transform one object into another. Such operations are well suited for strings, but they are less natural for two-dimensional patterns for trees.
+
+The analogue for DNA sequences is called the <i>alignment</i> problem. Algorithms are mainly based on the algorithmic method called <i> dynamic programming</i>. We present also problems strongly related to the notion of edit distance, namely, the computation of longest common subsequences, string matching allowing errors, and string matching with don't care symbols.
+
+<div  class="code-block console-wrap" title="String Visual">
+<div class="code-block code">
+<code>
+function boxString(n) {
+  function wrap(n) {
+    var div = '<' + 'div' + ' class="cell" >';
+    var span = '<' + 'span' + '>';
+    var divend = '<' + '/div' + '>';
+    var spanend = '<' + '/span' + '>';
+    var z = div + span + n + spanend + divend;
+    return z;
+  }
+
+  var a = [];
+
+  var i = 0;
+  var s = '';
+
+  while (i < n) {
+    a[i] = wrap(i);
+    s += wrap(i);
+    i++;
+  }
+  return s;
+}
+
+var s = boxString(10);
+$that.siblings('.msg').html(s).show('slow');
+</code>
+</div>
+
+<div   class="msg">
+</div>
+<hr/>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<h3>Utility Library</h3>
+I have included the above routine in the distribution of the U library, which can hopefully help us identify the concepts we will be discussing here a bit more clearly, for example when we need to compare two sequences of DNA as follows, we can visually see the code execution (still to come).
+
+<div  class="code-block console-wrap" title="String Visual">
+<div class="code-block code">
+<code>
+var s = U.boxString('ACCATGAAACTTCTTATCCTCACCTGCCT');
+var s1 = U.boxString('ACCATGAGTGCACTTCTGATCCTAGCCCT');
+$that.siblings('.msg').append(s).show('slow');
+$that.siblings('.msg').append(s1).show('slow');
+</code>
+</div>
+
+<div   class="msg">
+
+</div>
+<hr/>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<h3>Computing the Edit distance by serial computation</h3>
+An immediate question arising in applications is to be able to test the equality of two strings allowing some errors. The errors correspond to differences between the two words. 
+
+We consider in this section three types of differences between two strings <i>x</i> and <i>y</i>:
+
+- change : symbols at corresponding positions are distinct,
+- insertion : a symbol of y is missing in x at corresponding position,
+- deletion : a symbol of x is missing in y at corresponding position.
+
+It is rather natural to ask for the minimum number of differences between x and y. 
+
+We translate
+it as the smallest possible number of operations (change, deletion, insertion) to transform x into
+y. This is called the edit distance between x and y, and denoted by edit(x, y). It is clear that it is a
+distance between words, in the mathematical sense. This means that the following properties
+are satisfied:
+
+-  edit(x, y) = 0 if  x = y,
+-  edit(x, y) = edit(y, x) (symmetry),
+-  edit(x, y) &#8804; edit(x, z) + edit(z, y) (triangle inequality).
+
+The symmetry of edit comes from the duality between deletion and insertion: a deletion of the letter a of x in order to get y corresponds to an insertion of a in y to get x.
+
+Below is an example of transformation of x = wojtk into y = wjeek.
+{plain:
+w o j t k
+&#8595; deletion
+&#8595; change
+&#8595; insertion
+w j e e k}}
+
+<div  class="code-block console-wrap" title="String Visual">
+<div class="code-block code">
+<code>
+var s1 = U.boxString(' abcabbbaa');
+var s2='cbabac';
+var empty=' abcabbbaa';
+      $that.siblings('.msg').append(s).show('slow');
+      for (var i=0;i<s2.length){
+      var temp=U.boxString(s2[i]+empty);
+      $that.siblings('.msg').append(temp).show('slow');
+      temp='';
+     }
+
+
+</code>
+</div>
+
+<div   class="msg">
+
+</div>
+<hr/>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+This shows that edit(wojtk, wjeek) &#8804; 3, because it uses three operations. In fact, this is the minimum number of edit operations to transform wojtk into wjeek.
+
+<h3>Changing it to a graph</h3>
+
+The above operations can be represented on a graph :
+
+<img src="http://localhost/codeigniter/images/edit-distance.jpg"  />
+
+&#8590;&#8591;&#8592;&#8594;&#8595;&#8596;&#8597;&#8598;&#8599;&#8600;
+
+For our own visual representation we will use <strong>(&#8595;)</strong> for deletion and &#8600; for change. For insert (&#8594;). The equal sign (=) will be used for no change. We can also use color-code the operations or use images.
+
+There are many alternative methods to draw the graph, probably the best will be using canvas, where the nodes can actually be represented by circles, which will be more intuitive. For the time being, we can use our own boxString() and try it out on the baove example:
+
+
+<div  class="code-block console-wrap" title="String Visual">
+<div class="code-block code">
+<code>
+var y = ' abcabbbaa';
+var x = 'cbabac';
+var y1 = U.boxString(y);
+$that.siblings('.msg').append(y1).show('slow');
+for (var i = 0; i < x.length; i++) {
+  var tmp = x[i] + '         ';
+  var s = U.boxString(tmp);
+  $that.siblings('.msg').append(s).show('slow');
+}
+//character codes for symbols
+var deleteChar = '&#8595;';
+var insertChar = '&#8594;';
+var replaceChar = '&#8600;';
+var equalChar = '=';
+
+function symbolAtPosition(symbol, position, str) {
+
+  var s1 = str.slice(0, position);
+  var s2 = str.slice(position + 1, str.length);
+  return s1 + symbol + s2;
+}
+
+var z = symbolAtPosition(deleteChar, 5, y);
+var z1 = U.boxString(z);
+$that.siblings('.msg').append(z1).show('slow');
+
+var z2 = symbolAtPosition(replaceChar, 6, y);
+var z3 = U.boxString(z2);
+$that.siblings('.msg').append(z3).show('slow');
+
+function showSymbol(symbol, position, length) {
+  var t = function () {
+    var t1 = '';
+    for (var i = 0; i < length; i++) {
+       t1 = t1 + ' '; // empty string  
+    }
+    return t1;
+  }
+
+  var t3 = symbolAtPosition(symbol, position, t());
+  var t4 = U.boxString(t3);
+
+  $that.siblings('.msg').append(t4).show('slow');
+}
+
+// example usage
+showSymbol(equalChar, 7, y.length);
+showSymbol(replaceChar, 8, y.length);
+showSymbol(insertChar, 9, y.length);
+</code>
+</div>
+
+<div   class="msg">
+
+</div>
+<hr/>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<h3>Developing the Solution Algorithm</h3>
+
+The edit distance can be determined by using the dynamic algorithm which is illustrated below in pseudo-code:
+
+<img src="http://localhost/codeigniter/images/edit-distance-algorithm.jpg" style="width:95%" />
+
+A bit of explanation is in place for those of you that are not too familiar with the notation. The algorithm is shown in pseudo-Pascal code.
+
+The tw0 words x and y are fixed. The length of x is m, and the
+length of y is n, and we assume that n &#8805; m. 
+
+We define the table EDIT by:
+
+EDIT[i, j] = edit(x[1..i], y[1..j]),
+
+with 0 &#8804; i &#8804; m, 0 &#8804; j &#8804; n. 
+
+The boundary values are defined as follows (for 0 &#8804; i &#8804; m, 0 &#8804; j &#8804; n):
+
+EDIT[0, j] = j, EDIT[i, 0] = i.
+
+There is a simple formula to compute other elements:
+
+(*) EDIT[i, j] = min(EDIT[i-1, j]+1, EDIT[i, j-1]+1, EDIT[i-1, j-1]+&#8706;(x[i], y[j])),
+where &#8706;(a, b) = 0 if a = b, and &#8706;(a, b) = 1 otherwise. The formula reflects the three operations, deletion, insertion, change, in that order.
+
+The algorithm above computes the edit distance of strings x and y. It stores and computes
+all values of the matrix EDIT, although the only one entry EDIT[m, n] is required. This serves
+to save on time, and this feature is called the <strong>dynamic programming method</strong>. Another possible
+algorithm to compute edit(x, y) could be to use the classical Dijkstra's algorithm for shortest paths in the grid graph.
+
+<h3>The JavaScript Code</h3>
+
+<div  class="code-block console-wrap" title="String Visual">
+<div class="code-block code">
+<code>
+var y = 'lazarides';
+//var y1 = U.insertChar('M', 9, y);
+//var y2 = U.deleteChar(9, y1);
+//var y3 = U.swapChar(3, y);
+var x = 'lazaridis';
+
+log(x, ' X string ');
+log(y, 'Y string ');
+var m = y.length;
+var n = x.length;
+var i = 0;
+var temp = x;
+do {
+  var tchar = temp.charAt(i);
+  var tchar1 = temp.charAt(i + 1);
+  var ychar = y.charAt(i);
+  if (tchar != ychar) {
+    // logic goes here
+    if (tchar1 == ychar && temp.length < m + 1) {
+      temp = U.deleteChar(i, temp);
+      log(temp, 'delete');
+      showSymbol(replaceChar, 8, y.length);
+    }
+    else {
+      temp = U.insertChar(ychar, i, temp); // insert in temp from y
+      log(temp, ' insert');
+    }
+
+  }
+  else {
+    log('equal');
+    log(temp);
+  }
+  if (temp.length > m) {
+    temp1 = temp.slice(0, m);
+    if (temp1 == y) {
+      temp = y;
+      log(temp);
+    }
+  }
+
+  i++;
+} while ((i < m + n) && (temp !== y));
+  
+</code>
+</div>
+
+<div   class="msg">
+</div>
+<hr/>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results" styel="white-space:pre"></ol> 
+</div>
+
+In the algorithm shown in the text the Edit distance can be computed in O(mn) time using O(m) additional memory. With the above algoritm it can be computer in O(m+n). Perhaps I got an error somwhere, anywhere this was a iversion to exrcsise your knowledge on string operations and to develop some more experience with jQuery. 
+
+
+<span id="chapter" class="hidden">11</span>
+
+
+
+##Further Reading
+

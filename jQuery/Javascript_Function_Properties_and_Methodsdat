@@ -1,0 +1,136 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+<h2>Functions Properties and Methods</h2>
+Functions are <strong>objects</strong> in ECMAScript and, as mentioned previously have properties and methods. Each function has two properties:
+
+- length
+- prototype
+
+The <em>length</em> property indicates the number of named arguments
+that the function expects, as in the following example:
+
+<div  class="code-block console-wrap">
+<div class="code code-block">
+<code>
+
+function add(num1, num2, num3, num4){
+         return num1+num2+num3+num4;
+}
+
+var s=add(2001,11,22,56 );
+var s2=add.length;
+log('value of s = ', s);
+log('length of function add = ', s2);
+</code>
+</div>
+<div id="msg1" class="msg">
+</div>
+<ol class="results"></ol>
+<button class="eval">Run Code!</button>
+</div>
+</code>
+
+Returning a <dfn>function from a function</dfn> is also possible and can be quite powerful. This is discussed further when we are discussing <dfn>anonymous function</dfn>:
+
+
+<h3>Functions and the Activation Object</h3>
+
+When control enters an execution context for function code, an object called the __activation object__ is
+created and associated with the execution context. The activation object is initialised with a property
+with name __arguments__ and attributes { DontDelete }. The initial value of this property is the __arguments
+object__ described below.
+
+The activation object is then used as the variable object for the purposes of variable instantiation.
+
+{{bulb:The activation object is purely a specification mechanism. It is impossible for an ECMAScript program to access the activation object. It can access members of the activation object, but not the activation object itself. }}
+
+When the call operation is applied to a Reference value whose base object is an activation object, null is used as the this value of the call.
+
+<div  class="code-block console-wrap">
+<div class="code code-block">
+<code>
+function test() {
+  var d = ''
+  for (var i = 0, length = arguments.length; i < length; i++) {
+    log('in test arguments[' + i + '] = ' + arguments[i]);
+  }
+  d += arguments[0];
+  return d;
+
+}
+
+function add(a, b, c) {
+  //a = 22; // does not change arguments
+  for (var i = 0, length = arguments.length; i < length; i++) {
+    log('arguments[' + i + '] = ' + arguments[i]);
+  }
+  log(test.apply(this, arguments, 18));
+  return;
+
+}
+
+add(12, 13, 1);
+</code>
+</div>
+<div id="msg1" class="msg">
+</div>
+<ol class="results"></ol>
+<button class="eval">Run Code!</button>
+</div>
+</code>
+
+<h3>This</h3>
+There is a this value associated with every active execution context. The this value depends on the __caller__
+and the type of code being executed and is determined when control enters the execution context. The
+__this__ value associated with an execution context is immutable.
+
+10.1.8 <strong>Arguments Object</strong>
+
+When control enters an execution context for function code, an arguments object is created and
+initialised as follows:
+
+- The value of the internal [[Prototype]] property of the arguments object is the original Object
+prototype object, the one that is the initial value of Object.prototype (see 15.2.3.1).
+
+- A property is created with name __callee__  and property attributes { DontEnum }. The initial value of
+this property is the Function object being executed. This allows anonymous functions to be recursive.
+
+- A property is created with name length and property attributes { DontEnum }. The initial value of
+this property is the number of actual parameter values supplied by the caller.
+
+- For each non-negative integer, arg, less than the value of the length property, a property is created
+with name ToString(arg) and property attributes { DontEnum }. The initial value of this property is
+the value of the corresponding actual parameter supplied by the caller. The first actual parameter
+value corresponds to arg = 0, the second to arg = 1, and so on. In the case when arg is less than the
+number of formal parameters for the Function object, this property shares its value with the
+corresponding property of the activation object. This means that changing this property changes the
+corresponding property of the activation object and vice versa.
+
+A lot of difficult concepts to understand.
+
+
+
+##Further Reading
+
+
+
+
+  
+  
+
+
+
+
+
+
+

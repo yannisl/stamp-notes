@@ -1,0 +1,82 @@
+<!--
+{{feature-image:/codeigniter/images/hagan.jpg}}
+{{credit: /codeigniter/blogs/gallery/hakan/17}}
+{{credit-source:Hakan }}
+
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+{{title: Colors Part III}}
+-->
+<style type="text/css">
+.box{width:130px;height:30px;font-size:10px}
+</style>
+<script>goog.require('goog.color.names');</script>
+
+<h2>Colors Part III the goog.color.name</h2>
+ This utility class, provides an object that holds information on all HTML defined color names, such as blue etc. Note that this will not be the same across all browsers.
+
+<div  class="code-block console-wrap" title="Parsing color strings">
+<div class="code-block code">
+<code>
+var obj = goog.color.names;
+for (var prop in obj) {
+  logPRE(prop + ' : ' + obj[prop]);
+}
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results" style="width:90%"></ol> 
+</div>
+
+<h3>Validation</h3>
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+
+var obj = goog.color.names;
+for (var prop in obj) {
+  log('&lt;div style="background:'+ obj[prop]+';" class="box" &gt;'+prop+'  : '+obj[prop]+'&lt;/div&gt;');
+}
+</code>
+</div>
+<div  id ="msg" class="msg" >
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+Of course designers and web developers sparingly use color names anymore! Nevertheless, I presented the class here because it has potential, especially if you would like to extend the class with your favourite colors and give them names.
+
+
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+[Web Colors](http://en.wikipedia.org/wiki/Web_colors)
+
+ 
+
+
+
+  
+  
+
+
+
+
+
+
+
+                                                                                                                                

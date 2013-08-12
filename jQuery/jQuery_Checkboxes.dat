@@ -1,0 +1,299 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<style type="text/css">
+.code{margin:0;padding-top:0}
+.code-block{                        background:url(http://localhost/codeigniter/images/code-bg.gif);
+margin:0;padding:0}
+.code-block .code{white-space:pre;padding:0;margin:0}
+</style>
+
+<h2>Checkboxes, Ajax and Other adventures</h2>
+Javascript is an object based computer language. With the exception of language constructs like loops and relational operators, almost all of Javascript's features are implemented using objects in one way or another.
+
+<div class="code-block">
+<div class="code">
+alert('succesful');
+</div>
+<button class="eval">Run Code</button>
+</div>
+
+
+Having it so simple might give us problems later on so we give the button a class, let u scall the class eval!
+
+<div class="code-block">
+<div class="code">
+function countChecked() {
+      var n = $("input[name='checkbox[]']:checked").length;
+      $("#msg").text(n + (n <= 1 ? " is" : " are") + " checked!");
+    if ($("input[name='checkbox[0]']:checked")==true) alert('Checkbox 1 clicked');
+}
+    countChecked();
+   
+$("input[name='checkbox[]']").click(countChecked);
+</code>
+</div>
+   <form>
+        <input type="checkbox"  name="checkbox[]"/>
+        <input type="checkbox"  name="checkbox[]"/>
+        <input type="checkbox" name="checkbox[]"/>
+        <input type="checkbox" name="checkbox[]"/>
+        <input type="checkbox" name="checkbox[]"/>
+     
+  </form>
+  <p id="msg"></p>
+  <button class="eval">Button</button>
+</div>
+<h2>Checkboxes and javascript</h2>
+<p>Lets u snow examine the same code without jQuery. It will help us understand better what we can do and not do. This time we have redefined the form
+with a name, as well as the checkboxes all now belong to the same checkbox group. To remind you we do this by giving all checkboxes the same name.
+</p>
+
+<div class="code-block">
+<div class="code"  >
+ for (i=0; i&lt;document.aForm.checkgroup.length; i++){
+          if (document.aForm.checkgroup[i].checked==true)
+          alert("Checkbox at index "+i+" is checked!");
+         alert(document.aForm.checkgroup[1].checked.toString());
+}
+</div>
+<form name="aForm">
+<input type="checkbox" name="checkgroup" checked />
+<input type="checkbox" name="checkgroup" />
+<input type="checkbox" name="checkgroup"  />
+</form>
+<button class="eval">Run Code</button>
+</div>
+
+<h2>Values into an Array?</h2>
+Consider the following form which will somehow be closer to something you will
+code:
+{{plain:
+<form id="form1">
+<fieldset>
+  <input name="A" type="text" value="email"/>
+  <input name="A" type="text" value="name"/>
+  <input name="B" type="checkbox" value="B1" checked />
+   <input name="B" type="checkbox" value="B2"/>
+   <input name="C" type="radio" value="C1" />
+   <input name="C" type="radio" value="C2" checked />
+ </fieldset>
+<button class="clear">Clear</button>
+</form>
+}}
+
+Our aim is to place into an array all the user values entered, so that we can later
+on continue to serialize them and send them back to the server.
+
+Here is the HTML code for the form
+{{plain:
+&lt;form>
+&lt;fieldset>
+  &lt;input name="A" type="text" /&gt;
+  &lt;input name="A" type="text" /&gt;
+  &lt;input name="B" type="checkbox" value="B1" /&gt;
+  &lt;input name="B" type="checkbox" value="B2"/&gt;
+  &lt;input name="C" type="radio" value="C1" /&gt;
+   &lt;input name="C" type="radio" value="C2" /&gt;
+ &lt;/fieldset>
+&lt;/form>
+}}
+
+<div class="code-block">
+<div class="code">
+$.fn.fieldValue = function(successful) {
+    for (var val=[], i=0, max=this.length; i < max; i++) {
+        var el = this[i];
+        var v = $.fieldValue(el, successful);
+        if (v === null || typeof v == 'undefined' || (v.constructor == Array && !v.length))
+            continue;
+        v.constructor == Array ? $.merge(val, v) : val.push(v);
+    }
+    return val;
+};
+</div>
+</div>
+
+This simple and quick function will get all the elements and return an array
+with their value:
+
+Try it blow:
+<div class="code-block">
+<div class="code">
+var   v = $(':text').fieldValue();alert(v);
+         v = $(':radio').fieldValue();alert(v);
+         v = $(':checkbox').fieldValue();alert(v);
+         $('button.clear').clearForm($('form1'));
+</div>
+<button class="eval">Run Code</button>
+
+</div>
+
+Note it will only return if values are successful i.e there is a radio checked or checkbox checked.
+
+<h2>Successful controls</h2>
+
+http://www.w3.org/TR/html401/interact/forms.html#h-17.13.2
+
+A successful control is a control that is <strong>valid</strong> for submission. 
+Every successful control has its control name paired with its current value as part of the submitted form data set. A successful control must be defined within a FORM element and must have a control name. When experimenting with forms you might try and place inputs outside form tags, these will not be captured as successful controls.
+
+However:
+
+Controls that are disabled cannot be successful.
+
+If a form contains more than one submit button, only the activated submit button is successful.
+
+All "on" checkboxes may be successful.
+
+For radio buttons that share the same value of the name attribute, only the "on" radio button may be successful.
+
+For menus, the control name is provided by a SELECT element and values are provided by OPTION elements. Only selected options may be successful. When no options are selected, the control is not successful and neither the name nor any values are submitted to the server when the form is submitted.
+The current value of a file select is a list of one or more file names. Upon submission of the form, the contents of each file are submitted with the rest of the form data. The file contents are packaged according to the form's content type.
+
+The current value of an object control is determined by the object's implementation.
+
+If a control doesn't have a current value when the form is submitted, user agents are not required to treat it as a successful control.
+
+Furthermore, user agents should not consider the following controls successful:
+
+Reset buttons.
+
+OBJECT elements whose declare attribute has been set.
+Hidden controls and controls that are not rendered because of style sheet settings may still be successful. For example:
+
+
+<div class="code-block">
+<div class="code">
+var psw=$(':password').val();
+alert('password is :'+psw);
+var h=$('input:hidden').val();
+alert('hidden controls :'+h);
+</div>
+<pre>
+&lt;form action="..." method="post">
+&lt;input type="password"   style="display:none"
+          name="invisible-password"
+          value="mypassword"
+          id="aPassword">
+&lt;input type="hidden"   style="display:none"
+          name="hidden"
+          value="hidden"
+          id="hidden">
+&lt;/form>
+</pre>
+<form action="..." method="post">
+<input type="password"   style="display:none"
+          name="invisible-password"
+          value="mypassword"
+          id="aPassword">
+<input type="hidden"   style="display:none"
+          name="hidden"
+          value="hidden"
+          id="hidden">
+</form>
+<button class="eval">Run Code</button>
+</div>
+
+will still cause a value to be paired with the name "invisible-password" and submitted with the form.
+
+
+
+##Further Reading
+
+[Good discussion at Yahoo Developer](http://developer.yahoo.com/ypatterns/parent.php?pattern=transition)
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+$('button.eval').click(function(){
+   var code=$(this).siblings('.code').text();
+   eval(code);
+
+});
+
+$.fn.fieldValue = function(successful) {
+    for (var val=[], i=0, max=this.length; i < max; i++) {
+        var el = this[i];
+        var v = $.fieldValue(el, successful);
+        if (v === null || typeof v == 'undefined' || (v.constructor == Array && !v.length))
+            continue;
+        v.constructor == Array ? $.merge(val, v) : val.push(v);
+    }
+    return val;
+};
+
+/**
+ * Returns the value of the field element.
+ */
+$.fieldValue = function(el, successful) {
+    var n = el.name, t = el.type, tag = el.tagName.toLowerCase();
+    if (typeof successful == 'undefined') successful = true;
+
+    if (successful && (!n || el.disabled || t == 'reset' || t == 'button' ||
+        (t == 'checkbox' || t == 'radio') && !el.checked ||
+        (t == 'submit' || t == 'image') && el.form && el.form.clk != el ||
+        tag == 'select' && el.selectedIndex == -1))
+            return null;
+
+    if (tag == 'select') {
+        var index = el.selectedIndex;
+        if (index < 0) return null;
+        var a = [], ops = el.options;
+        var one = (t == 'select-one');
+        var max = (one ? index+1 : ops.length);
+        for(var i=(one ? index : 0); i < max; i++) {
+            var op = ops[i];
+            if (op.selected) {
+                // extra pain for IE...
+                var v = $.browser.msie && !(op.attributes['value'].specified) ? op.text : op.value;
+                if (one) return v;
+                a.push(v);
+            }
+        }
+        return a;
+    }
+    return el.value;
+};
+
+
+$.fn.clearForm = function() {
+    return this.each(function() {
+        $('input,select,textarea', this).clearFields();
+    });
+};
+
+/**
+ * Clears the selected form elements.
+ */
+$.fn.clearFields = $.fn.clearInputs = function() {
+    return this.each(function() {
+        var t = this.type, tag = this.tagName.toLowerCase();
+        if (t == 'text' || t == 'password' || tag == 'textarea')
+            this.value = '';
+        else if (t == 'checkbox' || t == 'radio')
+            this.checked = false;
+        else if (tag == 'select')
+            this.selectedIndex = -1;
+    });
+};
+
+});
+
+</script>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,47 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+<h2>Limits</h2>
+What if I told you that I can make you not being able to get up from a chair, without anyone tying you up? Unbelievable? Try to sit as the picture shown below. [From Physics for entertainment](http://www.archive.org/stream/physicsforentert035428mbp#page/n31/mode/2up). Sit down on a chair in the same way as the boy shown in the illustration below. Sit upright and _don't shove your feet under the chair_. Now try to get up without moving your feet or bending forward. You can't, however hard you try. You'll never stand up until you push your feet under the chair or lean forward.
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<img src="http://localhost/codeigniter/images/impossible.jpg" />
+</div>
+
+<div  class="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+<img src="http://localhost/codeigniter/images/jquery.png" style="float:right; width:85px"/>
+</div>
+
+
+
+
+##Further Reading
+
+<h4>Footnotes</h4>
+<p class="footnote">Published in 1913, a best-seller in the 1930s and long out of print, Physics for Entertainment was translated from Russian into many languages and influenced science students around the world. Among them was Grigori Yakovlevich Perelman, the Russian mathematician (unrelated to the author), who solved the Poincaré conjecture, and who was awarded and rejected the Fields Medal. Grigori's father, an electrical engineer, gave him Physics for Entertainment to encourage his son's interest in mathematics. In the foreword, the book’s author describes the contents as “conundrums, brain-teasers, entertaining anecdotes, and unexpected comparisons,” adding, “I have quoted extensively from Jules Verne, H. G. Wells, Mark Twain and other writers, because, besides providing entertainment, the fantastic experiments these writers describe may well serve as instructive illustrations at physics classes.” The book’s topics included how to jump from a moving car, and why, “according to the law of buoyancy, we would never drown in the Dead Sea.” Ideas from this book are still used by science teachers today. Yakov Isidorovich Perelman died in the siege of Leningrad in 1942.</p>
+ 
+
+
+
+  
+  
+
+
+
+
+
+
+

@@ -1,0 +1,130 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<style type="text/css">
+.code{margin:0;padding-top:0}
+.code-block{                        background:url(http://localhost/codeigniter/images/code-bg.gif);
+margin:0;padding:0}
+.code-block .code{white-space:pre;padding:0;margin:0}
+.highlight{background:yellow}
+</style>
+
+<h2>Javascript Regular Expressions : None Capturing Groups</h2>
+
+Using the parentheses syntax we can also specify portions to group - but not capture. This is done with the syntax (?:). Simply it means (where ... is what you are attempting to match, but not capture)
+
+
+<div class="code-block console-wrap">
+<div class="code code-block">
+<code>
+  var re = /((?:aa-))/g;
+  var   s = "aa-ninja-sword-aa-bb".match(re); 
+
+  assert(s == "aa-ninja", "match both words but do not capture");
+for (i=0;i&lt;s.length;i++){
+  
+  log('i , s  ', i, (s[i]));
+}
+</code>
+</div>
+<p class= "msg" id="msg"></p>
+  <button class="eval">Button</button>
+<ol class="results"></ol>
+</div>
+
+
+Perhaps the most powerful feature presented by JavaScript is the ability to provide a callback as the value to replace with, in a replace method call.
+
+For example below we use a function to provide a dynamic replacemnet value to adjust the cas of a character.
+
+<div class="code-block">
+<div class="code">
+var s = "font-family, font-size".replace(/-(\w)/g, function(all, letter){
+       return letter.toUpperCase();
+ });   
+alert(s);
+
+  $('#msg1').text(s);
+</code>
+</div>
+<p id="msg1" style="width:400px;font-size:24px;font-weight:bold;background:#fff">Test Area</p>
+  <button class="eval">Button</button>
+</div>
+
+
+<h3>Trimming a String</h3>
+This is a very common requirement in many programs
+<div class="code-block">
+<div class="code">
+
+function trim(str){
+  return str.replace(/^\s+|\s+$/g, '');
+}
+
+s = trim('           This is       a funny String                ');
+alert(s);
+</code>
+</div>
+<p class="msg" id="msg2" style="width:400px;font-size:24px;font-weight:bold;background:#fff">Test Area</p>
+  <button class="eval">Button</button>
+<ol class="results"></ol>
+</div>
+
+This is not the most efficient way of carrying it out and Steven Levithan provides a few solutions in his [blog](http://blog.stevenlevithan.com/archives/faster-trim-javascript). In most applications speed is not important, but if you maybe developing a library every microsecond will count.
+
+
+
+##Further Reading
+
+You can visit Regular Expression Ninja Blog
+http://blog.stevenlevithan.com/
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+$('button.eval').click(function(){
+   var code=$(this).siblings('.code').text();
+   eval(code);
+});
+
+
+$("#input").keyup(function(){
+    var s=$(this).val();
+    s=isValid(s);
+     $('p#msg5').text(s);
+});
+
+$("#regex").keyup(function(){
+    var s=$('#input').val();
+    s=isValid(s);
+     $('p#msg5').text(s);
+});
+});
+
+function isValid(str){
+   var pattern=$('#regex').val(); 
+  s=pattern;//alert(s);
+   var dateformat =new RegExp(pattern,'msi');
+    //alert(dateformat);
+   return dateformat.test(str);
+}
+ </script>
+
+
+
+  
+  
+
+
+
+
+
+
+

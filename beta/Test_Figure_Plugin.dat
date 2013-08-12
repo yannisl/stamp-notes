@@ -1,0 +1,18 @@
+\chapter{Tests for Figures Plugin}
+
+
+## ph command
+
+Some other stuff #
+
+\ph[30%]{../beta/che.jpg}{This is some test.}
+
+
+\phr[30%]{../beta/che.jpg}{This is some test.}
+
+
+\clear 
+## includegraphics command.
+
+\includegraphics[width=40%]{../beta/che.jpg}
+\captionof{figure}{Some caption for the figure.}

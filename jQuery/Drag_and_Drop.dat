@@ -1,0 +1,80 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+{{feature-image:http://localhost/CodeIgniter/images/christophe_gilbert_02.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: UI, jQuery, Visibility Filters, CSS Visibility }}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+<style>
+ .col1{width:22.3%;height:350px;float:left;
+border-right:1px solid #bebebe}
+table tr td{border:1px solid #bebebe}
+.c1{}
+.table1{} 
+</style>
+
+
+<h2>Kanban</h2>
+
+
+<div style="width:98%;height:360px;border:1px solid #bebebe">
+<div class="col1 draggable" >1</div>
+<div class="col1">2</div>
+<div class="col1">3</div>
+<div class="col1">4</div>
+</div>
+
+</hr>
+<table border="1" class="table1">
+<tbody>
+<tr>
+<td>row 1, cell 1</td>
+<td>row 1, cell 2</td>
+</tr>
+<tr>
+<td>row 2, cell 1</td>
+<td>row 2, cell 2</td>
+</tr>
+</tbody>
+</table>
+
+<p><a class="c1">click to add row</a></p>
+
+<script type="text/javascript">
+/*
+    Add a new table row to the bottom of the table
+*/
+
+function addTableRow(jQtable){
+    jQtable.each(function(){
+        var $table = $(this);
+        // Number of td's in the last table row
+        var n = $('tr:last td', this).length;
+        var tds = '<tr>';
+        for(var i = 0; i < n; i++){
+            tds += '<td> </td>';
+        }
+        tds += '</tr>';
+        if($('tbody', this).length > 0){
+            $('tbody', this).append(tds);
+        }else {
+            $(this).append(tds);
+        }
+    });
+}
+
+
+$('.c1').click(function(){
+alert('test');
+$('.table1').css('background','red');
+addTableRow($('.table1'));
+$('.table1').css('background','blue');
+});
+
+
+</script>

@@ -1,0 +1,116 @@
+<!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<style type="text/css">
+.border
+{
+	border:  1px solid #cccccc;
+	float:   left;
+	margin:  5px;
+	padding: 1px;
+}
+
+.center {
+	text-align: center;
+}
+
+.color
+{
+	display:    block;
+	height:     120px;
+	width:      120px;
+}
+
+.colorcontainer {
+	margin:     0px auto;
+	width:      670px;
+	text-align: center;
+}
+
+.colorname {
+	text-align: left;
+}
+
+</style>
+
+<h2>Color Experiments</h2>
+
+<div class="center clearfix" style="background:#000;color:#fff"> 
+		<div class="colorcontainer"> 
+			<span class="border" title="#000000"> 
+				<span class="color" style="background-color: #000000"></span> 
+				<span class="colorname"> 
+				RGB: 0, 0, 0<br> 
+				Hex: #000000
+				</span> 
+			</span> 
+			<span class="border" title="#802310"> 
+				<span class="color" style="background-color: #802310"></span> 
+				<span class="colorname"> 
+				RGB: 128, 35, 16<br> 
+				Hex: #802310
+				</span> 
+			</span> 
+			<span class="border" title="#A30404"> 
+				<span class="color" style="background-color: #A30404"></span> 
+				<span class="colorname"> 
+				RGB: 163, 4, 4<br> 
+				Hex: #A30404
+				</span> 
+			</span> 
+<span class="border" title="#"> 
+				<span class="color" style="background-color: #A30404"></span> 
+				<span class="colorname"> 
+				RGB: 188, 29, 29<br> 
+				Hex: #A30404
+				</span> 
+			</span> 
+
+			<span class="border" title="#D60000"> 
+				<span class="color" style="background-color: #D60000"></span> 
+				<span class="colorname"> 
+				RGB: 214, 0, 0<br> 
+				Hex: #D60000
+				</span> 
+			</span> 
+			<span class="border" title="#FF0000"> 
+				<span class="color" style="background-color: #FF0000"></span> 
+				<span class="colorname"> 
+				RGB: 255, 0, 0<br> 
+				Hex: #FF0000
+				</span> 
+			</span> 
+			
+			<a href="http://www.colourlovers.com/palette//from brown to red" title="Colourlovers from brown to red">Colourlovers 'from brown to red' palette</a> 
+		</div> 
+</div>
+
+
+
+
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+                                              

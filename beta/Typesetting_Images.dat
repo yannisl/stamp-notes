@@ -1,3 +1,16 @@
 \chapter{Typesetting Images}    
 
-\ph[70%]{../beta/stamps_40_41.jpg}{}
+Setting out images is one of the hardest tasks in typesetting. Numerous styles exist and there are a lot of opinions as to the best approach.
+
+\ph[70%]{../beta/stamps_40_41.jpg}{Page spread from a philatelic book, showing normal figures, margin figures and fullwidth figures.}
+
+Our aim is to provide the tools for typesetting, create classes that make some good decisions, but the ultimate choice is left to the book designer. It is also likely that your final LaTeX layout might need a bit of manual twicking.
+
+{{wi: Che_Guevara}} and the {{wi: Cuban_Revolution}}
+
+\begin{tabular}{ll}
+\verb++ \begin{marginfigure}..\end{marginfigure} ++ & These are figures that are rendered in the margin. At the moment can be used with the Tufte class.\\
+
+Figure        & normal LaTeX figure environment\\
+
+\end{tabular}

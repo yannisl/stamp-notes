@@ -1,0 +1,161 @@
+      
+<!--
+ directives
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{feature-image:/codeigniter/images/china/beauty_07.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<script type="text/javascript"> 
+goog.require('goog.dom');
+goog.require('goog.graphics');
+goog.require('goog.graphics.Font');
+goog.require('goog.graphics.LinearGradient');
+goog.require('goog.graphics.SolidFill');
+goog.require('goog.graphics.Stroke');
+goog.require('goog.ui.Gauge');
+goog.require('goog.ui.GaugeTheme');
+</script>
+ 
+<style>
+.g{width:135px;float:left}
+</style> 
+<h3>Gauges</h3>
+
+   
+
+  
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+  var CustomGaugeTheme = function() {
+    }
+    goog.inherits(CustomGaugeTheme, goog.ui.GaugeTheme);
+ 
+    CustomGaugeTheme.prototype.getInternalBorderFill = function(cx, cy, r) {
+      return new goog.graphics.SolidFill("#8080ff");
+    }
+ 
+    CustomGaugeTheme.prototype.getExternalBorderFill = function(cx, cy, r) {
+      return new goog.graphics.SolidFill("#8080c0");
+    }
+ 
+    CustomGaugeTheme.prototype.getInternalBorderStroke = function() {
+      return new goog.graphics.Stroke(2, "#ffff00");
+    }
+ 
+    CustomGaugeTheme.prototype.getMajorTickStroke = function() {
+      return new goog.graphics.Stroke(2, "#ffffff");
+    }
+ 
+    CustomGaugeTheme.prototype.getHingeStroke = function() {
+      return new goog.graphics.Stroke(1, "#00a000");
+    }
+ 
+    CustomGaugeTheme.prototype.getHingeFill = function(cx, cy, r) {
+      return new goog.graphics.SolidFill("#00c000");
+    }
+ 
+    CustomGaugeTheme.prototype.getNeedleStroke = function() {
+      return new goog.graphics.Stroke(1, "#008040");
+    }
+ 
+    CustomGaugeTheme.prototype.getNeedleFill = function(cx, cy, r) {
+      return new goog.graphics.SolidFill("#008040", 0.7);
+    }
+ 
+ 
+    var interactiveGauge;
+ 
+    function setupGauges() {
+      var gauge = new goog.ui.Gauge(120, 120);
+      gauge.setValue(33);
+      gauge.render(document.getElementById('basic'));
+ 
+      var gauge = new goog.ui.Gauge(120, 120);
+      gauge.addBackgroundColor(50, 60, goog.ui.Gauge.RED);
+      gauge.addBackgroundColor(35, 50, goog.ui.Gauge.YELLOW);
+      gauge.addBackgroundColor(15, 25, goog.ui.Gauge.GREEN);
+      gauge.setMinimum(15);
+      gauge.setMaximum(60);
+      gauge.setTicks(3, 6);
+      gauge.setValue(40);
+      gauge.setTitleBottom("RPM");
+      gauge.render(document.getElementById('colors'));
+ 
+ 
+      interactiveGauge = new goog.ui.Gauge(120, 120);
+      interactiveGauge.addBackgroundColor(0, 30, goog.ui.Gauge.GREEN);
+      interactiveGauge.addBackgroundColor(75, 90, goog.ui.Gauge.YELLOW);
+      interactiveGauge.addBackgroundColor(90, 100, goog.ui.Gauge.RED);
+      interactiveGauge.setTitleTop("CPU Utilization");
+      interactiveGauge.setTicks(5, 2);
+      interactiveGauge.setMajorTickLabels(['bad', '20%', '40%', '60%', '80%', 'good']);
+      setValue();
+      interactiveGauge.render(document.getElementById('interactive'));
+ 
+      var gauge = new goog.ui.Gauge(120, 120);
+      gauge.setMinimum(-30);
+      gauge.setMaximum(30);
+      gauge.setTicks(10, 0);
+      gauge.setValue(20);
+      var theme = new CustomGaugeTheme();
+      gauge.setTheme(theme);
+      gauge.render(document.getElementById('customcolors'));
+ 
+    }
+ 
+    function setValue() {
+      var sv = document.getElementById("v1").value
+      var v = parseInt(sv, 10);
+      if (isNaN(v)) {
+        v = 0;
+      }
+      interactiveGauge.setValue(v, v + "%");
+    }
+UI.filesLoaded();
+setupGauges();
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+
+<div class="clearfix">
+<div id="interactive" class="g">
+</div>
+<INPUT type="text" size="3" value="22" id="v1"> 
+<INPUT type="button" onclick="setValue()" value="Set"> 
+</div>
+<div id="log" class="console" style="white-space:pre"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+<div id="basic" class="g"></div>
+<div id="customcolors" class="g"></div>
+<div id="colors" class="g"></div>
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+                                                                                                  

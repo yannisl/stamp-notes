@@ -1,0 +1,51 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+<h2>Efficiency and the Assembly Line</h2>
+
+<img src="http://localhost/codeigniter/images/iron-ball.jpg" style="width:30%" style="display:block; float:left;margin-right:10px"/>
+
+I don't normally read the businessweek.com but I was just surfing when I noticed this two beautiful illustrations by [David Foldari](http://www.davidfoldvari.co.uk/) that caught my attention. They depict very clearly the symbolism of a lot of programming jobs to-day who are turning more and more into assembly lines. Another accounting application, a different looking report for accounts, no wonder a lot of people just feel enslaved in their jobs.
+
+<hr/>
+
+<h3>Have Your Information Handy</h3>
+I advocate that you code without using an IDE. It is pain at the beginning, but is the only way to learn syntax deeply. Have all the necessary tools near you. If you need to do any internet search do it before you are coding. If you are coding you need to just code.
+
+<h3>Know your Subject</h3>
+Learn as much as possible about your topic. The more you practice the more efficient you become.
+
+
+<h3>Breaks</h3>
+Work like in School. One period is twenty minutes. No smoke no coffee. Nothing. After twenty minutes you take a 10 minute break and you reward yourself with whatever you normally do. This technique has been developed into a method pomeloro, meaning tomatoe in Italian. I best view it as an evolutionary means of teachers having averaged the span of attention of students for work.
+
+
+
+
+##Further Reading
+
+
+
+ 
+
+
+
+  
+  
+
+
+
+
+
+
+
+      

@@ -1,0 +1,75 @@
+ <!--
+{{feature: Donald E Knuth  Random numbers should not be generated with a method chosen at random..}}
+{{feature-image:http://localhost/CodeIgniter/images/run_time_error.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: UI, jQuery, Visibility Filters, CSS Visibility }}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+<style>
+div#ex1 {cursor:pointer;   padding:5px;height:20px }
+  .ex2{ background:#bebebe; font-weight:bold; cursor:pointer; 
+      padding:5px; }
+ .over { background: #ccc; }
+a#cbutton,a#cbutton1,a#cbutton2,a#cbutton3,a#cbutton4,a#cbutton5{color:blue}
+.out{};
+p#rnumber,p#rnumber1,p#rnumber2,p#rnumber3,p#rnumber4,p#piout{font-size:42px;font-weight:bold}
+ </style>
+
+
+
+
+<h2>
+Extending The Math Object
+</h2>
+If you are using Maths into your programs you have probably hit some of its limitations. It is perhaps the only build in Reference Object, that I would consider adding methods to it. One such method is to calculate logs at another base than base <it>e</it>. The method below uses a recursive base to calculate a log to any base. It is a brilliant way to actually extend the object. (originally found it at http://leaverou.me/tag/math/).
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+Math.log = (function() {
+	var log = Math.log;
+	return function(n, a) {
+		return log(n)/(a? log(a) : 1);
+	}
+})();
+out(Math.log(10,10));
+</code>
+</div>
+
+<div  class="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+<img src="http://localhost/codeigniter/images/jquery.png" style="float:right; width:85px"/>
+</div>
+
+
+If you remember, I know, I know you dont't  a {{wi: logarithm}} can be changed to any base simply by using the equation below. As logarithms at different bases are similar.
+
+<img src="http://localhost/codeigniter/images/log.png" style="display:block;float:none;margin:0 auto" />
+
+<hr/>
+Since we are fortunate enough for JavaScript to have provided this functionality, we leverage this to extend the method. The beauty of it is that we have not affected in any way the basic method and any routines using it will continue to provide the right answers.
+
+I was unfortunate enough to have to learn logarithms in school as it was the only way to do any large sum multiplications easily.
+
+The most widely used bases for logarithms are 10, the mathematical constant e &#8776; 2.71828... and 2. When "log" is written without a base (b missing from logb), the intent can usually be determined from context. U
+ 
+
+
+<h2>Further Reading</h2>
+
+http://www.protonfish.com/random.shtml
+
+http://james.padolsey.com/projects/
+
+http://www.erikoest.dk/rng.htm
+
+http://www.shawnolson.net/a/789/make-javascript-mathrandom-useful.html
+
+http://beheco.oxfordjournals.org/cgi/reprint/12/6/655.pdf

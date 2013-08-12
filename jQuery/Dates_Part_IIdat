@@ -1,0 +1,239 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+{{feature-image: http://localhost/codeigniter/images/beauty.jpeg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<h2>Dates Part II </h2>
+If your program requires the handling of dates in a complex way, you will be better off to use either routines, borrowed from a public library or to develop a set of routines of your own. I will be discussing issues with dates, mostly using routines extracted from Google's closure library. 
+
+Library routines can be summarized in a few objects:
+
+- date handling
+- date range handling
+- UI datepickers etc.
+
+For UI components we will be using jQuery's UI datepicker, a much easier to use component than any of the other libraries - in my opinion.
+
+First we will need to define some standard objects, such as the week days, month names and the like. Although we should be able to internationalize the language in a well written industrial application, all the programming can be done in English. For the final output we can use i18n strings to convert it to any language that your user is using.
+
+<div  class="code-block console-wrap">
+<div class="code code-block">
+<code>
+/**
+ * Constants for weekdays.
+ * @enum {number}
+ */
+var date={};
+
+date.weekDay = {
+  MON: 0,
+  TUE: 1,
+  WED: 2,
+  THU: 3,
+  FRI: 4,
+  SAT: 5,
+  SUN: 6
+};
+
+
+/**
+ * Constants for months.
+ * @enum {number}
+ */
+
+date.month = {
+  JAN: 0,
+  FEB: 1,
+  MAR: 2,
+  APR: 3,
+  MAY: 4,
+  JUN: 5,
+  JUL: 6,
+  AUG: 7,
+  SEP: 8,
+  OCT: 9,
+  NOV: 10,
+  DEC: 11
+};
+
+date.getNumberOfDaysInMonth = function(year, month) {
+  switch (month) {
+    case goog.date.month.FEB:
+      return goog.date.isLeapYear(year) ? 29 : 28;
+    case goog.date.month.JUN:
+    case goog.date.month.SEP:
+    case goog.date.month.NOV:
+    case goog.date.month.APR:
+      return 30;
+  }
+  return 31;
+};
+
+window.date=date;
+
+log(date.weekDay.MON);
+log(date.month.DEC)
+log(date.getNumberOfdaysInMonth(2000,2));
+
+</code>
+</div>
+<div  id="msg" class="msg" >
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+Please note the use of jSon objects, rather than arrays, in these definitions. Uisng objects will provide us with a lot of assistance from othe robject handling routines. We could develop everything based on arrays if we wanted.
+
+<h3>Checking for leap years</h3>
+Assuming we are not going to use our date routines for years earlier than the Gregorian calendar, checking for leap years is as simple as dividing the date by four and checking the moudulo. One exception are century years, which are not leap years. The logic for leap years, is that a year is a leap year if is divisible by four, except if it is divisible by hundred and is not divisible by 400. (2000 and 1600 are leap years, whereas 2100 is not).
+
+<div  class="code-block console-wrap">
+<div class="code code-block">
+<code>
+
+/**
+ * Returns whether the given year is a leap year.
+ *
+ * @param {number} year Year part of date.
+ * @return {boolean} Whether the given year is a leap year.
+ */
+
+date.isLeapYear = function (year) {
+  // Leap year logic; the 4-100-400 rule
+  return year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0);
+};
+
+log('year 2000', date.isLeapYear(2000));
+log('year 2009', date.isLeapYear(2009));
+log('year 2100', date.isLeapYear(2100));
+
+date.getNumberOfDaysInMonth = function (year, month) {
+  switch (month) {
+  case date.month.FEB:
+    return date.isLeapYear(year) ? 29 : 28;
+  case date.month.JUN:
+  case date.month.SEP:
+  case date.month.NOV:
+  case date.month.APR:
+    return 30;
+  }
+  return 31;
+};
+
+log(date.month.FEB);
+log(date.getNumberOfDaysInMonth(2000, 1));
+
+</code>
+</div>
+<div  id="msg" class="msg" >
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+In this section of the website, we will be using shorthand form for conditionals, they provide at a glance the conditions and minimize the code we need to transmit over http.
+
+{{plain:
+   return year % 4 == 0 && (year % 100 != 0 || year % 400 == 0);
+}}
+
+<h3>ISO 8601 Weekdays</h3>
+
+Really? There is an ISO definition for weekdays. The ISO standard defines concepts such as that the first day of the week in some countries can a Saturday.
+(For example in Greek Monday is called  _theftera_, which means second, however, in Greece like in the America's and Europe, the starting day of the week is considered to be Monday. Simplistically the standard says, the first day of the week is the first day people start work. In Dubai it will be a Saturday and in USA it will be a Monday.
+
+<div  class="code-block console-wrap">
+<div class="code code-block">
+<code>
+/**
+ * Static function for week number calculation. ISO 8601 implementation.
+ *
+ * @param {number} year Year part of date.
+ * @param {number} month Month part of date (0-11).
+ * @param {number} date Day part of date (1-31).
+ * @param {number} opt_weekDay Cut off weekday, defaults to Thursday.
+ * @param {number} opt_firstDayOfWeek First day of the week, defaults to Monday.
+ *     Monday=0, Sunday=6.
+ * @return {number} The week number (1-53).
+ */
+
+date.getWeekNumber = function (year, month, date, opt_weekDay, opt_firstDayOfWeek) {
+  var d = new Date(year, month, date);
+
+  // Default to Thursday for cut off as per ISO 8601.
+  var cutoff = opt_weekDay || date.weekDay.THU;
+
+  // Default to Monday for first day of the week as per ISO 8601.
+  var firstday = opt_firstDayOfWeek || date.weekDay.MON;
+
+  // 1 day in milliseconds.
+  var ONE_DAY = 24 * 60 * 60 * 1000;
+
+  // The d.getDay() has to be converted first to ISO weekday (Monday=0).
+  var isoday = (d.getDay() + 6) % 7;
+
+  // Position of given day in the picker grid w.r.t. first day of week
+  var daypos = (isoday - firstday + 7) % 7;
+
+  // Position of cut off day in the picker grid w.r.t. first day of week
+  var cutoffpos = (cutoff - firstday + 7) % 7;
+
+  // Unix timestamp of the midnight of the cutoff day in the week of 'd'.
+  // There might be +-1 hour shift in the result due to the daylight saving,
+  // but it doesn't affect the year.
+  var cutoffSameWeek = d.valueOf() + (cutoffpos - daypos) * ONE_DAY;
+
+  // Unix timestamp of January 1 in the year of 'cutoffSameWeek'.
+  var jan1 = new Date(new Date(cutoffSameWeek).getFullYear(), 0, 1).valueOf();
+
+  // Number of week. The round() eliminates the effect of daylight saving.
+  return Math.floor(Math.round((cutoffSameWeek - jan1) / ONE_DAY) / 7) + 1;
+};
+
+window.date = date;
+var d1 = date.getWeekNumber(2009, 11, 13);
+log(date.getWeekNumber(d1));
+
+</code>
+</div>
+<div  id="msg" class="msg" >
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+We will not discuss the whole library here, as it is quite long. What it misses, is routines for the addition of - holidays and would in this instance also require some calculations based on the lunar calendar, in order to determine for example Jewish holidays or the Eastern Christian Church Easter. This should form the basis of another special class, as it will be subject to internationalization. It should also provide some means of user extensibility at the interface.
+
+The next section we will discuss is date - ranges. This is important in financial and other calculations and although not very involved are prone to errors.
+
+Prototype only provides routines for conversion of a date string to jSon and obviously jQuery has no date routines as its primary aim is DOM intefacing.
+
+(See the Dollar Library);
+
+##Further Reading
+
+
+
+ 
+
+
+
+  
+  
+
+
+
+
+
+
+

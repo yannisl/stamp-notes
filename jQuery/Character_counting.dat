@@ -1,0 +1,71 @@
+<script> 
+ goog.require('goog.dom');
+ goog.require('goog.ui.CharCounter');
+ goog.require('goog.ui.CharCounter.Display');
+</script> 
+
+<h2>goog.ui.CharCounter</h2> 
+
+
+<step>Step 1: Develop your HTML</step>
+
+{{plain:
+&lt;input type="text" id="input1" &gt; 
+&lt;span id="counter_1"&gt;&lt;/span&gt; character(s) remaining
+}}
+
+
+
+{{plain:
+<p> 
+<input type="text" id="input1"> 
+<span id="counter1"></span> character(s) remaining
+</p> 
+<p> 
+<input type="text" id="input2"> 
+  You have entered <span id="counter_2"></span> character(s) of a maximum 160.
+</p> 
+<p> 
+<input type="text" id="input3"> 
+<span id="counter3"></span> character(s) remaining
+<button onclick="c3.setMaxLength(10);">setMaxLength(10)</button> 
+<button onclick="c3.setMaxLength(20);">setMaxLength(20)</button> 
+</p> 
+<p> 
+<textarea id="input5"></textarea> 
+<span id="counter5"></span> character(s) remaining
+</p> 
+}}
+ 
+
+
+<script> 
+ 
+var c1 = new goog.ui.CharCounter(document.getElementById('input1'),                                    document.getElementById('counter1'), 160);
+ 
+var c2 = new goog.ui.CharCounter(document.getElementById('input2'),                                    document.getElementById('counter_2'), 160,  goog.ui.CharCounter.Display.INCREMENTAL);
+ 
+var c3 = new goog.ui.CharCounter(document.getElementById('input3'),                                    document.getElementById('counter3'), 10);
+ 
+var c4 = new goog.ui.CharCounter(document.getElementById('input5'),                                     document.getElementById('counter5'), 255);
+</script>  
+
+
+<step>Step 3: Write your code</step>  
+
+
+{{plain:
+var c1 = new goog.ui.CharCounter(document.getElementById('input1'),
+                                     document.getElementById('counter1'), 160);
+ 
+var c2 = new goog.ui.CharCounter(document.getElementById('input2'),
+                                     document.getElementById('counter2'), 160);
+ 
+var c3 = new goog.ui.CharCounter(document.getElementById('input3'),
+                                     document.getElementById('counter3'), 10);
+ 
+var c4 = new goog.ui.CharCounter(document.getElementById('input4'),
+                                     document.getElementById('counter4'), 255);  
+}}
+  
+With my version I got an error for goog.ui.CharCounter.Display.INCREMENTAL that did not load properly.                                       

@@ -1,0 +1,319 @@
+      
+<!--
+ directives
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{feature-image:/codeigniter/images/china/beauty_07.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<script type="text/javascript"> 
+goog.require('goog.net.ImageLoader');
+goog.require('goog.structs.Map');
+</script>
+ 
+<style type="text/css">
+div#sandbox{padding-top:10px;padding-bottom:10px}
+</style> 
+<h3>Image Loader</h3>
+
+You can use the ImageLoader class to pre-load images on a page. Although a common task and one that has fallen out of favour is a good example to try and revise some concepts we were talking in other articles.
+  
+Let us first check that the Closure files have loaded and have a look at the HTML structure of
+the sanbox area.
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+var sandbox = goog.dom.$('sandbox');
+logPRE(sandbox['outerHTML'].entityify());
+
+filesLoaded();
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div  id ="sandbox" class="sandbox-console">
+<img id="img0" src="/codeigniter/images/fox-01.jpg" />
+<img id="img1" />
+<img id="img2"  />
+</div>
+
+<div class="timer" style="font-size:10px"></div>
+<div id="log" class="console" style="white-space:pre"></div>
+<button class="eval">Run Code!</button>
+<button class="img">img</button>
+<ol class="results"></ol> 
+</div>
+
+Everything should be working, if you press the run button. We have managed to set a div area called sandbox, holding three images. The two are not showing since they do not have any attribute showing.
+
+We fetched the outerHTML by using the dom method (available in most browsers now) as follows:
+
+{{plain:
+var sandbox = goog.dom.$('sandbox');
+logPRE(sandbox['outerHTML'].entityify());
+}}
+
+We go the element using goog.dom.$(sandbox). We could have used the native DOM method
+
+{{plain:document.getElement()}}
+
+ or even:
+
+{{plain: jQuery $('#sandbox')[0];}}
+
+jQuery, always returns an array, so we need to get only the first element.
+
+The innerHTML and outerHTML, are two very useful properties, now available in all browsers, including IE, which used it originally.
+
+<h3>Preloading Images</h3>
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+var sandbox = goog.dom.$('sandbox');
+var img = goog.dom.$('img3');
+var imageLoader = new goog.net.ImageLoader(img);
+imageLoader.addImage('01', '/codeigniter/images/fox-02.jpg');
+imageLoader.start();
+img.src = imageLoader.images_['01'].src;
+
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div  id ="sandbox" class="sandbox-console">
+<img id="img3" src="/codeigniter/images/fox-09.jpg" />
+<img id="img4" />
+<img id="img4"  />
+</div>
+
+<div class="timer" style="font-size:10px"></div>
+<div id="log" class="console" style="white-space:pre"></div>
+<button class="eval">Run Code!</button>
+<button class="img">img</button>
+<ol class="results"></ol> 
+</div>
+
+The illustration above of the methods is very simple, where its power comes is that we can hook events.
+
+<h3>Event Listeners</h3>
+
+Even Listeners are methods that monitor event sin a browser, like onclick etc. For loading of images Closure monitors net events, such as LOAD, ABORT and ERROR, it also takes care of browser idiosyncrasies such as IE reporting COMPLETE rather than LOAD. The monitoring i sdone through goog.events.
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+var sandbox = goog.dom.$('sandbox');
+var img = goog.dom.$('img5');
+var imageLoader = new goog.net.ImageLoader(img);
+imageLoader.addImage('01', '/codeigniter/images/china/beauty_07.jpg');
+goog.events.listen(imageLoader, goog.events.EventType.LOAD, callback);
+goog.events.listen(imageLoader, goog.net.EventType.COMPLETE, callback);
+goog.events.listen(imageLoader, goog.net.EventType.ERROR, callback);
+function callback(e) {
+  log('event type : ', e.type);
+ 
+  setTimeout(function () {
+     var d = goog.dom.setProperties(img, {
+    'style': 'width:130px'
+  })
+    img.src = imageLoader.images_['01'].src;
+  },
+  1800)();
+}
+
+// start loading
+imageLoader.start();
+
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div  id ="sandbox" class="sandbox-console">
+<img id="img5" src="/codeigniter/images/fox-09.jpg" />
+<img id="img6" />
+<img id="img7"  />
+</div>
+
+<div class="timer" style="font-size:10px"></div>
+<div id="log" class="console" style="white-space:pre"></div>
+<button class="eval">Run Code!</button>
+<button class="img">img</button>
+<ol class="results"></ol> 
+</div>
+
+We could have added a console to monitor the time to load, but we can do this for a bit later on. I have aimed this article as a revision to DOM methods and events in addition to introducing the __ImagLoader__ class.
+
+In the above we used the __callback__ to monitor the event and set the 'width', attribute before showing the image. This way we ensure that the image is shown at the width (height will be proportioned by the browser) you want. We could also use the event to also change a link attribute, where for example the image can be shown larger, add titles and ALT attributes.
+
+{{bulb: You can use the ImageLoader for any element which has an src attribute for example javascript and or css. Loading JavaScript this way, will let you load files from a different domain, whereas using normal AJAX will not allow you.}}
+
+
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+var sandbox = goog.dom.$('sandbox');
+var img = goog.dom.$('img8');
+var imageLoader = new goog.net.ImageLoader(img);
+var j = 1;
+imagesSrcArray = [];
+for (var i = 1; i < 10; i++) {
+  var src = '/codeigniter/images/china/beauty_0' + i + '.jpg';
+  var id = '0' + i.toString();
+  imageLoader.addImage('0' + i + '', src);
+}
+goog.events.listen(imageLoader, goog.events.EventType.LOAD, callback);
+goog.events.listen(imageLoader, goog.net.EventType.COMPLETE, callback);
+goog.events.listen(imageLoader, goog.net.EventType.ERROR, callback);
+function callback(e) {
+  log('event type : ', e.type);
+  var d = goog.dom.setProperties(img, {
+    'style': 'width:130px',
+    'title': 'pre-loaded image',
+    'ALT': 'An example image pre-loaded',
+    'src': imageLoader.images_[id].src
+  })
+  var id = '0' + j
+
+//  img.src = imageLoader.images_[id].src;
+  imagesSrcArray.push(imageLoader.images_[id].src);
+
+  
+  
+}
+
+// start loading
+imageLoader.start();
+
+
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div  id ="sandbox" class="sandbox-console">
+<img id="img8" src="/codeigniter/images/fox-09.jpg" />
+<img id="img6" />
+<img id="img7"  />
+</div>
+
+<div class="timer" style="font-size:10px"></div>
+<div id="log" class="console" style="white-space:pre"></div>
+<button class="eval">Run Code!</button>
+<button class="img">img</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+ 
+<h3>Discussion</h3>
+
+I can see the power of some of the routines that Closure offers, however, you need to get to know the library well before you become productive. This article, took me a while to debug. i was getting all sorts of silly errors. Of course the problem is I am just finding my way through the library as well and I keep forgetting some useful methods. The scripts also tend to become longer and need more time to set-up.
+
+{{bulb: Where is the FM so we can RFM?}}
+  
+
+<span id="chapter" class="hidden">28</span>
+##Further Reading
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+var TEST_IMAGES = new goog.structs.Map();
+
+//  TEST_IMAGES.set(FileName, Expected Size (width, height), Expected event)
+var EVENT_TYPE_LOAD = goog.events.EventType.LOAD;
+TEST_IMAGES.set('/codeigniter/images/fox-05.jpg', [20, 20, EVENT_TYPE_LOAD]);
+TEST_IMAGES.set('/codeigniter/images/china/beauty_02.jpg', [20, 20, EVENT_TYPE_LOAD]);
+TEST_IMAGES.set('/codeigniter/images/china/beauty_03.jpg', [32, 32, EVENT_TYPE_LOAD]);
+
+var EVENT_TYPE_ERROR = goog.net.EventType.ERROR;
+TEST_IMAGES.set('this-is-not-image-1.gif', [0, 0, EVENT_TYPE_ERROR]);
+TEST_IMAGES.set('this-is-not-image-2.gif', [0, 0, EVENT_TYPE_ERROR]);
+
+var TIMEOUT = 5000;
+// in milleseconds
+setUp = function () {
+  this.log('Setting tests up');
+  var imageLoader = new goog.net.ImageLoader();
+  var keys = TEST_IMAGES.getKeys();
+  for (var i = 0; i < keys.length; i++) {
+    this.log('Adding image: ' + keys[i]);
+    imageLoader.addImage('img_' + i, keys[i]);
+  }
+  goog.events.listen(imageLoader, goog.events.EventType.LOAD, handleEvent);
+  goog.events.listen(imageLoader, goog.net.EventType.COMPLETE, handleEvent);
+  goog.events.listen(imageLoader, goog.net.EventType.ERROR, handleEvent);
+  imageLoader.start();
+};
+
+/** Handles any events fired on the imageLoader */
+handleEvent = function (e) {
+  log('handleEvent, type: ' + e.type);
+
+  switch (e.type) {
+  case goog.events.EventType.LOAD:
+    var image = e.target;
+    log(image.src.substring(image.src.lastIndexOf('/') + 1), [image.naturalWidth, image.naturalHeight, e.type]);
+    break;
+
+  case goog.net.EventType.ERROR:
+    image = e.target;
+    log(image.src.substring(image.src.lastIndexOf('/') + 1), [image.naturalWidth, image.naturalHeight, e.type]);
+    break;
+  case goog.net.EventType.COMPLETE:
+    setUpPageStatus = 'complete';
+    this.isReady = true;
+    showImages();
+    break;
+  }
+};
+
+function showImages() {
+  log('IMAGES LOADED');
+  img=goog.dom.$('img9');
+  img.src='/codeigniter/images/fox-05';
+
+}
+
+/** Waits until the tests are ready to begin, before running them. */
+startUp = function () {
+
+  if (this.isReady) {
+    showImages();
+  } else { if (this.elapsedTime_ > TIMEOUT) {
+      this.log('timed out');
+      this.isReady = true;
+      return;
+    }
+    log('Not ready, waiting');
+    this.elapsedTime_ += 500;
+    // Try again in 100ms
+    setTimeout('startUp()', 100);
+  }
+};
+
+setUp();
+startUp();
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div  id ="sandbox" class="sandbox-console">
+<img id="img9" src="/codeigniter/images/fox-09.jpg" />
+<img id="img6" />
+<img id="img7"  />
+</div>
+
+<div class="timer" style="font-size:10px"></div>
+<div id="log" class="console" style="white-space:pre"></div>
+<button class="eval">Run Code!</button>
+<button class="img">img</button>
+<ol class="results"></ol> 
+</div>
+                                                                                                                                                                              

@@ -1,0 +1,97 @@
+ <!--
+{{feature: "It is easier to write a new code than to understand an old one," von Neumann warned. }}
+{{feature-image: http://localhost/CodeIgniter/images/edsger_dijkstra8.jpg }}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<link rel="stylesheet" media="screen" type="text/css" href="http://localhost/CodeIgniter/css/colorpicker.css" />
+<script type="text/javascript" src="http://localhost/CodeIgniter/js/colorpicker.js"></script>
+
+
+<h2>Color Pickers</h2>
+
+A number of plugins exist for colorpickers from the full featured to the simplistic. If what you are looking is just a simple plugin with a few features, you can probably build it better. This is my choice. I have installed all of them here and have eliminitated quite a few. Unfortunately the UI library does not offer one yet that integrates with the UI. Hopefully, one will be made available soon.
+In the mean-time if you leaning more on the development side rather than the user type you can visit the development site at [pbworks](http://jqueryui.pbworks.com/ColorPicker).
+
+The first one that I did install was from Stefan Petre at [eyecon](http://www.eyecon.ro/colorpicker/). It is a very slim and good looking colorpicker. From a usability point of view I did not give it full marks, I think it needs a bit more write-up for the examples. Installation was easy, once a user figures out the directory structure. 
+
+{{example:
+<h4>ColorPicker</h4>
+Click to select color
+<p><input type="text" maxlength="6" size="6" id="colorpickerField1" value="00ff00" /></p>
+<p><input type="text" maxlength="6" size="6" id="colorpickerField3" value="0000ff" /></p>
+<p><input type="text" maxlength="6" size="6" id="colorpickerField2" value="ff0000" /></p>
+
+<div style="width:55%;float:right"><img src="http://localhost/CodeIgniter/images/color_picker.jpg" />
+<p class="credit">ColorPicker from Stefan Petre at eyecon.ro</p>
+</div>
+}}
+
+
+<script type="text/javascript">
+
+$('#colorpickerField1, #colorpickerField2, #colorpickerField3').ColorPicker({
+       	onSubmit: function(hsb, hex, rgb, el) {
+             
+		$(el).val(hex);
+            	$(el).ColorPickerHide();
+             
+	},
+	onBeforeShow: function () {
+		$(this).ColorPickerSetColor(this.value);
+	},
+
+       onHide: function (colpkr) {
+		$(colpkr).fadeOut(500);
+                
+		return false;
+	},
+      onChange: function (hsb, hex, rgb) {
+		                              $('#colorpickerField1').css('backgroundColor','#'+hex).val('#'+hex);
+    }
+})
+
+
+</script>
+
+I had to make some changes in the CSS in order to get the images to pick-up properly, otherwise it was fairly easy. 
+
+{{plain:
+
+$('#colorpickerField1, #colorpickerField2, #colorpickerField3').ColorPicker(&#123;
+       	onSubmit: function(hsb, hex, rgb, el)&#123;
+             
+		$(el).val(hex);
+            	$(el).ColorPickerHide();
+             
+	&#123;,
+	onBeforeShow: function () &#123;
+		$(this).ColorPickerSetColor(this.value);
+	&#125;,
+
+       onHide: function (colpkr) &#123;
+		$(colpkr).fadeOut(500);
+                
+		return false;
+	&#125;,
+      onChange: function (hsb, hex, rgb) &#123;
+                           $('#colorpickerField1').css('backgroundColor','#'+hex).val('#'+hex);
+    &#125;
+&#125;)
+
+}}
+
+
+
+
+
+
+
+
+
+

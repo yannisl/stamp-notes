@@ -1,0 +1,110 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<style type="text/css">
+div.exercise{ white-space:pre;line-height:1.3;
+                         color:grey;
+                         float:left;padding-top:0}
+div.collapser{
+     margin:0;padding:0;
+     width:20px;
+     height:50px;
+     float:left;line-height:1;
+   
+}
+span#plus{cursor:pointer;line-height:1;width:18px
+                      height:60px;border:1px solid #bebebe;
+                      background:#fff}
+.lines{ background:url(http://localhost/codeigniter/images/vline.png) repeat-y 3px;
+width:12px}
+</style>
+
+<h2>UUID</h2>
+GUIDs when repesented as as strings are at least 36 and no more than 38 characters in length and match the pattern 
+
+<tt>^\{?[a-zA-Z0-9]{36}?\}$</tt>
+
+ and hence are always ascii. There is a very good discussion at [stackoverflow](http://stackoverflow.com/questions/105034/how-to-create-a-guid-uuid-in-javascript), regarding this with a number of good answers.
+
+<div  class="code-block console-wrap">
+<div class="code-block code" >
+<code class="PHP">
+// Adapted with minor changes from Kevin Hakanson answer at the stackoverflow 
+// link quoted above
+var UUID = function uid() {
+  var chars = '0123456789abcdef'.split('');
+  var uuid = [],
+  rnd = Math.random,
+  r;
+  uuid[8] = uuid[13] = uuid[18] = uuid[23] = '-';
+  uuid[14] = '4'; // version 4
+  for (var i = 0; i < 36; i++) {
+    if (!uuid[i]) {
+      r = 0 | rnd() * 16;
+
+      uuid[i] = chars[(i == 19) ? (r & 0x3) | 0x8 : r & 0xf];
+    }
+  }
+  return uuid.join('');
+};
+log(UUID());
+
+// an amazing short code by broofa
+var t = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+  var r = Math.random() * 16 | 0,
+  v = c == 'x' ? r : (r & 0x3 | 0x8);
+  return v.toString(16);
+});
+
+log(t);
+
+$('#UUID').text(t);
+</code>
+</div>
+<div   class="msg">
+
+</div>
+<div id="hack" >
+
+</div>
+<div class="console">
+</div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+<div id="UUID" style="font-size:small;text-align:right"></div>
+</div>
+
+The nice compact function for creating rfc4122-compliant random UUIDs shown above was posted by broofa who has more on his [blog](http://www.broofa.com/2008/09/javascript-uuid-function/).
+
+Math.uuid.js is small (~400bytes), and has no dependencies on other libs, so can drop into just about any JS project. It can be used to produce either RFC4122-compliant v4 (random) uuids, or more compact, non-standard IDs of arbitrary length and base. 
+
+My own interest in this stemmed from this development. Each codeblock, has a UUID generated during editing of the post. This could be saved in the data-UUID attribute. During filtering the code gets removed and stored in the database. If edited it can then be re-saved without affecting the post. This can really save a lot of typing and errors and can enable forking out! Needs more thinking.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                  

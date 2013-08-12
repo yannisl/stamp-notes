@@ -1,0 +1,204 @@
+ <!--
+
+{{feature-image:http://localhost/egypt/hakan/web105.jpg}}
+{{image-credit: Hagan}}
+{{feature: .. Objects in the real world have only one thing in common
+-- they are all different -- Antero Taivalsaari}}
+
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<h2>Class like code</h2>
+
+One common requirement from a language is the ability to specify classes from which instances and sub-classes are created. JavaScript does NOT have classes. Inheritance is based on prototypes. Most libraries though have devised methods that Classe can be emulated. Some good ways of handling this can be found in the Prototype library and base2 library. Crockford and YUI also offer different methods. It is actually not very hard to create your own methodology.
+
+The differences between _prototype_ and _class_ based object orientated languages lie deep into philosophy and the way the world and objects are perceived. Plato
+viewed forms -- stable, abstract, "ideal" descriptions of things -- as having an
+existence more real than instances of those things in the real world. Plato made a clear distinction between forms  i.e., stable,
+immutable, "ideal" descriptions of things  and particular _instances_ of these forms.
+
+Plato regarded the world of ideas as much more important than the world of
+instances, and contended that _forms_ always have an existence that is more real than the concrete entities and beings in the real world
+
+Research into classification (to be precise: biological classification) was continued by
+Plato's student Aristotle (384-322 BC). Whereas Plato was interested mainly
+in ideas and "eternal" concepts, Aristotle was the first philosopher interested
+especially in natural phenomena.  Aristotle aimed at
+providing a comprehensive, detailed taxonomy of all natural things, plants, animals,
+minerals, and so on. 
+
+Arisotle's classifications were based on the same idea that
+underlies object-oriented programming today. A group of objects belongs to the same
+category if the objects have the same properties. Thus, categories of objects are
+defined by common properties that a group of objects (the extension of the category)
+share. New categories can be defined in terms of other categories if the new
+categories have at least the same properties as the defining ("genus") categories. The general rule for classification can be presented as follows:
+
+essence = genus + differentia
+
+In other words, categories are defined in terms of their defining properties and
+distinguishing properties. This corresponds precisely to the idea behind traditional
+class-based object-oriented programming in which a class is defined in terms of its
+superclass (genus) and a set of additional variables and methods (differentia).
+
+This view of the world was criticized by Wittgenstein who maintained that for
+most of the concepts, meaning is determined not by definition, but by _family
+resemblances_. Such terms can be defined only in terms of similarity and
+representative _prototypes_. Take for example the concept of game. A game can be anything from a lottery, requiring no skill to one of chess that only requires two players.
+
+Wittgenstein's results have sparked research into so called prototype theory. J.L.
+Austin [Aus61], L. Zadeh [Zad65] and F. Lounsbury, among many others, have
+studied the area. But it was Eleanor Rosch who introduced the prototype theory in the
+mid-1970s [RoM75, RMG76]. Rosch observed that studies by herself and others
+demonstrated that categories, in general, have ) _best examples_ (called "prototypes") and
+that all of the specifically human senses play a role in categorization. Thanks to the
+pioneering work of Rosch, _categorization_ has become a major field of study within
+cognitive psychology.
+
+After this long diversion we are now ready to go back to discussing JavaScript's prototypical objects.
+
+A common criticism made against prototype-based languages is that the community of software developers is unfamiliar with them, despite the popularity and market permeation of JavaScript. This knowledge level of prototype-based systems seems to be changing with the proliferation of JavaScript frameworks and increases in the complex use of JavaScript as "Web 2.0" matures.
+
+You are better off, not to think of Classes and only think of prototypical chains.
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+function Nationality (x){
+  this.surnameFirst = (x === 'chinese')? true : false;
+}
+
+function Person(obj){ 
+  this.name = "Yannis"; 
+  this.surname = "Lazarides";
+  this.nationality = new Nationality(obj.nationality);
+  this.render = function (){
+    if (this.nationality.surnameFirst){
+      return log(this.surname + ' ' + this.name) ;
+    } else {
+      return log(this.name + ' ' + this.surname) ;
+    } 
+  };
+}
+
+var o = {nationality: 'greek'}
+var person = new Person(o); 
+    person.age = 52;
+var another = new Person(o);
+
+log(another.age);
+log(person.age);
+
+// amend the prototype
+Person.prototype.age = 52;
+
+log(another.age);
+log(person.age);
+log(person.nationality.surnameFirst);
+person.render();
+</code>
+</div>
+<p  class="msg" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+<button class="eval">Run Code!</button>
+<ol class="results">
+</ol> 
+</div>
+
+<hr/>
+A good pattern to use in order to avoid the possibility of such error is to use 
+<em>arguments.callee</em>. The function will first check if there is an instance of the object and if not then create one. 
+
+<div  class="code-block console-wrap">
+<div class="code code-block">
+<code>
+// A solution using arguments.callee.
+function Person(first, last){ 
+<span class="highlight">if ( !(this instanceof arguments.callee) ) </span>
+    return new Person(first, last); 
+   
+  this.name = first + " " + last; 
+} 
+
+// note there is no new operator used!
+// we create a new user object
+var user = Person("John", "Lazarides");
+      
+log('typeof  user', typeof  user ); 
+log( user.name, "Returns the right name." );
+</code>
+</div>
+<p class="msg"  style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+<button class="eval">Run Code!</button>
+<ol class="results" style="margin-top:8px"></ol> 
+</div>
+
+<strong>callee</strong> is a property of the arguments local variable available within all function objects; callee as a property of Function.arguments is no longer used. (Function.arguments itself is also deprecated.)
+
+arguments.callee allows anonymous functions to refer to themselves, which is necessary for recursive anonymous functions.
+
+The this keyword does not refer to the currently executing function. Use the callee property to refer to a function within the function body.
+
+<h3>Class?</h3>
+<div  class="code-block console-wrap">
+<div class="code code-block">
+<code>
+// A solution using arguments.callee.
+function Class(first, last){ 
+if ( !(this instanceof arguments.callee) ) 
+    return new Class(first, last); 
+   
+   // this is private function
+   this.test ='test';
+
+  return {
+     name :  first + " " + last ,
+        age  :  52,
+        test : 'test'
+  } 
+} 
+
+// note there is no new operator used!
+// we create a new user object
+var user = Class("John", "Lazarides"); 
+       
+       
+       
+log('typeof  user', typeof  user ); 
+log( user.name, "Returns the right name." );
+log(user.age, "returns age");
+
+for (var prop in user){
+   log('property: ',prop, user[prop]);
+}
+</code>
+</div>
+<p class="msg"  style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+<button class="eval">Run Code!</button>
+<ol class="results" style="margin-top:8px"></ol> 
+</div>
+
+
+##Further Reading
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+                        

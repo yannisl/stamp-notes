@@ -1,0 +1,151 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<style type="text/css">
+div.exercise{ white-space:pre;line-height:1.3;
+                         color:grey;
+                         float:left;padding-top:0}
+div.collapser{
+     margin:0;padding:0;
+     width:20px;
+     height:50px;
+     float:left;line-height:1;
+   
+}
+span#plus{cursor:pointer;line-height:1;width:18px
+                      height:60px;border:1px solid #bebebe;
+                      background:#fff}
+.lines{ background:url(http://localhost/codeigniter/images/vline.png) repeat-y 3px;
+width:12px}
+</style>
+
+<h2>BibTeX</h2>
+BibTeX was created by Oren Patashnik and Leslie Lamport in 1985. BibTeX makes it easy to cite sources in a consistent manner, by separating bibliographic information from the presentation of this information. This same principle of separation of content and presentation/style is used by LaTeX itself.
+
+But all these was developed before the days of __json__ , XML and yaml files, three equally well suited Domain Specific languages that could have been used and of course now we have HTML and there is a need to transform these entries into a web page. There are many tools to assist including some web based.  
+
+There is even a wordpress plugin that can do the job (see http://www.chaaban.info/wordpress-plugin/bibtex/) and there is even some code floating around that is for a javascript implementation. 
+
+A BibTeX entry normally looks something like this:
+ 
+<div  class="code-block console-wrap">
+<div class="code-block code" >
+<code class="PHP">
+
+@INPROCEEDINGS{zhong10:mining,
+    author = {Hao Zhong and Suresh Thummalapenta and Tao Xie and Lu Zhang and Qing Wang},
+    title = {Mining API Mapping for Language Migration},
+    booktitle = {Proc. 32nd International Conference on Software Engineering (ICSE 2010)},
+    month = {May},
+    year = {2010}, 
+    location = {Cape Town, South Africa},
+    url = {http://www.csc.ncsu.edu/faculty/xie/publications.htm}, 
+}
+
+@INPROCEEDINGS{zhang10:operator,
+    author = {Lu Zhang and Shan-Shan Hou and Jun-Jue Hu and Tao Xie and Hong Mei},
+    title = {Is Operator-Based Mutant Selection Superior to Random Mutant Selection?},
+    booktitle = {Proc. 32nd International Conference on Software Engineering (ICSE 2010)},
+    month = {May},
+    year = {2010}, 
+    location = {Cape Town, South Africa},
+    url = {http://www.csc.ncsu.edu/faculty/xie/publications.htm}, 
+}
+</code>
+</div>
+<div   class="msg">
+
+</div>
+<div id="hack" >
+
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+A semi-yaml implementation could look something like this:
+
+{{snippet:
+-
+inproceedings:
+      zhong10: mining,
+      author : Hao Zhong and Suresh Thummalapenta and Tao Xie and Lu Zhang and Qing Wang
+      title : Mining API Mapping for Language Migration
+      booktitle: Proc. 32nd International Conference on Software Engineering (ICSE 2010)
+      month : May
+      year : 2010 
+      location : Cape Town, South Africa
+      url : http://www.csc.ncsu.edu/faculty/xie/publications.htm 
+}}
+
+
+This is the easiest from a lot of angles. First of all is easy for humans to type it in. Second there are yaml parses for almost any language you can imagine. Once the text is parsed and we have the values in a structure (can be an array or object), then we can easily transform it into whatever other format we desire. It might also be possible to even change it into a database.
+
+We will proceed with this approach and define our requirements as follows:
+
+<h3>API</h3>
+
+We will provide routines to be able to do the following:
+
+{{snippet:
+/loadfromfile
+/savetofile
+/parse/yaml
+/toHTml
+/toXML
+/toJSON
+/toBibTeX
+/parseandtag
+}}
+
+The intention is that you should be able to type in your references at the end of a file
+and the citations to be produced automatically.
+
+Should this be on the Client or the Server Side? I cannot see any benefit of carrying this out at the Client side and any arguments that it might slow the server down do not hold, as after we parse the text we will cache it and hence there should be no performance penalty.
+
+One last requirement that we will add onto our specification is that we should use templates. This can provide a hell more flexibility, especially for the transformations to HTML.
+
+BibTeX is normally use for the production of Bibliographies, however, once you have the structure right it can be extended easily to managing your books, papers or publications. We will try and provide hooks to allow the addition of custom fields without the need to maniplualte the core program.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span id="chapter" class="hidden">11</span>
+
+
+
+
+                                                                                                                                                                                                                                                                                  

@@ -1,0 +1,86 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+{{feature-image: http://localhost/codeigniter/images/china/beauty_12.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<h3>Array concat method</h3>
+
+Two or more arrays can be joined by using the <strong>concat()</strong> method.
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+var oneArray=['blue','red'];
+var twoArray=['yellow','orange'];
+var threeArray=['green','purple'];
+oneArray=oneArray.concat(twoArray,threeArray);
+log('',oneArray);
+</code>
+
+</div>
+
+<div  class="msg" class="msg" style="white-space:pre;font-family:monospace;line-height:1.3">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+Arrays joined through the concat( ) method are not altered. Instead, the concat( ) method returns the combined array
+as a new value, which you can preserve in a separate variable. The base array (the one used to invoke the concat( )
+method) comes first in the combined array.
+
+The concat( ) method is not limited to tacking one array onto another. Comma-delimited parameters to the method
+can be any data type. A value of any data type other than an array becomes another entry in the main array - in the
+same sequence as the parameters. You can even combine arrays and other data types in the group of parameters
+passed to the method.
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+var oneArray = ['blue', 'red'];
+var twoArray = ['yellow', 'orange'];
+var threeArray = ['green', 'purple'];
+var oArray = {
+  one: 'test',
+  two: 'test2'
+};
+var mixedArray = oneArray.concat(twoArray, threeArray, oArray);
+log('', mixedArray);
+log(mixedArray[6].one);
+</code>
+
+</div>
+
+<div  class="msg" class="msg" style="white-space:pre;font-family:monospace;line-height:1.3">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+##Further Reading
+
+
+
+ 
+
+
+
+  
+  
+
+
+
+
+
+
+
+      

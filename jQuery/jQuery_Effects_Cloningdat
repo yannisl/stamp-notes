@@ -1,0 +1,77 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<style type="text/css">
+		
+		#button { padding: .5em 1em; text-decoration: none; }
+		.ui-effects-transfer { border: 2px dotted gray; } 
+</style>
+	
+##Cloning
+
+The clone() method provides an easy way to copy and paste parts of the DOM. It is quite useful
+especially for forms where additional input fields can be provided (i.e for example in a grid).
+
+Clone matched DOM Elements and select the clones.
+This is useful for moving copies of the elements to another location in the DOM.
+
+{{example:
+<h4>Clone Example</h4>
+
+Press the clone button to clone the image. 
+
+<div class="demo clearfix" style="resize:both;border:1px solid #bebebe">
+<div class="toggler clearfix"  >
+	<div id="effect" class="ui-widget-content ui-corner-all clearfix">
+		<img class="image_1" src="http://localhost/CodeIgniter/images/curv.jpg" style="width:130px;float:left;display:block" />
+
+	</div>
+</div>
+}}
+<hr/>
+
+
+<a href="#" id="cbutton" class="ui-state-default ui-corner-all">Clone</a>
+</div>
+
+<script type="text/javascript">
+//var i=0;
+$("#cbutton, .image_1").live("click",(function(){
+     $(".image_1").clone().insertAfter(".image_1").fadeTo('slow','0.33').fadeTo('1000','1');
+      setTimeout('$(".image_1:first").remove();',1000);
+      
+//      i++;
+ });
+	
+
+</script>
+
+Like most things with jQuery, we first define a button. In this case a simple link, that we gave it a bit of style.
+
+{{plain:
+$(".image_1").click(function()&#123;
+$(this).clone()
+                            .insertAfter(".image_1")
+                            .fadeTo('slow','0.33')
+                            .fadeTo('1000','1');
+      setTimeout('$(".image_1:first").remove();',1000);
+   &#125;);
+
+}}
+
+
+##Further Reading
+
+[Good discussion at Yahoo Developer](http://developer.yahoo.com/ypatterns/parent.php?pattern=transition)
+
+
+
+
+

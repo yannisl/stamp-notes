@@ -1,0 +1,342 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<h2>Extending the Number Object</h2>
+{{bulb: Learn how to extend the Number Object using the prototype. Develop a library that mirrors the Math object and enables chainability of calculations. Provide additional methods for common programming situations, such as testing for integers, natural numbers and the like.}}
+
+The Number object can easily be extended and can provide a container for holding methods and properties related to numbers. Use caution when extending the any JavaScript build-in objects, especially if you make your code publicly available or if you are going to use other libraries. I will use the traditional method of using prototype to extend the Number object rather than one of the other object extension techniques we have discussed in other articles in order to make it more understandable to persons not to familiar with JavaScript advance techniques. Feel free to fork the routines as you may wish.
+
+
+<h3>Extending the Number Object</h3>
+One common problem in programming is to validate if a number is an integer or not. Amazingly even for such a simple task there are many methods utilized by programmers. Some will test using regular expressions, others will use modulo arithmetic. Since we are extending the Number object I will use modulo and this will be one of the first routines we will use.
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+Number.prototype.isInteger = function () { 
+  if (this.isNaN) {
+    return false;
+  }
+  if (this.valueOf() % 1 > 0) {
+    return false;
+  } else {
+    return true;
+  }
+};
+Number.prototype.isNatural = function () {
+  if (this.isInteger() && this.valueOf() >= 0) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+Number.prototype.isOdd= function() {
+	if(!this.isInteger()) return false;
+	        return(this.valueOf() % 2 ? true : false);
+    }
+Number.prototype.isEven= function() {
+	if(!this.isInteger()) return false;
+	
+        return(this % 2 ? false : true);
+    }
+assert((789).isInteger() === true, 'number is an integer');
+assert((789).isNatural() === true, 'number is natural');
+assert((789.567).isNatural() === false, 'number is real');
+assert((800).isEven()===true,'number is even');
+</code>
+</div>
+
+<div  class="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+<img src="http://localhost/codeigniter/images/jquery.png" style="float:right; width:85px"/>
+</div>
+
+ Some programmers create libraries, where they transfer most of the Math object members to the Number object. This has the advantage that it can lead to shorter code:
+
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+/* Number-extensions.js - extensions for the Javascript Number object
+ *
+ * The author of this program, Safalra (Stephen Morley), irrevocably releases
+ * all rights to this program, with the intention of it becoming part of the
+ * public domain. Because this program is released into the public domain, it
+ * comes with no warranty either expressed or implied, to the extent permitted
+ * by law.
+ */
+
+Number.prototype.abs =
+    function(){
+      return Math.abs(this);
+    };
+
+Number.prototype.acos =
+    function(){
+      return Math.acos(this);
+    };
+
+Number.prototype.acosec =
+    function(){
+      return Math.asin(1 / this);
+    };
+
+Number.prototype.acosech =
+    function(){
+      return this < 0
+             ? Math.log((1 - Math.sqrt(1 + this * this)) / this)
+             : Math.log((1 + Math.sqrt(1 + this * this)) / this);
+    };
+
+Number.prototype.acosh =
+    function(){
+      return Math.log(this + Math.sqrt(this * this - 1));
+    };
+
+Number.prototype.acot =
+    function(){
+      return Math.PI / 2 - Math.atan(this);
+    };
+
+Number.prototype.acoth =
+    function(){
+      return Math.log((this + 1) / (this - 1)) / 2;
+    };
+
+Number.prototype.asec =
+    function(){
+      return Math.PI / 2 - Math.asin(1 / this);
+    };
+
+Number.prototype.asech =
+    function(){
+      return Math.log((1 + Math.sqrt(1 - this * this)) / this);
+    };
+
+Number.prototype.asin =
+    function(){
+      return Math.asin(this);
+    };
+
+Number.prototype.asinh =
+    function(){
+      return Math.log(this + Math.sqrt(this * this + 1));
+    };
+
+Number.prototype.atan =
+    function(){
+      return Math.atan(this);
+    };
+
+Number.prototype.atanh =
+    function(){
+      return Math.log((1 + this) / (1 - this)) / 2;
+    };
+
+Number.prototype.ceil =
+    function(){
+      return Math.ceil(this);
+    };
+
+Number.prototype.cos =
+    function(){
+      return Math.cos(this);
+    };
+
+Number.prototype.cosec =
+    function(){
+      return 1 / Math.sin(this);
+    };
+
+Number.prototype.cosech =
+    function(){
+      return 2 / (Math.exp(this) - Math.exp(-this));
+    };
+
+Number.prototype.cosh =
+    function(){
+      return (Math.exp(this) + Math.exp(-this)) / 2;
+    };
+
+Number.prototype.cot =
+    function(){
+      return 1 / Math.tan(this);
+    };
+
+Number.prototype.coth =
+    function(){
+      return (Math.exp(this) + Math.exp(-this))
+           / (Math.exp(this) - Math.exp(-this));
+    };
+
+Number.prototype.degToRad =
+    function(){
+      return this * Math.PI / 180;
+    };
+
+Number.prototype.exp =
+    function(){
+      return Math.exp(this);
+    };
+
+Number.prototype.floor =
+    function(){
+      return Math.floor(this);
+    };
+
+Number.prototype.isInRange =
+    function(low, high){
+      return this >= low && this <= high;
+    };
+
+Number.prototype.limit =
+    function(low, high){
+      return this < low ? low : (this > high ? high : this);
+    };
+
+Number.prototype.limitAbove =
+    function(high){
+      return Math.min(high, this);
+    };
+
+Number.prototype.limitBelow =
+    function(low){
+      return Math.max(low, this);
+    };
+
+Number.prototype.ln =
+    function(){
+      return Math.log(this);
+    };
+
+Number.prototype.log =
+    function(base){
+      return Math.log(this) / Math.log(base);
+    };
+
+Number.prototype.log2 =
+    function(){
+      return Math.log(this) / Math.LN2;
+    };
+
+Number.prototype.log10 =
+    function(){
+      return Math.log(this) / Math.LN10;
+    };
+
+Number.prototype.mod =
+    function(modulus){
+      return this >= 0 ? this % modulus
+                       : (this % modulus + Math.abs(modulus)) % modulus;
+    };
+    
+Number.prototype.radToDeg =
+    function(){
+      return this * 180 / Math.PI;
+    };
+
+Number.prototype.round =
+    function(){
+      return Math.round(this);
+    };
+
+Number.prototype.sec =
+    function(){
+      return 1 / Math.cos(this);
+    };
+
+Number.prototype.sech =
+    function(){
+      return 2 / (Math.exp(this) + Math.exp(-this));
+    };
+
+Number.prototype.sign =
+    function(){
+      return this === 0 ? 0 : (this > 0 ? 1 : -1);
+    };
+
+Number.prototype.sin =
+    function(){
+      return Math.sin(this);
+    };
+
+Number.prototype.sinh =
+    function(){
+      return (Math.exp(this) - Math.exp(-this)) / 2;
+    };
+
+Number.prototype.sqrt =
+    function(){
+      return Math.sqrt(this);
+    };
+
+Number.prototype.pow =
+    function(exponent){
+      return Math.pow(this,exponent);
+    };
+
+Number.prototype.tan =
+    function(){
+      return Math.tan(this);
+    };
+
+Number.prototype.tanh =
+    function(){
+      return (Math.exp(this) - Math.exp(-this))
+           / (Math.exp(this) + Math.exp(-this));
+    };
+
+Number.prototype.wrap =
+    function(low, high){
+      return low + (this - low).mod(high - low);
+    };
+
+var z = (45.00000000).degToRad().sin().asin().radToDeg();
+log('z = ', z);
+assert((789).isInteger() === true, 'number is an integer');
+assert((789).isNatural() === true, 'number is natural');
+assert((789.567).isNatural() === false, 'number is real');
+assert((800).isEven()===true,'number is even');
+</code>
+</div>
+
+<div  class="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+
+</div>
+
+The example, shows some of the problems of floating point arithmetic, where we started our calculation with 45 &deg;, converted it to radians, calculate the sin() function and then reversed the operation. In the process like entropy in  Thermodynamics we lost some accuracy, sadly we now only get:
+
+{{plain:
+44.99999999999999
+}}
+
+{{warning: Provide tests for any extensions, so that bugs can be minimized.}}
+Although for all practical purposes this is good enough, if you are dealing with numerical analysis for example you should give it attention and perhaps normalize your data in order to avoid errors due to rounding off of numbers.
+
+{{nutshell:
+The Number object can easily be extended to provide additional functionality in dealing with numbers. Consider transferring some of the Math object library routines onto the Number prototype to allow chainability. can be quite useful if you are dealing with a lot of calculations especially trigonometry.
+
+}}
+  
+{{download: You can download this library at , or better save this web page and hav eit all ready on your desktop!}}  
+
+
+
+
+
+
+

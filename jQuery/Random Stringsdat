@@ -1,0 +1,102 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+
+
+<h2>Bitwise Operators</h2>
+
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+var z1=100.toString(2);
+
+log(U.boxString(z));
+
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<h3>Adding time to randomize further</h3>
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+function getRandomString() {
+  return Math.floor(Math.random() * 3147483648).toString(36) + (Math.floor(Math.random() * 9147483648) ^ (new Date).getTime()).toString(36);
+};
+
+var z = getRandomString();
+
+log(getRandomString());
+
+$that.siblings('.msg').html((U.boxString(z)));
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+Now our example before the last:
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+One interesting aspect of the above algorithm is the use of the bitwise operator XOR (^), in order to scrable the strings further.
+
+
+
+
+
+
+
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+ 
+
+
+
+  
+  
+
+
+
+
+
+
+

@@ -1,0 +1,101 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<script type="text/javascript" src = "http://localhost/codeigniter/js/sylvester.js" />
+<h2>Some useful libraries</h2>
+
+Sylvester is a library for doing Vector and Matrix Math. Can be quite useful for transformation of co-ordinates, if you are doing a lot of math.
+
+http://sylvester.jcoglan.com/#download
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+// Using the Sylvester Library
+//  function to log values
+function showVector(obj){
+    obj.each(function(x, i) {
+             alert(i + ': ' + x);
+            });
+}
+  var v = Vector.create([6,2,9]);
+         v.each(function(x, i) {
+             alert(i + ': ' + x);
+            });
+  
+  var v1 = Vector.create([8,9,10]);
+  var v3;
+         v3 = v1.add(v);
+  showVector(v3);
+
+// add a method to log
+Vector.prototype.show = function(){
+    this.each(function(x, i) {
+             log('vector : ', i, x);
+            });
+};
+v3.show();
+var liar = false;
+var i=0;
+function liars(liar){
+      i= i+1;
+      if (i>100) return;
+        if (liar === false) {
+          liar = true; 
+         // since he is telling the truth 
+         // his statement is wrong
+         log(i);
+         liars(liar);
+       }
+         if (liar === true) {
+          liar = false; 
+         // since he is telling the truth 
+         // his statement is wrong
+         log(i);
+         liars(liar);
+       }
+ 
+}
+alert(i);
+</code>
+</div>
+
+<div  class="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+<img src="http://localhost/codeigniter/images/jquery.png" style="float:right; width:85px"/>
+</div>
+
+If Cretans are Liars
+
+
+
+
+
+
+##Further Reading
+
+
+
+ 
+
+
+
+  
+  
+
+
+
+
+
+
+

@@ -1,0 +1,91 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<h2>Javascript Animation Basics</h2>
+Each of the elements comprising a web page is defined by an object (an arrays of data) stored in the page's Document Object Model (DOM). The elements rendered on the screen are all rectangles defined by values of 'width' and 'height' and their position is set by the 'left' and 'top' values which set the coordinates of the element's upper left corner. To manipulate these values a reference to the element's DOM object must be generated. The simplest way to do this is to make sure the element has an 'id' attribute and then use the getElementById() method.
+
+<div  class="code-block console-wrap">
+<span id="test" style="height: 100px; display:block;position:relative;float:right;margin-right:290px" class="green">
+<img id="imgID" src="http://localhost/codeigniter/images/redball.gif" style="width:60px" /></span>// FreeFall path object
+<div class="code">
+<code>
+
+function size(w, h)
+{
+  this.width = w;
+  this.height = h;
+ }
+function getElementSize(id)
+{
+ // var docObj = $(".msg")[0];
+var imgWidth=60;
+ var docObj = document.getElementById('test');
+   var w = docObj.offsetWidth;   // value in pixels
+  var h = docObj.offsetHeight;
+ for (i=0;i<570;i++){
+  docObj.style.top =  i+"px";
+       if (i&lt;300) { 
+          imgWidth=60-(0.05*i);
+           imgWidth = imgWidth+"px";}
+       // alert(imgWidth)
+  $('#imgID').css({"width": imgWidth});
+}
+  return new size(w, h);
+}
+var s = getElementSize("#test2");
+log("Calculated Width ", s.width, s.height);
+// define a reset button for testing
+ $('#reset').click(function(){
+      $('#test').css({'top':'12px'});
+       $('#imgID').css({"width": "60px"});
+});
+</code>
+</div>
+
+<div  class="msg" style="width:400px; border: 1px solid #bebebe;font-weight:bold;background:#fff">testing
+</div>
+<button class="eval">Run Code!</button>
+<button id="reset">Reset ball!</button>
+<ol class="results"></ol> 
+<img src="http://localhost/codeigniter/images/download_01.png" style="float:right"/>
+</div>
+
+<h3>Trading Smoothness for Speed</h3>
+
+http://dev.opera.com/articles/view/efficient-javascript/
+
+As a developer, it is tempting to make an animation run as smoothly as possible, by using short timeouts, and small changes. For example, animated motion could be done using a 10ms interval, that moves an element 1 pixel at a time. An animation running that fast may work nicely on some PCs or some browsers. However, a 10ms interval is about the smallest that a browser can achieve without using 100% of most desktop CPUs. Some browsers will not even be able to manage that - requesting 100 reflows per second is quite a lot for most browsers. Lower powered computers, or device browsers, will not be able to perform at that speed, and the animation will feel slow and unresponsive.
+
+It can be neccessary to swallow the developer pride, and trade some of the smoothness of the animation for speed instead. Changing the interval to 50ms, and the animation step to 5 pixels, will need much less processing power, and can make the animation run much faster on lower powered processors. 
+
+jQuery's timers use 13ms, which so far have been working o.k. on my computer.
+For animations fast is 200ms and slow 600 ms. If you omit it will use 400ms
+
+{{bulb:
+A 10ms interval is about the smallest that a browser can achieve without using 100% of most desktop CPUs. 
+}}
+
+##Further Reading
+
+
+
+ 
+
+
+
+  
+  
+
+
+
+
+
+
+

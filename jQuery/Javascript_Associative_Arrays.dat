@@ -1,0 +1,75 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<style type="text/css">
+button#cbutton{color:blue}
+div#ex1{};
+
+</style>
+
+
+<h2>Associative Arrays</h2>
+Let's get this straight. There are no associative arrays in Javascript! If you familiar with PHP, you must have been looking have to declare associative
+arrays in vain. 
+
+{{bulb: There are no associative arrays in JavaScript}}
+
+Consider the following code (which works) and appears
+to set values in an associative array. try it first.
+
+<pre style="background:url(http://localhost/codeigniter/images/code-bg.gif)">
+<div id="ex7">
+   var sColors = new Array();
+    sColors["Passion"] = "Red";
+    sColors["Peace"] = "Green";
+    sColors["Calm"] = "Blue";
+ 
+  for(description in sColors) {  // print out the bands with descriptions
+  alert(sColors[description] + " == " + description);
+}
+</div>
+<button>Run</button>
+</pre>
+
+Now try to get the length of the array!
+
+<pre style="background:url(http://localhost/codeigniter/images/code-bg.gif)">
+<div id="ex7">
+   var mColors = new Array();
+    mColors["Passion"] = "Red";
+    mColors["Peace"] = "Green";
+    mColors["Calm"] = "Blue";
+ 
+ 
+  alert(mColors.length);
+
+</div>
+<button>Run</button>
+</pre>
+
+So, what is happening here? essentially we have created an object and we have set the Object's properties.
+<hr />
+
+See our tutorial as to how to simulate an associative array better, 
+[here.](http://127.0.0.1/CodeIgniter/index.php/Blogs/tutorials/jQuery/Patterns_Cache_Object)
+
+
+
+
+
+##Further Reading
+
+http://ajaxian.com/archives/javascript-associative-arrays-considered-harmful
+
+http://andrewdupont.net/2006/05/18/javascript-associative-arrays-considered-harmful/
+
+
+

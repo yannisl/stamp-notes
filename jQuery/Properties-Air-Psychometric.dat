@@ -1,0 +1,133 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+{{feature-image: http://localhost/egypt/amato-01/aa_089.jpg }}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<style type="text/css">
+label{font-weight:bold;
+            width:25%}
+table#out{width:100px}
+table#out td input {border:none}
+table#inputs{width:160px}
+.sm{width:15px;border:none}
+</style>
+
+<script type="text/javascript"  src="http://localhost/codeIgniter/js/psychrometrics.js" />
+
+<h3>Air Properties Calculator</h3>
+The formulations used here to calculate moist air properties are based on perfect{{footnote: 1}} gas relations published in 1989 ASHRAE Fundamentals Handbook, which should be accurate. Nevertheless, It is strongly recommend that you to compare the results calculated by this worksheet with a psychrometric chart. There is no error checking so you should use reasonable input values.
+(see also <a href="http://127.0.0.1/CodeIgniter/index.php/Blogs/tutorials/jQuery/Psychrometrics_Part_1 " >Psychrometrics</a> )
+
+{{snippet:
+<form method=post name=inputform> 
+<em>Choose units</em>
+<INPUT CHECKED name=unit onclick=Screen_Units(); type=radio value=SI>SI <INPUT name=unit onclick=Screen_Units() type=radio value=Engl>IP
+
+<table id="inputs"> 
+<tr>
+   <td>Parameter Name</td>
+   <td></td>
+  <td>Value</td>
+  <td>Unit</td>
+</tr>
+<tr> 
+  <td>Dry Bulb Temp. </td>
+  <td></td>
+  <td><INPUT name=db onchange=initiate(); size=10 value=46></td> 
+  <td><INPUT name=db_Unit onfocus=this.blur(); size=5 value=C class="sm"></td>
+</tr>
+<tr>
+  <td>Wet Bulb Temp.</td>
+  <td><INPUT CHECKED name=input_var onclick=initiate(); type=radio value=0></td>
+  <td> <INPUT name=wb onchange=initiate(); size=10 value=30></td>
+  <td><INPUT name=wb_Unit onfocus=this.blur(); size=5 value=C class="sm"></td>
+</tr>
+<tr>
+  <td>Relat. Humidity:</td>
+  <td><INPUT name=input_var onclick=initiate(); type=radio value=1></td>
+  <td><INPUT name=Relat_hum onchange=initiate(); size=10 value=50></td>
+  <td><INPUT name=rh_Unit onfocus=this.blur(); size=5 value=% class="sm"></td>
+</tr> 
+<tr>
+  <td>Dew Point Temp</td>
+  <td><INPUT name=input_var onclick=initiate(); type=radio value=2> 
+  <td><INPUT name=dp_temp onchange=initiate(); size=10 value=10></td>
+  <td><INPUT name=dp_Unit onfocus=this.blur(); size=5 value=C class="sm"></td> 
+</tr>
+<tr> 
+  <td>Altitude :</td>
+  <td></td>
+  <td><INPUT name=Altitude onchange=initiate(); size=10 value=0.0></td>
+  <td><INPUT name=alt_Unit onfocus=this.blur(); size=5 value=m class="sm"></td>
+</tr>
+<tr> 
+<td></td><td></td><td><INPUT name=calculate onclick="initiate();return false;" type=button value="  Calculate  "></td>
+</tr>
+</table> 
+</form> 
+<em>Choose two of the properies by clicking the relevant radio button 
+       to calculate all other properties</em>
+}}
+
+
+{{snippet:    
+<form method=post name=outputform> 
+<em>Output</em>
+<table id="out">
+<tr>    
+<td>Atmospheric Press</td>
+<td><INPUT name=atm_press onfocus=this.blur(); size=10></td>
+<td><INPUT name=atm_Unit onfocus=this.blur(); size=5 value=bar></td>
+</tr>
+
+<tr>
+<td>Sat. Vapor Press.</td>
+<td><INPUT name=sat_vp onfocus=this.blur(); size=10></td>
+<td><INPUT name=svp_Unit onfocus=this.blur(); size=5    value=mbar></td>
+</tr>
+ 
+<tr>       
+<td>Partial Vapor Press</td>
+<td><INPUT name=vap_press onfocus=this.blur(); size=10></td>
+<td><INPUT name=vp_Unit onfocus=this.blur(); size=5 value=mbar></td>
+</tr>
+
+<tr>
+<td>Humidity Ratio</td>
+<td><INPUT name=hum_ratio onfocus=this.blur(); size=10></td> 
+<td><INPUT name=hr_Unit onfocus=this.blur(); size=5  value=kg/kg></td> 
+</tr>
+
+<tr>
+<td>Enthalpy</td>
+<td><INPUT name=enthalpy onfocus=this.blur(); size=10></td>
+<td><INPUT name=ent_Unit onfocus=this.blur(); size=5 value=kJ/kg></td>
+</tr> 
+
+<tr>
+<td>Specific Volume</td>
+<td><INPUT name=spec_vol onfocus=this.blur(); size=10></td>
+<td><INPUT name=sp_Unit onfocus=this.blur(); size=5 value=m3/kg></td>
+</tr> 
+<tr>
+<INPUT name=ack onclick="copyright(); return false;" type=button value="copyright"> 
+</tr>
+</table>
+</form>
+}} 
+
+A good write up on <a href="http://www.amattos.eng.br/Public/Psychrometer/Psychrometer.htm ">psychrometry</a>. 
+
+You may find small differences between values calculated here and manual examples in books. These can be attributed to small differences in decimal places used in calculations. This calculator uses 12 decimal places and three decimal places for display.
+
+####Notes
+<hr style="width:30%;height:1px;background:black"/>
+[1] Actually, the name "perfect gas" is not adequate. It is not the gas that becomes
+"imperfect" under conditions away from the stardard ones. It is the model that is imperfect
+to describe the behavior of the gas under a wide range of conditions
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        

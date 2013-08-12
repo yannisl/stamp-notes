@@ -1,0 +1,287 @@
+      
+<!--
+ directives
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{feature-image:/codeigniter/images/china/beauty_07.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<script type="text/javascript"> 
+ goog.require('goog.array');
+    goog.require('goog.debug.DivConsole');
+    goog.require('goog.debug.LogManager');
+    goog.require('goog.debug.Logger');
+    goog.require('goog.events');
+    goog.require('goog.object');
+    goog.require('goog.ui.Control');
+    goog.require('goog.ui.ControlRenderer');
+    goog.require('goog.ui.decorate');
+    goog.require('goog.ui.registry');
+</script>
+<style type="text/css"> 
+    /* Demo styles for goog.ui.Control. */
+    .goog-control {
+      position: relative;
+      width: 20ex;
+      margin: 2px;
+      border: 2px solid #036;
+      padding: 2px;
+      font: normal 9pt "Trebuchet MS", Tahoma, Arial, sans-serif;
+      color: #036;
+      background-color:#69c;
+      cursor: pointer;
+      outline: none;
+      -moz-outline: none;
+    }
+ 
+    .goog-control-disabled {
+      border-color: #888;
+      color: #888;
+      background-color: #ccc;
+    }
+ 
+    .goog-control-hover {
+      border-color: #369;
+      color: #369;
+      background-color: #9cf;
+    }
+ 
+    .goog-control-active,
+    .goog-control-selected,
+    .goog-control-checked {
+      border-color: #9cf;
+      color: #9cf;
+      background-color: #369;
+    }
+ 
+    .goog-control-focused {
+      border-color: orange;
+    }
+ 
+    /* Custom control styles. */
+    .goog-custom-control {
+      position: relative;
+      width: 25ex;
+      margin: 4px 0;
+      border: 2px solid #eee;
+      padding: 0;
+      cursor: pointer;
+      vertical-align: middle;
+      outline: none;
+      -moz-outline: none;
+    }
+ 
+    .goog-custom-control-outer-box {
+      position: relative;
+      margin: 0;
+      border: 2px solid #ddd;
+      padding: 0;
+      vertical-align: middle;
+    }
+ 
+    .goog-custom-control-inner-box {
+      position: relative;
+      margin: 0;
+      border: 2px solid #ccc;
+      padding: 0;
+      vertical-align: middle;
+    }
+ 
+    .goog-custom-control-content {
+      position: relative;
+      margin: 0;
+      border: 2px solid #bbb;
+      padding: 4px;
+      font-family: Georgia, Times, serif;
+      color: #ddd;
+      background-color: #aaa;
+    }
+ 
+    .goog-custom-control-hover {
+      border-color: #eef;
+    }
+ 
+    .goog-custom-control-hover .goog-custom-control-outer-box {
+      border-color: #ddf;
+    }
+ 
+    .goog-custom-control-hover .goog-custom-control-inner-box {
+      border-color: #ccf;
+    }
+ 
+    .goog-custom-control-hover .goog-custom-control-content {
+      border-color: #bbf;
+      background-color: #aaf;
+    }
+ 
+    .goog-custom-control-active .goog-custom-control-content {
+      color: #fff;
+    }
+ 
+    .goog-custom-control-focused {
+      border-style: dashed;
+      border-color: orange;
+    }
+ 
+    /* "Insert" button styles. */
+    .goog-edit-insert-icon {
+      height: 16px;
+      width: 16px;
+      margin: 0;
+      border: 0;
+      padding: 0;
+      background: url(images/toolbar_icons.gif) no-repeat -80px;
+      vertical-align: middle;
+    }
+ 
+    .goog-edit-insert-caption {
+      margin: 0;
+      border: 0;
+      padding: 0 2px;
+      vertical-align: middle;
+      font-weight: bold;
+    }
+ 
+    /* Extra CSS styles. */
+    .extra-red {
+      border: 1px solid red;
+      background-color: #fcc;
+    }
+ 
+    .extra-blue {
+      border: 1px solid blue;
+      background-color: #ccf;
+    }
+ 
+    .extra-thick-border {
+      border-width: 4px;
+    }
+
+</STYLE>
+ 
+<h2>Debugging and Logging Javascript Programs</h2>
+
+Debugging JavaScript is a challenge due to the lack of a standard output. Many developers start out - like in other languages - by using alert() to pop up debugging messages. Newer browsers offer the following API for logging information to a separate window or pane:
+
+<pre class="code">
+<code>
+console.log('This is some debugging information');
+</code>
+</pre>
+
+<h3>goog.debug.Logger</h3>
+The _goog.debug.Logger is used to record debug messages. 
+
+<step>Step 1: Creating a Logger</step>
+
+The logger is created by using its static create method:
+
+<pre class="code">
+<code>
+goog.debug.Logger.getLogger(). It only takes one argument which is the name
+of the logger, which should be the dot-delimited namespace which will be monitored.
+</code>
+</pre>
+
+<step>Step 2: Logging a message</step>
+The basic way to log a message is to invoke a logger's _log()_ method. This takes a level, a message and optionally an exception.
+
+
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+var timer = goog.now();
+// Set up a logger.
+goog.debug.LogManager.getRoot().setLevel(goog.debug.Logger.Level.ALL);
+
+//create the logger
+var logger = goog.debug.Logger.getLogger('goog.ui.Control');
+
+// setup the console (logging UI)
+var logconsole = new goog.debug.DivConsole(goog.dom.$('demo1'));
+     logconsole.setCapturing(true);
+
+var EVENTS = goog.object.getValues(goog.ui.Component.EventType);
+     logger.fine('Listening for: ' + EVENTS.join(', ') + '.');
+
+function logEvent(e) {
+     logger.info('"' + e.target.getCaption() + '" dispatched: ' + e.type);
+}
+
+// Create the first control programmatically, and make it focusable.
+var c1 = new goog.ui.Control(
+     goog.dom.createDom('span', null, 'Hello, ', 
+     goog.dom.createDom('b', null, 'world'), '!'));
+     c1.render(goog.dom.$('c1'));
+     goog.events.listen(c1, EVENTS, logEvent);
+     goog.dom.setTextContent(goog.dom.$('demo1'), 
+     (goog.now() - timer) + 'ms');
+
+$('#demo-container').show();
+</code>
+</div>
+
+<div class="sandbox-console"> 
+<legend>This control was created programmatically:&nbsp;</legend> 
+
+<div id="c1">
+
+</div> 
+
+   This control dispatches ENTER, LEAVE, and ACTION events on
+   mouseover, mouseout, and mouseup, respectively.  It supports
+  keyboard focus.
+ 
+<div id="perf"></div>
+</div> 
+<div  id ="msg" class="msg">
+</div>
+<div id="log" class=" logdiv" style="height:100px;overflow:scroll;width:95%;">
+</div>
+    
+<div class="console" style="white-space:pre"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<div id="demo-container" class="hidden clearfix" style="position:fixed;bottom:10px;left:0px;height:170px;width:100%;
+background:ThreeDDarkShadow;padding-bottom:5px" >
+<div id="demo1" style="width:90%;overflow-y:scroll;height:168px;font-size:10px;
+margin:0 auto">
+</div>
+</div>
+
+       
+### Discussion
+
+I am sure that still not everything is better for better debugging and tracing tools, but Closure comes close to offering everything one needs. jQuery also can register events, but the problem is that you will be monitoring things via the jQuery object. For example if you type something wrong in the console above, the REPL used on this site would first handle the error and then passing it onto the console. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span id="chapter" class="hidden">13</span>
+##Further Reading
+
+
+                                                                                                      

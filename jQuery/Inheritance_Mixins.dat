@@ -1,0 +1,152 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<style type="text/css">
+ol#footnotes li{font-size:smaller;width:90%}
+
+</style>
+<h2>Inheritance Mixins</h2>
+
+Taking the idea of inheritance by <strong>property copying</strong> a step further, consider this {{wi:mixin}}<sup id="_1"><a href="#1">1</a></sup> implementation. Instead of copying from one {{sup:object}}, you can copy from any number of objects.
+
+The implementation is pretty simple{{sup:<a href="#2">2</a>}}, just loop through the arguments and copy every property of every object passed to the function. Since we are using a variadic function (i.e., we have not specified its arguments any  number of objects can be used). 
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+function combine() {
+  var arg, prop, child = {};
+  for (arg = 0; arg < arguments.length; arg++) {
+    for (prop in arguments[arg]) {
+      if (arguments[arg].hasOwnProperty(prop)) {
+        child[prop] = arguments[arg][prop];
+      }
+    }
+  }
+  return child;
+} //Here's how to use it. Pass any number of objects and you and up with a new 
+//object that has the properties of them all.
+var cake = combine({
+  eggs: 2,
+  large: true
+},
+{
+  butter: 1,
+  salted: true,
+  sugar: "none"
+},
+{
+  flour: "3 cups"
+},
+{
+  sugar: "sure!"
+});
+for (var prop in cake) {
+  if (cake.hasOwnProperty(prop)) {
+    log('prop ', prop, cake[prop]);
+  }
+}
+</code>
+</div>
+
+<div  class="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+This pattern as shown does not perform a deep iteration, see jQuery's extend method for a better algorithm.
+
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<style type="text/css">
+ol#footnotes li{font-size:smaller}
+</style>
+<h2>Inheritance Mixins</h2>
+
+Taking the idea of inheritance by <strong>property copying</strong> a step further, consider this {{wi:mixin}}<sup id="_1"><a href="#1">1</a></sup> implementation. Instead of copying from one {{sup:object}}, you can copy from any number of objects.
+
+The implementation is pretty simple{{sup:<a href="#2">2</a>}}, just loop through the arguments and copy every property of every object passed to the function. Since we are using a variadic function (i.e., we have not specified its arguments any  number of objects can be used). 
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+function combine() {
+  var arg, prop, child = {};
+  for (arg = 0; arg < arguments.length; arg++) {
+    for (prop in arguments[arg]) {
+      if (arguments[arg].hasOwnProperty(prop)) {
+        child[prop] = arguments[arg][prop];
+      }
+    }
+  }
+  return child;
+} //Here's how to use it. Pass any number of objects and you and up with a new 
+//object that has the properties of them all.
+var cake = combine({
+  eggs: 2,
+  large: true
+},
+{
+  butter: 1,
+  salted: true,
+  sugar: "none"
+},
+{
+  flour: "3 cups"
+},
+{
+  sugar: "sure!"
+},
+Math);
+for (var prop in cake) {
+  if (cake.hasOwnProperty(prop)) {
+    log('prop ', prop, cake[prop]);
+  }
+}
+</code>
+</div>
+
+<div  class="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+##Further Reading
+
+
+##Footnotes
+
+<ol id="footnotes">
+<li id="1">
+<span><a href="#_1">^ </a></span>Mixins first appeared in the Symbolics' object-oriented Flavors system (developed by Howard Cannon), which was an approach to object-orientation used in Lisp Machine Lisp. The name was inspired by Steve's Ice Cream Parlor in Somerville, Massachusetts. 
+</li>
+<li id="2">
+The ice cream shop owner offered a basic flavor of ice cream (vanilla, chocolate, etc.) and blended in a combination of extra items (nuts, cookies, fudge, etc.) and called the item a "Mix-in", his own trademarked term at the time.
+</li>
+</ol>
+ 
+
+
+
+
+
+
+
+                

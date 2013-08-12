@@ -1,0 +1,212 @@
+
+
+
+
+
+
+
+
+<style type="text/css">
+.mother{width:90%;border:1px solid red}
+ .child{width:50px;height:150px;background:#ececec;border:1px solid #bbbbbb;float:left}
+
+.first {width:50px;height:150px;background:#ececec;border:1px solid #bbbbbb;float:left}
+</style>
+
+##More on Toggle
+
+Toggle among two or more function calls every other click.
+Whenever a matched element is clicked, the first specified function is fired, when clicked again, the second is fired, and so on. All subsequent clicks continue to rotate through the functions.
+
+Use unbind("click") to remove the toggle event.
+
+{{plain:
+toggle( fn, fn2, [fn3,fn4,...] )
+
+
+
+
+$("li").toggle(
+      function () &#123;
+        $(this).css(&#123;"list-style-type":"disc", "color":"blue"&#125;);
+      &#125;,
+      function () &#123;
+        $(this).css(&#123;"list-style-type":"disc", "color":"red"&#125;);
+      &#125;,
+      function () &#123;
+        $(this).css(&#123;"list-style-type":"", "color":""&#125;);
+     &#125;
+    );
+}}
+
+<div class="clearfix mother"  style="width:70%">
+    <div class="first" style="border:1px solid blue;width:50px;height:150px;float:left">
+<img id="image_1" src="http://localhost/CodeIgniter/images/boxer.jpg" style="width:90%;margin:0 auto;display:block" />
+</div>
+    <div class="child second">
+<img id="image_1" src="http://localhost/CodeIgniter/images/boxer.jpg" style="width:90%;margin:0 auto;display:block" />
+  </div>
+   <div class="child third">
+<img id="image_1" src="http://localhost/CodeIgniter/images/boxer.jpg" style="width:90%;margin:0 auto;display:block" />
+</div>
+</div>
+
+<a href="#" id="cbutton" class="ui-state-default ui-corner-all">Expand All</a>
+
+<script type="text/javascript">
+ $(".first,.second,.third").toggle(
+      function () {
+        $(this).animate({"width":"100px", "color":"blue"},'slow');
+    
+
+      },
+      function () {
+        $(this).animate({"width":"50px", "color":"red"},'slow');
+      }
+     
+    );
+
+  $("#cbutton").click(function(){
+  $("div.mother div").animate({"width":"100px", "color":"blue"},'slow');
+    return false;
+   });
+</script>
+
+
+
+##Animation Patterns
+
+<div class="clearfix" style="float:left;width:38%;margin-right:10px">
+<div style="width:98%;border:1px dotted #ececec;float:left;padding:0" class="clearfix" >
+<a id="action" href="#">Toggle me</a>.
+</div>
+
+<div id="img_cont" style="width:98%;border:1px dotted #ececec;float:left;padding:0" class="clearfix" >
+<img id="image_1" src="http://localhost/CodeIgniter/images/boxer.jpg" style="width:90%;margin:0 auto;display:block" />
+</div>
+</div>
+
+Animations can be effective to indicate to a user that some area of the screen has changed.
+ We can use much more complex animations as for example when deleting
+records to rather send them to a recycling bin than rather disappear them all together from
+the interface.
+
+The fadeIn and fadeOut transitions are one of the most usable of all jQuery transitions.
+
+We can also use custom animations to manage more complex behaviour.
+
+<hr />
+
+<script type="text/javascript">
+ $('a#action').click(function() {
+    $('#img_cont').fadeTo('slow','0.33').toggle().fadeTo('slow','1');
+    return false;
+  });
+</script>
+
+The script to run this animation is fairly simple, we use __fadeTo()__ and __toggle()__.
+
+{{plain:
+
+$('a#action').click(function() &#123;
+    $('#img_cont').fadeTo('slow','0.33').toggle().fadeTo('slow','1');
+    return false;
+  &#125;);
+
+}}
+
+</hr>
+##Using animate()
+
+<div class="clearfix" style="float:left;width:38%;margin-right:10px">
+<div style="width:98%;border:1px dotted #ececec;float:left;padding:0" class="clearfix" >
+<a id="action2" href="#" title="Click to animate the image" >Animate Me</a>.
+</div>
+
+<div id="img_cont2" style="width:98%;border:1px dotted #ececec;float:left;padding:0" class="clearfix" >
+<img id="image_1" src="http://localhost/CodeIgniter/images/boxer.jpg" style="width:90%;margin:0 auto;display:block" />
+</div>
+</div>
+
+
+<script type="text/javascript">
+ $('a#action2').click(function() {
+    var $small=$('#img_cont2').animate({width:"25%"},"slow").fadeTo('slow','0.33').fadeTo('slow','1');
+    var $large=$('#img_cont2').animate({width:"98%"},"toggle").fadeTo('slow','0.33').fadeTo('slow','1');
+    return false;
+  });
+</script>
+
+The key aspect of this function is the object of style properties that will be animated, and to what end. Each key within the object represents a style property that will also be animated (for example: "height", "top", or "opacity").
+
+
+The value associated with the key represents to what end the property will be animated. If a number is provided as the value, then the style property will be transitioned from its current state to that new number. Otherwise if the string "hide", "show", or "toggle" is provided, a default animation will be constructed for that property. Only properties that take numeric values are supported (e.g. backgroundColor is not supported).
+
+The changes that we normally achieve with animate(), can be achieved with css(). The only difference
+being that the latter method cannot provide the transition (i.e, properties such as slow, fast or toggle or show).
+
+There many paths to achieving DOM element manipulation and that is where the main strength of jQuery lies.
+
+
+
+
+
+<hr />
+Using __animate()__, we can essentially animate any of an elements CSS properties.
+
+<pre  class="brush:js">
+.animate(&#123;width:"25%"&#125;,"slow")
+</pre>
+
+<hr/>
+
+{{bulb:Remember that the CSS property (since it is a variable) is not encloded in inverted commas. Note also that properties should be specified using camel case, e.g. "marginLeft" instead of "margin-left."}}
+
+##Accessibility
+
+Transitions are about visual communication, as such by default they are not accessible by users with visual impairments. If what the transition communicates is important for the user not to miss then you can consider these techniques.
+
+- Set the focus on the item that got changed. This enables assistive technologies to detect where a change happened. Of course if the user is typing or needs the focus in another area then this solution cannot be used.
+
+- Provide ALT tags that preview what will happen when the user engages an interaction. For example, if you can close a panel and provide a way to communicate where the panel is collapsed to, you might consider putting text in the ALT for the image that tells the user what will happen when the click/activate the close icon and how they can get the panel open again.
+
+
+##Further Reading
+
+There is a good discussion at [Yahoo Developer](http://developer.yahoo.com/ypatterns/parent.php?pattern=transition), regarding the use of transitions and effects. Take the time to visit them an learn more.
+
+##Assignment
+
+{{example:
+
+<h3>Assignment 1</h3>
+
+Write an essay (using examples from the web, where transitions have been
+used effectively to attract the eye
+
+<h3>Assignment 2</h3>
+
+Create a block which gets deleted when a user clicks a delete button. Fade the
+element before it disappears. Highlight the block that moves into its place.
+
+}}
+
+
+<pre class="brush:js">
+alert("Hello world");
+</pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

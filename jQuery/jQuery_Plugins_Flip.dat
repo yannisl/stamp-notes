@@ -1,0 +1,330 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<h3>A flip animation</h3>
+
+You can think of them as flip-cards and they are quite effective (although others think they are distracting  http://foolsworkshop.com/reviews/issues) if  you want to hide something from a user during a quiz for example and then reveal the answer immediately thereafter. A good example of using this plugin can be seen [here](http://www.awesomevocab.com/ ). The site can help you improve your vocabulary.
+
+You can find the plugin at [](http://lab.smashup.it/flip/)
+<style ="type/css">
+div#flipBox, .flipCard {
+	width: 500px;
+	height: 280px;
+	margin: 0 auto;
+	background: #b34212;
+       	color: #fff;
+	font-weight: bold;
+	font-size: 16px;
+	padding: 15px;	
+}
+
+	div#flipBox > * {
+		padding: 15px;
+	}
+</style>
+http://www.nicolarizzo.com/gamesroom/dojox/fx/tests/test_flip.html
+
+<h3>Reinforcement Learning</h3>
+
+Reinforcement Learning is a technique that has found popularity with educators especially in teaching new languages. We will now try and build an application here in the browser as a means of re-inforcing the topics we have covered so far.
+
+<h3>A simple specification</h3>
+
+Before we set to carry this one out - and we are not going to clone no-one's website, you should actually visit and study techniques using similar application.
+
+For simplicity we will overlook the server side (only get a simple application that can dish out about 100 flash-cards). We will pick a bit of an interesting subject away from computer science to try it out. I am going to use a hieroglyphics application and we will try and learn some basics.
+
+<h3>The Flash Card style</h3>
+
+Our flashcards will consist of a
+
+(01) One or more cards will give a readout
+
+(02) We will the attach the quizzes.
+
+(03) We will store user's scores in order to add 'progressive learning'.
+
+(04) We will try and use timers to our advantage.
+
+<script src = "http://localhost/codeigniter/js/flip.js" />
+
+
+<div class="clearfix" style="background:#fff">
+<div id="flipBox"> 
+						<div class="demo_one">Hello!<br/>I'm a flip-box!<br/> :) </div> 
+					</div> 
+					
+					<div id="buttons"> 
+						<a id="flipBT" title="Flip the flipbox from bottom to top" href="#">bottom > top</a> 
+						<a id="flipTB" title="Flip the flipbox from top to bottom" href="#">top > bottom</a> 
+						<a id="flipLR" title="Flip the flipbox from left to right" href="#">left > right</a> 
+						<a id="flipRL" title="Flip the flipbox from right to left" href="#">right > left</a> 
+					</div> 
+</div>
+
+
+<div id = "question" style="color:#fff">
+<strong>Of the following four initials, which one is an abbreviation of a phrase that is in a different language from the others?</strong>
+<ol>
+<li>A.D. </li>
+<li>B.C. </li>
+<li>a.m.</li>
+<li>p.m.</li>
+</ol>
+</div>
+
+<h3>The Basic Objects</h3>
+
+<h4>The Quiz</h4>
+
+We will represent each flash-card quiz as a JSON object:
+
+{{plain:
+&#123;
+    "question":"PI = ?",
+    "question_id":"4713",
+    "correctAnswer":3,
+    "answerExplanation":"PI = 3.141316",
+    "answers":&#123;
+        "3":"3.141316",
+        "1":"3.141613",
+        "2":"3.134561",
+        "4":"3.131314"
+    &#125;
+}}
+
+<h3>How do we group flashcards?</h3>
+
+Traditionally and there were a number of different systems flashcards were grouped in boxes. Here is a representation of them:
+
+<div style="width:90%">
+<img src="http://localhost/codeigniter/images/flashcard.png " style="margin:0 auto;display:block" />
+</div>
+
+This was a widely used method proposed by the German science journalist {{wi:Sebastian_Leitner}} in the 1970s. In his method, known as the Leitner system, flashcards are sorted into groups according to how well you know each one in the Leitner's learning box. This is how it works: you try to recall the solution written on a flashcard. If you succeed, you send the card to the next group. But if you fail, you send it back to the first group. Each succeeding group has a longer period of time before you are required to revisit the cards.
+In our case we may not need the box, but some reference in our object as to the box number it has been placed:
+
+{{plain:
+&#123;
+    "question":"PI = ?",
+    "questionId":"4713",
+    "correctAnswer":3,
+    "answerExplanation":"PI = 3.141316",
+    "answers":&#123;
+        "3":"3.141316",
+        "1":"3.141613",
+        "2":"3.134561",
+        "4":"3.131314",
+     "level" : 1, 
+    &#125;
+}}
+
+<h3>Ajax Ability</h3>
+We want to give our application the ability to query the server and respond via Ajax. We will create a couple of functions to cater for this. The one is a function to actually get the next question. We will leave it up to the server to work out the algorithm as to which next flashcard will be shown. On our first iteration we will just issue the cards sequentially and after debugging we will change the algo on the server. As far as the page needs to know at any time, is the flashcard content and the server only needs to know, the id of the flashcard and if the correct choice was made or not. Later on we will play with time as a means to  pick-up if the user is learning fast or is just guessing.
+
+{{plain:
+function getNextQuestion(questionId, isCorrect)
+&#123;
+    jQuery.ajax(&#123;
+        type: "POST",
+        url: "get_next_question.php/"+questionId+'/'isCorrect',
+        //data: "questionId="+ques_id+"&is_correct="+is_correct,
+        success: processQuestion
+    &#125;);
+    $("#loading").html("");
+    loading_question = true;
+&#125;
+}}
+
+As I am using CodeIgniter, i don't need to use the data portion of the query all information will reide with the URL. If we need we can also send info via the POST variable.
+
+<h3>The User Input</h3>
+The user input is fairly simple as far as jQuery is concerned. We will only capture the click even on the flashcard and the hover.
+
+Let us see how we do this:
+<h3>Evaluating the JSOn content and Displaying it</h3>
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+// Simulating AJAX call for the time being
+var flashCard =  {
+     "question" : "What is the value of PI ?",
+    questionId:"4713",
+    correctAnswer:3,
+    answerExplanation:"PI = 3.141316",
+    answers:{
+        "3":"3.141316",
+        "1":"3.141613",
+        "2":"3.134561",
+        "4":"3.131314",
+           },
+      level : 1 
+   };
+$('.question').text(flashCard.question);
+$('.answer').each(function(i){
+    $(this).text(flashCard.answers[i+1]);
+});
+
+$('.answer').click(function(){
+   alert('You clicked me');
+  $('#flipBox1').flip({
+  direction: 'bt',
+  color: '#D46419',
+  speed: 100,
+  content: flashCard.answerExplanation 
+});
+});
+
+</code>
+</div>
+
+<div  id ="msg5" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+<div class="flipCard" id="flipBox1"><ol>
+<div class="question">Question</div>
+<li class="answer">one</li>
+<li class="answer">two</li>
+<li class="answer">three</li>
+<li class="answer">four</li></ol>
+</div>
+
+
+
+
+<hr/>
+<h3>Checking if the Answer is Correct</h3>
+One element that is still missing from our code, is the checking of the answer against the correct answer in the JSON object. Since we know which is the index of the correct answer we can link this easily to the answer that was clicked witha  simple function. We can also enhance the output a bit to tell the user if his answer was right or wrong.
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+// Simulating AJAX call for the time being
+
+ 
+  
+var flashCard =  {
+     "question" : "What is the value of PI ?",
+    questionId:"4713",
+    correctAnswer:3,
+    answerExplanation:"PI = 3.141316",
+    answers:{
+        "3":"3.141316",
+        "1":"3.141613",
+        "2":"3.134561",
+        "4":"3.131314",
+           },
+      level : 1 
+   };
+$('.question').text(flashCard.question);
+$('.answer', '#flipBox2').each(function(i){
+    $(this).text(flashCard.answers[i+1]);
+});
+
+var wrong='<div>Wrong Answer</div>'; 
+var corr = "<div>Correct Answer"</div>;
+var message = wrong;
+var correct = $('.answer:eq('+parseInt(flashCard.correctAnswer-1)+')').text();
+
+$('.answer').click(function(){
+   if ($(this).text()== correct){
+   message = corr;}else{message = wrong}
+  $('#flipBox2').flip({
+  direction: 'bt',
+  color: '#D46419',
+  speed: 100,
+  content: message + flashCard.answerExplanation 
+});
+});
+
+</code>
+</div>
+
+<div  id ="msg5" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+<div class="flipCard" id="flipBox2"><ol>
+<div class="question">Question</div>
+<li class="answer">one</li>
+<li class="answer">two</li>
+<li class="answer">three</li>
+<li class="answer">four</li></ol>
+</div>			
+
+<hr/>
+<span id="chapter" class="hidden">15</span>
+##Further Reading
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+				
+				$("a#mail").attr("href","mailto"+":"+"luca"+"@smas"+"hup.it");
+				
+$("#flipBT").click(function(){
+					$("#flipBox").flip({
+						direction: 'bt',
+						color: '#D46419',
+						speed: 100,
+content: "<div class='demo_one'><strong>recluse </strong><br/><ol><li>hermit loner</li>excessive interest in ones self belief that one should be interested in one self rather than in others; selfishness<li>please satisfy</li><li>generous gift (given to people who do not have enough)</li></ol></div>"
+					});
+                                     return false;
+				});
+				$("#flipTB").click(function(){
+					$("#flipBox").flip({
+						direction: 'tb',
+						color: '#B34212',
+						speed: 100,
+						content: "<div class='demo_two'><img src='http://localhost/codeigniter/images/angela.jpg' style='height:180px' /></div>"
+					});
+                                    return false;
+				});
+				$("#flipLR").click(function(){
+                                        
+					$("#flipBox").flip({
+						direction: 'bt',
+						color: '#341405',
+                                                speed: 100,
+						content: $('#question').html()
+					});
+                                     return false;
+				});
+				$("#flipRL").click(function(){
+					$("#flipBox").flip({
+						direction: 'rl',
+						color: '#166665',
+						speed: 100,
+						content: "<div class='demo_four'>"+$("#footer div:eq(0)").html()+"<br/><span style='font-size:11px'>This is a taken directly <a href='#footer' style='color:#fff'>from</a> this page<code style='display:block;padding:5px;font-family:monospace'>$('#footer div:eq(0)').html()</code></span></div>"
+					});
+                                     return false;
+				});
+				
+																		
+			});
+</script> 
+
+
+  
+  
+
+
+
+
+
+
+

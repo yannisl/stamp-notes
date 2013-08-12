@@ -1,0 +1,112 @@
+ <!--
+{{feature: .. A discussion of bubble sort with warnings that the performance
+is bad and the code isn't simple (arguably) is like
+telling someone "don't think about pink elephants. <a href="http://www.cs.duke.edu/~ola/papers/bubble.pdf">Owen Astrachan</a> }}
+{{feature-image: http://localhost/egypt/elliott-erwitt/EE-1150.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<h2>Selection Sort </h2>
+
+
+
+<div  class="code-block console-wrap">
+<div class="code code-block">
+<code>
+/* Bubble Sort
+ * Parameters:
+ *   data - reference to the integer array to sort, must not be null
+ * Postcondition:
+ *   The array is sorted in ascending order.
+*/
+function bubbleSort(data) {
+  var tempVariable = [];
+  for (var k = 0; k < data.length - 1; k++) {
+    var isSorted = true;
+    for (var i = 1; i < data.length - k; i++) {
+      if (data[i] < data[i - 1]) {
+        tempVariable = data[i];
+        data[i] = data[i - 1];
+        data[i - 1] = tempVariable;
+        isSorted = false;
+      }
+    }
+    if (isSorted) {
+      return data;
+    }
+  }
+}
+var data = [];
+data = [-900, 21, 1, 5, 6, 7, 800, 9, 11, 14, 35, 67, 0];
+profiler.start();
+var d = bubbleSort(data);
+profiler.stop();
+profiler.timeDiff();
+log(d);
+
+/* insertion sort algorithm
+*  @data an array to be sort
+*  @return a sorted array
+*/
+function insertionSort(data) {
+  var newValue;
+  for (var i = 1; i < data.length; i++) {
+    newValue = data[i];
+    j = i;
+    while (j > 0 && data[j - 1] > newValue) {
+      data[j] = data[j - 1];
+      j--;
+    }
+    data[j] = newValue;
+  }
+  return data;
+}
+
+profiler.start();
+var d = insertionSort(data);
+profiler.stop();
+profiler.timeDiff();
+log(d);
+
+
+</code>
+</div>
+<div  id="msg" class="msg" >
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+The best case input is an array that is already sorted. In this case insertion sort has a linear running time (i.e., Î�(n)). During each iteration, the first remaining element of the input is only compared with the right-most element of the sorted subsection of the array.
+The worst case input is an array sorted in reverse order. In this case every iteration of the inner loop will scan and shift the entire sorted subsection of the array before inserting the next element. For this case insertion sort has a quadratic running time (i.e., O(n2)).
+The average case is also quadratic, which makes insertion sort impractical for sorting large arrays. However, insertion sort is one of the fastest algorithms for sorting arrays containing fewer than ten elements.
+
+In any case in  practical situations the best sort to use is the
+one provided by the standard (e.g., Python, Java, C, or C++)
+libraries. However, we study sorts because general sorts
+do not work in all situations and because sorting is a
+simple illustration of algorithmic techniques. JavaScript provides a built-in method for sorting arrays and you can find more about it in ['Sorting Arrays in Javascript'](http://127.0.0.1/CodeIgniter/index.php/Blogs/tutorials/jQuery/Array_sort).
+
+
+
+ 
+
+
+
+  
+  
+
+
+
+
+
+
+
+                                        

@@ -1,0 +1,118 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+<h2>String.prototype toLocaleUpperCase() and toLocaleLowerCase() methods</h2>
+
+These functions works exactly the same as toLowerCase and toUpperCase except that its result is intended to yield the
+correct result for the host environment's current locale, rather than a locale-independent result. There
+will only be a difference in the few cases (such as Turkish) where the rules for that language conflict
+with the regular Unicode case mappings.
+
+NOTE 1
+
+The toLocaleLowerCase function is intentionally generic; it does not require that its this value
+be a String object. Therefore, it can be transferred to other kinds of objects for use as a method.
+
+NOTE 2
+
+The first parameter to this function is likely to be used in a future version of this standard; it is
+recommended that implementations do not use this parameter position for anything else.
+
+If this object is not already a string, it is converted to a string. The characters in that string are converted one by one to lower case. 
+
+{{bulb: The result is a string value, not a String object.}}
+
+The characters are converted one by one. The result of each conversion is the original character,
+unless that character has a Unicode lowercase equivalent, in which case the lowercase equivalent is
+used instead.
+
+NOTE 1
+
+The result should be derived according to the case mappings in the Unicode character database (this explicitly includes not only the UnicodeData.txt file, but also the SpecialCasings.txt file that accompanies it in Unicode 2.1.8 and later).
+
+NOTE 2
+
+The toLowerCase function is intentionally generic; it does not require that its this value be a
+String object. Therefore, it can be transferred to other kinds of objects for use as a method.
+
+
+
+When comparing two strings, normally convert the the strings to all uppercase or all lowercase characters. 
+
+You can convert the string to either upper-case or lower-case , using
+
+{{plain:
+         .toUpperCase();
+         .toLowerCase();
+}}
+
+We can then use the JavaScript equality
+operator (==) to make the comparison. Javascript always attempts to convert the type of strings before a comparison. The strict operator (===), will compare including the type. Consider the following:
+
+<div  class="code-block console-wrap">
+<div class="code code-block">
+<code>
+var s, s1;
+s = "washington";
+s2 = "Washington";
+s3 = new String("washington");
+assert(s == s2, 'strings are not equal');
+assert(s.toUpperCase() == s2.toUpperCase(), 'strings are equal');
+assert(s === s3, 'strings are not equal');
+assert(s == s3, 'strings are equal');
+
+// Complies With Unicode CaseFolding.txt
+// Comparison of Greek Rho with rho
+
+s1 = "\u03A1".toLowerCase();
+s2 = "\u03C1";
+
+
+log(s1, s2);
+log(s1 == s2, 'Unicode Comparison is ok');
+</code>
+
+</div>
+<p id="msg1" class="msg"  style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+These two variables might contain the same series of characters but are different data types. The first is a <strong>string value</strong>,
+while the second is an instance of a <strong>String object</strong>. If you place these two values on either side of an equality (= =)
+operator, JavaScript tries various evaluations of the values to see if there is a coincidence somewhere. In this case,
+the two variable values would show to be equal, and the following expression:
+
+{{plain:
+stringA = = stringB
+}}
+
+returns true.
+
+In most cases using the equality operator will suffice.
+
+##Further Reading
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  

@@ -1,0 +1,195 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+{{feature-image:http://localhost/egypt/CMS/accordion.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<style type="text/css">
+.code{margin:0;padding-top:0}
+.code-block{                        background:url(http://localhost/codeigniter/images/code-bg.gif);
+margin:0;padding:0}
+.code-block .code{white-space:pre;padding:0;margin:0;font-family:monospace}
+.highlight{background:yellow}
+</style>
+	
+##Handling Exceptions
+
+JavaScript allows you to trap errors using the standard "try-catch" exception-handling combination. Here's what it looks like:
+
+<div class="code-block console-wrap clearfix">
+<div class="code">
+<span class="highlight">try</span> {
+  colours[2] = "red";
+  } 
+  <span class="highlight">catch (e)</span> {
+alert(e);
+   }
+finally{
+ $('#msg').html('&lt;img src = "http://localhost/codeigniter/images/protest_03.jpg" style=" width: 250px"  /&gt;');
+}
+</code>
+</div>
+<p class="msg" id ="msg" style="width:400px;font-size:24px;font-weight:bold;background:#fff"></p>
+  <button class="eval">Run Code</button>
+<ol class="results"></ol>
+</div>
+This is a very basic example of how JavaScript exceptions can be trapped, and appropriate action triggered. As you will see, the ability to handle errors in a transparent manner throws open some pretty powerful possibilities...but more on that later.
+
+The first part of the code introduces you to the "try" block; this instructs JavaScript to try - literally - to execute the statements within the enclosing block.
+
+<div class="code">
+try {
+colours[2] = "red";
+}
+</div>
+
+The "catch" block sets up the exception handler, in the event that one is generated. This does the hard work of trapping the exception and suggesting how to handle it
+
+
+catch (e) {
+$('$msg').html('&lt;img src = "http:/localhost/codeigniter/images/protest_03.jpg" style=" width: 250px"  '/&gt;);
+//alert("Oops! Something bad just happened. Calling 911...");
+}
+
+If an exception is generated, the "catch" segment of the code will be triggered, and JavaScript's default error handling mechanism will be overridden by the instructions in that code segment - in this case, displaying the text "Something bad happened".
+
+<div class="code-block console-wrap">
+<div class="code">
+try {
+
+  textColors[5] = "red";
+
+  } catch (e) {
+
+  alert("An exception occurred in the script. Error name: " + e.name 
+  + ". Error message: " + e.message + '   '+e.lineNumber); }
+
+</code>
+</div>
+<p id="msg" style="width:400px;font-size:24px;font-weight:bold;background:#fff"></p>
+  <button class="eval">Run Code</button>
+</div>
+
+<h2>Primary Errors</h2>
+
+The JavaScript 1.5 specification defines six primary error types, as follows:
+
+EvalError - raised when the eval() functions is used in an incorrect manner;
+
+RangeError - raised when a numeric variable exceeds its allowed range;
+
+ReferenceError - raised when an invalid reference is used;
+
+SyntaxError - raised when a syntax error occurs while parsing JavaScript code;
+
+TypeError - raised when the type of a variable is not as expected;
+
+URIError - raised when the encodeURI() or decodeURI() functions are used in an incorrect manner;
+
+You can trap more than one exception, and handle each one in a different way, by using multiple "if" constructs within a single "catch" block.
+
+
+<div class="code-block">
+<div class="code">
+  code = prompt("Enter some JavaScript code");
+  try {
+    eval(code);
+  } catch (e) {
+  if (e instanceof TypeError)
+  {
+  alert("Variable type problem, check your variable definitions!")
+  }
+  else if (e instanceof RangeError)
+  {
+  alert("Number out of range!")
+  }
+  else if (e instanceof SyntaxError)
+  {
+  alert("Syntax error in code!");
+  }
+  else
+  {
+  alert("An unspecified error occurred!");
+  }
+  }
+</code>
+</div>
+<p id="msg" style="width:400px;font-size:24px;font-weight:bold;background:#fff"></p>
+  <button class="eval">Run Code</button>
+</div>
+
+<h3>Using Finally</h3>
+JavaScript also allows you to add a "finally" block to the "try-catch" block discussed previously. The "finally" block contains statements that are executed regardless of whether an exception is generated or not in the "try-catch" block.
+{{plain:
+try &#123;
+execute this block
+&#125; catch (error) &#123;
+execute this block if error
+&#125; finally &#123;
+execute this block after the try block
+&#125;
+}}
+If an exception is encountered when running the code within the "try" block, JavaScript will stop execution at that point, and look for a "catch" block to handle it. Once the error has been handled (or if no "catch" block exists), control passes to the "finally" block.
+ <div class="code-block">
+<div class="code">
+// ask for user input
+  code = prompt("Enter some JavaScript code");
+// run the code and catch errors if any generated
+  // after the error handling display goodbye message
+  try {
+  eval(code);
+  } catch (e) {
+  alert("The following error occurred: " + e.name + " - " 
+  + e.message); } finally {
+  alert ("Thank you for playing. Come back soon!");
+  }  
+</code>
+</div>
+<p id="msg" style="width:400px;font-size:24px;font-weight:bold;background:#fff"></p>
+  <button class="eval">Run Code</button>
+</div> 
+
+Thus far, you've been working with JavaScript's built-in exceptions, which can handle most logical or syntactical errors. However, JavaScript also allows you to get creative with exceptions, by generating your own custom exceptions.
+
+This is accomplished via JavaScript's <dfn>throw</dfn> statement, which is used to raise errors which can be detected and resolved by the <dfn>try</dfn> family of exception handlers. The "throw" statement needs to be passed an error type. When the exception is raised, this exception name and description will be made available to the defined exception handler.
+
+Let's go to a quick example. In the following piece of code, if the value entered into the form field is greater than 99, the code will manually generate a RangeError exception, which will be caught and displayed appropriately.
+
+<div class="code-block">
+<div class="code">
+try {
+   throw new Error("Whoops!"); 
+   }
+catch (e) {
+   alert(e.name + ": " + e.message); 
+   }
+finally {
+   alert('Errors can be fun!'); 
+   }
+</code>
+</div>
+<p id="msg" style="width:400px;font-size:24px;font-weight:bold;background:#fff"></p>
+  <button class="eval">Run Code</button>
+</div> 
+
+And that just about covers it. In this article, I took you on a guided tour of exception handling in JavaScript, demonstrating how the "try" and "catch" blocks can be used to trap and resolve errors in script execution. I showed you how to retrieve the exception type and message, write exception handlers for different error types, and even generate your own custom errors. Finally, I wrapped things up with a real-world example that demonstrated how to build a simple form validator and generate exceptions suitable for processing by a generic "try-catch" handler.
+
+Just don't go ahead and use the above code in a production environment, you will need to be a bit more precises! Remember coding is like surgery!
+###More to Explore
+https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Global_Objects/Error
+
+The official ECMAScript reference, at http://www.ecma-international.org/publications/standards/ecma-262.htm
+
+JavaScript 1.5 reference material in the Netscape DevEdge documentation, at http://devedge.netscape.com/library/manuals/2000/javascript/1.5/reference/st
+mt.html#1051663
+
+Handling errors in Internet Explorer, at http://msdn.microsoft.com/library/en-us/dnscrpt/html/WebErrors2.asp
+
+http://www.devshed.com/c/a/JavaScript/JavaScript-Exception-Handling/7/
+
+
+

@@ -1,0 +1,409 @@
+      
+<!--
+ directives
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{feature-image:/codeigniter/images/china/beauty_07.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<script type="text/javascript"> 
+ goog.require('goog.array');
+    goog.require('goog.debug.DivConsole');
+    goog.require('goog.debug.LogManager');
+    goog.require('goog.debug.Logger');
+    goog.require('goog.events');
+    goog.require('goog.object');
+    goog.require('goog.ui.Control');
+    goog.require('goog.ui.ControlRenderer');
+    goog.require('goog.ui.decorate');
+    goog.require('goog.ui.registry');
+</script>
+<STYLE> 
+    /* Demo styles for goog.ui.Control. */
+    .goog-control {
+      position: relative;
+      width: 20ex;
+      margin: 2px;
+      border: 2px solid #036;
+      padding: 2px;
+      font: normal 9pt "Trebuchet MS", Tahoma, Arial, sans-serif;
+      color: #036;
+      background-color:#69c;
+      cursor: pointer;
+      outline: none;
+      -moz-outline: none;
+    }
+ 
+    .goog-control-disabled {
+      border-color: #888;
+      color: #888;
+      background-color: #ccc;
+    }
+ 
+    .goog-control-hover {
+      border-color: #369;
+      color: #369;
+      background-color: #9cf;
+    }
+ 
+    .goog-control-active,
+    .goog-control-selected,
+    .goog-control-checked {
+      border-color: #9cf;
+      color: #9cf;
+      background-color: #369;
+    }
+ 
+    .goog-control-focused {
+      border-color: orange;
+    }
+ 
+    /* Custom control styles. */
+    .goog-custom-control {
+      position: relative;
+      width: 25ex;
+      margin: 4px 0;
+      border: 2px solid #eee;
+      padding: 0;
+      cursor: pointer;
+      vertical-align: middle;
+      outline: none;
+      -moz-outline: none;
+    }
+ 
+    .goog-custom-control-outer-box {
+      position: relative;
+      margin: 0;
+      border: 2px solid #ddd;
+      padding: 0;
+      vertical-align: middle;
+    }
+ 
+    .goog-custom-control-inner-box {
+      position: relative;
+      margin: 0;
+      border: 2px solid #ccc;
+      padding: 0;
+      vertical-align: middle;
+    }
+ 
+    .goog-custom-control-content {
+      position: relative;
+      margin: 0;
+      border: 2px solid #bbb;
+      padding: 4px;
+      font-family: Georgia, Times, serif;
+      color: #ddd;
+      background-color: #aaa;
+    }
+ 
+    .goog-custom-control-hover {
+      border-color: #eef;
+    }
+ 
+    .goog-custom-control-hover .goog-custom-control-outer-box {
+      border-color: #ddf;
+    }
+ 
+    .goog-custom-control-hover .goog-custom-control-inner-box {
+      border-color: #ccf;
+    }
+ 
+    .goog-custom-control-hover .goog-custom-control-content {
+      border-color: #bbf;
+      background-color: #aaf;
+    }
+ 
+    .goog-custom-control-active .goog-custom-control-content {
+      color: #fff;
+    }
+ 
+    .goog-custom-control-focused {
+      border-style: dashed;
+      border-color: orange;
+    }
+ 
+    /* "Insert" button styles. */
+    .goog-edit-insert-icon {
+      height: 16px;
+      width: 16px;
+      margin: 0;
+      border: 0;
+      padding: 0;
+      background: url(images/toolbar_icons.gif) no-repeat -80px;
+      vertical-align: middle;
+    }
+ 
+    .goog-edit-insert-caption {
+      margin: 0;
+      border: 0;
+      padding: 0 2px;
+      vertical-align: middle;
+      font-weight: bold;
+    }
+ 
+    /* Extra CSS styles. */
+    .extra-red {
+      border: 1px solid red;
+      background-color: #fcc;
+    }
+ 
+    .extra-blue {
+      border: 1px solid blue;
+      background-color: #ccf;
+    }
+ 
+    .extra-thick-border {
+      border-width: 4px;
+    }
+</STYLE>
+ 
+<h3>Controls</h3>
+<div class="clearfix">
+  <TABLE border="0" cellpadding="0" cellspacing="4" width="100%"> 
+    <TBODY> 
+      <TR valign="top"> 
+        <TD width="67%"> 
+          <!-- Left pane --> 
+          <FIELDSET> 
+            <LEGEND>This control was created programmatically:&nbsp;</LEGEND> 
+            <DIV id="c1"><DIV class="goog-control" style="-webkit-user-select: none; " tabindex="0"><SPAN>Hello, <B>world</B>!</SPAN></DIV></DIV> 
+            <BR> 
+            This control dispatches ENTER, LEAVE, and ACTION events on
+            mouseover, mouseout, and mouseup, respectively.  It supports
+            keyboard focus.
+          </FIELDSET> 
+          <BR> 
+          <FIELDSET> 
+            <LEGEND>This was created by decorating a SPAN:&nbsp;</LEGEND> 
+            <SPAN id="c2" class="goog-inline-block goog-control goog-control-disabled" style="vertical-align: middle; -webkit-user-select: none; "> 
+              Decorated Example
+            </SPAN> 
+            <BR> 
+            <SPAN id="hint" class="hint"> 
+              You need to enable this component first.
+            </SPAN> 
+            <BR> 
+            <BR> 
+            This control is configured to dispatch state transition events in
+            addition to ENTER, LEAVE, and ACTION.  It also supports keyboard
+            focus.  Watch the event log as you interact with this component.
+            <BR> 
+            <BR> 
+            <LABEL> 
+              Click here to toggle the component's enabled status:&nbsp;
+              <INPUT type="checkbox" id="enable"> 
+            </LABEL> 
+            <BR> 
+            <LABEL> 
+              Click here to toggle the component's visiblity:&nbsp;
+              <INPUT type="checkbox" id="visible" checked=""> 
+            </LABEL> 
+          </FIELDSET> 
+          <BR> 
+          <H3>Custom Renderers</H3> 
+          <FIELDSET> 
+            <LEGEND> 
+              This control was created using a custom renderer:&nbsp;
+            </LEGEND> 
+            <DIV id="c3"></DIV> 
+          </FIELDSET> 
+          <BR> 
+          <FIELDSET> 
+            <LEGEND> 
+              This was created by decorating a DIV via a custom renderer:&nbsp;
+            </LEGEND> 
+            <DIV id="c4" class="goog-custom-control"> 
+              <SPAN class="goog-inline-block goog-edit-insert-icon"> 
+                &nbsp;
+              </SPAN> 
+              <SPAN class="goog-inline-block goog-edit-insert-caption"> 
+                Insert Picture
+              </SPAN> 
+            </DIV> 
+          </FIELDSET> 
+          <BR> 
+          <H3>Extra CSS Styling</H3> 
+          <FIELDSET> 
+            <LEGEND> 
+              These controls have extra CSS classes applied:&nbsp;
+            </LEGEND> 
+            <DIV id="c5"></DIV> 
+            <DIV id="c6"></DIV> 
+            <BR> 
+            Use the <B>addClassName</B> API to add additional CSS class names
+            to controls, before or after they're rendered or decorated.
+          </FIELDSET> 
+          <BR> 
+          <H3>Right-to-Left Rendering</H3> 
+          <FIELDSET> 
+            <LEGEND> 
+              These controls are rendered right-to-left:&nbsp;
+            </LEGEND> 
+            <P>These right-to-left controls were progammatically created:</P> 
+            <DIV id="bidi" style="position:relative;background-color:#ccc;" dir="rtl"></DIV> 
+            <P>These right-to-left controls were decorated:</P> 
+            <DIV style="position:relative;background-color:#ccc;" dir="rtl"> 
+              <DIV id="c9" class="goog-inline-block goog-control"> 
+                Hello, world
+              </DIV><DIV id="c10" class="goog-inline-block goog-control"> 
+                Sample control
+              </DIV> 
+            </DIV> 
+            <P class="hint"> 
+              On pre-FF3 Gecko, <B>margin-left</B> and <B>margin-right</B> are
+              ignored, so controls render right next to each other.
+              A workaround is to include some <B>&amp;nbsp;</B>s in between
+              controls.
+            </P> 
+          </FIELDSET> 
+        </TD> 
+        
+      </TR> 
+    </TBODY> 
+  </TABLE> 
+</div>
+
+  <DIV id="perf"></DIV> 
+  
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+var timer = goog.now();
+ 
+    // Set up a logger.
+    goog.debug.LogManager.getRoot().setLevel(goog.debug.Logger.Level.ALL);
+    var logger = goog.debug.Logger.getLogger('demo');
+    var logconsole = new goog.debug.DivConsole(goog.dom.$('log'));
+    logconsole.setCapturing(true);
+ 
+    var EVENTS = goog.object.getValues(goog.ui.Component.EventType);
+    logger.fine('Listening for: ' + EVENTS.join(', ') + '.');
+ 
+    function logEvent(e) {
+      logger.info('"' + e.target.getCaption() + '" dispatched: ' + e.type);
+    }
+ 
+    // Create the first control programmatically, and make it focusable.
+    var c1 = new goog.ui.Control(
+        goog.dom.createDom('span', null, 'Hello, ',
+            goog.dom.createDom('b', null, 'world'),
+            '!'));
+    c1.render(goog.dom.$('c1'));
+    goog.events.listen(c1, EVENTS, logEvent);
+ 
+    // Create the second control by decorating an existing element.  We can
+    // use goog.ui.decorate to get a Control instance and have it
+    // decorate the element, since the element to be decorated has the
+    // appropriate "marker" class name.
+    var c2 = goog.ui.decorate(goog.dom.$('c2'));
+    c2.setDispatchTransitionEvents(goog.ui.Component.State.ALL, true);
+    goog.events.listen(c2, EVENTS, logEvent);
+ 
+    // Define a simple custom renderer for the third control.
+    function SampleCustomRenderer() {
+      goog.ui.ControlRenderer.call(this);
+    }
+    goog.inherits(SampleCustomRenderer, goog.ui.ControlRenderer);
+ 
+/*    // See goog.ui.ControlRenderer#createDom for documentation.
+    SampleCustomRenderer.prototype.createDom = function(control) {
+      var baseClass = this.getCssClass();
+      var classNames = this.getClassNamesForState(control.getState());
+      var dom = control.dom_;
+      return dom.createDom('div', classNames.join(' '),
+          dom.createDom('div', baseClass + '-outer-box',
+              dom.createDom('div', baseClass + '-inner-box',
+                  dom.createDom('div', baseClass + '-content',
+                      control.getContent()))));
+    };
+ */
+    // See goog.ui.ControlRenderer#decorate for documentation.
+    SampleCustomRenderer.prototype.decorate = function(control, element) {
+      var baseClass = this.getCssClass();
+      var dom = control.dom_;
+      element.appendChild(
+          dom.createDom('div', baseClass + '-outer-box',
+              dom.createDom('div', baseClass + '-inner-box',
+                  dom.createDom('div', baseClass + '-content',
+                      element.childNodes))));
+      return SampleCustomRenderer.superClass_.decorate.call(this, control,
+          element);
+    };
+ 
+    // See goog.ui.ControlRenderer#getContent for documentation.
+    SampleCustomRenderer.prototype.getContent = function(element) {
+      if (element) {
+        return SampleCustomRenderer.superClass_.getContent.call(this,
+            goog.dom.$$('div', this.getCssClass() + '-content', element)[0]);
+      }
+      return null;
+    };
+ 
+    // See goog.ui.ControlRenderer#setContent for documentation.
+    SampleCustomRenderer.prototype.setContent = function(element, content) {
+      if (element) {
+        return SampleCustomRenderer.superClass_.setContent.call(this,
+            goog.dom.$$('div', this.getCssClass() + '-content', element)[0],
+            content);
+      }
+    };
+ 
+    // See goog.ui.ControlRenderer#getCssClass for documentation.
+    SampleCustomRenderer.prototype.getCssClass = function() {
+      return 'goog-custom-control';
+    };
+ 
+  
+    goog.dom.setTextContent(goog.dom.$('perf'), (goog.now() - timer) + 'ms');
+  </SCRIPT> 
+
+
+
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console" style="white-space:pre"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<TD width="33%"> 
+          <!-- Event log. --> 
+          <FIELDSET class="goog-debug-panel"> 
+            <LEGEND>Event Log</LEGEND> 
+            <DIV id="log" class=" logdiv"><DIV class="logmsg"> [ &nbsp;0.380s] [demo] <SPAN class="dbg-f">Listening for: beforeshow, show, hide, disable, enable, highlight, unhighlight, activate, deactivate, select, unselect, check, uncheck, focus, blur, open, close, enter, leave, action, change.</SPAN><BR></DIV></DIV> 
+          </FIELDSET> 
+          <BR> 
+          <SPAN class="hint"> 
+            The control with the
+            <SPAN style="font-weight:bold;color:orange;">orange outline</SPAN> 
+            has keyboard focus.
+          </SPAN> 
+</TD> 
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+                                                                            

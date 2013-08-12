@@ -1,0 +1,188 @@
+<style type="text/css">
+.toolbar_image{
+  width:32px;
+}
+.navcontainer1 
+{
+margin: 0;
+padding: 1px;
+font-family:arial;
+font-size:11px;
+text-align: center;
+}
+.navcontainer1
+{
+text-decoration: none;
+padding: .2em 1em;
+color: #fff;
+background-color: #036;
+}
+.item{width:8em}
+</style>
+
+<p id="targets">test</p>
+
+<!-- OBJECT MENU -->
+<div style="width:80px;background-color:#333;color:white;height:500px;
+position:fixed;top:150px;right:3px">
+<p  style="font-size:10px;text-align:center;padding:0px;margin:3px;margin:0 auto;">Backgrounds</p>
+<div id="backgrounds" class="curvy" style="background:white;width:90%;margin:0 auto;min-height:150px">
+</div>
+</div>  
+<div id="panelContainer" class="hidden" style="padding:5px;
+position:fixed;top:150px;right:83px;background:#555;height:400px;width:140px;color:white;font-size:11px">
+This is not hidden
+</div>
+<!-- END OBJECT MENU -->
+
+
+<div class="formContainer" style="min-height:380px;min-width:500px;">
+<div class="hidden" class="tool curvy draggable" id="object1" style="background:#888;width:500px;float:left;padding:10px">
+<div id="msg3">Test</div>
+<form>
+<input type="text" name="test" id="firstinput">
+<textarea id="text_1">
+Some form
+</textarea>
+</form>
+</div>
+</div>
+
+<hr/>
+<div id="msg2">Test</div>
+<hr/>
+<button id="bulb1">Test</button>
+###Object Inspector Menu  
+
+The side menus are the most powerfull feature of the development and they need to be developed generically. Methods required are for example image collections for buttons.
+
+<div class="navcontainer1 clearfix" style="width:300px;margin:1px;padding:2px">
+<div contenteditable="true" class="item" style="border:1px white solid;float:left;padding:2px;margin:2px">Login</div>
+<div contenteditable="true" class="item" style="float:left;border:1px white solid;padding:2px;margin:2px">Products</div>
+<div contenteditable="true" class="item" style="float:left;border:1px white solid;padding:2px;margin:2px">About</div>
+</div>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+//templates
+//
+function makePanel(id, aText){
+return '<div id='+id+' class="hidden tool" >name : '+aText+'</div>';
+}
+
+//just mock at the moment
+function menuPanel(){
+var menuScreen='<ul id="menu" style="background-image:url(/codeigniter/images/icons/assets/nav_bg.gif);">'+
+'<li id="login" class="active"><a  href="">Login/Register</a></li>'+
+'</ul>';
+  return menuScreen;
+}
+
+  var images={}
+       images={collection:['config','clock','burn','comment','connect','delete',
+                                  'database','bulb','alarm','alert','Arrow-Up','Arrow-Down',
+                                  'Arrow-Left','Arrow-Right','Login','Logout','Under-construction'],
+                                  config:'Configure the ',
+                                  database:'menuPanel',
+   };
+  var src='';
+  var titleString='';
+  //var tempPanel='';
+  var tempString='';
+  // create the toolbar conatiner
+ 
+images.collection.forEach(function(index){
+       src+='<img class="toolbar_image" '+  'src="http://localhost/codeigniter/images/icon/toolbar/'+index+'.png" '  + 
+'title="'+index+'" class="'+index+'" />';
+//create panels
+  tempPanel=makePanel(index,index);
+  $('#backgrounds').html(src)
+  $(tempPanel).appendTo('#panelContainer');
+ 
+});
+
+function over(event)
+{
+$('#targets').css({'font-style':'italic'});
+}
+function out(event)
+{
+$('#targets').css({'font-style':'normal'});
+}
+var ajaxName1='b';
+/////////
+   $('.toolbar_image').click(function(){
+      titleString=$(this).attr('title');
+      $('.tool').hide();
+      $('#panelContainer').show();
+      $('#object1').toggle();
+      $('#'+titleString).text(titleString).toggle();
+      $('#text_1').text(images.config+titleString+' widget ');
+      $('#msg3').load('/CodeIgniter/js/'+titleString+'.html?', function () {
+         $('#msg3').fadeIn('slow');
+      //});
+
+  });  
+ });
+$("#targets").hover(function(){$(this).html(menuPanel());
+});
+ 
+///// 
+
+//AJAX LOAdING
+
+$('#bulb1').click(function () {
+   ajaxName2='a';
+  $('<div id="load"> loading ....</div>').prependTo('#msg2').ajaxStart(function () {
+    $(this).show();
+  }).ajaxStop(function () {
+    // $(this).hide();
+  });
+  $('#msg2').load('/CodeIgniter/js/'+ajaxName2+'.html?', function () {
+    $(this).fadeIn('slow');
+  });
+  return false;
+});
+
+
+
+
+
+
+$('#left-menu').css({'width':'0px','display':'none'});
+$('#left').css({'width':'1100px'}).addClass('bordered, clearfix');
+$('div#pagehead-spacer').css({'height':'23px'});
+$('.span-17, .content-row').css({'width':'700px'}).addClass('bordered, clearfix');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+});   
+</script> 
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              

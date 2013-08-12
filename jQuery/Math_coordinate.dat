@@ -1,0 +1,127 @@
+ <!--
+{{feature-image:/codeigniter/images/china/beauty_10.jpg}}
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+
+
+<h2>Math coordinate.js </h2>
+
+The Closure math library provides routines for calculations and manipulation of two-dimensional positions (i.e, points on a graph represent by x,y).
+
+It is a simple class but is quite essential for graphics.
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+var p1 = new goog.math.Coordinate(5, 5);
+var p2 = new goog.math.Coordinate(10, 10);
+var d = goog.math.Coordinate.distance(p1, p2);
+var diff = goog.math.Coordinate.difference(p1,p2);
+
+log(p1.toString());
+log(p2.toString());
+log('distance ', d);
+log('difference', diff);
+
+var p1 = new goog.math.Coordinate(5, 5);
+var p2 = new goog.math.Coordinate(10, 10);
+var d = goog.math.Coordinate.distance(p1, p2);
+var diff = goog.math.Coordinate.difference(p1, p2);
+
+log(p1.toString());
+log(p2.toString());
+log('distance ', d);
+log('difference', diff);
+
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+<h3>An interesting sideline</h3>
+The class Coordinate includes a method named __squaredDistance__, which returns the squared distance between two coordinates. 
+
+Nothing spectacular about what it does, but normally if you were to compare distances of lines on a graph, you will need the square root. However, the observation made by the Google engineer was that if you only need to compare, you might as well use the square rather than the square root. There was a note in the file that this is faster and that in lower level languages one always strive to elminate square roots. He also noted that the speed difference in JavaScript is only a few percent. This got me curious and had it checked below. The speed difference actually is quite substantial (as a percentage).
+
+{{bulb: I keep reminding myself of  my dictum if you take care of the microseconds, the seconds will take care of themselves! by ... me}}
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+function square(a) {
+  var y = a * a;
+  return y;
+}
+
+function squareRoot(a) {
+  var z = Math.sqrt(a);
+  return z;
+}
+
+profiler.start();
+for (var i = 0; i < 30000; i++) {
+  var n1 = square(10);
+}
+
+profiler.stop();
+profiler.timeDiff();
+
+profiler.start();
+for (var i = 0; i < 30000; i++) {
+  var n2 = squareRoot(n1);
+}
+
+profiler.stop();
+profiler.timeDiff();
+
+
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+
+
+
+
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+                                        

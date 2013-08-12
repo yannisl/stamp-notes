@@ -1,0 +1,14 @@
+<style>
+node, leaf{border:1px solid red;min-width:20px;min-height:20px;display:block;float:left}
+
+
+</style>
+
+##Tree Structures
+
+The easiest way to think about tree data structures with JavaScript is to capitalize on the DOM! Here we have a ready made tree and hundreds of Methods to manipulate it, including animations and the like. Let us draw a tree with a list.
+
+<node>
+<leaf></leaf><leaf></leaf>
+</node> 
+  

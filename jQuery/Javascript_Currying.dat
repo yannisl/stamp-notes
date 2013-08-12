@@ -1,0 +1,208 @@
+ <!--
+{{feature-image:http://localhost/egypt/martin-schoeller/zinedine_zidane_2006.jpg}}
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+
+<h2>Currying Using Closures</h2>
+
+In mathematics and computer science, currying, invented by Moses Schonfinkel and later re-invented by Haskell Curry,[1] is the technique of transforming a function that takes multiple arguments (or more accurately an n-tuple as argument) in such a way that it can be called as a chain of functions each with a single argument.
+
+<div  class="code-block console-wrap">
+<div class="code code-block">
+<code>
+// A function that generates a new function for multiplication
+// of numbers
+
+function xy(x){
+    // Return a simple function for multiplying two numbers
+    return function (y){
+         return y/x;
+   };
+}
+
+var m = xy (5);
+var  z= m (4);
+
+log( "value of m: ",  m );
+log( "value of z: ",  z);
+</code>
+</div>
+<p id="msg1" class="msg" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+<button class="eval">Run Code!</button>
+<ol id="results"></ol> 
+
+</div>
+
+
+Currying is actually not very different from what we do when we calculate a function for some given values on a piece of paper.
+
+Take the function :
+
+{{plain:
+f(x,y) = y/x;
+}}
+
+To evaluate f(2,3), first replace x with 2.
+
+{{plain:
+This results in a new function g(y)
+f(2,y)=g(y) = y/2;
+}}
+
+Next, we replace the y argument with 3,
+
+{{plain:
+g(3) = f(2,3) = 3/2.
+}}
+
+
+
+
+
+
+
+
+<h3>Croford's Generic Curry Function</h3>
+<div  class="code-block">
+<div class="code code-block">
+<code>
+alert();
+
+function curry(func,args,space) {
+    alert('in curry');
+    var n  = func.length - args.length; //arguments still to come
+    var sa = Array.prototype.slice.apply(args); // saved accumulator array
+    function accumulator(moreArgs,sa,n) {
+        var saPrev = sa.slice(0); // to reset
+        var nPrev  = n; // to reset
+        for(var i=0;i&lt;moreArgs.length;i++,n--) {
+            sa[sa.length] = moreArgs[i];
+        }
+        if ((n-moreArgs.length)&lt;=0) {
+            var res = func.apply(space,sa);
+            // reset vars, so curried function can be applied to new params.
+            sa = saPrev;
+            n  = nPrev;
+            return res;
+        } else {
+            return function (){
+                // arguments are params, so closure bussiness is avoided.
+                return accumulator(arguments,sa.slice(0),n);
+            }
+        }
+    }
+    return accumulator([],sa,n);
+}
+
+function add (a,b,c){
+     alert('in add');
+      if (args.length &lt; this.add.length) {
+        return curry(this.add,args,this);
+      }
+      return a+b+c;
+}
+
+alert(add()(1,2,4));      // 7
+alert(add(1)(2)(5));      // 8
+alert(add(1)()(2)()(6));  // 9
+alert(add(1,2,7,8));      // 10
+
+
+</code>
+</div>
+<p id="msg1" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+<button class="eval">Run Code!</button>
+<ol class="results1" style="margin-top:8px"></ol> 
+</div>
+</code>
+
+##Further Reading
+
+http://www.crockford.com/javascript/www_svendtofte_com/code/curried_javascript/index.html
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+$('button.eval').click(function(){
+   var code=$(this).siblings('.code').text();
+   eval(code);
+});
+
+
+
+$(".input").keyup(function(){
+    var pattern=$(this).siblings('.regex').val(); 
+    var str=$(this).val();
+     s=isValid(str,pattern);
+    //alert(str);
+     $(this).siblings('.msg').text(s);
+});
+
+$(".regex").keyup(function(){
+    var str=$(this).siblings('.input').val();
+    var pattern=$(this).val();
+     s=isValid(str,pattern);
+     $(this).siblings('.msg').text(s);
+    // alert(pattern);
+});
+
+
+
+function error(msg){
+  jQuery("#results").append("<li class='error'><b>ERROR</b> " + msg + "</li>");
+}
+function log(){
+  var msg = "";
+  for ( var i = 0; i < arguments.length; i++ ) {
+    msg += " " + arguments[i];
+  }
+  jQuery("#results").append("<li class='LOG'><b>LOG</b> " + msg + "</li>");
+}
+
+function assert(pass, msg){
+var type = pass ? "PASS" : "FAIL";
+$(".results1").append('<li class=" ' + type + ' "><b>' + type + "</b> " 
+         + msg + "</li>");
+
+}
+
+
+});
+
+function isValid(str,pattern){
+    s=pattern;//alert(s);
+   var dateformat =new RegExp(pattern,'msi');
+    //alert(dateformat);
+   return dateformat.test(str);
+}
+
+//change to pass regex
+//must do to make more general solution
+
+
+ </script>
+
+
+
+  
+  
+
+
+
+
+
+
+
+  

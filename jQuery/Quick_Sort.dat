@@ -1,0 +1,140 @@
+ <!--
+{{feature: .. A discussion of bubble sort with warnings that the performance
+is bad and the code isn't simple (arguably) is like
+telling someone "don't think about pink elephants. <a href="http://www.cs.duke.edu/~ola/papers/bubble.pdf">Owen Astrachan</a> }}
+{{feature-image: http://localhost/egypt/elliott-erwitt/EE-1150.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<h2>Quick Sort </h2>
+
+Quicksort is a well-known sorting algorithm developed by C. A. R. Hoare that, on average, makes &Theta;(nlogn) (big O notation) comparisons to sort n items. In the worst case, it makes &Theta;(n2) comparisons, though if implemented correctly this behavior is rare. Typically, quicksort is significantly faster in practice than other &Theta;(nlogn) algorithms, because its inner loop can be efficiently implemented on most architectures, and in most real-world data, it is possible to make design choices which minimize the probability of requiring quadratic time.
+
+Quicksort (also known as "partition-exchange sort") is a comparison sort and, in efficient implementations, is not a stable sort.
+
+
+<div  class="code-block console-wrap">
+<div class="code code-block">
+<code>
+data = [-900, 21, 1, 1000, 5, 6, 7, 800, 9, 11, 14, 35, 67, 0];
+
+function quicksort(a, lo, hi, N)
+// sort a[lo..hi]
+{
+  if (hi > lo) // i.e. at least 2 elements, then
+  {
+    var left = lo,
+    right = hi,
+    median = a[lo]; // partition a[lo..hi]
+    while (right >= left)
+    // a[lo..left-1] <= median and a[right+1..hi] >= median
+    {
+      while (a[left] < median) left++;
+      // a[left] >= median
+      while (a[right] > median) right--;
+      // a[left] >= median >= a[right]
+      if (left > right) break;
+
+      var temp = a[left];
+      a[left] = a[right];
+      a[right] = temp; //swap
+      left++;
+      right--
+    }
+    // a[lo..left-1] <= median and a[right+1..hi] >= median and left > right
+    var i, line = '';
+    for (i = 1; i <= N; i++) // trace the steps
+    {
+      if (i == lo) line += '[';
+      line += a[i];
+      if (i == hi) line += ']';
+      else line += ' ';
+    }
+    document.sortForm.trace.value += line + '\n';
+
+    quicksort(a, lo, right, N); // sort the small elements divide and conquer
+    quicksort(a, left, hi, N);
+  }
+} //quicksort
+function quick(a, N)
+// sort a[1..N],  N.B. 1 to N
+{
+  quicksort(a, 1, N, N);
+}
+
+function sortDr()  {
+  var inStr = document.sortForm.inp.value;
+  var a = new Array();
+  var n = 0;
+  document.sortForm.opt.value = '';
+  document.sortForm.trace.value = '';
+  var i = 0;
+  while (i < inStr.length) {
+    while (i < inStr.length && inStr.charAt(i) == ' ') i++;
+    if (i < inStr.length) {
+      var j = i;
+      while (j < inStr.length && inStr.charAt(j) != ' ') j++;
+      n++;
+      a[n] = new Number(inStr.substring(i, j)) - 0;
+      i = j;
+    }
+  }
+
+  quick(a, n); // sort the array 'a'
+  for (i = 1; i <= n; i++) // show the results
+  document.sortForm.opt.value += a[i] + ' ';
+}
+</code>
+</div>
+<div class="sandbox">
+<form name="sortForm">
+
+<INPUT TYPE="text" NAME="inp" SIZE=50 VALUE=" -900 21  1 1000 5 6 7 800 9 11 14 35 67 0  "> 
+<INPUT TYPE="button" VALUE="go" ONCLICK="sortDr();"><BR> 
+output:<INPUT TYPE="text" NAME="opt" SIZE=50><BR> 
+trace:&nbsp;&nbsp;<TEXTAREA ROWS=10 COLS=50 NAME="trace"></TEXTAREA> 
+</FORM><BR CLEAR="all"> 
+</div>
+
+<div  id="msg" class="msg" >
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+To summarize Quicksort is a divide and conquer algorithm which relies on a partition operation: to partition an array, we choose an element, called a __pivot__, move all smaller elements before the pivot, and move all greater elements after it. This can be done efficiently in linear time and in-place. We then recursively sort the lesser and greater sublists. Efficient implementations of quicksort (with in-place partitioning) are typically unstable sorts and somewhat complex, but are among the fastest sorting algorithms in practice. 
+
+Together with its modest O(log n) space usage, this makes quicksort one of the most popular sorting algorithms, available in many standard libraries. The most complex issue in quicksort is choosing a good pivot element; consistently poor choices of pivots can result in drastically slower O(n<sub>2</sub>) performance, but if at each step we choose the median as the pivot then it works in O(n log n). 
+
+{{bulb:Finding the median, however, is an O(n) operation on unsorted lists, and therefore exacts its own penalty.}}
+
+
+
+In any case in  practical situations the best sort to use is the
+one provided by the standard (e.g., Python, Java, C, or C++)
+libraries. However, we study sorts because general sorts
+do not work in all situations and because sorting is a
+simple illustration of algorithmic techniques. JavaScript provides a built-in method for sorting arrays and you can find more about it in ['Sorting Arrays in Javascript'](http://127.0.0.1/CodeIgniter/index.php/Blogs/tutorials/jQuery/Array_sort).
+
+
+
+ 
+<h3>Credits</h3>
+The code shown above has been adapted from [Monash](http://www.csse.monash.edu.au/~lloyd/tildeAlgDS/Sort/Quick/)
+
+  
+  
+
+
+
+
+
+
+
+                                                            

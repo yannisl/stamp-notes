@@ -1,0 +1,76 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+{{feature-image:http://localhost/egypt/CMS/accordion.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+	
+##Handling Documents
+
+In this tutorial we will explore the __Document__ object. The __Document__ object can be used to manipulate (X)HTML documents within a window or frame. We will begin by studying the __Document__ object properties and methods, common to all browsers.
+
+But first, let us create a small DOMPropertyInspector function and view some of the __document__ properties. It is better to always refer to window.document rather than just document.
+
+After you run the example below, change the object from __document.location__ to just __document__  to see all the properties that you have at your disposal - they are really a lot . In Chrome (including properties set by jQuery) I counted 141. Sure there is a problem in remembering all these!
+
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+function DOMPropertyInspector(obj) {
+  var D = $A();
+  for (var prop in obj) {
+    D.push(prop);
+  }
+  D.sort();
+  for (var i = 1; i < D.length; i++) {
+    log(i, D[i]);
+  };
+}
+
+DOMPropertyInspector(document);
+
+</code>
+
+</div>
+<div  id="msg" class="msg" style="white-space:pre;font-family:monospace;line-height:1.3">
+</div>
+<div class="console"> </div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<h3>Basic Document Methods</h3>
+Historically, the Document object supported five methods for controlling output to the document: __clear()__, __close()__, __open()__, __write()__ and __writeln()__. You shouldn't need to use any of them, but rather use a library's methods to write to elements. I mentioned them here, in the unlike event you may want to use them when opening a new window (but remeber, pop-ups are not a good idea, they were left behind about 10 years ago!
+
+<h3>Traditional HTML Element Access within Document</h3>
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+function showAllLinks() {
+  return document.links;
+}
+
+var z = showAllLinks();
+log(z);
+assert(z == '[object HTMLCollection]', 'object is HTMLCollection');
+log(z[10])
+</code>
+
+</div>
+<div  class="msg" class="msg" style="white-space:pre;font-family:monospace;line-height:1.3">
+</div>
+<div class="console"> </div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+
+
+

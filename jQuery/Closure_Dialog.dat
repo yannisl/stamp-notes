@@ -1,0 +1,147 @@
+      
+<!--
+ directives
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{feature-image:/codeigniter/images/china/beauty_07.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<script type="text/javascript"> 
+   goog.require('goog.ui.Dialog');
+   goog.require('goog.ui.Prompt');
+</script>
+ 
+
+<h3>Google's Closure Dialogs</h3>
+
+Closure's Dialogs are replacements for JavaScript's alert() and prompt(). They are to say the least cumbersome to set-up and you also need to watch your CSS, in order for them to perform properly. 
+
+My own view is that jQuery's UI dialogs are much superior and easier to set-up.  Applications do use a number of dialogs and my suggestion in such a case is that you do collect them in a separate file to make their management easier.
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+
+goog.events.listen(document, goog.events.EventType.KEYDOWN, function(e) {
+      if (goog.dom.$('openOnKeyDown').checked) {
+        var code = e.keyCode;
+        switch (code) {
+          case goog.events.KeyCodes.MAC_ENTER:
+          case goog.events.KeyCodes.ENTER:
+            dialog1.setVisible(true);
+            break;
+          case goog.events.KeyCodes.SPACE:
+            dialog2.setVisible(true);
+            break;
+          default:
+            // no-op
+        }
+      }
+    });
+ 
+    var dialog1 = new goog.ui.Dialog();
+    dialog1.setContent('<img src="/codeigniter/images/angela.jpg" ' +  'width="400" height="255"'+ '>' +
+        'Lorem ipsum dolor sit amet, consectetuer' +
+        'adipiscing elit. Aenean sollicitudin ultrices urna. Proin vehicula ' +
+        'mauris ac est. Ut scelerisque, risus ut facilisis dictum, est massa ' +
+        'lacinia lorem, in fermentum purus ligula quis nunc. Duis porttitor ' +
+        'euismod risus. Nam hendrerit lacus vehicula augue. Duis ante.');
+    dialog1.setTitle('My favorite LOLCat');
+ 
+    dialog1.setButtonSet(goog.ui.Dialog.ButtonSet.CONTINUE_SAVE_CANCEL);
+ 
+    goog.events.listen(dialog1, goog.ui.Dialog.EventType.SELECT, function(e) {
+      log('You chose: ' + e.key);
+    });
+ 
+ 
+    var dialog2 = new goog.ui.Dialog(null, true);
+    dialog2.setContent('Some windowed elements leak through standard divs so ' +
+        'we add an iframe to mask the nasties.');
+    dialog2.setTitle('I have an Iframe mask :)');
+ 
+    dialog2.setButtonSet(goog.ui.Dialog.ButtonSet.YES_NO_CANCEL);
+ 
+    goog.events.listen(dialog2, goog.ui.Dialog.EventType.SELECT, function(e) {
+      log('You chose: ' + e.key);
+    });
+ 
+    goog.events.listen(window, 'unload', function() {
+      goog.events.removeAll();
+    });
+
+$(document).ready(function(){
+ alert();
+	$.ui.dialog.defaults.bgiframe = true;
+	$(function() {
+		$("#dialog").dialog();
+	});
+});
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="sandbox-console">
+ 
+<BUTTON onclick="dialog1.setVisible(true)"> 
+    Open Dialog (no Iframe)</BUTTON> 
+
+<BUTTON onclick="dialog2.setVisible(true)"> 
+    Open Dialog (w/ Iframe mask)
+</BUTTON> 
+<hr/>
+<INPUT id="openOnKeyDown" type="checkbox"> 
+<LABEL>Enable open on keydown</LABEL> 
+<SPAN style="font-size;small">(use "Space" to open dialog with no Iframe, "Enter" to open with Iframe
+  mask</SPAN>
+</div>
+
+<div id="log" class="console" style="white-space:pre"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<div>
+
+
+
+
+<div class="demo">
+<div id="dialog" class="hiddenInViewSource" style="padding:20px;">
+<p>Sed vel diam id libero <a href="http://example.com/">rutrum convallis</a>. Donec aliquet leo vel magna. Phasellus rhoncus faucibus ante. Etiam bibendum, enim faucibus aliquet rhoncus, arcu felis ultricies neque, sit amet auctor elit eros a lectus.</p>
+<form>
+	<input value="text input"><br>
+	<input type="checkbox">checkbox<br>
+	<input type="radio">radio<br>
+	<select>
+		<option>select</option>
+	</select><br><br>
+	<textarea>textarea</textarea><br>
+</form>
+</div><!-- End sample page content -->
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+<script type="text/javascript">
+
+<script>
+</div>
+
+
+  
+  
+
+
+
+
+
+
+
+                                                                                                                                              

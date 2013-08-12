@@ -1,0 +1,303 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<style type="text/css">
+.code{margin:0;padding-top:0}
+.code-block{                        background:url(http://localhost/codeigniter/images/code-bg.gif);
+margin:0;padding:0}
+.code-block .code{white-space:pre;padding:0;margin:0}
+.highlight{background:yellow}
+</style>
+
+<h2>Calculating Pi using the Spigot Algorithm</h2>
+Rabinowitz and Wagon [1] present a <q>remarkable</q> algorithm for computing the decimal digits of p, based on the expansion:
+
+<img src="http://localhost/codeigniter/images/spigot_formula.png" />
+Their algorithm uses only bounded integer arithmetic, and is surprisingly efficient. Moreover, it admits extremely concise implementations.
+
+Modifications to this formula and an implementation in Haskell was presented by [2].
+
+<div class="code-block">
+<div class="code"></code>
+
+<script  type="text/javascript">
+// compute ...
+function compute()
+{
+    var pi = Math.PI;
+ 
+    calc.float4.value = frealstr(pi, 15);
+    digits = parseInt(calc.digits.value, 10);
+    if (isNaN(digits)||(digits < 1))
+    {
+        $('#msg').text("Invalid input!");
+        return;
+    }
+ 
+    // ensure digits modulo 4 
+    if (digits % 4)
+        digits = digits + (4 - (digits % 4));
+ 
+    // print results
+    open_window("pi digits");
+    msgWindow.document.writeln("pi = ");
+    pi_generator(digits);
+    msgWindow.document.writeln("");
+    close_window();
+}
+ 
+// format an integer
+function cintstr( num, width )
+{
+    var str = num.toString(10);
+    var len = str.length;
+    var intgr = "";
+    var i;
+ 
+    // append leading spaces
+    for (i = 0; i < width - len; i++)
+        intgr += ' ';
+ 
+    // append digits
+    for (i = 0; i < len; i++)
+        intgr += str.charAt(i);
+ 
+    return intgr;
+}
+ 
+// format a positive integer with leading zeroes
+function zintstr( num, width )
+{
+    var str = num.toString(10);
+    var len = str.length;
+    var intgr = " ";
+    var i;
+     // append leading spaces
+    for (i = 0; i < width - len; i++)
+        intgr += '0';
+     // append digits
+    for (i = 0; i < len; i++)
+        intgr += str.charAt(i);
+     return intgr;
+}
+ 
+function frealstr( realnum, precision )
+{
+    return realnum.toPrecision(precision);
+}
+ 
+function pi_generator( digits )
+{
+    var size = Math.floor(digits*14/4);
+    var x = "";
+    var a, b, c, d, e, g, n, m;
+    var f = new Array(size + 1);
+    
+    a = 10000;
+    b = 1;
+    c = size;
+    e = 0;
+ 
+    while (b != c)                          // init array
+    {
+        f[b] = Math.floor(a/5);
+        b++;
+    } 
+    f[c] = 0;
+ 
+    m = 0;                                  // init digit counter
+    msgWindow.document.write(cintstr(4*m,8) + ": ");
+    
+    while (c > 0)                           // start algorithm
+    {
+        g = 2*c;
+        d = 0;
+        b = c;
+        while (b > 0)                       // inner loop
+        {
+            d = d + f[b]*a;
+            g = g - 1;
+            f[b] = d % g;
+            d = Math.floor(d/g);
+            g = g - 1;
+            b = b - 1;                      // decrement inner loop counter
+            if (b != 0)
+                d = d*b;
+        }
+        c = c - 14;                         // decrement outer loop counter
+ 
+        // output four digits
+        x = zintstr(e + Math.floor(d/a), 4);           
+        msgWindow.document.write(x);
+ 
+        m++;                                // increment digit counter
+        if (m % 10 == 0)                    // start new line
+        {
+            msgWindow.document.writeln("");
+            msgWindow.document.write(cintstr(4*m,8) + ": ");
+        }
+        e = d % a;
+    }
+}
+ 
+ 
+// opens a separate browser window
+function open_window( name )
+{
+    msgWindow = window.open("","msgWindow","toolbar=no,status=no,menubar=yes,scrollbars=yes,width=550,height=400,resizable=yes");
+    msgWindow.document.open();
+    msgWindow.document.writeln("<html><head><title>" + name + "</title></head>");
+    msgWindow.document.writeln("<body>");
+    msgWindow.document.writeln("<pre>");
+}
+ 
+// closes a separate browser window
+function close_window()
+{
+    msgWindow.document.writeln("<p>");
+    msgWindow.document.writeln("All done!");
+    msgWindow.document.writeln("</pre>");
+    msgWindow.document.writeln("</body></html>");
+    msgWindow.document.close();
+}
+
+</script>
+
+</div>
+<center> 
+<form name=calc> 
+<table border=1 cellspacing=0 bordercolor=darkblue frame=border rules=rows> 
+<tr><td align=right>digits =     <td><INPUT size=20 maxLength=20 name=digits> 
+<tr><td align=right><b>&pi; =</b><td><INPUT size=20 maxLength=20 name=float4 readonly> 
+</table> 
+</form> 
+<INPUT onclick=compute(); type=button value=Compute> 
+<p> 
+</center> 
+<hr> 
+<p id="msg"></p>
+</div>
+
+
+<h2>Archimedes' Constant, &#960;</h2>
+
+A procedure based on integer arithmetic for calculating the value of &#960; to a large number digits, known as the spigot algorithm, was first published by Rabinowitz and Wagon [1]. A spigot algorithm produces its outputs incrementally, and does not reuse them after producing them. The algorithm uses only bounded integer arithmetic, is efficient, and allows concise implementations.
+<div>
+<img src="http://localhost/codeigniter/images/spigot_formula.png" />
+</div>
+The execution time of the algorithm grows with order N2. The number of executions of its innermost loop is given by:
+
+7·(N/4)·[(N/4) + 1]
+
+where N is the number of digits generated by the algorithm.
+
+References
+
+[1] A spigot algorithm for the Digits of &#960;, Stanley Rabinowitz and Stan Wagon, Am. Math. Monthly, March 1995, 195-203
+
+<h2>An inefficient way of calculating PI</h2>
+
+In another article I have used the Leibniz formula for pi, in order to demonstrate, javascript's background methods using 'workers'.
+<div>
+<img src="http://localhost/codeigniter/images/leibniz_formula_01.png" />
+</div>
+In mathematics, the Leibniz formula for &#960;, named after Gottfried Leibniz, states that:
+<div>
+<img src="http://localhost/codeigniter/images/leibniz_formula_02.png" />
+</div>
+
+The expression on the left is an infinite series called the Leibniz series, which converges to &#960; &#8260; 4. It is also called the Gregory–Leibniz series, recognizing the work of Leibniz' contemporary James Gregory. Using summation notation:
+
+The formula was first discovered in the 15th century by Madhava of Sangamagrama, an Indian mathematician and founder of the Kerala school of astronomy and mathematics, some 300 years before Leibniz. In recognition of Madhava's work, the formula is sometimes known as the Madhava–Leibniz series.[1][2] Naming the formula solely after Leibniz is an example of Stigler's Law.
+
+<div  class="code-block">
+<div class="code code-block">
+<code>
+
+var i=0;var t1=0;t2=0;var s='';var sum=0;;
+<span class="highlight"> do </span>{
+     t1=Math.pow(-1,i);
+     t2=2*i+1;
+     sum+=t1/t2;
+     i++;
+ } <span class="highlight">while</span> (i<5000000);
+ var pi=sum*4;
+s=t1+'  '+t2+'   '+pi;
+$('#msg1').text(s);
+</code>
+</div>
+<p id="msg1" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+<button class="eval">Run Code!</button>
+</div>
+</code>
+
+For example, taking 5,000,000 terms yields
+3.141592<span class="highlight">4</span>535897932384646433832795027841971693993873058...
+where the underlined digits are wrong. The errors can in fact be predicted; they are generated by the Euler numbers En according to the asymptotic formula
+
+Additional errors can be introduced with floating numbers see:
+http://docs.sun.com/source/806-3568/ncg_goldberg.html
+
+For javascript specific problems with numbers see also the num object article.
+
+
+##Further Reading
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+$('button.eval').click(function(){
+   var code=$(this).siblings('.code').text();
+   eval(code);
+});
+
+
+
+$(".input").keyup(function(){
+    var pattern=$(this).siblings('.regex').val(); 
+    var str=$(this).val();
+     s=isValid(str,pattern);
+    //alert(str);
+     $(this).siblings('.msg').text(s);
+});
+
+$(".regex").keyup(function(){
+    var str=$(this).siblings('.input').val();
+    var pattern=$(this).val();
+     s=isValid(str,pattern);
+     $(this).siblings('.msg').text(s);
+    // alert(pattern);
+});
+});
+
+function isValid(str,pattern){
+    s=pattern;//alert(s);
+   var dateformat =new RegExp(pattern,'msi');
+    //alert(dateformat);
+   return dateformat.test(str);
+}
+
+//change to pass regex
+//must do to make more general solution
+ </script>
+
+
+
+  
+  
+
+
+
+
+
+
+

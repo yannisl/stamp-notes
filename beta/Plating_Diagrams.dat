@@ -1,56 +1,74 @@
 \chapter{Plating Diagrams}
 
-One of the aims of the TeXifier was to try and simplify the creation of complicated
-tables. For example the code shown below can be used to produce the Table in figure 1.
+One of the aims of the \verb++   \TeXifier\ldots \i \am \the\best  <html> ++ was to try and simplify the creation of complicated
+tables. 
 
-\codeblocks
+
+the Table in figure 1. \verb++ test ++ and another \verb++ TESTSTT++
+
+\begin{verbatim}
  
  \plate{6}{10}{c,b,c,c,c,7,
-              b,b,a,c,d,c,
-              a,c,c,a,a,c,
-              d,c,a,d,c,d,
-              b,b,a,c,d,c,
-              a,c,c,a,a,c,
-              d,c,a,d,c,d,
-              b,b,a,c,d,c,
-              a,c,c,a,a,c,
-              d,c,a,d,c,jj,
-              }
+               d,d,d,d,d,d}
     //test is this              
     
     <b>test</b>   
     <h1>This is another one\pound </h1>
-\endcodeblocks
+    
+\end{verbatim}
 
 
 \begin{figure}
 
-\plate{6}{10}{c,b,c,c,c,7,
-              b,b,a,c,d,c,
-              a,c,c,a,a,c,
-              d,c,a,d,c,d,
-              b,b,a,c,d,c,
-              a,c,c,a,a,c,
-              d,c,a,d,c,d,
-              b,b,a,c,d,c,
-              a,c,c,a,a,c,
-              d,c,a,d,c,jj,
-              }
+ \plate{6}{10}{c,b,c,c,c,7, b,b,a,c,d,c,a,c,
+ c,a,a,c,d,c,a,d,c,d,b,b,a,c,d,c,a,c,c,a,a,c,d,c,a,d,c,d,b,b,a,c,d,c,a,c,c,a,a,c,d,c,a,d,c,jj,}
               
-    \caption{A Plating diagram} 
+ \caption{A Plating diagram} 
     
 \end{figure}
 
-\begin{jscodeblock}
+
+
+
+\begin{verbatim}
 
 a = "Test";
 
 log('a');
 
 
-\end{jscodeblock}
+\end{verbatim}
 
 
+
+\blue{test} and something \red{testing}  This is a 
+\purple{testing colored span and something}
+
+
+This is \verb + another test +
+
+\codeblock
+ TESTING
+\endcodeblock
+
+
+\begin{verbatim}
+
+a = "Test";
+
+log('a');
+
+
+\end{verbatim}
+
+\begin{verbatim}
+
+a = "Test";
+
+log('a');
+
+
+\end{verbatim}
 
 
 

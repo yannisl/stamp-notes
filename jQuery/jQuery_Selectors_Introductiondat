@@ -1,0 +1,459 @@
+ <!--
+{{feature: Shakespeare had it at least half right when he said, Neither a borrower nor a lender be.}}
+{{feature-image:http://localhost/CodeIgniter/images/run_time_error.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: UI, jQuery, Visibility Filters, CSS Visibility }}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<style>.firstHeading{background-color:rgb(239,239,239)}
+div.test  {  }
+#test{}
+#cbutton1{}
+ div.ex2 { width:50px; height:50px; margin:5px; border:2px outset blue; float:left; }
+
+  .starhidden { display:none; }
+</style>
+
+
+
+
+
+<h1 id="firstHeading" class="firstHeading" style="background-color: rgb(239, 239, 239)">
+jQuery Selectors Introduction
+</h1>
+jQuery has an enormous ability to identify DOM elements using selectors. If you know CSS, you know selectors. Here is some examples.
+
+{{example:
+<h4>Selecting Classes and Id's</h4>
+<div class="wrappertest">
+<div class="test" rel="test">&lt;div class="test"&gt;&lt;/div></div>
+<div class="test">&lt;div class="test"&gt;&lt;/div></div>
+<div class="test red">&lt;div class="test red"&gt;&lt;/div></div>
+<div class="test red bordered">&lt;div class="test red bordered"&gt;&lt;/div></div>
+
+<div id="test">&lt;div id="test"&gt;&lt;/div></div>
+</div>
+
+<hr/>
+ <button id="cbutton" style="clear:both">$('.test') </button>
+<button id="cbutton1" style="clear:both">$('#test') </button>
+<button id="cbutton2" style="clear:both">$('#test, .test') </button>
+<button id="cbutton3" style="clear:both">$('.test.red') </button>
+<button id="cbutton4" style="clear:both">$('.test.red.bordered') </button>
+<button id="cbutton5" style="clear:both" title="Select all divs with a rel attribute with a value beginning with t">$('div[rel^=t]') </button>
+<button id="cbutton6" style="clear:both" title="Select all divs with a rel attribute with a value beginning with t">Reset </button>
+
+
+}}
+
+<hr/>
+
+<h2>More Advanced Selectors</h2>
+jQuery provides for the selection of elements based on their attribute name, i.e. for a typical element we can look for 'rel', 'alt' and the like. Since it is very similar
+to XPath it can essentially capture any attribute name you may wish to place. 
+
+Let us do an experiment, let us create an attribute with the name <strong>code</strong> and let us hide some code in it and execute it when we select it! I can see you smiling already but I am ... serious! Try it below:
+
+{{example:
+<h4>Selecting Classes and Id's</h4>
+<div class="wrappertest">
+<div id="code" code="alert('I am here')">&lt;div id="code" code="alert('I am here')"&gt;&lt;/div></div>
+<div id="code" code="alert('I am here')">&lt;div id="code" code="alert('I am here')"&gt;&lt;/div></div>
+</div>
+
+<hr/>
+ <button id="cbutton7" style="clear:both">Select all with attribute code! </button>
+
+}}
+
+Let us now see what we have managed to cook.
+
+{{plain:
+ $("#cbutton7").toggle(
+      function () &#123;
+        $('div[code^=al]').css(&#123;"background":"yellow", "color":"blue",
+                                                               "border":"1px solid #bebebe"&#125;);
+       var z=$('div[code^=al]').attr('code'); eval(z);
+      &#125;,
+      function () {
+        $('div[code^=al]').css(&#123;"background":"none", "color":"red",
+                                                               "border":"none"&#125;);
+    
+}}
+
+As you can see, after selecting the <em>div</em> with a <em>code="alert('...')"</em> attribute starting from al we execute the javascript using the bad bad <em>eval()</em>. Before you say it, I know it is better rather to capture the element &lh;code&gt; rather than hiding things and breaking standards, but it was just in a way of illustration. jQuery tends to stretch one's imagination. How to do something with minimal effort! 
+
+<h2>Calculating the  Solar Constant and Extraterrestrial Solar Radiation</h2>
+
+The solar constant <it>E<sub>sc</sub></it> is defined as the intensity of solar radiation
+on a surface normal to the sun's rays, just beyond the earth's
+atmosphere, at the average earth-sun distance.
+
+ One frequently used
+value is that proposed by the World Meteorological Organization in
+1981, Esc = 1367 W/m2 (Iqbal 1983).
+
+Because the earth's orbit is slightly elliptical, the extraterrestrial
+radiant flux Eo varies throughout the year, reaching a maximum
+of 1412 W/m2 near the beginning of January, when the earth
+is closest to the sun (aphelion) and a minimum of 1322 W/m<sup>2</sup> near
+the beginning of July, when the earth is farthest from the sun (perihelion).
+
+Extraterrestrial solar irradiance incident on a surface normal
+to the sun's ray can be approximated with the following
+equation:
+
+<img src="http://localhost/CodeIgniter/images/ashrae/radiance.jpg"  style="margin:0 auto"/>
+
+where <it>n</it> is the day of year (1 for January 1, 32 for February 1, etc.)
+and the argument inside the cosine is in degrees. 
+
+{{example:
+<form>
+<label>Day of the Year</label>
+<input type="text" id="solar" name="solar" value="21"></input>
+
+<p id="result">Result will be shown here</p>
+</form>
+}}
+
+This calculation the first of many is not exactly done by wolframalpha.com, but we start to warming-up for more complicate stuff.
+
+To capture the input box we can use its id, or one of many methods.
+
+<h2>Equation of Time and Solar Time</h2>
+
+The earth's orbital velocity also varies throughout the year, so
+apparent solar time (AST), as determined by a solar time sundial,
+varies somewhat from the mean time kept by a clock running at a
+uniform rate. This variation is called the equation of time (ET) and
+is approximated by the following formula (Iqbal 1983):
+
+ET = 2.2918(0.0075 + 0.1868 cos(&#915;) - 3.2077 sin(&#915;)
+- 1.4615 cos(2&#915;) - 4.089 sin(2&#915;) 
+
+with ET expressed in minutes and
+
+<img src="http://localhost/CodeIgniter/images/ashrae/ET.jpg"  style="margin:0 auto"/>
+
+ET, here is the Equation of Time, not the ET we had in movies!
+
+Now let us see the calculation:
+
+{{example:
+<img src="http://localhost/codeigniter/images/ashrae/et_graph.png" style="float:left;width:35%" />
+<form>
+<label>Day of the Year</label>
+<input type="text" id="solar1" name="solar" value="21"></input>
+
+<p id="result1">Result will be shown here</p>
+</form>
+}}
+
+This is a typical example of problems in obtaining information. First I had the ASHRAE handbook. The equation shown there had a missing bracket and threw me out for about an hour. Then Wikipedia had another approximation. Lastly I got the following formula which was on the NOAA government website with a nice download file. I could still not sure what is a fractional year. I guess if it is a leap year I need to add 1 hour per year?
+http://www.srrb.noaa.gov/highlights/sunrise/solareqns.PDF
+
+The results came very close to those calculated in ASHRAE as well as online nooa calculator. The NOOA also include a download with more accurate equations and I guess one can go on at least to a better understanding of the problem.
+
+You can also find further references here : http://answers.google.com/answers/threadview/id/782886.html
+
+{{plain:
+<h4>Equation of Time</h4>
+(All values in radians, ET in minutes)
+// Equation of Time
+// Calculations based on nooa formulae
+function ET(n)&lt;
+  var dayOfYear=parseFloat(n);
+  var hour=24;
+  var Gamma=(((2*Math.PI)/365)*(dayOfYear-1+((hour-12)/24)));
+  var ET=229.18*(0.000075+0.001868*Math.cos(Gamma)
+                                 -0.032077*Math.sin(Gamma)
+                                 -0.014615*Math.cos(2*Gamma)
+                                 -0.040849*Math.sin(2*Gamma));
+   return ET;
+&#125;
+}}
+
+<h2>The Declination Angle </h2>
+
+The plane that includes the earth 's equator is called the equatorial plane. If a line is drawn between the center of the earth and the sun, the angle between this line and the earth's equatorial plane is called the declination angle , as depicted in Figure 3.5. At the time of year when the northern part of the earth's rotational axis is inclined toward the sun, the earth 's equatorial plane is inclined 23.45 degrees to the earth-sun line. At this time (about June 21), we observe that the noontime sun is at its highest point in the sky and the declination angle  = +23.45 degrees. We call this condition the summer solstice, and it marks the beginning of summer in the Northern Hemisphere.
+<img src="http://localhost/CodeIgniter/images/ashrae/declination.jpg"  style="margin:0 auto;width:60%"/>
+(from http://www.powerfromthesun.net/chapter3/Chapter3Word.htm#Solar Time)
+As the earth continues its yearly orbit about the sun, a point is reached about 3 months later where a line from the earth to the sun lies on the equatorial plane. At this point an observer on the equator would observe that the sun was directly overhead at noontime. 
+
+<div style="width:40%;float:left">
+<img src="http://localhost/CodeIgniter/images/ashrae/ChichenItzaEquinox.jpg"  style="margin:0 auto;width:97%"/>
+The equinox at {{wi: Chicken_Itza}} (Descent of the Snake)</div>
+
+
+
+This condition is called an {{wi:equinox}} since anywhere on the earth, the time during which the sun is visible (daytime) is exactly 12 hours and the time when it is not visible (nighttime) is 12 hours. There are two such conditions during a year; the autumnal equinox on about September 23, marking the start of the fall; and the vernal equinox on about March 22, marking the beginning of spring. At the equinoxes, the declination angle  is zero. The declination angle is set to change slowly over the years and is purported to be one of the causes of Ice Ages.
+
+<img src="http://localhost/CodeIgniter/images/ashrae/declination_angle.jpg"  style="margin:0 auto;width:60%"/>
+
+
+<h2>True Solar Time</h2>
+Next, the true solar time is calculated in the following two equations. First the time offset is found, in minutes, and then the true solar time, in minutes.
+
+time_ offset = ET - 4 *longitude + 60*timezone
+
+where eqtime is in minutes, longitude is in degrees, timezone is in hours from UTC (Mountain Standard Time = +7 hours).
+
+tst = hr *60 + mn + sc / 60 + time_ offset
+
+where hr is the hour (0 - 23), mn is the minute (0 - 60), sc is the second (0 - 60).
+
+The solar hour angle, in degrees, is:
+
+ha = (tst / 4) - 180
+
+Obviously we now have to cater for more user inputs. The one is longitude (we will also capture latitude for further on) and the timezone.
+
+Once we calculate the time offset, we will then determine the true solar time and the solar hour angle. More about these definitions later.
+
+The conversion between local standard time and solar time
+involves two steps: the equation of time is added to the local standard
+time, and then a longitude correction is added. This longitude
+correction is four minutes of time per degree difference between the
+local (site) longitude and the longitude of the local standard
+meridian (LSM) for that time zone; hence, AST is related to the
+local standard time (LST) as follows:
+
+AST = LST + ET/60 + (LON - LSM)/15
+LST = local standard time, decimal hours
+ET = equation of time in minutes, from Table 2 or Equation (5)
+LSM = longitude of local standard time meridian, &#deg;E of Greenwich
+(negative in western hemisphere)
+LON = longitude of site,  &#deg;E of Greenwich
+
+Most standard {{wi:meridians}} are found every 15° from 0° at Greenwich,
+U.K., with a few exceptions, such as the province of Newfoundland
+in Canada. 
+
+Standard meridian longitude is related to time
+zone as follows:
+
+{{plain:
+LSM = 15TZ 
+}}
+
+where TZ is the time zone, expressed in hours ahead or behind coordinated
+universal time (UTC). 
+
+TZ is listed for each station on the
+CD-ROM accompanying this book. Table 3 lists time zones and
+standard time meridians for the United States and Canada.
+
+If daylight saving time (DST) is to be used, rather than local
+standard time, an additional correction has to be performed. In most
+locales, local standard time can be obtained from daylight savings
+time by subtracting one hour:
+
+{{plain:
+LST = DST - 1 
+}}
+
+where DST is in decimal hours.
+
+<h3>Sun Position</h3>
+The sun's position in the sky is conveniently expressed in terms
+of the solar altitude above the horizontal and the solar azimuth measured
+from the south (see Figure 3).
+the solar altitude above the horizontal and the solar azimuth measured
+from the south (see Figure 3). 
+<div style="width:80%;float:left">
+<img src="http://localhost/CodeIgniter/images/ashrae/solar_angles.jpg"  style="margin:0 auto;width:97%"/>
+Solar Angles (courtesy ASHRAE Book of Fundamentals</div>
+
+The solar altitude angle &#946; is
+defined as the angle between the horizontal plane and a line emanating
+from the sun. Its value ranges from 0° when the sun is on the
+horizon, to 90° if the sun is directly overhead. Negative values
+correspond to night times. 
+
+The solar azimuth angle &#966; is defined as
+angular displacement from south of the projection, on the horizontal
+plane, of the earth-sun line. By convention, it is counted positive for
+afternoon hours and negative for morning hours.
+
+Solar altitude and azimuth angles, in turn, depend on the local
+latitude L (°N, negative in the southern hemisphere); the solar declination
+&#948;, which is a function of the date [see Table 2 or Equation
+(10)]; and the hour angle H, defined as the angular displacement of
+the sun east or west of the local meridian due to the rotation of the
+earth, and expressed in degrees as
+
+{{plain:
+H = 15(AST - 12) 
+
+}}
+
+where AST is the apparent solar time [Equation (7)]. H is zero at
+solar noon, positive in the afternoon, and negative in the morning.
+Equation (12) relates the solar altitude angle &#946; to L, &#948;, and H:
+
+{{plain:
+sin &#946; = cos L cos &#948; cos H + sin L sin &#948; (12)
+}}
+
+Note that at solar noon, H = 0 and the sun reaches its maximum
+altitude in the sky:
+
+{{plain:
+&#946;max = 90° - |L - &#948;| (13)
+}}
+
+<h3>Azimuth Angle</h3>
+
+The azimuth angle &#966; is uniquely determined by its sine and
+
+cosine, given in Equations (14) and (15):
+
+{{plain:
+sin &#966; = sin Hcos &#948;/cos &#946; (14)
+cos &#966; = (cos Hcos &#948; sin L - sin &#948; cos L)/cos &#946; (15)
+}}
+
+With all these equations behind us we can now try and prototype our first interface using jQuery. We will evolve the interface until we have a usable and intutive design, albeit in between notes!
+
+<script>
+// Equation of Time
+// Calculations based on nooa formulae
+// 
+function ET(n){
+var dayOfYear=parseFloat(n);
+var hour=6;
+ var Gamma=(((2*Math.PI)/365)*(dayOfYear-1+((hour-12)/24)));
+var ET=229.18*(0.000075+0.001868*Math.cos(Gamma)-0.032077*Math.sin(Gamma)-0.014615*Math.cos(2*Gamma)-0.040849*Math.sin(2*Gamma));
+return ET;
+}
+
+function declinationAngle(n){
+   var dayOfYear=parseFloat(n);
+   var hour=6;
+var Gamma=(((2*Math.PI)/365)*(dayOfYear-1+((hour-12)/24)));
+var sinTheta=0.006918-0.399912*Math.cos(Gamma)+0.070257*Math.sin(Gamma)-0.006758*Math.cos(2*Gamma)+0.000907*Math.sin(2*Gamma)-0.002697*Math.cos(3*Gamma)+0.00148*Math.sin(3*Gamma);
+return (Math.asin(sinTheta)*180/Math.PI);
+}
+
+
+function radiation(n){
+  var Esc=parseFloat(1367);
+  var A1=(360*((parseFloat(n)-3)/365))/(Math.PI/180);
+  var A2=1+0.033*(Math.cos(A1));
+  var E=parseFloat(A2)*Esc;;
+return E;
+}
+
+  $(document).ready(function(){
+   $("#solar").keyup(function () {
+      n=$(this).val();
+      var v=radiation(n);
+      $('p#result').css("background", "yellow").text(v);
+    });
+   
+     $("#solar1").keyup(function () {
+      n=$(this).val();
+      var v=ET(n);
+      var v1=declinationAngle(n);
+      $('p#result1').css("background", "yellow").text('EQUATION OF TIME '+ v+'  minutes '+v1);
+    });
+
+
+    $("div.test:visible").click(function () {
+      $(this).css("background", "yellow");
+    });
+
+
+    $("#cbutton").toggle(
+      function () {
+        $('.test').css({"background":"yellow", "color":"blue"});
+      },
+      function () {
+        $('.test').css({"background":"none", "color":"red"});
+      });
+    
+   $("#cbutton1").toggle(
+      function () {
+        $('#test').css({"background":"yellow", "color":"blue"});
+      },
+      function () {
+        $('#test').css({"background":"none", "color":"red"});
+      });
+  
+  $("#cbutton2").toggle(
+      function () {
+        $('#test, .test').css({"background":"yellow", "color":"blue"});
+      },
+      function () {
+        $('#test, .test').css({"background":"none", "color":"red"});
+      });
+
+$("#cbutton3").toggle(
+      function () {
+        $('.test.red').css({"background":"yellow", "color":"blue"});
+      },
+      function () {
+        $('.test.red').css({"background":"none", "color":"red"});
+      });
+
+$("#cbutton4").toggle(
+      function () {
+        $('.test.red.bordered').css({"background":"yellow", "color":"blue",
+                                                               "border":"1px solid #bebebe"});
+      },
+      function () {
+        $('.test.red.bordered').css({"background":"none", "color":"red",
+                                                              "border":"none"});
+      });
+
+$("#cbutton5").toggle(
+      function () {
+        $('div[rel^=t]').css({"background":"yellow", "color":"blue",
+                                                               "border":"1px solid #bebebe"});
+      },
+      function () {
+        $('div[rel^=t]').css({"background":"none", "color":"red",
+                                                              "border":"none"});
+      });
+
+ $("#cbutton6").toggle(
+      function () {
+        $('div', '.wrappertest').css({"background":"yellow", "color":"blue",
+                                                               "border":"none"});
+      },
+      function () {
+        $('div', '.wrappertest').css({"background":"none", "color":"black",
+                                                              "border":"none"});
+      });
+
+  });
+
+ $("#cbutton7").toggle(
+      function () {
+        $('div[code^=al]').css({"background":"yellow", "color":"blue",
+                                                               "border":"1px solid #bebebe"});
+       var z=$('div[code^=al]').attr('code'); eval(z);
+      },
+      function () {
+        $('div[code^=al]').css({"background":"none", "color":"red",
+                                                              "border":"none"});
+      
+
+});
+
+
+
+  </script>
+
+
+
+
+
+
+
+

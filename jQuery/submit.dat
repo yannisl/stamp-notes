@@ -1,0 +1,26 @@
+##Your Title Here
+
+  <p>Type 'correct' to validate.</p>
+  <form id="form12" name="form12" action="javascript:alert('success!');">
+    <div>
+      <input type="text" id="firstinput"/>
+
+      <input type="submit" />
+    </div>
+  </form>
+  <span id="span13">Success/failure</span>
+
+<script>
+
+
+  //$(#form12).html();
+
+  $("#form12").submit(function() {
+      if ($("#firstinput").val() == "correct") {
+        $("#span13").text("Validated...").show();
+        return true;
+      }
+      $("#span13").text("Not valid!").show().fadeOut(1000);
+      return false;
+    });
+</script>              

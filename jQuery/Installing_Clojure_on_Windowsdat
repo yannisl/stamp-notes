@@ -1,0 +1,130 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<style type="text/css">
+button#cbutton{color:blue}
+div#ex1{}
+span.purple{color: purple}
+span.echo{color: #f60}
+
+</style>
+
+
+<h2>Installing Clojure on Windows</h2>
+
+The best way to install Clojure on windows is to use  <a href="http://clojure.bighugh.com/">ClojureBox </a> That will set it all up for you. It's a turnkey clojure + {{wi:emacs}} installation.  
+
+ClojureBox is inspired by the Lispbox: you simply install and run this one thing, and you get a REPL and all the syntax highlighting and editing goodies from clojure-mode and Slime, plus all the power of Emacs under the hood.
+
+If you want to go the long way or feeling a bit masochistic you can also try it on your own by following this good tutorial http://dc.clj.fogus.me/index.php?title=Installing_Clojure_and_Slime_on_Windows or this.
+
+
+
+
+
+<pre style="background:url(http://localhost/codeigniter/images/code-bg.gif)">
+<div>
+<img src = "http://localhost/codeigniter/images/emacs.jpg" style="width:60%" />
+
+</div>
+<button>Run</button>
+</pre>
+
+
+<h3>Hello World</h3>
+
+Once you have installed emacs and clojure the next step is to do what every programmer has done, print "hello world". Here we go:
+
+<pre style="background:url(http://localhost/codeigniter/images/code-bg.gif)">
+<div id="clojure">
+<span class="purple">user></span> (println "Hello World")
+</div>
+<button id="run">Run</button>
+</pre>
+
+Your brain is probably by now spinning to do more. How to you introduce comments? Comments are just preceded by a semi-colon <strong>;</strong>
+
+
+
+<pre style="background:url(http://localhost/codeigniter/images/code-bg.gif)">
+<div id="clojure1">
+<span class="purple">user></span> ; comment will be ignored
+</div>
+<button id="run1">Run</button>
+</pre>
+
+As you have guessed you can run Clojure in the above sandbox, but actually is a JavaScript emulator.
+
+<h3>Defining functions</h3>
+
+
+<pre style="background:url(http://localhost/codeigniter/images/code-bg.gif)">
+<div id="clojure2">
+<span class="purple">user></span>; Clojure
+(defn hello [name]
+  (println "Hello," name))
+(hello "Yannis")
+</div>
+<button id="run2">Run</button>
+</pre>
+
+
+
+<h3>Clojure Syntax, sugar, macros and forms</h3>
+
+{{wi:Lisp}} dialects have a very simple, <a href="http://java.ociweb.com/mark/clojure/article.html#Intro">some</a> would say beautiful, syntax. Data and code have the same representation, lists of lists that can be represented in memory quite naturally as a tree. (a b c) is a call to a function named a with arguments b and c. To make this data instead of code, the list needs to be quoted. '(a b c) or (quote (a b c)) is a list of the values a, b and c. That's it except for some special cases. The number of special cases there are depends on the dialect.
+
+The special cases are seen by some as {{wi:syntactic_sugar}}. The more of them there are, the shorter certain kinds of code become and the more readers of the code have to learn and remember. It's a tricky balance. Many of them have an equivalent function name that can be used instead. I'll leave it to you to decide if Clojure has too much or too little syntactic sugar.
+
+
+
+
+
+
+<script>
+$(document).ready(function(){
+ 
+$("#run").click(function(){
+    $("#clojure").append('<span class="echo">hello</span>');
+ });
+
+
+$("#run1").click(function(){
+   var z = $("#clojure1").append('<span>nil</span>');
+ });
+
+$("#run2").click(function(){
+   var z = $("#clojure2").append('<span class="echo">hello, Yiannis</span>');
+ });
+
+
+
+});
+
+</script>
+
+
+
+
+##Further Reading
+
+- http://stackoverflow.com/questions/760868/in-a-emacs-slime-clojure-windows-setup-failure-to-load-clojure-auto
+
+- http://tommih.blogspot.com/2009/08/emacs-clojure-and-windows.html
+
+- http://clojure.bighugh.com/
+
+- http://clojure.org/
+
+- http://writingcoding.blogspot.com/2008/06/clojure-series-table-of-contents.html
+
+- A library for <a href="http://osteele.com/sources/javascript/functional/">functional javascript</a> has been developed by Oliver Steel. You can view some [slides](http://www.slideshare.net/osteele/oliver-steele-functional-javascript-presentation) on the concept.
+

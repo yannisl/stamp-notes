@@ -1,0 +1,412 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <!--
+{{feature: .. The take home message: seek the signal, avoid the noise, and do your own homework .. zerohedge.com}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: UI, jQuery, Visibility Filters, CSS Visibility }}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<style type="text/css">
+
+.sales1{color:red}
+ul.ex {font-size:13px;display:block}
+ul.ex {list-type:none;list-style-type:none}
+ul.ex li, ul.ex1 li{display:block;width:90%;border:1px solid #ececec;margin-bottom:1px}
+ul.ex li span{cursor:pointer}
+</style>
+
+
+
+<h3 id="firstHeading" class="firstHeading" style="background-color: rgb(239, 239, 239)">
+Mastering JSON
+</h3>
+
+
+
+<p>{{wi:JSON}} has been widely hailed as the successor to XML in the browser, JSON aspires to be nothing more than a simple, and elegant <strong>data format</strong>  for the exchange of information between the browser and server; 
+Patrick Hunlock claims that:
+</p>
+
+<quote>
+..and in doing this simple task it will usher in the next version of the World Wide Web itself.
+ </quote>
+
+<h3>Getting json data from the server</h3>
+
+We can get json data from the server (our server response must send an
+object literal as jason), using either the .get() or .post method.
+
+{{plain:
+jQuery.post( url, [data], [callback], [type] )
+}}
+
+<div  class="code-block console-wrap">
+<div class="code">
+
+<code class="js">
+$.post("/CodeIgniter/Blogs/ajax_json", function(data){
+  myObject = eval('(' + data + ')');
+  alert("Data Loaded: " + myObject.bgColor);
+  $('.fullresponse').html(myObject.html);
+   return myObject;
+   }, 'json');
+
+</code>
+
+</div>
+
+<div  class="msg" class="msg">
+ </div>
+<div  class="sales1" style="width:98%">Blue Json</div>
+<div class="fullresponse" style="width:98%">Something</div>
+<div class="console"></div>
+<hr/>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<hr/>
+
+We can also use a different method the 
+
+{{plain:
+jQuery.getJSON( url, [data], [callback] )
+}}
+
+This is a much more convenient method and can result in shorter code.
+
+<div  class="code-block console-wrap">
+<div class="code">
+
+<code>
+var obj ={
+             callback : function (json){
+                $that.siblings('.fullresponse').html(json.html);
+                for(var prop in json){
+                 alert(prop);
+                 if (prop !=='html') {log('obj.bgColor', json[prop]);}
+               }
+              },
+            getJSON:function(){$.getJSON("/CodeIgniter/Blogs/ajax_json",  function(json){obj.callback(json)}
+
+)}
+
+}
+
+obj.getJSON();
+
+</code>
+
+
+</div>
+
+<div  class="msg" class="msg">
+ </div>
+<div  class="sales1" style="width:98%">Blue Json</div>
+<div class="fullresponse" style="width:98%">Something</div>
+<div class="console"></div>
+<hr/>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+If you want the results of the $.getJSON to be available outside the scopr of the method you need to use a callback.  The function(json) function can't run synchronously and return 
+the json object, since the .getJSON() is running asynchronously.
+
+<h3>A better Pattern?</h3>
+<div  class="code-block console-wrap">
+<div class="code">
+
+<code>
+var url ="/CodeIgniter/Blogs/ajax_json";
+
+function jsonRequest( url, myVariable ) {
+    $.getJSON( url, function(json ) {
+        for(var prop in json){
+               if (prop !=='html') {
+                log('obj.bgColor', json[prop]) 
+            }
+            else{
+              var html =  $that.siblings('.fullresponse').html();
+              $that.siblings('.fullresponse').html(html+json.html);
+               }
+        }
+    });
+
+}
+    
+   var url = "/CodeIgniter/Blogs/ajax_json";
+   jsonRequest( url, 'hello' );
+   jsonRequest( url, 'good-bye' );
+  </code>
+
+
+</div>
+
+<div  class="msg" class="msg">
+ </div>
+<div class="fullresponse" style="width:98%"></div>
+<div class="console"></div>
+<hr/>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+
+<h3>Server Side</h3>
+
+At the server side, if you use PHP, you can have just an echo statement
+
+
+
+###Objects as Data
+
+Creating A New Object
+
+The old way to create a new object was to use the __new__ keyword.
+
+{{plain:
+var myJSON = new Object();
+}}
+
+This method has been deprecated now in favor of simply defining an empty object with squigly braces {}.
+
+{{plain:
+var myJSON = &#123;&#125;
+}}
+
+
+At its most base level a Javascript Object is a very flexible and robust data format expressed as name/value pairs. That is, an object holds a name which is an object's property -- think of it as a plain old variable name that's attached to the object name. And the object holds the value of that name. Here's an example:
+
+{{plain:
+var myFirstJSON = &#123; "userName" : "John",
+                    "userLastName"  : "Doe",
+                    "posts"       : 23 &#125;;
+
+document.writeln(myFirstJSON.firstName);  // Outputs John
+document.writeln(myFirstJSON.lastName);   // Outputs Doe
+document.writeln(myFirstJSON.age);        // Outputs 23
+
+}}
+
+This object has 3 properties or name/value pairs. The name is a string -- in our example, userName, lastName, and posts. The value can be any Javascript object (and remember everything in Javascript is an object so the value can be a string, number, array, function, even other Objects) -- In this example our values are John, Doe, and 23. John and Doe are strings but age is a number and as you can see this is not a problem.
+
+This data format is called <span style="background:yellow">JSON for JavaScript Object Notation</span>. What makes it particularly powerful is that since the value can be any data type, you can store other arrays and other objects, nesting them as deeply as you need. 
+
+##jQuery Object Notation
+
+The above object notation is followed strictly by jQuery.
+
+{{plain:
+ var settings = &#123;
+            'animationtype':    'fade',
+            'speed':            'normal',
+            'type':             'sequence',
+            'timeout':          2000,
+            'containerheight':  'auto',
+            'runningclass':     'innerfade',
+            'children':         null
+        &#125;
+}}
+
+When you get used to it actually it is more intuitive, although at first it might give you some difficulty to grasp.
+
+
+
+###An Example with jQuery
+
+jQuery provides a method to get a JSOn object including a method to get a json object from another domain, as for the example below that will get images from flckr. 
+
+<div id="images">
+ </div>
+
+
+
+<script type="text/javascript">
+
+if (typeof(JSON) === 'object') { 
+   alert('native JSON may be available.');
+}
+
+var z='http://api.flickr.com/services/feeds/photos_public.gne?cats=cat&tagmode=any&format=json&jsoncallback=?';
+
+var z1="http://icant.co.uk/geomaker/api.php?url=http://news.yahoo.com&output=json";
+
+$.getJSON(z,
+        function(data){
+          $.each(data.items, function(i,item){
+            $("<img/>").attr("src", item.media.m).appendTo("#images");
+            if ( i == 6 ) return false;
+          });
+        });
+</script>
+
+http://api.flickr.com/services/feeds/photos_public.gne?tags=art&lang=en-us&format=json&jsoncallback=?
+
+
+##Receiving JSON via AJAX
+
+There are three seperate ways to receive JSON data via AJAX: 
+
+- Assignment, 
+- Callback, and 
+- Parse.
+
+###JSON Via Assignment
+
+There's no standard naming convention for these methods, however assignment method is a good descriptive name because the file comming in from the server creates a javascript expression which will assign the JSON object to a variable. When the responseText from the server is passed through eval, someVar will be loaded with the JSON object and you can access it from there.
+
+
+{{plain:
+
+var JSONFile = "someVar = &#123; 'color' : 'blue' &#125;";  // example of what is received from the server.
+eval(JSONFile); // Execute the javascript code contained in JSONFile.
+document.writeln(someVar.color); // Outputs 'blue' 
+
+}}
+
+###JSON Via Callback
+
+The second method calls a pre-defined function and passes the JSON data to that function as the first argument. A good name for this method is the callback method. This approach is used extensively when dealing with third party JSON files (i.e,, JSON data from domains you do not control).
+
+{{plain:
+function processData(incomingJSON) &#123;
+   document.writeln(incomingJSON.color); // Outputs 'blue'
+&#125;
+}}
+
+What is received from the server is this:
+
+{{plain:
+// example of what is received from the server...
+var JSONFile = "processData(&#123; 'color' : 'blue' &#125 )";
+
+eval(JSONFile);
+
+}}
+
+
+##JSON Via Parse
+
+
+The third and final method sends a raw object which must be parsed by a function. This could be referred to as the __parse method__. This is, by far, the safest and most secure way to transfer JSON data. For now, it is, unfortunately, limited only to domains which you control.
+
+
+{{plain:
+// The following block implements the string.parseJSON method
+(function (s) {
+  // This prototype has been released into the Public Domain, 2007-03-20
+  // Original Authorship: Douglas Crockford
+  // Originating Website: http://www.JSON.org
+  // Originating URL    : http://www.JSON.org/JSON.js
+
+  // Augment String.prototype. We do this in an immediate anonymous function to
+  // avoid defining global variables.
+
+  // m is a table of character substitutions.
+
+  var m = &#123;
+    '\b': '\\b',
+    '\t': '\\t',
+    '\n': '\\n',
+    '\f': '\\f',
+    '\r': '\\r',
+    '"' : '\\"',
+    '\\': '\\\\'
+  &#125;
+
+  s.parseJSON = function (filter) &#123;
+
+    // Parsing happens in three stages. In the first stage, we run the text against
+    // a regular expression which looks for non-JSON characters. We are especially
+    // concerned with '()' and 'new' because they can cause invocation, and '='
+    // because it can cause mutation. But just to be safe, we will reject all
+    // unexpected characters.
+
+    try &#123;
+      if (/^("(\\.|[^"\\\n\r])*?"|[,:&#123;&#125;\[\]0-9.\-+Eaeflnr-u \n\r\t])+?$/.
+        test(this)) &#123;
+
+          // In the second stage we use the eval function to compile the text into a
+          // JavaScript structure. The '{' operator is subject to a syntactic ambiguity
+          // in JavaScript: it can begin a block or an object literal. We wrap the text
+          // in parens to eliminate the ambiguity.
+
+          var j = eval('(' + this + ')');
+
+          // In the optional third stage, we recursively walk the new structure, passing
+          // each name/value pair to a filter function for possible transformation.
+
+          if (typeof filter === 'function') &#125;
+
+            function walk(k, v) &#123;
+              if (v && typeof v === 'object') &#123;
+                for (var i in v) &#123;
+                  if (v.hasOwnProperty(i)) &#123;
+                    v[i] = walk(i, v[i]);
+                  &#125;
+                &#125;
+              &#125;
+              return filter(k, v);
+            &#125;
+
+            j = walk('', j);
+          &#125;
+          return j;
+        &#125;
+      &#125; catch (e) &#125;
+
+      // Fall through if the regexp test fails.
+
+      &#125;
+      throw new SyntaxError("parseJSON");
+    &#125;
+  &#125;
+) (String.prototype);
+// End public domain parseJSON block
+
+// begin sample code (still public domain tho)
+JSONData = '&#123"color" : "green"&#125';   // Example of what is received from the server.
+testObject=JSONData.parseJSON();   
+document.writeln(testObject.color); // Outputs: Green.
+}}
+
+As you can see, you'll need to include the public domain prototype which will parse the JSON data, however once it's included, processing JSON data is as simple as it looks in the last three lines of the above example. Of the three extraction methods, the parse method is the most secure and exposes your code to the fewest problems. You should use this method wherever possible in all of your JSON requests via AJAX.
+
+
+###Native browser Support
+
+Native JSON parsing in the browser
+
+Previously known as ECMAScript 3.1, ECMAScript “Fifth Edition” (the specification that JavaScript implements) formally codifies a native JSON parsing feature. The spec’s API exactly mirrors that of Crockford’s implementations of JSON.parse and JSON.stringify in json2.js, easing the transition to browser-native functionality.
+
+This native JSON parsing brings marked improvements in terms of both security and performance. Not only does the native routine use textual parsing to avoid the risk of executing malicious code embedded within JSON, but it is also fast.
+
+At the time of this writing, three major browsers already include support for native JSON parsing: IE8, Firefox 3.5, and Chrome 3.
+
+Safari 4 does not currently support the standard, but its underlying engine (WebKit) has recently implemented it. Hopefully the feature will make its way to Safari soon.
+
+<script type="text/javascript">
+$('.sales1').css({"color " :"blue"});
+</script>
+
+
+
+

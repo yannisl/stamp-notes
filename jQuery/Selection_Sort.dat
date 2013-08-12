@@ -1,0 +1,95 @@
+ <!--
+{{feature: .. A discussion of bubble sort with warnings that the performance
+is bad and the code isn't simple (arguably) is like
+telling someone "don't think about pink elephants. <a href="http://www.cs.duke.edu/~ola/papers/bubble.pdf">Owen Astrachan</a> }}
+{{feature-image: http://localhost/egypt/elliott-erwitt/EE-1150.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<h2>Selection Sort </h2>
+
+Selection sort is a sorting algorithm, specifically an in-place comparison sort. It has O(n<sup>2</sup>) complexity, making it inefficient on large lists, and generally performs worse than the similar insertion sort. Selection sort is noted for its simplicity, and also has performance advantages over more complicated algorithms in certain situations.
+
+The algorithm works as follows:
+
+- Find the minimum value in the list
+- Swap it with the value in the first position
+- Repeat the steps above for the remainder of the list (starting at the second position and advancing each time)
+- Effectively, the list is divided into two parts: the sublist of items already sorted, which is built up from left to right and is found at the beginning, and the sublist of items remaining to be sorted, occupying the remainder of the array.
+
+<div  class="code-block console-wrap">
+<div class="code code-block">
+<code>
+
+var data = [];
+data = [-900, 21, 1, 5, 6, 7, 800, 9, 11, 14, 35, 67, 0];
+
+function selectionSort(data) {
+      var i, j, minIndex, tmp;
+      var n = data.length;
+      for (i = 0; i < n - 1; i++) {
+            minIndex = i;
+            for (j = i + 1; j < n; j++)
+                  if (data[j] < data[minIndex])
+                        minIndex = j;
+            if (minIndex != i) {
+                  tmp = data[i];
+                  data[i] = data[minIndex];
+                  data[minIndex] = tmp;
+            }
+      }
+    return data;
+}
+
+profiler.start();
+var d = selectionSort('selection sort : ' + data);
+profiler.stop();
+profiler.timeDiff();
+log(d);
+
+
+
+</code>
+</div>
+<div  id="msg" class="msg" >
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+Among simple average-cases O(n<sup>2</sup>) algorithms, selection sort almost always outperforms bubble sort and gnome sort, but is generally outperformed by insertion sort. Insertion sort is very similar in that after the kth iteration, the first k elements in the array are in sorted order. Insertion sort's advantage is that it only scans as many elements as it needs in order to place the k + 1st element, while selection sort must scan all remaining elements to find the k + 1st element.
+<img src="/codeigniter/images/selection-sort-animation.gif" style="display:block;float:left;margin-right:15px"/>
+Simple calculation shows that insertion sort will therefore usually perform about half as many comparisons as selection sort, although it can perform just as many or far fewer depending on the order the array was in prior to sorting. It can be seen as an advantage for some real-time applications that selection sort will perform identically regardless of the order of the array, while insertion sort's running time can vary considerably. However, this is more often an advantage for insertion sort in that it runs much more efficiently if the array is already sorted or "close to sorted."
+
+Another key difference is that selection sort always performs &Theta;(n) swaps, while insertion sort performs &Theta;(n<sup>2</sup>) swaps in the average and worst cases. Because swaps require writing to the array, selection sort is preferable if writing to memory is significantly more expensive than reading. This is generally the case if the items are huge but the keys are small. Another example where writing times are crucial is an array stored in EPROM or Flash. There is no other algorithm with less data movement.
+
+Finally, selection sort is greatly outperformed on larger arrays by (n log n) divide-and-conquer algorithms such as mergesort. However, insertion sort or selection sort are both typically faster for small arrays (i.e. fewer than 10-20 elements). A useful optimization in practice for the recursive algorithms is to switch to insertion sort or selection sort for "small enough" sublists.
+
+In any case in  practical situations the best sort to use is the
+one provided by the standard (e.g., Python, Java, C, or C++)
+libraries. However, we study sorts because general sorts
+do not work in all situations and because sorting is a
+simple illustration of algorithmic techniques. JavaScript provides a built-in method for sorting arrays and you can find more about it in ['Sorting Arrays in Javascript'](http://127.0.0.1/CodeIgniter/index.php/Blogs/tutorials/jQuery/Array_sort).
+
+
+
+ 
+
+
+
+  
+  
+
+
+
+
+
+
+
+                                                          

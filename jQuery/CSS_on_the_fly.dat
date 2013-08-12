@@ -1,0 +1,18 @@
+##Loading a CSS Style Sheet on the Fly
+
+The easiest way is to dynamically insert the style sheet on the head. This can be achieved with a small piece of jQuery code.
+
+<pre>
+<code>
+var link = $("<link>");
+link.attr({
+        type: 'text/css',
+        rel: 'stylesheet',
+        href: <your CSS file url>
+});
+$("head").append( link ); 
+</code>
+</pre>
+
+Read more at the [jQuery Forum](http://forum.jquery.com/topic/loading-stylesheets-on-the-fly)
+  

@@ -1,0 +1,138 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<h2>Strategies for Cross Browser Code</h2>
+
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<h3>External Code and Markup</h3>
+
+A tricky point in developing reusable JavaScript code is in the code and markup that surrounds it. If you're
+expecting your code to work on any web site then you need to expect it to be able to handle the random
+code associated with it. This has two meanings: 
+
+- Your code must strive to be able to survive poorly written external code and not affect any external code. This point of concern depends a lot upon which environments you expect your code to be used. For
+example, if you are using your reusable code on a limited number of web sites, but targeting a large number of browsers, it's probably best to worry less about external code (as you have the power and control to fix
+it yourself). However if you're trying to develop code that'll have the broadest applicability you'll need to
+make sure that your code is robust and effective.
+
+- To keep your code from affecting other pieces of code on the page it's best to practice encapsulation. 
+
+{{bulb: Keep an incredibly-small footprint when introducing your code into a page (usually a single global variable).}}
+
+
+This includes modifying existing variables, function prototypes, or even DOM elements. Any place that
+your code modifies is a potential area for collision and confusion.
+
+You can even extend these practices further and introduce other libraries in your test suite - making sure
+that their code doesn't affect how yours performs, and vice versa.
+
+Secondly, when expecting outside code or markup you need to assume the worst (that they will be
+modifying function prototypes and existing DOM element methods, etc.). There aren't many steadfast rules
+when dealing when situations of this nature, but here are a couple tips, from John Resig, the developer of jQuery:
+
+
+<strong>hasOwnProperty:</strong>
+
+ When looping through the properties of an object you'll want to verify that the
+properties that you're expecting are from the object itself and not introduced by an extension to Object.prototype or any of the othe built-in objects. 
+
+Thankfully the number of scripts that use this technique is very small but the harm is quite large. You can counter this by using the method hasOwnProperty to determine if the property is coming from this object or another one, as shown in Listing 2.
+
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+Object.prototype.otherKey = function(){return 'a';};
+var object = { key: "value" };
+for ( var prop in object ) {
+if ( object.hasOwnProperty( prop ) ) {
+assert( prop, "key", "There should only be one iterated property." );
+}
+}
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<strong>Greedy IDs:</strong>  Internet Explorer and Opera both have the concept of "greedy DOM IDs" - in which elements become properties of other objects based upon their ID names. Listing 9-2 shows two examples of this
+nasty trick in action.
+
+
+Listing 9-2: A simple example of markup that's capable of causing great confusion in development.
+
+{{plain:
+&lt;form id="form"&gt;
+&lt;input type="text" id="length"/&gt;
+&lt;input type="submit" id="submit"/&gt;
+&lt;/form&gt;
+}}
+
+If you were to call document.getElementsByTagName("input").length you'd
+find that the length property (which should contain a number) would now contain a reference to the input element with the ID of length. Additionally if you were to call document.getElementById("form").submit() that would no longer work as the submit method will have be overwritten by the submit input element. This particular "feature" of the browser can cause numerous problems in your code and will have to be taken in to consideration when calling default properties in the above situations
+
+      
+<h4>Order of Stylesheets</h4>
+The order of loading of external files by the browser such as Stylesheets can affect the performance of your script.
+
+ {{bulb: The best way to ensure that CSS rules (provided by stylesheets) are available when the JavaScript code on the page executes is to specifying the external stylesheets prior to including the external script files.}}
+
+ Not doing so can cause unexpected results as the script attempts to access the incorrect style information. 
+
+Unfortunately this isn't an issue that can be easily rectified with pure JavaScript and should be, instead, relegated to user documentation.
+
+These are just some basic examples of how externalities can truly affect how your code works - frequently in a very unintentional manner. Most of the time these issues will pop up once users try to integrate your code into their sites - at which point you'll be able to diagnose the issue and build appropriate tests to
+handle them. 
+
+It's unfortunate that there are no better solutions to handling these integration issues other than to take some smart first steps and to write your code in a defensive manner. 
+
+
+      
+
+
+
+
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+

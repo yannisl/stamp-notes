@@ -1,0 +1,92 @@
+ <!--
+
+{{feature-image:/CodeIgniter/images/china/beauty_08.jpg}}
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+
+
+<h2>Unicode and More Unicode</h2>
+Unicode will give you sleepless nights. Closure amongst others provides for a set of unicode character routines. 
+
+For example the uChar routines can handle a number of common unicode handling requirements.
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+(function testToHexString() {
+  var result = goog.i18n.uChar.toHexString('\uD869\uDED6');
+  assertEquals('U+2A6D6', 'U+2A6D6');
+})();
+
+(function testPadString() {
+  var result = goog.i18n.uChar.padString_('abc', 4, '0');
+  assertEquals('0abc', result);
+})();
+
+(function testToCharCode() {
+  var result = goog.i18n.uChar.toCharCode('\uD869\uDED6');
+  assertEquals(0x2A6D6, result);
+})();
+
+(function testFromCharCode() {
+  var result = goog.i18n.uChar.fromCharCode(0x2A6D6);
+  assertEquals('\uD869\uDED6', result);
+})();
+
+(testToName = function testToName() {
+  var result = goog.i18n.uChar.toName(' ');
+  assertEquals('Space', result);
+})();
+
+(function testToNameForNumberKey() {
+  var result = goog.i18n.uChar.toName('\u2028');
+  assertEquals('Line Separator', result);
+})();
+
+var 按 = function (){
+  return '\uD869\uDED6';
+}
+
+log(按());
+
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+<SCRIPT>
+ goog.require('goog.i18n.uChar');
+ </SCRIPT>
+
+
+  
+  
+
+
+
+
+
+
+
+      

@@ -1,0 +1,338 @@
+ <!--
+{{feature: .. Functions are the very best part of JavaScript,' Crockford says. 'It's where the power is, it's where the beauty is. Crockford}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<script type="text/javascript">
+//$(document).ready(function() {
+   $('#left-menu').hide();
+   $('#main-content').css({'margin-left':'90px'});
+   $('span-17').css({'width':'900px'});
+});
+
+function sayGoodbye() {
+  return false;
+}
+</script>
+
+<h2>Functions 101</h2>
+
+There  numerous ways to create a function in JavaScript the simplest way, and the method which has been supported since its inception is as follows:
+
+{{example:
+function functionName(argname1, rgname2, ..., argname)
+&#123;
+   statement;
+&#125;
+
+}}
+
+This is the most common type of function and sometimes is referred to as the _declarative/static_ format. 
+
+The curly braces around the function's statements are a requirement, even if the function body consists of only one statement. Such developers do not like this approach and use Coffeescript or other variants, where a more simpler syntax can be used.
+
+Functions are first class objects in JavaScript. What this means is that they behave like normal objects. You can assign methods to them or you can pass them around as arguments in other functions.
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+function returnValue() {
+  var num = 10;
+  return num;
+}
+anum=returnValue();
+log(anum); // "10"
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+###Arguments
+
+A function can have zero or any number of arguments. Arguments can be of any type including other functions. One interesting way arguments are handled in JavaScript, is that if you omit an argument when you call a function, JavaScript will not generate an error, but assign a value of undefined to the function:
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+function testValues(numValue) {
+    if (isNaN(numValue)) {
+        return "error -- not a number";
+    }
+    numValue = numValue + 42;
+    return numValue;
+}
+
+log(testValues(0/0));
+log(testValues(13));
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+###Return Values
+
+All functions return a value. You can deliberately control what value is returned using the return statement. If you do no specify a  _return_ statement, an automatic value of
+_undefined_ is turned instead. Note that whenever you call return, the function execution stops immediately, even if there is more code to be executed in the function. The following function returns a simple number value:
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+function returnValue() {
+  var num = 10;
+  return num;
+}
+anum=returnValue();
+log(anum); // "10"
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+What we have here is a function that we named {{field:returnValue()}}. When we invoke the function we assign the return value to anum and then we print it in the console. Comment out the
+return num, in the example above and see that the return value logged will be shown as _undefined_.
+
+
+#### Statements after the return statement
+
+Anything declared after a return statement will not be executed and is ignored by the interpreter.
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+function returnValue() {
+  var num = 10;
+  return num;
+  log('I am not executed!');
+}
+anum=returnValue();
+log(anum); // "10"
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+One reason you might have more than one return statement is if you want to terminate
+and exit the function when a condition is met. In the following snippet of code, if a
+condition isn’t met in the function, the function terminates immediately; otherwise,
+processing continues:
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+function testValues(numValue) {
+if (isNaN(numValue)) {
+   return "error -- not a number";
+}
+numValue = numValue + 42;
+return numValue;
+}
+
+log(testValues(0/0));
+
+log(testValues(13));
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+###Passing Arguments by Value versus Reference
+
+Values can be passed either _by value_ or _by reference_. This depends on if the variable is a _primitive_ or _reference type_. When you pass primitive data you cannot alter the value outside of the function; when you do the same with composite or reference data types, you can modify their original values, as shown in the example that follows:
+
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+var myNum = 10;
+var myObj = {
+  name: 'John',
+  age: 12
+};
+function changeVals(num, obj) {
+  num = 0;
+  obj.name = "Changed";
+}
+changeVals(myNum, myObj);
+log(myNum); // "10"
+log(myObj.name); // "Changed"
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+If the behavior of all data types were the same, you would expect the result to be one of 0 and Changed
+or 10 and John . Because _Number_ is a primitive type and _Object_ is a reference type, they behave differently in this regard. To summarize, the primitive data types that are by value are:
+
+<ul>
+<li>Number</li>
+<li>String</li>
+<li>Boolean</li>
+<li>null</li>
+<li>undefined</li>
+</ul>
+
+and the reference types which are passed by _reference only_ are:
+
+<ul>
+<li>Object</li>
+<li>Array</li>
+<li>Function</li>
+<li>Date</li>
+<li>RegExp</li>
+<li>Error</li>
+</ul>
+
+
+
+
+JavaScript functions can return more complex values such as objects. In the following example we return a more complex object. Study it a bit more carefully.
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+// Returning a complex object
+function addTwoNumbers(x,y) {
+   return {result:(x+y), originalX: x, originalY: y};
+}
+var sumResult = addTwoNumbers(9,3);
+log("Sum: " + sumResult.result + "(comes from adding" + sumResult.
+originalX + "and " + sumResult.originalY + ")");
+// "Sum: 12 (comes from adding 9 and 3)
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+### The function name
+
+So far we have used functions with names. Consider a function specified as 
+_function test () {....}_. JavaScript allows functions to be assigned to variables as follows:
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+var y = function (x1, x2, x3) {
+    return (x1 * x2 * x3) ;
+}
+
+log(y(1,2,3));
+log(y);
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+If you obeserve closely, when we assigned the function to the variable _y_ we omitted the function name. This is called an _anonymous function_. Nothing stopping you from having a name, but once the function has been assigned, it cannot be be called on its own.
+
+Now, what would happen, if we write it as follows?
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+var y = cubed;
+
+log(y(1,2,3));
+log(cubed(1,2,3));
+
+function cubed(x1, x2, x3) {
+    return (x1 * x2 * x3) ;
+}
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+What JavaScript does, it  _hoists_ all variables on the top of the code, before it executes, so in effect the function cubed is seen by the variable y. It also does the same with variables. In effect when a function with a name is created, JavaScript creates a variable with the function name and assigns the function definition as an anonymous function. 
+
+
+### Function invocation
+
+On all the examples above, we invoked i.e. called the function by using its name, for example _cubed(1, 2, 3)_. There are other ways to call a function. One way is by using the _()_. Another one is by using _call_ or _apply_.
+
+
+<code>
+(function(){})();
+</code>
+
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+
+var y1 = cubed.call(this, 1,2,3);
+var y2 = cubed.apply(null,[1,2,3]);
+
+log(y1, y2);
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+### Summary
+
+So far we have examined how to define a function, pass it arguments and how to invoke functions. In the [next section](http://127.0.0.1/CodeIgniter/index.php/Blogs/tutorials/jQuery/Functions_102) we will discuss the _arguments_ object in a bit more detail.
+
+
+
+  
+  
+
+
+
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            

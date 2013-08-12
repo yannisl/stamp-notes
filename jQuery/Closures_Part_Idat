@@ -1,0 +1,327 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<style type="text/css">
+.code{margin:0;padding-top:0}
+.code-block{                        background:url(http://localhost/codeigniter/images/code-bg.gif);
+margin:0;padding:0}
+.code-block .code{white-space:pre;font-family:inherit;padding:0;margin:0}
+.highlight{background:yellow}
+.green{color:green}
+.hidden{display:none}
+</style>
+
+
+
+
+
+
+
+<h2>Closures Part I</h2>
+
+You need to understand Closures if you are using any of the public libraries, such as jQuery.  You also need to understand them as you can accidentally create them. 
+
+When a reference to an inner function finds its way outside the scope in which the function was defined, this creates a <strong>closure</strong>
+
+<h3>Inner Functions</h3>
+JavaScript has support for <strong>inner function</strong> declarations. Languages with support for inner functions all us to gather small utility functions where they are needed avoiding <strong>namespace pollution.</strong>
+
+An inner function is simply a function that is defined inside of another function.
+For example
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+function outerFn () {
+     function innerFn(){
+         say('inner function');
+     }
+     innerFn();
+     say('outer function');
+}
+outerFn();
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+This technique is especially useful for recursive functions. Can inner functions have other inner function?
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+function outerFn () {
+     function innerFn(){
+          function innerinnerFn(){
+               say('innerinnerFunction');
+          }
+         say('inner function');
+         innerinnerFn();
+     }
+     innerFn();
+     say('outer function');
+}
+
+// only call outer function
+outerFn();
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+You can observe that JavaScript will allow you to nest functions as deep as you require. Good practice normally dictates shallow nesting.
+
+The plot thickens when function references come to play. Some languages like Pascal allow this function nesting for code hiding only and they were  a means for encapsulating information before the advent of Object Orientated programming. However, JavaScript allows us to pass functions to other functions by reference. This means that inner functions can escape their tomp if the function is assigned to a <strong>global variable</strong>
+
+Study the following two sections of blocks very carefully. The first one will produce an error, while the second one will not!
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+var globalVar;
+
+function outerFn () {
+     function innerFn(){
+            say('inner function');
+        }
+     globalVar = innerFn;  
+     innerFn();
+     say('outer function');
+}
+
+// call inner function
+globalVar();
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+This one will work
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+var globalVar;
+
+function outerFn () {
+     function innerFn(){
+            say('inner function');
+        }
+     globalVar = innerFn;  
+     innerFn();
+     say('outer function');
+}
+
+// call inner function
+<span class="highlight">outerFn();</span>
+globalVar();
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+We have now managed to get the function to escape! What is happening here once the outer function is called JavaScript will update the globalVar pointer to point to the innerFunction. It is intuitive actually if you think about it.
+
+Just spend a bit on time on this one as it is an important point for what follows.
+
+<strong>A function reference can also find its way out of a parent function through a
+return value:</strong>
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+var globalVar;
+
+function outerFn () {
+     function innerFn(){
+            say('inner function');
+        }
+     //globalVar = innerFn;  
+     innerFn();
+     say('outer function');
+    <span class="highlight"> return innerFn;</span>
+}
+
+// call inner function
+<span class="highlight">outerFn();</span>
+var z = outerFn();
+log( 'z : ', z); 
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+The fact that inner functions can be invoked through a reference even after the function has gone out of scope means that JavaScript needs to keep referenced functions available as long as they could possibly be called. Each variable that refers to the function is tracked by the JavaScript runtime, and once the last has gone away, the JavaScript garbage collector comes along and frees up that bit of memory. This fact leads to what is known as a closure. Just be patient will find this out in a few minutes!
+
+<h3>Variable scoping</h3>
+Inner functions can of course have their own variables, which are restricted in scope to the function itself:
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+var globalVar;
+
+function outerFn () {
+     var innerVar ;
+    function innerFn(){
+           innerVar++;
+           log(' innerVar = ', innerVar);       
+        }
+      <span class="highlight"> return innerFn;</span>
+}
+
+// call inner function
+<span class="highlight">outerFn();</span>
+var z = outerFn();
+log( 'z : ', z); 
+z();
+z();
+z();
+z();
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+But what if the variable is local to the parent function? Since the inner function inherits its parent's scope, this variable can be referenced too:
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+var globalVar;
+
+function outerFn () {
+     var outerVar = 0;
+     function innerFn(){
+           outerVar++;
+           log(' outerVar = ', outerVar);       
+        }
+      <span class="highlight"> return innerFn;</span>
+}
+
+// call inner function
+<span class="highlight">outerFn();</span>
+var z = outerFn();
+log( 'z : ', z); 
+z();
+z();
+z();
+z();
+log ('outerFn :', outerFn())
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+Now our function calls have more interesting behaviour. Every time the function was referenced it remembered the old value and incremented the counter! Well this is not very intuitive.
+
+
+When a reference to an inner function finds its way outside the scope in which the function was defined, this creates a <strong>closure</strong> on that function. We call variables that are neither parameters nor local to the inner function <strong>free variables</strong>, and the environment of the outer function call <strong>closes</strong> closes them. Essentially, the fact that the function refers to a local variable in the outer function grants the variable a stay of execution. The memory is not released when the function completes, as it is still needed by the closure.
+
+<h3>Real World Examples: Closures in jQuery</h3>
+Most methods of jQuery take at least one parameter that is a function. For convenience, we often use anonymous functions so that we can define the function behavior when is needed. This means that these functions are rarely in the top-level namespace; they are ususally inner functions which means they can quite easily create closures.
+
+Nearly all the code you will write using jQuery will end up getting placed inside the $(document).ready(). We do this to guarantee that the DOM has loaded before the code is run. When code is written as a unction that gets passed to the .ready() function, this is stored as part of the global jQuery object. This reference is then called at a later time when the DOM is ready.
+
+We ususally place this $().ready() construct at the top level of the structure, so tis function is not really part of a closure. However, since our code is usually written inside this function, everything <em>else</em> is an inner function.
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+// this will cause an accidental loop when re-run!
+// explanation follows after this example
+ var counter = 0;
+   jQuery('button.eval1').click(function() {
+        log('click counter : ',  counter);
+       counter++;
+    });
+
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<button class="eval1">Counter!</button>
+<ol class="results"></ol> 
+</div>
+
+Direct script
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button id="eval1">Counter!</button>
+<ol class="results"></ol> 
+</div>
+<script type="text/javascript">
+ var counter = 0;
+   $('#eval1').click(function() {
+        log('click counter : ' , counter);
+        counter++;
+        return false;
+    })
+</script>
+
+<hr/>
+
+<h3>Summary</h3>
+
+JavaScript closures are a powerful language feature. They are often quite useful in hiding variables from other code, so that we don't tread on variable names being used elsewhere. Due to jQuery's frequent reliance on functions as method arguments, they can also be inadvertently created quite often. Understanding them allows us to write more efficient and concise code, and with a bit of care and the
+use of jQuery's built-in safeguards, we can avoid the memory-related pitfalls they can introduce
+
+##Further Reading
+
+http://home.att.net/~srschmitt/script_number_bases.html
+
+
+<span id ="chapter">A-1</span>
+
+  
+  
+
+
+
+
+
+
+

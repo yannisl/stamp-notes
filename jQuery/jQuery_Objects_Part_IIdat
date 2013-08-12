@@ -1,0 +1,86 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+{{feature-image:http://localhost/CodeIgniter/images/run_time_error.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+##Objects Part II
+
+###How to iterate through objects in more detail
+
+Everything in JavaScript is an {{wi:object}}. The easiest way to create an object is the object literal:
+
+For example we can iterate over the __document__ type and print out the results. Repeat the exercise to view differences between Mozilla and Internet explorer.
+
+{{plain:
+for (var prop in document)&#123;
+  var z=z+'document["'+ prop + '"]='+document[prop]+'&lt;br /&gt;';
+&#125;
+$("#console").html(z);
+}}
+
+
+
+<div id="console" style="width:98%;height:300px;overflow:scroll;white- space:pre">
+</div>
+
+We can repeat the exercise by simply changing the object from document to jQuery and view the jQuery object.
+
+<div id="console2" style="width:98%;height:300px;overflow:scroll;white- space:pre">
+</div>
+<script type="text/javascript">
+for (var prop in document){
+  var z=z+'document["'+ prop + '"]='+document[prop]+'<br />';
+}
+$("#console").html(z);
+</script>
+
+
+<script type="text/javascript">
+for (var prop in jQuery){
+  var z1=z1+'jQuery["'+ prop + '"]='+jQuery[prop]+'<br />';
+}
+$("#console2").html(z1);
+</script>
+
+
+
+##Summary
+
+Javascript provides __four__ types of objects:
+
+- user-defined
+- built-in
+- browser
+- document
+
+In this series of articles we have focused on the fundamental aspects of all objects as well as the creation and use of user defined objects. Javascript is a __prototype__ based, object-oriented language. New objects are created with constructors, objects that initialize the properties of new instances.
+
+Every object has a prototype property that reflects the prototype of the constructor used to create it.
+
+Some examples of Javascript build-in objects are the __Array__, __Math__, __Date__ and __String__.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

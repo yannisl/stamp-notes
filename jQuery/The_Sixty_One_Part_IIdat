@@ -1,0 +1,247 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+{{next:http://127.0.0.1/CodeIgniter/index.php/Blogs/tutorials/jQuery/The_Sixty_One_Form}}
+-->
+ <style type="text/css"> 
+.cover {float: left; margin-right: 10px; }
+#book, #book1, #book2 {border: 1px solid #bebebe; font-family: Verdana; width: 400px; margin:10% 30% 0 30%; 
+background-image: url(http://localhost/codeigniter/images/player_loader.gif);   background-repeat: repeat-y;
+}
+#go, #go1 , #go2{margin-top: 7px;}
+</style> 
+
+<h2>Overflowing background UI Pattern</h2>
+This absolutely delicious site is not only famous by now for its music, but also for its well designed UI. This progress bar is lifted from them and dedicated to Kate!
+<div  class="code-block console-wrap">
+<img src="http://localhost/codeigniter/images/preloader.gif" style="height:50px" />
+<div class="code code-block"><code>
+loading = {
+     inc: 10,
+    book: null,
+    go: function() {
+     var pos = 1 * loading.book.style.backgroundPosition.split("px")[0];
+ 
+        if (pos === 0) {
+            loading.done();
+        } else {
+            loading.book.style.backgroundPosition = (pos + loading.inc) + 'px';
+        }
+ 
+    },
+ 
+    init: function() {
+        loading.book = document.getElementById('book');
+        loading.book.style.backgroundPosition = '-500px';
+        var gogo = document.getElementById('go');
+        gogo.firstChild.nodeValue = 'Loading...';
+        gogo.disabled = true;
+        $('#go').toggle();
+        loading.interval = setInterval(loading.go, 75);
+    },
+ 
+    done: function() {
+        var gogo = document.getElementById('go');
+        gogo.firstChild.nodeValue = 'Click me!';
+        gogo.disabled = false;
+        $('#go').toggle();
+        clearInterval(loading.interval);
+    }
+}
+//document.getElementById('go').onclick = loading.init;
+loading.init();
+</code>
+</div>
+
+<div  class="msg" class="msg">
+</div>
+<div style="height:40px">
+<button id="go" class="hidden" style="background:#dd0000;color:#fff;border:0;margin-left:60%">Click Me</button>
+</div>
+<div id="book" style="background-position: -500px; padding:1px;width: 400px;border;solid #ececec;background-image: url(http://localhost/codeigniter/images/player_loader.gif); " class="clearfix"> 
+<img src="http://localhost/codeigniter/images/kate_small.jpg"  class="cover" />  www.thesixtyone.com
+<br/>
+<br/> 
+</div> 
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+<img src="http://localhost/codeigniter/images/jquery.png" style="float:right; width:85px"/>
+</div>
+
+<h3>The Overflowing Pattern</h3>
+The overflowing pattern is similar to the above, but the image once it reaches the end it starts flowing back again in an endless loop. I prefer the one above
+
+<div  class="code-block console-wrap"><div class="code code-block"><code>
+var loading = {
+     inc: 10,
+    book1: null,
+    repeat: 0,
+    repeat_max: 2,
+
+
+    go: function() {
+     var pos = 1 * loading.book1.style.backgroundPosition.split("px")[0];
+ 
+        if (pos === 500) {
+            loading.repeat++;
+ 
+            if (loading.repeat > loading.repeat_max) {
+                loading.done();
+                return;
+            }
+ 
+            loading.book1.style.backgroundPosition = '-500px';
+ 
+ 
+ 
+        } else {
+            loading.book1.style.backgroundPosition = (pos + loading.inc) + 'px';
+        }
+ 
+    },
+ 
+    init: function() {
+        loading.book1 = document.getElementById('book1');
+        loading.book1.style.backgroundPosition = '-500px';
+        var gogo = document.getElementById('go1');
+        gogo.firstChild.nodeValue = 'Loading...';
+        gogo.disabled = true;
+        $('#go1').toggle();
+        loading.interval = setInterval(loading.go, 75);
+    },
+ 
+    done: function() {
+        var gogo = document.getElementById('go1');
+        gogo.firstChild.nodeValue = 'Click me!';
+        gogo.disabled = false;
+        $('#go1').toggle();
+        clearInterval(loading.interval);
+    }
+}
+//document.getElementById('go1').onclick = loading.init;
+loading.init();
+</code>
+</div>
+
+<div  class="msg" class="msg">
+</div>
+<div style="height:40px">
+<button id="go1" class="hidden" style="background:#dd0000;color:#fff;border:0;margin-left:60%">Click Me</button>
+</div>
+<div id="book1" style="background-position: -500px; padding:1px;width: 400px;border;solid #ececec;background-image: url(http://localhost/codeigniter/images/player_loader.gif); " class="clearfix"> 
+<img src="http://localhost/codeigniter/images/kate_small.jpg"  class="cover" />  www.thesixtyone.com
+<br/>
+<br/> 
+</div> 
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+<img src="http://localhost/codeigniter/images/jquery.png" style="float:right; width:85px"/>
+</div>
+
+<h3>Dancing arrow UI Pattern</h3>
+
+If you remember old radios, this pattern looks like you're playing with the dial. Here, the background image is different, just a small square basically. It gets repeated vertically. Here's the backgournd.
+
+<div  class="code-block console-wrap"><div class="code code-block"><code>
+var loading = {
+ 
+    inc: 10,
+    repeat: 0,
+    repeat_max: 3,
+ 
+    go: function() {
+ 
+        var pos = 1 * document.getElementById('book2').style.backgroundPosition.split("px")[0];
+ 
+        if (
+            (pos === 410 && loading.inc > 0) ||
+            (pos === 0 && loading.inc < 0)
+           )
+        {
+            loading.inc = (loading.inc === 10) ? -10 : 10;
+            loading.repeat++;
+ 
+            if (loading.repeat > loading.repeat_max) {
+                loading.done();
+            }
+ 
+ 
+        } else {
+            document.getElementById('book2').style.backgroundPosition = (pos + loading.inc) + 'px';
+        }
+ 
+    },
+ 
+    init: function() {
+        document.getElementById('go2').firstChild.nodeValue = 'Loading...';
+        document.getElementById('go2').disabled = true;
+        loading.interval = setInterval(loading.go, 50);
+    },
+ 
+    done: function() {
+        document.getElementById('go2').firstChild.nodeValue = 'Click me!';
+        document.getElementById('go2').disabled = false;
+        clearInterval(loading.interval);
+        loading.repeat = 0;
+    }
+ 
+}
+loading.init();
+</code>
+</div>
+
+<div  class="msg" class="msg">
+</div>
+<div style="height:40px">
+<button id="go2" class="hidden" style="background:#dd0000;color:#fff;border:0;margin-left:60%">Click Me</button>
+</div>
+<div id="book2" style="background-position: -500px; padding:1px;width: 400px;border;solid #ececec; background-image: url(http://localhost/codeigniter/images/bkg.png); background-repeat: repeat-y;background-color:#fff" class="clearfix"> 
+<img src="http://localhost/codeigniter/images/kate_small.jpg"  class="cover" />  www.thesixtyone.com
+<br/>
+<br/> 
+</div> 
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+<img src="http://localhost/codeigniter/images/jquery.png" style="float:right; width:85px"/>
+</div>
+
+
+<h3>References</h3>
+
+The patterns are based on the work of [Stoyan Stefanov](http://www.jspatterns.com/category/blog/experiments/). I am not aware of any jQuery plugin that can do this much simpler. Anyway a version with jQuery can be found here.
+
+
+
+
+
+
+
+
+
+
+
+##Further Reading
+
+
+
+ 
+
+
+
+  
+  
+
+
+
+
+
+
+

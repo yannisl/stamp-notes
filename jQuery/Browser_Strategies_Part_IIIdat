@@ -1,0 +1,430 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<h2>Strategies for Cross Browser Code</h2>
+<h3>Implementing Cross-Browser Code</h3>
+Knowing which issues to be aware of is only half the battle. Figuring out effective strategies for
+implementing cross-browser code is a whole other aspect to development. There exist a range of strategies
+that can be used. While not every strategy will work in every situation - the combination should provide
+good coverage for most concerns with a code base.
+
+<h3>Safe Cross-Browser Fixes</h3>
+
+The simplest, and safest, class of cross-browser fixes are those that will have no negative effects on other
+browsers whatsoever, while simultaneously using no forms of browser or feature detection.
+
+These instances are, generally, rather rare - but it's a result that should always be strived for in your
+applications. 
+
+To give an example, examine Listing 9-5.
+Listing 9-5: Preventing negative values to be set on CSS height and width properties.
+
+{{plain:
+// ignore negative width and height values
+if ( (key == 'width' || key == 'height') && parseFloat(value) < 0 )
+value = undefined;
+}}
+
+This change, in jQuery, came about when working with Internet Explorer. The browser throws an exception when a negative value is set on height or width style properties. All other browsers simply ignore this input. The workaround that was introduced, shown in the above listing, was to simply ignore all negative
+values - in all browsers. This change prevented an exception from being thrown in Internet Explorer and had no effect on any other browser. This was a painless addition which provided a unified API to the user (throwing unexpected exceptions is never desired).
+
+Another example of this simplification can be seen in jQuery in the attribute manipulation code is shown in Listing 9-6.
+
+Internet Explorer doesn't allow you to manipulate the type attribute of input elements that have already
+been inserted into the document. Attempts to do so result in an unpredictable exception being thrown.
+jQuery came to a middle-ground solution: It simply disallowed all attempts to manipulate the type attribute
+on injected input elements in all browsers equally (throwing an informational exception).
+
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+$('input[name="input"]').attr('rel', 'text');
+$('input[name="test"] ').attr('style', '');
+
+if (name == "type" && elem.nodeName.toLowerCase() == "input" && elem.parentNode) {
+  throw "type attribute can't be changed";
+}
+</code>
+</div>
+<input type="text" name="input" value="name='input' "  />
+<input type="text" name="test" value="name='test' "  />
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+This change to the jQuery code base required no browser or feature detection - it was simply introduced
+as a means of unifying the API across all browsers. Certainly this particular feature addition is quite
+controversial - it actively limits the features of the library in browsers that are unaffected by this bug. The
+jQuery team weighed the decision carefully and decided that it was better to have a unified API that worked
+consistently than an API would break unexpectedly when developing cross-browser. It's very possible that
+you'll come across situations like this when developing your own reusable code bases.
+The important thing to remember from these style of code changes: They provide a solution that works
+seamlessly across browsers with no browser or feature detection (effectively making them immune to
+changes going forward). One should always strive to use solutions that work in this manner - even if they
+are few and far-between.
+
+<h3>Object Detection</h3>
+
+Object detection is one of the most commonly used ways of writing cross-browser code. It's simple and
+generally quite effective. It works by simply determining if a certain object or object property exists (and,
+if so, assuming that it provides the functionality implies).
+Most common object detection is used to toggle between multiple APIs that provide duplicate pieces
+of functionality. For example, like in the code shown in Listing 9-4 and Listing 9-7, object detection is
+frequently used to choose the appropriate event-binding APIs provided by the browser.
+
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+// Binding an event listener using W3CDOm Events API or
+// the IE specific API using Object detection.
+function attachEvent(elem, type, handle) {
+  // bind event using proper DOM means
+  if (elem.addEventListener) {
+    elem.addEventListener(type, handle, false);
+    log('addEventListener');
+  }
+  // use the Internet Explorer API
+  else { if (elem.attachEvent) {
+      elem.attachEvent("on" + type, handle);
+      log('attachEvent');
+    }
+  }
+}
+
+var el = document.getElementById('msg');
+attachEvent(el);
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+In this case we look to see if a property exists named addEventListener and, if so, we assume that it's
+a function that we can execute and that it'll bind an event listener to that element. Note that we start with
+addEventListener (the method provided by the W3C DOM Events specification). This is intentional.
+Whenever possible we should strive to default to the specified way of performing an action. As mentioned
+before this will help to make our code advance well into the future and encourage browser vendors to work
+towards the specified way of performing actions.
+
+One of the most important uses of object detection is in detecting the basic features of a library, or application, and providing a fallback. As discussed previously you'll want to target your code to a specific set of browsers. The best way to do this is to figure out the APIs that the browser provides, that you need,
+and test for their existence.
+
+Listing 3 has a basic example of detecting a number of browser features, using object detection, in order to determine if we should be providing a full application or a reduced fallback experience.
+
+Listing 9-9 has a basic example of detecting a number of browser features, using object detection, in order
+to determine if we should be providing a full application or a reduced fallback experience.
+
+
+
+What is done in the fallback is up to you. There are a couple options:
+
+1. You could do further object detection and figure out how to provide a reduce experience that still uses some JavaScript.
+
+2. Simply opt to not execute any JavaScript (falling back to the HTML on the page).
+
+3. Redirect a user to a plain version of the site (Google does this with GMail, for example).
+
+Since object detection has very little overhead associated with it (it's just simple property/object lookups) and is relatively simplistic in its implementation, it makes for a good candidate to provide basic levels of fallbacks - both at the API and at the application level. It absolutely should serve as a good first line of defense in your reusable code authoring.
+
+ <div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+// Run once, at the beginning of the program
+var ELEMENTS_ONLY = (function () {
+  var div = document.createElement("div");
+  div.appendChild(document.createComment("test"));
+  return div.getElementsByTagName("*").length === 0;
+})();
+// Later on:
+var all = document.getElementsByTagName("*");
+if (ELEMENTS_ONLY) {
+  log('supported');
+} else {
+  log('alternative action');
+}
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>     
+
+<h3>Feature Simulation</h3>
+
+The final means that we have of preventing regressions - and the most effective means of detecting fixes to browser bugs - exists in the form of feature simulation. Contrary to object detection, which are just simple object/property lookups, feature simulation runs a complete run-through of a feature to make sure that it works as one would expect it to.
+
+Typically object detection isn't enough to know if a feature will behave as is intended but if we know of specific bugs we can quickly build contrived tests for future knowledge. For example, Internet Explorer will return both elements and comments if you do getElementsByTagName("*"). 
+
+Doing simple object detection isn't enough to determine if this will happen. Additionally this bug will, most likely, be fixed by the Internet Explorer team at some future release of the browser.
+
+We can see an example of using feature simulation to determine if the getElementsByTagName
+method will work as we expect it to in Listing 9-10.
+
+Listing 9-10: Defining a global variable that captures information about how a browser feature works and using it later on
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+// Run once, at the beginning of the program
+var ELEMENTS_ONLY = (function(){
+var div = document.createElement("div");
+div.appendChild( document.createComment("test" ) );
+return div.getElementsByTagName("*").length === 0;
+})();
+// Later on:
+var all = document.getElementsByTagName("*");
+if ( ELEMENTS_ONLY ) {
+for ( var i = 0; i < all.length; i++ ) {
+action( all[i] );
+}
+} else {
+for ( var i = 0; i < all.length; i++ ) {
+if ( all[i].nodeType === 1 ) {
+action( all[i] );
+
+}
+}
+}
+
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>     
+
+Feature simulation works in two ways. To start a simple test is run to determine if a feature work as we
+expect it to. It's important to try and verify the integrity of a feature (making sure it works correctly) rather
+than explicitly testing for the presence of a bug. It's only a semantic distinction but it's one that its important
+to maintain in your coding.
+
+Secondly we use the results of the test run later on in our program to speed up looping through an array
+of elements. Since a browser that returns only elements doesn't need to perform these element checks on
+every stage of the loop we can completely skip it and get the performance benefit in the browsers that
+work correctly.
+
+The is the most common idiom used in feature simulation: Making sure a feature works as you expect it to and providing browsers, that work correctly, with optimized code - an example of which can be seen in Listing 9-11.
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+<div id="test" style="color:red;"></div>
+<div id="test2"></div>
+<script>
+// Perform the initial attribute check
+var STYLE_NAME = (function(){
+var div = document.createElement("div");
+div.style.color = "red";
+if ( div.getAttribute("style") )
+return "style";
+if ( div.getAttribute("cssText") )
+return "cssText";
+})();
+// Later on:
+window.onload = function(){
+document.getElementsById("test2").getAttribute( STYLE_NAME ) =
+document.getElementById("test").getAttribute( STYLE_NAME );
+};
+</script>
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>     
+
+In this example we, again, break down into two parts. We start by creating a dummy element, setting a
+style property, and then attempt to get the complete style information back out again. We start by using
+the standards-compliant way (accessing the style attribute) then by trying the Internet Explorer-specific
+way. In either case we return the name of the property that worked.
+We can then use that property name at any point in our code when it comes time to get or set style attribute
+values, which is what we do when the page fully loads.
+There's a couple points to take into consideration when examining feature simulation. Namely that it's a
+trade-off. For the extra performance overhead of the initial simulation and extra lines of code added to
+your program you get the benefit of knowing exactly how a feature works in the current browser and you
+become immune of future bug fixes. The immunity can be absolutely priceless when dealing with reusable
+code bases.
+
+<h3>Untestable</h3>
+
+Unfortunately there are a number of features in JavaScript and the DOM that are either impossible or prohibitively expensive to test. These features are, generally, quite rare. If you encounter an issue in your code that appears to be untestable it will always pay to investigate the matter further.
+
+Following are some issues that are impossible to be tested using any conventional JavaScript interactions.
+
+Determining if an event handler has been bound. Browsers do not provide a way of determining if if any
+functions have been bound to an event listener on an element. Because of this there is no way to remove
+all bound event handlers from an element unless you have foreknowledge of, and maintain references to,
+all bound handlers.
+
+Determining if an event will fire. While it's possible to determine if a browser supports a means of binding
+an event (such as using bindEventListener) it's not possible to know if a browser will actually fire
+an event. 
+
+There are a couple places where this becomes problematic.
+First, if a script is loaded dynamically, after the page has already loaded, it may try to bind a listener to
+wait for the window to load when, in fact, that event happened some time ago. Since there's no way to
+determine that the event already occurred the code may wind up waiting indefinitely to execute.
+
+Second, if a script wishes to uses specific events provided by a browser as an alternative. For example
+Internet Explorer provides __mouseenter__ and __mouseleave__ events which simplify the process of determining
+when a user's mouse enters and leaves an element. These are frequently used as an alternative to the
+mouseover and mouseout events. However since there's no way of determining if these events will fire
+without first binding the events and waiting for some user interaction against them it becomes prohibitive
+to use them for interaction.
+
+Determining if changing certain CSS properties affects the presentation. A number of CSS properties
+only affect the visual representation of the display and nothing else (don't change surrounding elements or
+event other properties on the element) - like color, backgroundColor, or opacity. 
+
+Because of this there is no
+way to programmatically determine if changing these style properties are actually generating the effects
+that are desired. The only way to verify the impact is through a visual examination of the page.
+
+Testing script that causes the browser to crash. Code that causes a browser to crash is especially problematic since, unlike exceptions which can be easily caught and handled, these will always cause the browser to break.
+
+For example, in older versions of Safari, creating a regular expression that used Unicode characters ranges
+would always cause the browser to crash, like in the following example:
+
+{{plain: new RegExp("[\\w\u0128-\uFFFF*_-]+"); }}
+
+
+The problem with this occurring is that it's not possible to test how this works using regular feature
+simulation since it will always produce an undesired result in that older browser.
+
+ Additionally bugs that
+cause crashes to occur forever become embroiled in difficulty since while it may be acceptable to have
+JavaScript be disabled in some segment of the population using your browser, it's never acceptable to
+outright crash the browser of those users.
+
+Testing bugs that cause an incongruous API. In Listing 9-6 when we looked at disallowing the ability
+to change the type attribute in all browsers due to a bug in Internet Explorer. We could test this feature and
+only disable it in Internet Explorer however that would give us a result where the API works differently
+from browser-to-browser. In issues like this - where a bug is so bad that it causes an API to break - the
+only option is to write around the affected area and provide a different solution.
+The following are items that are not impossible to test but are prohibitively difficult to test effectively.
+
+The performance of specific APIs. Sometimes specific APIs are faster or slower in different browsers.
+It's important to try and use the APIs that will provide the fastest results but it's not always obvious which
+API will yield that. In order to do effective performance analysis of a feature you'll need to make it difficult
+enough as to take a large amount of time in order
+Determining if Ajax requests work correctly. As mentioned when we looked at regressions, Internet
+Explorer broke requesting local files via the XMLHttpRequest object in Internet Explorer 7. We could
+test to see if this bug has been fixed but in order to do so we would have to perform an extra request
+on every page load that attempted to perform a request. Not only that but an extra file would have to be
+included with the library whose sole purpose would be to exist for these extra requests. The overhead of
+both these matters is quite prohibitive and would, certainly, not be worth the extra effort of simply doing
+object detection instead.
+
+{{bulb: While untestable features are a significant hassle (limiting the effectiveness of writing reusable JavaScript)
+they are almost always able to be worked around. By utilizing alternative techniques, or constructing your
+APIs in a manner as to obviate these issues in the first place, it will most likely be possible that you'll be able to build effective code, regardless. }}
+
+<h3>Implementation Concerns</h3>
+
+Writing cross-browser, reusable, code is a battle of assumptions. By using better means of detection
+and authoring you're reducing the number of assumptions that you make in your code. When you make
+assumptions about the code that you write you stand to encounter problems later on. For example, if you
+assume that a feature or a bug will always exist in a specific browser - that's a huge assumption. Instead,
+testing for that functionality proves to be much more effective.
+In your coding you should always be striving to reduce the number of assumptions that you make,
+effectively reducing the room that you have for error. The most common area of assumption-making, that is
+normally seen in JavaScript, is that of user agent detection. Specifically, analyzing the user agent provided
+by a browser (navigator.userAgent) and using it to make an assumption about how the browser
+will behave. Unfortunately, most user agent string analysis proves to be a fairly large source of futureinduced
+errors. Assuming that a bug will always be linked to a specific browser is a recipe for disaster.
+However, there is one problem when dealing with assumptions: it's virtually impossible to remove all of
+them. At some point you'll have to assume that a browser will do what it proposes. Figuring out the best
+point at which that balance can be struck is completely up to the developer.
+For example, let's re-examine the event attaching code that we've been looking at, in Listing 9-12.
+
+Listing 9-12: A simple example of catching the implementation of a new API.
+
+function attachEvent( elem, type, handle ) {
+// bind event using proper DOM means
+if ( elem.addEventListener )
+elem.addEventListener(type, handle, false);
+// use the Internet Explorer API
+else if ( elem.attachEvent )
+elem.attachEvent("on" + type, handle);
+}
+
+
+In the above listing we make three assumptions, namely:
+
+1. That the properties that we're checking are, in fact, callable functions
+
+2. That they're the right functions, performing the action that we expect.
+
+3. That these two methods are the only possible ways of binding an event.
+
+We could easily negate the first assumption by adding checks to see if the properties are, in fact, functions.
+
+However how we tackle the remaining two points is much more problematic.
+In your code you'll need to decide how many assumptions are a correct level for you. Frequently when reducing the number of assumptions you also increase the size and complexity of your code base. It's fully possible to attempt to reduce assumptions to the point of insanity but at some point you'll have to stop and take stock of what you have and work from there. Even the least assuming code is still prone to regressions introduced by a browser.
+
+
+
+<h3>Summary</h3>
+
+Cross-browser development is a juggling act between three points:
+
+-  Code Size: Keeping the file size small.
+
+-  Performance Overhead: Keeping the performance hits to a palatable minimum.
+
+-  API Quality: Making sure that the APIs that are provided work uniformly across browsers.
+
+{{bulb: There is no magic formula for determining what the correct balance of these points are. }}
+
+They are something that will have to be balanced by every developer in their individual development efforts. Thankfully using smart techniques like object  detection and feature simulation it's possible to defend against any of the
+numerous directions from which reusable code will be attacked, without making any undue sacrifices.
+
+In the next article we will discuss, the process of choosing the right library to use for your specific application.
+
+
+
+
+
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+

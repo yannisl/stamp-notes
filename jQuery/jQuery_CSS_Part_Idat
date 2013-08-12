@@ -1,0 +1,209 @@
+ <!--
+{{feature: "It is easier to write a new code than to understand an old one," von Neumann warned. }}
+{{feature-image: http://localhost/CodeIgniter/images/edsger_dijkstra8.jpg }}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<link rel="stylesheet" media="screen" type="text/css" href="http://localhost/CodeIgniter/css/colorpicker.css" />
+<script type="text/javascript" src="http://localhost/CodeIgniter/js/colorpicker.js"></script>
+
+
+
+
+
+<style type="text/css">
+		
+		#button { padding: .5em 1em; text-decoration: none; }
+		.ui-effects-transfer { border: 2px dotted gray; } 
+</style>
+	
+
+
+<h1 style="background-color:rgb(239,239,239)">CSS</h1>
+
+jQuery provides a number of methods to manipulate CSS from the Client side. properties of any element can be set or read. In addition classes can be added or
+removed from elements. In this article we will explore some of these methods.
+
+
+
+###.css(name)
+
+<p><input type="text" maxlength="6" size="6" id="colorpickerField1" value="00ff00" /></p>
+<p><input type="text" maxlength="6" size="6" id="colorpickerField3" value="0000ff" /></p>
+<p><input type="text" maxlength="6" size="6" id="colorpickerField2" value="ff0000" /></p>
+
+
+<hr/>
+
+
+Return a style property on the first matched element.
+Shorthand CSS properties (e.g. margin, background, border) are not supported. 
+
+For example, if you want to retrieve the rendered margin, use: 
+
+__$(elem).css('marginTop')__ and __$(elem).css('marginRight')__, and so on.
+
+{{plain:
+<code class="js">
+ $(".clr").hover(function () &#123;
+      var color = $(this).css("background-color");
+      $("#result").html("That div is <span style='color:" +
+                         color + ";'>" + color + "</span>.");
+    &#125;);
+</code>
+}}
+
+<hr/>
+
+{{example:
+<div>
+<div class="clr" style="width:50px;height:50px;float:left;background-color:red"></div>
+<div class= "clr" style="width:50px;height:50px;float:left;background-color:blue"></div>
+<div class="clr" style="width:50px;height:50px;float:left;background-color:green"></div>
+<div class="clr" style="width:50px;height:50px;float:left;background-color:yellow"></div>
+</div>
+
+
+<hr/>
+
+<div  id="result">test</div>
+}}
+
+
+<script type="text/javascript">
+
+$(".clr").hover(function () {
+      var color = $(this).css("background-color");
+      $(this).css({'cursor':'pointer'  });
+      $("#result").html("That div is <span style='color:" +
+                         color + ";'>" + color + "</span>.")
+    });
+
+</script>
+
+<hr/>
+###.css(properties) or .css('name','value')
+Set a key/value object as style properties to all matched elements.
+This is the best way to set several style properties on all matched elements. Be aware, however, that when the key contains a hyphen, such as "background-color," it must either be placed within quotation marks or be written in camel case like so: backgroundColor. As "float" and "class" are reserved words in JavaScript, it's recommended to always surround those terms with quotes. jQuery normalizes the "opacity" property in Internet Explorer.
+
+
+
+{{plain:
+<code class="js">
+$("p").hover(function () &#123;
+      $(this).css(&#123;'background-color' : 'yellow', 'font-weight' : 'bolder'&#125;);
+   &#123; , function ()  &#125;
+      var cssObj =  &#125;
+        'background-color' : '#ddd',
+        'font-weight' : '',
+        'color' : 'rgb(0,40,244)'
+      &#125;
+      $(this).css(cssObj);
+    &#125;);
+</code>
+}}
+
+
+<div class="demo clearfix">
+
+<div class="toggler clearfix" style="width: 500px;" >
+	<div id="effect" class="ui-widget-content ui-corner-all clearfix">
+		<img class="image_1" src="http://localhost/CodeIgniter/images/curv.jpg" style="width:130px;float:left;display:block" />
+
+	</div>
+</div>
+
+<hr/>
+
+
+
+
+<a href="#" id="cbutton" class="ui-state-default ui-corner-all">Clone</a>
+</div>
+
+<script type="text/javascript">
+	
+	var i=0;
+	$("#cbutton").click(function(){
+	  
+      $(".image_1").clone().insertAfter(".image_1").fadeTo('slow','0.33').fadeTo('1000','1');
+      setTimeout('$(".image_1:first").remove();',1750);
+      
+      i++;
+ });
+	
+	
+	
+	</script>
+
+
+<div id="colorBox" style="width:100px;height:100px;background-color:#ececec">Test</div>
+
+<form>
+<label>Background Color</label>
+<input type="text" id="colorField" name="colorField"  value="#dd0000"><br/>
+
+<label>Background Color</label>
+<input type="text" id="colorField2" name="colorField"  value="#ffffff"><br />
+
+
+</form>
+
+<script>
+
+//changes background color properties
+function backgroundColor() {
+     var n = $("input#colorField").val();
+     $("#colorBox").css('backgroundColor',n);
+  }
+
+//changes Text color
+function color(n){
+ // var n = $("input#colorField2").val();
+     $("#colorBox").css('color',n);
+}
+
+
+$("input#colorField").blur(backgroundColor);
+
+$("input#colorField2").blur(function(){
+  var textColor=$(this).val();
+  color(textColor);
+});
+
+
+$('#colorpickerField1, #colorpickerField2, #colorpickerField3').ColorPicker({
+	onSubmit: function(hsb, hex, rgb, el) {
+		$(el).val(hex);
+		$(el).ColorPickerHide();
+                $(this).val('12');
+	},
+	onBeforeShow: function () {
+		$(this).ColorPickerSetColor(this.value);
+	}
+})
+.bind('keyup', function(){
+	$(this).ColorPickerSetColor(this.value);
+});
+
+
+
+</script>
+
+
+
+
+
+##Further Reading
+
+[Good discussion at Yahoo Developer](http://developer.yahoo.com/ypatterns/parent.php?pattern=transition)
+
+
+
+
+

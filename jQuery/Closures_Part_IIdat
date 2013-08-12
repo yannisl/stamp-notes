@@ -1,0 +1,183 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+
+<h2>Functions as Data</h2>
+
+
+<div  class="code-block"><div class="code code-block">
+<span class="hidden"> log( "Click #", 'button' ); </span>
+<span class="green">
+//
+// This function adds property accessor methods for a property with 
+// the specified name to the object o.  The methods are named get<name>
+// and set<name>.  If a predicate function is supplied, the setter
+// method uses it to test its argument for validity before storing it.
+// If the predicate returns false, the setter method throws an exception.
+// 
+// The unusual thing about this function is that the property value 
+// that is manipulated by the getter and setter methods is not stored in
+// the object o.  Instead, the value is stored only in a local variable
+// in this function.  The getter and setter methods are also defined
+// locally to this function and therefore have access to this local variable.
+// Note that the value is private to the two accessor methods, and it cannot
+// be set or modified except through the setter.
+// </span>
+<code>
+function makeProperty(o, name, predicate) {
+    var value;  // This is the property value
+
+    // The setter method simply returns the value
+    o["get" + name] = function() { return value; };
+
+    // The getter method stores the value or throws an exception if
+    // the predicate rejects the value
+    o["set" + name] = function(v) { 
+        if (predicate && !predicate(v))
+            //throw "set" + name + ": invalid value " + v;        
+           value = 'error';
+        else
+            value = v;
+    };
+}
+
+// The following code demonstrates the makeProperty() method 
+var o = {};  // Here is an empty object
+
+// Add property accessor methods getName and setName()
+// Ensure that only string values are allowed
+makeProperty(o, "Name", function(x) { return typeof x == "string"; });
+
+o.setName("Yannis");  // Set the property value
+//o.setLast("Lazarides"); /Set the property value
+ log(o.getName());  // Get the property value
+
+makeProperty(o, "Name2", function(x) { return typeof x == "string"; });
+o.setName2("Yannis2");  // Set the property value
+
+ log(o.getName2());  // Get the property value
+
+//alert(o.setName(0));        // Try to set a value of the wrong type
+</code>
+</div>
+<p id="msg1" class="msg" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+<hr/>
+
+
+
+##Further Reading
+
+http://home.att.net/~srschmitt/script_number_bases.html
+
+
+<script type="text/javascript">
+
+
+
+
+$(document).ready(function(){
+    
+
+  $('button.eval').click(function(){
+   var code=$(this).siblings('.code').text();
+    
+   $that=$(this);
+    //clear logger before output
+   $that.siblings(".results").text('');
+   eval(code);
+ 
+  function assert(pass, msg){
+     var type = pass ? "PASS" : "FAIL";
+     var result='<li class=" ' + type + ' "><b>' + type + "</b> " 
+         + msg + "</li>";
+     $that.siblings(".results").append(result).fadeTo('fast','0.35').fadeTo('fast','1.0');
+     return result;
+   }
+ function log(){
+  var msg = "";
+   
+  for ( var i = 0; i < arguments.length; i++ ) {
+    msg += " " + arguments[i];
+  }
+ 
+  $that.siblings(".results").append("<li class='LOG'><b>LOG</b> " + msg + "</li>").fadeTo('slow','1.0');;
+}
+
+$('#compute').click(function(){
+  alert('compute button clicked');
+  compute();
+}); 
+
+//end on document ready
+
+ 
+});
+
+
+
+$(".input").keyup(function(){
+    var pattern=$(this).siblings('.regex').val(); 
+    var str=$(this).val();
+     s=isValid(str,pattern);
+    //alert(str);
+     $(this).siblings('.msg').text(s);
+});
+
+$(".regex").keyup(function(){
+    var str=$(this).siblings('.input').val();
+    var pattern=$(this).val();
+     s=isValid(str,pattern);
+     $(this).siblings('.msg').text(s);
+    // alert(pattern);
+});
+
+
+
+function error(msg){
+  $(this).siblings("#results").append("<li class='error'><b>ERROR</b> " + msg + "</li>");
+}
+
+
+
+});
+
+function isValid(str,pattern){
+    s=pattern;//alert(s);
+   var dateformat =new RegExp(pattern,'msi');
+    //alert(dateformat);
+   return dateformat.test(str);
+}
+
+//change to pass regex
+//must do to make more general solution
+
+
+ </script>
+
+
+
+  
+  
+
+
+
+
+
+
+

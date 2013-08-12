@@ -1,0 +1,172 @@
+      
+<!--
+ directives
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{feature-image:/codeigniter/images/china/beauty_07.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<script type="text/javascript"> 
+goog.require('goog.ui.AutoComplete.Basic');
+</script>
+
+<STYLE> 
+    small {
+      color: #999;
+      font-size: x-small;
+    }
+ 
+
+/*
+Use of this source code is governed by an Apache 2.0 License.
+See the COPYING file for details.
+*/
+
+/* Copyright 2007 Google Inc.  All Rights Reserved. */
+/**/
+/**/
+
+/* Styles for goog.ui.AutoComplete and its derivatives.
+   Note: these styles need some work to get them working properly at various
+   font sized other than the default. */
+
+/* goog.ui.AutoComplete.Renderer */
+
+/* TODO(annams): Rename (here and in renderer.js) to specify class name as
+   goog-autocomplete-renderer */
+
+.ac-renderer {
+  height:100px;
+  width: 300px;
+  background-color: #fff;
+  color:#009;
+  border: 1px solid #666;
+  -moz-box-shadow: 2px 2px 2px rgba(102, 102, 102, .4);
+  -webkit-box-shadow: 2px 2px 2px rgba(102, 102, 102, .4);
+}
+
+.ac-row {
+  position: relative;
+  padding: .4em;
+  cursor: pointer;
+}
+
+.ac-highlighted {
+  font-weight: bold;
+}
+
+.ac-active {
+  background-color: #b2b4bf;
+}
+
+</STYLE>
+
+
+
+
+
+
+
+
+ 
+ 
+<h3>ui.AutoComplete.Basic</h3>
+<div class="clearfix bordered">
+ <P> 
+    Tom Cruise Film Finder:<BR> 
+    <INPUT id="txtInput1" style="width:500px"> <BUTTON>Go</BUTTON> 
+<DIV  class="ac-renderer" id="goog-acr-0" style="width:300px;height:100px;border:1px solid blue">
+</DIV><DIV class="ac-renderer" id="goog-acr-1"></DIV>
+</P> 
+  
+
+
+<P> 
+
+
+    Multi-Tom Cruise Film Finder:<BR> 
+    <TEXTAREA id="txtInput2" style="width:500px"></TEXTAREA> 
+    <BUTTON>Go</BUTTON><BR> 
+    <SMALL>Data from Google Sets! Not my personal DVD collection!!!</SMALL> 
+  </P> 
+
+</div>
+  
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+filesLoaded();
+var tcMovies = [
+        "Mission Impossible", "Top Gun","Jerry McGuire","Rain Man",
+        "Days of Thunder", "Risky Business","Interview With The Vampire",
+        "Eyes Wide Shut","Far And Away", "Jerry Maguire","The Firm","Cocktail",
+        "A Few Good Men","Legend","Taps", "The Outsiders","Losin' It",
+        "Endless Love","The Color Of Money", "All The Right Moves",
+        "Minority Report","Magnolia","Mission Impossible 2",
+        "Mission Impossible 3","Vanilla Sky","Ghost Soldiers","Few Good Men A",
+        "Color of Money The","Firm The","Mission Impossible II","Outsiders The",
+        "Young Guns","Top Gun DVD","Days of Thunder DVD","Coctail",
+        "Mission Impossible DVD","Fallen Angels Vol 1","Don't Look at Me",
+        "Young Guns uncredited"];
+ 
+ var ac1 = new goog.ui.AutoComplete.Basic(
+        tcMovies, document.getElementById('txtInput1'), false);
+var ac2 = new goog.ui.AutoComplete.Basic(
+        tcMovies, document.getElementById('txtInput2'), true);
+
+log(ac1,ac2);
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div id="log" class="console" style="white-space:pre"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+<SCRIPT type="text/javascript"> 
+    var tcMovies = [
+        "Mission Impossible", "Top Gun","Jerry McGuire","Rain Man",
+        "Days of Thunder", "Risky Business","Interview With The Vampire",
+        "Eyes Wide Shut","Far And Away", "Jerry Maguire","The Firm","Cocktail",
+        "A Few Good Men","Legend","Taps", "The Outsiders","Losin' It",
+        "Endless Love","The Color Of Money", "All The Right Moves",
+        "Minority Report","Magnolia","Mission Impossible 2",
+        "Mission Impossible 3","Vanilla Sky","Ghost Soldiers","Few Good Men A",
+        "Color of Money The","Firm The","Mission Impossible II","Outsiders The",
+        "Young Guns","Top Gun DVD","Days of Thunder DVD","Coctail",
+        "Mission Impossible DVD","Fallen Angels Vol 1","Don't Look at Me",
+        "Young Guns uncredited"];
+ 
+    var ac1 = new goog.ui.AutoComplete.Basic(
+        tcMovies, document.getElementById('txtInput1'), false);
+    var ac2 = new goog.ui.AutoComplete.Basic(
+        tcMovies, document.getElementById('txtInput2'), true);
+  </SCRIPT> 
+    
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+                                                                                                        

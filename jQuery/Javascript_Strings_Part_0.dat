@@ -1,0 +1,147 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+<h2>Strings and the String Object</h2>
+The String object is the real power-house of JavaScript.  Build-in methods are defined in the ECMA standard and are as follows:
+
+<div  class="code-block console-wrap" title="String functions">
+<div class="code code-block">
+<code>
+var s = String('      << This is a test string       ');
+log(s.match(/is/));
+log(s.replace(/is/g, 'Is'));
+log(s.slice(0, 14));
+log(s.split(/\s+/));
+log(s.substring('is'));
+log(s.toLowerCase());
+log(s.toUpperCase());
+log(s.toLocaleLowerCase());
+log(s.length);
+log(s.search('st'));
+log(s.charAt(5));
+log(s.concat(s));
+log(s.indexOf('is'));
+log(s.lastIndexOf('is'));
+log(s.entityify());
+
+String.prototype.strip = function () {
+  return this.replace(/^\s+/, '').replace(/\s+$/, '');
+}
+
+log(s.strip());
+log($.trim(s));
+
+</code>
+
+</div>
+<p id="msg1" class="msg"  style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<h3>Word Borders</h3>
+Let us now use our knowledge of all those functions to see if we can do a bit of text-analysis without using Regular Expressions.
+
+In the book <i>Text Algorithms</i>, Maxime Chrochemore and Wojciech Rytter, define a  border of a word as,  x is any shorter word that is both a prefix and a suffix of x. Borders and
+periods are dual notions, as shown by condition 3 of the previous proposition. We can state it
+more precisely, defining Border(x) as the longest proper border of a nonempty word x. The
+border of a word x is the longest (non-trivial) overlap when we try to match x with itself. Since
+Border(x) is (strictly) shorter than x, iterating the function from any non-empty word leads
+eventually to the empty word. We also say that x is border-free if Border(x) is the empty word.
+
+<h4>Example</h4>
+
+The borders of <strong>aabaaabaa</strong> are <strong>aabaa</strong>, <strong>aa</strong>, <strong>a</strong> and &#949;. Note that $#949;, is just the empty word, which is also considered a border.
+
+<hr/>
+<div  class="code-block console-wrap" title="Border words">
+<div class="code code-block">
+<code>
+var s = 'aabaaabaa';
+var n;
+var result = [];
+for (i = 0; i < s.length; i++) {
+  var s1 = s.slice(0, i);
+  var s2 = s.slice(s.length - (i), s.length);
+  if (s1 == s2) result.push(s1);
+  log(s1, s2);
+}
+log(result);
+</code>
+</div>
+<p  class="msg" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+<button class="eval">Run Code!</button>
+<ol class="results" style="margin-top:8px"></ol> 
+</div>
+</code>
+
+<h2>Fibonacci words</h2>
+
+As there are Fibonacci numbers, there are also Fibonacci words. A Fibonacci word is a specific sequence of binary digits (or symbols from any two-letter alphabet). The Fibonacci Word is formed by repeated concatenation of the previous sequence and the one before that.
+
+The lengths of Fibonacci words are the well known Fibonacci numbers, f0 = 0, f1 = 1, f2 = 1,
+
+.. The first Fibonacci words of (Fibn, n>2) are
+
+{{plain:
+
+Fib3 = ab,
+Fib4 = aba,
+Fib5 = abaab
+Fib6 = abaababa
+Fib7= abaababaa abaab
+}}
+
+Fibonacci words satisfy a large number of interesting properties related to periods and
+repetitions. One can note that Fibonacci words (except the two first words of the sequence) are
+prefixes of their successors. Indeed, there is an even stronger property : the square of any
+Fibonacci word is a prefix of its succeeding Fibonacci words of high enough rank
+
+<div  class="code-block console-wrap" title="Fibonacci Words">
+<div class="code code-block">
+<code>
+var alphabet = 'ab';
+// define the first three
+var fibonacci = [0, 'b', 'a'];
+
+for (i = 3; i < 10; i++) {
+  fibonacci[i] = fibonacci[i - 1] + fibonacci[i - 2];
+  log(fibonacci[i]);
+}
+
+</code>
+</div>
+<p  class="msg">
+</p>
+<button class="eval">Run Code!</button>
+<ol class="results" style="margin-top:8px"></ol> 
+</div>
+</code>
+
+
+##Further Reading
+
+<span class="chapter">2</span>
+
+
+  
+  
+
+
+
+
+
+
+
+  

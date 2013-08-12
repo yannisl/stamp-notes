@@ -1,0 +1,146 @@
+<!--
+{{feature-image:http://localhost/egypt/martin-schoeller/jack_nicholson_2002.jpg}}
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<SCRIPT>
+ //goog.require('goog.json');
+</SCRIPT>
+<h2>A strange looking JavaScript for...loop</h2>
+In Jslint I came across this strange looking contraption being used quite often, have a close look at the
+__for(;;)__, in the code block below. What does it do? Actually it looks in a way like a while loop with no limit. I wonder if we can simulate and see what it does, without creating a closure of some sort that would break it, or does it work because of a closure? I wish I could actually phone Crockford!
+
+<div class="code-block console-wrap">
+<div class="code-block code">
+<code>
+<span class="highlight">for (;;)</span>{
+  nexttoken = lookahead.shift() || lex.token();
+  if (nexttoken.id === '(end)' || nexttoken.id === '(error)') {
+    return;
+  }
+  if (nexttoken.type === 'special') {
+    doOption();
+  } else { if (nexttoken.id !== '(endline)') {
+      break;
+    }
+  }
+}
+</code>
+</div>
+</div>
+
+
+<h3>A bit of discovery</h3>
+Re-writing the above code with simpler variables and leaving only one if statement that can result in a break (so that we will no trigger an infinite loop, we get).
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+var i = 0;
+for (;;){
+  log(i);
+  i++;
+  if (i > 10) {
+    break;
+  }
+};
+</code>
+</div>
+<div   class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+As we guessed, JavaScript does not complain about the lack of variables in the for..loop, it just goes happily (probably)  looping forever. Let us have a peek at the ECMA specification and see what it does, by looking at the extract from the specification below:
+
+<strong>The for Statement</strong>
+
+The production IterationStatement : for (ExpressionNoInopt ; Expressionopt ; Expressionopt) Statement is evaluated as follows:
+
+<ol style="width:98%">
+<li> If the first Expression is not present, go to step 4.</li>
+<li> Evaluate ExpressionNoIn.</li>
+<li> Call GetValue(Result(2)). (This value is not used.)</li>
+<li> Let V = empty.</li>
+<li> <span class="highlight">If the first Expression is not present, go to step 10.</span></li>
+<li> Evaluate the first Expression.</li>
+<li> Call GetValue(Result(6)).</li>
+<li> Call ToBoolean(Result(7)).</li>
+<li> If Result(8) is false, go to step 19.</li>
+<li> Evaluate Statement.</li>
+<li> If Result(10).value is not empty, let V = Result(10).value</li>
+<li> If Result(10).type is break and Result(10).target is in the current label set, go to step 19.</li>
+<li> If Result(10).type is continue and Result(10).target is in the current label set, go to step 15.</li>
+<li> If Result(10) is an abrupt completion, return Result(10).</li>
+<li><span class="highlight"> If the second Expression is not present, go to step 5.</span></li>
+<li> Evaluate the second Expression.</li>
+<li> Call GetValue(Result(16). (This value is not used.)</li>
+<li> Go to step 5.</li>
+<li> Return (normal, V, empty).</li>
+</ol>
+
+As we can see from the above the ECMA specification allows for this and results in infinite recursion unless of course something happened in step and when the statement is evaluated it breaks out of the loop.
+
+Yes you guessed it better than me, it results in recursion. I wonder actually if it was not better to have written it as a recursive function. Let us try it out,
+
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+var i = 0;
+(function () {
+  log(i);
+  i++;
+  if (i > 10) {
+    return;
+  }
+  arguments.callee();
+})();
+</code>
+</div>
+<div   class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+As you can observe the two programs are identical. What do you think, I think the second one is looking sexier!
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+                                              

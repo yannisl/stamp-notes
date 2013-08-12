@@ -1,0 +1,190 @@
+      
+<!--
+ directives
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{feature-image:/codeigniter/images/china/beauty_06.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<SCRIPT> 
+goog.require('goog.fx.Dragger');
+goog.require('goog.dom');
+goog.require('goog.style');
+goog.require('goog.math');
+</SCRIPT>
+
+<style>
+#frame {
+      position: absolute;
+      left: 99px;
+      top: 99px;
+      width: 802px;
+      height: 502px;
+      border: 1px solid #999;
+      background-color: #F0F0F0;
+    }
+ 
+    .window {
+      position:absolute;
+      left: 150px;
+      top: 110px;
+      width: 300px;
+      height: 100px;
+      background-color: rgb(200,200,250);
+      border: 1px solid #99F;
+      font: bold 11px/18px arial;
+      text-indent: 10px;
+      color: #FFF;
+    }
+ 
+    #win2 {
+      top:250px;
+      background-color: rgb(250,200,200);
+      border: 1px solid #F99;
+    }
+ 
+    #win3 {
+      left:500px;
+      background-color: rgb(150,200,150);
+      border: 1px solid #6A6;
+    }
+ 
+    .bar {
+      position:absolute;
+      left: 0px;
+      top: 0px;
+      width: 300px;
+      height: 20px;
+      background-color: #99F;
+      cursor: default;
+    }
+    #win2 .bar { background-color: #F99; }
+    #win3 .bar { background-color: #6A6; }
+ 
+    #sliderback {
+      position: absolute;
+      left: 150px;
+      top: 298px;
+      height: 505px;
+      width: 1px;
+      font-size: 1px;
+      background-color: #999;
+      display:none;
+    }
+ 
+    #slider {
+      position: absolute;
+      left: 135px;
+      top: 498px;
+      width: 30px;
+      height: 13px;
+      font: normal 10px verdana;
+      background-color: #EEE;
+      color: #000;
+      text-align:center;
+      border: 1px solid #999;
+      cursor: default;
+      display:none;
+    }
+ 
+    #ghostbox {
+      position: absolute;
+      left: 100px;
+      top: 625px;
+      width: 600px;
+      height: 20px;
+    }
+ 
+    .block {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      width: 125px;
+      height: 20px;
+      font: bold 11px/18px arial;
+      background-color: #AAA;
+      color: #EEE;
+      text-align: center;
+      border: 1px solid #666;
+    }
+ 
+ /*   .ghost0 { left: 0px; }
+    .ghost1 { left: 130px; }
+    .ghost2 { left: 260px; }
+    .ghost3 { left: 390px; }*/
+</style> 
+
+
+ 
+<h2>The fx.Dragger Class</h2>
+
+This class, although after I got the hung of it was a breeze, it gave me a bit of a trouble, in that firstly the example was using the $ and secondly I hate working with absolute values.
+
+We will use an example that is going to draw a slider in the left margin of this page. You will see it when you run the example.
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+// just doing some math
+
+var limits = new goog.math.Rect(0, 0, 500, 400);
+
+var b = new goog.math.Rect(135, 298, 0, 490);
+log(limits);
+log(b);
+
+// Create the Dragger
+var slider1 = new goog.fx.Dragger(goog.dom.getElement('slider'), null, b);
+
+// we add a listener
+goog.events.listen(slider1, 'drag', function (e) {
+  var percent = Math.round(100 * (e.top - e.dragger.limits.top) / e.dragger.limits.height);
+  goog.dom.getElement('slider').innerHTML = percent;
+});
+
+
+// just to make some space thanks
+// to jQuery is simpler
+
+$('#slider, #sliderback').hide().show('slow');
+$('#lsidemenu').css('padding-top', '800px');
+$('#feature-image, #feature').fadeOut('slow');;
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<DIV id="sliderback"></DIV> 
+<DIV id="slider">-</DIV> 
+
+Sometime in the very long past I was programming using Turbo Pascal 3. It set the screen origin at 0,0 at the top left. In version 4 and later it changed everything and measured it like a graph at the bottom or vice versa and it screwed up a heck of a lot of a graphics program I was doing (programming a Pascal version of HPGL so I could plot graphs that I generated for my Thesis). Personally I find it frustrating to have to think about positions in terms of top and left.
+
+Anyway this example shows some of the power of the Closure library. It integrates nicely with all the Class libraries, you start from Math you get Rect and so on. 
+
+{{bulb: One needs to get to know Closure in order to love it, is a bit fat but is not ugly, is like a Panda!}}
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+
+
+  
+
+
+
+
+
+
+
+                                                                                                                                                  

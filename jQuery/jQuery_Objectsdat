@@ -1,0 +1,145 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+{{feature-image:http://localhost/CodeIgniter/images/spaceball.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<style>.firstHeading{background-color:rgb(239,239,239)}
+</style>
+<h1 id="firstHeading" class="firstHeading" style="background-color: rgb(239, 239, 239)">Object</h1>
+
+Everything in JavaScript is an {{wi:object}}. The easiest way to create an object is the object literal:
+
+{{plain: 
+<code class="js">
+ var x = &#123;&#125;;
+ var y = &#123;
+   name: "Pete",
+   age: 15
+ &#125;</code>
+ }}
+ 
+The type of an object is "object":
+
+{{plain:
+typeof &#123; &#125; // "object"
+}}
+
+<h3 style="border-bottom:1px solid #ececec">The dot notation</h3>
+
+You can write and read properties of an object using the dot notation:
+
+{{plain:
+<code class="js">
+ y.name // "Pete"
+ y.age // 15
+ x.name = y.name + " Pan" // "Pete Pan"
+ x.age = y.age + 1 // 16 
+</code>
+}}
+
+
+####Array Notation
+
+Or you write and read properties using the array notation, which allows you to dynamically choose the property:
+
+{{plain:
+ var operations = &#123;
+   increase: "++",
+   decrease: "--"
+ &#125;
+ var operation = "increase";
+ operations[operation] // "++";
+ operations["multiply"] = "*"; // "*"
+}}
+
+
+<h3 class="firstHeading">Iteration</h3>
+
+Iterating over objects is easy with the for-in-loop:
+
+{{plain:
+var obj = &#123;  
+  name: "Pete",
+  age: 15
+&#125;
+for(key in obj) &#123;
+ alert("key is "+[key]+", value is "+obj[key]);
+&#125;
+
+}}
+
+{{bulb:the for-in-loop can be spoiled by extending Object.prototype (see Object.prototype is verboten) so take care when using other libraries.}}
+
+jQuery provides a generic each-function to iterate over properties of objects, as well as elements of arrays:
+
+ jQuery.each(obj, function(key, value) {
+   console.log("key", key, "value", value);
+ });
+ 
+ 
+The drawback is that the callback is called in the context of each value, therefore you lose the context of your own object if applicable. More on this below at Functions.
+
+
+<h3 style="border-bottom:1px solid #ececec;padding-bottom:10px;margin-top:15px;line-height:1.5">Boolean default</h3>
+
+An object, no matter if it has properties or not, never defaults to false:
+
+ !{} // false
+ 
+ 
+<h2 class="firstHeading">Options</h2>
+
+Options in jQuery are plain JavaScript objects. Whenever Options is mentioned as a type, that object and also all of its properties should be optional. There are exceptions where at least one option is required. jQuery's most prominent use of Options is its AJAX-method. Nearly all jQuery plugins provide an Options-based API: They work without any configuration, but allow users to specify whatever customization they need.
+
+Let's look at an example from the form plugin. It allows you to submit a form via AJAX with this simple line of code:
+
+{{plain:
+ $("#myform").ajaxForm();
+}}
+ 
+In that mode, it uses the form's action-attribute as the AJAX-URL and the form's method-attribute to determine whether to GET or POST the form. You can override both defaults by specifying them as options:
+
+{{plain:
+
+ $("#myform").ajaxForm(&#123;
+   url: "mypage.php",
+   type: "POST"
+ &#125);
+
+}}
+ 
+
+##Extending the jQuery Option
+
+This is the traditional method for adding plugins.
+
+{{plain:
+The following code will merge _settings_ and _options_, modifying settings.
+
+var settings = &#123; validate: false, limit: 5, name: "foo" &#125;
+var options = &#123; validate: true, name: "bar" &#125;
+jQuery.extend(settings, options);
+
+whereas this one will merge defaults and options, without modifying the defaults.
+
+var empty = &#123;&#125;
+var defaults = &#123; validate: false, limit: 5, name: "foo" &#125;;
+var options = &#123; validate: true, name: "bar" &#125;;
+var settings = $.extend(empty, defaults, options);
+
+}}
+
+
+##Further Reading
+
+[Good discussion at Yahoo Developer](http://developer.yahoo.com/ypatterns/parent.php?pattern=transition)
+
+
+
+
+

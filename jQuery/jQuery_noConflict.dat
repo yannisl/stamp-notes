@@ -1,0 +1,133 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+<h2>Using jQuery with Other Libraries </h2>
+One of the reasons of the success of jQuery and Prototype is the use of the $ variable. It provides as short and clear way.
+
+{{bulb: Verbose code leads to bugs as spelling mistakes can inadvertently introduce new variables.}}
+
+The jQuery team provided the noConflict() function to enable jQuery to be used with other libraries.
+ 
+The definition of the $ variable is the largest point of contention and conflict when using other libraries on the same page as jQuery. As we know, jQuery uses $ as an alias for the jQuery name, which is used for every feature that jQuery exhibits. But other libraries, most notably Prototype, use the $ name as well.
+jQuery provides the $.noConflict() utility function to relinquish control of
+the $ name to whatever other library might wish to use it. The syntax of this function is as follows:
+
+Because $ is an alias for jQuery, all of jQuery�s functionality is still available after
+the application of $.noConflict(), albeit by using the jQuery identifier. To compensate
+for the loss of the brief�yet beloved�$, we can define our own shorter,
+but non-conflicting, alias for jQuery, such as
+{{plain:
+var $j = jQuery;
+}}
+
+I normally use jQ
+
+{{plain:
+   var $jQ=jQuery;
+}}
+
+<h3>Example Usage</h3>
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+var $ = 'Hi!';
+jQuery(function($){
+alert('$ = '+ $);
+});
+
+log($);
+log(jQuery('#msg1').text('this is a test')));
+</code>
+</div>
+
+<div   class="msg" id="msg1">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<h3>Plugin Authorship</h3>
+Another idiom often employed is to create an environment where the $ name is
+scoped to refer to the jQuery object. This technique is commonly used when
+extending jQuery, particularly by plugin authors who can�t make any assumptions
+regarding whether page authors have called $.noConflict() and who, most certainly,
+can�t subvert the wishes of the page authors by calling it themselves.
+This idiom is as follows:
+(function($) { /* function body here */ })(jQuery);
+If this notation makes your head spin, don�t worry! It�s pretty straightforward if
+odd-looking to those encountering it for the first time.
+Let�s dissect the first part of this idiom:
+(function($) { /* function body here */ })
+Function syntax: $.noConflict
+$.noConflict()
+Restores control of the $ name back to another library, allowing mixed library use on pages
+using jQuery.
+Once this function is executed, jQuery features will need to be invoked using the jQuery
+name rather than the $ name.
+Parameters
+none
+Returns
+Undefined.
+Licensed to Alison Tyler <pedbro@gmail.com>
+Download at Boykma.Com
+Using other libraries with jQuery 165
+This part declares a function and encloses it in parentheses to make an expression
+out of it, resulting in a reference to the anonymous function being returned as the
+value of the expression. The function expects a single parameter, which it names
+$; whatever is passed to this function can be referenced by the $ identifier within
+the body of the function. And because parameter declarations have precedence
+over any similarly named identifiers in the global scope, any value defined for $
+outside of the function is superseded within the function by the passed argument.
+The second part of the idiom
+(jQuery)
+performs a function call on the anonymous function passing the jQuery object as
+the argument.
+As a result, the $ name refers to the jQuery object within the body of the function
+regardless of whether it�s already defined by Prototype or some other library
+outside of the function. Pretty nifty, isn�t it?
+When employing this technique, the external declaration of $ isn�t available
+within the body of the function.
+A variant of this idiom is also frequently used to form a third syntax for
+declaring a ready handler in addition to the means that we already examined in
+section 1.3.3. Consider the following:
+jQuery(function($) {
+alert("I'm ready!");
+});
+
+By passing a function as the parameter to the jQuery function, we declare it as a
+ready handler as we saw in section 1.3.3. But this time, we declare a single parameter
+to be passed to the ready handler using the $ identifier. Because jQuery
+always passes a reference to jQuery to a ready handler as its first and only parameter,
+this guarantees that the $ name refers to jQuery inside the ready handler
+regardless of the definition $ might have outside the body of the handler.
+Let�s prove it to ourselves with a simple test. For the first part of the test, let�s
+examine the HTML document of listing 6.2.
+
+Well, that may not have been exactly what we might have predicted in advance.
+But a quick glance at the jQuery source code shows that, because we declare the
+first parameter of the ready handler to be $ within that function, the $ name
+refers to the jQuery function that jQuery passes as the sole parameter to all ready
+handlers (so the alert displays the definition of that function).
+When writing reusable components, which might or might not be used in
+pages where $.noConflict() is used, it�s best to take such precautions regarding
+the definition of $.
+A good number of the remaining jQuery utility functions are used to manipulate
+JavaScript objects. Let�s take a look at them.
+
+
+
+<span id="chapter" class="hidden">11</span>
+
+##Further Reading
+
+  

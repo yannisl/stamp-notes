@@ -1,0 +1,165 @@
+<!--
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class,tabs, jquery}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+###Small tabs snippets
+<div id="quecontainer" style="width:250px;border:1px solid #ececec;float:left" class="curvy sortable">
+    <div class="curvy" style="font-size:10px;border:1px solid #bebebe;margin-bottom:1px">
+        <div style="float:right;clear:both;padding-right:5px">- +  </div>
+         <div>Activity 1156, Resolve issues with Podium, Rotana ground floor, pipe clashes with ductwork...</div>
+   </div>
+   <div class="curvy" style="font-size:10px;border:1px solid #bebebe;margin-bottom:1px">
+        <div style="float:right;clear:both;padding-right:5px">- +  </div>
+         <div>Activity 1157, Redesign ductwork to fit in Museum area...</div>
+   </div>
+    
+  
+    <div style="font-size:10px;border:1px solid #bebebe;margin-bottom:1px">Activity 2</div>
+    <div style="font-size:10px;border:1px solid #bebebe;margin-bottom:1px">Activity 3</div>
+    <div style="font-size:10px;border:1px solid #bebebe;margin-bottom:1px">Activity 4</div>
+    <div style="font-size:10px;border:1px solid #bebebe;margin-bottom:1px">Activity 5</div>
+    <div style="font-size:10px;border:1px solid #bebebe;margin-bottom:1px">Activity 1</div>
+    <div style="font-size:10px;border:1px solid #bebebe;margin-bottom:1px">Activity 2</div>
+    <div style="font-size:10px;border:1px solid #bebebe;margin-bottom:1px">Activity 3</div>
+    <div style="font-size:10px;border:1px solid #bebebe;margin-bottom:1px">Activity 4</div>
+    <div style="font-size:10px;border:1px solid #bebebe;margin-bottom:1px">Activity 5</div>
+     <div style="font-size:10px;border:1px solid #bebebe;margin-bottom:1px">Activity 1</div>
+    <div style="font-size:10px;border:1px solid #bebebe;margin-bottom:1px">Activity 2</div>
+    <div style="font-size:10px;border:1px solid #bebebe;margin-bottom:1px">Activity 3</div>
+    <div style="font-size:10px;border:1px solid #bebebe;margin-bottom:1px">Activity 4</div>
+    <div style="font-size:10px;border:1px solid #bebebe;margin-bottom:1px">Activity 5</div>
+    <div style="font-size:10px;border:1px solid #bebebe;margin-bottom:1px">Activity 1</div>
+    <div style="font-size:10px;border:1px solid #bebebe;margin-bottom:1px">Activity 2</div>
+    <div style="font-size:10px;border:1px solid #bebebe;margin-bottom:1px">Activity 3</div>
+    <div style="font-size:10px;border:1px solid #bebebe;margin-bottom:1px">Activity 4</div>
+    <div style="font-size:10px;border:1px solid #bebebe;margin-bottom:1px">Activity 5</div>
+     <div style="font-size:10px;border:1px solid #bebebe;margin-bottom:1px">Activity 1</div>
+    <div style="font-size:10px;border:1px solid #bebebe;margin-bottom:1px">Activity 2</div>
+    <div style="font-size:10px;border:1px solid #bebebe;margin-bottom:1px">Activity 3</div>
+    <div style="font-size:10px;border:1px solid #bebebe;margin-bottom:1px">Activity 4</div>
+    <div style="font-size:10px;border:1px solid #bebebe;margin-bottom:1px">Activity 5</div>
+    <div style="font-size:10px;border:1px solid #bebebe;margin-bottom:1px">Activity 1</div>
+    <div style="font-size:10px;border:1px solid #bebebe;margin-bottom:1px">Activity 2</div>
+    <div style="font-size:10px;border:1px solid #bebebe;margin-bottom:1px">Activity 3</div>
+    <div style="font-size:10px;border:1px solid #bebebe;margin-bottom:1px">Activity 4</div>
+    <div style="font-size:10px;border:1px solid #bebebe;margin-bottom:1px">Activity 5</div>
+
+</div>
+
+
+<div id="#maindraggable" style="width:718px;float:right">
+<div id="maintabs" style="font-size:10px;float:right">
+	<ul>
+		<li><a href="#tabs-1" >Shadi</a></li>
+		<li><a href="#tabs-2">George</a></li>
+                <li><a href="#tabs-3">Nidhal</a></li>
+                <li><a href="#tabs-4">Rabieh</a></li>
+                <li><a href="#tabs-5">Warren</a></li>
+                <li><a href="#tabs-6">Indra</a></li>
+               <li><a href="#tabs-7">Alex</a></li>
+       </ul>
+<div id="tabs-1" class="tabp">
+<p><span style="float:right;font-size:12px"><a>Save</a> <a>Delete</a></span></p>
+
+
+<div  style="font-size:10px;border:1px solid ">Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molestie lectus, ut tempus eros massa ut dolor. Aenean aliquet fringilla sem. Suspendisse sed ligula in ligula suscipit aliquam. Praesent in eros vestibulum mi adipiscing adipiscing. Morbi facilisis. Curabitur ornare consequat nunc. Aenean vel metus. Ut posuere viverra nulla. Aliquam erat volutpat. Pellentesque convallis. Maecenas feugiat, tellus pellentesque pretium posuere, felis lorem euismod felis, eu ornare leo nisi vel felis. Mauris consectetur tortor et purus.</div>
+<div style="height:2px;clear:both"></div>
+<div  style="font-size:10px;border:1px solid ">
+Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molestie lectus, ut tempus eros massa ut dolor. Aenean aliquet fringilla sem. Suspendisse sed ligula in ligula suscipit aliquam. Praesent in eros vestibulum mi adipiscing adipiscing. Morbi facilisis. Curabitur ornare consequat nunc. Aenean vel metus. Ut posuere viverra nulla. Aliquam erat volutpat. Pellentesque convallis. Maecenas feugiat, tellus pellentesque pretium posuere, felis lorem euismod felis, eu ornare leo nisi vel felis. Mauris consectetur tortor et purus.
+</div>
+
+</div>
+
+<div id="tabs-2">
+<h4 style="font-size:10px;font-weight:bold">Console</h4>
+<p  style="font-size:10px">Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molestie lectus, ut tempus eros massa ut dolor. Aenean aliquet fringilla sem. Suspendisse sed ligula in ligula suscipit aliquam. Praesent in eros vestibulum mi adipiscing adipiscing. Morbi facilisis. Curabitur ornare consequat nunc. Aenean vel metus. Ut posuere viverra nulla. Aliquam erat volutpat. Pellentesque convallis. Maecenas feugiat, tellus pellentesque pretium posuere, felis lorem euismod felis, eu ornare leo nisi vel felis. Mauris consectetur tortor et purus.</p>
+</div>
+
+<div id="tabs-3">
+<h4 style="font-size:10px;font-weight:bold">Console</h4>
+<p  style="font-size:10px">Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molestie lectus, ut tempus eros massa ut dolor. Aenean aliquet fringilla sem. Suspendisse sed ligula in ligula suscipit aliquam. Praesent in eros vestibulum mi adipiscing adipiscing. Morbi facilisis. Curabitur ornare consequat nunc. Aenean vel metus. Ut posuere viverra nulla. Aliquam erat volutpat. Pellentesque convallis. Maecenas feugiat, tellus pellentesque pretium posuere, felis lorem euismod felis, eu ornare leo nisi vel felis. Mauris consectetur tortor et purus.</p>
+</div>
+
+<div id="tabs-4">
+<h4 style="font-size:10px;font-weight:bold">Console</h4>
+<p  style="font-size:10px">Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molestie lectus, ut tempus eros massa ut dolor. Aenean aliquet fringilla sem. Suspendisse sed ligula in ligula suscipit aliquam. Praesent in eros vestibulum mi adipiscing adipiscing. Morbi facilisis. Curabitur ornare consequat nunc. Aenean vel metus. Ut posuere viverra nulla. Aliquam erat volutpat. Pellentesque convallis. Maecenas feugiat, tellus pellentesque pretium posuere, felis lorem euismod felis, eu ornare leo nisi vel felis. Mauris consectetur tortor et purus.</p>
+</div>
+
+<div id="tabs-5">
+<h4 style="font-size:10px;font-weight:bold">Console</h4>
+<p  style="font-size:10px">Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molestie lectus, ut tempus eros massa ut dolor. Aenean aliquet fringilla sem. Suspendisse sed ligula in ligula suscipit aliquam. Praesent in eros vestibulum mi adipiscing adipiscing. Morbi facilisis. Curabitur ornare consequat nunc. Aenean vel metus. Ut posuere viverra nulla. Aliquam erat volutpat. Pellentesque convallis. Maecenas feugiat, tellus pellentesque pretium posuere, felis lorem euismod felis, eu ornare leo nisi vel felis. Mauris consectetur tortor et purus.</p>
+</div>
+
+<div id="tabs-6">
+<h4 style="font-size:10px;font-weight:bold">Console</h4>
+<p  style="font-size:10px">Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molestie lectus, ut tempus eros massa ut dolor. Aenean aliquet fringilla sem. Suspendisse sed ligula in ligula suscipit aliquam. Praesent in eros vestibulum mi adipiscing adipiscing. Morbi facilisis. Curabitur ornare consequat nunc. Aenean vel metus. Ut posuere viverra nulla. Aliquam erat volutpat. Pellentesque convallis. Maecenas feugiat, tellus pellentesque pretium posuere, felis lorem euismod felis, eu ornare leo nisi vel felis. Mauris consectetur tortor et purus.</p>
+</div>
+
+<div id="tabs-7">
+<h4 style="font-size:13px;font-weight:bold">Performance</h4>
+<p  style="font-size:12px">
+This section provides automatically generated performance reports, as well as charts showing the production ques for drawings. I will enable printing.
+
+</p>
+</div>
+
+
+<!-- end tabs-->
+</div>
+</div>
+
+<!-- MAIN TABS -->
+
+
+
+
+
+
+
+
+<script>
+$(function() {
+		$( "#maintabs" ).tabs().find( ".ui-tabs-nav" ).sortable({ axis: "x" });
+	});
+$(function() {
+		$( "#maintabs" ).draggable({ opacity: 0.35 });
+	});
+$(function() {
+		$( "#quecontainer" ).draggable({ opacity: 0.35 });
+	});
+$(document).ready(function() {
+$('#left-menu').css({'visibility':'hidden'});
+});
+</script>
+
+
+
+
+
+
+
+
+<hr/>
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    

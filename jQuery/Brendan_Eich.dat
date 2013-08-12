@@ -1,0 +1,69 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<style type="text/css">
+.code{margin:0;padding-top:0}
+.code-block{                        background:url(http://localhost/codeigniter/images/code-bg.gif);
+margin:0;padding:0}
+.code-block .code{white-space:pre;font-family:inherit;padding:0;margin:0}
+.highlight{background:yellow}
+.green{color:green}
+.hidden{display:none}
+</style>
+
+
+
+
+
+
+
+<h2>How did it all started?</h2>
+
+<div style="width:35%;float:left">
+<!--<img src="http://localhost/codeigniter/images/brendan_eich.jpg" />-->
+<img src="http://localhost/codeigniter/images/angela_vectorized.png" style="width:90%"/>
+</div>
+
+Brendan Eich (pronounced /&#712;&#1072;&#618;k/) (born 1961) is a computer programmer and creator of the JavaScript programming language. He is the Chief Technology Officer at the Mozilla Corporation.
+
+Eich started his career at Silicon Graphics, working for seven years on operating system and network code. He then worked for three years at MicroUnity Systems Engineering writing microkernel and DSP code, and doing the first MIPS R4000 port of gcc.
+
+Eich is best known for his work on Netscape and Mozilla. He started work at Netscape Communications Corporation in April 1995, working on JavaScript (originally called Mocha, then called LiveScript) for the Netscape Navigator web browser. He then helped found mozilla.org in early 1998, serving as chief architect. When AOL shut down the Netscape browser unit in July 2003, Eich helped spin out the Mozilla Foundation.
+
+In August 2005, after serving as Lead Technologist and as a member of the Board of Directors of the Mozilla Foundation, Brendan became CTO of the newly founded Mozilla Corporation.
+
+Brendan Eich is still active in the development of the language. You can read an interview [here](http://www.infoworld.com/d/developer-world/javascript-creator-ponders-past-future-704?page=0,0)
+
+<h3>Javascript Challenges</h3>
+From Risig's unfinished book, Javscript Ninja
+<blockquote>
+Browser-based JavaScript development is much more complicated than it seems. It's more than just
+a knowledge of the JavaScript language it's the ability to understand and work around browser
+incompatibilities coupled with the development skills needed to have that code survive for a long time.
+While JavaScript development can certainly be challenging there are those who've already gone down
+this route route: JavaScript libraries. Distilling the knowledge stored in the construction of these code
+bases will effectively fuel our development for many years to come. This exploration will certainly be
+informative, particular, and educational - enjoy
+</blockquote>
+
+<h3>The Libraries</h3>
+
+
+
+  
+  
+
+
+
+
+
+
+
+    

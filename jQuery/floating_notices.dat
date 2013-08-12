@@ -1,0 +1,81 @@
+<!--
+{{feature-image:/egypt/amato-01/aa_107.jpg}}
+{{credit:/codeigniter/blogs/gallery/amato-01/1}}
+{{credit-source:Allan Amato}}
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+<h2>Floating Notices</h2>
+
+In this article we will explore how to design and program __floating notices__, using jQuery. You may have seen floating notices in websites such as [thesixtyone.com](http://thesixtyone.com) and during your visit here. Some people call them floating bubbles. It is a great way to inform users about the results of their actions or simply issue them reminders for example to register or upload their avatars.
+
+Users visiting a site can miss to read normally static notices. The human brain like that of cats is wired to notice movement and as such floating notices can grub attention. 
+
+
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+// click the run button a few times to
+// view the notices stack! Press with +- 1s interval
+UI.floatingNotices('The Good Parts! Thank You!');
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+These little page enhancements are a pain due to the difficulties in getting all browsers to behave in a consistent manner. They become an exercise in CSS mostly, rather than Javascript. When all browser vendors adapt fully the same standards, web designers will mark the day on their calendars and celebrate it for years to come!
+
+All these notices we will contain within one single container, named
+__floating-notices__. (I normally name all CSS classes or id's with a dash rather than an underscore or camelize. This way I find it easier for me to follow calls to them in JavaScriprt code).
+
+{{plain:
+&lt;div id="floating-notices" style="width:200px;margin:0;padding:0;
+                 display:none;position:fixed;right:20px;bottom:20px;
+                 font-size:11px;" class="clearfix"&gt;
+&lt;/div&gt;
+}}
+
+The interesting rules here are the 'position: fixed', that makes the DIV stay fixed on the screen at a given position. All browsers including IE from version 7 do support it. However IE 6 doesn't.
+IE 6.0 just cannot cope in today's CSS driven web. It had a good life but it's dead now. Let it rest in peace. Browsers are free to download and there is no excuse for us to waste precious time from our lives to support it. So no hacks here! 
+
+<h3>Using Opacity</h3>
+We can also use Opacity to indicate the current note in the stack, or animate the stack to indicate to the user that the last notice is at the bottom.
+
+<h3>Progressive Enhancement</h3>
+
+Since these notices are going to be used on highly interactive pages, I did not spend time on tricks to serve them to people without JavaScript on. In these cases the notices just do not appear. You can if you wish serve a static message by modifying the listing above.
+
+##Further Reading
+
+
+
+<pre>
+<code class="snippet"> 
+ $(document).bind("contextmenu",function(e){  
+    //you can enter your code here, e.g a menu list  
+          
+    //cancel the default context menu  
+    return false;  
+});
+</code>
+</pre>
+
+
+
+
+
+                                                                                                                                                                                                                                                                                  

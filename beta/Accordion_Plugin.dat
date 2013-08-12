@@ -1,0 +1,18 @@
+\chapter{Accordion Plugin}
+
+<div style="width:50%">
+\begin{accordion}
+\begin{category}{First Heading}
+\mitem{Plugins}{Typography}
+\end{category}
+
+\begin{category}{First Heading}
+\mitem{Plugins}{Typography}
+\end{category}
+
+\begin{category}{First Heading}
+\mitem{Plugins}{Typography}
+\end{category}
+
+\end{accordion}
+</div>

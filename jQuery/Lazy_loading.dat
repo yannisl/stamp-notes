@@ -1,0 +1,267 @@
+      
+<!--
+ directives
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{feature-image:/codeigniter/images/china/beauty_06.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+<h2>Lazy Loading</h2>
+
+Making Scripts Play Nice
+
+There are several techniques for downloading external scripts without having your page
+suffer from their blocking behavior. One technique I don't suggest doing is inlining all
+of your JavaScript. In a few situations (home pages, small amounts of JavaScript),
+inlining your JavaScript is acceptable, but generally it's better to serve your JavaScript
+in external files because of the page size and caching benefits derived. (For more
+information about these trade-offs,
+
+The techniques listed here provide the benefits of external scripts without the slowdowns
+imposed from blocking:
+
+- XHR Eval
+- XHR Injection
+- Script in Iframe
+- Script DOM Element
+- Script Defer
+- document.write Script Tag
+
+The following sections describe each of these techniques in more detail, followed by a
+comparison of how they affect the browser and which technique is best under different
+circumstances.
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+log((countNumFilesLoaded_ = function () {
+  var scripts = document.getElementsByTagName('script');
+  var count = 0;
+  for (var i = 0, n = scripts.length; i < n; i++) {
+    if (scripts[i].src) {
+      var t = (scripts[i].src).replace(/http:\/\/(localhost)\/codeigniter/gi, '');
+      count++;
+      log(i + ' ' + t);
+    }
+  }
+  return count;
+})());
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<h3>XHR Injection</h3>
+
+Like XHR Eval, the XHR Injection technique uses an XMLHttpRequest to retrieve the
+JavaScript. But instead of using eval, the JavaScript is executed by creating a script
+DOM element and injecting the XMLHttpRequest response into the script. Using eval is
+potentially slower than using this mechanism.
+
+
+
+  
+
+
+
+{{bulb:The XMLHttpRequest must be served from the same domain as the main page.}}
+
+ The relevant
+source code from the XHR Injection example follows:
+var xhrObj = getXHRObject(); // defined in the previous example
+xhrObj.onreadystatechange =
+function() {
+
+if ( xhrObj.readyState == 4 ) {
+var scriptElem = document.createElement('script');
+document.getElementsByTagName('head')[0].appendChild(scriptElem);
+scriptElem.text = xhrObj.responseText;
+}
+};
+xhrObj.open('GET', 'A.js', true); // must be same domain as main page
+xhrObj.send('');
+
+<h3>Script DOM Element</h3>
+
+Rather than using the SCRIPT tag in HTML to download a script file, this technique uses
+JavaScript to create a script DOM element and set the SRC property dynamically. This
+can be done with just a few lines of JavaScript:
+
+{{plain:
+var scriptElem = document.createElement('script');
+scriptElem.src = 'http://anydomain.com/A.js';
+document.getElementsByTagName('head')[0].appendChild(scriptElem);
+}}
+
+Creating a script this way does not block other components during download. As
+opposed to the previous techniques, Script DOM Element allows you to fetch the Java-
+Script from a server other than the one used to fetch the main page. The code to
+implement this technique is short and simple. Your external script file can be used as
+is and doesn't need to be refactored as in the XHR Eval and Script in Iframe approaches.
+
+<h3>Script Defer</h3>
+
+Internet Explorer supports the SCRIPT DEFER attribute as a way for developers to tell the
+browser that the script does not need to be loaded immediately. This is a safe attribute
+to use when a script does not contain calls to document.write and no other scripts in
+
+the page depend on it. When Internet Explorer downloads the deferred script, it allows
+other downloads to be done in parallel.
+
+
+The DEFER attribute is an easy way to avoid the bad blocking behavior of scripts with
+the addition of a single word:
+<script defer src='A.js'></script>
+
+Although DEFER is part of the HTML 4 specification, it is implemented only in Internet
+Explorer and in some newer browsers.
+
+<h3>document.write Script Tag</h3>
+This last technique uses document.write to put the SCRIPT HTML tag into the page.
+document.write Script Tag
+http://stevesouders.com/cuzillion/?ex=10014&title=document.write+Script+Tag
+
+This technique, similar to Script Defer, results in parallel script loading in Internet
+Explorer only. Although it allows multiple scripts to be downloaded in parallel
+(provided all the document.write lines occur in the same script block), other types of
+resources remain blocked while scripts are downloading:
+
+document.write("&lt;script type='text/javascript' src='A.js'&gt;&lt;/script&gt;");
+
+<h3>Ensuring (or Avoiding) Ordered Execution</h3>
+
+In many cases, a web page contains multiple scripts that have a particular dependency
+order. Using the normal SCRIPT SRC approach guarantees that the scripts are
+downloaded and executed in the order in which they are listed in the page. However,
+using certain of the advanced downloading techniques described previously does not
+carry such a guarantee. 
+
+{{bulb: Because the scripts are downloaded in parallel, they may get
+executed in the order in which they arrived the fastest response to arrive being executed
+first rather than the order in which they were listed. This can lead to race conditions
+resulting in undefined symbol errors.}}
+
+Some of the techniques do ensure ordered execution, but they vary depending on the
+browser. For Internet Explorer, the Script Defer and document.write Script Tag
+
+approaches that guarantee scripts are executed in the order listed, regardless of which
+is downloaded first. For instance, the IE Ensure Ordered Execution example contains
+three scripts that are loaded using Script Defer. Even though the first script (with
+sleep=3 in the URL) finishes downloading last, it is still the first to be executed.
+
+
+Because the Script Defer and document.write Script Tag techniques don't achieve parallel
+script downloads in Firefox, you need to use a different technique whenever one
+script depends on another. The Script DOM Element approach guarantees that scripts
+are executed in the order listed in Firefox. The FF Ensure Ordered Execution example
+contains three scripts that are loaded using the Script DOM Element approach. Even
+though the first script (with sleep=3 in the URL) finishes downloading last, it is still the
+first to be executed.
+
+
+
+It's not always important to ensure that scripts are executed in the order specified.
+Sometimes you actually want the browser to execute whatever script happens to come
+first, because that produces a page that loads faster. One example is a web page containing
+multiple widgets (A, B, and C) with associated scripts (A.js, B.js, and C.js) that
+do not have any interdependencies. Even though the page might list the widget scripts
+in that order, a better user experience would result from executing whichever widget
+script is received first. The XHR Eval and XHR Injection techniques achieve this. The
+
+Avoid Ordered Execution example executes the first script downloaded, even though
+it's not the first script listed in the page.
+
+Avoid Ordered Execution
+
+
+These techniques allow scripts to be downloaded in parallel with all the other resources
+in the page, something that browsers don't do by default, even newer browsers. 
+
+This can significantly speed up your web page. This is especially important for Web 2.0
+applications, where the number and size of external scripts are greater than in other
+web pages.
+
+The document.write Script Tag technique is less preferred because it parallelizes downloads
+only in a subset of browsers and blocks parallel downloads for anything other
+than script resources. 
+
+Script Defer also parallelizes downloads in only some browsers.
+
+XHR Eval, XHR Injection, and Script in Iframe carry the requirement that your scripts
+reside on the same hostname as the main page. To use the XHR Eval and Script in
+Iframe techniques, you must refactor your scripts slightly, whereas the XHR Injection
+and Script DOM Element approaches can download your existing script files without
+any changes. 
+
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+<script type="text/javascript">
+goog.require('goog.userAgent');
+goog.require('goog.Timer');
+goog.require('goog.Throttle');
+goog.require('goog.i18n.NumberFormatSymbols');
+goog.require('goog.i18n.currencyCodeMap');
+goog.require('goog.i18n.NumberFormat'); 
+goog.require('goog.structs.InversionMap');
+goog.require('goog.iter.Iterator');
+goog.require('goog.iter.StopIteration');
+goog.require('goog.math.Range');
+goog.require('goog.math.RangeSet');
+goog.require('goog.math.Coordinate');
+goog.require('goog.math.Box');
+goog.require('goog.math.Size');
+goog.require('goog.i18n.GraphemeBreak');
+goog.require('goog.format');
+goog.require('goog.dom.TagName');
+goog.require('goog.dom.classes');
+goog.require('goog.math.Coordinate');
+goog.require('goog.math.Size');
+goog.require('goog.dom');
+goog.require('goog.locale');
+goog.require('goog.array');
+goog.require('goog.color');
+goog.require('goog.color.alpha');
+goog.require('goog.color.names');
+goog.require('goog.color');
+goog.require('goog.locale.nativeNameConstants');
+goog.require('goog.array');
+goog.require('goog.dom');
+goog.require('goog.dom.NodeType');
+goog.require('goog.string');
+goog.require('goog.dom.annotate');
+goog.require('goog.ds.JsonDataSource');
+goog.require('goog.ds.XmlDataSource');
+goog.require('goog.ds.Expr');
+goog.require('goog.ds.DataManager');
+goog.require('goog.ds.FastDataNode');
+goog.require('goog.ds.JsDataSource');
+goog.require('goog.testing.stacktrace');
+</script>
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+                                          

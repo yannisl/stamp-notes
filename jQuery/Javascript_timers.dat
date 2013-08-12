@@ -1,0 +1,152 @@
+ <!--
+{{feature-image:/codeigniter/images/china/beauty_03.jpg}}
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: UI, jQuery, Visibility Filters, CSS Visibility }}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+
+
+<h2>Javascript Timers</h2>
+
+JavaScript features a handy couple of handy methods of the window object: 
+__setTimeout()__ and __setInterval()__. These let you run a piece of JavaScript code at some point in the future. In this tutorial we'll explain how these two methods work, and give some practical examples.
+
+{{plain:
+setTimeout()
+}}
+
+<strong>window.setTimeout()</strong>  allows you to specify that a piece of JavaScript code (called an expression) will be run a specified number of milliseconds from when the <strong>setTimeout()</strong> method was called. The general syntax of the method is:
+
+{{plain:
+setTimeout ( expression, timeout );
+setInterval(expression, interval);
+}}
+
+where expression is the JavaScript code to run after timeout milliseconds have elapsed.
+
+setTimeout() also returns a numeric timeout ID that can be used to track the timeout. This is most commonly used with the clearTimeout() method .
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code id="js1">
+  var timerId = setTimeout(function(){log('logged after 2000 microseconds')}, 2000);
+log('timer id = ', timerId);
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+
+<ol class="results"></ol> 
+</div>
+
+
+
+When a user clicks the button, the setTimeout() method is called, passing in the expression that we want to run after the time delay, and the value of the time delay itself - 2,000 milliseconds or 2 seconds.
+
+{{bulb: It is always preferable to wrap the function to be executed, in an anonymous function to avoid closures.}}
+
+
+<h2>Using setInterval()</h2>
+
+setInterval(), will fire an event at a regular interval until, programmatically stopped. It takes two parameters, a statement (normally a function) to be executed every interval and an interval value in microseconds.  To stop the setInterval(), you can use clearInterval(id), where id is the id of the setInterval.
+
+I can all be better explained using an example.
+
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code id="js2">
+var intVal = '';
+intVal = setInterval(function () {
+  var timer = new Date();
+  $('#time1').text(timer.toLocaleTimeString());
+  log('timer interval fired '+timer.getSeconds()+' ');
+ },
+500);
+
+var timerId = setTimeout(function () {
+  clearInterval(intVal);
+  log('timeout');
+},
+6000);
+
+log(' setInteval  id   =  ', intVal);
+log('setTimeout id  = ', timerId);
+</code>
+</div>
+<div id="time1" style="background:#000;color:yellow;width:100px;font-size:13px;line-height:2">test</div>
+<div  class="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<hr/>
+
+http://dev.opera.com/articles/view/timing-and-synchronization-in-javascript/
+
+http://ejohn.org/blog/how-javascript-timers-work/
+<script src="/codeigniter/js/highlighter.js" ></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var options = {
+  version: "2.2",
+  automatic: true,
+  automaticSelector: "js2",
+  lineNumbers: false,
+  zebraLines: false,
+  recipeLoading: true,
+  cssFolder: "",
+  // if not in recipes folder
+  highLights: ['test'] // a list of words to be highlighted
+  // within the code
+}
+  $.tinyHighlighter(options);
+
+$.tinyHighlighter({automaticSelector:'js1'});
+
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            

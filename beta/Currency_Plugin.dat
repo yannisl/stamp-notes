@@ -1,0 +1,6 @@
+\chapter{The Currency Plugin}
+
+
+This is 50\euro and this is $1.50\cents. This is \halfp and this is \halfd. You can have \pounds also.
+
+You an also input the symbols in unicode and they will render correctly in \tex. We will add more currencies as we go along as well as treat any numbers that follow with a thin space.

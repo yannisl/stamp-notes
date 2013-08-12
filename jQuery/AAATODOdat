@@ -1,0 +1,66 @@
+ <!--
+{{feature: ..For by stroking of him I have found out electricity. -- Christopher Smart }}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<style type="text/css">
+textarea.test{background:url(http://localhost/codeigniter/images/code-bg.gif)
+}
+
+</style>
+<h2>Things to do</h2>
+
+I need to add tabs to enable the user to edit the code. Routine, must be able to re-fill the default program. I will have to do all the error capturing as before.
+
+Extend console to a full-fledged plugin.
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+
+
+</code>
+<textarea id="test" >
+      function fn(){
+           alert('this is a test');
+     }
+     fn();
+</textarea>
+</div>
+<div  class="msg">
+</div>
+<div class="console"></div>
+<button >Run Code!</button>
+<button id="eval2">Eval!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+
+##Further Reading
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+$('#eval2').click(function() {
+   var z = $('#test').val();
+   eval(z);
+});
+
+});
+</script>
+
+  
+  
+
+
+
+
+
+
+

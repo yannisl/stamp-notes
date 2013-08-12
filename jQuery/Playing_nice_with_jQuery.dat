@@ -1,0 +1,74 @@
+ <!--
+{{feature-image:/codeigniter/images/china/beauty_15.jpg}}
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<script>
+goog.require('goog.dom');
+goog.require('goog.dom.selection');
+</script>
+
+<h2>Playing nice with jQuery</h2>
+The goog Closure library does not interfere with jQuery, as they are both modularized. The $ variable is not used by Google with the exception of some of their testing cases.
+
+You can instantaneously include any class or method form goog into a jQuery 'plugin' as follows:
+
+<div  class="code-block console-wrap" title="Setting an Elements attribute" >
+<div class="code-block code" >
+<code>
+var attrs = {
+  'name': 'myName',
+  'title': 'myTitle',
+  'rel': 'myRel'
+};
+var el = goog.dom.$('testEl');
+
+// jQuery method namespacing
+jQuery.setProperties = (function () {
+  return goog.dom.setProperties;
+})();
+
+$.setProperties(el, attrs);
+
+log(el.title);
+</code>
+</div>
+
+<div  id ="testEl" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+Although there is no benefit that  I can see off that you do this, it is quite possible that for some of the other methods it will be beneficial. 
+
+
+
+
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+                                                        

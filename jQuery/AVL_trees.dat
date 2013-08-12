@@ -1,0 +1,130 @@
+ <!--
+{{feature-image: /egypt/amato-01/aa_112.jpg}}
+{{credit: /codeigniter/blogs/gallery/amato-01/37}}
+{{credit-source:Allan Amato}}
+{{feature: If you start with a vague idea of what you'll be testing, you'll never get started. <a href="http://www.xprogramming.com/testfram.htm">Kent Beck</a> }}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<script type="text/javascript">
+goog.require('goog.structs');
+goog.require('goog.structs.AvlTree');
+</script>
+
+<h2>AVL Trees</h2>
+
+In computer science, an AVL tree is a self-balancing binary search tree, and it is the first such data structure to be invented.[1] In an AVL tree, the heights of the two child subtrees of any node differ by at most one; therefore, it is also said to be height-balanced. Lookup, insertion, and deletion all take O(log n) time in both the average and worst cases, where n is the number of nodes in the tree prior to the operation. Insertions and deletions may require the tree to be rebalanced by one or more tree rotations.
+
+The AVL tree is named after its two inventors, G.M. Adelson-Velskii and E.M. Landis, who published it in their 1962 paper "An algorithm for the organization of information."
+The balance factor of a node is the height of its right subtree minus the height of its left subtree, and a node with balance factor 1, 0, or -1 is considered balanced. A node with any other balance factor is considered unbalanced and requires rebalancing the tree. The balance factor is either stored directly at each node or computed from the heights of the subtrees.
+AVL trees are often compared with {[wi:red-black_trees}} because they support the same set of operations and because red-black trees also take O(log n) time for the basic operations. AVL trees perform better than red-black trees for lookup-intensive applications.[2] The AVL tree balancing algorithm appears in many computer science curricula.
+
+<h3>Creating an AVL Tree</h3>
+As documentation is rather sparse for this data structure we will enumerate the object properties first to view the available methods.
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+ /**
+   * This test verifies that we can insert strings into the AvlTree and have 
+   * them be stored and sorted correctly by the default comparator.
+   */
+ ( function testInsertsWithDefaultComparator() {
+    var tree = new goog.structs.AvlTree();
+    var values = ['bill', 'blake', 'elliot', 'jacob', 'john', 'myles', 'ted'];
+    
+    // Insert strings into tree out of order
+    tree.add(values[4]);
+    tree.add(values[3]);
+    tree.add(values[0]);
+    tree.add(values[6]);
+    tree.add(values[5]);
+    tree.add(values[1]);
+    tree.add(values[2]);
+    
+    // Verify strings are stored in sorted order
+    var i = 0;
+    tree.inOrderTraverse(function(value) {
+      assertEquals(values[i], value);
+      i += 1;
+    });
+    assertEquals(i, values.length);
+  })();
+
+
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+An AVL Tree is very efficient at retrieving values. We will test this in a moment.
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+/**
+   * This test verifies that we can insert values into and remove values from 
+   * the AvlTree and have it maintain the AVL-Tree upperbound on its height.
+   */
+(function testAvlTreeHeight() {
+  var tree = new goog.structs.AvlTree(function (a, b) {
+    return a - b;
+  });
+
+  var NUM_TO_INSERT = 20000;
+  var NUM_TO_REMOVE = 5000;
+
+  // Insert ints into tree out of order
+  for (var i = 0; i < NUM_TO_INSERT; i += 1) {
+    tree.add(i);
+  }
+
+  // Remove valuse
+  for (var i = 0; i < NUM_TO_REMOVE; i += 1) {
+    tree.remove(i);
+  }
+
+  var x = 1.4405 * (Math.log(NUM_TO_INSERT - NUM_TO_REMOVE + 2) / Math.log(2)) - 1.3277;
+  assert(tree.getHeight() <= x);
+
+  log(x);
+  log(tree.getHeight());
+
+})();
+
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+The theoreticla height of an AVL tree is 
+<img src="/codeigniter/images/AVL-height.gif" />
+
+##Further Reading
+http://www.brpreiss.com/books/opus5/html/img1268.gif
+
+
+  
+  
+
+
+
+
+
+
+
+                                                                                                                                                                    

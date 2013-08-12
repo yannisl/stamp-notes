@@ -1,0 +1,65 @@
+ <!--
+{{feature-image:http://localhost/codeigniter/images/china/beauty_21.jpg}}
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<script>
+goog.require('goog.dom');
+goog.require('goog.dom.selection');
+</script>
+
+<h2>Viewport Information</h2>
+
+
+To find out the viewport information:
+
+<div  class="code-block console-wrap" title="Getting Viewport Information">
+<div class="code-block code">
+<code>
+(function testGetViewportSize() {
+  // TODO: This is failing in the test runner now, fix later.
+  var dims = goog.dom.getViewportSize();
+  log(dims);
+  log(dims.width);
+  log(dims.height)
+})();
+
+</code>
+</div>
+<div  id ="testEl2" >Test Area for id=testEl2
+</div>
+<div   class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+                                                        

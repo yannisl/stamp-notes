@@ -1,0 +1,28 @@
+##CSS Console
+
+This is a paragraph of test.
+
+<div  class="code-block console-wrap">
+<div class="code code-block" >
+<code id="css">
+ {'font-weight':'bold'}
+</code>
+</div>
+<div class="console"></div>
+<p class="msg" >
+</p>
+<button class="eval" >Run Code!</button>
+<button id="css-button" >CSS</button>
+<ol class="results"></ol> 
+</div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+   var z=$('#css').text();
+   $('#css-button').click(function(){
+      $('p').css(z);
+      log(z);
+   });
+});
+
+</script>                      

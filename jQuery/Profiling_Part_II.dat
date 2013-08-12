@@ -1,0 +1,101 @@
+      
+<!--
+ directives
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{feature-image:/codeigniter/images/china/beauty_07.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<script type="text/javascript"> 
+goog.require('goog.ui.TableSorter');
+</script>
+ 
+ 
+<h3>Profiling Part II</h3>
+While profiling applications, the act of logging some values itself, can introduce errors. There are two ways to handle this. The first one, is to actually run tests for a longer time so that any errors in the logging act itself, can be very small. The second way is to buffer the results (which will take a very short time) and only output once the operation has been completed.
+
+When timing events logging would certainly introduce errors (for example if you were to monitor the time for a click event to propagate).
+
+
+  
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+// Dirty little buffered log so that logging doesn't affect times.
+// Borrowed from a Closure demo
+var start = goog.now();
+var buffer = '';
+var timer = null;
+function Log(str) {
+  var time = ((new Date()).getTime() - start) / 1000;
+  buffer = '[' + time + '] ' + str + '\n' + buffer;
+  clearTimeout(timer);
+  timer = setTimeout(sendBuffer, 250);
+}
+
+function sendBuffer() {
+  $('#log').text(buffer);
+  buffer = '';
+}
+
+$('.buffer').click(function () {
+  Log('test1');
+  Log('test2');
+  Log('test3');
+  Log('test4');
+  Log('test5');
+});
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div id="log" class="console" style="white-space:pre"></div>
+<button class="eval">Run Code!</button>
+<button class="buffer">test buffer</button>
+<ol class="results"></ol> 
+</div>
+
+
+While you might think these and the other temporal-related columns represent a precise
+measurement of function execution time, it turns out that profilers are subject to something
+like the observer effect in physics: the act of observing the performance of code
+modifies the performance of the code.
+
+Profilers can take two basic strategies representing a basic trade-off: either they can
+intrude on the code being measured by adding special code to collect performance
+statistics (basically automating the creation of code as in the previous listing), or they
+can passively monitor the runtime by checking what piece of code is being executed at
+a particular moment in time. Of these two approaches, the latter does less to distort
+the performance of the code being profiled, but at the cost of lower-quality data.
+Firebug subjects results to a further distortion because its profiler executes inside Firefox’s
+own process, which creates the potential for it to rob the code it is measuring of
+performance.
+
+Nevertheless, the “Percent” column of Firebug’s output demonstrates the power of
+measuring relative execution time: you can perform a high-level task in your page’s
+interface (e.g., click the Send button) and then check Firebug’s profiler to see which
+functions spent the most time executing, and focus your optimization efforts on those.
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+                                                          

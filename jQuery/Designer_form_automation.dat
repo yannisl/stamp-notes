@@ -1,0 +1,460 @@
+ <!--
+{{feature: Obi-Wan: That's no moon. It's a space station. }}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<style>
+  [required] {
+    border-color: #88a;
+    -webkit-box-shadow: 0 0 3px rgba(0, 0, 255, .5);
+  }
+  :invalid {
+    border-color: #e88;
+    -webkit-box-shadow: 0 0 5px rgba(255, 0, 0, .8);
+  }
+  textarea, select, input {  border-color: #88a;
+    -webkit-box-shadow: 0 0 3px rgba(0, 0, 255, .5);}
+</style>
+
+<h2>Designer Form Automation</h2>
+
+Forms are the drudgery of web development. They are the donkey work. I have been trying to automate them for some time and bring a better work-flow. I did try do it it on the server, but it just does not click. This is my attempt to bring them at the Client.
+
+First we can create an object for the designer. Then add data - we need to think how - and finally we can decorate or render them straight.
+
+Before we delve into the code we can stop for a minute and ask ourselves, what is the problem we are trying to solve? If we think that an application is essentially code and code is data, we can start by thinking that a form is just another way of presenting the data object. So I humbly propose that the _formDesigner_, should first and foremost need a data object as an input (the model). It will also need some input from the human designer as to how this data should be presented. Here we have two choices:
+
+<ul>
+<li>The presentational aspects are included as meta-data of the data</li>
+<li>The presentational aspects are provided as templates.</li>
+</ul> 
+
+Both options can be provided by the code. We will actually go one step further and enable the automatic creation of the _templates_ with minimal decoration. These can then be saved for later use and either decorated dynamically or the Designer could alter them. In both cases the hope is that it will increase productivity.
+
+To achieve what we have set to produce, we will use a bottoms up design. We will provide methods, by which the normal components of forms such as textareas, input fields, datewidgets and the like can be automated. Then the form will simply be a collection of these widgets.
+
+
+
+<div  class="code-block console-wrap"><div class="code code-block"><code>
+/**
+ *  frmDesigner
+ *  parent object for creating forms programmatically
+ *
+*/
+
+frmDesigner = function (name) {
+    this.name = name;
+};
+
+
+/* Renders form components and other HTML elements
+ * After form is rendered it can be saved in a template
+ * via AJAX or cached on the page
+ * it is preferable to save it and then work from the
+ * template, if complicated forms so they can be edited
+ * this is a helper function, it is not meant to be comprehensive
+ */
+
+var render = {};
+render.toHTML = function (type, attr, data, options) {
+
+    var ATTR = ['name', 'value', 'checked', 'disabled',
+    'readonly', 'size', 'maxlength',
+    'src', 'alt', 'usemap', 'ismap',
+    'tabindex', 'accesskey', 'onfocus',
+    'onselect', 'onchange', 'accept', 'id',
+    'style', 'class', 'title'],
+
+    ELEMENTS = ['input', 'textarea', 'form', 'select', 'button'],
+
+    CUSTOM = ['country', 'font', 'flags', 'other'];
+
+    // library functions wraps content in a element
+
+    function wrap(element, x, attrString){
+        var htmlFragment =  '&lt;' + element + ' ' + attrString +'&gt;' + x + '&lt;/' + element + '&gt;';
+        return htmlFragment;
+    }
+
+    //attributes are sent via an array
+    // of objects
+    // {id:nnnn,selected:'selected',}
+    // according to W3C selected is only one word not selcted = 'true'
+    // etc. Need to research it.
+    // some have to be inserted automatically
+
+    function attributeString(obj){
+        var s = '';
+        for (var property in obj)  {
+            if (property === obj[property]){ //handles one word attributes
+                s += property + ' ';
+            } else {
+                s += property + '= "' + obj[property] + '"  ';
+            };
+        }
+        logPRE(s);
+        return s;
+    }
+    function makeSelect(arr){
+        var i, s ='';
+        for (i=0; i < arr.length; i++) {
+            s += wrap('option', arr[i]);
+        };
+        s += wrap('select',s)
+        return s;
+    }
+
+    var renderInput = function (type, attr, data) {
+        attr['type'] = type;
+        var s = attributeString(attr);
+            s = wrap('input', data, s);
+        return s;
+    };
+
+    var renderSlider = function (){
+      var s = '&lt;input type="range" min="0" max="50" value="10" /&gt;';
+      return s;
+    }
+
+    var renderTextarea = function () {
+        return '&lt;textarea placeholder="This is a hint" &gt;&lt;textarea&gt;';
+    }
+    var meter = '&lt;meter value="0.85"&gt;Moderate Activity&lt;/meter&gt;';
+    switch (type) {
+        case 'text':
+             log(renderInput('text', attr, ''));
+             break;
+        case 'email':
+             break;
+        case 'select':
+            log(makeSelect(['Greece','Qatar','Cyprus',
+                'South Africa','UAE','Libya',
+                'United Kingdom','China',
+                'Netherlands']));
+            break;
+        case 'other':
+            log(renderInput(attr, data));
+            break;
+        case 'slider':
+            log(renderSlider());
+            break;
+        case 'textarea':
+            log(renderTextarea());
+            break;
+        case 'button':
+        case 'meter':
+            log(meter);
+        default:
+     }
+
+};
+
+var attr = { id : 'someID',
+                 value : '12567',
+                 disabled : 'disabled'
+              };
+
+var emailAttribute =  { id : 'someID',
+                 value : 'yiannis@gmail.com',
+                 disabled : 'disabled'
+              };
+
+render.toHTML('select', 'attr', '', 'options');
+render.toHTML('text', attr, '', 'options');
+render.toHTML('textarea', '', 'attr', 'options');
+render.toHTML('meter', 'attr', '', 'options');
+render.toHTML('slider', 'attr', '', 'options');
+var zz = $('#someID').parent().html();
+
+log(zz.entityify());
+</code>
+</div>
+<p class="msg" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+
+<button class="eval">Run Code!</button>
+<ol class="results" style="white-space:pre"></ol> 
+</div>
+
+Now, that the basic design idea of the class has been sketched, we need to think about rendering and decorating. There are three ways to draw a component, in this case a form or parts of the form onto the screen. The first is for the component to build its own DOM structure and then attach it to the DOM of the web page. This is normally known as _rendering_. 
+
+The other is for the component to attach itself to an existing DOM structure in the page, which is known as _decorating_. 
+
+Using rendering is similar to windowing toolkits where a component is responsible for being able to draw itself into the interface.
+
+The third option which is more unique for the web is for the component to use a template. In our case the basic form design can be in the form of a template and we
+only pass the fields.
+
+For what I am striving to do here, which is to increase programming productivity, as well as quality of code and validation, a combination will be more appropriate. The component will have to be able to render the form, perhaps unstyled and then decorate semi-programmatically.
+
+<h3></h3>
+
+The first attempt showing a bit of a skeleton of the render class, uses the common pattern of options and defaults. During rendering normal defaults are shown unless overwritten by options. We will incorporate all relevant HTML5 attributes and elements. If the user does not require HTML5, simply she will not specify them. The important factor here is to achieve simplicity in the API. Currently envisages that rendering will be achieved simply by calling:
+
+{{plain:
+  myform.render.toHTML('text', 'attr', 'options');
+}}
+
+
+<div  class="code-block console-wrap"><div class="code code-block"><code>
+var render = {};
+render.toHTML = function (type, attr, options) {
+
+  var ATTR = ['name', 'value', 'checked', 'disabled', 'readonly', 'size', 'maxlength', 'src', 'alt', 'usemap', 'ismap', 'tabindex', 'accesskey', 'onfocus', 'onselect', 'onchange', 'accept', 'id', 'style', 'class'];
+  var ELEMENTS = ['input', 'textarea', 'form'];
+  var CUSTOM = ['country', 'font', 'flags', 'other'];
+
+  var renderInput = function () {
+    var temp = '&lt;input type="text" value="sample" /&gt;'
+    return temp;
+  };
+  var renderTextarea = function () {
+    return '&lt;textarea placeholder="This is a hint" &gt;Sample&lt;textarea&gt;';
+  }
+  var meter = '&lt;meter value="0.85"&gt;Moderate Activity&lt;/meter&gt;';
+  switch (type) {
+  case 'text':
+    log(renderInput('text'));
+    break;
+  case 'email':
+    log(renderInput('email'));
+    break;
+  case 'other':
+    log(renderInput('text'));
+    break;
+  case 'textarea':
+    log(renderTextarea());
+    break;
+  case 'button':
+  case 'meter':
+    log(meter);
+  default:
+    //code to be executed if n is different from case 1 and 2
+  }
+
+};
+
+render.toHTML('text', 'attr', 'options');
+render.toHTML('textarea', 'attr', 'options');
+render.toHTML('meter', 'attr', 'options');
+
+</code>
+</div>
+<p class="msg" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+
+<button class="eval">Run Code!</button>
+<ol class="results" style="white-space:pre"></ol> 
+</div>
+
+As you will observe I am normally coding using the _watercoloring_ technique. Some people are capable to architect a full solution before any coding. They draw a detail spec, make plans allocate the work and then start. This is what I call the 'architect' style. However, from my experience with Architects it is very difficult to define your requirements fully upfront. Hence the watercoloring technique. You do a bit and you revisit, iterate, spec and repeat.
+
+In the next block, we will allocate the attributes properly and on the following one, we will start gluing everything into a single object. At this point in time we should also start thinking how to save the forms once they are generated. At present the thought is that we will have a small routine on the server that will save it into a template. In this respect this routine is just a helper class that one will only use during development to provide the scaffolding.
+
+On the next block we will develop a couple of helpers (we do have them in 
+a library, but in any case we develop them again in any case).
+
+<div  class="code-block console-wrap"><div class="code code-block"><code>
+/**
+ * Checks if a value exists in an array
+ * @param needle
+ * @param the array
+ * @return boolean
+ */
+
+function inArray(needle, haystack) {
+  for (var key in haystack) {
+    if (needle === haystack[key]) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
+var a = ['test', 'yiannis', 'maybe', 'other', 'hence'];
+
+if (inArray('test', a)) log('found')
+else {
+  log('notfound')
+};
+</code>
+</div>
+<p class="msg" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+
+<button class="eval">Run Code!</button>
+<ol class="results" style="white-space:pre"></ol> 
+</div>
+
+<p>
+When the block for the renderer was drafted,  we just sampled the html. Now we will go back and build-up the attributes.
+</p>
+
+
+<div  class="code-block console-wrap"><div class="code code-block"><code>
+/**
+   * Builds the attributes of a string
+   * 
+   *
+   */
+
+function buildAttrString(attr) {
+  var tempStr = '';
+  for (var key in attr) {
+    tempStr += key + ' = "' + attr[key] + '"  ';
+  }
+  return tempStr;
+};
+
+var attr = {
+  'name': 'firstName',
+  'style': 'font-size:12px',
+  'value': 'Write your name'
+};
+
+var z = buildAttrString(attr);
+
+log(z);
+</code>
+</div>
+<p class="msg" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+
+<button class="eval">Run Code!</button>
+<ol class="results" style="white-space:pre"></ol> 
+</div>
+
+<h3>Some more iteration on building attribute strings</h3>
+
+Some attributes do not take a value, as for example _enabled_ or _disabled_. These need to be handled with a different function or the routine needs to be generalized a bit further.
+
+<div  class="code-block console-wrap"><div class="code code-block"><code>
+/**
+   * Builds the attributes of a string, such as enabled
+   * or disabled, requiring no quotation marks or other
+   * example;
+   *  input  type=text disabled 
+   */
+
+function buildAttrSingleString(attr) {
+  var tempStr = '';
+  for (var key in attr) {
+    tempStr += key;
+  }
+  return tempStr;
+};
+
+var attr = {
+  'name' : 'firstName',
+  'style' : 'font-size:12px',
+  'value' : 'Write your name'
+};
+
+var z = buildAttrString(attr);
+
+log(z);
+</code>
+</div>
+<p class="msg" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+
+<button class="eval">Run Code!</button>
+<ol class="results" style="white-space:pre"></ol> 
+</div>
+
+
+
+<form id="aform">
+<fieldset name="clubfields" disabled>
+<legend>
+ <input type="checkbox" name="club" onchange="aform.clubname.disabled = !checked">
+  Use Club Card
+</legend>
+ <p><label>Name on card: <input id="clubname" name="clubname" required></label></p>
+ <p><label>Card number: <input name="clubnum" required pattern="[-0-9]+"></label></p>
+ <p><label>Expiry date: <input name=clubexp type=month></label></p>
+</fieldset>
+</form>
+
+<h3>Some special attributes</h3>
+
+We consider the attributes _id_, _class_ and _data_ as specials. The reason for this is that in order for us to build highly interactive forms we would need the _id_ attribute as well as the class attribute. If the user does not specify them our algorithm should provide them based on some logical values.
+
+<h4>id</h4>
+
+The id, if not provided should be provided automatically as _formID-id-element-number_. For a form with the _id = login_ this will become 
+
+
+id = login-input-01  
+
+The class name will become
+
+{{plain:
+class= login-input
+class= login-button-submit
+}}
+
+By having such a convention both ids as well as classes can be used to generate CSS automatically at a later stage.
+
+<h3>Layout Issues</h3>
+
+According to [W3C](http://www.w3.org/TR/html5/forms.html), each part of a form is considered a paragraph, and is typically separated from other parts using _p_ elements. However, the reality is that most forms on the web that are a bit more complicated than normal have a structure made of other elements such as divs and even sometimes you find these forms embedded in tables. 
+
+On closer examination the almost automatic solution would be to allow for top, left, right, bottom text in the fields. For a more complicated solution we can offer a template. So instead of _render.toHTML()_, we would offer a _render.toTemplate()_ method. Which one is the best can only be found out, once we start using the form.
+
+Whatever, the final solution is, we should try hard to keep presentational matters away from programmers.
+<input type="text" required />
+
+
+<form oninput="total.value = (nights.valueAsNumber * 99) + 
+ ((guests.valueAsNumber - 1) * 10)">
+
+  <label>Full name:</label>
+  <input type="text" id="full_name" name="full_name" placeholder="Jane Doe" required>
+
+  <label>Email address:</label>
+  <input type="email" id="email_addr" name="email_addr" required>
+
+  <label>Repeat email address:</label>
+  <input type="email" id="email_addr_repeat" name="email_addr_repeat" required 
+   oninput="check(this)">
+
+  <label>Arrival date:</label>
+  <input type="date" id="arrival_dt" name="arrival_dt" required>
+  
+  <label>Number of nights (rooms are $99.00 per night):</label>
+  <input type="number" id="nights" name="nights" value="1" min="1" max="30" required>
+
+  <label>Number of guests (each additional guest adds $10.00 per night):</label>
+  <input type="number" id="guests" name="guests" value="1" min="1" max="4" required>
+
+  <label>Estimated total:</label>
+  $<output id="total" name="total">99</output>.00
+  <br><br>
+
+  <label>Promo code:</label>
+  <input type="text" id="promo" name="promo" pattern="[A-Za-z0-9]{6}" 
+   title="Promo codes consist of 6 alphanumeric characters.">
+
+  <input type="submit" value="Request Reservation" /> 
+</form>
+
+
+
+<hr/>
+
+
+
+##Further Reading
+
+
+
+
+                                                                                                                                                                                    

@@ -1,7 +1,25 @@
 \begin{accordion}
- \begin{category}{Later Issues}
- \mitem{1898-1902 Definitives}{1898-1902_Definitive_Issue}
 
-\mitem{1902 'Uganda' Overprints}{1902_Uganda_Overprints}
+\begin{category}{Introduction}
+\mitem{Introduction}{Introduction}
+\mitem{Early letters and Documents}{Early_Letters_and_Documents}
+\end{category}
+
+ \begin{category}{5. Later Issues}
+ \mitem{5.1 1898-1902 Definitives}{1898-1902_Definitive_Issue}
+
+\mitem{5.2 1902 'Uganda' Overprints}{1902_Uganda_Overprints}
+
+\mitem{5.2.1 1902 o/p Covers}{1902_Overprints_Covers}
  \end{category}
-\end{accordion}  
+
+\begin{category}{Forgeries}
+\mitem{Sperati Forgeries}{Sperati_Forgeries}
+\end{category}
+
+\begin{category}{Related}
+\mitem{British East Africa}{../british-east-africa/introduction}
+\mitem{Zanzibar}{../zanzibar/introduction}
+
+\end{category}
+\end{accordion}            

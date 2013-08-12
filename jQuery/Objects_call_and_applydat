@@ -1,0 +1,165 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<style type="text/css">
+.code{margin:0;padding-top:0}
+.code-block{                        background:url(http://localhost/codeigniter/images/code-bg.gif);
+margin:0;padding:0}
+.code-block .code{white-space:pre;font-family:inherit;padding:0;margin:0}
+.highlight{background:yellow}
+.green{color:green}
+.hidden{display:none}
+</style>
+
+
+
+
+
+
+
+<h2>Javascript Objects</h2>
+<h3>The call() and apply() methods</h3>
+
+<strong>JavaScript does not have classes, but we can program as though it does.</strong> We can also add syntactic sugar to make it easier to understand.
+
+In an attempt to solve the inheritance problems with reference values on prototypes, developers began using a technique called <dfn>constructor stealing</dfn>. Sometimes this is called object masquerading or classical inheritance). The basic idea is quite simple: call this supertype constructor from within the subtype constructor. Keeping in mind that functions are simply objects and
+execute in a particular <strong>context</strong>. The apply() and call() methods can be used to execute a constructor on the newly created object as in this example:
+
+<div  class="code-block"><div class="code code-block"><code><span class="green">// Constructor Stealing </span>
+function SuperType(){
+    this.colors = ["red","blue","green"];
+}
+function SubType(){
+    SuperType.call(this);
+}
+
+var instance1 = new SubType();
+instance1.colors.push("black");
+say(instance1.colors);
+
+var instance2 = new SubType();
+alert(instance2.colors);
+</code>
+</div>
+<p id="msg1" class="msg" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+<hr/>
+One advantage that the constructor stealing offers over prototype chaining is the ability to pass argumnts into the supertype constructor from within the subtype constructor. Consider the following:
+
+<div  class="code-block"><div class="code code-block"><code><span class="green">// Constructor Stealing </span>
+<span class="hidden"> log( "Click #", 'button' ); </span>
+function SuperType(name){
+    this.name = name;
+    this.colors = ["red","blue","green"];
+}
+function SubType(){
+   // inherit from SuperType passing in an argument
+    SuperType.call(this, "John");
+
+  // instance property
+  this.age = 29;
+}
+
+var instance1 = new SubType();
+alert(instance1.name);
+alert(instance1.age);
+
+</code>
+</div>
+<p id="msg1" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+In this code, the SuperType constructor accepts a single argument, name, which is simply assigned to a property. A value can be passed into the SuperType constructor when called from the SubType constructor, effectively
+seting the name property for the SubType instance. To ensure thatthe SuperType constructor doesn't overwrite these properties, additional propeeties
+may be defined on the subtype after the call to the supertype constructor.
+
+<h3>Problems with Constructor Stealing</h3>
+The downside to using costructor stealing exclusively is taht it introduces
+the same problems as the constructor pattern for custom types methods must be defined inside the constructor, so there is no function re-use.
+
+Further methods defined on the supertype's prototype are not accessible on the subtype, so all types can use only the constructor pattern.
+
+<strong>Due to these issues, constructor stealing is rarely used on its own.</strong>
+
+<div  class="code-block"><div class="code code-block"><code><span class="green">// Using Prototype </span>
+<span class="hidden"> log( "Click #", 'button' ); </span>
+function product(name, value){
+   this.name = name;
+   if(value >= 1000)
+      this.value = 999;
+   else
+      this.value = value;
+}
+
+function prod_dept(name, value, dept){
+   this.dept = dept;
+   product.apply(this, arguments);
+  <span class="green">// or use  product.call(this, name, value);</span>
+}
+<span class= "green">// instantiate pro_dept </span>
+prod_dept.prototype = new product();
+
+<span class="green">// since 5 is less than 1000, value is set </span>
+cheese = new prod_dept("feta", 5, "food");
+alert(cheese.value);
+
+<span class = "green">// since 5000 is above 1000, value will be 999 </span>
+car = new prod_dept("honda", 5000, "auto");
+
+alert(car.value);
+</code>
+</div>
+<p id="msg1" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+Javascript is a different language consider Croford's words:
+
+
+I have been writing JavaScript for 8 years now, and I have never once found need to use an uber function. The super idea is fairly important in the classical pattern, but it appears to be unnecessary in the prototypal and functional patterns. I now see my early attempts to support the classical model in JavaScript as a mistake.
+
+There also does not appear at this point in time to be any sort of standard way of doing things.
+
+http://javascript.crockford.com/inheritance.html#sugar
+
+
+##Further Reading
+
+
+
+http://ejohn.org/blog/simple-javascript-inheritance/#postcomment
+
+
+http://javascript.crockford.com/inheritance.html#sugar
+
+
+
+
+  
+  
+
+
+
+
+
+
+

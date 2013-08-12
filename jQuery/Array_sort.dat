@@ -1,0 +1,114 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+
+
+<h2>The array sort method</h2>
+
+The array sort() method is used to sort an array. It takes one argument, which is a function.
+
+{{plain:  
+     Array.prototype.sort(compareFunction)
+}}
+
+The elements of this array are sorted. The sort is not necessarily stable (that is, elements that compare equal do not necessarily remain in their original order). 
+
+If comparefn is not undefined, it should be a
+function that accepts two arguments x and y and returns a negative value if x < y, zero if x = y, or a positive value if x > y.
+
+If comparefn is not undefined and is not a consistent comparison function for the elements of this array (see below), the behaviour of sort is implementation defined.
+
+{{bulb: sort()  changes  the original array.}}
+
+
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code id="js1">
+var a = [3, 2,1, 4, 8, 6, 7, 10, 9, 5];
+
+// sort() no function specified
+b = a.sort();
+
+log('return result from sort () = ', b);
+log('array after sort() = ', a);
+
+
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+<h3>Specifying a Compare Function</h3>
+
+The compareFunction must be able to return values as specified in the standard, i.e one of [1,-1,0]. If it doesn't the sort will fail or unpredictable results occur. 
+If comparefn is not undefined, it should be a
+function that accepts two arguments x and y and returns a negative value if x < y, zero if x = y, or a positive value if x > y.
+
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+var a1 = [3, 2, 1, 4, 8, 6, 7, 10, 9, 0];
+
+defaultDescending = function (a, b) {
+  return a < b ? 1 : a > b ? -1 : 0;
+};
+
+defaultAscending = function (a, b) {
+  return a > b ? 1 : a < b ? -1 : 0;
+};
+
+// sort() compare function specified
+b1 = a1.sort(defaultAscending);
+
+log('return result from sort () = ', b1);
+log('array after sort() = ', a1);
+log('array descending sort = ', b1.sort(defaultDescending));
+
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+    

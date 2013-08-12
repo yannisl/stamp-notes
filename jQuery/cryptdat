@@ -1,0 +1,84 @@
+ <!--
+{{feature-image:/codeigniter/images/china/beauty_02.jpg}}
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<script>goog.require('goog.testing.jsunit');
+          
+</script>
+
+
+<h2>crypt</h2>
+This file contains, 4 crypto related functions that can help you convert strings to arrays of 'bytes' and vice versa.
+{{plain: 
+goog.crypt.stringToByteArray
+goog.crypt.byteArrayToString
+goog.crypt.stringToUtf8ByteArray 
+goog.crypt.utf8ByteArrayToString
+}}
+
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+for (var prop in goog.info) {
+  log(prop, goog.info[prop]);
+}
+goog.crypt.stringToUtf8ByteArray = function (str) {
+  var output = [],
+  p = 0;
+  for (var i = 0, length = str.length; i < str.length; i++) {
+    var c = str.charCodeAt(i);
+    while (c > 0xff) {
+      output[p++] = c & 0xff;
+      c >>= 8;
+    }
+    output[p++] = c;
+  }
+  return output;
+};
+
+var z = goog.crypt.stringToByteArray('aAbBcC ');
+var y = goog.crypt.byteArrayToString(z);
+var y1 = goog.crypt.stringToUtf8ByteArray('abcde');
+var y2 = goog.crypt.utf8ByteArrayToString(y1);
+log(z);
+log(y);
+log(y1);
+log(y2);
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+

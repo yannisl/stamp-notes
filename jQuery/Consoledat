@@ -1,0 +1,73 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<style type="text/css">
+.code{margin:0;padding-top:0}
+.code-block{                        background:url(http://localhost/codeigniter/images/code-bg.gif);
+margin:0;padding:15px}
+.code-block .code{white-space:pre;font-family:inherit;padding:0;margin:0}
+.highlight{background:yellow}
+.green{color:green}
+.hidden{display:none}
+</style>
+
+<img src="/codeigniter/images/china/CNY.gif">
+<h2>Numbers</h2>
+
+<p>Developing a better console</p>
+
+Some of the methods that can be used with the console
+{{
+$('#inspect').properties(object)  // shows properties of object 
+or 
+$('#inspect').showProperties(object)
+}}
+
+<div  class="code-block console-wrap">
+<div class="code">
+<code>
+<span class="hidden"> log( "Click #", 'button' ); </span>
+// run and click on image
+$(function(){
+$('#vstar').bind('click',function(event) {
+say('Whee once!');
+})
+.bind('click',function(event) {
+say('Whee twice!');
+})
+.bind('dblclick',function(event) {
+say('Whee three times!');
+});
+});
+</code>
+</div>
+<p class="msg" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+<div id="vstar" style="width:400px;background:#fff">
+<img src="http://localhost/codeigniter/images/angela.jpg" style="width:15%" />
+</div>
+<div class ="console" style="width:400px;background:#fff">
+</div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+
+<hr/>
+
+
+
+##Further Reading
+
+http://home.att.net/~srschmitt/script_number_bases.html
+
+<span id="chapter">13</span>

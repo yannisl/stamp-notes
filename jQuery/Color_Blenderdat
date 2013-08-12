@@ -1,0 +1,259 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: UI, jQuery, Visibility Filters, CSS Visibility }}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+<style>
+ #uicell {width: 25em;}
+#uicell th {width: 6em; text-align: right; padding-right: 0.5em;
+  border: 1px solid black; border-width: 0 1px 1px 0;}
+#uicell td {padding: 0 0 0 0.5em;}
+#uicell td.pal {padding: 0 3em;}
+#uicell #gobuttons td {height: 1.5em;}
+ 
+input, #input a {font: 0.85em "Andale Mono", Courier, monospace;}
+#input, #output {margin: 0 0 1em;}
+ 
+#input td {white-space: nowrap;}
+#input a {border: 2px outset silver; background: silver; padding: 1px 0.25em; cursor: pointer;}
+#input .coltype {background: #EEE; border-style: inset;}
+ 
+#output input {border: 2px solid white; border-width: 0 2px;}
+#output td.text {border-bottom: 1px dotted silver;}
+ 
+#watercell {width: 75px; background: silver; padding: 0;}
+#grid {background: black; border: 1px solid black; border-width: 0 1px 1px 0; margin: 5px 4px;}
+#grid td {height: 11px; width: 11px; padding: 0; line-height: 11px;}
+#grid td a {display: block; height: 10px; width: 10px; line-height: 10px;
+  border: 1px solid black; border-width: 1px 0 0 1px;}
+ 
+#textcell p {margin: 0; padding: 0 1em 1em 1.5em;}
+ 
+.hex{}
+.test{}
+.test1{}
+.colorpicker{background:red}
+</style>
+
+
+
+<h2>Color Blender</h2>
+
+<form>
+<h1>Color Blender</h1> 
+ 
+<table id="main"> 
+<tr valign="top"> 
+<td id="uicell"> 
+ 
+<table id="input"> 
+<tr> 
+<th>Format</th> 
+<td colspan="2"> 
+<a  class="hex">Hex</a> 
+<a  class="rgbd">RGB</a> 
+<a  class="rgbp">RGB%</a> 
+</td> 
+</tr> 
+<tr> 
+<th id="l1">Color 1</th> 
+<td class="col"><input type="text" id="col0" size="19" value="rgba(o,o,o,o)"  /></td> 
+<td class="pal" id="c0">&nbsp;</td> 
+</tr> 
+<tr> 
+<th id="l2">Color 2</th> 
+<td class="col"><input type="text" id="col1" size="19"  /></td> 
+<td class="pal" id="c1">&nbsp;</td> 
+</tr> 
+<tr> 
+<th>Midpoints</th> 
+<td> 
+<select id="steps"> 
+<option value="1">1</option> 
+<option value="2">2</option> 
+<option value="3">3</option> 
+<option value="4">4</option> 
+<option value="5">5</option> 
+<option value="6">6</option> 
+<option value="7">7</option> 
+<option value="8">8</option> 
+<option value="9">9</option> 
+<option value="10">10</option> 
+</select> 
+</td> 
+</tr> 
+<tr id="gobuttons"> 
+<td></td> 
+<td> 
+<a>blend</a></td> 
+<td><a>clear</a></td> 
+</tr> 
+</table> 
+ 
+<table id="output"> 
+<tr> 
+<th>Palette</th> 
+<td class="text"><input type="text" id="pal0" size="19" /></td> 
+<td class="pal" id="p0">&nbsp;</td> 
+</tr> 
+<tr> 
+<td></td> 
+<td class="text"><input type="text" id="pal1" size="19" /></td> 
+<td class="pal" id="p1">&nbsp;</td> 
+</tr> 
+<tr> 
+<td></td> 
+<td class="text"><input type="text" id="pal2" size="19" /></td> 
+<td class="pal" id="p2">&nbsp;</td> 
+</tr> 
+<tr> 
+<td></td> 
+<td class="text"><input type="text" id="pal3" size="19" /></td> 
+<td class="pal" id="p3">&nbsp;</td> 
+</tr> 
+<tr> 
+<td></td> 
+<td class="text"><input type="text" id="pal4" size="19" /></td> 
+<td class="pal" id="p4">&nbsp;</td> 
+</tr> 
+<tr> 
+<td></td> 
+<td class="text"><input type="text" id="pal5" size="19" /></td> 
+<td class="pal" id="p5">&nbsp;</td> 
+</tr> 
+<tr> 
+<td></td> 
+<td class="text"><input type="text" id="pal6" size="19" /></td> 
+<td class="pal" id="p6">&nbsp;</td> 
+</tr> 
+<tr> 
+<td></td> 
+<td class="text"><input type="text" id="pal7" size="19" /></td> 
+<td class="pal" id="p7">&nbsp;</td> 
+</tr> 
+<tr> 
+<td></td> 
+<td class="text"><input type="text" id="pal8" size="19" /></td> 
+<td class="pal" id="p8">&nbsp;</td> 
+</tr> 
+<tr> 
+<td></td> 
+<td class="text"><input type="text" id="pal9" size="19" /></td> 
+<td class="pal" id="p9">&nbsp;</td> 
+</tr> 
+<tr> 
+<td></td> 
+<td class="text"><input type="text" id="pal10" size="19" /></td> 
+<td class="pal" id="p10">&nbsp;</td> 
+</tr> 
+<tr> 
+<td></td> 
+<td class="text"><input type="text" id="pal11" size="19" /></td> 
+<td class="pal" id="p11">&nbsp;</td> 
+</tr> 
+</table> 
+ 
+</td> 
+<td id="watercell"> 
+ 
+<script type="text/javascript"> 
+var colors = new Array('00','33','66','99','CC','FF');
+document.write('<table cellspacing="0" id="grid">');
+for (i = 5; i >= 0; i--) {
+	for (j = 5; j >= 0; j--) {
+		document.write('<tr>');
+		for (k= 5; k >= 0; k--) {
+			var col = colors[i]+colors[j]+colors[k];
+			document.write('<td style="background: #'+col+';"><a href="javascript:colorIns(\'#'+col+'\');"><\/a><\/td>');
+		}
+		document.write('<\/tr>');
+	}
+}
+document.write('<\/table>');
+</script> 
+ 
+</td> 
+<td id="textcell"> 
+ 
+<ul> 
+<li> 
+Pick a color value format, input two <strong>valid</strong> CSS color values in the format you chose, and pick the number of midpoints you'd like to see.  The palette will show the colors you input as well as the requested number of midpoint colors, and the values of those colors.</li> 
+<li>All numbers are rounded to the nearest integer.</li> 
+<li>Clicking on a square in the "waterfall" display will fill in the appropriate value for whichever input is highlighted.</li> 
+<li>Switching between value formats will translate whatever values are in place.</li> 
+<li>"Clear" removes all values and colors, but does not change the current value format.</li> 
+<li>If you'd like to have the Color Blender for offline use, just view source and save to your hard drive.</li> 
+</ul> 
+ 
+</td> 
+</tr> 
+</table> 
+ 
+</form> 
+<hr/> 
+<script type="text/javascript">
+var colors = new Array('00','33','66','99','CC','FF');
+$('.colorpicker').add('<table cellspacing="0" id="grid">');
+var i=0;
+for (i = 5; i >= 0; i--) {
+     
+	for (j = 5; j >= 0; j--) {
+		$(this).add('<tr>');
+		for (k= 5; k >= 0; k--) {
+			var col = colors[i]+colors[j]+colors[k];
+			$(this).add('<td style="background: #'+col+';"></td>');
+		}
+		$(this).add('</tr>');
+	}
+}
+$(this).add('</table>');
+alert('test');
+</script>
+<p class="test" style="background:rgba(250,0,0,0.5)">test</p>
+<p class="test1">test</p>
+
+<div class="colorpicker"  style="width:200px;height:200px"></div>
+
+
+
+<script type="text/javascript">
+
+  $('.test').click(function(){
+     $this=$(this);
+    var bg=$this.css('backgroundColor');
+   
+    $('#col1').css('backgroundColor',bg);
+  $('.test1').val(bg);
+       alert('click event   '+bg);
+});
+
+ $('td').click(function(){
+     $this=$(this);
+    var bg=$this.css('backgroundColor');
+   
+    $('#col1').css('backgroundColor',bg);
+  $('.test1').val(bg);
+       alert('click event   '+bg);
+});
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+

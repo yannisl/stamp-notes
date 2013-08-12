@@ -1,0 +1,58 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+{{feature-image:/codeigniter/images/underground_thumb.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<script>goog.require('goog.math.Long');</script>
+<h2>The Long Class</h2>
+This Google class simulates the behavior of a Java "long" integer, by
+ representing a 64-bit two's-complement
+ integer value.
+
+Remember this is for integer manipulation for the 
+Number Type the values  provided by JavaScript represent
+the double-precision 64-bit format IEEE 754 values including the special Not-a-Number (NaN) values,
+positive infinity, and negative infinity.
+<hr />
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+googInfo();
+//var d = new goog.window.open('#');
+var n = new goog.math.Long.fromString('23456677990090909090990');
+log(n);
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+                                                  

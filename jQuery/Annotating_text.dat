@@ -1,0 +1,135 @@
+ <!--
+
+{{feature-image:http://localhost/egypt/martin-schoeller/aipi_po_xaa_2007.jpg}}
+
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<script type="text/javascript">goog.require('goog.dom.annotate');</script>
+
+<h2>Annotating Text the Closure way</h2>
+The __annotate__ class provides methods for  annotating occurrences of query terms in text or
+in a DOM tree. A note in the file header mentions that it is code that has been adapted from Gmail code. It provides two public methods:
+
+{{plain:
+        annotateTerms()
+
+and   annotate Text()
+
+}}
+
+
+The first one is used in conjunction with DOM selections, whereas the second one only deals with plain text. 
+
+Both require a callback function, which indicates the html string to be returned, you can have something similar to the callback function shown below.
+
+{{plain:
+ function doAnnotation(termIndex, termHtml) &#123;
+    return '&lt;span class="highlight_' + termIndex + '"&gt; ' + termHtml + '&lt; /span&gt;';
+  &#125;
+
+}}
+
+In the example below we will <span class="highlight">highlight</span> the search terms, in a text extract. I am extracting the text using jQuery from the console area with id 'msg1', but you can provide the text in any form.
+
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+
+
+(function testAnnotateText() {
+
+  var TEXT = $('#msg1').text();
+ 
+  function doAnnotation(termIndex, termHtml) {
+    return '&lt;span class="highlight" &gt; ' + termHtml + '&lt;/span&gt;';
+  }
+
+ // var _$e = goog.dom.getElement('msg1');
+  
+ 
+   html1 = goog.dom.annotate.annotateText(TEXT,[ [ 'test', false ]  ] , doAnnotation);
+   $('#msg1').html(html1);
+   log(html1);
+  
+})();
+ 
+
+
+</code>
+</div>
+<div  id="msg1" class="sanbox-console">This is a test message
+</div>
+<div   class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+
+</div>
+
+<h3>Annotate terms in DOM nodes</h3>
+
+Our second example will highlight terms directly into the HTML nodes. In this example I have used Goog's dom method get Element rather than jQuery, just to show you that the two are very similar.
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+(function testAnnotateText() {
+
+ 
+  function doAnnotation(termIndex, termHtml) {
+    return '&lt;span style="color:rgb(0,0,230)" &gt; ' + termHtml + '&lt;/span&gt;';
+  }
+
+
+var _$e = goog.dom.getElement('js1');
+html1 = goog.dom.annotate.annotateTerms(_$e,[ 
+['function',false],['var',false],['if',false] ] , doAnnotation, true);
+   
+   log(html1);
+  
+})();
+</code>
+</div>
+<div  id="msg2" class="sandbox-console">This is another {test} and Testing all <p>TESTS</p>
+</div>
+<div  id="msg3" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+Don't you think that one method would have sufficed? It would check the type of input text or DOM and redirect to the appropriate private method. Both methods accept the same balance parameters. It would have been a much simpler API.
+
+
+
+
+{{bulb: Always use JSLint. If you haven't run your code through JSLint, then it's not really JavaScript. It's not about being cool, or smart, etc. It's about saving time and bugs ...  Dmitry Baranovkiy }}
+
+
+##Further Reading
+
+
+
+ 
+
+
+
+  
+  
+
+
+
+
+
+
+
+                                                    

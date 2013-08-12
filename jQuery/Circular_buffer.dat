@@ -1,0 +1,102 @@
+ <!--
+
+{{feature-image:/codeigniter/images/china/beauty_05.jpg}}
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<!-- Combo-handled YUI CSS files: -->
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo2.8.0r4/build/logger/assets/skins/sam/logger.css">
+<!-- Combo-handled YUI JS files: -->
+<script type="text/javascript" src="http://yui.yahooapis.com/combo?2.8.0r4/build/yahoo-domevent/yahoo-dom-event.js&2.8.0r4/build/dragdrop/dragdropmin.js&2.8.0r4/build/logger/logger-min.js"></script>
+
+
+<div class="yui-log yui-log-container">
+    <div class="yui-log-hd">
+        <div class="yui-log-btns">
+            <input type="button" class="yui-log-button" value="Collapse">
+        </div>
+        <h4>Logger Console</h4>
+    </div>
+    <div class="yui-log-bd">
+        <pre class="yui-log-verbose">
+            <p><span class="[category]">CATEGORY</span> Message.</p>
+        </pre>
+        ...
+    </div>
+    <div class="yui-log-ft">
+        <div class="yui-log-btns">
+            <input type="button" class="yui-log-button" value="Pause">
+            <input type="button" class="yui-log-button" value="Clear">
+        </div>
+        <div class="yui-log-categoryfilters">
+            <span class="yui-log-filtergrp">
+                <input type="checkbox" class="yui-log-filter-[category]">
+                <label class="[category]">category</label>
+            </span>
+            ...
+        </div>
+        <div class="yui-log-sourcefilters">
+            <span class="yui-log-filtergrp">
+                <input type="checkbox" class="yui-log-filter[source]">
+                <label class="[source]">source</label>
+            </span>
+            ...
+        </div>
+    </div>
+</div>
+
+<h2>Color Experiments</h2>
+Closure circular buffer
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+
+$('#contrast').click(function () {
+  $('body').css('backgroundColor', '#2e3131');
+});
+
+$('#light').click(function () {
+  $('body').css('backgroundColor', '#ececec');
+});
+
+</code>
+</div>
+
+
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<button id="contrast">Contrast</button>
+<button id="light">Light</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+        

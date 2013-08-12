@@ -1,0 +1,192 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<h2>Testing of Code</h2>
+Test Generation
+
+There are a number of techniques that can be used for constructing a test with the two major ones being: deconstructive tests and constructive tests. 
+
+Regardless of the test type there are a few points that are
+important to remember:
+
+- Tests should be highly reproducible. It should be possible to run your test over and over and
+never receive a different result. Additionally, this includes making sure that your tests are dependent
+upon outside issues like network or CPU load.
+
+- Your tests should be as simple as possible. You should strive to remove as much HTML markup,
+CSS, or JavaScript as you can without disrupting the original test case. The more that you can remove
+the greater the likelihood that the test case will only be influenced by the exact bug that you're trying
+to detect.
+
+- Break tests apart. Try not to make the results from one test be dependent upon another. Break tests
+down into their smallest possible unit (which helps you to determine the exact source of a bug when
+an error occurs).
+With those points in mind, let's look at the two techniques for developing test cases:
+
+###Deconstructive Test Cases
+
+Deconstructive test cases center around the use of an existing site or page that exhibits an issue and tearing
+it down to only show the representative problem. This is the ultimate case of applying the above points to
+test generation. You might start with a complete site but after removing extra markup, CSS, and JavaScript
+you'll arrive at a smaller site that reproduces the problem. You continue the process until no more code
+can be removed.
+
+###Constructive Test Cases
+
+With a constructive test case you start from a known, reduced, case and build up until you're able to
+reproduce the bug in question. In order to do this style of testing you'll need a couple simple test files from
+which to build and a way to generate these new tests with a clean copy of your code.
+
+For example, when I'm attempting to create reduced test cases I'll end up having a few HTML files with
+minimum functionality already included in them (one for DOM manipulation, one for Ajax tests, one for
+animations, etc.). For example, in Listing 1-2, is the simple DOM test case that I use.
+
+Listing 1-2: A reduced DOM test case for jQuery.
+<script src="dist/jquery.js"></script>
+<script>
+$(document).ready(function(){
+$("#test").append("test");
+});
+</script>
+<style>
+#test { width: 100px; height: 100px; background: red; }
+</style>
+<div id="test"></div>
+
+To generate a test, with a clean copy of the code base, I use a little shell script to check the library, copy
+over the test case, and build the test suite, as shown in Listing 1-3.
+
+Listing 1-3: A simple shell script used to generate a new test case.
+#!/bin/sh
+# Check out a fresh copy of jQuery
+svn co https://jqueryjs.googlecode.com/svn/trunk/jquery $1
+# Copy the dummy test case file in
+
+
+
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+
+var goog={};
+
+ /**
+ * Returns the userAgent string for the current browser.
+ * Some user agents (I'm thinking of you, Gears WorkerPool) do not expose a
+ * navigator object off the global scope.  In that case we return null.
+ *
+ * @return {string?} The userAgent string or null if there is none.
+ */
+goog.userAgent.getUserAgentString = function() {
+  return goog.global['navigator'] ? goog.global['navigator'].userAgent : null;
+};
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+<h3>Asynchronous Testing</h3>
+
+The first complicated step that most developers encounter, when using or developing a JavaScript test suite, is handling asynchronous tests. These are tests whose results will come back after an indeterminate amount
+of time (such as an Ajax test or an animation).
+
+Often, handling this issue is made much more complicated than it need be. To handle asynchronous tests you'll need to follow a couple steps:
+
+1. Assertions that are relying upon the same asynchronous operation will need to be grouped into a unifying 'test'.
+
+2. Each test group will need to be placed on a queue to be run after all the previous test groups have finished running.
+
+3. Thus, each test group must be capable of run asynchronously.
+An example implementation of this technique is shown in Listing 1-5.
+
+Listing 1-5: A simple asynchronous test suite.
+(function(){
+var queue = [], paused = false;
+this.test = function(fn){
+queue.push( fn );
+runTest();
+};
+this.pause = function(){
+paused = true;
+};
+this.resume = function(){
+paused = false;
+setTimeout(runTest, 1);
+};
+function runTest(){
+if ( !paused && queue.length ) {
+queue.shift()();
+if ( !paused ) {
+resume();
+}
+}
+}
+})();
+test(function(){
+pause();
+setTimeout(function(){
+assert( true, "First test completed" );
+resume();
+}, 100);
+});
+
+test(function(){
+pause();
+setTimeout(function(){
+assert( true, "Second test completed" );
+resume();
+}, 200);
+});
+
+
+To break down the functionality exposed in in Listing 1-5, there are three publicly accessible functions:
+
+{{plain: 
+test, pause, and resume. 
+}}
+
+These three functions have the following capabilities:
+
+-  test(fn) takes a function (which contains a number of assertions which will be run either synchronously or asynchronously), places it on the queue to await execution.
+
+-  pause() should be called from within a test function and tells the test suite to pause executing tests until the test group is done.
+
+-  resume() un-pauses the tests and starts the next test running, after a short delay (this in place to avoid long-running code blocks).
+
+The one internal function, runTest, is called whenever a test is queued and dequeued. It checks to see if
+the suite is currently un-paused and if there's something in the queue (if that's the case, then it'll dequeue a test and try to execute it). Additionally, after the test group is finished executing it will check to see if the suite is currently 'paused' and if not (meaning that only asynchronous tests were run in the test group) it will begin executing the next group of tests.
+
+Some of the techniques outlined above are explained better in the chapter on Timers, where much of the
+nitty-gritty relating to delayed execution is gone into depth.
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+

@@ -1,0 +1,396 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<style type="text/css">
+.hidden{display:none}
+.maya{width:32px;height:32px;display:block;float:left;border:1px solid #ececec;padding:0;margin:0;
+margin-bottom:2px;}
+</style>
+
+
+
+
+
+
+
+<h2>The Maya Numbering System</h2>
+Instead of ten digits like we have today, the Maya used a base number of 20. (Base 20 is also known as {{wi:vigesimal}}.) They  used a system of bars and dots as "shorthand" for counting. A dot stood for one and a bar stood for five.
+
+In the following table, you can see how this (works.http://www.michielb.nl/maya/math.html). We will use images from this website.
+{{example:
+<div style="width:170px">
+<img class="maya" src="http://localhost/codeigniter/images/maya/0.gif" />
+<img class="maya" src="http://localhost/codeigniter/images/maya/1.gif" />
+<img class="maya" src="http://localhost/codeigniter/images/maya/2.gif" />
+<img class="maya" src="http://localhost/codeigniter/images/maya/3.gif" />
+<img class="maya" src="http://localhost/codeigniter/images/maya/4.gif" />
+<img class="maya" src="http://localhost/codeigniter/images/maya/5.gif" />
+<img class="maya" src="http://localhost/codeigniter/images/maya/6.gif" />
+
+<img class="maya" src="http://localhost/codeigniter/images/maya/7.gif" />
+<img class="maya" src="http://localhost/codeigniter/images/maya/8.gif" />
+<img class="maya" src="http://localhost/codeigniter/images/maya/9.gif" />
+<img class="maya" src="http://localhost/codeigniter/images/maya/10.gif" />
+<img class="maya" src="http://localhost/codeigniter/images/maya/11.gif" />
+<img class="maya" src="http://localhost/codeigniter/images/maya/12.gif" />
+<img class="maya" src="http://localhost/codeigniter/images/maya/13.gif" />
+
+<img class="maya" src="http://localhost/codeigniter/images/maya/14.gif" />
+<img class="maya" src="http://localhost/codeigniter/images/maya/15.gif" />
+<img class="maya" src="http://localhost/codeigniter/images/maya/16.gif" />
+<img class="maya" src="http://localhost/codeigniter/images/maya/17.gif" />
+<img class="maya" src="http://localhost/codeigniter/images/maya/18.gif" />
+<img class="maya" src="http://localhost/codeigniter/images/maya/19.gif" />
+
+</div>
+}}
+
+The system employed three symbols. A symbol for zero, a symbol of a dot and a symbol of a bar which was the number five. By positioning the elements of this system any number could be written. The base of the system was twenty.
+
+Other than the bar and dot notation, Maya numerals can be illustrated by face type glyphs. The face glyph for a number represents the deity associated with the number. These face number glyphs were rarely used, and are mostly seen only on some of the most elaborate monumental carving.
+
+{{example:
+<img src="http://localhost/codeigniter/images/maya/maya_numerals.png" />
+}}
+
+To represent them on an html page, we need to use css as well as divs.
+
+{{example:
+
+<div style="width:39px" >
+<img class="maya" src="http://localhost/codeigniter/images/maya/12.gif" />
+</div>
+<div style="width:35px" >
+<img class="maya" src="http://localhost/codeigniter/images/maya/16.gif" />
+</div>
+<div style="width:35px" >
+<img class="maya" src="http://localhost/codeigniter/images/maya/5.gif" />
+</div>
+<hr/>
+<div style="width:35px;height:35px;border:1px solid blue" >
+5125
+</div>
+}}
+<hr/>
+
+<div  class="code-block console-wrap"><div class="code code-block"><code>
+<span class="green">//Maya Numbers </span>
+<span class="hidden"> log( "Click #", 'button' ); </span>
+var number = [0,0,0,0,0];
+function position(place,n){
+   return number[place]=n;
+}
+position(3,7);
+alert(number);
+</code>
+</div>
+<p class="msg" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+<hr/>
+
+<div  class="code-block console-wrap"><div class="code code-block"><code>
+<span class="green">//Maya Numbers </span>
+<span class="hidden"> log( "Click #", 'button' ); </span>
+
+function MayaNumber(decimal,maya,position){
+<span class=green> // if no new used create instance and return</span>
+<span class="green"> // see factory pattern article</span>
+ if ( !(this instanceof arguments.callee) ) 
+    return new MayaNumber(decimal, maya,position);
+
+     this.decimal = decimal;
+     this.maya = maya;
+     this.position = position;
+     this.toMaya = function (){
+        return this.maya[position] = this.decimal;
+       }
+    this.drawNumber = function (n) {
+       var image='&lt;img src="http://localhost/codeigniter/images/maya/'+n +'.gif"   class="maya" /&gt;';
+       var s='&lt;div style="width:130px" &gt;' + image + "&lt;/div&gt;";
+       return s;
+      }
+
+ }
+
+var number =  MayaNumber(13,[0,0,0,0,0],2);
+alert(number.toMaya());
+alert(number.maya);
+var s=number.drawNumber(5);
+$("#msg2").html(s);
+$("#msg2").append(number.drawNumber(8));
+
+</code>
+</div>
+<hr/>
+<div id="msg2" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</div>
+<hr/>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+So far we have build some form of interface with our Object. Now we will endeavour to describe the the algorithm we need, in order to convert the number from decimal to Maya.
+
+{{plain:
+  Base      Remainder                 Glyph
+   400's    5003      5000/400 = 12       4800    203
+   20's          200      200/20   = 10          200          3 
+   1's                                                    3                           3
+}}
+
+We start dividing with the largest  number 400 and then 20's and working down,
+the steps until the remainder is consists of only digits from one to 19.
+
+<h4>Datastructure for representing the number</h4>
+
+Since we only need to know the glyphs and their position, we will use
+an array , for the example above we will use:
+
+{{plain:
+                var mayaGlyphs= new Array(8,10,3);                 
+}}
+
+I normally at this stage develop the algorithm separately rather than  sticking it as a method into the object. This way debugging is easier. Let us have a go at it.
+
+<div  class="code-block"><div class="code code-block"><code>
+<span class="green">//Maya Numbers </span>
+<span class="hidden"> log( "Click #", 'button' ); </span>
+DEBUG = true;
+function convert(decimal, divisor, step, mayaGlyphs){
+    log('step :', step);
+   // if (divisor < 1 ) return;
+    var  glyph = Math.floor(decimal/divisor);
+    var remainder = decimal -(glyph*divisor);
+    log('divisor :', divisor);
+    
+     mayaGlyphs[step] = glyph;
+     log('glyph : ', glyph);
+     log('mayaGlyph : ', mayaGlyphs);
+      step=step+1; 
+     
+      if (divisor==1){
+           assert(divisor==1, "Function Returning");
+          }
+      else { 
+           divisor = divisor/20;
+           convert(remainder, divisor, step, mayaGlyphs);
+      }
+      return mayaGlyphs;
+}
+var s1 = convert(51250, 8000, 0, [0,0,0]); 
+$('#msg4').text('Maya Number :  ['+s1[0]+','+s1[1]+','+s1[2]+']');
+</code>
+</div>
+<p id="msg4" style="width:400px;font-size:24px;font-weight:bold;background:#fff">Maya Number : 
+</p>
+
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+We are ready now to combine the convert method with our main object, let us try it out.
+
+<div  class="code-block"><div class="code code-block"><code>
+<span class="green">//Maya Numbers </span>
+<span class="hidden"> log( "Click #", 'button' ); </span>
+DEBUG = false;
+function MayaNumber(decimal,maya,position){
+<span class=green> // if no new used create instance and return</span>
+<span class="green"> // see factory pattern article</span>
+ if ( !(this instanceof arguments.callee) ) 
+    return new MayaNumber(decimal, maya,position);
+
+     this.decimal = decimal;
+     this.maya = maya;
+     this.position = position;
+     this.toMaya = function (){
+        return this.maya[position] = this.decimal;
+       }
+    this.drawNumber = function (n) {
+       var image='&lt;img src="http://localhost/codeigniter/images/maya/'+n +'.gif"   class="maya" /&gt;';
+       var s='&lt;div style="width:40px" &gt;' + image + "&lt;/div&gt;";
+       return s;
+      }
+    this.convertNumber = function (decimal, divisor, step, mayaGlyphs){
+    log('step :', step);
+   // if (divisor < 1 ) return;
+    var  glyph = Math.floor(decimal/divisor);
+    var remainder = decimal -(glyph*divisor);
+    log('divisor :', divisor);
+    var z = this.divisor();
+     mayaGlyphs[step] = glyph;
+     log('glyph : ', glyph);
+     log('mayaGlyph : ', mayaGlyphs);
+      step=step+1; 
+     
+      if (divisor==1){
+           assert(divisor==1, "Function Returning");
+          }
+      else { 
+           this.divisor() = function(){return z/20};
+           this.convertNumber(remainder, divisor, step, mayaGlyphs);
+      }
+      return mayaGlyphs;
+    }
+
+ }
+
+var number =  MayaNumber(3090003);
+var s1 = number.convertNumber(3090003, 8000, 0, []);
+alert(number.largestDivisor());
+alert(s1.length);
+$("#msg8").append(number.drawNumber(s1[0]));
+$("#msg8").append(number.drawNumber(s1[1]));
+$("#msg8").append(number.drawNumber(s1[2]));
+$('#msg8').append('Maya Number :  ['+s1[0]+','+s1[1]+','+s1[2]+s1[3]+']');
+</code>
+</div>
+<hr/>
+<div id="msg8" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</div>
+<hr/>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+##Refactoring, Clean-up and start thinking about the Mayan Calendar!
+
+At this stage, where we have our first working version, we should start thinking about refactoring the code, abstracting it a bit more. We should also start thinking as to how to modify the code to cater for the Mayan calendar, which did not work in 400's but in 360's.
+
+###Adding some more properties
+
+It would be informative instead of just returning the values of the array to also add some more properties to the Object.
+
+-  length of array (i.e, how many glyphs)
+-  options (options to use the more complex pictogaphic system, just a different set of glyphs)
+- extend the system for numbers greater 20<sup>2<sup>.
+- returning all glyphs rather than just running the system
+- removing some of the unnecessary routines.
+
+<div  class="code-block"><div class="code code-block"><code>
+<span class="green">//Maya Numbers </span>
+<span class="hidden"> log( "Click #", 'button' ); </span>
+DEBUG = true;
+<span class="green">//only the number in function arguments</span>
+function MayaNumber(decimal){
+<span class=green> // if no new used create instance and return</span>
+<span class="green"> // see factory pattern article</span>
+ if ( !(this instanceof arguments.callee) ) 
+    return new MayaNumber(decimal);
+     this.base = 20;   <span class="green">//radix</span>
+     this.decimal = decimal;
+     this.mayaGlyphsArray=new Array(99,99,99);
+
+     this.divisor = function (){
+           var i=1;var s='';
+           var number =  this.decimal;
+           var z=0;
+           while (number>z){
+ 
+               z=i*(Math.pow(20,i));
+               number=number-z;
+               i=i+1;
+          } 
+       return Math.pow(20,i-1);
+
+    };
+    <span class="green" // draws on glyph</span>
+    this.drawNumber = function (n) {
+       var image='&lt;img src="http://localhost/codeigniter/images/maya/'+n +'.gif"   class="maya" /&gt;';
+       var s='&lt;div style="width:40px" &gt;' + image + "&lt;/div&gt;";
+       return s;
+      }
+    this.convertNumber = function (decimal,   step, mayaGlyphs){
+    log('step :', step);
+    log('mayaGlyphs Array :', this.mayaGlyphsArray);
+  
+    var  glyph = Math.floor(decimal/this.divisor());
+    var remainder = decimal -(glyph*this.divisor());
+    log('divisor :', this.divisor());
+    
+     mayaGlyphs[step] = glyph;
+     this.mayaGlyphsArray[step] = glyph;
+     log('glyph : ', glyph);
+     log('mayaGlyph : ', mayaGlyphs);
+      step=step+1; 
+     log('this divisor', this.divisor);
+      if (this.divisor()==1){
+         // this.mayaGlyphsArray = new Array(9,9,9);
+           assert(true, "Function Returning");
+          }
+      else { 
+          var z = this.divisor();
+                 z = z/20;
+          this.divisor = function(){return z} ;
+          this.convertNumber(remainder, step, mayaGlyphs);
+      }
+      return mayaGlyphs;
+    }
+
+ }
+
+var number =  MayaNumber(309000);
+var s1 = number.convertNumber(309000,  0, []);
+alert(s1.length);
+alert('Base : '+number.base);
+alert(number.divisor());
+//var s3=mayaGlyphsArray.toString;
+alert('Array '+number.mayaGlyphsArray);
+$("#msg9").append(number.drawNumber(s1[0]));
+$("#msg9").append(number.drawNumber(s1[1]));
+$("#msg9").append(number.drawNumber(s1[2]));
+$("#msg9").append(number.drawNumber(s1[3]));
+
+$('#msg9').append('Maya Number :  ['+s1[0]+','+s1[1]+','+s1[2]+','+s1[3]+']');
+</code>
+</div>
+<hr/>
+<div id="msg9" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</div>
+<hr/>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+There is still work to be done! For example how about adding a method to draw the number, using the Canvas element? We will leave this for a future article. We can also turn this into a jQuery plugin or function, where we could call it like this:
+
+{{plain:
+   $("#out").convertNumber(3090);
+}}
+
+To be able to do this our convert method should be turned into a self-running function (See Self-running functions).
+
+
+##Further Reading
+
+http://home.att.net/~srschmitt/script_number_bases.html
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+

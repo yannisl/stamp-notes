@@ -1,0 +1,181 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<style type="text/css">
+.edit-code{font-size:12px;line-height:1.3}
+</style>
+
+<h2>The parseInt() and parseFloat()</h2>
+JavaScript provides tow functions for the conversion of a string literal to a number. You can use, either the <strong>parseInt()</strong> method or <strong>parseFloat()</strong>.
+
+But!  parseInt() and parseFloat() can give you some suprises. What do you think the value of x will be in the following statement?
+
+{{plain:
+      var s = '123Mary';
+      var z = parseInt(s);    
+}}
+
+If you answered '123' you are right and you perhaps know more JavaScript than me, in which case you should consider giving me a bit of a hand to grow the information on this site. If you didn't please read on!
+
+The ECMA specification dictates that
+<strong>parseInt</strong> may interpret only a leading portion of the string as an integer value; it ignores any
+characters that cannot be interpreted as part of the notation of an integer, and no indication is given
+that any such characters were ignored.
+When radix is 0 or undefined and the string's number begins with a 0 digit not followed by an x or X,
+then the implementation may, at its discretion, interpret the number either as being octal or as being
+decimal. 
+
+Although the specification recommends that implementations are encouraged to interpret numbers in this case as being decimal, Chrome will give you octals.
+
+
+<div  class="code-block console-wrap">
+<div class="code code-block">
+<code class="editable">
+  var s = '123Mary';
+    log('parseInt("123Mary")',  parseInt(s);  
+    log('parseInt (" ")', parseInt(' ');
+
+  
+  log('Value of z = ', z);
+  log('', 0.000000078900012.toExponential(5)); 
+</code>
+
+</div>
+
+<div  class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+Note that based on the specification you do not actually need to trim the string, as white-spaces will be ignored. Would your browser support this? Check it out.
+
+<div  class="code-block console-wrap">
+<div class="code code-block">
+
+<code>
+  var s = '       123Mary';
+  var z = parseInt(s,8);   
+  var s1='       0123Mary1';
+   var z1 = parseInt(s1);   
+  log('Value of z = ', z);
+  log('Value of z1 = ', z1);
+  log('', 0.000000078900012.toExponential(5)); 
+</code>
+
+
+</div>
+
+<div  class="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+<img src="http://localhost/codeigniter/images/jquery.png" style="float:right; width:85px"/>
+</div>
+
+ As with money when you dealing with numbers, just be carefully and provide tests to ensure that any inputs originating from the wild are dealt with properly.
+
+Floating point arithmetic is only carried out to a finite accuracy by computer hardware. This means that there is
+
+a limited number of significant digits (about 6 decimal digits for 32-bit floats, more, perhaps 16 digits, for 64-bits etc.)
+a maximum floating point number
+a minimum +ve floating point number >0
+1.0 = 1.0 - &#948;
+
+Because of the finite accuracy, there is a floating point number, 
+{{plain:
+&#948; > 0.0, such that 1.0 - &#948; equals 1.0 
+}}
+as far as the computer hardware can tell.
+
+<div  class="code-block console-wrap">
+<div class="code code-block">
+
+<code>
+ function underflow()
+// LAllison, Comp Sci Mon@sh.uni, oz
+//
+{
+  var limit = 100,
+  x, iter;
+  x = 1.0;
+  iter = 1;
+  while (iter < limit && 1 - x != 1) {
+    iter++;
+    x /= 2;
+    log(iter, ' ', x, '1-x', (1 - x));
+  }
+
+  return (1.0 - x + ' = 1.0 - ' + x);
+}
+var delta = underflow();
+log(delta);
+</code>
+
+
+</div>
+
+<div  class="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<h3>Underflow</h3>
+
+Mathematically, the following two equations are equal:
+
+{{plain:
+ big - (big'  - &#948;)            -- 1
+(big -  big') + &#948;            -- 2
+}}
+
+However, if big~big' then then equation #1 may loose accuracy. Consider the extreme case in which big=big'=1.0. Then equation #1 will evalute to zero, but equation #2 will evaluate to &#948;, not zero!
+  
+It is always good practice, if you are dealing with small differences to define a method in your library, named __nearlyEquals()__,  or similar, where you can actually define the accuracy for comparisons of two values.
+
+Here, is such a method from the __closure__ library.
+
+{{plain:
+ goog.math.nearlyEquals = function(a, b, opt_tolerance) &#123;
+    return Math.abs(a - b) <= (opt_tolerance || 0.000001);
+  &#125;
+}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+http://www.allisons.org/ll/
+
+
+
+

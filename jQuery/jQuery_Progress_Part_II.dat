@@ -1,0 +1,130 @@
+ <!--
+{{feature: .. The take home message: seek the signal, avoid the noise, and do your own homework .. zerohedge.com}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: UI, jQuery, Visibility Filters, CSS Visibility }}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+
+
+
+
+<h3>Tower Site Progress Example</h3>
+
+ This is not a gant chart, although if all information is entered correctly, it can be changed into a gant chart. It measures progress as a percentage of the activity.
+
+You will be able to give the activity a weight. There are two possible variations, one is vertical and one is horizontal. The vertical has two states on-off and the horizontal one shown here, is just lies on the side. 
+
+-  percentage completion
+- vertical done/not done
+- gant chart 
+
+
+<div class="activities-block  clearfix" style="width:300px;">
+              
+<div  class="bar ui-corner-tr ui-corner-br" >
+<span class="legend" style="width:10%;height:20px;background-color:green;display:block;" title="click to increase percentage, double click to decrease"  rel="Electrical">
+</span>
+</div>
+    
+<div  class="bar" >
+<span class="legend" style="width:10%;height:20px;background-color:#dd0000;display:block;" title="click to increase percentage, double click to decrease"  rel="Mechanical">
+</span>
+</div>
+
+<div  class="bar" >
+<span class="legend" style="width:10%;height:20px;background-color:#0000dd;display:block;" title="click to increase percentage, double click to decrease"  rel="Mechanical">
+</span>
+</div>
+ 
+ </div>
+
+
+
+
+
+
+
+
+
+
+A visual represenation for work done on a tower. Click once to increase the percentage, double click to decrease.
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+var settings = {};
+settings.increment = 10;
+settings.totalWidth = $('.bar:first').width();
+settings.pixelIncrement = Math.round(settings.totalWidth / settings.increment);
+
+log(settings.totalWidth, 'pixelIncrement ', settings.pixelIncrement);
+// adjusts width of element
+// by increment assume scale ok
+function adjustWidth(el) {
+  var $this = el;
+  var w;
+  var currentWidth = el.width();
+  var w = currentWidth + settings.pixelIncrement;
+  // cannot  exceed 100%
+  if (w > settings.totalWidth) {
+    w = settings.totalWidth;
+  }
+  $this.css('width', w + 'px').hide().show('slow');
+  log('width adjusted', currentWidth, w);
+  return w;
+}
+
+function setLegend(el, w) {
+  // sets the legend
+  log('in legend ', w)
+  w1 = ((w / settings.totalWidth) * 100).toFixed(0);
+  log('legend value', w1);
+  var legend = el.attr('rel') + ' ' + w1 + '%';
+  el.text(legend);
+}
+
+function doubleClick(e) {
+
+}
+
+$('div.bar span').click(function () {
+  var el = $(this);
+  var w = adjustWidth(el);
+  setLegend(el, w);
+  log('click received');
+
+});
+
+$('div.bar').click(function () {
+  var el = $(this).children('span');
+  var w = adjustWidth(el);
+  setLegend(el, w);
+  log('click received');
+
+});
+
+</code>
+
+</div>
+
+<div  id="msg" class="msg" >
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+
+
+
+
+
+
+
+                                        

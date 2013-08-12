@@ -1,0 +1,86 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<h2>Javascript Regular Expressions: Matching whole words</h2>
+
+One common problem facing JavaScript developers, is that since they are developing for the web, most of the times is important to address character encoding fairly early. Let us look at a common - and apparaently simple problem - that of matching whole words in text.
+Javascript, PCRE and Ruby view only ASCII characters as word characters __(\w)__, is identical to:
+
+{{snippett:
+  [a-zA-Z0-9_]
+}}
+
+With these flavours you can only search on words in languages that use the letters [A to Z without any {{wi:diacritics}} such as English, but unfortunately not Greek or Spanish. These flavours cannot do "whole words only".
+
+Lets us have a test case:
+
+<div class="code-block console-wrap">
+<div class="code code-block">
+<code>
+var s1 = 'This is a very long string of something';
+var s2 = 'McDonaldsÂ© copyrighted notice!'
+var pattern = /\b\w+\b/g;
+
+var result = s1.match(pattern);
+var result1 = s2.match(pattern);
+log(result);
+log(result1);
+
+</code>
+</div>
+<div class="msg" ></div>
+  <button class="eval">Run</button>
+<ol class="results"></ol>
+</div>
+
+What we need to capture the copyright symbol is we need to redefine our word in unicode. In this case I will use a wide unicode range.
+
+<div class="code-block console-wrap">
+<div class="code code-block">
+<code>
+var s1 = 'This is a very long string of something';
+var s2 = 'McDonaldsÂ© copyrighted notice!'
+var pattern = /\b[\u0000-\u1FFF]+\b/g;
+
+var result = s1.match(pattern);
+var result1 = s2.match(pattern);
+log(result);
+log(result1);
+</code>
+</div>
+<div class="msg" ></div>
+  <button class="eval">Run</button>
+<ol class="results"></ol>
+</div>
+
+As you can see, now we have managed to capture the copyright symbol.
+
+But how do we find the right Unicode Range to specify?
+
+http://www.unicode.org is the official website of the Unicode Consortium, where you
+can download all the official Unicode documents, character tables, etc.
+Unicode is a vast topic, on which entire books have been written. One such book is
+Unicode Explained by Jukka K. Korpela (Oâ��Reilly).
+
+We can't explain everything you should know about Unicode code points, properties,
+blocks, and scripts in just one section. We haven't even tried to explain why you should
+care you should. The comfortable simplicity of the extended ASCII table is a lonely
+place in todayâ��s globalized world. .. from O'Reilly book Regular Expressions Cookbook, by Jan Goyvaerts and Steven Levithan.
+
+
+##Further Reading
+
+
+
+
+
+
+
+                  

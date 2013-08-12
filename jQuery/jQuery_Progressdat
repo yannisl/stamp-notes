@@ -1,0 +1,336 @@
+ <!--
+{{feature: .. The take home message: seek the signal, avoid the noise, and do your own homework .. zerohedge.com}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: UI, jQuery, Visibility Filters, CSS Visibility }}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<script type="text/javascript">
+src="http://localhost/CodeIgniter/js/context_menu.js" 
+</script>	
+
+<style type="text/css">
+ #test1 {}
+#test{}
+
+ul.ex {font-size:13px;display:block}
+ul.ex {list-type:none;list-style-type:none}
+ul.ex li, ul.ex1 li{display:block;width:90%;border:1px solid #ececec;margin-bottom:1px}
+ul.ex li span{cursor:pointer}
+.legend{font-size:8px;color:#fff}
+</style>
+
+
+<div style="background:url(http://localhost/CodeIgniter/images/stripes.jpg)" class="contextMenu" id="myMenu1">
+
+<h3 id="firstHeading" class="firstHeading" style="background-color: rgb(239, 239, 239)">
+Tower Site Progress Example
+</h3>
+
+  
+<hr/>
+<div>
+<div style="width:170px;float:right;margin:30px">
+<img src="http://localhost/CodeIgniter/images/tower.jpg" style="width:98%" />
+</div>
+<div  style="width:120px;border:1px solid red;margin-left:180px" >
+7th
+<ul class="ex" id="test8" >
+    <li id="test1"><span style="width:20px;height:10px;background-color:green;display:block" title="click to increase percentage, double click to decrease" class="legend" rel="Electrical">1</span></li>
+    <li><span style="width:70px;height:10px;background-color:purple;display:block" class="legend" rel="HVAC"></span></li>
+    <li><span style="width:40px;height:10px;background-color:blue;display:block" class="legend" rel="Fire"></span></li>
+  </ul>
+</div>
+
+<div  style="width:120px;border:1px solid #ececec;margin-left:180px" >
+5th
+<ul class="ex" id="test8" >
+    <li id="test1"><span style="width:50px;height:10px;background-color:green;display:block" title="click to increase percentage, double click to decrease"></span></li>
+    <li><span style="width:80px;height:10px;background-color:green;display:block"></span></li>
+    <li><span style="width:40px;height:10px;background-color:green;display:block"></span></li>
+  </ul>
+</div>
+
+<div  style="width:120px;border:1px solid red;margin-left:180px" >
+4th
+<ul class="ex" id="test8" >
+    <li id="test1"><span style="width:50px;height:10px;background-color:green;display:block" title="click to increase percentage, double click to decrease" class="demo1"></span></li>
+    <li><span style="width:80px;height:10px;background-color:green;display:block"></span></li>
+    <li><span style="width:40px;height:10px;background-color:green;display:block"></span></li>
+  </ul>
+</div>
+<div  style="width:120px;border:1px solid red;margin-left:180px" >
+3nd
+<ul class="ex" id="test8" >
+    <li id="test1"><span style="width:50px;height:10px;background-color:green;display:block" title="click to increase percentage, double click to decrease"></span></li>
+    <li><span style="width:80px;height:10px;background-color:green;display:block"></span></li>
+    <li><span style="width:40px;height:10px;background-color:green;display:block"></span></li>
+  </ul>
+</div>
+
+<div  style="width:120px;border:1px solid red;margin-left:180px" >
+2nd
+<ul class="ex" id="test8" >
+    <li id="test1"><span style="width:50px;height:10px;background-color:green;display:block" title="click to increase percentage, double click to decrease"></span></li>
+    <li><span style="width:80px;height:10px;background-color:green;display:block"></span></li>
+    <li><span style="width:40px;height:10px;background-color:green;display:block"></span></li>
+  </ul>
+</div>
+
+<div  style="width:120px;border:1px solid red;margin-left:180px" >
+1st
+<ul class="ex" id="test8" >
+    <li id="test1"><span style="width:50px;height:10px;background-color:green;display:block" title="click to increase percentage, double click to decrease"></span></li>
+    <li><span style="width:80px;height:10px;background-color:green;display:block"></span></li>
+    <li><span style="width:40px;height:10px;background-color:green;display:block"></span></li>
+  </ul>
+</div>
+
+<div  style="width:120px;border:1px solid red;margin-left:180px" >
+Mechanical
+<ul class="ex" id="test8" >
+    <li id="test1"><span style="width:50px;height:10px;background-color:green;display:block" title="click to increase percentage, double click to decrease"></span></li>
+    <li><span style="width:80px;height:10px;background-color:green;display:block"></span></li>
+    <li><span style="width:40px;height:10px;background-color:green;display:block"></span></li>
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<!--podium-->
+<div>
+
+
+
+
+</div>
+
+<div  style="width:120px;border:1px solid red;float:left" class="myMenu1" >
+ Ground:Shops
+<ul class="ex" id="test8" >
+    <li id="test1"><span style="width:50px;height:10px;background-color:green;display:block" title="click to increase percentage, double click to decrease"></span></li>
+    <li><span style="width:80px;height:10px;background-color:green;display:block"></span></li>
+    <li><span style="width:40px;height:10px;background-color:green;display:block"></span></li>
+  </ul>
+</div>
+<div  style="width:120px;border:1px solid red;float:left" >
+Ground:Restaurant
+<ul class="ex" id="test8" >
+    <li id="test1"><span style="width:50px;height:10px;background-color:green;display:block" title="click to increase percentage, double click to decrease"></span></li>
+    <li><span style="width:80px;height:10px;background-color:green;display:block"></span></li>
+    <li><span style="width:40px;height:10px;background-color:green;display:block"></span></li>
+  </ul>
+</div>
+<div  style="width:120px;border:1px solid red;float:left" >
+Ground:Lobby
+<ul class="ex" id="test8" >
+    <li id="test1"><span style="width:50px;height:10px;background-color:green;display:block" title="click to increase percentage, double click to decrease"></span></li>
+    <li><span style="width:80px;height:10px;background-color:green;display:block"></span></li>
+    <li><span style="width:40px;height:10px;background-color:green;display:block"></span></li>
+  </ul>
+</div>
+
+<div  style="width:120px;border:1px solid red;float:left" >
+Ground:Plantroom
+<ul class="ex" id="test8" >
+    <li id="test1"><span style="width:50px;height:10px;background-color:green;display:block" title="click to increase percentage, double click to decrease"></span></li>
+    <li><span style="width:80px;height:10px;background-color:green;display:block"></span></li>
+    <li><span style="width:40px;height:10px;background-color:red;display:block"></span></li>
+  </ul>
+</div>
+
+</div>
+
+
+<hr/>
+A visual represenation for work done on a tower. Click once to increase the percentage, double click to decrease.
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+
+var settings = {};
+settings.increment = 1;
+
+// adjusts width of element
+// by increment assume scale ok
+function adjustWidth(w) {
+  w = w + settings.increment;
+  // cannot  exceed 100%
+  if ($width > 100) {
+    $width = 100
+  }
+  log('width is ', w);
+  return w;
+}
+
+function setLegend(e) {
+  // sets the legend
+  var $legend = $(e).attr('rel') + ' ' + $(this).width() + '%';
+  $(this).text($legend);
+}
+
+function singleClick(e) {
+  // adjusts the width of the element
+  // by increment
+  var currentWidth = $(this).width();
+
+  log('current width', currentWidth);
+
+  var $width = adjustWidth(currentWidth);
+
+  // sets legend
+  setLegend($(this));
+
+  //   $w1=$w+'px';
+  //alert('ok  single click'+$width);
+  $(this).css('width', $width);
+
+}
+
+function doubleClick(e) {
+  var $width = $(this).width() - 10;
+  var $legend = 'HVAC ' + $width + '%';
+  if ($width < 0) {
+    $width = 10
+  }
+  //var  $w=$this.width+10;
+  //   $w1=$w+'px';
+  //alert('ok  double click'+$width);
+  $(this).css('width', $width);
+  $(this).text($legend);
+  return $width;
+}
+
+$('.ex li span').click(function (e) {
+  var that = this;
+  setTimeout(function () {
+    var dblclick = parseInt($(that).data('double'), 10);
+    if (dblclick > 0) {
+      $(that).data('double', dblclick - 1);
+    } else {
+      singleClick.call(that, e);
+    }
+  },
+  200);
+}).dblclick(function (e) {
+  $(this).data('double', 2);
+  doubleClick.call(this, e);
+});
+
+$('div').css('borderColor', '');
+
+</code>
+
+</div>
+
+<div  id="msg" class="msg" >
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<script type="text/javascript">
+
+function singleClick(e) {
+    // do something, "this" will be the DOM element
+
+var $width=$(this).width()+10;
+var $legend=$(this).attr('rel')+' '+$(this).width()+'%';
+  if ($width>100){$width=100}
+  //var  $w=$this.width+10;
+ //   $w1=$w+'px';
+ //alert('ok  single click'+$width);
+    $(this).css('width',$width);      
+    $(this).text($legend);
+}
+
+function doubleClick(e) {
+   var $width=$(this).width()-10;
+  var $legend='HVAC '+$width+'%';
+  if ($width<0){$width=10}
+  //var  $w=$this.width+10;
+ //   $w1=$w+'px';
+   //alert('ok  double click'+$width);
+    $(this).css('width',$width); 
+  $(this).text($legend);
+  return $width;
+}
+
+$('.ex li span').click(function(e) {
+    var that = this;
+    setTimeout(function() {
+        var dblclick = parseInt($(that).data('double'), 10);
+        if (dblclick > 0) {
+            $(that).data('double', dblclick-1);
+        } else {
+            singleClick.call(that, e);
+        }
+    }, 200);
+}).dblclick(function(e) {
+    $(this).data('double', 2);
+    doubleClick.call(this, e);
+});
+
+$('div').css('borderColor','#000');
+$('span').addClass('legend');
+ </script>
+
+<p><span class="demo1">test</span></p>
+
+<script type="text/javascript">
+$('div.myMenu1').contextMenu('myMenu1', {
+
+      bindings: {
+
+        'open': function(t) {
+       
+          alert('Trigger was '+t.id+'\nAction was Open');
+
+        },
+
+        'email': function(t) {
+     
+          alert('Trigger was '+t.id+'\nAction was Email');
+
+        },
+
+        'save': function(t) {
+
+          alert('Trigger was '+t.id+'\nAction was Save');
+
+        },
+
+        'delete': function(t) {
+
+          alert('Trigger was '+t.id+'\nAction was Delete');
+
+        }
+
+  }
+
+});
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+

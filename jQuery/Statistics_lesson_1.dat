@@ -1,0 +1,135 @@
+ 
+ <!--
+{{feature: .. It were needless to advertise, that the great trouble of working so many Proportions will be very much alleviated by using Logarithms; Halley}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<script type="text/javascript"> 
+goog.require('goog.ui.TableSorter');
+goog.require('goog.ui.ServerChart');
+goog.require('goog.dom');
+</script>
+
+##Basic Statistics - Mean, Average and Mode
+
+To get the \\(\sum n\\) for our formula, we multiply the number of people in each salary category by the salary for that category (e.g., \\(1 \times 20, 2 \times 25\\), etc.), and then total those numbers.  Thus we have:
+
+    
+$$ \bar x = \frac{\sum x}{n}$$
+
+
+<h3>Preparing the Dataset</h3>
+
+$$\(\(X\)\)$$
+
+<div  class="code-block console-wrap python"><div class="code code-block python"><code class="python">
+var DATA_LABELS = ['Salary (X)', 'Frequency (f)'],
+DATA = [[20,1],[25,2],[30,3],[35,4],[40,5],[45,6],[50,5],[55,4],
+                   [60,3],[65,2],[70,1] ],
+length = DATA.length,
+i = 0,
+sum = 0,
+temp = 0;
+for (i = 0; i < length; i++) {
+  sum = DATA[i][1] + sum;
+  temp = DATA[i][1]*DATA[i][0] + temp;
+}
+var mean = temp/sum;
+log(sum);
+log(temp);
+log(mean);
+</code>
+</div>
+<p class="msg" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+<button class="eval">Run Code!</button>
+<ol class="results" style="white-space:pre"></ol> 
+</div>
+
+
+
+
+
+<h3>Producing some tables and Graphs</h3>
+
+
+<div  class="code-block console-wrap"><div class="code code-block"><code>
+var element = goog.dom.getElement;
+var i=0;
+for (i = 0; i < DATA.length; i++) {
+   DATA[i]=DATA[i][1];
+} 
+// Line Chart
+    chart = new goog.ui.ServerChart(goog.ui.ServerChart.ChartType.LINE, 600,380);
+    chart.addDataSet(DATA, '0000ff');
+    chart.setXLabels(['1','7','14','21','28','35','42','49','56','63','70','77','84','100']);
+    chart.setLeftLabels([0,250,500,750,1000]);
+    //chart.setRightLabels([0,50,100]);
+    //chart.setMinValue(-50);
+    chart.decorate(element('line_chart'));
+//log(DATA);
+</code>
+</div>
+<p class="msg" id='sortMe' style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+<p>Age Distribution Chart:</p> 
+ <img id="line_chart">
+<button class="eval">Run Code!</button>
+<ol class="results" style="white-space:pre"></ol> 
+</div>
+
+<div id="test" style="width:200px;height:300px"></div>
+
+
+<h3>Transparency</h3>
+
+Geoffrey Heywood notes the interesting fact that the premium rates used by the Amicable Society in its prospectus published in 1790 were based on the Breslau table and in the prospectus it _was produced in full_. Try phoning your Insurance Company and asking them if they can give you the basis of calculating your life insurance or annuity.
+
+What I like by digging historical facts like this one, is that it first gives someone a chance to glimpse of the past, but also to compare it with to-day's practices. Besides of course that it give us a chance to reinforce programming skills in a rather more interesting way. 
+
+
+<h3>Why all these?</h3>
+
+
+
+
+<hr/>
+
+
+
+##Further Reading
+
+
+##Footnotes
+
+1  According to Wikipedia the population of Breslau is currently 632,561 and that is after the Napoleonic, the Great War and World War II.
+
+
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+[My question at stackoverflow](http://stats.stackexchange.com/questions/14714/best-model-to-fit-missing-statistical-values) had virtually no response.
+
+__Credits__
+
+Some of the data was obtained from [basic statistics](http://en.wikibooks.org/wiki/Algorithm_Implementation/String_searching/Match_Rating_Approach)
+
+I checked against a lot of the example at [lowry](http://faculty.vassar.edu/lowry/VassarStats.html)
+
+Routine borrowed from [basic statistics](http://code.google.com/p/pseudosavant/)
+
+
+
+
+
+
+
+
+                          

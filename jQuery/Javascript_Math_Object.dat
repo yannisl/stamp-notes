@@ -1,0 +1,162 @@
+ <!--
+{{feature: Donald E Knuth  Random numbers should not be generated with a method chosen at random..}}
+{{feature-image:http://localhost/CodeIgniter/images/run_time_error.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: UI, jQuery, Visibility Filters, CSS Visibility }}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+<style>
+div#ex1 {cursor:pointer;   padding:5px;height:20px }
+  .ex2{ background:#bebebe; font-weight:bold; cursor:pointer; 
+      padding:5px; }
+ .over { background: #ccc; }
+a#cbutton,a#cbutton1,a#cbutton2,a#cbutton3,a#cbutton4,a#cbutton5{color:blue}
+.out{};
+p#rnumber,p#rnumber1,p#rnumber2,p#rnumber3,p#rnumber4,p#piout{font-size:42px;font-weight:bold}
+ </style>
+
+
+
+
+<h2>
+The Math Object
+</h2>
+The Math object of {{wi:JavaScript}} allows you to perform certain calculations by using method functions of the Math object. Also, it provides a few constants such as pi. The easiest way to get a value is to define a variable and set its value to a property or function of the Math Object.
+
+If you want to use a property, which returns a constant value (such as pi), you would write something like this:
+
+{{plain:
+var my_car=Math.property;
+}}
+
+You would replace the word "property" with the property you want to use. So, if you want to use the value of pi in a variable, you would use the PI property of the Math object. You would write:
+
+{{plain:
+var my_pie=Math.PI;
+}}
+
+This returns the pi constant, a number with lots of decimals, or 3.14.....
+
+If you want to use a member function, which performs a calculation, you would write something like this:
+
+{{plain:
+var my_house=Math.function(x);
+}}
+
+Most of the member functions have one or more parameters, which is what the "x" is for. You can replace x with a number or variable. You would replace the word "function" with the function you want to use. For instance, if you want the square root of a number, you can call the square root member function of the Math object with the number as the parameter:
+
+{{plain:
+var my_money=Math.sqrt(2);
+}}
+
+This gives back the square root of 2, which is another number with lots of decimals, around 1.41.....
+
+Now that you have seen how little money I have, be sure to take notice that the "M" in Math is always capitalized. The word Math is followed by the dot operator (.), and then the property or member function you want to use.
+
+These are not too difficult to use now that you know how to get to them. Here are some of the properties you can use, these return the constant values:
+
+{{plain:
+Math.PI	Returns the constant pi
+Math.SQRT2	Returns the square root of 2
+Math.SQRT1_2	Returns the square root of 1/2
+}}
+
+
+Let us now use our skills with jquery to plot a <em>sin</em> curve. Click on the link below to see what we are trying to achieve.
+
+{{plain:
+<a id="cbutton">Click</a>
+<div id="ex1" class="clearfix" style="height:auto">
+</div>
+
+}}
+
+One peculiarity of chrome when you inserting elements dynamically you need to specify height:auto for the enclosing elements. This caught me and I had to spent quite a bit of time to sort it out.
+<hr/>
+
+<p>
+<script type="text/javascript"> 
+$(document).ready(function(){
+$('a#cbutton').click(function(){
+var i;
+for (i=0.01;i<3.1413;i=i+0.02){
+var aNumber=100*(Math.sin(i));
+       aNumber=Math.floor(aNumber)+1;
+$('div#ex1').append('<div style="background:blue;margin:1px;width:1px;float:left;height:'+ (aNumber)+'px"></div>');
+}
+return false;
+});
+});
+</script> 
+</p>
+
+<div class="clearfix"  style="background:url(http://localhost/codeigniter/images/code-bg.gif)">
+<table width="80%" border="1"  cellspacing="0" cellpadding="5"> 
+<TR> 
+<TD><B><SPAN class="heading">Method Function</SPAN></B></TD> 
+<TD><B><SPAN class="heading">What it Does</SPAN></B></TD> 
+</TR> 
+<TR> 
+<TD>abs(x)</TD> 
+<TD>Returns the absolute value of the variable x.</TD> 
+</TR> 
+<TR> 
+<TD>cos(x)</TD> 
+<TD>Returns the cosine of the variable x.</TD> 
+</TR> 
+<TR> 
+<TD>log(x)</TD> 
+<TD>Returns the <B>natural</B> log of the variable x.</TD> 
+</TR> 
+<TR> 
+<TD>max(x,z)</TD> 
+<TD>Returns the larger of the two variables x and z.</TD> 
+</TR> 
+<TR> 
+<TD>min(x,z)</TD> 
+<TD>Returns the smaller of the two variables x and z.</TD> 
+</TR> 
+<TR> 
+<TD>pow(x,z)</TD> 
+<TD>Returns the value of the variable x to the z<SUP>th</SUP> power.</TD> 
+</TR> 
+<TR> 
+<TD>random()</TD> 
+<TD>Returns a random number between 0 and 1.</TD> 
+</TR> 
+<TR> 
+<TD>round(x)</TD> 
+<TD>Returns the variable x rounded to the nearest integer.</TD> 
+</TR> 
+<TR> 
+<TD>sin(x)</TD> 
+<TD>Returns the sine of the variable x.</TD> 
+</TR> 
+<TR> 
+<TD>sqrt(x)</TD> 
+<TD>Returns the square root of the variable x.</TD> 
+</TR> 
+<tr> 
+<TD>tan(x)</TD> 
+<TD>Returns the tangent of the variable x.</TD> 
+</tr> 
+</table> 
+</div>
+
+<h2>Further Reading</h2>
+
+http://www.protonfish.com/random.shtml
+
+http://james.padolsey.com/projects/
+
+http://www.erikoest.dk/rng.htm
+
+http://www.shawnolson.net/a/789/make-javascript-mathrandom-useful.html
+
+http://beheco.oxfordjournals.org/cgi/reprint/12/6/655.pdf
+    

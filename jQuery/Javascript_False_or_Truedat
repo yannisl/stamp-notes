@@ -1,0 +1,58 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+<h2>Javascript True or False?</h2>
+What happens if you do not assign a value to a variable, check it below!
+<div  class="code-block console-wrap  ui-corner-all">
+<div class="code-block code">
+<code id="editable">
+(function(){
+var f;
+    assert(f==0,'equal to zero');
+    assert(f=='','');
+    assert(f==null,'');
+    assert(f==undefined, 'undefined is true');
+   assert(f=0,'');
+})();
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button id="eval" class="eval ui-corner-all">Run Code!</button>
+
+<ol class="results"></ol> 
+<div   class="jslint"></div>
+</div>
+<hr />
+
+<h3>Accidental Assignment</h3>
+A very common error (not just in JavaScript, but also in other languages is the
+accidental use of the assignment operator (=) in a comparison statement. The code below will return false and <strong>assign</strong> the value zero to the variable <strong>f</strong>.
+
+{{plain:
+   if (f=0) alert(f);
+}}
+
+
+
+
+
+##Further Reading
+
+http://ajaxian.com/archives/javascript-associative-arrays-considered-harmful
+
+http://andrewdupont.net/2006/05/18/javascript-associative-arrays-considered-harmful/
+
+
+

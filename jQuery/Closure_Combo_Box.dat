@@ -1,0 +1,293 @@
+      
+<!--
+ directives
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{feature-image:/codeigniter/images/china/beauty_07.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+<script type="text/javascript"> 
+goog.require('goog.events');
+goog.require('goog.ui.ComboBox');
+goog.require('goog.debug.DivConsole');
+goog.require('goog.format.HtmlPrettyPrinter');
+</script>
+ 
+<style type="text/css">
+
+.goog-combobox {
+  border: 1px solid #b5b6b5;
+  background: #ddd url(../images/button-bg.gif) repeat-x scroll left top;
+  padding-right: 2.8ex;
+  font: normal small arial, sans-serif;
+  cursor: pointer;
+}
+
+.goog-combobox input {
+  vertical-align: bottom; /* override demo.css */
+  margin: 0;
+  border: 0;
+  border-right: 1px solid #b5b6b5;
+  padding: 0 0 0 .1ex;
+  color: #fff;
+  background-color: #dd0000;
+
+  font: normal small arial, sans-serif;
+  width: 30ex;
+}
+
+.goog-combobox input.label-input-label {
+  background-color: #fff;
+  color: #aaa;
+}
+
+.goog-combobox .goog-menu {
+  width: 33.2ex;
+  margin-top: -1px;
+  z-index: 1000;
+}
+
+.goog-combobox .goog-menu {
+  /* Non-IE hack */
+  width: 32.8ex;
+}
+
+.goog-combobox-button {
+  color:red;
+  font-size: 10px;
+}
+
+.use-arrow .goog-combobox {
+  padding-right: 0.6ex;
+}
+
+.goog-combobox-button{
+ border:1px solid silver;!important
+}
+</style>
+
+<h3>ComboBox</h3>
+Google's closure provides Classes for the  creation of desktop-like functionality in menus. Just be aware that these will not show up for user's that may have JavaScript switched off. I also found the hard way that you need a bit of type to delve into their inner workings and also to discover how to style them with CSS. Select buttons are not the easiest to create. Personally I prefer the creation of these buttons to take place on the server side and in this respect I have developed my own routines to do that. The additional functionality that Closure adds, though can only be done on the Client side, however, it maybe also possible to generate the necessary JavaScript from the Server side as well. The combobox alone is 853 lines of code with comments, so we are adding a bit of overhead on the code.
+
+A combo box control that allows user input with auto-suggestion from a limited set of options.
+
+<div id="log" class=" logdiv">
+</div>
+ <div id="combo1" > 
+</div>
+<div id="combo2" > 
+</div>
+<P> 
+ <A href="javascript:void(logconsole.clear())">Clear Log</A> 
+</P> 
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+var el = goog.dom.getElement('combo1');
+var cb1 = new goog.ui.ComboBox();
+
+for (var prop in cb1) {
+
+  log(prop);
+}
+
+log(cb1.getId());
+
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div id="log" class="console" style="white-space:pre"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<h3>Creating the ComboBox and adding items</h3>
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+var el = goog.dom.getElement('combo3');
+
+cb = new goog.ui.ComboBox();
+cb.setUseDropdownArrow(true);
+cb.setDefaultText('Select a folder...');
+cb.addItem(new goog.ui.ComboBoxItem('Inbox'));
+cb.addItem(new goog.ui.ComboBoxItem('Bills & statements'));
+cb.addItem(new goog.ui.ComboBoxItem('Cal alumni'));
+cb.render(el);
+
+// let us have a look at the html injected
+var d = $('#combo3').html();
+var f1 = goog.format.HtmlPrettyPrinter.format(d);
+var c = f1.entityify();
+// use entityify to escape
+// method is from jslint global pollution!
+// thanks Mr. Crockford
+// pollution is sometimes useful
+logPRE(c);
+</code>
+</div>
+<form class="myForm">
+ <div id="combo3" > 
+</div>
+</form>
+<div  id ="msg" class="msg">
+</div>
+<div id="log" class="console" style="white-space:pre"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+Hmm... divs in spans and only one input element. This is not your typical select input. Let's peek at the htm creation method. O! my!
+
+
+<div class="code-block console-wrap">
+<div class="code-block code">
+<pre>
+goog.ui.ComboBox.prototype.createDom = function() {
+  this.input_ = this.getDomHelper().createDom(
+      'input', {'name': this.fieldName_, 'autocomplete': 'off'});
+  this.button_ = this.getDomHelper().createDom('span', 'goog-combobox-button');
+  this.setElementInternal(this.getDomHelper().createDom('span', 'goog-combobox',
+      this.input_, this.button_));
+  if (this.useDropdownArrow_) {
+    this.button_.innerHTML = '&amp;nbsp;&amp;#x25BC;';
+    goog.style.setUnselectable(this.button_, true /* unselectable */);
+  }
+  this.input_.setAttribute('label', this.defaultText_);
+  this.labelInput_.decorate(this.input_);
+  this.menu_.setFocusable(false);
+  this.addChild(this.menu_, true);
+};
+</pre>
+</div>
+</div>
+
+As you can see the HTML code is being generated using the .createDom() method which has been inherited from the Dom class, via an upstream chain-reaction. You can also notice that the DropDownArrow_ property is used to check if the dropdown arrow will be displayed or not.
+The drop down arrow is the character &amp;#x25BC &nbsp;&#x25BC;. Don't worry that is black, remember its just a character and can be styles with CSS, here is a red one <span style="color:red">&#x25BC;</span>. You can peek at the HTML code at the previous listing to find out which class is used for this is __class="goog-combobox-button"__. Now we getting closer to a better combo! Alas! CSS will not render if you just create an item on the fly, you will need to 'decorate it', or just cheat and add classes like 'red', with jQuery after you create them, it maybe easier and quicker for you.
+
+
+<div class="code-block console-wrap">
+<div class="code-block code">
+<pre>
+  if (this.useDropdownArrow_) {
+    this.button_.innerHTML = '&amp;nbsp;&amp;#x25BC;';
+    goog.style.setUnselectable(this.button_, true /* unselectable */);
+  }
+</pre>
+</div>
+</div>
+
+As you can see, the flexibility one is able to get via the dom, methods can explain some of the lack of a simpler API.
+
+It will be nice if you extend the creation method, so that it can also render css sprites on the fly.
+
+We are now ready for a much longer example:
+
+<h3>A longer example</h3>
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+
+//   Set up a logger to track responses
+//goog.debug.LogManager.getRoot().setLevel(goog.debug.Logger.Level.ALL);
+//  var logconsole = new goog.debug.DivConsole(document.getElementById('log'));
+//logconsole.setCapturing(true);
+ 
+ 
+  var el = goog.dom.getElement('combo1');
+  var cb = new goog.ui.ComboBox();
+  cb.setUseDropdownArrow(true);
+  cb.setDefaultText('Select a folder...');
+  cb.addItem(new goog.ui.ComboBoxItem('Inbox'));
+  cb.addItem(new goog.ui.ComboBoxItem('Bills & statements'));
+  cb.addItem(new goog.ui.ComboBoxItem('Cal alumni'));
+  cb.addItem(new goog.ui.ComboBoxItem('Calendar Stuff'));
+  cb.addItem(new goog.ui.ComboBoxItem('Design'));
+  cb.addItem(new goog.ui.ComboBoxItem('Music'));
+  cb.addItem(new goog.ui.ComboBoxItem('Netflix'));
+  cb.addItem(new goog.ui.ComboBoxItem('Personal'));
+  cb.addItem(new goog.ui.ComboBoxItem('Photos'));
+  cb.addItem(new goog.ui.ComboBoxItem('Programming'));
+  cb.addItem(new goog.ui.MenuSeparator());
+ 
+  var newfolder = new goog.ui.ComboBoxItem('New Folder...');
+  newfolder.setSticky(true);
+  cb.addItem(newfolder);
+ 
+  cb.render(el);
+ 
+  goog.events.listen(cb, 'change', function(e) {
+    goog.dom.setTextContent(document.getElementById('v'), e.target.getValue());
+  });
+ 
+ 
+  var el2 = goog.dom.getElement('combo2');
+  var cb2 = new goog.ui.ComboBox();
+  cb2.setDefaultText('Select a color...');
+  cb2.addItem(new goog.ui.ComboBoxItem('Red'));
+  cb2.addItem(new goog.ui.ComboBoxItem('Maroon'));
+  cb2.addItem(new goog.ui.ComboBoxItem('Gre&lt;en'));
+  cb2.addItem(new goog.ui.ComboBoxItem('Blue'));
+  cb2.addItem(new goog.ui.ComboBoxItem('Royal Blue'));
+  cb2.addItem(new goog.ui.ComboBoxItem('Yellow'));
+  cb2.addItem(new goog.ui.ComboBoxItem('Magenta'));
+  cb2.addItem(new goog.ui.ComboBoxItem('Mouve'));
+  cb2.addItem(new goog.ui.ComboBoxItem('Grey'));
+ 
+  var caption = new goog.ui.ComboBoxItem('Select a color...');
+       caption.setSticky(true);
+       caption.setEnabled(false);
+  cb2.addItemAt(caption, 0);
+ 
+  cb2.render(el2);
+ 
+  goog.events.listen(cb2, 'change', function(e) {
+    goog.dom.setTextContent(document.getElementById('v'), e.target.getValue());
+  });
+ 
+  window.onbeforeunload = function() {
+    cb.dispose();
+    cb2.dispose();
+  };
+
+ </code>
+</div>
+<div id="combo2"></div>
+<div  id ="msg" class="msg">
+</div>
+<div id="log" class="console" style="white-space:pre"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+                                                                                                              

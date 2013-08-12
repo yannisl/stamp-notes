@@ -1,0 +1,20 @@
+\chapter{Lists}
+
+This plugin brings LaTeX style lists to the browser. 
+
+
+
+
+\begin{enumerate}
+  \item [test] This is a test. stopping here.\lorem
+  \item This is a test.
+\end{enumerate}
+
+
+\begin{itemize}
+ \item [test] This is a test. stopping here.\lorem
+ \item This is a test.
+ \item [test] This is a test.
+
+\end{itemize}
+

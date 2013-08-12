@@ -1,0 +1,160 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+<h2>Lightweight Cache</h2>
+I have discussed JavaScript's [lack of associative arrays](http://127.0.0.1/CodeIgniter/index.php/Blogs/tutorials/jQuery/Array_like_objects), earlier. In this tutorial we will examine a common pattern of creating a pattern with key value pairs.
+
+This example of a constructor for a lightweight cache/associative array. The single __private property__, ___cache__, is a JavaScript object that is the cache itself. There are three public methods to handle inserting name/value pairs, retrieving values, and purging either selected name/value pairs or the entire contents of the cache.
+
+From _Ajax: Creating Web Pages with Asynchronous JavaScript and XML_, 
+by Edmond Woychowsky ,
+Publisher: Prentice Hall, 
+Pub Date: August 08, 2006, 
+Print ISBN-10: 0-13-227267-9, 
+Print ISBN-13: 978-0-13-227267-4 ,
+
+ 
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+/*
+      Class:    Cache
+      Function: Cache
+      Purpose:  To act as a client-side cache(associative array).
+             Data are stored as name/value pairs.
+*/
+function Cache() {
+  var _cache = new Object();
+               // Object to store information
+  var _namesArray = new Array();     // Array for names
+
+  this.insert = _insert;             // Method: cache an object
+  this.retrieve = _retrieve;         // Method: retrieve object
+  this.purge = _purge;               // Method: purge object(s)
+  this.names = _names;               // Method: return names
+
+  /*
+      Function: _insert
+      Method:   insert
+      Purpose:  Inserts a name/value pair into the cache.
+  */
+  function _insert(name,value) {
+    _cache[name] = value;            // Cache object
+
+    _namesArray.push(name);          // Store name
+  }
+  /*
+      Function: _retrieve
+      Method:   retrieve
+      Purpose:  Retrieves a value from the cache using a name.
+  */
+  function _retrieve(name) {
+    if(typeof(_cache[name]) == 'undefined')
+      return(null);                  // Object not cached
+    else
+      return(_cache[name]);          // Return object
+  }
+
+  /*
+      Function: _purge
+      Method:   purge
+      Purpose:  Purges one or more name/value pairs from
+                the cache.
+  */
+  function _purge() {
+    if(arguments.length == 0) {
+      _cache = new Object();         // Create new cache object
+      _namesArray = new Array();     // Create new names array
+    } else {
+      var singleName;
+
+      _namesArray = new Array();     // Create new names array
+
+      for(var i=0;i < arguments.length;i++)
+        _cache[arguments[i]] = null;
+
+      for(singleName in _cache)
+        if(_cache[singleName] != null)
+          _namesArray.push(singleName);
+    }
+  }
+
+  /*
+     Function:    _names
+     Method:   names
+     Purpose:  Returns an array consisting of the names from the
+               cache.
+  */
+  function _names() {
+    return(_namesArray);
+  }
+}
+var magicWords = new Cache();
+
+magicWords.insert('name','Yannis'); // Insert key = 1, value = 'xyzzy'
+magicWords.insert('surname','Laz'); // Insert key = 2, value = 'plugh'
+magicWords.insert('occupation','Mechanical Engineer');
+
+
+alert(magicWords.names());         
+alert(magicWords.retrieve('name'));      // 'Yannis'
+alert(magicWords.retrieve('surname'));      // 'Laz'
+alert(magicWords.retrieve('occupation'));      // 'Laz'
+magicWords.purge('occupation');
+// Purge key/value pair - key = 3
+
+alert(magicWords.retrieve('surname'));      // null
+alert(magicWords.names());          // 1,2
+
+magicWords.purge();                 // Purge all key/value pairs
+
+alert(magicWords.retrieve('name'));      // null
+
+
+
+</code>
+</div>
+
+<div  class="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+<img src="http://localhost/codeigniter/images/jquery.png" style="float:right; width:85px"/>
+</div>
+
+Another common pattern is to use a different approach, where an empty key will return the value and a pair will set it
+
+{{plain:
+     obj.css()     // gets the key value object
+     obj.css('color','white');   // sets the value
+}}
+
+The () is the getter and the ('color','white') is the setter. This is a very common pattern in jQuery, where variadic functions have been used to their full extend in order to present a more concise - and easier to remember API. Of course in this type of pattern, no arrays are used just objects.
+
+##Further Reading
+
+
+
+ 
+
+
+
+  
+  
+
+
+
+
+
+
+

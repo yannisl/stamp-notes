@@ -1,0 +1,78 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<style type="text/css">
+div.exercise{ white-space:pre;line-height:1.3;
+                         color:grey;
+                         float:left;padding-top:0}
+div.collapser{
+     margin:0;padding:0;
+     width:20px;
+     height:50px;
+     float:left;line-height:1;
+   
+}
+span#plus{cursor:pointer;line-height:1;width:18px
+                      height:60px;border:1px solid #bebebe;
+                      background:#fff}
+.lines{ background:url(http://localhost/codeigniter/images/vline.png) repeat-y 3px;
+width:12px}
+</style>
+
+<script>
+goog.require('goog.net.NetworkTester');
+goog.require('goog.Timer');
+goog.require('goog.Uri');
+goog.require('goog.debug.Logger');
+</script>
+
+
+
+<h2>Network testing</h2>
+A common routine required in applications is a simple test to check for internet
+connectivity. Libraries such as Closure test by attempting to load a one pixel clear image. If it load successfully one can conclude that the connection is available. 
+
+<div  class="code-block console-wrap">
+<div class="code-block code" >
+<code class="PHP">
+
+var networkTester = new goog.net.NetworkTester(function(isOnline) {
+    var msg = isOnline ? 'I am online - time to catch up on blogs!' 
+            : 'I am offline - I guess I will find a book to read.';
+    log(msg);
+});
+networkTester.setTimeout = 13;
+networkTester.setNumRetries =100;
+
+
+// The start() method must be called to kick off network testing.
+networkTester.start();
+
+</code>
+</div>
+<div   class="msg">
+
+</div>
+<div id="hack" >
+
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+<span id="chapter" class="hidden">11</span>
+
+
+
+
+                                                                                                                                                                                                                                                                        

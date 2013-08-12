@@ -1,0 +1,167 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<style type="text/css">
+p#wikipedia, .wikipedia{
+    background: #000;
+    color: #fff;
+    padding:15px;
+   width:90%;
+}
+</style>
+
+<h2>Chapter 12 Dom Modification</h2>
+
+Before attempting to write to the DOM using JavaScript, we need to do some pre-processing and clean up the HTML code to meet user expectations. The first step will certainly depend upon the context, but within the construction of jQuery Risig reports correctly that it became important to be able to support XML style elements like &lt;hr/&gt;.
+
+He gives the code for a quick pre-parse on the HTML string as follows:
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+// Ninja Code! Thanks John Risig
+var tags = /^(abbr|br|col|img|input|link|meta|param|hr|area|embed)$/i;
+function convert(html){
+    return html.replace(/(<(\w+)[^>]*?)\/>/g, function(all, front, tag){
+        return tags.test(tag) ?
+        all :
+        front + "></" + tag + ">";
+    });
+}
+
+assert( convert("&lt;a/&gt;") === "&lt;a&gt;&lt;/a&gt;", "Check anchor conversion." );
+assert( convert("&lt;hr/&gt;") === "&lt;hr/&gt;", "Check hr conversion." );
+alert( convert('&lt;a/&gt;') );
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<h3>Manipulating Attributes</h3>
+Some attributes are not manipulated easily without a library such as jQuery. For example jQuery allows us to change more than one attribute at a time, in a similar fashion that let u s manipulate CSS properties.
+
+Consider a block of text that has been copied from Wikipedia. All internal links are actually relative links and are pointing to the Wikipedia domain. We want to achieve two things, firstly to add a <tt>rel</tt> attribute to indicate that they are all external links and second to actually repair the links<sup title="In reality this is not a good practice in that if the user has JavaScript disabled he will not be able to navigate the links. It is better to do this sort of parsing at the Server!">1</sup>.
+
+<div  class="code-block console-wrap"><div class="code-block code">
+<code>
+var s=$('#wikipedia  a[href*=/wiki]').each(function(){
+       log('', $(this).attr('href'));
+       return $(this).attr('href');
+  });
+
+var linksArray = $.makeArray(s);
+alert( s[0]+' '+s[1] );
+alert(linksArray);
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+<p id="wikipedia">Further the citizens of the member states of the <a href="/wiki/European_Economic_Area" title="European Economic Area">European Economic Area</a> have the same right of freedom of movement inside the EEA. Also, the <a href="/wiki/European_Union" title="European Union">European Union</a> and <a href="/wiki/Switzerland" title="Switzerland">Switzerland</a> have concluded a <a href="/wiki/Bilateral" title="Bilateral">bilateral</a> agreement with the same meaning. Both EEA member states and <a href="/wiki/Switzerland" title="Switzerland">Switzerland</a> are treated as "old member states" in regard to the Treaty of Accession of the new EU members, so they can impose such 2+3+2 transitional periods.</p> 
+</div>
+
+<h4>Changing the Attributes</h4>
+
+<div  class="code-block console-wrap"><div class="code-block code">
+<code>
+var s=$('#wikipedia1  a[href*=/wiki]').each(function(){
+                 var z = $(this).attr('href')
+                        z = 'http://en.wikipedia.org'+z;  
+                        $(this).attr('rel', 'external');      
+                        log('', z);
+       return $(this).attr('href');
+  });
+
+var linksArray = $.makeArray(s);
+alert( s[0]+' '+s[1] );
+alert(linksArray);
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+<p id="wikipedia1" class="wikipedia">Further the citizens of the member states of the <a href="/wiki/European_Economic_Area" title="European Economic Area">European Economic Area</a> have the same right of freedom of movement inside the EEA. Also, the <a href="/wiki/European_Union" title="European Union">European Union</a> and <a href="/wiki/Switzerland" title="Switzerland">Switzerland</a> have concluded a <a href="/wiki/Bilateral" title="Bilateral">bilateral</a> agreement with the same meaning. Both EEA member states and <a href="/wiki/Switzerland" title="Switzerland">Switzerland</a> are treated as "old member states" in regard to the Treaty of Accession of the new EU members, so they can impose such 2+3+2 transitional periods.</p> 
+</div>
+
+In the above example we have also re-factored the code a bit, it is still in a bit more understandable way than a full 'Ninja' code. We have just cached the $(this) into a variable, it is always good practice to do this, instead of letting JavaScript transverse the DOM every time we call it. Now for a more concise form, we will do both operations at the same time.
+
+
+<h3>Ninjanize the Code</h3>
+
+<div  class="code-block console-wrap"><div class="code-block code">
+<code>
+var $this = $('#wikipedia2  a[href*=/wiki]');
+       $this.attr({
+        'href': 'http://en.wikipedia.org'+$this.attr('href'),
+        'rel' : 'external',
+        'title' : 'Wikipedia article : '+$this.attr('title')
+ });
+
+alert($this.eq(0).attr('rel'));
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+<p id="wikipedia2" class="wikipedia">Further the citizens of the member states of the <a href="/wiki/European_Economic_Area" title="European Economic Area">European Economic Area</a> have the same right of freedom of movement inside the EEA. Also, the <a href="/wiki/European_Union" title="European Union">European Union</a> and <a href="/wiki/Switzerland" title="Switzerland">Switzerland</a> have concluded a <a href="/wiki/Bilateral" title="Bilateral">bilateral</a> agreement with the same meaning. Both EEA member states and <a href="/wiki/Switzerland" title="Switzerland">Switzerland</a> are treated as "old member states" in regard to the Treaty of Accession of the new EU members, so they can impose such 2+3+2 transitional periods.</p> 
+</div>
+
+In the above example we have also re-factored the code a bit, it is still in a bit more understandable way than a full 'Ninja' code. We have just cached the $(this) into a variable, it is always good practice to do this, instead of letting JavaScript transverse the DOM every time we call it. Now for a more concise form, we will do both operations at the same time.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <span id="chapter" class="hidden">12</span>
+##Further Reading
+
+
+
+  
+  
+
+
+
+
+
+
+

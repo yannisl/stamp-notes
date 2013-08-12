@@ -1,0 +1,129 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+<h2>Object prototypes</h2>
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+// Rectangle is an ordinary function.
+var Rectangle = function() {};
+// Every function has a property named 'prototype' whose value is an object
+// with a property named 'constructor' that points back to the original
+// function. It is possible to add more properties to this object.
+Rectangle.prototype.width = 3;
+Rectangle.prototype.height = 4;
+// Creates an instance of a Rectangle, which is an object whose
+// __proto__ property points to Rectangle.prototype. 
+var rect = new Rectangle();
+log(rect.width);
+
+log(Rectangle.width);
+log(Rectangle.prototype.width);
+log(Rectangle.__proto__);
+log(Object.getPrototypeOf(Rectangle));
+
+</code>
+</div>
+
+<div  class="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+Any object which is created this way, will not have its own properties. The properties you see while running the above example are just inherited from the prototype of the Rectangle class. If we iterate over the _rect_ properties we get the following:
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+// Rectangle is an ordinary function.
+var Rectangle = function() {};
+// Every function has a property named 'prototype' whose value is an object
+// with a property named 'constructor' that points back to the original
+// function. It is possible to add more properties to this object.
+Rectangle.prototype.width = 3;
+Rectangle.prototype.height = 4;
+// Creates an instance of a Rectangle, which is an object whose
+// __proto__ property points to Rectangle.prototype. 
+var rect = new Rectangle();
+
+for (var prop in rect) {
+  log(prop)
+}
+
+for (var prop in rect) {
+  if (rect.hasOwnProperty(prop)) log(prop);
+}
+</code>
+</div>
+
+<div  class="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+<h2>Using this</h2>
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+// Rectangle is an ordinary function.
+var Rectangle = function () {
+  this.width = 3;
+  this.height = 4;
+};
+
+// instantiate an object
+var rect = new Rectangle();
+
+// iterate over all the properties of the instance
+for (var prop in rect) {
+  log(prop)
+}
+
+// check with hasOwnProperty
+for (var prop in rect) {
+  if (rect.hasOwnProperty(prop)) log(prop);
+}
+</code>
+</div>
+
+<div  class="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+<img src="http://localhost/codeigniter/images/jquery.png" style="float:right; width:85px"/>
+</div>
+
+
+##Further Reading
+
+
+
+ 
+
+
+
+  
+  
+
+
+
+
+
+
+
+                    

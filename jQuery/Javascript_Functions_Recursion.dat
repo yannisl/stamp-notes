@@ -1,0 +1,159 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<style type="text/css">
+button#cbutton{color:blue}
+div#ex1{};
+
+</style>
+
+
+<h2>Recursion</h2>
+
+A function can even be {{wi:recursive}}, that is, it can call itself. For example, here is a function that computes {{wi:factorial}}s:
+
+<pre style="background:url(http://localhost/codeigniter/images/code-bg.gif)">
+<div class="code-block console-wrap">
+<code>
+function factorial(n) {
+   if ((n == 0) || (n == 1))
+      return 1;
+   else {
+      var result = (n * factorial(n-1) );
+      return result;
+   }
+}
+alert(factorial(90));
+</code>
+</div>
+<button class="eval">Run</button>
+</pre>
+
+If you use recursion, just make sure that there is always a way to stop it!
+
+Another typical example used in many Computer Science Books to illustrate
+recursion is the {{wi:greatest_common_denominator}}.
+
+<pre style="background:url(http://localhost/codeigniter/images/code-bg.gif)">
+<div>
+function gcd(x, y)
+{
+  if (y == 0)
+     return x;
+  else
+     return gcd(y, x % y);
+}
+
+alert(gcd(868,434));
+</div>
+<button>Run</button>
+</pre>
+
+<h2>A number that grows too fast</h2>
+The {{wi:Ackermann_Number}} is actually defined as a recursive algorithm. It
+is given by the following equation:
+
+<img src="http://localhost/codeigniter/images/ackermann_function.png"  style="margin:0 auto"/>
+<hr/>
+<pre style="background:url(http://localhost/codeigniter/images/code-bg.gif)">
+<div>
+function ackermann(a,b)
+  {
+  if (a < 1)
+    { c = b+1; }
+  else if (a < 2)
+    { c = b+2; }
+  else if (a < 3)
+    { c = b+b+3; }
+  else if (a < 4)
+    { c = Math.pow(2,b+3)-3; }
+  else if (a < 5)
+    { if (b < 1)
+       { c = ackermann(3,1); }
+      else if (b < 2)
+       { c = ackermann(3,13); }
+      else
+       { c = ackermann(3,3333333333); } }
+  else if ((a < 6) && (b < 1))
+    { c = ackermann(4,1); }
+  else
+    { c = ackermann(3,3333333333); }
+  return(c);
+  }
+alert(ackermann(1,3));
+alert(ackermann(3,30));
+
+
+</div>
+<button>Run</button>
+</pre>
+
+<pre style="background:url(http://localhost/codeigniter/images/code-bg.gif)">
+<div>
+function printlist(list)
+  { var k;
+    for (k=0;k<list.length;k=k+1)
+      { document.write(" "+list[k]); }
+   }
+function findmax(list,level)
+  { var k; var r; var left; var right;
+    k = Math.floor(list.length/2);
+    if (k > 0)
+      { left = list.slice(0,k);
+        right = list.slice(k,list.length);
+        r = Math.max(findmax(left,level+1),findmax(right,level+1)); }
+    else
+      { r=list[0]; }
+    document.write(r+" = findmax(");
+    printlist(list); document.write(") at level "+level+"");
+    return(r); }
+
+var k; var h = Math.floor(5+20*Math.random());
+//document.write("Find Maximum in a List of "+h+" Random Numbers");
+if (h < 2) { h = 2; }
+
+var fulllist = new Array();
+
+for (k=0;k<h;k=k+1)
+ { fulllist.push(Math.floor(10+90*Math.random())); }
+//document.write("Full list is ");
+printlist(fulllist);
+document.write("");
+var mm = findmax(fulllist,1);
+document.write("The maximum of the list is "+mm+"");
+</div>
+<button>Run</button>
+</pre>
+
+<hr/>
+<script type="text/javascript">
+
+$(document).ready(function(){
+   $('button').click(function(){
+       var aText=$(this).parent().text();
+       eval(aText);
+    });
+});
+
+</script>
+
+
+
+
+
+##Further Reading
+http://www.comp.nus.edu.sg/~fstephan/ackermann.html
+
+
+
+
+
+

@@ -1,0 +1,184 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+
+
+<h2>Prototype's $A </h2>
+Prototype has a handy global constructor of Arrays or Array like objects. It is simply $A(). The beauty of this, is that it inherits a lot of properties from other Objects, so that it lets you really do almost anything with arrays. Lets us explore its properties a little.
+ 
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+log(Prototype.Version);
+function $A(iterable) {
+  if (!iterable) return[];
+  if ('toArray' in Object(iterable)) return iterable.toArray();
+  var length = iterable.length || 0,
+  results = new Array(length);
+  while (length--) results[length] = iterable[length];
+  return results;
+}
+var z = $A('Test');
+var z1 = $A([0, 1, 2, 4, 5, 6, 7]);
+var z3 = $A(1235);
+var z4 = {
+  a: 1,
+  b: 2
+}
+log(typeof $A());
+log((!z4));
+log('z', z);
+log('z1', z1);
+log('z3', typeof z3);
+log('z4', z4);
+function test() {
+  return $A(arguments);
+}
+var z5 = test(900, 34, 56);
+log('z5', z5);
+
+for (var prop in $A) {
+  log(prop);
+}
+ 
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+What the () does it tells Javascript to execute the function just before it. Let u s now assign the above function to a variable:
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+
+var foo = (function (){
+                       log('I am in function foo ','');
+                       return 22; 
+                    })();
+
+log('foo', foo);
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+Now our example before the last:
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+
+var foo = (function (x){
+                       log('I am in function foo ','');
+                       return x + 22; 
+                    })(10);
+
+log('foo', foo);
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+But do we need the var foo?
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+
+(function (x){
+        foo =  x + 22; 
+ })(10);
+
+(function (x){
+        bar =  x + 22; 
+        window.$ = 100;
+ })();
+
+
+
+
+alert(window.$);
+
+log('foo',  foo);
+log('bar',  bar);
+
+
+
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+At this point you should open the jQuery Library and have a peek at the code there, it starts as 
+
+(function(){
+... about 3 500 lines of code
+})();
+
+If you have managed to work through the above code you must by now realize that everything within the jQuery library protects the outside world! This avoid name pollution and elminates errors in coding.
+
+
+
+
+
+
+
+
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+<script>
+function getID(elem) {
+   var id = elem.id;
+   alert("This element's id attribute is set to \"" + id + "\"."); 
+} 
+
+window.defaultStatus = "Click on a link on the left to navigate this website."
+</script>
+ 
+
+
+
+  
+  
+
+
+
+
+
+
+

@@ -1,0 +1,331 @@
+      
+<!--
+ directives
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{feature-image:/codeigniter/images/angela.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<style> 
+    #test1, #test3, #test4  {
+      position:relative;
+      left: 50px;
+      top: 0px;
+      width: 20px;
+      height: 20px;
+      background-color: rgb(0,0,0);
+      font-size: 1px;
+    }
+   #test2{background-color:#fff);
+ 
+    button {
+      font: normal 10px arial;
+      width: 70px;
+    }
+</style>
+
+<script> 
+    goog.require('goog.events.EventTarget');
+    goog.require('goog.fx');
+    goog.require('goog.fx.dom');
+</script>
+
+
+<h2>Closure Animation</h2>
+If you are looking for an easy way to do simple animations on webpages, you will need to look at a library like jQuery. The effects library under the fx folder is a wrapper around animations, but it comes in a couple of dozen files and the API, is certainly for people with a better memory span than mine. The procedures for setting-up animations though are fairly easy to understand.
+
+In the demo notes below, we will examine the three most basic animations:
+
+- animating position
+- animating opacity
+
+and 
+
+- animating color changes.
+
+If have these  basic tools in your arsenal you can essentially create any animated widget you might like, for example something similar to the cycle plug-in of jQuery. Goog's advocating that you capture events directly on buttons (not on the window onload). This has advantages but it also limits you in many respects.
+
+{{bulb: It takes no less than 31 files to run these routines! The mind boggles}}
+
+<hr/> 
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+
+    var col = [0,0,0];
+    var duration = 1000;
+ 
+    var el = document.getElementById('test1');
+ 
+    function enableButtons() {
+      for (var i = 0; i <= 13; i++) {
+        document.getElementById('but' + i).disabled = false;
+      }
+    }
+ 
+    function disableButtons() {
+      for (var i = 0; i <= 13; i++) {
+        document.getElementById('but' + i).disabled = true;
+      }
+    }
+ 
+    function slide(a, b) {
+      var x = el.offsetLeft;
+      var y = el.offsetTop;
+      var anim = new goog.fx.dom.Slide(el, [x, y], [a, b], duration,
+                                       goog.fx.easing.easeOut);
+      goog.events.listen(anim, goog.fx.Animation.EventType.BEGIN, disableButtons);
+      goog.events.listen(anim, goog.fx.Animation.EventType.END, enableButtons);
+      anim.play();
+      return false;
+    }
+ 
+     
+</code>
+
+</div>
+
+<div style="width:95%;position:relative">
+<div id="test1" ></div>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<div width:50%;position:relative;top:200;left:100>
+    <button id="but0" onclick="return slide(70,0);">Slide To 70x0</button>
+    <BUTTON id="but1" onclick="return slide(400,0);">Slide To 400x0</BUTTON>
+    <BUTTON id="but2" onclick="return slide(0,20);">Slide To 0x20</BUTTON>
+    <BUTTON id="but3" onclick="return slide(300,10);">Slide To 300x10</BUTTON> 
+</div> 
+ 
+<ol class="results"></ol> 
+</div>
+
+
+<hr/> 
+
+<h3>Fading in and Fading Out</h3>
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+
+    var col = [0,0,0];
+    var duration = 1000;
+ 
+    var el = document.getElementById('test2');
+ 
+    function enableButtons() {
+      for (var i = 0; i <= 13; i++) {
+        document.getElementById('but' + i).disabled = false;
+      }
+    }
+ 
+    function disableButtons() {
+      for (var i = 0; i <= 13; i++) {
+        document.getElementById('but' + i).disabled = true;
+      }
+    }
+ 
+  function fadeout() {
+      var anim = new goog.fx.dom.FadeOutAndHide(el, duration);
+      goog.events.listen(anim, goog.fx.Animation.EventType.BEGIN, disableButtons);
+      goog.events.listen(anim, goog.fx.Animation.EventType.END, enableButtons);
+      anim.play();
+      return false;
+    }
+
+    function fadein() {
+      var anim = new goog.fx.dom.FadeInAndShow(el, duration);
+      goog.events.listen(anim, goog.fx.Animation.EventType.BEGIN, disableButtons);
+      goog.events.listen(anim, goog.fx.Animation.EventType.END, enableButtons);
+      anim.play();
+      return false;
+    }
+ 
+       
+</code>
+<div style="width:95%;height:230px">
+<div id="test2" >
+  <img src="/CodeIgniter/images/angela.jpg" style="width:130px" />
+</div>
+</div>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<div>
+    <BUTTON id="but8" onclick="return fadeout();">Fade Out</BUTTON>
+    <BUTTON id="but9" onclick="return fadein();">Fade In</BUTTON> 
+ </div> 
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<h3>Resizing</h3>
+
+<hr/> 
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+
+    var col = [0,0,0];
+    var duration = 1000;
+ 
+    var el = document.getElementById('test3');
+ 
+    function enableButtons() {
+      for (var i = 0; i <= 13; i++) {
+        document.getElementById('but' + i).disabled = false;
+      }
+    }
+ 
+    function disableButtons() {
+      for (var i = 0; i <= 13; i++) {
+        document.getElementById('but' + i).disabled = true;
+      }
+    }
+ 
+     
+    function resize(a, b) {
+      var w = el.offsetWidth;
+      var h = el.offsetHeight;
+      var anim = new goog.fx.dom.Resize(el, [w, h], [a, b], duration,
+                                        goog.fx.easing.easeOut);
+      goog.events.listen(anim, goog.fx.Animation.EventType.BEGIN, disableButtons);
+      goog.events.listen(anim, goog.fx.Animation.EventType.END, enableButtons);
+      anim.play();
+      return false;
+    }
+ 
+     
+ 
+</code>
+
+</div>
+<div style="width:95%;position:relative">
+<div id="test3" >
+</div>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<div width:50%;position:relative;top:200;left:100>
+    <BUTTON id="but4" onclick="return resize(50,50);">Resize To 50x50</BUTTON> 
+    <BUTTON id="but5" onclick="return resize(250,50);">Resize To 250x50</BUTTON> 
+    <BUTTON id="but6" onclick="return resize(5,5);">Resize To 5x5</BUTTON>
+    <BUTTON id="but7" onclick="return resize(250,250);">Resize To 250x250</BUTTON> 
+</div> 
+ 
+<ol class="results"></ol> 
+</div>
+
+
+<hr/> 
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+
+    var col = [0,0,0];
+    var duration = 1000;
+ 
+    var el = document.getElementById('test4');
+ 
+    function enableButtons() {
+      for (var i = 0; i <= 13; i++) {
+        document.getElementById('but' + i).disabled = false;
+      }
+    }
+ 
+    function disableButtons() {
+      for (var i = 0; i <= 13; i++) {
+        document.getElementById('but' + i).disabled = true;
+      }
+    }
+ 
+        
+    function color(r,g,b) {
+      var anim = new goog.fx.dom.BgColorTransform(el, col, [r,g,b], duration);
+      goog.events.listen(anim, goog.fx.Animation.EventType.BEGIN, disableButtons);
+      goog.events.listen(anim, goog.fx.Animation.EventType.END, enableButtons);
+      goog.events.listen(anim, goog.fx.Animation.EventType.ANIMATE,
+                         function(e) { col = [e.x,e.y,e.z]; });
+      anim.play();
+      return false;
+    }
+ 
+  
+ 
+</code>
+
+</div>
+<div style="width:95%;position:relative">
+<div id="test4" style="height:130px;width:130px">
+</div>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<div width:80%;position:relative;top:200;left:100>
+    <BUTTON id="but10" onclick="return color(200,0,0);">Transform to red</BUTTON><BR> 
+    <BUTTON id="but11" onclick="return color(180,180,180);">Transform to grey</BUTTON>
+    <BUTTON id="but12" onclick="return color(0,0,0);">Transform to black</BUTTON>
+    <BUTTON id="but13" onclick="return color(100,100,255);">Transform to blue</BUTTON> 
+</div> 
+ 
+<ol class="results"></ol> 
+</div>
+
+<h3>Discussion</h3>
+
+I am just a bit sceptical about all these work being dismissed by the web community as bloated. It will certainly not going to attract anyone from the design community, who have been slowly encroaching into simple Javascript animations based on jQuery. 
+
+The easing-in and easing-out functions are well though off accelerating and decelerating at a visually pleasing rate. The easing functions are simple power laws, whereas jQuery provides two different options:
+
+{{plain:
+
+easing: {
+		linear: function( p, n, firstNum, diff ) &#123;
+			return firstNum + diff * p;
+		&#125;,
+		swing: function( p, n, firstNum, diff ) &#123;
+			return ((-Math.cos(p*Math.PI)/2) + 0.5) * diff + firstNum;
+		&#125;
+	&#125;
+
+}}
+
+
+
+I am sure that with a bit of simplification though these routines will be very useful, especially on larger projects where you might want to stick only to one library. However, size might be a problem, 31 files are a lot and even after compression they are bound to be leaning on the heavy side.
+
+(Based loosly on my animation code for 13thparallel.org, with extra
+ * inspiration from the DojoToolkit's modifications to my code)
+
+{{bulb: Final recommendation, read slogan at top left of this page}}
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+                                                                                                                          

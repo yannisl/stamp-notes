@@ -1,0 +1,136 @@
+ <!--
+{{feature-image:/codeigniter/images/amato.jpg}}
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+
+<h2>How to Determine the Base Path of a Script</h2>
+A useful technique for finding the base path of a string is shown below. While developing plugins, this is important, in that the user will not be required to set-up anything.
+
+Essentially the script finds all the tags with a tag name &lt;script&gt; and then searches for its own base name. If it finds it it then sets a property to the path. Check this one out from Google.
+
+<div  class="code-block console-wrap"><div class="code code-block"><code>
+goog.findBasePath_ = function () {
+  if (!goog.inHtmlDocument_()) {
+    return;
+  }
+  var doc = goog.global.document;
+  if (goog.global.CLOSURE_BASE_PATH) {
+    goog.basePath = goog.global.CLOSURE_BASE_PATH;
+    return;
+  }
+  var scripts = doc.getElementsByTagName('script');
+  // Search backwards since the current script is in almost all cases the one
+  // that has base.js.
+  for (var i = scripts.length - 1; i >= 0; --i) {
+    var src = scripts[i].src;
+    var l = src.length;
+    if (src.substr(l - 7) == 'base.js') {
+      goog.basePath = src.substr(0, l - 7);
+      return;
+    }
+  }
+};
+
+log(goog.basePath);
+
+
+</code>
+</div>
+<p class="msg">
+</p>
+
+<button class="eval">Run Code!</button>
+<ol class="results" style="white-space:pre"></ol> 
+</div>
+
+<hr/>
+
+<h3>Generic Function</h3>
+I have adapted the function to a more generic form, that can actually check for any base name file and made into a self-executing function, which is a more hackish - ala- jQuery style JavaScript and removed some of the checks that Closure has, such as checking if the script is being executed in an HTML page and their global setting variable, for simplicity. You may want to change it slightly in your applications and make it part of a settings object.
+
+<div  class="code-block console-wrap"><div class="code code-block"><code>
+// find the base path of a script
+
+var settings = {};
+settings.basePath = null;
+
+if (!settings.basePath) {
+  (function (name) {
+    var scripts = document.getElementsByTagName('script');
+
+    for (var i = scripts.length - 1; i >= 0; --i) {
+      var src = scripts[i].src;
+      var l = src.length;
+      var length = name.length;
+      if (src.substr(l - length) == name) {
+        // set a global propery here
+        settings.basePath = src.substr(0, l - length);
+
+      }
+    }
+  })('jslint.js');
+}
+
+log(settings.basePath);
+
+</code>
+</div>
+<p class="msg">
+</p>
+
+<button class="eval">Run Code!</button>
+<ol class="results" ></ol> 
+</div>
+
+<h3>Getting the Basepath of CSS</h3>
+We could use a similar method to capture CSS information, although less useful, as we can use DOM methods for this.
+
+<div  class="code-block console-wrap"><div class="code code-block"><code>
+// find the base path of a script
+var settings = {};
+settings.basePath = null;
+
+if (!settings.basePath) {
+  (function (name) {
+    var css = document.getElementsByTagName('link');
+
+    for (var i = css.length - 1; i >= 0; --i) {
+      var src = css[i].href;
+      var l = src.length;
+      var length = name.length;
+      if (src.substr(l - length) == name) {
+        // set a global propery here
+        settings.basePath = src.substr(0, l - length);
+
+      }
+    }
+  })('screen.css');
+}
+
+log(settings.basePath);
+
+</code>
+</div>
+<p class="msg">
+</p>
+
+<button class="eval">Run Code!</button>
+<ol class="results" ></ol> 
+</div>
+
+
+##Further Reading
+
+http://xregexp.com/syntax/
+
+
+                              

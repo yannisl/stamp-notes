@@ -1,0 +1,149 @@
+ <!--
+{{feature-image: /egypt/amato-01/aa_098.jpg }}
+{{credit-source: Allan Amato}}
+{{credit: /codeigniter/blogs/gallery/amato-01/29}}
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<script> 
+ goog.require('goog.structs.Trie');
+ goog.require('goog.crypt.hash32');
+</script> 
+
+
+<h2>linked lists</h2>
+
+<img src="/CodeIgniter/images/linked-list.png" style="display:block;float:left;width:57%"/>
+
+
+
+
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+ var trie = new goog.structs.Trie();
+trie.add('hello', 1);
+trie.add('hi', 'howdy');
+trie.add('', 'an empty string key');
+trie.add('empty value', '');
+trie.add('zero', 0);
+trie.add('object', {});
+trie.add('null', null);
+trie.add('hello world', 2);
+trie.add('world', {});
+trie.add('heir', {});
+var z = trie.getKeys();
+
+for (var prop in z){
+  log(prop, z[prop]);
+}
+
+
+assertEquals(898813988, goog.crypt.hash32.encodeInteger(305419896))
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+
+
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+
+function makeTrie() {
+  var trie = new goog.structs.Trie();
+  trie.add('hello', 1);
+  trie.add('hi', 'howdy');
+  trie.add('', 'an empty string key');
+  trie.add('empty value', '');
+  trie.add('zero', 0);
+  trie.add('object', {});
+  trie.add('null', null);
+  trie.add('hello, world', 2);
+  trie.add('world', {});
+  return trie;
+}
+
+function checkTrie(trie) {
+  assertEquals(trie.get('hello'), 1, 'get should be 1');
+  assertEquals(trie.get('hi'), 'howdy', 'get, should be "howdy"');
+  assertEquals(trie.get(''), 'an empty string key', 'get, should be "an empty string key"');
+  assertEquals('get, should be ""', trie.get('empty value'), '');
+  assertEquals('get, should be ""', typeof trie.get('empty value'), 'string');
+  assertEquals('get, should be an object', typeof trie.get('object'), 'object');
+  assertEquals('get, should be 0', trie.get('zero'), 0);
+  assertEquals('get "null", should be null', trie.get('null'), null);
+  assertEquals('get, should be 2', trie.get('hello, world'), 2);
+  assertEquals('get, should be an object', typeof trie.get('world'), 'object');
+}
+
+(function testTrieFormation() {
+  var t = makeTrie();
+  checkTrie(t);
+})();
+
+(function testTrieFromObject() {
+  var someObject = {
+    'hello': 1,
+    'hi': 'howdy',
+    '': 'an empty string key',
+    'empty value': '',
+    'object': {},
+    'zero': 0,
+    'null': null,
+    'hello, world': 2,
+    'world': {}
+  };
+  var trie = new goog.structs.Trie(someObject);
+  checkTrie(trie);
+
+  t.getKeys();
+})();
+ 
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+<img src="http://chart.apis.google.com/chart?cht=bvg&chs=250x150&chd=s:Monkeys&chxt=x,y&chxs=0,ff0000,12,0,lt|1,0000ff,10,1,lt" />
+
+
+
+  
+  
+
+
+
+
+
+
+
+                                                                                        

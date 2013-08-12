@@ -1,0 +1,23 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+{{feature-image:http://localhost/egypt/CMS/accordion.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<div style="background:url(http://localhost/CodeIgniter/images/stripes.jpg)">	
+##Pentatonic Scale
+
+{{wi:Bobby_McFerrin}} demonstrates the power of the pentatonic scale, using audience participation, at the event "Notes & Neurons: In Search of the Common Chorus", from the 2009 World Science Festival, June 12, 2009.
+Most people new to jQuery are also actually new to Javascript. If you do not understand the basics of Javascript you can learn a bit of jQuery manipulation but you will not understand it! This series of articles would try and help you bridge the gap.
+
+From [Vimeo](http://vimeo.com/5732745)
+
+<object width="700" height="490"><param name="allowfullscreen" value="true" /><param name="allowscriptaccess" value="always" /><param name="movie" value="http://vimeo.com/moogaloop.swf?clip_id=5732745&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=&amp;fullscreen=1" /><embed src="http://vimeo.com/moogaloop.swf?clip_id=5732745&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=&amp;fullscreen=1" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="400" height="230"></embed></object><p><a href="http://vimeo.com/5732745">World Science Festival 2009: Bobby McFerrin Demonstrates the Power of the Pentatonic Scale</a> from <a href="http://vimeo.com/user1103909">World Science Festival</a> on <a href="http://vimeo.com">Vimeo</a>.</p>
+Another common mistake, is for developers to get to know jQuery, more than CSS. CSS has come a long way and it is possible to achieve with it a great lot. Enhance your presentation but always be aware of the potential CSS solution.
+
+</div>

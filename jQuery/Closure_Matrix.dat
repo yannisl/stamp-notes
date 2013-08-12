@@ -1,0 +1,167 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<script>goog.require('goog.math.Matrix');</script>
+
+
+<h2>Matrix</h2>
+
+If ever the Matrix will be realized, it will probably get started at Google! Closure's math utility matrix.js, provide a set of methods that are a good contender to the Sylvester library of Vector and Matrix routines. You can find our discussion about the Sylvester library here and you can make your own conclusions as to how it compares with Google's. In my opinion if you are using matrices for anything serious you will end up using {{wi:eigenvectors}} and the like, which Google's closure does not provide, so you will have either to extend the routines, or to develop your own or use Sylvester.
+
+First, let us check that the file has loaded properly and create a new empty 3 x 3 matrix . To create the matrix we just use:
+
+{{plain:
+    var m1 = goog.math.Matrix = function(3,3);
+}}
+
+Try it out below:
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+googInfo();
+// creates a 3 x 3 matrix
+var m1 = new goog.math.Matrix(3,3);
+
+logPRE(m1.toString());
+
+
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<h3>The Matrix constructor API</h3>
+
+The Matrix constructor API, is quite flexible, you can either use arrays, math.Size, objects or simply numbers as used above.
+
+We will construct different arrays using all the methods below. 
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+// creates a 3 x 3 empty matrix
+var m1 = new goog.math.Matrix(3, 3);
+
+//create a matrix using an array
+arr = [
+  [1, 0, 0],
+  [0, 1, 0],
+  [0, 0, 1]];
+var m2 = new goog.math.Matrix(arr);
+
+// create a matrix using another matrix object
+var m3 = new goog.math.Matrix(m2);
+
+// create a matrix using a size object
+var s1 = new goog.math.Size(5, 5);
+var m4 = new goog.math.Matrix(s1);
+
+// log results
+logPRE(m1.toString());
+logPRE(m2.toString());
+logPRE(m3.toString());
+logPRE('size object : ', s1.toString());
+logPRE(m4.toString());
+
+
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+If you are going to use a library, my recommendation is for you to spend time to explore the API. The time will  be well spent during coding time. Use the console's provide here if you wish and edit the code, until you are totally familiar with the contents.
+
+<h3>Creating an identity matrix</h3>
+
+An identity matrix can also be created using the :
+
+{{plain:  goog.math.Matrix.createIdentityMatrix (n)}}
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+
+var m2 = new goog.math.Matrix.createIdentityMatrix(13);
+
+// log results
+logPRE(m2.toString());
+
+
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+As you can observe from the above the  __createIdentityMatrix()__ method, can be quite a useful short cut , especially if you need to create arrays with hundreds of elements.
+
+
+<h3>Inverting a Matrix</h3>
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+arr = [
+  [1, 3, 5],
+  [9, 1, 10],
+  [8, 11, 1]];
+var m2 = new goog.math.Matrix(arr);
+var m3 = m2.getInverse();
+// log results
+logPRE(m2.toString());
+logPRE(m3.toString());
+
+
+
+</code>
+</div>
+
+<div  id ="msg" class="msg" style="white-space:pre">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+                              

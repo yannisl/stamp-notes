@@ -1,5 +1,27 @@
-\parindent0pt
-\parskip10pt
+\chapter{Introduction}
+
+I have developed this application for my own use, as most existing systems did not offer what I wanted. TeX mark-up has survived over 30 years and is currently the de facto method for preparing scientific papers. Although a browser can be used to render a pdf, web publishing is a different art.
+
+This application will convert mark-up to what I believe better rendering. 
+
+Anoher advantage of using the browser as a front to LaTeX, is it can provide a better interface than most editors and at the same time assist with manuscript development.
+
+If you are typing a long manuscript, you will eventually break it into parts and then combine the parts before rendering the full document. This workflow is captured in the application. 
+
+
+\section{Mark-up}
+
+The strength of the application is its mark-up language. Before embarking on a diatrebe on the goodness or not or the various schemes, I took into account the possible users of this CMS, who I expect to be from the every young student to a retired philatelist. Mark-up is offered in two flavors, in its simplest form is based on Markdown and all markdown mark-up should work. Markdown limits you in what you can typeset in the same way that \latex is limited if you only want to use the base classes such as `book`.
+
+
+\ph[30%]{../beta/che.jpg}{}
+
+
+\section{Math}
+
+When $a \ne 0$, there are two solutions to \\(ax^2 + bx + c = 0\\) and they are
+$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
+
 
 2.14.9.3 LEOs on the front of the controller shall display the following status information : program
 running, watchdog timer timed-out, and power supply on.
@@ -45,3 +67,9 @@ resolution shall be 12-bil.
 
 2.14.10.9 Analog inputs may be used in place of digital inputs except when a pulsed input from a
 utility meter is connected . In this situation only a pure digital input shall be used.
+
+
+
+
+
+

@@ -24,14 +24,30 @@ $ 100
 }
 
 
+LL  
+
+LL  
 
 
+\begin{lead}
+test
+\end{lead}
 
 
+[[(test) sandbox]]es
 
 
+* [[Main.WikiSandbox]]es
+
+* [[Main/WikiSandbox]]
+* [[(Main.Wiki)Sandbox]]
+* [[Main.WikiSandbox | link text]]
+* [[Main.WikiSandbox | +]]
 
 
+\begin{lead}
+Testing Boostrap lead
+\end{lead}
 
 
 

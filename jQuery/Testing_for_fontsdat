@@ -1,0 +1,219 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+{{feature-image:http://localhost/CodeIgniter/images/christophe_gilbert_02.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<script type="text/javascript" src="http://localhost/CodeIgniter/js/jquery.font.js">
+</script> 
+
+
+
+<style type="text/css">
+a#cbutton, a#cbutton1{color:blue}
+p#out{font-size:9px;line-height:1.3;font-family:"Estrangelo Edessa";}
+p#out2{font-size:18px;font-weight:bold;text-align:right}
+ol#fonts {
+	font:normal normal 200 1em/1.5em Georgia, Serif;
+	list-style:none;
+	margin:3em 3em 0;
+	padding:0;
+	text-indent:none;
+}
+		
+ol#fonts li {
+border: solid 0.05em #C6C6C6;
+font-size:2em;
+line-height:1.5em;
+margin:0 0 1.5em;
+  margin-bottom:1px;
+padding:0.75em;
+}
+
+</style>
+
+
+<script type="text/javascript" src="http://localhost/CodeIgniter/js/metadata.js"></script>
+
+	
+<h2>Testing if a Font Exists</h2>
+Fonts selection and font-sizing might have been troubling you perhaps as much as they have been troubling me. Consider that you have the text shown in the example and you want to let your user have the opportunity to actually increase or decrease the font-size. Try it out first to see how it works. Also notice if you also perceive a 'jump' of size between 15-16px. For smaller sizes my eye sees a difference but I do not perceive it as a large change. Perhaps I have been in front of the computer too long.
+
+<div style="background:url(http://localhost/codeigniter/images/code-bg.gif);padding:8px">
+<p id="out">
+The programme consists of 30 modules, including two majors at third-year level. Students have great flexibility in choosing their majors, with more than 30 options from which to select. These options can be chosen from two subject groups, A and B, below. Please note that you can take two majors from group A but only one from group B. In the lists below, subjects preceded by an 'M' can be chosen as majors. 
+</p>
+
+<p id="out2"></p>
+<p><a href="#" id="cbutton">+ Font size</a></p>
+<p><a href="#" id="cbutton1">- Font Size</a></p>
+</div>
+
+<h2>Now Let us test if this Font is available</h2>
+There is no way for javascript to directly check your computer for installed fonts. However, an intersting technique is to actually compare the required font against another to see if there is a variation in width. If there is a variation in width then the font is installed. This method was described at 
+http://www.beseku.com/weblog/2009/04/22/detecting-installed-fonts-with-jquery/ and on . I have slightly adapted the plugin from beseku. All the credit for the technique is his! http://font-family.com/ offers a very similar technique and is more a web application than a plugin. This method relies on the Comic Sans MS font being installed. It then compares the width of a collection of characters against the rendered with of the font you're viewing. If they don't match, then it asserts the font is installed.
+
+
+{{example:
+<ol id="fonts">	
+		<li style="font-family:'ACaslonPro-Regular','Adobe Caslon Pro';">Adobe Caslon Pro</li> 
+		<li style="font-family:'AGaramondPro-Regular','Adobe Garamond Pro';">Adobe Garamond Pro</li> 
+		<li style="font-family:'AJensonPro-Regular','Adobe Jenson Pro';">Adobe Jenson Pro</li> 
+		<li style="font-family:'AvantGarde-CondBold','AvantGarde','Avant Garde';">Avant Garde</li>		
+		<li style="font-family:'AmericanTypewriter','American Typewriter';">American Typewriter</li> 
+		<li style="font-family:'AndaleMono','Andale Mono';">Andale Mono</li> 
+		<li style="font-family:'ArialMT','Arial';">Arial</li> 
+		<li style="font-family:'Baskerville';">Baskerville</li> 
+		<li style="font-family:'Calibri';">Calibri</li> 
+		<li style="font-family:'Cambria';">Cambria</li> 
+		<li style="font-family:'Candara';">Candara</li> 
+		<li style="font-family:'ClarendonBT-Roman','Clarendon','Clarendon BT';">Clarendon BT</li> 
+		<li style="font-family:'Classic-Roman','Classic','Classic Regular';">Classic</li> 
+		<li style="font-family:'CooperBlackStd','Cooper Std';">Cooper Std</li> 
+		<li style="font-family:'CourierNewPSMT','Courier New';">Courier New</li> 
+		<li style="font-family:'DIN-Bold';">DIN-Bold</li> 
+		<li style="font-family:'DIN-Light';">DIN-Light</li> 
+		<li style="font-family:'DIN-Regular';">DIN-Regular</li> 
+		<li style="font-family:'Futura';">Futura</li> 
+		<li style="font-family:'Garamond';">Garamond</li> 
+		<li style="font-family:'GaramondPremrPro','Garamond Premier Pro';">Garamond Premier Pro</li> 
+		<li style="font-family:'Georgia';">Georgia</li> 
+		<li style="font-family:'GillSans','Gill Sans';">Gill Sans</li> 
+		<li style="font-family:'HelveticaCYBold','Helvetica CY','Helvetica CY Bold';">Helvetica CY Bold</li> 
+		<li style="font-family:'LucidaGrande','Lucida Grande';">Lucida Grande</li> 
+		<li style="font-family:'MarkerFelt-Thin','Marker Felt','Marker Felt Thin';">Marker Felt Thin</li> 
+		<li style="font-family:'MyriadPro-Regular','Myriad Pro';">Myriad Pro</li> 
+		<li style="font-family:'Palatino-Roman','Palatino';">Palatino</li> 
+		<li style="font-family:'PanicSans','Panic Sans';">Panic Sans</li> 
+		<li style="font-family:'Silkscreen';">Silkscreen</li> 
+		<li style="font-family:'SketchRockwell','Sketch Rockwell';">Sketch Rockwell</li> 
+		<li style="font-family:'STHeiti';">STHeiti</li> 
+		<li style="font-family:'Times-Bold','Times','Times Bold';">Times Bold</li> 
+		<li style="font-family:'TimesNewRomanPSMT','Times New Roman';">Times New Roman</li> 
+		<li style="font-family:'Verdana';">Verdana</li> 
+		<li style="font-family:'Zapfino';">Zapfino</li> 
+<li style="font-family:'code2001';">Code 2001</li> 
+<li style="font-family:'Lucida Console';">Lucida Console</li> 
+<li style="font-family:'Lucida Fax';">Lucida Fax</li> 
+<li style="font-family:'Comic Sans MS';">Comic Sans MS</li> 
+
+	</ol> 
+
+}}
+
+<h2>How does the code work?</h2>
+<div style="white-space:pre;background:url(http://localhost/codeigniter/images/code-bg.gif)">
+/*!
+* jquery.font
+* http://www.beseku.com/2009/04/22/detecting-installed-fonts-with-jquery/
+*
+* Copyright (c) 2009 Ben sekulowicz-Barclay
+*
+* Date: 2009-05-06 (Wed, 06 May 2009)
+* Revision: 1.1
+*/
+
+jQuery.font = {
+	
+	test: function(user_family, base_family, user_weight, base_weight) {
+		
+		// Define our defaults
+		var base = {family:'monospace', weight:'400'};
+		var user = {family:'monospace', weight:'400'};
+		
+		// Overwrite our defaults with user supplied values, if required...		
+		base.family = (typeof(base_family) != 'undefined')? base_family: base.family;
+		base.weight = (typeof(base_weight) != 'undefined')? base_weight: base.weight;
+		user.family = (typeof(user_family) != 'undefined')? user_family: user.family;
+		user.weight = (typeof(user_weight) != 'undefined')? user_weight: user.weight;	
+		
+		// Insert our test paragraph
+		$('body').prepend('&lt;p id="jQuery-Font-Test" style="font-family:' 
++ base.family + ';font-size:72px;font-weight:' + base.weight 
++ ';height:auto;left:-9999px;position:absolute;top:-9999px;
+visibility:hidden;width:auto;"&gt; 
+The quick brown fox jumps over a lazy dog.&lt;/p&gt;');
+		
+		// Get our test paragraph's dimensions
+		var baseX = $('p#jQuery-Font-Test').width();
+		var baseY = $('p#jQuery-Font-Test').height();
+		
+		// Update our test paragraph with the user supplied family.weight
+		$('p#jQuery-Font-Test').css({
+			'font-family': (user.family + ',' + base.family),
+			'font-weight': user.weight
+		});
+		
+		// Get our test paragraph's dimensions, (again)
+		var userX = $('p#jQuery-Font-Test').width();
+		var userY = $('p#jQuery-Font-Test').height();
+		
+		// Remove our test paragraph
+		$('p#jQuery-Font-Test').remove();
+		
+		// If the dimensions change, the font has changed(!)
+		return(((userY != baseY) || (userX != baseX))? true: false);
+	}
+};
+</div>
+
+
+<script>
+
+function increaseFontSize(size){
+     size=size.substr(0,2);
+     size=(parseInt(size)+1)+'px';
+     return size;
+}
+
+function decreaseFontSize(size){
+     size=size.substr(0,2);
+     size=(parseInt(size)-1)+'px';
+     return size;
+}
+
+$(document).ready(function(){
+$('a#cbutton').click(function(){
+   var  size=$('p#out').css('fontSize');
+            size=increaseFontSize(size);
+   
+   $('p#out').css('font-size',size);
+   var s=$('p#out').css('fontFamily');  
+   $('p#out2').text(size +'  '+s);
+    return false;
+});
+
+$('a#cbutton1').click(function(){
+  var  size=$('p#out').css('fontSize');
+          size=decreaseFontSize(size);
+  $('p#out').css('font-size',size);
+  var s=$('p#out').css('fontFamily');  
+  $('p#out2').text(size +'  '+s);
+   return false;
+});
+
+
+
+
+});
+
+</script>
+
+<script type="text/javascript"> 
+$(document).ready(function() {
+
+$('ol#fonts>li').each(function() {				
+  $(this).css('backgroundColor', ($.font.test($(this).css('font-family')))?     "#ececec": "#ffffff");	
+			
+});
+});
+</script> 
+
+
+
+
+

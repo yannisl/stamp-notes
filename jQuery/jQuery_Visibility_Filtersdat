@@ -1,0 +1,123 @@
+ <!--
+{{feature: Shakespeare had it at least half right when he said, Neither a borrower nor a lender be.}}
+{{feature-image:http://localhost/CodeIgniter/images/run_time_error.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: UI, jQuery, Visibility Filters, CSS Visibility }}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<style>.firstHeading{background-color:rgb(239,239,239)}
+div.test  { width:50px; height:50px; margin:5px; border:2px outset green; float:left; }
+
+ div.ex2 { width:50px; height:50px; margin:5px; border:2px outset blue; float:left; }
+
+  .starhidden { display:none; }
+</style>
+
+
+
+
+
+<h1 id="firstHeading" class="firstHeading" style="background-color: rgb(239, 239, 239)">
+jQuery Visibility Filters
+</h1>
+CSS provides two methods to hide and show elements. The first one uses the __display__ property and the second uses the __visibility__. There are some fundamental differences between the two methods and we will explore both of them.
+
+jQuery has two visibility filters,  __:hidden__ and __:visible__. They do not actually use CSS. jQuery just determines to see if the elements occupy space.
+
+This is a feature in jQuery 1.3.2 and up that speeded up the selection tremendously and also allows hidden divs to be within other hidden divs.
+see [sizzle](http://wiki.github.com/jeresig/sizzle)
+
+Let us use an example. First we will draw five divs; two of which we will hide using css.
+
+<div  class="code-block console-wrap"><div class="code code-block"><code>
+// setting the css visibility property
+// note the element is hidden but still occupies space
+$(".ex2").css({'visibility':'visible'})
+                  .animate({width:"10"},"slow")
+                  .animate({width:"100"},"slow");
+ </code>
+</div>
+<div  class="msg" class="msg">
+</div>
+<div class="console" class="clearfix"></div>
+<ol class="results"></ol> 
+<div  class="ex2" style="width:50px;height:50px;border:1px solid red;float:left"></div>
+<div  class="ex12" style="width:50px;height:50px;border:1px solid red;float:left"></div>
+<hr/>
+<button id="reset2" style="clear:both">Change visibility:hidden </button>
+<button id="reset3" style="clear:both">Change visibility:visible </button>
+</div>
+
+
+{{example:
+<div class="test">1</div>
+<div class="test starhidden" style="display:none">
+<div style="border:2px outset red">2</div></div>
+<div class="test">3</div>
+<div class="test">4</div>
+<div class="test starhidden" style="display:none">5</div>
+<hr/>
+  <button id="button1"  style="clear:both">Show hidden to see they don't change</button>
+ <button id="reset" style="clear:both">Hide 2 and  5</button>
+}}
+
+
+<script>
+
+  $(document).ready(function(){
+    
+    $("div.test:visible").click(function () {
+      $(this).css("background", "yellow");
+    });
+    $("#button1").click(function () {
+      $("div:hidden").show("fast");
+    });
+
+   $("#reset").click(function () {
+      $(".starhidden").css("display","none");
+    });
+
+   $("#reset2").click(function () {
+      $(".ex2").css("visibility","hidden");
+    });
+
+   $("#reset3").click(function () {
+      $(".ex2").css({'visibility':'visible'}).animate({width:"10"},"slow").animate({width:"100"},"slow");
+    });
+
+  });
+  </script>
+
+
+ This selector catches elements with their property display:none. It is different from using
+{{plain:
+   
+   .class&#123;visibility:hidden&#125;
+
+}}
+
+{{example:
+
+<div  class="ex2" style="width:50px;height:50px;border:1px solid red;float:left"></div>This is some test to see how it floats around
+
+<button id="reset2" style="clear:both">Change visibility:hidden </button>
+<button id="reset3" style="clear:both">Change visibility:visible </button>
+
+}}
+
+
+
+With the visibility the element is actually created, takes space in the actual page, but is just not shown.
+
+This demo also highlights one of the differences between CSS and javaScript. For javascript to apply properties the element must be already in the DOM, whereas CSS doesn't care.
+
+
+
+
+
+
+

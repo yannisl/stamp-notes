@@ -1,0 +1,206 @@
+      
+<!--
+ directives
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{feature-image:/codeigniter/images/china/beauty_06.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<SCRIPT> 
+goog.require('goog.dom');
+goog.require('goog.fx');
+goog.require('goog.fx.dom');
+goog.require('goog.fx.AnimationQueue');
+</SCRIPT>
+
+<STYLE> 
+.block {
+position:relative;
+width: 5px;
+height: 5px;
+background-color: #dd0000;
+float:left;
+padding:0;
+margin:0;
+ }
+</STYLE>
+
+<h2>Closure Animation Queues</h2>
+
+Closure provides classes for animating in parallel or serially a common requirement for animations. 
+
+__AnimationParallelQueue__ and __AnimationSerialQueue__ provide
+specific implementations of the abstract class __AnimationQueue__ (listing in fx).
+
+We will first recreate the example provided by Google with the download and figure out how it works. I have aliased some of the variables for brevity.
+  
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+var sx = 5;
+var sy = 5;
+ 
+var isForward = false;
+ 
+var parallelForward;
+var parallelBackward;
+var serialForward;
+var serialBackward;
+var currentlyPlaying;
+ 
+var fx=goog.fx.easing.easeOut;
+ function createAnimations() {
+        parallelForward = new goog.fx.AnimationParallelQueue();
+        parallelBackward = new goog.fx.AnimationParallelQueue();
+        serialForward = new goog.fx.AnimationSerialQueue();
+        serialBackward = new goog.fx.AnimationSerialQueue();
+ 
+        // move forward at the same time
+        parallelForward.add(new goog.fx.dom.Slide(goog.dom.$("block1"),
+            [5, 5], [55, 50], 2000, fx ));
+        parallelForward.add(new goog.fx.dom.Slide(goog.dom.$("block2"),
+            [10, 5], [60, 50], 2000, fx));
+        parallelForward.add(new goog.fx.dom.Slide(goog.dom.$("block3"),
+            [15, 5], [65, 50], 2000, fx));
+        parallelForward.add(new goog.fx.dom.Slide(goog.dom.$("block4"),
+            [20, 5], [70, 50], 2000, fx));
+        parallelForward.add(new goog.fx.dom.Slide(goog.dom.$("block5"),
+            [25, 5], [75, 50], 2000, fx));
+ 
+        // move backward at the same time
+        parallelBackward.add(new goog.fx.dom.Slide(goog.dom.$("block1"),
+            [55, 50], [5, 5], 2000, fx));
+        parallelBackward.add(new goog.fx.dom.Slide(goog.dom.$("block2"),
+            [60, 50], [10, 5], 2000, fx));
+        parallelBackward.add(new goog.fx.dom.Slide(goog.dom.$("block3"),
+            [65, 50], [15, 5], 2000, fx));
+        parallelBackward.add(new goog.fx.dom.Slide(goog.dom.$("block4"),
+            [70, 50], [20, 5], 2000, fx));
+        parallelBackward.add(new goog.fx.dom.Slide(goog.dom.$("block5"),
+            [75, 50], [25, 5], 2000, fx));
+ 
+        // move forward in order
+        serialForward.add(new goog.fx.dom.Slide(goog.dom.$("block1"),
+            [5, 5], [55, 50], 400, fx));
+        serialForward.add(new goog.fx.dom.Slide(goog.dom.$("block2"),
+            [10, 5], [60, 50], 400, fx));
+        serialForward.add(new goog.fx.dom.Slide(goog.dom.$("block3"),
+            [15, 5], [65, 50], 400, fx));
+        serialForward.add(new goog.fx.dom.Slide(goog.dom.$("block4"),
+            [20, 5], [70, 50], 400, fx));
+        serialForward.add(new goog.fx.dom.Slide(goog.dom.$("block5"),
+            [25, 5], [75, 50], 400, fx));
+ 
+        // move backward in order
+        serialBackward.add(new goog.fx.dom.Slide(goog.dom.$("block1"),
+            [55, 50], [5, 5], 400, fx));
+        serialBackward.add(new goog.fx.dom.Slide(goog.dom.$("block2"),
+            [60, 50], [10, 5], 400, fx));
+        serialBackward.add(new goog.fx.dom.Slide(goog.dom.$("block3"),
+            [65, 50], [15, 5], 400, fx));
+        serialBackward.add(new goog.fx.dom.Slide(goog.dom.$("block4"),
+            [70, 50], [20, 5], 400, fx));
+        serialBackward.add(new goog.fx.dom.Slide(goog.dom.$("block5"),
+            [75, 50], [25, 5], 400, fx));
+      }
+ 
+      function demoParallel() {
+        if (isForward) {
+          parallelBackward.play();
+          currentlyPlaying = parallelBackward;
+        } else {
+          parallelForward.play();
+          currentlyPlaying = parallelForward;
+        }
+        isForward = !isForward;
+      }
+ 
+      function demoSerial() {
+        if (isForward) {
+          serialBackward.play();
+          currentlyPlaying = serialBackward;
+        } else {
+          serialForward.play();
+          currentlyPlaying = serialForward;
+        }
+        isForward = !isForward;
+      }
+ 
+      function pause() {
+        currentlyPlaying.pause();
+      }
+ 
+      function resume(doRestart) {
+        currentlyPlaying.play(doRestart);
+      }
+    
+createAnimations();
+filesLoaded(); 
+</code>
+</div>
+<div class="clearfix sandbox-console" >
+
+<DIV id="block1" class="block" style="left:  5px; top: 5px"></DIV> 
+<DIV id="block2" class="block" style="left: 10px; top: 5px"></DIV> 
+<DIV id="block3" class="block" style="left: 15px; top: 5px"></DIV> 
+<DIV id="block4" class="block" style="left: 20px; top: 5px"></DIV> 
+<DIV id="block5" class="block" style="left: 25px; top: 5px"></DIV> 
+
+<hr/>
+
+
+<DIV class="clearfix" style="margin-top:70px;height:100px;width:98%"> 
+<a href="javascript:demoParallel();">play parallel</a> |
+<a href="javascript:demoSerial();">play serial</a> | <BR>
+ 
+<A href="javascript:pause();">pause</A> |
+<A href="javascript:resume(false);">resume</A> |
+<A href="javascript:resume(true);">resume + restart</A> 
+</DIV> 
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<h3>Creating the Animation Queue</h3>
+
+The first thing the code does is to create the animation queue objects:
+
+{{plain:
+   serialForward = new goog.fx.AnimationSerialQueue();  
+}}
+
+
+You can then add animations to the queue, simply by using the __add__ method of the __AnimationSerialQueue__ or __AnimationParallelQueue__.
+
+{{plain:
+ serialForward.add(new goog.fx.dom.Slide(goog.dom.$("block1"),
+            [5, 5], [55, 50], 2000, fx ));
+
+}}
+
+We need to add each and every animation and on a production environment you will be probably doing so by mapping over an array.
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+  
+
+
+
+
+
+
+
+                                                      

@@ -1,0 +1,90 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{feature-image:/codeigniter/images/china/beauty_01.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+
+
+<h2>basen</h2>
+Converts a number from one numeric base to another. To recall, we can use JavaScript __toString()__ method to convert a number to any base up to 36, as follows:
+
+{{plain:
+var y1 = (123456789).toString(16);
+log(y1);
+}}
+
+In [base64 conversions](http://127.0.0.1/CodeIgniter/index.php/Blogs/tutorials/jQuery/base64 ), we have discussed a method to convert to 64, Closure provides, similar functions that enable you to convert any string from any number base to another base.
+{{bulb: use basen to chane a number  from one base to another}}
+ The bases are represented as strings, which list allowed digits.  Each digit
+ should be unique.  The bases can either be user defined, or any of
+ goog.crypt.baseN.BASE_xxx. For example for base 10, normal decimal, you need to define a string representation as:
+
+{{plain:  base10='0123456789' }}
+ 
+The number is in human-readable format, most significant digit first, and is
+a non-negative integer.  Base designators such as $, 0x, d, b or h (at end)
+will be interpreted as digits, so avoid them.  Leading zeros will be trimmed.
+ 
+ {{warning: for huge bases the result may be inaccurate because of overflowing  64-bit doubles used by JavaScript for integer calculus.  This may happen  if the product of the number of digits in the input and output bases comes  close to 10^16, which is VERY unlikely (100M digits in each base), but may be possible in the future unicode world.  (Unicode 3.2 has less than 100K  characters.  However, it reserves some more, close to 1M.)}}
+ 
+  @param {string} number The number to convert.
+  @param {string} inputBase The numeric base the number is in (all digits).
+  @param {string} outputBase Requested numeric base.
+  @return {string} The converted number.
+
+
+{{plain: 
+
+goog.crypt.baseN.BASE_UPPERCASE_HEXADECIMAL = '0123456789ABCDEF'
+goog.crypt.baseN.recodeString(number,base,encode)
+goog.crypt.baseN.stringToArray_ 
+goog.crypt.baseN.arrayToString_
+
+}}
+
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+var number='34567876567';
+var base='0123456780';
+var encode='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 + /';
+var y = goog.crypt.baseN.recodeString(number,base,encode);
+log(y);
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+Besides crypto work, base64 can be used to save images created by the canvas command. There is also another set of routines provided by Google's Closure, base64, which only focuses on base64 conversions. You can read more about this [base64](http://127.0.0.1/CodeIgniter/index.php/Blogs/tutorials/jQuery/base64).
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+

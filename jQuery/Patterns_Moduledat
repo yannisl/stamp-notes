@@ -1,0 +1,343 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+{{feature-image: http://localhost/egypt/elliott-erwitt/EE-1150.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<h3>The Module Pattern</h3>
+The Module Pattern, encapsulates a part of our code as a single object. It does that by using a self-executing function as show below. Remember a self execute function is:
+
+{{plain:
+     var aName =(function()&#123;&#125;)();
+     
+}}
+
+By assigning this function to a variable, we effectively <strong>name-space</strong> our module, limiting the name to only one Object. this pattern is used extensively by all the JavaScript Libraries. 
+
+We can use two different methods to assign the properties to the Object and they both result to almost identical results:
+
+<h4>Traditional Method</h4>
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+var properties =(function(){
+       function air(){}
+       function water() {}
+       function N2(){}
+       return {
+         air:air,
+         water:water,
+         N2:N2
+      }; 
+})();
+</code>
+</div>
+<div  class="msg" class="msg" style="white-space:pre;font-family:monospace;line-height:1.3">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<h4>Using JSON notation</h4>
+
+
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+say('start');
+var properties =(function(){
+       function air(T){return T+10;}
+       function water(T) {return T+11;}
+       function N2(T){return T+12;}
+       return {
+         air:air,
+         water:water,
+         N2:N2
+      }; 
+})();
+log('', properties.air(22));
+log('', properties.water(22));
+log('', properties.N2(28));
+say('end');
+</code>
+</div>
+<div  class="msg" class="msg" style="white-space:pre;font-family:monospace;line-height:1.3">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+<img src="http://localhost/codeigniter/images/jquery.png" style="float:right; width:85px"/>
+</div>
+
+This more traditional method is used consistently by Prototype.js and to a more limited extend by jQuery. jQuery developer's tend to use the following modification to the pattern, working only within a JSON return;
+
+
+<h3>Same but all in JSON Notation</h3>
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+say('start');
+var properties =(function(){
+// private properties here
+
+// public properties here
+return{
+       air : function air(T){return T+10;},
+       water : function(T) {return T+11;},
+       N2  : function(T){return T+12;}
+   };
+})();         
+log('', properties.air(22));
+log('', properties.water(22));
+log('', properties.N2(28));
+say('end');
+</code>
+</div>
+<div  class="msg" class="msg" style="white-space:pre;font-family:monospace;line-height:1.3">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+<img src="http://localhost/codeigniter/images/jquery.png" style="float:right; width:85px"/>
+</div>
+
+It is also to mix-and-match the pattern depending on the requirements
+
+
+<h3>Example</h3>
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+/*
+  * Fluid a library for fluid flow calculations
+  * @author Dr. Y Lazarides
+  * @date      November 2009
+  * @license MIT
+*/
+var fluid=(function(){
+function Range(lower, upper, T)
+{
+  var Unit;
+  var UnitVal;
+  var string;
+  var lowc,upc,lowf,upf;
+  lowc=Math.round(lower-273.15);
+  upc=Math.round(upper-273.15);
+  lowf=Math.round(lowc/5*9+32);
+  upf=Math.round(upc/5*9+32);
+  if (T > upper || T < lower)
+  {
+   string="Temperature Range is\n "+
+           lower+" .. "+upper+" K\n" +
+           lowc+" .. "+upc+" C\n"+
+           lowf+" .. "+upf+" F\n \n" +
+		  "Resetting input temperature...\n";
+  window.alert(string);
+  Unit=document.air.units.selectedIndex;
+  UnitVal=document.air.units.options[Unit].value;
+  if (UnitVal == "C") {
+	document.air.T.value = 20;}
+  else 
+   { document.air.T.value = 68;}
+  return false; 
+  }
+  return true;
+}
+
+
+function Water(temperature,units) {
+  var test;
+  var TK=0;
+  var Rho=0;
+  var mu=0;
+  var nu=0;
+  var cp=0;
+  var kf=0;
+  var Pr=0;
+  var alpha=0;
+  var beta=0;
+  var Temp=0;
+  var TK25=0;
+  var TK20=0;
+  var TK15=0;
+  var TK05=0;
+  Temp=temperature;
+  //Unit=document.air.units.selectedIndex;
+  UnitVal= 'C';   //document.air.units.options[Unit].value;
+  // If Farenheit, convert to SI
+  if (UnitVal=="F") {
+     Temp=(Temp-32)*5/9;
+  }
+  else {
+     Temp=Temp*1.0;
+  }
+  // Calculate all values in SI 
+  TK=Temp+273.15;
+  test=Range(273.2,393.2,TK);
+  if (test == false)
+	TK = 20+273.15;
+ 
+// ***************************************
+// Correlation here!
+// ***************************************
+  TK05=Math.pow(TK,0.5);
+  TK15=TK05*TK;
+  TK20=TK*TK;
+  TK25=TK15*TK;
+  Rho=-342.584+164.103*TK05-5.01225*TK;
+  mu=31.6371-6.37804*TK05+0.485827*TK-0.016519*TK15+2.11278e4*TK20;
+  mu=Math.pow(mu,3);
+  nu=mu/Rho;
+  cp=3.805070e6-1.028080e6*TK05+1.1116e5*TK-6.00526e3*TK15+162.081*TK20-1.7482*TK25;
+  kf=-2.76131+0.340118*TK05-0.00838245*TK;
+// Do not change stuff below
+  Pr=cp*mu/kf;
+  alpha=nu/Pr;
+  beta=1/TK;
+  // Convert results back to Brit ? 
+  if (UnitVal=="F") {
+     Rho*=0.06243;
+     mu*=2419.1;
+     nu=mu/Rho;
+     cp*=0.2388/1000;
+     kf*=0.5782;
+     alpha=nu/Pr;
+     beta=1/((Temp-32)*5/9+459.67);
+  }
+ 
+  var results={};
+  return results={
+    rho:Rho,
+    mu:mu,
+    nu:nu,
+    cp:cp,
+    kf:kf,
+    alpha:alpha,
+    beta:beta
+  }
+    
+}
+
+
+function Air(temperature,units) {
+log('In Function Air');
+  var test;
+  var TK=0;
+  var Rho=0;
+  var mu=0;
+  var nu=0;
+  var cp=0;
+  var kf=0;
+  var Pr=0;
+  var alpha=0;
+  var beta=0;
+  var Temp=0;
+  var TK15=0;
+  var MIN=200;
+  var MAX=400;
+  Temp=temperature;  //document.air.T.value;
+  log('',Temp);
+  Unit= 'C'; //document.air.units.selectedIndex;
+  UnitVal= temperature; 
+//document.air.units.options[Unit].value;
+  // If Farenheit, convert to SI
+  if (UnitVal=="F") {
+     Temp=(Temp-32)*5/9;
+  }
+  else {
+     Temp=Temp*1.0;alert('SI units');
+  }
+  // Calculate all values in SI 
+  TK=Temp+273.15;
+  log('Temperature ',TK);
+  test = Range(MIN,MAX,TK);
+  if (test == false)
+	TK = 20+273.15;
+ 
+  TK15=Math.pow(TK,1.5);
+  Rho=351.99/TK+344.84/(TK*TK);
+   
+  log('Rho = ',Rho);
+  mu=(1.459e-6)*(TK15)/(TK+109.1);
+  log('mu = ',mu);
+  nu=mu/Rho;
+  log('nu = ',nu);
+  cp=1030.5-0.19975*TK+3.9734e-4*TK*TK;
+  log('cp =',cp);
+  $('#cp').val(cp); 
+  kf=(2.334e-3*TK15)/(TK+164.54);
+  log('kf = ',kf);
+  Pr=cp*mu/kf;
+  log('Pr = ',Pr);
+  alpha=nu/Pr;
+  log('alpha = ',alpha); 
+  beta=1/TK;
+  log('beta = ', beta);
+ 
+  // Convert results back to Brit 
+  if (UnitVal=="F") {
+     Rho*=0.06243;
+     mu*=2419.1;
+     nu=mu/Rho;
+     cp*=0.2388/1000;
+     kf*=0.5782;
+     alpha=nu/Pr;
+     beta=1/((Temp-32)*5/9+459.67);
+  }
+
+  var results ={};
+  results= {Rho: Rho,
+                  mu: mu,
+                  nu:nu,
+                  cp:cp,
+                  kf :kf };
+  return results; 
+  
+};
+
+var air = Air(23,'C');
+       log ('', air.kf, ' from object');
+var water=Water(23,'C');
+       log('', water.rho, 'water density');
+})();
+
+</code>
+</div>
+<div  class="msg" class="msg" style="white-space:pre;font-family:monospace;line-height:1.3">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<h3>Adding Utilities</h3>
+
+For more complicated applications a Class constructor will also be used and a mixin and extend methods.
+
+These methods enable the extension of the above.
+
+<h3>Discussion</h3>
+
+My own preferred method for longer modules (and a module should be a decent size) is to use the first method. I find the syntax more clear, as it tends to summarize all the members at the end with the return statement and effectively gives at a glance an overview of the Object.
+
+For small object constructors the second one is preferable, or you can mix and match.
+
+##Further Reading
+
+
+
+ 
+
+
+
+  
+  
+
+
+
+
+
+
+

@@ -1,0 +1,54 @@
+<!--
+{{category: html5}}
+-->
+
+###HTML Tags
+
+Some JavaScript libraries like  [jo](http://www.joapp.com/) exploits the fact that modern browser engines treat unknown tags as -- tags. Instead of having a horde of div tags with different CSS classes, you can use namespaced tags which are outside of your document's typical CSS name space.
+
+Consider the following example:
+
+{{snippett:
+&lt;jocard>
+    &lt;jotitle>My title&lt;/jotitle>
+    &lt;jogroup>
+        &lt;jolabel>Username&lt;/jolabel>
+         &lt;jobutton>Save&lt;/jobutton>
+    &lt;/jogroup>
+&lt;/jocard>
+}}
+
+The tags in this case from the jo.js make much better sense. Another benefit of this is that it is possible to load styled HTML content from another source and not have that content's CSS corrupt your application's user interface.
+
+You can try it for yourself below and see if your browser can find the tags. We simply use jQuery's selector engine to find the tag and display it in the logger below:
+
+<div  class="code-block console-wrap">
+<div class="code code-block">
+<code>
+   $(document).ready(function(){
+  var zz=$('jobutton1').text();
+  log(zz);
+});
+</code>
+</div>
+<div id = "chat_content">
+</div>
+
+<div  id="msg" class="msg" >
+<jobutton1>&lt;jobutton1>This is the Jobutton1&lt;/jobutton1></jobutton1>
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results" id="results"></ol> 
+</div>
+
+This is a good technique for not ending up with some problems associated with ids and classes on large developments. I am not sure though about accessibilty.
+
+
+###Resources
+
+[html 5 bolier plate](http://html5boilerplate.com/)
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                

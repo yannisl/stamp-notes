@@ -1,0 +1,335 @@
+<style type="text/css">
+.pink{background-color:pink;width:100%;display:block}
+.green{background-color:lightgreen;width:100%;display:block}
+.small{font-size:10px;margin:0px;line-height:1.2}
+p.pos_fixed
+{
+position:fixed;
+bottom:0px;
+left:10px;
+background-color:#666;
+width:100%;
+margin:0;
+font-size:12px;
+}
+span.more{display:block;float:right}
+
+div.droptrue{margin-bottom:7px}
+
+div.activity{}
+
+span.duration{width:98%;display:block}
+
+
+</style>
+
+
+
+<script>
+	$(function () {
+		$( "ul.droptrue, div.droptrue" ).sortable({
+			connectWith: "ul,div",
+                        items:"div",
+                        placeholder: "ui-state-highlight",
+                        // event that fires when dom is changed
+                        update: function(event, ui) {
+                             var sender=$(ui.sender).attr('id');
+                             //get number of activities
+                             var tempS=this.getAttribute("data-count");
+                             // get the id
+                             var tempID=this.getAttribute("id");
+                             // get the number of activities
+                             var aLength=$("#"+tempID).find('div').length;
+                                  aLength=aLength-2;
+                             // set the number of activities
+                             var aresult = $('#sortable2').sortable("toArray");
+                             var newActivityCount=aLength;
+                               $("#"+tempID).attr({'data-count':newActivityCount});
+                             alert('sender : '+sender+'ID: '+tempID+'number activities before '+tempS+'new count  '+newActivityCount+' toArray: '+aresult[0]);
+                             // enumerate properties of ui
+                            //really I need to find out
+                            var as='a test';
+                            for (var prop in ui) {
+                              if (ui.prop) {
+                                 as='propertie  '+as+'prop' + ui[prop]+'\n';
+                              }
+                            }
+                            alert(as);
+                       }
+		});
+
+               
+
+		$( "ul.dropfalse" ).sortable({
+			connectWith: "ul",
+			dropOnEmpty: false, 
+                        placeholder: "ui-state-highlight"
+		});
+
+$( "#sortable1, #sortable2, #sortable3, #sortable4,#sortable5,#sortable6,#sortable7,#sortable8,#sortable9, #sortable10").disableSelection();
+	});
+
+
+</script>
+
+####WIR Scheduling helps schedule WIRs in the QA/QC department.
+
+<p class="pos_fixed">Some more text</p>
+
+<!-- Activities Container (List of WIRs) -->
+<div class="clearfix bordered" style="width:150px;float:left;margin-right:13px">
+
+<div class="maintainer" style="font-size:11px;width:140px"><img src="/codeigniter/images/fox-03.jpg" style="width:30px;float:left;padding:2px">Pending Activities Que maintained by Jasvant Patel
+<span data-duration="12" class="bordered duration">Duration: 52 days</span>
+<span data-count="13" title="Shows number of WIRs" class="bordered duration">Number: 52</span>
+</div>
+
+
+<div id="sortable1" class='droptrue' style="margin: 0; padding: 0; float: left; margin-right: 10px; background: #eee; padding: 5px; width: 143px;font-size:11px">
+	
+</div>
+</div>
+
+<div id="personcontainer" class="clearfix bordered" style="width:75%;padding-top:10px;float:left;font-size:11">
+
+
+<div id="cluster" class="clearfix bordered" style="width:500px;float:left;padding:7px">
+
+<div id="sortable2" class="droptrue" data-count="12"  
+style="list-style-type: none; margin: 0; padding: 0; float: left; margin-right: 10px; background: #eee; padding: 5px; width: 143px;font-size:11" >
+<div style="font-size:11px;width:140px"><img src="/codeigniter/images/martin_porter.jpg" style="width:30px;float:left;padding:2px"><p class="small">Activity Que of Martin Porter</p></div>
+	<div class="activity ui-state-highlight small">Can be dropped..</div>
+	<div class="activity ui-state-highlight small">test activity</div>
+	<div class="activity ui-state-highlight small">Item 3</div>
+	<div class="activity ui-state-highlight small"><span class="small pink">1236/1 Plantroom. Revisions to be finished quickly.</span></div>
+	<div class="ui-state-highlight small">Item 5</div>
+</div>
+
+<div id="sortable3" data-count="4" class='droptrue' style="list-style-type: none; margin: 0; padding: 0; float: left; margin-right: 10px; background: #eee; padding: 5px; width: 143px;font-size:11" >
+<div class="clearfix" style="font-size:11px;width:140px"><img src="/codeigniter/images/sarah.jpg" style="width:30px;float:left;padding:2px">Work Que of Sarah Jones</div>
+	<div class="ui-state-default ui-state-disabled small">Can be dropped..</div>
+	<div class="ui-state-highlight small">test activity</div>
+	<div class="ui-state-highlight small">Item 3</div>
+	<div class="ui-state-highlight small"><span class="small green">1236/1 Plantroom. Revisions to be finished quickly.</span></div>
+	<div class="ui-state-highlight small">Item 5</div>
+</div>
+<div id="sortable4" class='droptrue' style="list-style-type: none; margin: 0; padding: 0; float: left; margin-right: 10px; background: #eee; padding: 5px; width: 143px;font-size:11" >
+<div class="clearfix" style="font-size:11px;width:140px"><img src="/codeigniter/images/Ulorinvex_by_Pelicanh.jpg" style="width:30px;float:left;padding:2px">Work Que of Sarah Jones</div>
+	<div class="ui-state-highlight small">Can be dropped..</div>
+	<div class="ui-state-highlight small">test activity</div>
+	<div class="ui-state-highlight small">Item 3</div>
+	<div class="ui-state-highlight small"><span class="small pink">1236/1 Plantroom. Revisions to be finished quickly.</span></div>
+	<div class="ui-state-highlight small">Item 5</div>
+</div>
+
+<hr/>
+
+<div id="sortable5" class='droptrue' style="list-style-type: none; margin: 0; padding: 0; float: left; margin-right: 10px; background: #eee; padding: 5px; width: 143px;font-size:11" >
+<div class="clearfix" style="font-size:11px;width:140px"><img src="/codeigniter/images/brendan_eich.jpg" style="width:30px;float:left;padding:2px">Work Que of Sarah Jones</div>
+	<div class="ui-state-highlight small">Can be dropped..</div>
+	<div class="ui-state-highlight small">test activity</div>
+	<div class="ui-state-highlight small">Item 3</div>
+	<div class="ui-state-highlight small"><span class="small pink">1236/1 Plantroom. Revisions to be finished quickly.</span></div>
+	<div class="ui-state-highlight small">Item 5</div>
+</div>
+
+<div id="sortable6" class='droptrue' style="list-style-type: none; margin: 0; padding: 0; float: left; margin-right: 10px; background: #eee; padding: 5px; width: 143px;font-size:11" >
+<div class="clearfix" style="font-size:11px;width:140px"><img src="/codeigniter/images/users/aipi_po_xaa_2007.jpg" style="width:30px;float:left;padding:2px">Work Que of Sarah Jones</div>
+	<div class="ui-state-highlight small">Can be dropped..</div>
+	<div class="ui-state-highlight small">test activity</div>
+	<div class="ui-state-highlight small">Item 3</div>
+	<div class="ui-state-highlight small"><span class="small pink">1236/1 Plantroom. Revisions to be finished quickly.</span></div>
+	<div class="ui-state-highlight small">Item 5</div>
+</div>
+
+</div><!-- cluster -->
+
+<div class="clearfix bordered">
+<div id="sortable7" class='dropfalse' style="list-style-type: none; margin: 0;margin-bottom:7px; padding: 0; float: left; margin-right: 10px; background: #eee; padding: 5px; width: 143px;font-size:11" >
+<div class="clearfix" style="font-size:11px;width:140px"><img src="/codeigniter/images/users/joe_namath_2006.jpg" style="width:30px;float:left;padding:2px">Awaiting Inspection Que</div>
+	<div class="ui-state-highlight small">Can be dropped..</div>
+	<div class="ui-state-highlight small">test activity</div>
+	<div class="ui-state-highlight small">Item 3</div>
+	<div class="ui-state-highlight small"><span class="small pink">1236/1 Plantroom. Revisions to be finished quickly.</span></div>
+	<div class="ui-state-highlight small">Item 5</div>
+</div>
+
+
+<div id="sortable8" class='droptrue' style="list-style-type: none; margin: 0; padding: 0; float: left; margin-right: 10px; background: #eee; padding: 5px; width: 143px;font-size:11" >
+<div class="clearfix" style="font-size:11px;width:140px"><img src="/codeigniter/images/users/joe_namath_2006.jpg" style="width:30px;float:left;padding:2px">Awaiting approval Que</div>
+	<div class="ui-state-highlight small">Can be dropped..</div>
+	<div class="ui-state-highlight small">test activity</div>
+	<div class="ui-state-highlight small">Item 3</div>
+	<div class="ui-state-highlight small"><span class="small pink">1236/1 Plantroom. Revisions to be finished quickly.</span></div>
+	<div class="ui-state-highlight small">Item 5</div>
+</div>
+</div>
+
+
+<div id="statistics" class='dropfalse bordered' style="list-style-type: none; margin: 0; padding: 0; float: left; margin-right: 10px; background: #eee; padding: 5px; width: 98%;font-size:11" >
+<div class="small">Average Productivity: 5 drgs/day</div>
+<div class="small">Lost Time: 5 hrs</div>
+<div class="small">Target Completion Date: 13 Aug 2011</div>
+<div class="small">Expected Completion Date: 19 Aug 2011</div>
+<div class="small">Delta: 9 days</div>
+<button id="opener" style="float:right">Open the dialog</button>
+</div>
+
+</div>
+
+
+
+<hr/>
+
+<div style="width:600px;margin-left:50px">
+<h4>This version</h4>
+
+Improvements in activity panels to capture all fields and display them in a dialog.
+Color coding of activities as follows:
+
+<ul>
+<li>Pink - urgent activity</li>
+<li>Red - overdue activity </li>
+<li>Green - scheduled </li>
+<li>Yellow - new activity added since last view </li>
+</ul>
+<h4>Workflow</h4>
+
+<p>Workflow, starts from the left and ends on the right. For arabic personnel this needs to be investigated, if it is preferable to reverse it. A WIR request is normally raised by a Section Engineer. The request is received by the QA/QC Manager, who then assigns it to one of the QA/QC Officers who will attend the inspection once an appointment has been made with the external inspector. </p>
+
+<h4>Teams</h4>
+
+<p>Each box can represent a Team or a person. For the QA/QC Department, work allocation is on a 
+personal basis, hence each box represents a QA/QC Officer. The QA/QC Manager is responsible to keep the incoming box full of recent activities. Any WIR returned with a status which is not A, automatically will be added to his own personal view for allocation. For Team activities, the avatar of the Team Leader is shown (for example in this case that of the Consultant, who has his own Team and own Views).</p>
+
+
+
+<h4>Next Version</h4>
+
+<p>In this version the UI concept was further sketched out. At the next version the data model will have to be enhanced a bit. At the next version, a settings panel will be added. Settings will allow (add/remove/edit Team Members, limit number of WIRs shown in each pane and screen enhancements).
+
+One area for thought is that when the QA/QC Manager allocates a WIR to a person, this should automatically be inserted to EHAF's panel as well. Alternative a slightly different workflow needs to be implemented.
+
+Generate all the panels automatically either from server or from Client based from information received from server.
+
+</p>
+
+<p>What happens when a user is deleted? His activities should go back to the que. These activities should be prioritized on the top. This can also be triggered via the <em>handover</em> screen or <em>employee demobilize screen</em></p>
+
+<h4>Saving State</h4>
+<p>State can be saved using HTML5 and SQLITE once the data model concept has progressed a bit.</p>
+
+
+<h4>Beta Version</h4>
+<p>In the Beta version the activity duration should be able to be simulated. By running the simulator an estimated completion duration should be obtained as well as a gant chart.
+
+Emphasis should be given in developing this part, as WIRs have a tendency to delay the works due to the <em>hold status</em> they impose in many cases. For example insulation cannot be applied to piping until pressure testing has been successfully carried out. In effect the WIR acts as a trigger to release the subsequent activity back into the work que.
+</p>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+$('#left-menu').css({'width':'0px','display':'none'});
+$('#left').css({'width':'1100px'}).addClass('bordered, clearfix');
+$('div#pagehead-spacer').css({'height':'23px'});
+$('.span-17, .content-row').css({'width':'950px'}).addClass('bordered, clearfix');
+
+
+(function ajaxMock(){
+var moreButton={
+   html:'<div class="pink small" style="color:blue;">'+
+          '<span class="more bordered">'+
+           '<a class="small">more ...</a></span>'+
+          '</div>'
+}
+
+//mock-up for ajax calls
+for (var i = 1; i < 18; i++) {
+$('#sortable1').prepend('<div class="activity ui-state-default small">WIR-01'+i+
+'/0 Podium details for hot water</div>');
+}
+
+
+for (var j=1; j < 9;j++){
+  var oneonly=false;
+   for (var i = 1; i < 8; i++) {
+     var element='#sortable'+j;
+     if (i < 5){
+       $(element).append('<div class="activity ui-state-default small activity">WIR-01'+i+
+       '/0 Podium details for hot water</div>');
+     }else{if (oneonly===false){
+          $(element).append(moreButton.html);
+          oneonly=true;
+           }
+        }
+   }
+  }
+})()
+
+// finds all the sortable containers that can accept drops
+// Change to foreach
+var test='';
+var aresult = $('.droptrue:first').attr('id');
+     aresult = $('.droptrue');
+     alength= $('.droptrue').length
+     for(var i=0;i < alength; i++)
+     {
+       test =test+' '+ aresult[i].getAttribute('id');
+     }
+     var stemp=$('#sortable1').sortable('widget');
+     stemp=stemp.sortable('toArray'); //needs numbering scheme for elements
+     //alert(test+'   '+stemp);
+
+// fade in on start to make user aware of the elements
+// being a bit fancy
+$('.droptrue').each(function() {
+       $(this).fadeOut(1000).fadeIn(1000);
+    });
+}); //end document ready
+
+// dialogs using the short form of the document ready type function
+// see http://docs.jquery.com/Tutorials%3AMultiple_%24%28document%29.ready%28%29
+$(function() {
+		var $dialog = $('<div>'+
+                        'WIR Number <input type="text" value="WIR Number" />  '+
+                        'Comments <textarea>This is rejected</textarea> '+
+                        '  '+
+                        '</div>')
+			       .dialog({
+				autoOpen: false,
+				title: 'Create New WIR',
+                                buttons:{"Ok": function() { $(this).dialog("close"); },
+                                              "Cancel": function() { $(this).dialog("close"); },
+                                              "Save": function(){$(this).dialog("close");}
+                                      },
+                                dialogClass: 'alert',
+                                resizable:true,
+                                show:'slide',
+                                position:['right','bottom']
+			});
+                 //change droptrue to activity
+		$('.activity').click(function() {
+                        $(this).css({'background':'yellow'});
+                        // need to mark as active so that we can change color back to normal
+			$dialog.dialog("open");
+                        //prevent the default action, e.g., following a link
+			return false;
+		});
+	});
+	
+var t=$('#pagehead >h1>span').html('killPrimavera<sup style="font-size:12px">&copy;</sup>');
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     

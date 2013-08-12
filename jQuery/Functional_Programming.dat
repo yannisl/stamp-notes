@@ -1,0 +1,217 @@
+ <!--
+{{feature-image: /codeigniter/images/yannis.jpg}}
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<style type="text/css">
+button#cbutton{color:blue}
+div#ex1{}
+span.purple{color: purple}
+span.echo{color: #f60}
+
+</style>
+
+
+<h2>Functional Programming</h2>
+Functional programming (FP) is a big topic, not to be learned in twentyone
+days1 or in a single chapter of a book. Nevertheless, it is possible to
+reach a first level of effectiveness using lazy and recursive techniques
+in Clojure fairly quickly, and that is the goal of this chapter.
+
+
+<h3>5.1 Functional Programming Concepts</h3>
+
+Although some people can disagree functional programming leads to code that is easier to write, read, test,
+and reuse. 
+
+Here's how it works.
+
+<h4>Pure Functions</h4>
+
+Programs are built out of pure functions. A pure function has no side
+effects; that is, it does not depend on anything but its arguments, and
+its only influence on the outside world is through its return value.
+Mathematical functions are pure functions. Two plus two is four, no
+matter where and when you ask. Also, asking doesnï¿½t do anything other
+than return the answer.
+
+
+Program output is decidedly impure. For example, when you println, you
+change the outside world by pushing data onto an output stream. Also,
+the results of println depend on state outside the function: the standard
+output stream might be redirected, closed, or broken.
+
+If you start writing pure functions, you will quickly realize that pure
+functions and immutable data go hand in hand. Consider the following
+mystery function:
+
+{{plain:
+(defn mystery [input]
+(if input data-1 data-2))
+}}
+
+If mystery is a pure function, then regardless of what it does, data-1 and
+data-2 have to be immutable! Otherwise, changes to the data would
+cause the function to return different values for the same input.
+
+
+A single piece of mutable data can ruin the game, rendering an entire
+call chain of functions impure. So, once you make a commitment to
+writing pure functions, you end up using immutable data in large sections
+of your application.
+
+<h4>Persistent Data Structures</h4>
+
+Immutable data is critical to Clojure's approach to both FP and concurrency.
+On the FP side, pure functions cannot have side effects, such
+as updating the state of a mutable object. On the concurrency side,
+Clojure's concurrency primitives require immutable data structures to
+implement their thread-safety guarantees.
+
+The fly in the ointment is performance. When all data is immutable,
+'update' translates into 'create' a copy of the original data, plus my
+changes.
+
+This will use up memory quickly! Imagine that you have an
+address book that takes up 5MB of memory. Then, you make five small
+updates. With a mutable address book, you are still consuming about
+5MB of memory. But if you have to copy the whole address book for
+each update, then an immutable version would balloon to 25MB!
+Clojure's data structures do not take this naive 'copy everything' approach.
+Instead, all Clojure data structures are persistent. In this context,
+persistent means that the data structures preserve old copies of
+themselves by efficiently sharing structure between older and newer versions.
+Structural sharing is easiest to visualize with a list. Consider list a with
+two elements:
+
+Structural sharing is easiest to visualize with a list. Consider list a with
+two elements:
+
+{{plain:
+(def a '(1 2))
+) #'user/a
+}}
+
+Then, from a you can create a b with an additional element added:
+{{plain:
+(def b (cons 0 a))
+) #'user/b
+}}
+
+
+
+b is able to reuse all of a's structure, rather than having its own private
+copy:
+{{plain:
+<img src="http://localhost/codeigniter/images/closure_list.jpg" />
+}}
+
+All of Clojure's data structures share structure where possible. For
+structures other than simple lists, the mechanics are more complex,
+of course. If you are interested in the details, check out the following
+articles:
+
+- "<a href="http://lamp.epfl.ch/papers/idealhashtrees.pdf ">Ideal Hash Trees</a>" by Phil Bagwell
+- "<a href="http://blog.higher-order.net/2009/02/01/understanding-clojures-persistentvector-implementation/ ">Understanding Clojure's PersistentVector Implementation</a>"  by
+Karl Krukow
+
+
+<h3>Defining functions</h3>
+
+
+<pre style="background:url(http://localhost/codeigniter/images/code-bg.gif)">
+<div id="clojure2">
+<span class="purple">user></span>; Clojure
+(defn hello [name]
+  (println "Hello," name))
+(hello "Yannis")
+</div>
+<button id="run2">Run</button>
+</pre>
+
+Comparing this to JavaScript:
+
+<pre style="background:url(http://localhost/codeigniter/images/code-bg.gif)">
+<div id="clojure3">
+hello=(function (msg){
+   alert("Hello, "+msg);
+});//("Yiannis");
+hello("Wei");
+</div>
+<button id="run3">Run</button>
+</pre>
+
+
+
+<h3>Basic function syntax</h3>
+
+A Clojure function call looks like this:
+
+{{plain:
+(function-name arg1 arg2 arg3)
+}}
+
+This syntax is referred to as a <dfn>"form"</dfn>. There is simple beauty in the fact that everything in Lisp has this form. Note that the naming convention in Clojure is to use all lowercase with hyphens separating words in multi-word names, unlike the Java convention of using camelCase.
+
+Clojure makes heavy use of {{wi:lazy_evaluation}}. This allows functions to be invoked only when their result is needed. "Lazy sequences" are collections of results that are not computed until needed. <b>This supports the efficient creation of infinite collections</b>.
+
+Clojure code is processed in three phases: read-time, compile-time and run-time. At read-time the Reader reads source code and converts it to a data structure, mostly a list of lists of lists .... At compile-time this data structure is converted to Java bytecode. At run-time the bytecode is executed. Functions are only invoked at run-time. Macros are special constructs that look similar to functions, but are expanded into new Clojure code at compile-time.
+
+Is Clojure code hard to understand? Imagine if every time you read Java source code and encountered syntax elements like if statements, for loops, and anonymous classes, you had to pause and puzzle over what they mean. There are certain things that must be obvious to a person who wants to be a productive Java developer. Likewise there are parts of Clojure syntax that must be obvious for one to efficiently read and understand code. Examples include being comfortable with the use of <b>let</b>, <b>apply</b>, <b>map</b>, <b>reduce</b> and <b>anonymous functions</b> ... all of which we will visit later.
+
+
+
+<script>
+$(document).ready(function(){
+ 
+$("#run").click(function(){
+    $("#clojure").append('<span class="echo">hello</span>');
+ });
+
+
+$("#run1").click(function(){
+   var z = $("#clojure1").append('<span>nil</span>');
+ });
+
+$("#run2").click(function(){
+   var z = $("#clojure2").append('<span class="echo">hello, Yiannis</span>');
+ });
+
+$("#run3").click(function(){
+  var z = $("#clojure3").text();
+  eval(z);
+ });
+
+});
+
+</script>
+
+
+
+
+##Further Reading
+
+- http://stackoverflow.com/questions/760868/in-a-emacs-slime-clojure-windows-setup-failure-to-load-clojure-auto
+
+- http://tommih.blogspot.com/2009/08/emacs-clojure-and-windows.html
+
+- http://clojure.bighugh.com/
+
+- http://clojure.org/
+
+- http://writingcoding.blogspot.com/2008/06/clojure-series-table-of-contents.html
+
+- A library for <a href="http://osteele.com/sources/javascript/functional/">functional javascript</a> has been developed by Oliver Steel. You can view some [slides](http://www.slideshare.net/osteele/oliver-steele-functional-javascript-presentation) on the concept.
+
+- [An Introduction to Clojure (pdf)](http://scorciapino.com/pub/txt/Pragmatic.Programming.Clojure.May.2009.pdf)
+
+
+
+    

@@ -1,0 +1,33 @@
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script> 
+<script type="text/javascript" src="/js/jquery-ui/jquery-ui.js"></script> 
+ 
+
+ 
+
+##Canvas Manipulations
+
+<canvas id="example-canvas" width="400px" height="500px"></canvas>
+
+
+
+
+
+
+
+
+<a href="http://github.com/meltingice/CamanJS"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://assets2.github.com/img/6429057dfef9e98189338d22e7f6646c6694f032?repo=&url=http%3A%2F%2Fs3.amazonaws.com%2Fgithub%2Fribbons%2Fforkme_left_orange_ff7600.png&path=" alt="Fork me on GitHub"></a> 
+
+ <script type="text/javascript" src="http://ajax.cdnjs.com/ajax/libs/camanjs/2.2/caman.full.min.js"></script> 
+
+ <script type="text/javascript">
+Caman("../CodeIgniter/images/angela.jp", "example-canvas", function () {
+	this
+		.saturation(20)
+		.gamma(1.4)
+		.vintage()
+		.contrast(5)
+		.exposure(15)
+		.vignette(300, 60)
+		.render();
+});
+</script>        

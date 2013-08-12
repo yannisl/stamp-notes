@@ -1,0 +1,94 @@
+<!--
+{{feature-image:/codeigniter/images/china/beauty_03.jpg}}
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<script>
+    goog.require('goog.net.cookies');
+</script>
+
+
+
+
+
+<h2>Datastructures a queue.js</h2>
+Closure offers a set of datastructures (check under the structs directory), including queues, trees, priority queues, heap and the like. In this article we will examine the goog.Queue Closure object.
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+var q = new goog.structs.Queue();
+
+q.enqueue(1);
+q.enqueue(3);
+
+log(q instanceof goog.structs.Queue);
+log(q.peek());
+log(q.getValues());
+log(q.dequeue());
+log(q.getValues());
+q.clear();
+
+var z = '';
+var length = 5;
+for (var i = 1; i < length; i++) {
+  q.enqueue(i);
+  z += U.boxString(q.elements_.join('') + '\n');
+}
+for (var i = length; i > 0; i--) {
+  q.dequeue(i);
+  z += U.boxString(q.elements_.join('') + '\n');
+}
+
+$that.siblings('.msg').html(z).hide().show(500);
+
+log(goog.net.cookies.MAX_COOKIE_LENGTH);
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<img src="/codeigniter/images/queue.png" style="display:block;float:right;margin-left:15px" />
+
+A queue  is a particular kind of collection in which the entities in the collection are kept in order and the principal (or only) operations on the collection are the addition of entities to the rear terminal position and removal of entities from the front terminal position. 
+
+This makes the queue a First-In-First-Out (FIFO) data structure. In a FIFO data structure, the first element added to the queue will be the first one to be removed. This is equivalent to the requirement that whenever an element is added, all elements that were added before have to be removed before the new element can be invoked. 
+
+A queue is an example of a linear data structure.
+Queues provide services in computer science, transport and operations research where various entities such as data, objects, persons, or events are stored and held to be processed later. In these contexts, the queue performs the function of a buffer.
+
+The defining attribute of a queue data structure is the fact that it allows access to only the front and back of the structure. Furthermore, elements can only be removed from the front and can only be added to the back. In this way, an appropriate metaphor often used to represent queues is the idea of a checkout line (Ford/Topp p. 385). Other examples of queues are people travelling up an escalator, machine parts on an assembly line, or cars in line at a petrol station. 
+
+{{bulb: Queues are essentially the same as a queue you would get in a shop waiting to pay.}}
+
+In each of the cases, the customer or object at the front of the line was the first one to enter, while at the end of the line is the last to have entered. Every time a customer finishes paying for their items (or a person steps off the escalator, or the machine part is removed from the assembly line, etc.) that object leaves the queue from the front. This represents the queue __dequeue__ function. Every time another object or customer enters the line to wait, they join the end of the line and represent the __enqueue__ function. The queue __size__ function would return the length of the line, and the __empty__  function would return true only if there was nothing in the line.
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+        

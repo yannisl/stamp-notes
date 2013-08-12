@@ -1,0 +1,275 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<style type="text/css">
+.code{margin:0;padding-top:0}
+.code-block{                        background:url(http://localhost/codeigniter/images/code-bg.gif);
+margin:0;padding:0}
+.code-block .code{white-space:pre;font-family:inherit;padding:0;margin:0}
+.highlight{background:yellow}
+.green{color:green}
+.hidden{display:none}
+canvas{border;1px solid #bebebe;background:#fff}
+</style>
+
+
+
+
+
+
+
+<h2>Introduction to Canvas</h2>
+
+<img src="http://localhost/codeigniter/images/foldvari3.jpg" style="display:block;float:left;width:32.5%;margin-right:10px" />
+Five things you should know about the number reference object.
+
+- numbers are objects.
+- how to convert a number to a string (explicitly)
+- how to convert a number to a string (using +'');
+- how to convert a number to another base
+- how to format decimals
+
+<div  class="code-block"><div class="code code-block"><code><span class="hidden"> log( "Click #", 'button' ); </span>
+<span class="green">//
+//  Check for browser support
+//  based on a method at
+// http://diveintohtml5.org/detect.html
+// </span>
+
+function supports_canvas() {
+  return !!document.createElement('canvas').getContext;
+}
+
+
+    function draw() {
+      var canvas = document.getElementById("canvas1");
+      if (canvas.getContext) {
+        var ctx = canvas.getContext("2d");
+
+        ctx.fillStyle = "rgb(200,0,0)";
+        ctx.fillRect (10, 10, 30, 10);
+
+        ctx.fillStyle = "rgba(0, 0, 200, 0.5)";
+        ctx.fillRect (30, 30, 55, 50);
+      }
+    }
+  
+  draw();
+<canvas id="canvas1" width="150" height="150"></canvas>
+assert(supports_canvas(), 'browser supports canvas element');
+</code>
+</div>
+<p id="msg1" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+We can use jQuery to get the canvas element (rather its id) as follows:
+{{plain:
+ var ctx = $("#canvas").get(0).getContext("2d");
+}}
+Remember that $(),  always returns the jQuery object.
+
+This object always contains an array of elements (even if it is an empty array, or an array with just one object).
+
+If you'd like to use the returned object "directly", as in, as a plain element, you can do one of the following:
+{{plain:
+$('selector')[0] // element
+$('selector').get(0) // element
+$('selector').length // number of elements in the array
+}}
+
+<div  class="code-block"><div class="code code-block"><code><span class="hidden"> log( "Click #", 'button' ); </span>
+<span class="green">//
+//  Check for browser support
+//  based on a method at
+// http://diveintohtml5.org/detect.html
+// </span>
+
+function supports_canvas() {
+  return !!document.createElement('canvas').getContext;
+}
+
+
+    function draw(element) {
+     // var canvas = document.getElementById("canvas2");
+      if (supports_canvas()){
+        var ctx = $(element).get(0).getContext("2d");
+       alert($(element)[0]);
+      alert(ctx);
+        ctx.fillStyle = "rgb(200,0,0)";
+        ctx.fillRect (10, 10, 55, 50);
+
+       // ctx.fillStyle = "rgba(0, 0, 200, 0.5)";
+        //ctx.fillRect (30, 30, 55, 50);
+     log(ctx.toDataURL.png,'test')
+
+     
+      }
+    }
+  
+  draw('#canvas2');
+<canvas id="canvas2" width="150" height="150"></canvas>
+assert(supports_canvas(), 'browser supports canvas element');
+</code>
+</div>
+<p id="msg1" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+<hr/>
+
+<h3>The Grid</h3>
+Before we can start drawing, we need to talk about the canvas grid or coordinate space. The HTML template on the previous page had a canvas element 150 pixels wide and 150 pixels high. I've drawn this image with the default grid overlayed. Normally 1 unit in the grid corresponds to 1 pixel on the canvas. The origin of this grid is positioned in the top left corner (coordinate (0,0)). All elements are placed relative to this origin. So the position of the top left corner of the blue square becomes x pixels from the left and y pixels from the top (coordinate (x,y)). Later in this tutorial we'll see how we can translate the origin to a different position, rotate the grid and even scale it. For now we'll stick to the default.
+
+{{example:
+<img src="http://localhost/codeigniter/images/canvas_default_grid.png" />
+}}
+
+<div  class="code-block"><div class="code code-block"><code><span class="hidden"> log( "Click #", 'button' ); </span>
+<span class="green">//
+//  Check for browser support
+//  based on a method at
+// http://diveintohtml5.org/detect.html
+// </span>
+
+function supports_canvas() {
+  return !!document.createElement('canvas').getContext;
+}
+    function draw(element) {
+     // var canvas = document.getElementById("canvas2");
+      if (supports_canvas()){
+        var ctx = $(element).get(0).getContext("2d");
+       //strokeRect(x,y,width,height) : Draws a rectangular outline
+        ctx.fillStyle = "rgba(0, 0, 200, 0.5)";
+        ctx.strokeRect (30, 30, 50, 70);
+      }
+    }
+  //draw('#canvas3');
+ $('#canvas3').click(function(){
+    draw(this);
+ });
+<canvas id="canvas3" width="150" height="150"></canvas>
+assert(supports_canvas(), 'browser supports canvas element');
+</code>
+</div>
+<p id="msg1" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+##Further Reading
+
+http://diveintohtml5.org/detect.html
+
+<script type="text/javascript">
+
+
+
+
+$(document).ready(function(){
+    
+
+  $('button.eval').click(function(){
+   var code=$(this).siblings('.code').text();
+    
+   $that=$(this);
+    //clear logger before output
+   $that.siblings(".results").text('');
+   eval(code);
+ 
+  function assert(pass, msg){
+     var type = pass ? "PASS" : "FAIL";
+     var result='<li class=" ' + type + ' "><b>' + type + "</b> " 
+         + msg + "</li>";
+     $that.siblings(".results").append(result).fadeTo('fast','0.35').fadeTo('fast','1.0');
+     return result;
+   }
+ function log(){
+  var msg = "";
+   
+  for ( var i = 0; i < arguments.length; i++ ) {
+    msg += " " + arguments[i];
+  }
+ 
+  $that.siblings(".results").append("<li class='LOG'><b>LOG</b> " + msg + "</li>").fadeTo('slow','1.0');;
+}
+
+$('#compute').click(function(){
+  alert('compute button clicked');
+  compute();
+}); 
+
+//end on document ready
+
+ 
+});
+
+
+
+$(".input").keyup(function(){
+    var pattern=$(this).siblings('.regex').val(); 
+    var str=$(this).val();
+     s=isValid(str,pattern);
+    //alert(str);
+     $(this).siblings('.msg').text(s);
+});
+
+$(".regex").keyup(function(){
+    var str=$(this).siblings('.input').val();
+    var pattern=$(this).val();
+     s=isValid(str,pattern);
+     $(this).siblings('.msg').text(s);
+    // alert(pattern);
+});
+
+
+
+function error(msg){
+  $(this).siblings("#results").append("<li class='error'><b>ERROR</b> " + msg + "</li>");
+}
+
+
+
+});
+
+function isValid(str,pattern){
+    s=pattern;//alert(s);
+   var dateformat =new RegExp(pattern,'msi');
+    //alert(dateformat);
+   return dateformat.test(str);
+}
+
+//change to pass regex
+//must do to make more general solution
+
+
+ </script>
+
+
+
+  
+  
+
+
+
+
+
+
+

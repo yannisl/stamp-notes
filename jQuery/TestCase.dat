@@ -1,0 +1,225 @@
+      
+<!--
+ directives
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{feature-image:/codeigniter/images/china/beauty_06.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<script type="text/javascript">
+goog.require('goog.string');
+</script>
+
+<h2>TestCase Part II</h2>
+
+In the first part of this article we have examined, how we can look for a function into the window global object. We will now see how we can look for functions starting with __test__.
+
+But firstly let us examine all the variables that we can find in the __global space__. To do this we will create an instance of __window__,  and iterate through all the properties. Please note that I have truncated the output using __goog.string.truncate()__, in order to make it more readable. You can edit the code, if you wish and remove it to view all the properties.
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+var p = [];
+var testSource = window;
+for (var prop in testSource) {
+  p.push(prop);
+
+}
+p = p.sort();
+p = p.join(', ');
+p = goog.string.truncate(p, 800);
+log(p);
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+If you have executed the above script you will observe that since we now have a list of all the objects it will be possible for us to extract information (such as all the functions starting from __test__).
+
+<h3>Finding if an Object exists at run-time </h3>
+How to we know which functions are running in the global space? TestCase does that by 
+looking for any functions starting with a set of predefined prefixes, one of them being __test__. t does so by looking into the global Object itself.
+
+We will now add the  function $AAA to the global space and see if we can find it by looking into the window global properties.
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+var p = [];
+
+var testSource = window;
+window.$AAA = function () {
+   
+};
+
+for (var prop in testSource) {
+  p.push(prop);
+
+}
+
+p = p.sort();
+p = p.join(', ');
+p = goog.string.truncate(p, 800)
+log(p);
+
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+As you can see we have not only managed to add the $AAA function into the global space, but we also found a way to locate it.
+
+By the way this is also a very neat way to find out support for objects by the Browser you are using, for example we can list all the objects that startwith HTML.
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+var p = [];
+
+var testSource = window;
+
+for (var prop in testSource) {
+  if (goog.string.startsWith(prop, 'HTML')) {
+    p.push(prop)
+  };
+
+}
+
+p = p.sort();
+p = p.join(', ');
+log(p);
+
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+We can even with very little effort create an Object Inspector!
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+var p = [];
+
+var testSource =document.getElementById('msg10') ;
+
+function properties(obj) {
+  var s = '';
+  for (var pr in obj) {
+    s += pr;
+  }
+  return s;
+}
+
+function linkify(n) {
+  return '&lt;a href="" ' + 'class="properties" ' + ' &gt;' + n + '&lt;/a&gt;';
+}
+for (var prop in testSource) {
+ // if (goog.string.startsWith(prop, 'HTML')) {
+    if(testSource.hasOwnProperty(prop)){p.push(linkify(prop));}
+    // p.push(prop);
+  //};
+}
+
+p = p.sort();
+p = p.join(', ');
+log(p);
+
+$('.properties').click(function () {
+  var txt = $(this).text();
+  txt = properties(txt);
+  log(txt);
+  return false;
+});
+
+</code>
+</div>
+<div  id ="msg10" class="msg">test
+</div>
+<div  class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+Not as easy as I thought! 
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+var p = [];
+
+var testSource = window;
+
+function properties(obj) {
+  var s = '';
+  for (var pr in document[obj]) {
+    s += pr;
+  }
+  return s;
+}
+
+function linkify(n) {
+  return '&lt;a href="" ' + 'class="properties" ' + ' &gt;' + n + '&lt;/a&gt;';
+}
+for (var prop in testSource) {
+  if (goog.string.startsWith(prop, 'HTML')) {
+    p.push(linkify(prop));
+    // p.push(prop);
+  };
+}
+
+p = p.sort();
+p = p.join(', ');
+log(p);
+
+$('.properties').click(function () {
+  var txt = $(this).text();
+  txt = properties(txt);
+  log(txt);
+  return false;
+});
+
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+                                                        

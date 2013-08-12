@@ -1,0 +1,53 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<h2>Javascript Regular Expressions: Matching Previously Matched Text Again</h2>
+
+
+
+
+
+<div class="code-block console-wrap">
+<div class="code code-block">
+<code>
+var s = '2010-10-10';
+var pattern = /\b\d\d(\d\d)-\1-\1\b/;
+var result = s.match(pattern);
+log(result);
+</code>
+</div>
+<div class="msg" ></div>
+  <button class="eval">Run</button>
+<ol class="results"></ol>
+</div>
+
+To match previously matched text later in a regex, we first have to capture the previous
+text. We do that with a capturing group, as shown in Recipe 2.9. After that, we can
+match the same text anywhere in the regex using a {{dfn:backreference}}. You can reference
+the first nine capturing groups with a backslash followed by a single digit one through
+nine. For groups 10 through 99, use \10 to \99.
+
+{{bulb:JavaScript is the only flavor we know that goes against decades of backreference
+tradition in regular expressions. In JavaScript, or at least in
+implementations that follow the JavaScript standard, a backreference
+to a group that hasn't participated always succeeds, just like a backreference
+to a group that captured a zero-length match. So, in JavaScript,
+\b\d\d\1-\1-(\d\d)\b can match 12--34.}}
+
+
+##Further Reading
+
+
+
+
+
+
+
+                        

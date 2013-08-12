@@ -1,0 +1,84 @@
+<!--Load the AJAX API-->
+<script type="text/javascript" src="http://www.google.com/jsapi"></script> 
+<script type="text/javascript"> 
+      google.load('visualization', '1', {packages: ['charteditor']});
+</script>
+
+##Google Visualizations - adding an Editor
+
+
+<div  class="code-block console-wrap  ui-corner-all">
+<div class="code-block code">
+<code>
+morph();
+var wrapper;
+function init() {
+   
+   wrapper = new google.visualization.ChartWrapper({
+        dataSourceUrl: 'https://spreadsheets.google.com/spreadsheet/tq?key=tnxuU73jT7eIL-aZke85e3A&pub=1&range=A1:E13',
+        containerId: 'visualization',
+        chartType: 'LineChart'
+      });
+      wrapper.draw();
+}  
+    
+function openEditor() {
+      // Handler for the "Open Editor" button.
+      var editor = new google.visualization.ChartEditor();
+      google.visualization.events.addListener(editor, 'ok',
+        function() { 
+          wrapper = editor.getChartWrapper();  
+          wrapper.draw(document.getElementById('visualization')); 
+      }); 
+      editor.openDialog(wrapper);
+    }
+
+google.setOnLoadCallback(init);
+ 
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<div>
+  <input type="button" onclick="openEditor();" value="Open Editor" > 
+  <div id="visualization" style="width:600px;height:400px">
+ </div>
+</div>  
+<button id="eval" class="eval ui-corner-all">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+<hr />
+    
+                           
+
+Whatever I did the editor showed only at a smaller width than required. Question, question, question. The joy of glue and libraries. Where must I start?   
+
+<script>
+var wrapper;
+function init() {
+   
+   wrapper = new google.visualization.ChartWrapper({
+        dataSourceUrl: 'https://spreadsheets.google.com/spreadsheet/tq?key=tnxuU73jT7eIL-aZke85e3A&pub=1&range=A1:E13',
+        containerId: 'visualization',
+        chartType: 'LineChart'
+      });
+      wrapper.draw();
+}  
+    
+function openEditor() {
+      // Handler for the "Open Editor" button.
+      var editor = new google.visualization.ChartEditor();
+      google.visualization.events.addListener(editor, 'ok',
+        function() { 
+          wrapper = editor.getChartWrapper();  
+          wrapper.draw(document.getElementById('visualization')); 
+      }); 
+      editor.openDialog(wrapper);
+    }
+
+google.setOnLoadCallback(init);
+
+</script>
+    

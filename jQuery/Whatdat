@@ -1,0 +1,269 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: UI, jQuery, Visibility Filters, CSS Visibility }}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<link type="text/css" media="screen" rel="stylesheet" href="http://localhost/CodeIgniter/colorbox/example1/colorbox.css" />
+
+
+<script type="text/javascript" src="http://localhost/CodeIgniter/colorbox/colorbox/jquery.colorbox.js"></script>
+<script type="text/javascript" src="http://localhost/CodeIgniter/js/timeout.js"></script>
+
+<script type="text/javascript">
+			$(document).ready(function(){
+				//Examples of how to assign the ColorBox event to elements
+				$("a[rel='example1']").colorbox();
+				$("a[rel='example2']").colorbox({transition:"fade"});
+				$("a[rel='example3']").colorbox({transition:"none", width:"50%", height:"50%"});
+				$("a[rel='example4']").colorbox({slideshow:true});
+				$(".single").colorbox({}, function(){
+					alert('Howdy, this is an example callback.');
+				});
+				$(".ajax").colorbox();
+				$(".flash").colorbox({href:"http://localhost/CodeIgniter/colorbox/content/flash.html"});
+				$(".iframe").colorbox({width:"80%", height:"80%", iframe:true});
+				$(".inline").colorbox({width:"50%", inline:true, href:"#inline_example1"});
+				
+				//Example of preserving a JavaScript event for inline calls.
+				$("#click").click(function(){ 
+					$('#click').css({"background-color":"#f00", "color":"#fff", "cursor":"inherit"}).text("Open this window again and this message will still be here.");
+					return false;
+				});
+			});
+</script>
+
+
+
+
+
+<style>
+ .hidden{display:none;}
+.ex1,.ex2,.ex3{width:100px;height:180px;border:1px solid red;float:left;margin-right:1px}
+a#cbutton2{color:blue}
+</style>
+
+
+
+<h2>Moving to Cyprus</h2>
+
+<p style="font-family:'Essays 1743 Italic';font-size:18px;">
+I have been gripped in fear over the last few weeks. fear of being without an income. Fear of having no money and no job. The Company is seriously into trouble waters and I very much doubt it, if I will be able to lift it up without adequate capitalization and adequate back-up from the people around me. 
+
+What is the solution? Maybe moving to Cyprus for a while, looking for something to give me minimum income there and a trust in God to continue looking after all of us.
+
+I have updated my computing quite a bit and I am almost to the level where I can call myself almost an expert in web development. Certainly I can produce quite a bit of better functioning websites and to a proper standard.
+
+
+</p>
+
+{{plain:
+setTimeout()
+}}
+
+<strong>window.setTimeout()</strong>  allows you to specify that a piece of JavaScript code (called an expression) will be run a specified number of milliseconds from when the <strong>setTimeout()</strong> method was called. The general syntax of the method is:
+
+{{plain:
+setTimeout ( expression, timeout );
+}}
+
+where expression is the JavaScript code to run after timeout milliseconds have elapsed.
+
+setTimeout() also returns a numeric timeout ID that can be used to track the timeout. This is most commonly used with the clearTimeout() method (see below).
+
+Here's a simple example:
+
+{{plain:
+&lt;input type="button" name="clickMe" value="Click me and wait!"
+onclick="setTimeout(alert('..you are two second older!'), 2000)"/&gt;
+
+<input type="button" name="clickMe" value="Click me and wait!"
+onclick="setTimeout(alert('..you are two second older!'), 2000)"/>
+}}
+
+When a user clicks the button, the setTimeout() method is called, passing in the expression that we want to run after the time delay, and the value of the time delay itself - 5,000 milliseconds or 2 seconds.
+
+Try it yourself! Click the button below and wait 5 seconds:
+
+<h2>Using setTimeout() with jQuery</h2>
+
+jQuery does not provide for any particular methods to provide timers. However
+you can use a simple method as shown below:
+
+{{plain:
+$(document).ready(function() &#123;
+     setTimeout(MyUpdate,10 * 1000);
+&#125;);
+
+function MyUpdate()
+&#123;
+               
+                $('#oneMinute').html(result);
+                $('#oneMinute').fadeOut(450);
+                $('#oneMinute').fadeIn(450);
+                $('#oneMinute').fadeOut(450);
+                $('#oneMinute').fadeIn(450);
+                $('#oneMinute').fadeOut(450);
+                $('#oneMinute').fadeIn(450);
+           
+               setTimeout(MyUpdate,10 * 1000);
+ &#125;
+}}
+
+A more general solution can be provided with a plugin developed by , which can be downloaded here.
+
+{{example:
+
+<div>
+<div class="ex1"><a href="http://localhost/Codeigniter/images/angela.jpg" rel="example1">
+<img src="http://localhost/Codeigniter/images/angela.jpg" style="width:98%" /></a></div>
+<div class="ex2"></div>
+<div class="ex3"></div>
+</div>
+
+<hr/>
+<p>
+<a id="cbutton" href="#">Please Click me to start Timer
+</a>
+</p>
+
+}}
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+     setTimeout(runIt,2000);
+});
+
+function MyUpdate()
+{
+               
+$('.ex1').css('background','green').fadeIn(500);
+$('.ex2').css('background','red').fadeIn(1000).fadeOut(2000);
+$('.ex3').css('background','blue').fadeIn(300).fadeOut(3000);
+                    
+ setTimeout(MyUpdate, 10000);
+ }
+
+ function runIt() {
+      $(".ex1").show("slow");
+      $(".ex1").animate({left:'+=200'},2000);
+      $(".ex1").slideToggle(1000);
+      $(".ex1").slideToggle("fast");
+      $(".ex1").animate({left:'-=200'},1500);
+      $(".ex1").hide("slow");
+      $(".ex1").show(1200);
+      $(".ex1").slideUp("normal");
+      $(".ex1").show("slow");
+     setTimeout(runIt, 20000);
+    }
+
+
+
+</script>
+
+
+
+<h2>Determining the difference in times between two events</h2>
+
+{{plain:
+var enterD, outD;
+
+function startTimer()
+   &#123;
+   enterD = new Date();
+   &#125;
+
+function stopTimer()
+   &#123;
+   outD = new Date();
+   var difference = outD.getTime() - enterD.getTime();
+   var seconds = difference / 1000;
+   alert ("You stayed here for " + seconds + " seconds.");
+   &#125;
+startTimer();
+
+<p><a href="#" id="cbutton2">click</a> </p>
+
+}}
+
+
+<h2>Exercises</h2>
+
+{{example:
+
+Write a javascript function that when the visitor has typed a message
+in a textbox, you can give him in how many words per minute this was done.
+
+One word-unit is five keystrokes. Thus, "typed" is one word-unit, "type on it" is two word-units (spaces count as keystrokes too).
+
+See <a href="http://www.typeonline.co.uk/">typeonline</a> for one type of an example  <a href="http://127.0.0.1/CodeIgniter/index.php/Blogs/stamps/jQuery/Typing_tests">another solution</a>
+}}
+
+<script language="JavaScript">
+var enterD, outD;
+
+function startTimer()
+   {
+   enterD = new Date();
+   }
+
+function stopTimer()
+   {
+   outD = new Date();
+   var difference = outD.getTime() - enterD.getTime();
+   var seconds = difference / 1000;
+   alert ("You stayed here for " + seconds + " seconds.");
+   }
+startTimer();
+
+</script>
+
+
+<script type="text/javascript">
+
+// Like setTimeout, but easily cancelable (or forceable).
+$.doTimeout( 'someid', 2000, function(){
+  // do something in 2 seconds
+  //alert('test');
+});
+
+$(document).ready(function(){
+   $('a#cbutton2').click(function(){
+        stopTimer();return false;
+    });
+});
+
+</script>
+
+
+
+
+
+<hr/>
+
+http://dev.opera.com/articles/view/timing-and-synchronization-in-javascript/
+
+http://ejohn.org/blog/how-javascript-timers-work/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

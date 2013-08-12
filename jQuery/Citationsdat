@@ -1,0 +1,77 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<style type="text/css">
+ol#footnotes li{font-size:smaller}
+</style>
+
+<h2>Citations</h2>
+
+Loosely, a citation{{ref:w,a,b,d}} is a reference to a published or unpublished source (not always the original source).[citation needed] More precisely, a citation is an abbreviated alphanumeric expression (e.g. [Newell84]) embedded in the body of an intellectual work that denotes an entry in the bibliographic references section of the work for the purpose of acknowledging the relevance of the works of others to the topic of discussion at the spot where the citation appears. Generally the combination of both the in-body citation and the bibliographic entry constitutes what is commonly thought of as a citation (whereas bibliographic entries by themselves are not).
+
+A prime purpose of a citation is intellectual honesty; to attribute to other authors the ideas they have previously expressed, rather than give the appearance to the work's readers that the work's authors are the original wellsprings of those ideas.
+The forms of citations generally subscribe to one of the generally-accepted citations systems, such as the Harvard, APA, and other citations systems, as their syntactic conventions are widely-known and easily interpreted by readers. Each of these citation systems has its respective advantages and disadvantages relative to the tradeoffs of being informative (but not too disruptive) and thus should be chosen relative to the needs of the type of publication being crafted. Editors will often specify the citation system to use.
+
+Bibliographies, and other list-like compilations of references, are generally not considered citations because they do not fulfill the true spirit of the term: deliberate acknowledgement by other authors of the priority of one's ideas.
+
+To capture all the citations on a page is easy with JavaScript and I have seen people manipulating them only with JavaScript. This is wrong, since people have JavaScript turned off. It is better to capture and manipulate them on the server site and I have been using this for this CMS. However, there are useful functions one can do with this method when you are actually capturing the citations.
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+
+   z = $('sup','p');
+   z.each(function(i){
+       sup = $(this).html();
+       log('i :', sup );
+   });
+
+</code>
+</div>
+
+<div  class="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+<img src="http://localhost/codeigniter/images/jquery.png" style="float:right; width:85px"/>
+</div>
+
+This pattern as shown does not perform a deep iteration, see jQuery's extend method for a better algorithm.
+
+
+
+##Further Reading
+
+
+##Footnotes
+
+<ol id="footnotes">
+<li id="1">
+<span><a href="#_1">^ </a></span>Mixins first appeared in the Symbolics' object-oriented Flavors system (developed by Howard Cannon), which was an approach to object-orientation used in Lisp Machine Lisp. The name was inspired by Steve's Ice Cream Parlor in Somerville, Massachusetts. 
+</li>
+<li id="2">
+The ice cream shop owner offered a basic flavor of ice cream (vanilla, chocolate, etc.) and blended in a combination of extra items (nuts, cookies, fudge, etc.) and called the item a "Mix-in", his own trademarked term at the time.
+</li>
+
+<li id="10">
+On the server side we use transclusion. The citation is captured as follows:
+{{example: &#123;&#123;ref: 1&#125;&#125; }}
+The template is parsed and the link and notes replaced in the text. One could also add the description of the citation at this point, but I have avoided it as it tends to clutter the text. It is much simpler to add it at the end of the page.
+</li>
+</ol>
+ 
+
+
+
+
+
+
+
+

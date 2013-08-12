@@ -1,0 +1,174 @@
+\chapter{Halley's Mortality Tables}
+
+\begin{comment}
+ <!--
+{{feature: .. It were needless to advertise, that the great trouble of working so many Proportions will be very much alleviated by using Logarithms; Halley}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<script type="text/javascript"> 
+goog.require('goog.ui.TableSorter');
+goog.require('goog.ui.ServerChart');
+goog.require('goog.dom');
+</script>
+\end{comment}
+
+
+
+\section{Births and Deaths}
+ 
+Based on my own and that of my classmates observations who were born in the venerable year 1953, from our class of graduates we all survived until today. If we had to build a mathematical model to represent this fact it will predict we will all be immortals as the death rate among our peers has been zero it stands to logic that we will never die.
+
+This brings me to Halley's mortality tables. It might come to you as a surprise that Halley, who is famous for the comet bearing his own name (which is another story to be told at another day), dabbled in actuarial tables and was probably one of the few scientists that defined the field.
+
+
+
+    
+\\[(\textbf{x},Y) = (x_1, x_2, x_3, ..., x_k, Y)\\]
+
+The dependent variable, \\(Y\\), is the target variable that we are trying to understand, classify or generalise. The vector \\(x\\) is composed of the input variables, \\(x_1, x_2, x_3\\) etc., that are used for that task.
+
+
+\section{Preparing the Dataset}
+
+
+
+
+
+\begin{jscodeblock}
+var DATA_LABELS = ['Age curtate', 'persons'],
+DATA_SET = [
+  [1, 1000], [2, 855], [3, 798], [4, 760], [5, 732],[6, 710], [7, 692], [8, 680],
+  [9, 670],  [10, 661], [11, 653], [12, 646], [13, 640], [14, 634], [15, 628],
+  [16,622],[17,616],[18,610],[19,604],[20,598],[21,592],[22,586],[23,579],
+  [24,573],[25,567],[26,560],[27,553],[28,546],[29,539],[30,531],[31,523],
+  [32,515],[33,507],[34,499],[35,490],[36,481],[37,472],[38,463],[39,454],
+  [40,445],[41,436],[42,427],[43,417],[44,407],[45,397],[46,387],[47,377],
+  [48,367],[49,357],[50,346],[51,335],[52,324],[53,313],[54,302],[55,292],
+  [56,282],[57,272],[58,262],[59,252],[60,242],[61,232],[62,222],[63,212],
+  [64,202],[65,192],[66,182],[67,172],[68,162],[69,152],[70,142],[71,131],
+  [72,120],[73,109],[74,98],[75,88],[76,78],[77,68],[78,58],[79,49],[80,41],
+  [81,34],[82,28],[83,23],[84,20],[85,16],[86,14],[87,12],[88,11],[89,12],[90,10],
+  [91,8],[92,6],[93,4],[94,4],[95,3],[96,2],[97,2],[98,1],[99,1],[100,1]],
+numberClasses = DATA_LABELS.length,
+T = DATA_SET.length,
+i = 0,
+sum = 0;
+for (i = 0; i < 100; i++) {
+  sum = DATA_SET[i][1] + sum;
+}
+log(sum);
+\end{jscodeblock}
+
+\end{document}
+
+Both http://www.pierre-marteau.com/editions/1693-mortality.html and a paper at
+http://articles.adsabs.harvard.edu/cgi-bin/nph-iarticle_query?bibcode=1994QJRAS..35..151H&db_key=AST&page_ind=1&plate_select=NO&data_type=GIF&type=SCREEN_GIF&classic=YES show the tables up to the age of 84, but have another table showing that 107 persons survived until the age of 100, but not giving the details per age group. I have filled those years with my own estimate to get a the total population of 34,000 as published by Halley, but if anyone has a better table I will appreciate it.
+
+On a population that has a _steady_ birthrate, just by observation we can see that a person at age one has a 50% chance of surviving to age 34. The population started at a 1000 and ended at 499 by the age of 34. There are a lot of assumptions here, but the importance of the steady birthrate did not escape Halley who wrote:
+
+{{blockquote:
+It appears that in the Five Years mentioned, viz. from 87 to 91 inclusive, there were born 6193 Persons, and buried 5869; that is, born per Annum 1238, and buried 1174; whence an Encrease of the People may be argued of 64 per Annum, of f about a 20th part, which may perhaps be ballanced by the Levies for the Emperor's Service in his Wars...
+}}
+
+The fundamentals of actuarial mathematics, is based on the two concepts of compound interest and the probability of death according to age.
+
+Halley pointed out that the population of Breslau was 34000<sup>1</sup>, being the sum total of all persons in his Table I. then he set out several uses of his table, which can be summarized as:
+
+(1) To determine the number of men between the ages 18 and 56 who would be fit to bear arms. 
+
+{{blockquote:
+The first use hereof is to shew the Proportion of Men able to bear Arms in any Multitude, which are those between 18 and 56, rather than 16 and 60; the one being generally too weak to bear the Fatigues of War and the Weight of Arms, and the other too crasie and infirm from Age, nonwithstanding particular Instances to the contrary. Under 18 from the Table, are found in this City 11997 Persons, and 3950 above 56, which together make 15947. So that the Residue to 34000 being 18053 are Persons between those Ages. At least one half thereof are Males, or 9027: So that the whole Force this City can raise of Fencible Men, as the Scotch call them, is about 9000 or 9/34, or somewhat more than a quarter of the Number of Souls, which may perhaps pass for a Rule for all other places.
+}}
+
+Halley's assumption that half the population was female, must have been slightly incorrect, especially at a time when a woman's chance of dying during giving birth was high, nevertheless is a reasonable assumption to simplify the calculations and produce tables that were useful. 
+
+
+<h3>Producing some tables and Graphs</h3>
+
+
+<div  class="code-block console-wrap"><div class="code code-block"><code>
+var element = goog.dom.getElement;
+var i=0;
+var DATA=[]
+for (i = 0; i < 100; i++) {
+   DATA[i]=DATA_SET[i][1];
+} 
+// Line Chart
+    chart = new goog.ui.ServerChart(goog.ui.ServerChart.ChartType.LINE, 600,380);
+    chart.addDataSet(DATA, '0000ff');
+    chart.setXLabels(['1','7','14','21','28','35','42','49','56','63','70','77','84','100']);
+    chart.setLeftLabels([0,250,500,750,1000]);
+    //chart.setRightLabels([0,50,100]);
+    //chart.setMinValue(-50);
+    chart.decorate(element('line_chart'));
+//log(DATA);
+</code>
+</div>
+<p class="msg" id='sortMe' style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+<p>Age Distribution Chart:</p> 
+ <img id="line_chart">
+<button class="eval">Run Code!</button>
+<ol class="results" style="white-space:pre"></ol> 
+</div>
+
+<div id="test" style="width:200px;height:300px"></div>
+
+
+<h3>Transparency</h3>
+
+Geoffrey Heywood notes the interesting fact that the premium rates used by the Amicable Society in its prospectus published in 1790 were based on the Breslau table and in the prospectus it _was produced in full_. Try phoning your Insurance Company and asking them if they can give you the basis of calculating your life insurance or annuity.
+
+What I like by digging historical facts like this one, is that it first gives someone a chance to glimpse of the past, but also to compare it with to-day's practices. Besides of course that it give us a chance to reinforce programming skills in a rather more interesting way. 
+
+
+<h3>Why all these?</h3>
+
+
+
+
+<hr/>
+
+
+
+##Further Reading
+
+
+##Footnotes
+
+1  According to Wikipedia the population of Breslau is currently 632,561 and that is after the Napoleonic, the Great War and World War II.
+
+
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  TeX: { 
+     equationNumbers: {  autoNumber: "all"  },
+     //extensions: ["AMSmath.js"]
+  }
+});
+
+</script>
+
+[My question at stackoverflow](http://stats.stackexchange.com/questions/14714/best-model-to-fit-missing-statistical-values) was downvoted quite a bit!
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                               

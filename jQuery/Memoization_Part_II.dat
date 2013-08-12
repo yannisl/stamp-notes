@@ -1,0 +1,136 @@
+   
+   
+    
+<!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+{{previous:/CodeIgniter/Blogs/tutorials/jQuery/memoization}}
+{{next:/CodeIgniter/Blogs/tutorials/jQuery/HTML_prototype}}
+
+-->
+
+<script>
+ goog.require('goog.json');
+ goog.require('goog.memoize');
+</script>
+
+<h2>Memoization Part II</h2>
+
+In the first part we have examined some simple memoization. In this article we will discuss the issue further and take a closer look at what Google's Closure uses. The memoize method resides in a class of its own and you can find it in the memoize directory.
+
+Google's memoization function is more general than the simple functions we have used so far. Let's examine a simple application first:
+
+<div class="code-block console-wrap"><div class="code-block code">
+<code>
+
+(function testNoArgs() {
+  var called = 0;
+  var f = goog.memoize(function () {
+    called++;
+    return 10;
+  });
+
+  assert(f() == 10, 'f() 1st call');
+  assert(f() == 10, 'f() 2nd call');
+  assert(f() == 10, '3rd call');
+  assert(called == 1, 'f() only called once');
+})();
+
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+As you can observer, Google's closure has abstracted the memoization process one step further that enables one to actually pass __a function as an argument__, as such it serves as a more general caching function. As such it can be used as an abstract class for any function you wish to turn into a momoizer.
+
+The function takes two parameters:
+
+{{plain:
+   goog.memoize = function(fn, opt_serializer)
+}}
+
+where, 
+
+- fn  The function to wrap. Its return value may only depend
+     on its arguments and 'this' context. There may be further restrictions
+    on the arguments depending on the capabilities of the serializer used.
+
+- opt_serializer  a function to
+       serialize fn's arguments. It must have the same signature as
+       goog.memoize.simpleSerializer. It defaults to that function.
+ 
+
+
+
+{{bulb: Sounds complex!}}
+
+The following example will now pass a function to the memoize function again but this time the function carries an __argument__. It will then call the test function a number of times and test some assertions. (Example modified from Google's test suite). 
+
+
+
+<div class="code-block console-wrap"><div class="code-block code">
+<code>
+(function testOneOptionalArgSimple() {
+  var called = 0;
+  var f = goog.memoize(function (opt_x) {
+    called++;
+    return arguments.length === 0 ? "no args" : opt_x;
+  });
+
+  assert("no args" == f(), ' f() 1st call');
+  assert("no args" == f(), 'f() 2nd call');
+  assert(f(0)===0,'f(0) 1st call' );
+  assert('f(0) 2nd call', 0, f(0));
+  assert('f("") 1st call', '', f(''));
+  assert('f("") 2nd call', '', f(''));
+  assert('f("0") 1st call', '0', f('0'));
+  assert('f("0") 1st call', '0', f('0'));
+  assert('f(null) 1st call', null, f(null));
+  assert('f(null) 2nd call', null, f(null));
+  assert('f(undefined) 1st call', undefined, f(undefined));
+  assert('f(undefined) 2nd call', undefined, f(undefined));
+  assert(called == 6, 'f(opt_x) called 6 times');
+})();
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+I was tempted with this method and I must admit it is well constructed and passes all the tests. I have passed a wrapper onto it into my standard library that I am using as well as turned it into a jQuery plugin.
+
+{{bulb: I am only using one assert, while Closure uses a number of different ones, like assertEqual, assertNull and the like. I find it easier for this demos to actually one use one type of assert and rather output some supplementary notes}}.
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+    

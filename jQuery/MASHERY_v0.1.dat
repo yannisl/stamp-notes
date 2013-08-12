@@ -1,0 +1,225 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<div id="images">
+ </div>
+
+
+
+<script type="text/javascript">
+
+if (typeof(JSON) === 'object') { 
+   alert('native JSON may be available.');
+}
+
+var z='http://api.flickr.com/services/feeds/photos_public.gne?cats=cat&tagmode=any&format=json&jsoncallback=?';
+
+var z1="http://icant.co.uk/geomaker/api.php?url=http://news.yahoo.com&output=json";
+
+$.getJSON(z,
+        function(data){
+          $.each(data.items, function(i,item){
+            $("<img/>").attr("src", item.media.m).appendTo("#images");
+            if ( i == 6 ) return false;
+          });
+        });
+</script>
+
+
+<script type="text/javascript">
+
+if (typeof(JSON) === 'object') { 
+   alert('native JSON may be available.');
+}
+
+var z='http://content.guardianapis.com/?format=json&order-by=newest';
+
+var z1="http://icant.co.uk/geomaker/api.php?url=http://news.yahoo.com&output=json";
+
+$.getJSON(z,
+        function(data){
+              $('#images').append(response);
+        });
+</script>
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+$.ajax({
+    url: "http://content.guardianapis.com/business/2011/aug/05/global-financial-system-brink-crisis?format=json&show-fields=all&show-factboxes=all&show-references=all&show-story-package=true&order-by=newest&date-id=date%2Flast30days&api-key=36dd588u96hrcnf5rcjzex9h",
+    dataType: 'jsonp',
+    success: function(results){
+         var status = results.status;
+        $('#results').html(status);
+    }
+});
+</script>
+
+
+###Ideas for Further Development
+
+Coomon API Keys are available at mashery.com. Quite a hassle to log in, not sure about it yet, but have found it at guardian.com  [mashery](http://developer.mashery.com/apis)
+
+<pre>
+<code id="results">
+
+</code>
+</pre>
+
+
+Now that I have been thinking - already joined the Stanford course for Artificial Intelligence - I need to come-up with some ideas as to how to develop a Project or two around this.
+
+####Cyprus Instant News
+
+Use [NY Times API](http://prototype.nytimes.com/gst/apitool/index.html?api_id=1&request_id=3&resp_format=json&perform_request=Make+Request&use_pp=on) to check for latest news related to Cyprus. Supplement this with Cyprus local Papers, Greece etc. Do some semantic analysis using other APIs etc. Add some feedback loop from users for training the algorithms as to what content to promote up.
+
+Use events type reporting with map API to get incident reports, weather from Yahoo and local news. 
+
+Add 'web agents' to linkify what is available at Wikipedia etc. Limit linkification to topics of interest. 
+
+Compare and capture Google ads to see if we are in agreement with Google:).
+
+Add feeds API module to assist, blog etc.
+
+Tools for editor.
+
+Limit everything to English First -> Chinese room -> to English.
+
+Remove bias
+
+
+###How does this relate to AI?
+
+This is actually a 'weak AI' that answers some questions very well, What's news from Cyprus? It can also measure popularity of some politicians. trends if it captures and cache's historical data.
+
+Change the question around and make it into an entity that knows everything about Cyprus and related events. Add books (I had half a solution here!). Places using geodata. Photograph activities using exif, tineyeye etc....
+
+###Generalize to make it into a great tool for any topic.
+
+### Sources - Open Source
+
+CAn also make it for AI? Training via students every year during the course? Addition of content via a wiki type engine?
+
+Turkish news via a translate API?
+
+### Addressing copyright issues.
+
+### The ChiefEditor
+
+This is one step below God, who is the master trainer and a real person. 
+
+The topics editor - needs to be seeded, it will then keep on adding topics on a que and keep a hot classifier!
+
+###Money proposition
+
+Advertizing money. Influence buying. Fame.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <script type='text/javascript' src='http://www.google.com/jsapi'></script>
+  <script type='text/javascript'>
+   google.load('visualization', '1', {'packages': ['geomap']});
+   google.setOnLoadCallback(drawMap);
+
+    function drawMap() {
+      var data = new google.visualization.DataTable();
+      data.addRows(6);
+      data.addColumn('string', 'Country');
+      data.addColumn('number', 'Popularity');
+      data.setValue(0, 0, 'Germany');
+      data.setValue(0, 1, 200);
+      data.setValue(1, 0, 'United States');
+      data.setValue(1, 1, 300);
+      data.setValue(2, 0, 'Brazil');
+      data.setValue(2, 1, 400);
+      data.setValue(3, 0, 'Canada');
+      data.setValue(3, 1, 500);
+      data.setValue(4, 0, 'France');
+      data.setValue(4, 1, 600);
+      data.setValue(5, 0, 'RU');
+      data.setValue(5, 1, 700);
+
+      var options = {};
+      options['dataMode'] = 'regions';
+
+      var container = document.getElementById('map_canvas');
+      var geomap = new google.visualization.GeoMap(container);
+      geomap.draw(data, options);
+  };
+  </script>
+
+
+
+  <div id='map_canvas'></div>
+
+
+
+
+
+
+<h2>Enumerating properties</h2>
+
+
+<div  class="code-block console-warp"><div class="code code-block"><code>
+$('#ny').load('http://api.nytimes.com/svc/books/v2/lists/names.json?api-key=####');
+
+</code>
+</div>
+<p class="msg">
+</p>
+
+<button id="ny" class="eval">Run Code!</button>
+<ol class="results" style="white-space:pre"></ol> 
+</div>
+
+
+
+
+<hr/>
+
+
+
+##Further Reading
+
+http://xregexp.com/syntax/
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                      

@@ -1,0 +1,103 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+{{feature-image:http://localhost/CodeIgniter/images/christophe_gilbert_02.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+<script type="text/javascript" src="http://localhost/CodeIgniter/js/metadata.js"></script>	
+<h2 id="firstHeading" class="firstHeading">The Metadata Plugin</h2>
+
+In this article we recommend some plugins that we have found useful:
+
+The metadata plugin, provides an easy way to store <strong>data</strong> in the element itself. Various programmers, including myself will create a quick hack to store information in the rel="" attribute. The Metadata Plugin will store information in a json format in the class attribute.
+
+These custom properties, so-called {{wi:expandos}}, are not without risk. Particularly, it can be easy to create
+circular references that can lead to serious memory leaks. In traditional web applications, where the DOM
+is dropped frequently as new pages are loaded, memory leaks may not be as big of an issue. But for us,
+as authors of highly interactive web applications, employing lots of script on pages that may hang around
+for quite some time, memory leaks can be a huge problem.
+jQuery comes to our rescue by providing a means to tack data onto any DOM element that we choose,
+in a controlled fashion, and without relying upon potentially problematic expandos.
+
+We can place any arbitrary JavaScript value, even arrays and objects, onto DOM elements by use ofthe cleverly named data() method. The syntax is:
+
+{{plain:
+<b>data(name,value)</b>
+
+Adds the passed value to the jQuery&#8208;managed data store for all wrapped elements.
+
+<b>Parameters</b>
+name (String) The name of the data to be stored.
+value (Object) The value to be stored.
+
+<b>Returns</b>
+The wrapped set
+}}
+
+
+
+Let us try an example to illustrate the methods. We will store an object into a  name called properties and then retrieved the value.
+
+<div  class="code-block console-wrap"><div class="code">
+<span class="green">
+//A program that stores an object using 
+// jQuery data()
+</span>
+<code>
+$("#msg1").data("properties",{width : "50px", height:"80px"} );
+//var obj={}
+       obj = $("#msg1").data("properties");
+var s=obj.width;
+                                log('obj.width  ', s);
+log('typeof obj', typeof obj);
+
+</code>
+</div>
+<p id="msg1" class="msg" style="width:400px;font-weight:bold;background:#fff">
+</p>
+<button class="eval">Run Code!</button>
+
+<ol class="results"></ol> 
+<img src="http://localhost/codeigniter/images/download_01.png" style="float:right"/>
+</div>
+
+
+
+
+{{plain:
+&lt;p id="one" class="some_class<span class="yellow"> &#123;item_id: 1, item_label: 'Label'&#125;</span>">This is a p&lt;/p&gt;
+}}
+
+
+<ul>
+<li id="one" class="someclass {some: 'Hello Mary!'} anotherclass"><a class="cl1">Click me to tell you my data</li></a></ul>
+<li id="two" class="someclass {some: 'Hello George!'} anotherclass"><a class="cl1">Click me to tell you my data</li></a></ul>
+<script>
+
+$('a.cl1').click(function(){
+alert($('li.someclass').metadata().some+' '+$('#two').metadata().some);
+$('#out').append(data.some);
+
+});
+</script>
+
+<p id="out">
+
+
+
+</p>
+
+
+$('li.someclass').each(function(){
+    var data = $.metadata.get(this);
+    
+});
+
+<span id="chapter">7</span>
+

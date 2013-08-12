@@ -1,0 +1,99 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+{{feature-image: http://localhost/egypt/elliott-erwitt/EE-1150.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<style type="text/css">
+.myForm{margin:15px;
+padding:15px;
+border:1px solid #bebebe;
+}
+
+</style>
+
+
+<h2>Event Handling</h2>
+
+<h3>Binding Handlers to Objects</h3>
+
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+
+function handleClick(e){
+ log('Got a click : '+e);
+ return false;
+}
+document.getElementById('myButton').onclick=handleClick;
+</code>
+
+</div>
+<form id="myForm" name="myForm">
+<button id="myButton">alert</button>
+</form>
+<div  class="msg" class="msg" style="white-space:pre;font-family:monospace;line-height:1.3">
+</div>
+<div class="console"> </div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+Notice in the example how the handler accepts an argument. DOM2 browsers pass an __Event__ object containing information about the event handlers. The name of the argument is arbritrary, but _event_, _e_ and _evt_ are commonly used. We will discuss the _Event_ object in more detail below.
+
+<h3>Event Handler Scope</h3>
+
+<h3>The addEventListener() method</h3>
+
+The preferred way of binding handlers to DOm objects is to use the __addEventListenerMethod()__.
+
+In the example below, we will change the color of text on hover. We will also log the properties of the Event object, which we are passing onto the handler.
+
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+var thisText = document.getElementById('myText');
+
+function changeColor(e) {
+  e.target.style.color = '#dd0000';
+};
+
+function showProperties(e) {
+  for (var prop in e) {
+    log(prop, e[prop]);
+  }
+};
+
+thisText.addEventListener('mouseover', changeColor, true);
+thisText.addEventListener('click', showProperties, true);
+</code>
+
+
+</div>
+<div id="myText"  style="white-space:pre;font-family:monospace;line-height:1.3">myText - mouse over me!
+</div>
+<div  class="msg" style="white-space:pre;font-family:monospace;line-height:1.3">
+</div>
+<div class="console"> </div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+
+##Further Reading
+
+
+  
+
+
+
+
+
+
+

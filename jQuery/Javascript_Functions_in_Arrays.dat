@@ -1,0 +1,108 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<style type="text/css">
+button#cbutton{color:blue}
+div#ex1{};
+
+</style>
+
+
+<h2>Storing Functions in Arrays</h2>
+Javascript kept giving me surprises when I was still finding my way through it. You can actually define anonymous functions as the elements of an array.
+
+The next example declares array <dfn>aFunctionArray</dfn> as an array of three functions:
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+var aFunctionArray = [
+   function(x) {
+        return x;
+   },
+  function(x) {
+        return x*x;
+   },
+  function(x){
+      return x*x*x;
+  }
+];
+var z=aFunctionArray[1](3);
+log(z);
+</code>
+</div>
+
+<div  class="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+It can be quite useful, if you want to run a variable against a number of functions.
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+var x = 10;
+var aFunctionArray = [
+   function(x) {
+        return x;
+   },
+  function(x) {
+        return x*x;
+   },
+  function(x){
+      return x*x*x;
+  }
+];
+
+var z = '';
+for (var i = 0; i &lt; aFunctionArray.length; i++){
+
+  log( z  += ' '+ aFunctionArray[i](x));
+}
+
+
+</code>
+</div>
+
+<div  class="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+Testing frameworks, as well as the testing unit for this website, store all the functions on a page starting from __test__ in an array and then cycle though all the array members one by one and use the __call()__ method to execute the functions asynchronously. (See [the TestCase page](/CodeIgniter/index.php/Blogs/tutorials/jQuery/TestCase_Part_II), for an explanation of this procedure.
+
+
+<hr />
+
+
+
+
+
+</script>
+
+
+
+
+
+##Further Reading
+
+[Good discussion at Yahoo Developer](http://developer.yahoo.com/ypatterns/parent.php?pattern=transition)
+
+
+
+
+
+      

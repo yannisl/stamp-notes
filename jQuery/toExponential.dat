@@ -1,0 +1,137 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+<h2>toExponential()</h2>
+To change a string literal to a number you can use, either the <strong>parseInt()</strong> method or <strong>parseFloat()</strong>.
+But!  parseInt() and parseFloat() can give you some suprises. What do you think the value of x will be in the following statement?
+
+Sometimes, in Engineering and Scientific applications numbers can get incredibly big or incredibly small. JavaScript provides a method to convert a number to scientific notation using the <strong>toExponential()</strong> method.
+
+You can find an application of this in this tutorial.
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+  n = -0.0000000000789000091;
+  log('significant digits not specified = ', n.toExponential()); 
+ log('5 significant digits  specified = ', n.toExponential(5));
+</code>
+</div>
+
+<div  class="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+Decimal placed can give someone the false impression of accuracy and are misused both by the general public as well as Engineers and Scientists. You should format your numbers to the accuracy of your calculations using the notion of {{wi: significant units}}. This is beyond the scope of this tutorial.
+
+A good rule of thumb (my own and please let me have your opinion on this) is that numbers (other than monetary values, which should be formatted as currency) that are larger than a million should be in scientific notation and any number less than 0.0001 should also be. Let us write a function for this:
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+function formatNumber(n,fractionDigits){
+  if (n>1000000||n<0.0001) {
+    return n=n.toExponential(fractionDigits); 
+  }
+  else if (formatNumber.length==2) {
+    return n.toPrecision(fractionDigits);
+  }
+  else{
+     return n;
+  }
+}  
+var n2=new Number(0.00000999);
+       Number.prototype.formatNumber=function(n,fractionDigits){
+        if (n>1000000||n<0.0001) {
+         return n=n.toExponential(fractionDigits); 
+         }
+        else if (formatNumber.length==2) {
+         return n.toPrecision(fractionDigits);
+        }
+      else{
+        return n;
+      }
+};
+var  n = -0.0000000000789000091;
+Pr =  0.7137546347486864;
+log('significant digits not specified = ', formatNumber(n)); 
+log('5 significant digits  specified = ', formatNumber(n,5));
+log('Prandl Number significant digits specified = ', formatNumber(Pr,5));
+log('Prandl Number no significant digits specified = ', formatNumber(Pr));
+log('',n2.formatNumber(0.00000056,5));
+</code>
+</div>
+
+<div  class="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+We could also extend the Number object prototype and create a format method, as shown below:
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+  
+var n2=new Number(0.00000999);
+       Number.prototype.formatNumber=function(fractionDigits){
+        var n=this.valueOf(); // returns value
+        if (n>1000000||n<0.0001) {
+         return n=n.toExponential(fractionDigits); 
+         }
+        else if (formatNumber.length==2) {
+         return n.toPrecision(fractionDigits);
+        }
+      else{
+        return n;
+      }
+};
+
+log('',n2.formatNumber(5));
+</code>
+</div>
+
+<div  class="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+I wanted to show you the above code just to arise your curiosity. Question, would this result in an error?
+
+{{plain:
+    9.89900034566.formatNumber();
+}}
+
+As you would have guessed, in this instance we have not defined the above as an object and the number id merely a 'value'. This will result in an error.
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  

@@ -1,0 +1,134 @@
+      
+<!--
+ directives
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{feature-image:/codeigniter/images/angela.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+ 
+<h3>jQuery Drag and Drop</h3>
+
+The long and short story for creating draggables with jQuery UI, is that you need a one line of code, as per the example below:
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+var options = {
+  revert: true,
+  opacity: '0.35'
+
+}
+
+$(".draggable").draggable(options);
+$("#feature-image").draggable(options);
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="box draggable" id="draggable" style="height:50px;width:50px;background-color:#dd0000">
+<p>test</p>
+</div>
+
+<div class="box draggable" id="draggable" style="height:50px;width:50px;background-color:#dd0000">
+<p>test</p>
+</div>
+
+
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+With the above code we select using jQuery selectors all elements with a class .draggable and an element with the id feature-image - it is the feature image at the right hand side. Once you activate the code by pressing the 'run' buton all these elements become draggable. Really awsome work by the jQuery team.
+
+
+
+{{bulb: I  spent over three hours to get Google' Closure drag and drop example to work under a different setting. The simplicity of jQuery's API is awesome and a reason to stay with it for UI manipulation.}}
+
+<h3>reviewing some of the options that are available</h3>
+Some interesting and useful options are __containment__, cursor, delay, distance, helper, opacity, revert, revertDuration, axis.
+
+Most of them are self-explanatory.
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+var options = {
+  revert: true,
+  opacity: '0.35',
+  axis: 'x'
+}
+
+$(".draggable").draggable(options);
+$("#feature-image").draggable(options);
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="box draggable" id="draggable" style="height:50px;width:50px;background-color:#dd0000">
+<p>test</p>
+</div>
+
+<div class="box draggable" id="draggable" style="height:50px;width:50px;background-color:#dd0000">
+<p>test</p>
+</div>
+
+
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+Once the draggable has been initialized you cannot change options as shown above, but you need to use a setter method.
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+var options = {
+  revert: true,
+  opacity: '0.35',
+  axis: 'x'
+}
+
+$(".draggable").draggable(options);
+$("#feature-image").draggable(options);
+
+var options = {
+  revert: true,
+  opacity: '0.35',
+  axis: 'x'
+}
+
+$(".draggable").draggable(options);
+$("#feature-image").draggable(options);
+
+//uncomment the code to see the change
+// via the 'setter'
+//$('.draggable').draggable('option', 'opacity', '1');
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="box draggable" id="draggable" style="height:50px;width:50px;background-color:#dd0000">
+<p>test</p>
+</div>
+
+<div class="box draggable" id="draggable" style="height:50px;width:50px;background-color:#dd0000">
+<p>test</p>
+</div>
+
+
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+
+                                                                                                                                                                                                                                                              

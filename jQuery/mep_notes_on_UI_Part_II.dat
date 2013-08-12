@@ -1,0 +1,48 @@
+<!--
+{{feature: <div class="rot-ex">... I remember the awe with which we looked at it when it performed its first production program, a computation of transversational movements of railway carriages.  <a href="http://www.cs.utexas.edu/users/EWD/ewd05xx/EWD568.PDF">E.W. Djikstra</a></div>
+}}
+{{feature-image:/egypt/amato-01/aa_151.jpg}}
+{{credit-source: Allan Amato}}
+{{credit: /codeigniter/blogs/gallery/amato-01/50}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: JavaScript, closure, google closure, javascript libraries}}
+{{snippet:using CodeIgniter's file_helper class}}
+-->
+
+
+##User Interface Design
+
+My opinion is that the most critical factor for an application to succeed is to have a simple User Interface. As users move from application to application and from place to place on the web, attention spans are very small. Gone are the days that people had the patience and the will to master an application completely.
+
+Here are my targets:
+
+- Two click navigation (everything must be reachable within two clicks).
+- Use both icons and words.
+- A portion of the navigation (toolbar) must be accessible in the same form from anywhere.
+- There should be no need to read a manual. If anything is complicated, it should be changed to a wizard to guide the user through.
+
+Essentially it is quest for the golden fleece or the making of a better mousetrap.
+<div class="clearfix">
+<img src="/CodeIgniter/images/imageJ.png" style="display:block;margin:0 auto;" /></div>
+
+One other issue that one needs to take care, is not to blast onto your user a cockpit. Most people will just leave to try it out when they have a bit more time.
+
+One example of a simple UI, but with a lot of complexity behind it, is the imajeJ shown in the figure above. If you are not familiar with this tool, is worthwhile trying it out.
+
+<div class="clearfix">
+<img src="/CodeIgniter/images/curl.png" style="display:block;margin:0 auto;" /></div>
+
+The famous Unix and Dos consoles are still favourites, if you need to use a lot of commands and you remember them. They are all what I call _one click_ commands, you do not need to navigate to get to where you want and then click. You just type the command. This is also my petty theory as to why hackers, that they would normally embrace new technology, refuse to give up the console. I also made similar observations with CAD Operators that still prefer AUTOCAD's command line to using the menus.  Beyond other advantages of consoles is also that you have a very quick response. In most cases almost instantaneous feedback.
+
+
+##Social Activity
+
+- Provide publishing to Phasebook etc.
+- Provide publishing to twitter
+- RSS feeds
+- ping services
+
+
+                                                                                                                                                                                                                                                                                                                

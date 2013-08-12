@@ -1,0 +1,63 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+
+
+
+
+
+<h2>Object (Built-in-Object)</h2>
+Object is the basic object from which all other objects are descended. It defines methods common to all objects that are often overridden to provide functionality specific to each object type. For example, the Array object provides a toString() method that functions as one would expect an array's toString() method to behave. This object also permits the creation of user-defined objects and instances are quite often used as associative arrays.
+
+<div  class="code-block console-wrap">
+<div class="code code-block">
+<code>
+var myString = new String('test');
+myString.aboutFootball = true;
+
+$that.siblings('.msg').properties(Object);
+
+</code>
+</div>
+<p class="msg" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+
+<button class="eval">Run Code!</button>
+<ol class="results" ></ol> 
+</div>
+
+<hr/>
+<h2>Prototype-Based Objects</h2>
+
+Programming languages such as Java or C++ are <strong>class based</strong> languages. An object's properties are defined by its <strong>class</strong>. In these languages the class is defined at {{wi:compile-time}}. You cannot add methods and properties at run-time.
+
+JavaScript is interpreted and has no distinction between complile-time and run-time and as such has no formal notion of a class. As such it uses a more dynamic approach allowing you to create objects on the fly as well as modify them as you please.
+
+JavaScript is a prototype-based object orientated language, meaning that every object has a prototype, an object from which it inherits methods and properties. When a property of an object is accessed or a method invoked, the interpreter first checks to see if there the object has such a method. If it does not  find an instance th interpreter check's the object's prototype for the appropriate property. In this way the properties and methods common to all objects of that type can be encapsulated in the prototype and each object can have instance properties representing the specific data for that object. For example the Date prototype should contain the method that turns the object into a string. However each instance of Date should have its own data indicating the specific date and time it represents. 
+
+Another concept of prototypical inheritance is that it is recursive. That is an object's prototype is also an object and can therefore itself have a prototype and so on.
+
+Due to this all objects in JavaScript descent from the generic <strong>Object</strong>. When the interpreter looks for a property it will ascend all the object prototypes until it reaches the Object. If the value is not found it will then and only then return an <strong>undefined</strong> (or a runtime error is thrown in the case of method invocation).
+
+
+
+
+
+
+
+
+##Further Reading
+
+http://xregexp.com/syntax/
+
+
+        

@@ -1,0 +1,62 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+{{feature-image: http://localhost/codeigniter/images/china/beauty_02.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<h3>String concat method</h3>
+
+Two or more strings can be joined by using the <strong>concat()</strong> method. When the concat method is called with zero or more arguments string1, string2, etc., it returns a
+string consisting of the characters of this object (converted to a string) followed by the characters of
+each of string1, string2, etc. (where each argument is converted to a string). The result is a string
+value, not a String object. 
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+var s1='abcd';
+var s2='efg';
+var s3=s1+s2;
+var s4 = s1.concat(s2);
+log('concatenated strings', s4);
+log('concatenated strings length', s4.length);
+log(s3.length);
+</code>
+
+</div>
+
+<div  class="msg" class="msg" style="white-space:pre;font-family:monospace;line-height:1.3">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+ECMA specifies that the concat function is intentionally generic; it does not require that its this value be a String
+object. Therefore it can be transferred to other kinds of objects for use as a method, as for example calling String.prototype.concat
+
+{{bulb: the concat() method has a performance penalty do not use, but rather use the concatenation operator (+)}}
+
+
+
+##Further Reading
+
+
+
+ 
+
+
+
+  
+  
+
+
+
+
+
+
+
+  

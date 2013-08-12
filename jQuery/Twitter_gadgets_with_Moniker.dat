@@ -1,0 +1,123 @@
+<!--
+ {{feature: ... I remember the awe with which we looked at it when it performed its first production program, a computation of transversational movements of railway cariages -  <a href="http://www.cs.utexas.edu/users/EWD/ewd05xx/EWD568.PDF">E.W. Djikstra</a>
+}}
+
+{{feature-image:/egypt/amato-01/aa_151.jpg}}
+{{credit-source: Allan Amato}}
+{{credit: /codeigniter/blogs/gallery/amato-01/50}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<style>
+.tweet,
+.query {
+	font: 120% Georgia, serif;
+	color: #085258;
+}
+
+	.tweet_list {
+		-webkit-border-radius: 0.5em;
+		-moz-border-radius: 0.5em;
+		border-radius: 0.5em;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		overflow-y: hidden;
+		background-color: #8ADEE2;
+	}
+
+		.tweet_list .awesome,
+		.tweet_list .epic {
+			text-transform: uppercase;
+		}
+
+		.tweet_list li {
+			overflow-y: auto;
+			overflow-x: hidden;
+			padding: 0.5em;
+		}
+
+			.tweet_list li a {
+				color: #0C717A;
+			}
+
+		.tweet_list .tweet_even {
+			background-color: #91E5E7;
+		}
+
+		.tweet_list .tweet_avatar {
+			padding-right: .5em; float: left;
+		}
+
+			.tweet_list .tweet_avatar img {
+				vertical-align: middle;
+			}
+
+monitter{display:block;float:left}
+</style>
+
+<a href="http://twitter.com/yannisl" class="draggable">
+<img src="/codeigniter/images/twitter-bird-red.png" class="draggable" />
+</a>
+
+<h2>Monitter Twitter Widget</h2> 
+It was inevitable that Twitter was going to be a success. Besides the social aspect since the failure of Google to provide a means for people to vote on links and the inevitable spam and SEO industries, people found in Twitter a quick means of sharing their web finds, their blog post opinions and the like. 
+
+It is fairly easy to create a plugin using jQuery [monitter](http://monitter.com) provides one to do so. You just link to a file, edit your css and presto. It is also a good way to set up your own twitter monitor on a local host.
+
+ 
+<div class="monitter curvy" id="tweets2" title="syria" lang="en" ></div> 
+<div class="monitter curvy" id="tweets2" title="libya" lang="en"></div> 
+<div class="monitter curvy" id="tweets2" title="aljazeera" lang="en"></div>
+<div class="monitter curvy" id="tweets2" title="JavaScript " lang="en"></div> 
+<div class="monitter curvy" id="tweets2" title="south africa" lang="en"></div> 
+<div class="monitter curvy" id="tweets2" title="dart" lang="en"></div>
+<div class="monitter curvy" id="tweets2" title="Cyprus" lang="en"></div>
+<div class="monitter curvy" id="tweets2" title="OWS" lang="en"></div>
+<div class="monitter curvy" id="tweets2" title="Bahrain" lang="en"></div>
+<hr/>
+###Further Reading
+
+http://oohja.com/faq
+
+https://github.com/seaofclouds/tweet/blob/master/tweet/jquery.tweet.js
+
+
+
+
+Some more code at [jquery-twit](http://code.google.com/p/jquery-twit/)
+
+<script type="text/javascript">
+$(document).ready(function(){
+$(function() {
+            $(".draggable").draggable({
+                cursor:'move',
+                //containment: 'parent',
+                zIndex: 2700
+ 
+            });
+    });
+$('#left-menu').hide();
+$('#span-17').width('1000px');
+ $('#main-content').width('1000px');
+});
+ 
+ 
+ 
+</script>  
+
+  
+<a href="https://twitter.com/yannisl" class="twitter-follow-button" data-show-count="false">Follow @yannisl</a>
+<script src="//platform.twitter.com/widgets.js" type="text/javascript"></script>
+
+
+
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                

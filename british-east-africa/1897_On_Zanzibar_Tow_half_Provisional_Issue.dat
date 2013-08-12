@@ -16,12 +16,20 @@ Estimate £250 to £300.}
 
 Three different types were used.
 
+\begin{figure}
  \plate{6}{10}{A,A,A,A,A,A,
                A,A,A,A,A,A,
-               a,b,b,b,b,b,
-               a,b,b,b,b,a,
-               a,a,a,a,a,a,
+               A,B,B, B, B, B,
+               A, B, B, B, B, A,
+               A,A,A,A,A,A,
+               A, C, A, A, C, C,
+               C, C, C, C, C, C,
+               C, C, C, C, C, C,
+               C, C, C, C, C, C,
+               C, C, C, B, A, A,
               }
+ \caption{Plating Diagram for the 1827 On Zanzibar, 2 1/2 Provisional Surcharge.}              
+\end{figure}
 
 
 

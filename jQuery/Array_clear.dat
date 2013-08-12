@@ -1,0 +1,105 @@
+               
+<!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+
+
+<h2>Array method clear()</h2>
+This Standard U Library Method clears all elements of an array. It is very similar to that provided in the Prototype library. However, we do not extend Object, but rather incoprorate it in external library.
+
+<div  class="code-block console-wrap"><div class="code-block code"><code>
+/**
+ * Clears the array.
+ * @param {ArrayLike} arr Array or array like object to clear.
+ */
+U.clear = function (arr) {
+    // for non real arrays we don't have the magic length so we delete the
+    // indices
+    if (!U.isArray(arr)) {
+        for (var i = arr.length - 1; i >= 0; i--) {
+            delete arr[i];
+        }
+    }
+arr.length = 0;
+};
+
+var a = [1, 2, 3, 4, 5];
+log('before empty ', a);
+
+U.clear(a);
+log('after empty ', a);
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+<h3>fill numeric</h3>
+The fillNumeric() method returns an array filled with numbers in ascending order.
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+/**
+ * Returns an array consisting of a list of  n numbers in ascending order from start to n.
+ *
+ * @param {*} start the start number.
+ * @param {number} n The repeat count.
+ * @return {!Array.<*>} An array with the repeated value.
+ */
+
+function fillNumeric(start, n) {
+  var array = [];
+  if (arguments.length < 2) {
+    var n = start;
+    var start = 0;
+  }
+  for (var i = start; i < n - start; i++) {
+    array[i] = i;
+  }
+  return array;
+};
+
+log(fillNumeric(4, 12));
+log(fillNumeric(13));
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+        

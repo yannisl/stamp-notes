@@ -1,0 +1,214 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<h2>jQuery extend() </h2>
+
+
+<img src="http://localhost/codeigniter/images/jquery.png" />
+Extend one object with one or more others, returning the modified object.
+
+If no target is specified, the JQuery namespace itself is extended. (See last example).
+
+This can be useful for plugin authors wishing to add new methods to JQuery.
+
+Keep in mind that the<span class="highlight"> target object</span> will be modified, and will be returned from extend().
+
+If a boolean true is specified as the first argument, JQuery performs a deep copy, recursively copying any objects it finds. Otherwise, the copy will share structure with the original object(s).
+
+Undefined properties are not copied. However, properties inherited from the object's prototype will be copied over.
+
+{{plain:
+jQuery.extend( [deep], target, object1, [objectN] )
+}}
+
+
+<div  class="code-block console-wrap"><div class="code"><code>
+
+//Merge settings and options, modifying settings.
+
+var settings = { validate: false, limit: 5, name: "foo" };
+var options = { validate: true, name: "bar" };
+jQuery.extend(settings, options);
+
+log('setting.name :', settings.name)
+
+//Merge defaults and options, without modifying the defaults
+var empty = {}
+var defaults = { validate: false, limit: 5, name: "foo" };
+var options = { validate: true, name: "bar" };
+var settings = $.extend(empty, defaults, options);
+
+//settings == { validate: true, limit: 5, name: "bar" }
+//empty == { validate: true, limit: 5, name: "bar" 
+</code>
+</div>
+
+<div  id="msg" class="msg">
+</div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+<h3>Common Pattern for Plugins</h3>
+
+If you are going to develop anything of value, you should wrap-it up into a jQuery function. 
+
+Most plugins will have some sort of defaults that can be modified by user options.
+
+A good pattern to use is to provide a third object called <dfn>settings</dfn>.
+
+Settings can then hold the merged object, without the defaultshaving been modified.
+
+<div  class="code-block clearfix"><div class="code code-block"><code>
+
+//Merge defaults and options, without modifying the defaults
+var empty = {}
+var defaults = { validate: false, limit: 5, name: "foo" };
+var options = { validate: true, name: "bar" };
+var settings = $.extend(empty, defaults, options);
+
+log("settings.validate : ", settings.validate);
+log("settings.limit : ", settings.limit);
+log("settings.name : ", settings.name);
+
+//settings == { validate: true, limit: 5, name: "bar" }
+//empty == { validate: true, limit: 5, name: "bar" 
+</code>
+</div>
+
+   <div  id="msg" class="msg">
+   </div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+<img src="http://localhost/codeigniter/images/download_01.png" style="float:right"/>
+</div>
+
+
+
+<h3>Add new methods to jQuery  using extend()</h3>
+
+
+<div  class="code-block clearfix"><div class="code code-block"><code>
+
+//Merge defaults and options, without modifying the defaults
+ (function($){
+     
+jQuery.extend({
+            base64Encode: function(input) {alert('In base64Encode')},
+            alert2: function(x){return x+'something'}
+      });
+//return this; 
+ })(jQuery);
+
+
+$.base64Encode('test');
+var s =$.alert2('test');
+$("#msg1").text(s);
+</code>
+</div>
+
+   <div  id="msg1" class="msg">
+   </div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+<img src="http://localhost/codeigniter/images/download_01.png" style="float:right"/>
+</div>
+
+<h3>Chainable plugin </h3>
+<div  class="code-block clearfix"><div class="code code-block"><code>
+
+(function($){
+    myplugin = function(msg){
+    {
+     
+        $.fn.extend({
+            base64Encode: function(msg) {
+                alert('In base64Encode')
+                },
+            alert2: function(msg){
+                return msg+'something'
+                }
+        });
+       
+    }
+     return $(this); 
+    }
+})(jQuery);
+
+
+$.myplugin.base64Encode('test');
+
+
+$.myplugin("test").base64Encode('test');
+
+</code>
+</div>
+
+   <div  id="msg1" class="msg">
+   </div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+<img src="http://localhost/codeigniter/images/download_01.png" style="float:right"/>
+</div>
+
+
+
+##Further Reading
+
+
+
+ 
+
+<div  class="code-block clearfix"><div class="code code-block"><code>
+//Merge defaults and options, without modifying the defaults
+var empty = {};
+var defaults = {
+  validate: false,
+  limit: 5,
+  name: "foo"
+};
+var options = {
+  validate: true,
+  name: "bar"
+};
+var settings = $.extend(empty, defaults, options); // from prototype
+function extend(destination, source) {
+  for (var property in source) {
+    destination[property] = source[property];
+  }
+  return destination;
+}
+var empty = extend(defaults, options);
+for (var prop in empty) {
+  log(prop, empty[prop]);
+}
+
+</code>
+</div>
+
+   <div  id="msg" class="msg">
+   </div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+<img src="http://localhost/codeigniter/images/download_01.png" style="float:right"/>
+</div>
+
+
+  
+  
+
+
+
+
+
+
+

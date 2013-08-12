@@ -1,0 +1,82 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+{{feature-image: http://localhost/egypt/elliott-erwitt/EE-1150.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<h2>Django Installation for Windows</h2>
+
+Working on windows for what are mostly programs written for Unix always gives problems. Firstly is the culture of the console, you need to work through the windows console (is it still DOS?)
+
+
+<h3>Staring the development server</h3>
+Let's verify this worked. Change into the <tt>mysite</tt> directory, if you haven't already, and run the command <tt>python manage.py runserver</tt>. You'll see the following output on the command line:
+
+{{plain:
+Validating models...
+0 errors found.
+
+Django version 1.0, using settings 'mysite.settings'
+Development server is running at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+}}
+
+You've started the Django development server, a lightweight Web server written purely in Python. This server is included with Django so you can develop things rapidly, without having to deal with configuring a production server -- such as Apache -- until you're ready for production.
+
+Now's a good time to note: DON'T use this server in anything resembling a production environment. It's intended only for use while developing. (We're in the business of making Web frameworks, not Web servers.)
+
+Now that the server's running, visit http://127.0.0.1:8000/ with your Web browser. You'll see a "Welcome to Django" page, in pleasant, light-blue pastel. It worked! I have some questions as to the validity of .. pleasant, light blue pastel, but it worked, you can see the screenshot here.
+
+
+<img src="/codeigniter/images/django-welcome-screen.jpg" style="width:80%" />
+
+<hr/>
+
+There isn't actually something more gratifying than seeing a new language speak on the web.
+Congratulations for coming so far!
+
+
+<div  class="code-block console-wrap">
+<div class="code code-block">
+<code>
+
+ 
+  
+
+</code>
+</div>
+<div  id="msg" class="msg" >
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+Python's design is elegant and appeals to computer scientists  PHP has a more pragmatic flavour that is probably appealing to web programmers. For example, in Python, $_GET and $_POST are implemented in libraries, and not within the language itself; the mentality of a computer scientist is to do things right, not provide shortcuts for the convenience of mere html hackers ;)
+
+So overall, I think that Python will never be as successful as PHP for web programming. Conversely PHP is weaker for general purpose work. And I think that is the way Python will continue to grow fastest: as a general purpose programming language, competing with  Java, C# and C++. For the time being I will explore python as I go along but will stay with PHP for work that has to be deployed.
+
+
+##Further Reading
+
+
+
+ 
+
+
+
+  
+  
+
+
+
+
+
+
+
+                

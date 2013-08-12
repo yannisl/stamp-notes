@@ -1,0 +1,347 @@
+<!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<script type="text/javascript">
+$(document).ready(function(){
+ $('#saveasform').submit(function(){
+    alert('succesful');
+    return false;
+ });
+)};
+</script>
+
+<style id="firststyle"> 
+    .goog-tabpane {
+      background: threedface;
+      padding: 5px;
+      position: relative;
+      width:95%;
+      margin:0 auto;
+    }
+ 
+    .goog-tabpane-tabs {
+      list-style: none;
+      margin: 0px;
+      padding: 0px;
+      height: 1ex;
+      position: relative;
+    }
+ 
+    .goog-tabpane-left .goog-tabpane-tabs {
+      float: left;
+    }
+ 
+    .goog-tabpane-right .goog-tabpane-tabs {
+      float: right;
+    }
+ 
+    .goog-tabpane-cont {
+      overflow: auto;
+      background: threedface;
+      border: 1px solid;
+      border-color: threedhighlight threedshadow threedshadow threedhighlight;
+      padding: 2px;
+      height: 1300px;
+    }
+ 
+    .goog-tabpane-tab, .goog-tabpane-tab-selected {
+      display: block;
+      padding: 0px 3ex;
+      background: threedface;
+      border: 1px solid;
+      margin: 0px;
+    }
+ 
+    .goog-tabpane-top .goog-tabpane-tab,
+    .goog-tabpane-top .goog-tabpane-tab-selected,
+    .goog-tabpane-bottom .goog-tabpane-tab,
+    .goog-tabpane-bottom .goog-tabpane-tab-selected {
+      float: left;
+    }
+ 
+    .goog-tabpane-top .goog-tabpane-tab,
+    .goog-tabpane-top .goog-tabpane-tab-selected {
+      border-color: threedhighlight threedshadow threedface threedhighlight;
+    }
+ 
+    .goog-tabpane-bottom .goog-tabpane-tab,
+    .goog-tabpane-bottom .goog-tabpane-tab-selected {
+    border-color: threedface threedshadow threedshadow threedhighlight;
+    }
+ 
+    .goog-tabpane-left .goog-tabpane-tab,
+    .goog-tabpane-left .goog-tabpane-tab-selected {
+      border-color: threedhighlight threedface threedshadow threedhighlight;
+    }
+ 
+    .goog-tabpane-right .goog-tabpane-tab,
+    .goog-tabpane-right .goog-tabpane-tab-selected {
+      border-color: threedhighlight threedshadow threedshadow threedface;
+    }
+ 
+    .goog-tabpane-top .goog-tabpane-tab {
+      margin-top: 3px;
+    }
+ 
+    .goog-tabpane-tab-selected {
+      font-weight: bold;
+    }
+ 
+    .goog-tabpane-tab-selected,
+    .goog-tabpane-tab-selected {
+      padding-bottom: 2px;
+      padding-top: 2px;
+    }
+ 
+    .goog-tabpane-top .goog-tabpane-tab-selected {
+      position: relative;
+      top: 1px;
+    }
+ 
+    .goog-tabpane-bottom .goog-tabpane-tab-selected {
+      position: relative;
+      top: -1px;
+    }
+ 
+    .goog-tabpane-left .goog-tabpane-tab-selected {
+      position: relative;
+      left: 1px;
+    }
+ 
+    .goog-tabpane-right .goog-tabpane-tab-selected {
+      position: relative;
+      left: -1px;
+    }
+ 
+    #tabpane2 .goog-tabpane-tab {
+      margin-top: 0px;
+    }
+ 
+    p {
+      margin-top: 0px;
+    }
+ 
+</style> 
+
+
+<script type="text/javascript">
+goog.require('goog.string');
+goog.require('goog.ui.TabPane');
+</script>
+
+##Stock related items
+
+The rough number of classes related to stock are listed, here. These exclude any accounting related classes, such as journals and the like.
+
+<div id="test1"></div>
+<div id="test" style="width:100%;padding:0;margin:0;height:auto" class="clearfix">
+
+</div>
+
+<hr/>
+
+<div  class="code-block console-wrap"><div class="code-block code"><code>
+function Companies (){
+  // Companies object from Company
+  // 
+}
+/**
+ *   stock related
+ */
+function Stock (obj){
+// defaults are used to highlight
+// missing info and for testing
+
+
+ var defaults = {
+   version : '1.0',
+   stockID : 'HS-118',
+   description : 'first name',
+   longDescription : 'long description ...',
+   barCode : '6130413567892',
+   units : 'each',
+   eOrderQuantity: 10, //economic order quantity
+   mbflag : 1,
+   lastCurrentCost: 0,
+   materialCost : 0,
+   labourCost:0,
+   overheadCost:0,
+   lowestLevel:0,
+   discontinued: false,
+   controlled: false,
+   discountCategory: 1,
+   taxcatID: 0,
+   serialized:false,
+   file: 'filename',
+   perishable: -1,
+   decimalPlaces: 2,
+   hasAccessories: true,
+   notes: '..add some notes',
+   safetyCategory: '',
+   photo : '',  //path
+   prefix: 'stock', //used for form fields
+   filename:'items.js', //persistent storage for changes
+   view:'/CodeIgniter/data/items.html?'+goog.now()+'',
+ }
+ 
+ this.settings = {};
+
+ // extend object
+ for (var prop in defaults){
+  if (defaults.hasOwnProperty(prop)){
+    this.settings[prop]=defaults[prop];
+    if (obj!==undefined && obj[prop]!==undefined){this.settings[prop]=obj[prop];};
+  }
+ }
+
+
+ this.get = function (){
+   // gets values from server
+ }
+
+ this.save = function (){
+  // saves values to server
+ }
+
+this.populate = function (){
+ var tempS = '';
+ for (var prop in this.settings){
+   tempS ='#'+this.settings.prefix + prop.capitalize();
+   $(tempS).val(this.settings[prop]);
+ }
+}
+
+this.view = function (url,callback){
+  $('#pane').load(url,callback);
+};
+
+};
+// set some option parameters
+// 
+var options = {
+ name : 'North Gate Development',
+ number: 'HS-126',
+}
+// create new stock
+stock = new Stock(options);
+
+
+stock.view(stock.settings.view, function(){
+ ('#pane').appendTo('#test').animate({'height':'100px'}).animate({'height':'1450px'}).animate({
+scrollTop: $("body").offset().top
+}, 2000);
+});
+
+$('#code1').val(z);
+$('#filename').val(stock.settings.filename);
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+
+<form id="saveasform1" name='saveasform1' style="display:block;float:right" >
+<input type="text" id="filename" name="filename" value='Person.js'/>
+<input type="button"  class="small_button" id="saveAsJS" value="Save As JS"/>
+<textarea id="code1" name='code1' hidden>testing</textarea>
+</form>
+
+<ol class="results"></ol> 
+</div>
+
+
+<hr/>
+<div id="pane" class="clearfix"></div>     
+
+
+###Notes
+
+This is possibly the most extensive and complicated Class of the Project. Automation benefits will be added later on.
+
+
+<div  class="code-block console-wrap"><div class="code-block code"><code>
+$(document).ready(function(){
+     $('#saveAsJS').click(function(){
+       $(this).css({'color':'blue'});
+       $(this).val('Saved as JS');
+       var thefilename=$('#filename').val();
+       var apiUrl="/CodeIgniter/admin/api/save/js/"+thefilename;
+       log('sending request ...'+apiUrl);
+       var dataString = "code1="+encodeURIComponent($('#code1').val())+' ';
+       $.ajax({
+          type: "POST",
+          url: apiUrl,
+          data: dataString,
+         success: function(msg) {
+           log('server says ... ok');
+          }
+      });
+      return false;
+   });
+
+
+});
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+### Notes on Classes
+
+It took a while to figure out a way to use Classes within Classes and I experimented with a number of library methods. The best conclusion I came so far, is to use standard JavaScript. It makes the code more readable and you can build a hierarchy of Classes, which you can improve on as you go along. For example the CV part of the form will be developed later on to use on its own as well as be used within the Person class.
+
+I am going to stick to this pattern for the mep application. It creates very long variable names, but is the logical method to avoid spaghetti code. It also helps to develop a quick prototype, which can then be developed at a later stage. Code can also be spread around to more than one developer without much difficulty in version control.
+
+###Rendering values workflow
+
+For each component the following workflow is envisaged:
+
+   - load the Class and dependencies using script tags
+   - load the template
+   - get values from database or server
+   - populate with the values
+   - wait for actions
+   - fetch values from server
+   - populate again
+   - repeat  
+ 
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span id="chapter" class="hidden">3</span>
+##Further Reading
+                                                                                                                                                                                                                                                                                                                                                                                                                    

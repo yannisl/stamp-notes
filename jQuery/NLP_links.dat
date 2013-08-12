@@ -1,0 +1,3 @@
+##NLP Links
+
+The [glossary](https://github.com/harthur/glossary) JavaScript module extracts keywords from text (aka "term extraction" or "auto tagging"). It takes a string of text and returns an array of terms that are relevant to the content. The package is standalone and uses part-of-speech analysis to extract the relevant terms.

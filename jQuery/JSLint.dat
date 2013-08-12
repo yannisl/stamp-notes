@@ -1,0 +1,103 @@
+ <!--
+{{feature: .. "Les parfums, les couleurs et les sens se repondent."
+Baudelaire
+
+"The perfumes, the colours and the senses match each other."}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<h2>JSLint</h2>
+{{bulb: Always use JSLint. If you haven't run your code through JSLint, then it's not really JavaScript. It's not about being cool, or smart, etc. It's about saving time and bugs ...  Dmitry Baranovkiy }}
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+// on document ready we call JSLint
+$(document).ready(function () {
+  var source = 'var a = 22; \n';
+  var myResult = JSLINT(source);
+  log(myResult);
+});
+
+var a = '1234567';
+log('is digit', a.isDigit());
+</code>
+</div>
+
+<div  class="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+// on document ready we call JSLint
+$(document).ready(function(){
+  var source = 'var a;\n   a = 22; \n function test (){ var z = 52;\n return z;}';
+  var myResult = JSLINT(source);
+  var myData = JSLINT.data();
+  alert(myResult);
+  var myReport = JSLINT.report(false);
+  $('#msg2').html(myReport);
+});
+</code>
+</div>
+
+<div  id="msg2" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+
+</div>
+
+<h3>Some caveats</h3>
+Just be aware, if you are going to incorporate jslint in your code like I have done for this website, that Crockford extended the String object with 'entityify, isDigit, name, isAlpha, supplnat and name').
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+  var a = '1234567';
+  log('is digit', a.isDigit(), a.supplant(), a.name(), a.isAlpha());
+</code>
+</div>
+<div  class="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+I would have been happier, if he didn't as it can interfere with other libraries, but nevertheless I am not generally against extending native objects, if you know the implications, but this is not something that one would have expected to see in Crockford's code, as he has been evangelizing for years not to do it.
+
+[jsHint](http://jshint.com/) is a fork of the 2010-12-6 edition of jsLint and offers a little more flexibility through its web interface. It also makes the module a Node.js module, where possible. Running your code through any of them is good practice and should be part of your routine. According to the developers it does not tyrannize your code:
+
+{{blockquote:
+JSHint is a fork of Douglas Crockford's JSLint that does not tyrannize your code. It is designed to detect errors that actually break your code while skipping things that, according to Crockford, 'are known to contribute mistakes in projects'.
+}}
+
+
+
+
+
+ 
+
+
+
+  
+  
+
+
+
+
+
+
+
+                  

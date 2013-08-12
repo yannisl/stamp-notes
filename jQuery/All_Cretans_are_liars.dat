@@ -1,0 +1,79 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+<h2>All Cretans are Liars</h2>
+
+G&ouml;del's proof of the incompleteness theorem is based on the paradox of Epimenides the Cretan, who is said to have averred,  "All Cretans are liars'' [see "Paradox,'' by W. V. Quine; Scientific American, April, 1962]. The paradox can be rephrased in more general terms as "This statement is false,'' an assertion that is true if and only if it is false and that is therefore neither true nor false.  G&ouml;del replaced the concept of truth with that of provability and thereby constructed the sentence  "This statement is unprovable,'' an assertion that, in a specific formal system, is provable if and only if it is false. 
+
+Thus either a falsehood is provable, which is forbidden, or a true statement is unprovable, and hence the formal system is incomplete. G&ouml;del then applied a technique that uniquely numbers all statements and proofs in the formal system and thereby converted the sentence "This statement is unprovable'' into an assertion about the properties of the positive integers. Because this transformation is possible, the incompleteness theorem applies with equal cogency to all formal systems in which it is possible to deal with the positive integers [see "G&ouml;del's Proof,'' by Ernest Nagel and James R. Newman; Scientific American, June, 1956]. 
+
+If we try and construct a function of the above statement, it is immediately recognized as a recurring function. (I just added a limit to break though in order not to freeze your browser. As a matter of fact the formal proof is mostly based on recursion). 
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+// The Paradox of Epiminedes
+var liar = false;
+var z = 0;
+function liars(liar){
+      
+      if (z>100) return;
+        if (liar === false) {
+          liar = true; 
+         // since he is telling the truth 
+         // his statement is wrong
+           z ++;
+           log(z);
+           liars(liar);
+       }
+         if (liar === true) {
+          liar = false; 
+         // since he is telling the truth 
+         // his statement is wrong
+           liars(liar);
+       }
+ 
+}
+
+liars(liar);
+alert(z);
+</code>
+</div>
+
+<div  class="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+<img src="http://localhost/codeigniter/images/jquery.png" style="float:right; width:85px"/>
+</div>
+
+From [Logicomix](http://www.logicomix.com/en/index.php?option=com_content&view=article&id=92&Itemid=28)
+
+(Notebook, Logicomix)  Discovered in 1901, as Russell was working on his first book on the foundations of mathematics, the Principles of Mathematics (published in 1903), the Paradox, in the form originally expressed, shows an essential flaw in Cantor’s set theory, developed from Bolzano’s simple concept of a “collection of elements with a common property”. By the generality of this definition, which Frege extended to the realm of logic, one can speak of a “sets of sets” and thus, eventually of the “set of all sets”. Of the elements of this all-encompassing set one defines the property of “self-inclusiveness”, i.e. of a set containing itself as an element. Thus, for example, the set of all sets is a set (and thus contained in itself), as is the set of all entries in a list (it can appear as an entry in a list), but the set of all numbers is not a number and thus not contained in itself. By virtue of this property, we can define the “set of all sets which don’t contain themselves”, and ask, with the young Russell, the question: “Does this set contain itself or not?” See what happens: if it does contain itself, it follows that it is one of the sets which don’t contain themselves (as this is the property that characterizes elements of this set) and thus cannot contain itself. But if it doesn’t contain itself, then it does not have the property of not containing itself, and thus does contain itself. This situation, in which assuming something implies its negation, and vice versa, is called a paradox. When a paradox, such as Russell’s, arises in a theory, it is a sign that one of its basic premises, definitions or axioms is faulty.
+
+##Further Reading
+
+
+
+ 
+
+
+
+  
+  
+
+
+
+
+
+
+

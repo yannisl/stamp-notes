@@ -1,0 +1,93 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+{{feature-image:http://localhost/CodeIgniter/images/run_time_error.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: UI, jQuery, Visibility Filters, CSS Visibility }}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<style>.firstHeading{background-color:rgb(239,239,239)}
+div.test  { width:50px; height:50px; margin:5px; border:2px outset green; float:left; }
+
+ div.ex2 { width:50px; height:50px; margin:5px; border:2px outset blue; float:left; }
+
+  .starhidden { display:none; }
+
+  
+</style>
+
+
+
+
+
+<h2 id="firstHeading" class="firstHeading" style="background-color: rgb(239, 239, 239)">
+jQuery Content Filters the :parent selector
+</h2>
+
+This selector matches all elements that are __parents__, i.e,  they have child elements. As text is considered part of the DOM it is considered a child. The example below illustrates this. The opposite of the __parent__, is the __empty__. For example in the demo below all table cells that do not have a value are captured with the second button.
+
+
+{{example:
+
+ 
+<table id="ex1" style="width:30%;float:left">
+    <tr>
+         <td style="border: 2px solid green;width:30%;background:green">Value 1</td>
+          <td style="border: 2px solid green;width:30%;background:green"></td>
+  </tr>
+    <tr>
+     <td style="border: 2px solid green;width:30%;background:green">Value 2</td>
+     <td style="border: 2px solid green;width:30%;background:green">Not Empty</td>
+</tr>
+  </table>
+  <table id="ex1" style="width:30%;float:left">
+    <tr>
+         <td style="border: 2px solid blue;width:30%;background:blue">Value 1</td>
+          <td style="border: 2px solid blue;width:30%;background:blue"></td>
+  </tr>
+    <tr>
+     <td style="border: 2px solid blue;width:30%;background:blue">Value 2</td>
+     <td style="border: 2px solid blue;width:30%;background:blue"></td>
+</tr>
+  </table>
+
+
+
+  <hr/>
+  <button id="button1" style="clear:both">Click to fade elements with text</button>
+  <button id="button2" style="clear:both">Click to fade empty elements</button>
+
+}}
+
+ <script>
+
+
+$(document).ready(function(){
+ $("#button1").click(function () {
+      $("td:parent").fadeTo(1500,0.5);
+    });
+$("#button2").click(function () {
+      $("td:empty").fadeTo(1500,0.75);
+      $("td:parent").fadeTo(1500,1.0);
+    });
+
+
+});
+
+ </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
