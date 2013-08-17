@@ -1,7 +1,7 @@
 \chapter{The Lorem Ipsum Plugin}
 
 \section{The lorem plugin}
-The command \verb+ \lorem+ will render one paragraph of {{wi: lorem_ipsum}} filler text as shown below:
+The command \verb+\lorem+ will render one paragraph of {{wi: lorem_ipsum}} filler text as shown below:
 
 
 \begin{blockquote}

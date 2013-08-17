@@ -1,4 +1,4 @@
- <!--
+
 
 {{feature-image:http://localhost/egypt/martin-schoeller/aipi_po_xaa_2007.jpg}}
 
@@ -10,7 +10,7 @@
 {{category: PHP, MVC, Parsers}}
 {{snippet:using CodeIgniter's file_helper class}}
 
--->
+
 
 <script type="text/javascript">goog.require('goog.dom.annotate');</script>
 

@@ -1,6 +1,60 @@
 \chapter{The Currency Plugin}
 
+The \euro symbol. 52\euros. €
 
-This is 50\euro and this is $1.50\cents. This is \halfp and this is \halfd. You can have \pounds also.
+
+The \textit{Currency} plugin provides convenient methods for entering currencies either through, just typing the symbols in unicode or via \tex commands.
+
+
+It also provides commands for fractional \halfd and \halfa currencies.
+
+A\textonehalf   A
+
+This is 50\euro and this is $1.52\cents. This is \half p and this is \half d. You can have \pounds also. 
 
 You an also input the symbols in unicode and they will render correctly in \tex. We will add more currencies as we go along as well as treat any numbers that follow with a thin space.
+
+
+\tablecaption{Currency Commands}
+
+\begin{tabular}{p{3cm}l}
+\verb+\euro +  & euro sign  €\\
+\verb+\cent +  & cent sign ¢\\
+\verb+\pound + & pound sign £ .\\
+\verb+\yuan +  & yuan/yen sign ¥.\\
+\verb+\textwon +  & won sign ₩.\\
+               &          
+\end{tabular}
+
+
+
+\section{Typography}
+
+A symbol sign is normally followed by a thin non-breaking space. Also if enclosed in brackets as shown in the table above, thinspaces are introduced between the (parentheses)
+(\euro 52.89) (In text a \pound. )
+
+\pounds78900000000000
+
+P 78900000000000
+
+If the currency symbol us followed by a punctuation mark, no space is inserted. For example the symbol \pound; rather than \pound 50.
+
+\section{Notes}
+
+\textit{Yuan} (\yuan) is a currency sign used by the Chinese yuan (CNY) and the Japanese yen (JPY) currencies.
+
+Back in the days when computers were still fairly new, both Japanese and Korean encodings replaced the backslash with their currency symbol; that is, the character with the value 0x5c looks like ¥ on a Japanese machine, ₩ on a Korean machine, and \ everywhere else.
+
+As operating systems moved to Unicode, you would think it would be possible for them to start using the proper symbol---but it isn't, because their keyboards don't actually produce that symbol. So, from a technical standpoint, it's a backslash, but the visuals are those of a yen/won sign. This is possible in the same way that this G looks different from this G; it's just a more extreme version of it.
+
+To avoid having a text like ¥100 from suddenly reading \verb+ \100+, Japanese and Korean fonts essentially have to perpetuate this "mistake" - there is no simple migration path, because you can't know if they meant the backslash (e.g. as a path separator on Windows), or if they actually meant the currency symbol.
+[When is a backslash not a backslash](http://blogs.msdn.com/b/michkap/archive/2005/09/17/469941.aspx).
+
+\section{Further reading}
+Jonathan Webley wrote an article on [Currency Symbols in LaTeX](http://uk.tug.org/wp-content/uploads/2009/05/baskerville101.pdf) which describes some of the commands available in LaTeX.
+
+
+[When is a backslash not a backslash](http://blogs.msdn.com/b/michkap/archive/2005/09/17/469941.aspx).
+
+
+

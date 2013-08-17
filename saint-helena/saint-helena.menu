@@ -1,6 +1,7 @@
 \begin{accordion}
 \begin{category}{Early Mail}
 \mitem{Early Mail}{Early_Mail}
+\mitem{Napoleon}{1815-1821_Napoleonic_Era}
 \end{category}
 \begin{category}{Queen Victoria}
   \mitem{1856 Issues}{1856_Issues}
@@ -38,4 +39,4 @@
  \mitem{Boer War}{Boer_War}
  \mitem{World War I censorship}{World_War_I_Censorship}
 \end{category}
-\end{accordion}                                                  
+\end{accordion}                                                    

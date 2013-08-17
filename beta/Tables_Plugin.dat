@@ -38,14 +38,60 @@ In html a table has in many ways got a more complicated structure. The only use 
 
 \begin{table}[htbp]
    \centering
-   \tablecaption{testing}
-   \begin{tabular}{llllp{3.5cm}}
-    a & b & c & d & Some ver very lond remarks we will get it to wrap.\\   
+   \tablecaption{Icelanding Air Mails}
+   \begin{tabular}{|l|l|p{5.5cm}}
+    \textbf{1928} &     &\\
+    June & 4th & \'Reykjavik-Isafjordur-Siglufjord-Akureyi.\\   
+    June & 5th & Akureyi-Reykjavic (Plane forced down near Akrar)\\
+    June & 9th & Reykjavik-Vestmannaeyjar and return.\\
+    June &26-28th & Reykjavik-Seydisfjordur-Stykkisholmur-Hornafordur\\
+    \textbf{1929} & & \\
+    July &3-4th   &Reykjavik-Saudarkrokur-Siglufjordur-Akureyri-Husavjk-Thorshofn-
+                   Seysisfjordur-Nordfjordur-Reydarfjordur\\
+    July &6th     &Reykjavik-Bildudalur-Isafjordur\\
     
+    July &9th     &Reykjavik-Ivigut (Greenland) by Captain Ahrenberg.\\
+    July &31st    &Reykjavik-Stykkisholmur-Reykjavik.\\
+    
+    \textbf{1930} & & \\
+    
+    June &27-29th &Reykjavik-Thingvellir Millenary Service.  \\
+    October &30th &Dyrafirdi-Blonduos-Holmavik-Onundarfjordur-Reykjavik.\\
+    & \multicolumn{2}{l}{This is a two column multicolumn left justified} \\
+    
+    & \multicolumn{2}{|c|}{This is a two column multicolumn centered} \\
+    June &27-29th &Reykjavik-Thingvellir Millenary Service.  \\  
+    
+    & \multicolumn{2}{|r|}{This is a two column multicolumn right justified} \\
    \end{tabular}
-   
-   
 \end{table}
+
+\section{Multicolumns}
+
+Multicolumns are marked in the same way as LaTeX with the exception that an additional specifier, specifying a class can be optionally inserted \verb+\multicolumn{2}{c,centered}{text}+. This is removed during the LaTeX run.
+
+\begin{verbatim}
+
+\begin{table}[htp]
+\begin{tabular}{lllll}
+\centering
+cell-1 &\multicolumn{3}{|c|}{These are three multicolumn  cells}  &cell-5\\
+cell-1 &\multicolumn{2}{|c|}{These are two multicolumn  cells}   &cell-4 &cell-5
+\end{tabular}
+\end{table}
+
+\end{verbatim}
+
+Will render as:
+
+\begin{table}[htp]
+\centering
+\begin{tabular}{lllll}
+cell-1 &\multicolumn{3}{|c|}{These are three multicolumn  cells}  &cell-5\\
+cell-1 &\multicolumn{2}{|c|}{These are two multicolumn  cells}   &cell-4 &cell-5
+\end{tabular}
+\end{table}
+
 
 
 

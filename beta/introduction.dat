@@ -1,5 +1,10 @@
 \chapter{Introduction}
 
+
+\begin{blockquote}[shadow]
+To not to have entirely wasted one's life seems to be a worthy accomplishment, if only for myself.
+\end{blockquote}
+
 I have developed this application for my own use, as most existing systems did not offer what I wanted. TeX mark-up has survived over 30 years and is currently the de facto method for preparing scientific papers. Although a browser can be used to render a pdf, web publishing is a different art.
 
 This application will convert mark-up to what I believe better rendering. 
