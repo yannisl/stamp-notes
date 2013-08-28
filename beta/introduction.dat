@@ -73,8 +73,10 @@ resolution shall be 12-bil.
 2.14.10.9 Analog inputs may be used in place of digital inputs except when a pulsed input from a
 utility meter is connected . In this situation only a pure digital input shall be used.
 
+\section{Why Flat Files}
+
+https://news.ycombinator.com/item?id=5229522
 
 
-
-
+<img src="http://localhost/application-latest/stamp-images/beta/che.jpg" alt="..." class="img-circle" style="height:150px"/>
 

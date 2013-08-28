@@ -1,6 +1,6 @@
 \chapter{Accordion Plugin}
 
-<div style="width:50%">
+<div style="width:50%;margin:0 auto">
 \begin{accordion}
 \begin{category}{First Heading}
 \mitem{Plugins}{Typography}
@@ -16,3 +16,22 @@
 
 \end{accordion}
 </div>
+
+
+\begin{verbatim}
+\begin{accordion}
+\begin{category}{First Heading}
+\mitem{Plugins}{Typography}
+\end{category}
+
+\begin{category}{First Heading}
+\mitem{Plugins}{Typography}
+\end{category}
+
+\begin{category}{First Heading}
+\mitem{Plugins}{Typography}
+\end{category}
+
+\end{accordion}
+
+\end{verbatim}

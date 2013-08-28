@@ -1,8 +1,8 @@
 \begin{accordion}
 \begin{accordiongroup}{General}
-  \mitem{Introduction}{Introduction}
-  \mitem{Early Letters and Document}{Early_Letters_and_Documents}
-  \mitem{Warren Expedition}{Warren_Expedition}
+  \mitem{1. Introduction}{Introduction}
+  \mitem{2. Early Letters and Document}{Early_Letters_and_Documents}
+  \mitem{3. Warren Expedition. Bechuanaland conquered.}{Warren_Expedition}
 \end{accordiongroup}
 
 \begin{accordiongroup}{Queen Victoria Reign}
@@ -57,4 +57,4 @@
 \begin{accordiongroup}{Bibliography and References}
    \mitem{Bibliography and References}{Bibliography_and_References}
 \end{accordiongroup}
-\end{accordion}                                                                                                    
+\end{accordion}                                                                                                        
