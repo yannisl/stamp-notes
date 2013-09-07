@@ -1,13 +1,4 @@
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
-{{feature-image: http://localhost/codeigniter/images/china/beauty_11.jpg}}
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
 
--->
 <h3>Array Operations</h3>
 
 Two or more arrays can be joined by using the `concat` method.

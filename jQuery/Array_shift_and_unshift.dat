@@ -1,19 +1,6 @@
- <!--
-{{feature-image:/CodeIgniter/images/china/beauty_02.jpg}}
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
 
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
+<h2>The array methods `shift()` and unshift()</h2>
 
--->
-
-
-
-
-<h2>The array methods shift() and unshift()</h2>
 The standard JavaScript functions shift() and unshift()  either delete elements from the __front__ of the array or insert elements at the __front__ of the array. The unshift method can take more than one arguments. A datastructure implemented only with arrays and shift() and unshift(), will represent a LIFO (last in first out) operation. 
 
 {{bulb: shift() and unshift()   change the original array.}}
