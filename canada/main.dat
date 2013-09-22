@@ -1,6 +1,39 @@
 
+\input{Background}
+\input{PostmastersProvisional}
+\input{First_Stamps}
+\input{First_Cents_Issue}
+\input{Second_Issue}
+\input{Perforated_Stamps}
 
+\input{First_Dominion_Issue}
 \input{1869_One_Cent_Orange}
+
+\input{The_Small_Cents_Stamps}
+
+\input{1893_8_Cent_Issue}
+
+\input{Diamond_Jubilee}
+
+\input{Maple_Leaf_Issue}
+
+\input{1898_Numeral_Issue}
+
+\input{1898_Map_Stamps_Issue}
+
+
+
+\input{1900_20_cents_stamp}
+
+\input{Queen_Victoria_Seven_Cents_Stamp}
+
+\input{King_George_V_Stamp_Issues}
+
+\input{Officially_Sealed_Labels}
+
+\input{Postage_Due_Stamps}
+
+\input{Registration_Stamps}
 
 \end{document}
 \input{1893_8_Cent_Issue}

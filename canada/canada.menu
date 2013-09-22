@@ -1,0 +1,36 @@
+\begin{accordion}
+
+  \begin{category}{General}
+    \mitem{Background}{Background}
+    \mitem{Introduction}{Introduction}
+  \end{category}
+
+  \begin{category}{Early Stamp Issues}
+  \mitem{II. Postmaster's Provisional}{PostmastersProvisional}
+  \mitem{III. First Issue}{First_Stamps}
+  \mitem{VI. First Cents Issue}{First_Cents_Issue}
+  \mitem{IV. The Second Issue}{Second_Issue}
+  \mitem{V. The Perforated Issue}{Perforated_Stamps}
+  \mitem{VII. First Dominion Issue}{First_Dominion_Issue}
+  \mitem{VIII. 1869 One Cent Orange}{1869_One_Cent_Orange}
+ 
+  \mitem{X. The Small Cents Stamps}{The_Small_Cents_Stamps}
+  \mitem{XII. 1893 8c Issue}{1893_8_Cent_Issue}
+ \mitem{XIII Diamond Jubilee}{Diamond_Jubilee}
+ \mitem{XIV. Maple Leaf Issue}{Maple_Leaf_Issue}
+ \mitem{XV. 1898 Numeral Issue}{1898_Numeral_Issue}
+  \mitem{XVI. 1898 Map Issue}{1898_Map_Stamps_Issue}
+   \mitem{XX. 1900 20c Stamp}{1900_20_cents_stamp}
+  \mitem{XXI QV 7c Issue}{Queen_Victoria_Seven_Cents_Stamp}
+ \end{category}
+
+ \begin{category}{Back of the Book}
+   \mitem{XXXI Officially Sealed Labels}{../canada/Officially_Sealed_Labels}
+  \mitem{XXX. Postage Due stamps}{../canada/Postage_Due_Stamps}
+  \mitem{XXIX. Registration Stamps}{Registration_Stamps}
+ \end{category}
+
+ \begin{category}{King George V}
+ \mitem{XXIV. King George V Issues}{King_George_V_Stamp_Issues}
+ \end{category}
+\end{accordion}                                                                
