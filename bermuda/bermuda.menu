@@ -5,4 +5,11 @@
 \begin{category}{Dry Docks}
 \mitem{1901-3 Dry Docks}{../bermuda/1903_Dry_Docks}
 \end{category}
-\end{accordion}          
+
+
+\begin{category}{Queen Elizabeth II}
+\mitem{1953 Definitives}{../bermuda/1953_Queen_Elizabeth}
+\mitem{1962-68 Definitives}{1962-65_Definitives}
+\mitem{1968 Olympics}{1968_Olympics}
+\end{category}
+\end{accordion}                
