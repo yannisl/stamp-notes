@@ -1,0 +1,41 @@
+\chapter{Materials DB}
+
+
+\begin{enumerate}
+
+\item Release from Site. 
+
+\item Quotations. 
+
+\item Price Comparions.
+
+\item Comparison with Tender.
+
+\item Approval Procurement Manager.
+
+\item Approval Procurement Manager.
+
+\item Approval PD.
+
+\item Approval Engineer.
+
+\item ETA.
+
+\item Required on Site.
+
+\end{enumerate}
+
+
+When a step is reached, an email is automatically sent for persons to approve.
+
+\section{Document Control}
+
+The system shall be used for document control as well, i.e., people will be allowed to upload and save information in the form of pdfs, excel sheets etc, in a flexible directory structure.
+
+\section{Reports and Views}
+
+
+\section{Exporting to Excel Sheets}
+
+
+
