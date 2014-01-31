@@ -2,15 +2,15 @@
 
 1-100, 101-200, 201-300, 301-400  
 
-\begin{stripedtable}
-\TR5 &1 &Cape Town & & &
-\TR5 &2 &Port Elizabeth & & &
-\TR5 &3 &Grahamstown & & &
-\TR5 &4 &King Williamstown & & &
-\TR5 &5 &Avontuur & & &
-\TR5 &6 &Wynberg  & & &
-\TR5 &7 &Bedford  & & &
-\TR5 &8 &         & & &
-\TR5 &9 &Ceres    & & & 
-\TR5 &10 &Clanwilliam    & & &
-\end{stripedtable}            
+\begin{tabular}{llllll}
+ &1 &Cape Town & & &\\
+ &2 &Port Elizabeth & & &\\
+ &3 &Grahamstown & & &\\
+ &4 &King Williamstown & & &\\
+ &5 &Avontuur & & &\\
+ &6 &Wynberg  & & &\\
+ &7 &Bedford  & & &\\
+ &8 &         & & &\\
+ &9 &Ceres    & & & \\
+ &10 &Clanwilliam    & & &\\
+\end{tabular}            

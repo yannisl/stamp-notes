@@ -9,4 +9,15 @@
 <li><a href="../hong-kong/1876_77_Surcharges">1876-77 Surcharges</a></li>
 <li><a href="../hong-kong/1891_Jubilee">1891 Jubilee Issue</a></li>
 </ul>
-</div>        
+</div> 
+
+\begin{accordion}
+\begin{category}{Treaty Ports}
+\mitem{Amoy}{../hong-kong/Amoy}
+\mitem{Canton}{../hong-kong/Canton}
+\mitem{Yokohama}{../hong-kong/yokohama}
+\mitem{Foochow}{../hong-kong/Foochow}
+\mitem{Ningpo}{../hong-kong/Ningpo}
+\mitem{Swatow}{../hong-kong/Swatow}
+\end{category}
+\end{accordion}                     

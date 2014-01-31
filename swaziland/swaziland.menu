@@ -13,6 +13,7 @@
 \end{category}
 
 \begin{category}{King George V Period}
+ \mitem{1933 Definitives}{1933_King_George_V}
  \mitem{1935 Silver Jubilee}{1935_Silver_Jubilee}
 \end{category}
 
@@ -38,6 +39,10 @@
  \mitem{Telegraph Office}{Telegraph_Office}
 \end{category}
 
+\begin{category}{Revenues}
+  \mitem{King George VI}{Revenues}
+\end{category}
+
 \begin{category}{Bibliography and References}
  \mitem{Bibliography}{Bibliography_and_References}
  \mitem{Websites}{Websites}
@@ -45,4 +50,4 @@
 
 \end{accordion}    
 
-                             
+                                 

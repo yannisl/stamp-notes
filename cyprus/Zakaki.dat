@@ -1,22 +1,18 @@
-<!--{{feature-image:}}-->
-##Cyprus Under the British
-### Zakaki
 
-<div style="clear:both"></div>
+\chapter{Cyprus Under the British}
+\section{Zakaki Village}
 
-<div style="width:90%;margin:0 auto">
-<img src="http://localhost/egypt/cyprus-stamps/769-001.jpg" style="width:85%;" class="center" />
-<p style="font-size:smaller"> 
-C Cover fr. with 10 mils (Fr.178), canc. "ZAKAKI*RURAL POSTAL SERVICE" (typ.31b) to Lefkosia.
+\lorem \ref{one}
 
-EU 20
+\ph[80%]{../cyprus/769-001.jpg}{C Cover fr. with 10 mils (Fr.178), canc. "ZAKAKI*RURAL POSTAL SERVICE" (typ.31b) to Lefkosia.
+EU 20\label{one} }
+
+\ph[80%]{../cyprus/769-001.jpg}{C Cover fr. with 10 mils (Fr.178), canc. "ZAKAKI*RURAL POSTAL SERVICE" (typ.31b) to Lefkosia.
+EU 20}
+
+\ph[80%]{../cyprus/769-001.jpg}{C Cover fr. with 10 mils (Fr.178), canc. "ZAKAKI*RURAL POSTAL SERVICE" (typ.31b) to Lefkosia.
+EU 20}
 {{K420}}
-</p>
-</div>
-
-
-
-
 {{rural}}
 
 

@@ -24,11 +24,15 @@
     \mitem{1907-9}{Fourth Series}
  \end{category}
 
+\begin{category}{Provisionals}
+\mitem{1908 Provisionals}{1908_Provisional}
+\end{category}
 \begin{category}{King George V}
 
 \end{category}
 
 \begin{category}{King George VI}
+\mitem{1912-20 KIng George}{1912-20_King_George}
 \end{category}
 
 \begin{category}{Queen Elizabeth II}
@@ -74,4 +78,4 @@
 
 
 
-\end{accordion}                          
+\end{accordion}                              

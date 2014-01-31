@@ -20,7 +20,7 @@ the Table in figure 1. \verb++ test ++ and another \verb++ TESTSTT++
 
 \begin{figure}
 
- \plate{6}{10}{c,b,c,c,c,7, b,b,a,c,d,c,a,c,
+ \plate{6}{10}{c,b,c,c,c,c, b,b,a,c,d,c,a,c,
  c,a,a,c,d,c,a,d,c,d,b,b,a,c,d,c,a,c,c,a,a,c,d,c,a,d,c,d,b,b,a,c,d,c,a,c,c,a,a,c,d,c,a,d,c,jj,}
               
  \caption{A Plating diagram} 
