@@ -31,7 +31,7 @@ TWO PENCE:2d rose-carmine SG 2, good even margins, part o.g., Cat ?600. Unused e
 \caption{	
 TWO PENCE:2d posthumous uncleared die proof of the defaced die in black on wove paper (67x81mm). A beautiful proof & exceptional exhibit item. Several impressions were taken in in 1931. RPSofL Certificate (1982). [This die was rejected because of the "Knitting Needle" flaw through the Queen's Eye. Harry Lower's similar proof sold for $3220]}
 \end{marginfigure}
-\begin{blockquote}
+\begin{letter}
 " Colonial Secretary's Office, N.S.W." and dated October 20th,
 " (i) The postage on all letters or packets intended to be forwarded to any
 of the neighbouring Colonies must be prepaid by stamps. (2) The postage rate
@@ -42,8 +42,8 @@ exceeding 1 oz. 6d., and for each additional ounce or fraction of an ounce two
 additional rates. Each colony to retain its own collections. Ship Letters :
 Masters of vessels to receive 1d. at port of departure.
 
-E. DEAS THOMSON."
-\end{blockquote}
+\closing{E. DEAS THOMSON."}
+\end{letter}
 
 
 
@@ -239,8 +239,8 @@ him of the arrival of " postage stamps of the value respectively of sixpence and
 one penny," adding that " in accordance with the instructions received from you
 they have been counted by the officers appointed for that duty and delivered over
 to the Treasurer." Then follows an interesting note. " I have, however, to add
-that the invoice forwarded states the numbers to be of M. 500,000, of id. 200,000,
-whereas, on counting, the numbers were found to be of (id. 499,680, of id. 200,160,
+that the invoice forwarded states the numbers to be of M. 500,000, of 1d. 200,000,
+whereas, on counting, the numbers were found to be of (1d. 499,680, of 1d. 200,160,
 as appears by the certificates of the officers who counted them, viz. : G. W.
 Hawkes, J. W. Lewis, Chief Clerk Postal Department." A simple division sum
 discloses the fact that 2082 sheets of the sixpenny stamps were sent out and
@@ -338,7 +338,8 @@ necessary there would be no objection if deemed advisable to have the form
 changed, say, to an oval, something similar to the shilling stamp lately adopted
 by the London Office, the colour, however, to be that of the pattern enclosed
 and the words South Australia to be introduced.
-JOHN WATTS.
+
+\closing{JOHN WATTS.}
 \end{letter}
 
 This letter with its postscript is of considerable interest as a revelation of the man to whom in their earliest days the postal fortunes of South Australia were
@@ -366,7 +367,9 @@ daring deed.
 
 \begin{letter}
 C.S.O. 811/57. G.P.O., ADELAIDE,
+
 May 2oth, 1857.
+
 SIR,
 
 With reference to my communication of the 19th February last, relative
@@ -407,12 +410,15 @@ General that they be burnt in the presence of an officer of his Department and o
 the Treasury.
 
 I have the honour, etc.,
+
 JOHN WATTS,
 P.M.G.
 Referred to the Treasurer with whom the correspondence referred to within rests.
 OLIVER K. RICHARDSON,
 Under-Secretary.
+
 I concur on the recommendation of the Postmaster-General.
+
 R. TORRENS,
 Treasurer.
 2/5/57-
@@ -421,8 +427,9 @@ B. T. FINNISH,
 C.S
 C.S.O. 918/57. G.P.O., ADELAIDE,
 5th June, 1857.
-We hereby certify that we have this day burnt and destroyed 2083 /^
+We hereby certify that we have this day burnt and destroyed 2083 
 sheets:
+
 500,000 shilling postage stamps in accordance with the instructions contained
 in the Honourable the Chief Secretary's letter of the 24th ult. No. 664/57
 addressed to the Postmaster-General.
@@ -446,13 +453,13 @@ I have the honour to be, Sir,
 
 Your most obedient servant,
 
-JOHN WATTS,
-P.M.G.
-The Honourable
-the Chief Secretary.
+\closing{JOHN WATTS,}
+\closing{P.M.G.}
+\closing{The Honourable}
+\closing{the Chief Secretary.}
 \end{letter}
 
-The above figures show that exactly 500,000 stamps were destroyed ; but
+The above figures show that exactly 500,000 stamps were destroyed; but
 they also reveal the fact that Messrs. Perkins, Bacon & Co. either sent 2083 sheets
 and a block of 80 to make the number precisely that of the order which they
 received, retaining 160 in London, or that 2084 sheets were despatched to Adelaide

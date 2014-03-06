@@ -9,4 +9,10 @@
   \mitem{Bellevue Camp}{Bellevue_Camp}
   \mitem{Trichinopoly Camp}{Trichinopoly_Camp}
  \end{category}
-\end{accordion}              
+
+\begin{category}{Sieges}
+\mitem{Ladysmith Siege}{Ladysmith_Siege}
+\mitem{Schweizer Reinecke}{Siege_of_Schweizer_Reinecke }
+\end{category}
+
+\end{accordion}                      

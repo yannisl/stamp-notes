@@ -1,12 +1,17 @@
-<div style="width:230px">
-<ul id="LHnav" style="margin-left:0px;width:210px">
-<li><a href="../solomon-islands/introduction">Historical Background.</a></li>
-<li><a href="../solomon-islands/introduction">Postal History Introduction</a></li>
-</ul>
+\begin{category}{Background}
+\mitem{History}{History}
+\end{category}
 
-<h4 class="country" style="background:#000040">...</h4>
-<ul id="LHnav" style="margin-left:0px;width:210px">
-  <li><a href="../solomon-islands/  ">...</a></li>
-  <li><a href="../solomon-islands/ ">...</a></li>
-</ul>
-</div>  
+\begin{category}{Early Mail}
+\mitem{Paid Handstamps}{Paid_Handstamps}
+\end{category}
+\begin{category}{1907 Large Canoe}   
+\mitem{The Large Canoes}{First_Issue_Large_Canoes}
+\mitem{1d Large Canoe}{1d_Large_Canoe}
+\mitem{2d Large Canoe}{2d_Large_Canoe_Study}
+\mitem{2 1/2d Large Canoe}{two-half_Large_Canoe}
+\mitem{6d Large Canoe}{6d_Large_Canoe}
+\mitem{1s Large Canoe}{1s_Large_Canoe}
+\mitem{Large canoe Forgeries}{Large_Canoe_Forgeries}
+\mitem{Large Canoe Covers}{Large_Canoe_Covers}
+\end{category}                            
