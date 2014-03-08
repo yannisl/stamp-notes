@@ -1,8 +1,32 @@
 ##1927 Statistical Congress
 
+The stamps were issued on 29 December 1929 and remained in circulation until 16 March 1928. They were printed in photgravure by the Survey Department in Cairo as the previous issues.
 
+\begin{figure}
+\includegraphics[width=1.0\textwidth]{../egypt/1927-statistical.jpg}
+\end{figure}
+
+\subsection{Quantities Printed}
+The stamps were printed in relatively smaller quantities and these are tabulated in Table~\ref{statsqty}
+
+\begin{margintable}
+\begin{tabular}{llc}
+\toprule
+5m. &302,000 &stamps\\
+10m. &202,000 &" \\
+15m. &202,000 &"\\
+\bottomrule
+\end{tabular}
+
+\tablecaption{1927 Statistical Congress, quantities printed.}
+\label{statsqty}
+\end{margintable}
+
+
+\begin{comment}
 Scott   |SG   |Date |Notes  |Value| |
 ------- | --- | ----| ----- | --|----------------------------------------- |
 150     | 173 | 1927 |5m  brown|      |<img src="http://localhost/egypt/egypt-stamps/EgSG173.jpg" >|  
 151     | 174 | 1927 |10m red|   |<img src="http://localhost/egypt/egypt-stamps/EgSG174.jpg" >| 
 152     | 175 | 1927 |15m blue|   |<img src="http://localhost/egypt/egypt-stamps/EgSG175.jpg" >  |
+\end{comment}

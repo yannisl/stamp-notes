@@ -1,49 +1,35 @@
-<!--{{ }}-->
+
 ##1946 Postage Stamp Anniversary
 
 
-
-<div style="width:90%;margin:0 auto;display:block">
-<img src="http://localhost/egypt/egypt-stamps/232409.jpg" style="width:60%;display:block;margin:0 auto"/> 
-{{ex:Delta}}
-<p style="font-size:smaller">
+\begin{figure*}
+\includegraphics[width=1.0\textwidth]{../egypt/232409.jpg}
+\caption{
+ex:Delta
 Lot 258
-
-
-
 Egypt, 1946, Postage Stamp Anniversary, 17m + 17m, imperforate (Nile Post C100d. Scott B5 var. SG 309 var.), single, original gum, lightly hinged, Very Fine, only 100 copies printed, hinged onto certificate of genuineness from the Palace Collection. 
 Estimate $100 - 150.
-
- 
 Realized $189
-</p> 
-</div>
+}
+\end{figure*}
 
 
 
 
-
-
-<div style="width:98%;margin:0 auto;display:block">
-<img src="http://localhost/egypt/egypt-stamps/232407.jpg" style="width:50%;display:block;margin:0 auto"/> 
-{{ex:private collection}}
-<p style="font-size:smaller">
-Lot 256
-
-
-
+\begin{figure}
+\includegraphics[width=0.4\textwidth]{../egypt/232407.jpg} 
+\caption{Lot 256
 Egypt, 1946, Postage Stamp Anniversary, 1m + 1m gray (Nile Post C98d. Scott B3 var. SG 307 var.), original gum, never hinged, Very Fine, a rare eye-catching variety. 
 Estimate $400 - 600.
-
- 
 Realized $1,062
-</p> 
-</div>
+}
+\end{figure}
 
 
- I get 10 times more traffic from [Google] [aa] than from
-[Yahoo] [2] or [MSN] [3].
+\begin{figure}
+\includegraphics[width=0.8\textwidth]{../egypt/8649.jpg} 
+\caption{Lot: 554		Sale: 47 Egypt: 1946 Anniversary of First Egyptian Stamp 17m. + 17m. brown, imperforate block of four (two are unmounted) all with large green guarantee handstamp on gum. S.G. 309 var. Photo. Price Realised £220
+}
+\end{figure}
 
-  [aa]: http://google.com/        "Google"
-  [2]: http://search.yahoo.com/  "Yahoo Search"
-  [3]: http://search.msn.com/    "MSN Search"                       
+                  
