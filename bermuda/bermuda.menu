@@ -1,4 +1,9 @@
 \begin{accordion}
+
+\begin{category}{Background}
+\mitem{Introduction}{Introduction}
+\end{category}
+
 \begin{category}{Early Mail}
 \mitem{1726-1839 Early Mail}{../bermuda/1726-1839_Early_Letters}
 \end{category}
@@ -12,4 +17,4 @@
 \mitem{1962-68 Definitives}{1962-65_Definitives}
 \mitem{1968 Olympics}{1968_Olympics}
 \end{category}
-\end{accordion}                
+\end{accordion}                  
