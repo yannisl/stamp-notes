@@ -1,5 +1,24 @@
-\begin{category}{1888 Local Surcharges}
+\begin{category}{1865 No Watermark, Perf. 14}
+\mitem{Printer's Records}{1865_No_Watermark_Perforation_14}
+\mitem{Specimens}{1865_No_Watermark_Perforation_14_Specimens}
+\mitem{The Issued stamps}{1865_No_Watermark_Perforation_14_Stamps}
+\end{category}
 
+\begin{category}{1872-79 Watermark Crown CC}
+\mitem{1872-79 Watermark CC}{1872-79_Watermark_CC}
+\mitem{Specimens & Cancelled Stamps}{1872-79_Watermark_CC_Specimens}
+\mitem{Issued Stamps}{1872-79_Watermark_CC_Issued_Stamps}
+\mitem{Covers}{1872-79_Watermark_CC_Covers}
+\end{category}
+
+\begin{category}{1882-87 Watermark Crown CA}
+\mitem{Preparations}{1882-87_Watermark_Crown_CA}
+\mitem{Specimens}{1882-87_Watermark_Crown_CA_Specimens}
+\mitem{Covers}{1882-87_Watermark_Crown_CA_Covers}
+\end{category}
+
+
+\begin{category}{1888 Local Surcharges}
 \mitem{1888 Surcharges 2cents}{1888_Surcharges}
 \mitem{1888 Surcharges 3c on 3d}{1888_Surcharges_3c}
 \mitem{1888 Surcharges 10 cents}{1888_Surcharges_10c}
@@ -8,8 +27,37 @@
 \mitem{1888 Surcharges Uses}{1888_Surcharges_Covers}
 
 \mitem{1888 "Two" on 50c}{1888_Two_on_50c}
+
+\mitem{Bisects}{1888_Bisected}
 \end{category}      
 
 \begin{category}{1888-91 London Surcharges}        
 \mitem{1888-91 London Provisionals}{1888-91_London_Provisionals}
-\end{category}  
+\end{category}
+
+\begin{category}{1891 6c Surcharge}
+\mitem{Essays}{1891_6c_Surcharges}
+\end{category}
+
+\begin{category}{1891 Key Plate Issue}
+\mitem{Printer's Archives}{1891_1901_Key_Plate_Issue}
+\mitem{Covers}{1891_1901_Key_Plate_Issue_Covers}
+\end{category}
+
+\begin{category}{King Edward VII}
+\mitem{1902-04 Printer's Archives}{1902-4_King_Edward_VII_Archives}
+\mitem{1902-04 Specimens}{1902-4_Specimens}
+\mitem{1902-04 Issued Stamps}{King_Edward_VII}
+\mitem{1904-07 Issue}{1904-07_King_Edward_VII}
+\mitem{1908-11 King Edward}{1908-11_King_Edward_VII}
+\end{category}
+\begin{category}{King George V}   
+\mitem{King George Issue}{King_George_V}
+\mitem{1913-21 King George V}{1913-21_King_George_V}
+\mitem{1916-18 War Stamps}{1916-18_War_Stamps}
+\mitem{1921 Peace Commemoration}{1921_Peace_Commemoration}
+
+\mitem{1922 4c with "peace" omitted}{1922_4c_with_peace_omitted}
+
+\mitem{1922-33 King George V}{1922-33_King_George_V}
+\end{category}                                                      
