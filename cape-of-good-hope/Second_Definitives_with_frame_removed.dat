@@ -13,14 +13,20 @@ With the exception of the Six Pence and One Shilling stamps which
 retained the outer frame line.
 
 
-\ph[47%]{../cape-of-good-hope/clip_image002_0002.jpg}{
+\begin{marginfigure}
+\includegraphics[width=1.0\textwidth]{../cape-of-good-hope/clip_image002_0002.jpg}
+\caption{
 Retouched Die Showing the Outer Frame Line Removed
 }
-\ph[47%]{../cape-of-good-hope/clip_image002_0001.jpg}{
+\end{marginfigure}
+
+\begin{marginfigure}
+\includegraphics[width=1.0\textwidth]{../cape-of-good-hope/clip_image002_0001.jpg}
+\caption{
 Original Die Showing the Outer Frame Line (You can see the frame easier 
 if you look at the bottom of the stamp)
 }
-
+\end{marginfigure}
 
 It appears that De La Rue wrote to the Crown Agents on July 12, 1870 
 reasoning that the firm was againt the stamps having thin frame lines

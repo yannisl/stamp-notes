@@ -19,6 +19,9 @@ Use the code below:
 \phc[37%]{../beta/che.jpg}{Che \label{centerfigure} and more...  }
 \end{verbatim}
 
+\phl[37%]{../beta/che.jpg}{Che \label{centerfigure} and more...  }
+
+
 \section{Margin Figures}
 
 Margin figures are inspired by Tufte. In the browser since we do not have margins we display them as wrapped figures. They require lot's of text around them. If you use them you have to use a class such as Tufte for the print publication. If it is not defined they revert to normal figures in classes such as book.
