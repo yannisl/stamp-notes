@@ -6,6 +6,9 @@
  \mitem{1894-96 Issue}{1894-96_Definitive_Issue}
 \end{category}  
 
+\begin{category}{Provisionals}
+\mitem{Postal Fiscals}{Postal_Fiscals}
+\end{category}
 \begin{category}{Post Offices and Cancellations} 
  \mitem{Manuscript Cancellations}{Manuscript_Cancellations}
 \end{category}
@@ -13,4 +16,4 @@
 \begin{category}{Postal Stationery}
  \mitem{Introduction}{Postal Stationery}
 \end{category}
-\end{accordion}                
+\end{accordion}                  

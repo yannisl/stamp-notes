@@ -1,15 +1,25 @@
-<div style="width:230px">
-<ul id="LHnav" style="margin-left:0px;width:210px">
-<li><a href="../trinidad/introduction">Historical Background.</a></li>
-<li><a href="../trinidad/introduction">Postal History Introduction</a></li>
-</ul>
+\begin{accordion}
+\begin{category}{Early Letters}
+\mitem{Early Mail}{Early_Mail}
+\end{category}
+\begin{category}{Lady McLeod}
+\mitem{Lady McLeod}{Lady_McLeod}
+\end{category}   
 
-<h4 class="country" style="background:#000040">1857 issue</h4>
-<ul id="LHnav" style="margin-left:0px;width:210px">
-  <li><a href="../trinidad/1857_Issue ">1857 Issue</a></li>
- <li><a href="../trinidad/1859_Issue ">1859 Issue</a></li>
- <li><a href="../trinidad/1863_Issue ">1863 Issue</a></li>
- <li><a href="../trinidad/1876_Issue ">1876 Issue</a></li>
-  <li><a href="../trinidad/ ">...</a></li>
-</ul>
-</div>          
+\begin{category}{1884-94 Typographed Issue}
+\mitem{Printers Records}{1884-94_Typographed_Issue}
+\end{category}
+\begin{category}{1896-1900 Britannia}
+\mitem{1896-1900 Britannia}{1896-1900_Britannia_Issues}
+\end{category}
+\begin{category}{1898 Centenary}          
+\mitem{1898 Landing on Trinidad}{1898_Landing_on_Trinidad}
+\end{category}    
+\begin{category}{1899 Unissued}
+\mitem{1899 Unissued}{1899_Unissued}  
+\end{category}  
+\begin{category}{Back of the Book}
+\mitem{Officials}{Officials}
+\mitem{Postage Dues}{Postage_Dues}
+\end{category}    
+\end{accordion}
