@@ -6,6 +6,11 @@
 \mitem{Lady McLeod}{Lady_McLeod}
 \end{category}   
 
+\begin{category}{De La Rue Printings}
+\mitem{De La Rue Contract}{1863_Issue}
+\mitem{Shippinf Dates}{De_La_Rue_Shipping_Dates}
+\end{category}
+
 \begin{category}{1884-94 Typographed Issue}
 \mitem{Printers Records}{1884-94_Typographed_Issue}
 \end{category}
@@ -22,4 +27,4 @@
 \mitem{Officials}{Officials}
 \mitem{Postage Dues}{Postage_Dues}
 \end{category}    
-\end{accordion}
+\end{accordion}    
