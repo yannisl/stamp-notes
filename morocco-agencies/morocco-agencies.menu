@@ -5,7 +5,7 @@
  \end{category}
 
  \begin{category}{Gibraltar Issues}
-
+\mitem{1898-1900 Local overprint}{1898-1900_Local_Overprint}
  \end{category}
 
  \begin{category}{Edward VII}
@@ -46,4 +46,4 @@
     \mitem{Parcel Post}{Parcel_Post}
     \mitem{Money Order Office}{Money_Order_Office}
   \end{category}
-\end{accordion}                                                  
+\end{accordion}                                                    

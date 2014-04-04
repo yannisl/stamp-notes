@@ -1,12 +1,3 @@
- <!--
-{{feature: .. How I need a drink, alcoholic in nature, after the heavy lectures involving quantum mechanics! }}
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: UI, jQuery, Visibility Filters, CSS Visibility }}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
 
 <style>
  .hidden{display:none;}

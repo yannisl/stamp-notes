@@ -1,15 +1,3 @@
- <!--
-{{feature: .. A discussion of bubble sort with warnings that the performance
-is bad and the code isn't simple (arguably) is like
-telling someone "don't think about pink elephants. <a href="http://www.cs.duke.edu/~ola/papers/bubble.pdf">Owen Astrachan</a> }}
-{{feature-image: http://localhost/egypt/elliott-erwitt/EE-1150.jpg}}
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
 
 <h2>Bubble Sort Part II - Performance</h2>
 

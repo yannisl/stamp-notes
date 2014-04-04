@@ -1,3 +1,4 @@
+
 \section{array}
 
 This file contains utilities for arrays, with the  base object being \textbf{array}. I will be spending a bit of time to dissect the inner workings of these routines, especially since Closure has been criticised at Sitepoint for some oversignts of micro-optimization, such as not using a predefined length in loops, resulting in slower implemenations. As you can see for yourself by running the example here, the time difference is in microseconds once you are looping over 100,000 loops. The V8 engine is intelligent enough to optimize looping, without depending on the programmer to do this.
