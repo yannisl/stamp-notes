@@ -2,11 +2,11 @@
            % \input{early_mail}
            % \input{early_mail_part2}
            % \input{early_mail_part3}
-            
+            \end{document} 
             \input{Crown_in_Circle}
             \input{1852-58_the_imperforated_seated_brittania_issues}
             \input{1852-58_the_imperforated_seated_brittania_issues_2d}
-           \end{document}             
+                       
             \input{1855_the_imperforated_seated_brittania_issues_4d}
 			\input{1858_Sixpence}
 			\input{1858_One_Shilling} 

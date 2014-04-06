@@ -1,5 +1,7 @@
 \chapter{Parshape}
 
-
-\phl[48.5%]{../beta/versalius-2.jpg}{}
+\begin{figure*}
+\phl[48%]{../beta/versalius-2.jpg}{}
 \phl[47%]{../beta/versalius.jpg}{}
+\end{figure*}
+\printlayout 

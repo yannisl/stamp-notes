@@ -41,7 +41,7 @@ log('a');
 
 
 
-\blue{test} and something \red{testing}  This is a 
+The ++ \blue{test} ++ and something \red{testing}  This is a 
 \purple{testing colored span and something}
 
 

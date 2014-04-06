@@ -8,7 +8,7 @@ I have experimnted quite a bit with CodeMirror, but sadly had to let go. We are 
 
 How much should one give the user control here? Personally I don't think much, except for the user that will install a totally new Project. 
 
-In this case, possibly a hard pressed serf like a PhD student it is quite likely that tehy will want to use more, as they will be expected to be typing quite a bit.
+In this case, possibly a hard pressed serf like a PhD student it is quite likely that they will want to use more, as they will be expected to be typing quite a bit.
 
 Anyway this can be left for a future release.
 
