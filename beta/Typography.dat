@@ -7,7 +7,7 @@ The `html` rendering fonts are handled purely by the CSS. For TeX they are handl
 
 \section{Highlighting, Bold, Italic and Underlining}
 
-You can \textit{this is in italics} and you can have \textsc{smallcaps.} and \lorem. You can also have \textbf{bold.} and proper ellipses \ldots.
+You can \verb +\textit{this is in italics}+ to get \textit{this is in italics} and \underline{you} can have \verb+\textsc{smallcaps.}+ and \lorem. You can also have \textbf{bold.} and proper ellipses \ldots.
 
 \begin{verbatim}
 \lettrine{T}{his is the typography} class. 

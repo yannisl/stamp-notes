@@ -1,0 +1,10 @@
+This is BibTeX, Version 0.99dThe top-level auxiliary file: Introduction.aux
+The style file: plainnat.bst
+Database file #1: references.bib
+Warning--string name "may-june" is undefined
+--line 18 of file references.bib
+I was expecting a `,' or a `}'---line 46 of file references.bib
+ :   month = February 
+ :                    18,
+I'm skipping whatever remains of this entry
+(There was 1 error message)

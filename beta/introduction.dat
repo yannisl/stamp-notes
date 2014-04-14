@@ -1,15 +1,15 @@
-\chapter{Introduction}
+\chapter{Introduction.}
 
 
 \begin{blockquote}[shadow]
 To not to have entirely wasted one's life seems to be a worthy accomplishment, if only for myself.
 \end{blockquote}
 
-I have developed this application for my own use, as most existing systems did not offer what I wanted. TeX mark-up has survived over 30 years and is currently the de facto method for preparing scientific papers. Although a browser can be used to render a pdf, web publishing is a different art.
+I have developed this application for my own use, as most existing systems did not offer what I wanted. TeX mark-up has survived over 30 years and is currently the \textit{de facto} method for preparing scientific papers. Although a browser can be used to render a pdf, web publishing is a different art.
 
-This application will convert mark-up to what I believe better rendering. 
+{{nutshell: This application will convert mark-up to what I believe better rendering. }}
 
-Anoher advantage of using the browser as a front to LaTeX, is it can provide a better interface than most editors and at the same time assist with manuscript development.
+Another advantage of using the browser as a front to LaTeX, is it can provide a better interface than most editors and at the same time assist with manuscript development.
 
 If you are typing a long manuscript, you will eventually break it into parts and then combine the parts before rendering the full document. This workflow is captured in the application. 
 
@@ -24,7 +24,7 @@ The strength of the application is its mark-up language. Before embarking on a d
 
 \section{Math}
 
-When $a \ne 0$, there are two solutions to \\(ax^2 + bx + c = 0\\) and they are
+When \\(a \ne \\), there are two solutions to \\(ax^2 + bx + c = 0\\) and they are
 $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
 
 

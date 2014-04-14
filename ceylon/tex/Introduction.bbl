@@ -1,0 +1,14 @@
+\begin{thebibliography}{1}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[R.C.(1976)]{agabeg}
+Agabeg R.C.
+\newblock Ceylon 1815-1872.
+\newblock \emph{The London Philatelist}, 85\penalty0 (1001-1002):\penalty0
+  97--105, 1976.
+
+\end{thebibliography}

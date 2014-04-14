@@ -1,4 +1,4 @@
-\chapter{Tayloring TeXio}
+\chapter{Tayloring TeXio.}
 
 \begin{blockquote}
 As the great Heraclitus once said: "No man ever uses the same Emacs". Emacs is about tailoring your tool to yourself. To use emacs Effectively you only need to know about Emacs core abstractions (buffers, strings, modes, keymaps, etc), emacs lisp and at most the C-h commands.
