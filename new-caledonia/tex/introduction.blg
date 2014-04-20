@@ -1,0 +1,9 @@
+This is BibTeX, Version 0.99dThe top-level auxiliary file: introduction.aux
+The style file: plainnat.bst
+Illegal, another \bibdata command---line 43 of file introduction.aux
+ : \bibdata
+ :         {ceylon}
+I'm skipping whatever remains of this command
+Database file #1: ceylon.bib
+Warning--can't use both volume and number fields in options
+(There was 1 error message)

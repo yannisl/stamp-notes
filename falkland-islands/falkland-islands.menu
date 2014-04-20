@@ -6,14 +6,20 @@
 \begin{category}{Queen Victoria}
 \mitem{QV Issues}{Falkland_Island_Stamps}
 \end{category}
+
 \begin{category}{King George V}
+\mitem{1929-37 Falkland Islands}{1929-37_Falkland_Islands}
 \mitem{1928 Provisional}{1928_Provisional}
 \mitem{1935 Silver Jubilee}{1935_Silver_Jubilee}
 \end{category}
+
 \begin{category}{Queen Elizabeth II}
 \mitem{1964 HM Glasgow Error}{1964_HM_Glasgow_Error}
 \mitem{1968 Human Rights}{1968_Human_Rights}
+\mitem{1971 Surcharge}{1971_Surcharge}
 \end{category}
+
+
 \begin{category}{World War I}
 \mitem{World War I Censorship}{World_War_I_Censorship}
 
@@ -29,4 +35,4 @@
 \end{category}
 
 
-\end{accordion}                              
+\end{accordion}                                  

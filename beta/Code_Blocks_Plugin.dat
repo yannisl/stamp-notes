@@ -1,12 +1,18 @@
-\chapter{Write your title here}
-
+\chapter{Codeblocks}
 
 \codeblock 
 
- $$a+b = c/e$$
- test
-
+% Simple MathJaX equation 
+% Use \\\\[    \\\\] 
+ \\\\[
+    a+b = c/e
+ \\\\]
 \endcodeblock
+
+
+\\[
+    a+b = \frac{c}{e}
+\\]
 
 
 \begin{verbatim}

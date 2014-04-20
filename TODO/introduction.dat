@@ -1,2 +1,32 @@
-\chapter{Introduction}
-\lorem
+\chapter{System}
+
+1.0  Increase reliability and error trapping
+
+
+2.0  Improve on parser
+
+3.0  Ajax content
+
+4.0  Menu template
+
+5.0  Add reading mode, i.e., hide all menus and just have them as a hover.
+
+6.0 Full Parser
+
+7.0 Add a Logo
+
+8.0 Handheld devices
+
+9.0 pdf production, speed up error trapping AjaX???
+
+\subsection{Page and Document Settings}
+
+Have in addition to .ini a form? Initiate the form to .ini?
+
+\subsection{LaTeX}
+
+1.0  Add Ph.D. package, it needs to be completed and debugged fully.
+
+\section{Daily}
+
+1.0 Fix Account for Internet access

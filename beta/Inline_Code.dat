@@ -15,10 +15,10 @@ To produce a code block in Markdown, simply indent every line of the block by at
 
 This is a normal paragraph:
 
-    <p>This is a normal paragraph:</p>
+<p>This is a normal paragraph:</p>
 
-    <pre><code>This is a code block.
-    </code></pre>
+<pre><code>This is a code block.
+</code></pre>
     
     
 To indicate a span of code, wrap it with backtick quotes (`). Unlike a pre-formatted code block, a code span indicates code within a normal paragraph. For example:

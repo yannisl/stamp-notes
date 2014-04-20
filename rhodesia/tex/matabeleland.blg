@@ -1,0 +1,10 @@
+This is BibTeX, Version 0.99dThe top-level auxiliary file: matabeleland.aux
+The style file: plainnat.bst
+I couldn't open database file ceylon.bib
+---line 20 of file matabeleland.aux
+ : \bibdata{ceylon
+ :                }
+I'm skipping whatever remains of this command
+I found no \citation commands---while reading file matabeleland.aux
+I found no database files---while reading file matabeleland.aux
+(There were 3 error messages)

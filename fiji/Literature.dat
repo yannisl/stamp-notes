@@ -1,11 +1,17 @@
 ##Fiji
 
- 
+Early works on Fiji Islands, Philately were published by Charles Phillips\cite{phillips:fiji}. Listings of the stamps appeared earlier in A Catalogue for Collectors, by Evans\cite{evans:1882}\cite{evans:1885}. More recent works are those of Roger and Duberal\cite{roger}; Gillis\cite{gillis}\cite{gillis01} revisited some of the studies and extended them to include paper types.\cite{gillis01,eastgate}
+
+For a general discussion on Philately\cite{williams} is the best book. The book is well illustrated and written in a language that is easily understable.\cite{options}
 
 \phl[50%]{../Fiji/literature-alford.jpg}{	
 Fiji Guide by Alford
 $25 + postage.	
  }
 \phl[50%]{../Fiji/fiji-proud.jpg}{Proud Bailey Postal History Book \pound22.}
+
+test\cite{eastgate}
+
+\bibliography{fiji}
  
                                                           
