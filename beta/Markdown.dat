@@ -1,0 +1,23 @@
+\chapter{Markdown}
+
+\ph[30%]{../beta/che.jpg}{}
+
+\begin{figure}
+\includegraphics[width=0.3\textwidth]{../beta/che.jpg}
+\caption{\lorem}
+\end{figure}
+
+
+\begin{blockquote}
+\lorem
+
+
+
+\lorem
+\end{blockquote}
+
+## Abbreviations
+
+*[HTML]: Hyper Text Markup Language
+*[W3C]:  World Wide Web Consortium
+

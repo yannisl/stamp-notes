@@ -1,0 +1,8 @@
+\section{Adding captions to your figures}
+
+If you want to add a caption, to a figure that is not in a figure environment use `\captionof` command.
+
+
+\includegraphics[width=0.5\textwidth]{../beta/lena-full.jpg}
+\captionof{figure}{\lorem}
+

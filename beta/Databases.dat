@@ -1,0 +1,24 @@
+\chapter{On Databases}
+
+[Damien Katz](http://damienkatz.net/2012/06/why_database_technology_matter.html), sometime back blogged about his reason spending an awful long time designing and developing databases. Here are some thought provoking extracts
+
+
+Because I think database technologies are among the most important fundamental advancements of humanity and our collective consciousness. I think databases are as important as telecommunications and the internet. I think they are as important as any scholarly library -- and that libraries are the earliest non-digital databases. I think databases are almost as important as the invention of the written word.
+
+Forget SQL. Forget network, document or object databases. Forget the relational algebra. Forget schemas. Forget joins and normalization. Forget ACID. Forget map/reduce.
+
+Think knowledge representation. Think knowledge collection, transformation, aggregation, sharing. Think knowledge discovery.
+
+Think of humanity and its collective mind expanding.
+
+When IBM was at the absolute height of its power, they were the richest, most powerful company on the planet. They primarily sold mainframes for a lot of money, and at the core of those mainframes were big database engines, providing a big competitive advantage that their customers gladly paid for.
+
+Google has created a database indexing of the internet. They are a force because they found ways to find meaning in the massive amounts of information already available. They are a very visible example of changing the way humanity thinks.
+
+File systems are very simple databases. People have been building all sorts of searching and aggregation technology on top them for many years, to better unlock all that knowledge and information stored within.
+
+Email? Email technology is essentially databases that you can send messages to. It's old-fashioned and simple, and yet our email systems keep getting more clever about ways to shows us what's in our unstructured personal databases.
+
+Databases don't have to be huge to have a huge impact. SQLite makes databases accessible on small devices. It's the most deployed database on the planet. It's often easy to miss the impact when it's billions of small installations -- it starts to look like air. Something that's just there, all around us. But add it up and the impact is huge.
+
+What this application is, is developing your own knowledge representation and hiding some of the details. Making it, as easy if not easier than wikipedia to add small pieces of knowledge and yet to also categorize them and link them.

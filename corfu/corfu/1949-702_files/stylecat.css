@@ -1,0 +1,200 @@
+@charset "utf-8";
+/* CSS Document */
+
+html, body        {
+                    margin: 0;
+                    padding: 0;
+                  }
+body              {
+                    color: #000000;
+                    text-align: center;
+                    background-color: #3380b8;
+                    font: normal 14px Arial, Helvetica, sans-serif;
+                    border-width: 0px; 
+                  }
+.mainsale1        { font-size: 18px; font-weight: normal; text-align: center }
+
+a:link            { color: #B2682B; font-weight: bold; text-decoration: none } 
+a:visited         { color: #B2682B; font-weight: bold; text-decoration: none }
+a:active          { color: #800000; font-weight: bold; text-decoration: underline }
+a:hover           { color: #800000; font-weight: bold; text-decoration: underline }
+
+a.js:link         { color: #B2682B; font-weight: bold; text-decoration: none } 
+a.js:visited      { color: #B2682B; font-weight: bold; text-decoration: none }
+a.js:active       { color: #800000; font-weight: bold; text-decoration: underline }
+a.js:hover        { color: #800000; font-weight: bold; text-decoration: underline }
+
+a.button            {
+                      display: block;
+                      height: 27px;
+                      text-decoration: none;
+                      font-size: 12px;
+                      line-height: 27px;
+                      cursor: pointer;
+                      color: #E5C779;
+                      font-weight: bold;
+                      text-align: center;
+                    }
+a.button:hover      {
+                      color: #ffffff;
+                      text-decoration: none;
+                    }
+
+div.clickhere1    { font-size: 14px; font-weight: bold; text-align: center  }
+div.clickhere2    { font-size: 16px; font-weight: bold }
+div.house1        { font-size: 24px; font-weight: bold; font-variant: small-caps; color: #3380b8 }
+div.house2        { font-size: 18px; font-weight: normal; font-variant: small-caps; color: #3380b8 }
+div.location1     { font-size: 13px; font-weight: bold }
+div.location2     { font-size: 13px; font-weight: normal }
+div.locationtime1 { font-size: 14px; font-weight: normal; text-align: center }
+div.maindate      { font-size: 18px; font-weight: bold }
+div.mainsale      { font-size: 24px; font-weight: bold }
+div.mainhead1     { font-size: 24px; font-weight: bold }
+div.mainhead2     { font-size: 18px; font-weight: bold }
+div.return1       { font-size: 16px; font-weight: bold }
+div.session1      { font-size: 14px; font-weight: bold }
+div.session2      { font-size: 14px; font-weight: normal; font-style: italic }
+div.tochead1      { font-size: 24px; font-weight: bold; text-align: center  }
+div.viewing1      { font-size: 13px; font-weight: bold }
+div.viewing2      { font-size: 13px; font-weight: normal }
+
+h1.mainhead1      { font-size: 24px; font-weight: bold; text-align: center }
+
+hr.bottom1        { color: #666666; width: 90% }
+
+img.catalogcover  { border: 1px solid #000000; }
+img.pic           { vertical-align: -30%; border: 0; }
+
+p.bottomnav1      { font-size: 14px; font-weight: bold; font-variant: small-caps }
+p.bottomnav2      { font-size: 12px; font-weight: normal }
+p.intro1          { font-size: 16px; font-weight: bold; font-style: italic; text-align: center }
+p.lastmod         { font-size: 12px; font-weight: normal }
+p.subhead         { text-align: center; font-size: 16px; font-weight: bold; text-decoration: none; }
+p.success         { font-size: 14px; font-weight: bold; text-align: left; color: #006600; }
+p.terms           { text-align: justify; font-size: 14px; }
+
+span.interasia    { color: #3380b8; font-weight: bold; }
+span.intro        { color: #3380b8; font-weight: bold; font-size: 15px; }
+span.pipe         { margin: 0 3px; padding: 0; color:#333; }
+
+
+table.auctions    { background-color: #ffffff;
+                    border-collapse: collapse;
+                    table-layout: fixed;
+                    width: 80%;
+                  }
+table.contact     {
+                    background-color: #ffffff;
+                    border-collapse: collapse;
+                    width: 720px;
+                  }
+table.footer      { background-color: #ffffff;
+                    border-collapse: collapse;
+                    table-layout: fixed;
+                    width: 640px;
+                  }
+table.innerframe  { background-color: #ffffff;
+                    border-collapse: collapse;
+                    table-layout: fixed;
+                    width: 90%;
+                  }
+table.innerlots   { background-color: #ffffff;
+                    border-collapse: collapse;
+                    table-layout: fixed;
+                    width: 720px;
+                  }
+table.innerstatic { background-color: #ffffff;
+                    border-collapse: collapse;
+                    table-layout: fixed;
+                    width: 90%;
+                  }
+table.inner2      {
+                    background-color: #FFFFFF;
+                    border-collapse: collapse;
+                    width: 850px;
+                  }
+table.home_body   { border-collapse: collapse;
+                    background-color: #ffffff;
+                    text-align: center; 
+                  }                    
+table.logo        {
+                    border-collapse: collapse;
+                  }
+table.lot_photos  {
+                    background-color: #FFFFFF;
+                    border-collapse: collapse;
+                    width: 850px;
+                  }
+table.lot_text    {
+                    background-color: #FFFFFF;
+                    border-collapse: collapse;
+                    width: 700px;
+                  }
+table.main        {
+                    background-color: #ffffff;
+                    border-collapse: collapse;
+                  }
+table.menu        { border-collapse: collapse; border: 1px solid #ffffff; text-align: center; }
+
+
+td.about_web1     { font-size: 12px; font-weight: normal; text-align: right; }
+td.about_web2     { font-size: 12px; font-weight: normal; text-align: left; }
+td.bid_presale    { font-size: 16px; font-weight: bold; text-align: left; vertical-align: top; }
+td.chaphead1      { font-size: 16px; font-weight: bold; text-align: center; }
+td.chaphead2      { font-size: 16px; font-weight: bold; text-align: center; }
+td.chaphead3      { font-size: 16px; font-weight: bold; text-align: center; }
+td.chaptitle1     { font-size: 20px; font-weight: bold; text-align: center; }
+td.footer         { font-size: 10; color: #ffffff; }
+td.form_col_l     { text-align: right; vertical-align: middle; padding-right: 8px; }
+td.form_col_lr    { text-align: right; vertical-align: middle; padding-right: 8px; color: #ff0000; }
+td.form_col_r     { text-align: left; vertical-align: middle; }
+td.glossary_col_c { text-align: center; vertical-align: top; }
+td.glossary_col_l { text-align: left; vertical-align: top; }
+td.glossary_col_r { text-align: right; vertical-align: top; }
+td.listhead1      { font-size: 16px; font-weight: bold; text-align: left; }
+td.listhead2      { font-size: 16px; font-weight: bold; text-align: left; color: #808080 }
+td.logo1          { font-size: 24px; font-weight: bold; text-align: left; font-family: AGaramond, Times New Roman, Times, serif; }
+td.logo2          { font-size: 16px; font-weight: bold; text-align: left; font-family: AGaramond, Times New Roman, Times, serif; }
+td.logo3          { font-size: 12px; font-weight: normal; text-align: left; font-style: italic; font-family: AGaramond, Times New Roman, Times, serif; }
+td.lot            { text-align: left; vertical-align: top; }
+td.lotno          { text-align: center; vertical-align: center; width: 70px }
+td.lotphoto       { text-align: center; vertical-align: middle; }
+td.lottext        { text-align: left; vertical-align: top; }
+td.lotvalue       { text-align: right; vertical-align: top; }
+td.mainhead1      { font-size: 24px; font-weight: bold; text-align: center; }
+td.mainhead2      { font-size: 18px; font-weight: bold; text-align: center; }
+td.mainsale1      { font-size: 24px; font-weight: bold; text-align: center }
+td.menu           { text-align: center; background-color: #3380b8; border-left: 1px solid #cc9933; border-collapse: collapse; }
+td.next           { width: 80px; vertical-align: top;  }
+td.obid           { text-align: left; vertical-align: top; font-weight: bold; }
+td.prev           { width: 100px; vertical-align: top; }
+td.saleactv1      { text-align: left; font-size: 18px; font-weight: bold; }
+td.saleactv2      { text-align: right; font-size: 14px; font-weight: bold; color: #b8860b; }
+td.salesold1      { text-align: left; font-size: 18px; font-weight: bold; }
+td.salesold2      { text-align: right; font-size: 14px; font-weight: bold; color: #808080; }
+td.schedule1      { text-align: right; margin-right: 16px; font-size: 16px; }
+td.schedule2      { text-align: center; font-size: 16px; }
+td.schedule3      { text-align: left; margin-left: 16px; font-size: 16px; }
+td.schedule1b     { text-align: right; margin-right: 16px; font-size: 16px; font-weight: bold; color: #3380b8; }
+td.schedule2b     { text-align: center; font-size: 16px; font-weight: bold; color: #3380b8; }
+td.schedule3b     { text-align: left; margin-left: 16px; font-size: 16px; font-weight: bold; color: #3380b8; }
+td.search_left    { text-align: left; vertical-align: top; font-weight: bold; white-space: nowrap; width: 100px; }
+td.search_pages   { vertical-align: middle; }
+td.search_right   { text-align: right; vertical-align: top; font-weight: normal; width: 180px; }
+td.session1       { text-align: left; vertical-align: top; font-size: 18px; font-weight: bold; color: #3380b8; }
+td.session2       { text-align: left; vertical-align: top; font-size: 16px; font-weight: normal; }
+td.tochead2       { font-size: 16px; font-weight: bold; text-align: left; }
+td.toc_lots       { text-align: right; vertical-align: top; width: 141}
+td.tochead1       { font-size: 24px; font-weight: bold; text-align: center; }
+td.unsold         { text-align: left; vertical-align: top; }
+
+.next a           { font-weight: bold; margin:0 3px; }
+.next a.enabled   { cursor: pointer; }
+.next a.disabled  { color: #666; }
+.prev a           { font-weight: bold; margin:0 3px; }
+.prev a.enabled   { cursor: pointer; }
+.prev a.disabled  { color: #666; }
+
+.terms-numbers    { color: #3380b8; font-size: 18px; font-weight: bold; }
+.terms-letters    { color: #3380b8; font-weight: bold; }
+

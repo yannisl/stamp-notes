@@ -1,0 +1,31 @@
+\chapter{Description Lists}
+
+\begin{tex}
+\begin{description}
+\item [RSS] Feeds
+\item [Lorem] \lorem
+\end{description}
+
+\begin{enumerate}
+\item \lorem
+
+\item \lorem
+
+\item \lorem
+
+\end{enumerate}
+\end{tex}
+
+\begin{description}
+\item [RSS] Feeds
+\item [Lorem] \lorem
+\end{description}
+
+\begin{enumerate}
+\item \lorem
+
+\item \lorem
+
+\item \lorem
+
+\end{enumerate}

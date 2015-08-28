@@ -1,0 +1,75 @@
+\chapter{Material Budget}
+
+
+
+
+\RaggedRight
+\begin{tabular}{lp{5cm}rc}
+\textbf{S/No}  & \textbf{Details}      &\textbf{Budget}         &\textbf{Approvals}\\
+\midrule
+1001  & AHU/FAU                        &4,600,000.00   &\tickmark \\
+1002  &Fan coil Unit -2418 units       &2,400,000.00   &\tickmark\\
+1003  &Variable Air Volume Boxes VAV/CAV &120,000     &\tickmark \\
+1004  &Split AC Unit                    &16,000.00     &\tickmark\\ 
+1005  &Chilled Water Pumps              &500,000     &\checkmark \\
+1006  &Pressurization Units/ Expansion Tank  &104,000 &\checkmark \\
+1007  &Chemical Treatment/Dosing unit        &108,000 &\checkmark\\ 
+1008  &Extract Fans-General/ Toilet          &3,000,000 &\checkmark\\
+1009  &Variable Frequently Drives (VFD)      & 2,100,000 &\checkmark\\
+      &Boilers - Faisal Jassim               & 1,000,000 &\checkmark\\
+      &Calorifiers                           & 3,100,000 &\checkmark\\
+      &Heat Exchangers\\
+\end{tabular}
+\end{document}
+
+
+      
+
+      
+
+      
+      
+      
+
+      &Supply/Return/Fresh Air Duct \\
+
+      &Fire Dampers\\
+
+      &Grilles Diffusers Registers\\
+
+      &Louvers\\
+
+      &Flexible Duct Connectors- Can\\
+
+      &Duct Insulation -Fiber Glass\\
+      &Canvass cloth/ Glass and Vapour Barrier \\
+      &Aluminium Cladding \\
+      &Acoustic Insulation Fiber GI\\ 
+      &Flexible Pre Insulated Duct \\
+      &Sound Attenuators \\
+      &Volume Control Dampers\\
+      &Fire Rated Ductworks \\
+      &Black Steel Pipes\\
+      &Pipes Fittings for CHW Piping \\
+      &Pipe Supports Spring Supports \\
+      &Condensate Drain Pipes \\
+      &CD Pipe fittings Elbow tee\\
+      &CHW Valve IV DRV BV GLV NRV\\
+      &CHW Instruments PG TG Flow meter \\
+      &CHW pipe Insulation Material\\
+      &Vapour Barrier Chilled water \\
+      &Aluminium Cladding for CHW and CD Piping \\
+      &CCU Unit \\
+      &Pressurization Units/ Plumbing \\
+      &Chemical Treatment Plumbing \\
+      &Heat Exchanger water Supply \\
+      &Acoustic Material \\
+      &Connection for Testing and Commissioning \\
+      &Wild Air \\
+
+      
+\end{tabular}   
+   
+
+
+

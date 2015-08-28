@@ -1,0 +1,49 @@
+\chapter{How to Center Images}
+
+#### By Dr. Y Lazarides
+
+LaTeX is good with its minipages and figure environments and the `\centering` command is very powerfull. Centering a bunch of images on web pages is much harder, although if done manually and for individual images, finer control of the output is possible.
+
+\section{Single Images}
+
+Single images and their captions can be positioned centered on the page using the command `\ph`.
+
+\ph[30%]{../beta/1.jpg}{\protect\captionlorem}
+
+The commands `\ph`, `\ph*`  will place the image, both in the `html` as well as the `\latex` document, exactly  where it was placed.\footnote{It is just an `\includegraphics` command.} If you want to float the image, then you need to placed it in a `\figure` enironment.
+
+
+
+\section{Multiple figures}
+\begin{figure*}
+\phc[30%]{../beta/1.jpg}{}
+\phc[30%]{../beta/2.jpg}{Testing}
+\phc[30%]{../beta/3.jpg}{Testing}
+\phc[32.5%]{../beta/2.jpg}{Testing}
+\phc[33%]{../beta/3.jpg}{Testing}
+\clear
+
+\phc[30%]{../beta/3.jpg}{Testing}
+\phc[32.5%]{../beta/2.jpg}{Testing}
+\phc[33%]{../beta/3.jpg}{Testing}
+\end{figure*}
+
+
+\begin{figure}
+\centering
+\phl[30%]{../beta/1.jpg}{A very short caption.}
+\phl[30%]{../beta/2.jpg}{Testing}
+\label{test}
+\end{figure}
+
+The two figure shown in \ref{test} are enclosed in a `\figure` or `\figure*` environment. For the tufte classes we also offer the `\figure*` which does not affect the way the images are displayed in the `html`, but does affect the way they are displayed in the LaTeX document.
+
+\begin{verbatim}
+\begin{figure}
+   \phc[3cm]{../path/to/image/img.jpg}{}
+   \phc[30%]{../path/to/image/img.jpg}{}
+   \phc[30%]{../path/to/image/img.jpg}{}
+\end{figure}
+\end{verbatim}
+
+

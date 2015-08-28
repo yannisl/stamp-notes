@@ -1,0 +1,16 @@
+\chapter{Extensibility}
+
+One of the characteristics of successful software projects, is their ability to be extended by their users and most importantly, if they are open sourced, the ability of the community to produce "plugins" rather than contributing to the source. Perhaps the first extensible system that had wide adoption was TeX itself. When Lamport extended its usability by providing the LaTeX format, he introduced methods to load \textit{packages}, which are simply collections of "macros".
+
+\section{Creating Plugins}
+
+You can install plugins that extend the functionality of the parser for your own macros. 
+
+\subsection{Writing your plugin/package}
+
+\subsection{Extending phd}
+
+The main class we use for writing and publishing our books, is the phd LaTeX class. The class is extended easily by adding style files in the styles folder. A method for easing the task and deploying it using MikTeX or TeXlive is described here.\footnote{...Work in progress.}
+
+
+

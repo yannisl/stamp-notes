@@ -1,0 +1,8 @@
+\chapter{Introduction}
+
+
+\begin{tabular}{ll}
+ document_name        & string \\
+ document_filename    & string\\
+ document_pages       &array [page1, page2, page3,..pagen]\\
+\end{tabular}

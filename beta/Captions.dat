@@ -1,0 +1,30 @@
+\chapter{Captions}
+
+\begin{figure}
+
+\captionof{figure}{This is some test}
+
+\end{figure}
+
+
+\begin{figure}
+    \includegraphics[width=31mm]{../beta/che.jpg}
+    \caption{Che}
+\end{figure}
+
+
+\section{PHL}
+
+
+\phl[30%]{../beta/che.jpg}{ This is Che Guevara.}
+\phl[30%]{../beta/che.jpg}{ This is Che Guevara.}
+\phl[30%]{../beta/che.jpg}{ This is Che Guevara.}
+
+\phl[60%]{../beta/che.jpg}{ This is Che Guevara.}
+
+
+\section{IMG}
+
+\phc[30%]{../beta/che.jpg}{Che caption}
+\phc[30%]{../beta/che.jpg}{Che caption}
+\phc[30%]{../beta/che.jpg}{Che caption}

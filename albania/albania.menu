@@ -1,0 +1,14 @@
+\begin{accordion}
+
+\begin{category}{Background}
+\mitem{Introduction Part 1}{Introduction}
+\mitem{Introduction Part 2}{Introduction_Part_2}
+\end{category}
+\begin{category}{1849-1912 Turkish Period}
+\mitem{Turkish Period}{Turkish_Period}
+\end{category}
+
+\end{accordion}
+
+
+      
