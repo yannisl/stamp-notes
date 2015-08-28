@@ -11,7 +11,9 @@ blockquote:
 In one of his (very informative) video lectures, Douglas Crockford remarks that writing JavaScript for the web is - programming in a hostile environment. I had done my fair share of weird workarounds, and even occasionally gave up an on idea entirely because browsers just wouldn't support it, but before this project I never really realized just how powerless a programmer can be in the face of buggy, incompatible, and poorly designed platforms.
 
 
-
+<p style="position:absolute;right:10%;width:18%;border:1px solid;display:block">
+<img src="/application-latest/stamp-images/beta/che.jpg" style="display:block;width:99%"/>
+</p>
 
 The environment has still not changed but with the proliferation of libraries and some books, the job is now a little bit easier, but get prepared to have your fingers full of glue.
 
@@ -32,7 +34,7 @@ will take you to the page where the method is described, with examples. It is st
 <h3>How did it all started?</h3>
 It all started with Brendan Eich who wrote the JavaScript language. I like the guy and he looks like an older version of my son Nikolas, which is not surprising, since Nikolas is the product of a Greek and and a boeremeisie{{sup:1}}.
 <div style="width:35%;float:left">
-<img src="http://localhost/codeigniter/images/brendan_eich.jpg" />
+<img src="/application-latest/images/brendan_eich.jpg" />
 </div>
 Brendan Eich (pronounced /&#712;&#1072;&#618;k/) (born 1961) is a computer programmer and creator of the JavaScript programming language. He is the Chief Technology Officer at the Mozilla Corporation.
 

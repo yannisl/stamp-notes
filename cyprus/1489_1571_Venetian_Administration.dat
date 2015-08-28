@@ -2,7 +2,7 @@
 
 Postal history material for both the Lusignan, Venetian and early Ottoman periods exist in the form of entires. Whatever letters were carried on internal
 routes may not bear postal markings. These were carried on muleback and on horseback. Letters before the 1400's are very few and scarce.
-
+\cite{options}
 
 Letters during this period do  not bear any postal markings as there was no
 postal service as we know it.
@@ -19,7 +19,7 @@ Estimate \pound350-400
 }
 
 \textit{After the Turkish occupation of the island in 1571 
-there is a gap of almost one hundred years
+there isagap of almost one hundred years
 with no letter recorded until 1672 and then 
 inwards from Beyrouth to Famagusta. I am sure though that
 a lot of Turkish material exists buried in archives. 
@@ -27,3 +27,4 @@ This material is both difficult to access as well as
 to research due to the Turkish language changing from 
 the arabic script to the latin alphabet.}
                           
+\bibliography{cyprus}                          

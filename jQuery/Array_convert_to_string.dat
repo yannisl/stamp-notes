@@ -1,16 +1,6 @@
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
-{{feature-image: http://localhost/egypt/elliott-erwitt/EE-1150.jpg}}
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
-
 
 <h2>Converting Between Arrays and Strings</h2>
+
 Array objects and string values have methods that facilitate conversion between these data types, thus allowing arrays
 to be conveyed to other pages via URL search strings or cookies.
 To convert a simple (one-dimensional) array to a string, first select a character that can act as a unique delimiter

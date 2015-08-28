@@ -1,15 +1,3 @@
- <!--
-{{feature-image:/codeigniter/images/beauty.jpeg}}
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
-
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
-
 
 <h2>argument.callee()</h2>
 Although there is no problem in referring to a named function, it does presents a problem for anonymous functions. After all,  that is why we call them anonymous.

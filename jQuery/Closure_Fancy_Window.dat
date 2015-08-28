@@ -1,17 +1,4 @@
       
-<!--
- directives
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
-
-{{feature-image:/codeigniter/images/china/beauty_07.jpg}}
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
-
 <script type="text/javascript"> 
 goog.require('goog.debug');
 goog.require('goog.debug.FancyWindow');

@@ -1,17 +1,4 @@
                
-<!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
-
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
-
-
-
 
 <h2>Array method clear()</h2>
 This Standard U Library Method clears all elements of an array. It is very similar to that provided in the Prototype library. However, we do not extend Object, but rather incoprorate it in external library.
