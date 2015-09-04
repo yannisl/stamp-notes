@@ -7,9 +7,7 @@ This class forms part of the named entities routines for Natural Language Proces
 This class offers utility methods to load and update lexicons to search for an item
 in the lexicon and return matches. It also returns near matches using Levenstein distances, soundex and the like.
 
-<div  class="code-block console-wrap">
-<div class="code code-block">
-<code>
+\begin{codeblock}
 function NLP (obj) {
  defaults ={
    lexicons : [''],
@@ -27,7 +25,7 @@ NLP.prototype.display = {
  }
 }
 var options ={
-  lexiconsBasePath : '/strings/',
+  lexiconsBasePath : '/application-latest/strings/',
   lexicons : ['greek-surnames',
                  'irish-surnames',
                  'afrikaans-surnames']
@@ -35,25 +33,15 @@ var options ={
 nlp = new NLP(options);
 nlp.lexicons.push('french-surnames');
 log(nlp.lexicons);
-
 nlp.display.add('test');
-</code>
-</div>
-<div class="console"></div>
-<p class="msg" >
-</p>
-<button class="eval" >Run Code!</button>
-<ol class="results"></ol> 
-</div>
+\end{codeblock}
 
 
-###Lexical Attack
+\section{Lexical Attack}
 
-<div  class="code-block console-wrap">
-<div class="code code-block">
-<code>
+\begin{codeblock}
 $('#test').text('');
-$('#test').load('/strings/irish-surnames.txt?', function(){
+$('#test').load('/application-latest/strings/afrikaans-names.txt?', function(){
   var text = $('#test').text().split(" ");
    logPRE(text.length);
    (text.indexOf('Malone')>-1)?log('found'):log('not found');
@@ -61,24 +49,16 @@ $('#test').load('/strings/irish-surnames.txt?', function(){
    d=goog.string.truncate(d, 300);
    log(d);
 });
-</code>
-</div>
-<div class="console"></div>
-<p class="msg" >
-</p>
-<button class="eval" >Run Code!</button>
-<ol class="results"></ol> 
-</div>
+\end{codeblock}
 
 
-<div  class="code-block console-wrap">
-<div class="code code-block">
-<code>
+
+\begin{codeblock}
 var uri = ['greek-surnames'];
 
 for (i=0;i < uri.length;i++){
 $('#test').text('');
-$('#test').load('/strings/greek-surnames.txt?', function(){
+$('#test').load('/application-latest/strings/greek-surnames.txt?', function(){
   var text = $('#test').text().split(",");
    logPRE(text.length);
    (text.indexOf('Lazarides')>-1)?log('found'):log('not found');
@@ -87,22 +67,22 @@ $('#test').load('/strings/greek-surnames.txt?', function(){
 
 $('#test').show();
 
-</code>
-</div>
-<div class="console"></div>
-<p class="msg" >
-</p>
-<button class="eval" >Run Code!</button>
-<ol class="results"></ol> 
-</div>
+\end{codeblock}
+
 
 <p id="test" class="hidden"></p>
 
 
-###Personal Identification
+## Personal Identification
 
 Although, these algorithms can assist in identifying Proper names, identifying a particular person is harder see for example [Issues Related to the use
 of Personal Identifiers](http://www.statcan.gc.ca/pub/85-602-x/4193729-eng.pdf) and [match rating](http://en.wikibooks.org/wiki/Algorithm_Implementation/String_searching/Match_Rating_Approach)
+
+\section{API}
+
+http://namesorts.com/api/
+
+https://news.ycombinator.com/item?id=8003686 discussion on names
 
 
 

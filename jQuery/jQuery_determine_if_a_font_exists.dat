@@ -1,14 +1,5 @@
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
-{{feature-image:http://localhost/CodeIgniter/images/christophe_gilbert_02.jpg}}
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
-<script type="text/javascript" src="http://localhost/CodeIgniter/js/jquery.font.js">
+ 
+<script type="text/javascript" src="http://localhost/application-latest/js/jquery.font.js">
 </script> 
 
 
@@ -40,9 +31,13 @@ padding:0.75em;
 <script type="text/javascript" src="http://localhost/CodeIgniter/js/metadata.js"></script>	
 
 
-<h2>Now Let us test if this Font is available</h2>
-There is no way for javascript to directly check your computer for installed fonts. However, an intersting technique is to actually compare the required font against another to see if there is a variation in width. If there is a variation in width then the font is installed. This method was described at 
-http://www.beseku.com/weblog/2009/04/22/detecting-installed-fonts-with-jquery/ and on . I have slightly adapted the plugin from beseku. All the credit for the technique is his! http://font-family.com/ offers a very similar technique and is more a web application than a plugin. This method relies on the Comic Sans MS font being installed. It then compares the width of a collection of characters against the rendered with of the font you're viewing. If they don't match, then it asserts the font is installed.
+\chapter{Now Let us test if this Font is available}
+
+There is no way for javascript to directly check your computer for installed fonts. However, an intersting technique is to actually compare the required font against another to see if there is a variation in width. If there is a variation in width then the font is installed. 
+
+
+This method was described at 
+[detecting fonts](http://www.beseku.com/weblog/2009/04/22/detecting-installed-fonts-with-jquery/) and on . I have slightly adapted the plugin from beseku. All the credit for the technique is his! http://font-family.com/ offers a very similar technique and is more a web application than a plugin. This method relies on the Comic Sans MS font being installed. It then compares the width of a collection of characters against the rendered with of the font you're viewing. If they don't match, then it asserts the font is installed.
 
 
 {{example:

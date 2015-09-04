@@ -1,10 +1,9 @@
-##Your Title Here  
+## Javascript Fundamentals
 
-I first saw this a [bennadel.com](http://www.bennadel.com/blog/177-Javascript-Short-Hand-IF-Within-Object-Notation.htm)
+How do you check if an element exists in an array? Of course you can iterate over it, but an easier solution is with a conditional. I first saw this a [bennadel.com](http://www.bennadel.com/blog/177-Javascript-Short-Hand-IF-Within-Object-Notation.htm)
 
 
-<div  class="code-block console-wrap"><div class="code code-block">
-<code>
+\begin{codeblock}
 // Create an array of friends.
 var arrFriends = new Array("Molly", "Sarah", "Dave", "Luke");
 
@@ -19,21 +18,13 @@ log(strFriendToCall);
 
 var i = 2;
 (i > 2) ? log('ok') : log('notok');
-</code>
-</div>
-
-<div  class="msg" class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>  
+\end{codeblock}
 
 Nothing earth shuttering, but neat. Just a reminder about the ternary conditional statement:
 
-{{plain:
+<pre><code>
    conditionExpr ? thenExpr : elseExpr; 
-}}   
+</code></pre>
 
 <div style="background:url('http://localhost/CodeIgniter/images/angela.jp');width:400px;height:600px" class="bordered clearfix">
 <img style="display:none" src="providerSrc" onerror="this.parentNode.style.backgroundImage='url(http://localhost/codeigniter/images/china/beauty_01.jpg)'"  />       

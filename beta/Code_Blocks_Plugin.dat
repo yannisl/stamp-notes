@@ -1,18 +1,17 @@
-\chapter{Codeblocks}
+\chapter{Write your title here}
+
+\begin{codeblock}
+var a = 1, b = 2;
+    a = c;
+\end{codeblock}
+
+
 
 \codeblock 
 
-% Simple MathJaX equation 
-% Use \\\\[    \\\\] 
- \\\\[
-    a+b = c/e
- \\\\]
+ test
+
 \endcodeblock
-
-
-\\[
-    a+b = \frac{c}{e}
-\\]
 
 
 \begin{verbatim}
@@ -22,6 +21,16 @@
 \begin{tex}
   test 
 \end{tex}
+
+\begin{jscodeblock}
+alert('testing')
+\end{jscodeblock}
+
+<pre class="nice">
+
+test some code
+
+</pre>
 
 
 

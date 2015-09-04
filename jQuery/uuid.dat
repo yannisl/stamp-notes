@@ -1,41 +1,13 @@
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
 
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
+\section{UUID}
 
--->
-<style type="text/css">
-div.exercise{ white-space:pre;line-height:1.3;
-                         color:grey;
-                         float:left;padding-top:0}
-div.collapser{
-     margin:0;padding:0;
-     width:20px;
-     height:50px;
-     float:left;line-height:1;
-   
-}
-span#plus{cursor:pointer;line-height:1;width:18px
-                      height:60px;border:1px solid #bebebe;
-                      background:#fff}
-.lines{ background:url(http://localhost/codeigniter/images/vline.png) repeat-y 3px;
-width:12px}
-</style>
-
-<h2>UUID</h2>
 GUIDs when repesented as as strings are at least 36 and no more than 38 characters in length and match the pattern 
 
 <tt>^\{?[a-zA-Z0-9]{36}?\}$</tt>
 
  and hence are always ascii. There is a very good discussion at [stackoverflow](http://stackoverflow.com/questions/105034/how-to-create-a-guid-uuid-in-javascript), regarding this with a number of good answers.
 
-<div  class="code-block console-wrap">
-<div class="code-block code" >
-<code class="PHP">
+\begin{codeblock}
 // Adapted with minor changes from Kevin Hakanson answer at the stackoverflow 
 // link quoted above
 var UUID = function uid() {
@@ -66,20 +38,10 @@ var t = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
 log(t);
 
 $('#UUID').text(t);
-</code>
-</div>
-<div   class="msg">
+\end{codeblock}
 
-</div>
-<div id="hack" >
-
-</div>
-<div class="console">
-</div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
 <div id="UUID" style="font-size:small;text-align:right"></div>
-</div>
+
 
 The nice compact function for creating rfc4122-compliant random UUIDs shown above was posted by broofa who has more on his [blog](http://www.broofa.com/2008/09/javascript-uuid-function/).
 
@@ -87,6 +49,61 @@ Math.uuid.js is small (~400bytes), and has no dependencies on other libs, so can
 
 My own interest in this stemmed from this development. Each codeblock, has a UUID generated during editing of the post. This could be saved in the data-UUID attribute. During filtering the code gets removed and stored in the database. If edited it can then be re-saved without affecting the post. This can really save a lot of typing and errors and can enable forking out! Needs more thinking.
 
+Of course UUIDs are not a panacae and is interesting to see how Angular deals with [uids](http://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.js).
+
+\begin{codeblock}
+/**
+ * A consistent way of creating unique IDs in angular. The ID is a sequence of alpha numeric
+ * characters such as '012ABC'. The reason why we are not using simply a number counter is that
+ * the number string gets longer over time, and it can also overflow, where as the nextId
+ * will grow much slower, it is a string, and it will never overflow.
+ *
+ * @returns an unique alpha-numeric string
+ */
+var  uid               =  ['0', '0', '0','A','B','Z','0'];
+var z = function nextUid() {
+  var index = uid.length;
+  var digit;
+
+  while(index) {
+    index--;
+    digit = uid[index].charCodeAt(0);
+    if (digit == 57 /*'9'*/) {
+      uid[index] = 'A';
+      return uid.join('');
+    }
+    if (digit == 90  /*'Z'*/) {
+      uid[index] = '0';
+    } else {
+      uid[index] = String.fromCharCode(digit + 1);
+      return uid.join('');
+    }
+  }
+  uid.unshift('0');
+  return uid.join('');
+}
+
+
+log(z());
+log(z());
+log(z());
+log(z());
+log(z());
+log(z());
+log(z());
+log(z());
+log(z());
+log(z());
+log(z());
+log(z());
+log(z());
+log(z());
+log(z());
+log(z());
+
+
+
+\end{codeblock}
 
 
 

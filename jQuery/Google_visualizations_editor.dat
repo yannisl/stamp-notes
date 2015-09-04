@@ -6,10 +6,7 @@
 
 ##Google Visualizations - adding an Editor
 
-
-<div  class="code-block console-wrap  ui-corner-all">
-<div class="code-block code">
-<code>
+\begin{codeblock}
 morph();
 var wrapper;
 function init() {
@@ -35,21 +32,11 @@ function openEditor() {
 
 google.setOnLoadCallback(init);
  
-</code>
-</div>
-
-<div  id ="msg" class="msg">
-</div>
-<div class="console"></div>
-<div>
+\end{codeblock}
   <input type="button" onclick="openEditor();" value="Open Editor" > 
   <div id="visualization" style="width:600px;height:400px">
  </div>
-</div>  
-<button id="eval" class="eval ui-corner-all">Run Code!</button>
-<ol class="results"></ol> 
-</div>
-<hr />
+
     
                            
 

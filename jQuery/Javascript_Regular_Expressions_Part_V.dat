@@ -1,13 +1,4 @@
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
-
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
+ 
 <style type="text/css">
 p#msg6 > li { list-style-type: decimal;line-height:1.5; margin:5px }
 .shade{background:#ececec}
@@ -19,38 +10,27 @@ All regex repetition operators are {{wi:greedy}}. They try to match as much as p
 
 
 <h3>Lazy</h3>
+
 I we now change the above operator by adding a '?' after it. This will make it lazy:
-<div class="code-block console-wrap">
-<div class="code-block code">
-<code>
- var re = /&lt;h1&gt;.*<span class="highlight">?</span>&lt;\/h1&gt;/;
- var   s = "&lt;h1&gt;This is a heading.&lt;/h1&gt;&lt;h1&gt;This is another one.&lt;/h1&gt; ";
+
+\begin{codeblock}
+var re = /<h1>This.*?<\/h1>/;
+var s = '<h1>This is a heading</h1><h1>This is another one.</h1>';
            s =s.match(re); 
- out(s.toString());
-</code>
-</div>
-<p class= "msg" id="msg" style="white-space:pre"></p>
-  <button class="eval">Button</button>
-<ol class="results"></ol>
-</div>
+log(s.toString().entityify());
+\end{codeblock}
 
 
-<h3>Matching with the 'g' flag</h3>
-Another confusing aspect of regular expressions is the flag <tt>g</tt>. If used with the above code, it will return an array of <strong>all matches</strong>.
+<h3>Matching with the `g` flag</h3>
 
-<div class="code-block console-wrap">
-<div class="code-block code">
-<code>
- var re = /&lt;h1&gt;.*<span class="highlight">?</span>&lt;\/h1&gt;/g;
- var   s = "&lt;h1&gt;This is a heading.&lt;/h1&gt;&lt;h1&gt;This is another one.&lt;/h1&gt; ";
+Another confusing aspect of regular expressions is the flag `g`. If used with the above code, it will return an array of \textbf{all matches}.
+
+\begin{codeblock}
+var re = /<h1>This.*?<\/h1>/g;
+var s = '<h1>This is a heading</h1><h1>This is another one.</h1>';
            s =s.match(re); 
- out(s.toString());
-</code>
-</div>
-<p class= "msg" id="msg" style="white-space:pre"></p>
-  <button class="eval">Button</button>
-<ol class="results"></ol>
-</div>
+log(s.toString().entityify());
+\end{codeblock}
 
 <h3>A more practical example</h3>
 We will now develop a short program to capture code from a page, add line numbers and re-format it. Pretty much what you get if you use some of the common highlighting libraries.
@@ -58,72 +38,51 @@ We will now develop a short program to capture code from a page, add line number
 First we will check that capturing works properly.
 
 
-<div class="code-block console-wrap">
-<div class="code-block code">
-<code>
+\begin{codeblock}
  var re = /.*?\n/g; // match all lines of code
  var   s = $that.siblings('.code').text();
            s =s.match(re); 
- out(s.toString());
-</code>
-</div>
-<p class= "msg" id="msg" style="white-space:pre"></p>
-  <button class="eval">Button</button>
-<ol class="results"></ol>
-</div>
+ log(s.toString());
+\end{codeblock}
 
 Once we are sure that our regex is working, we will then add the numbers at the beginning of each line.
 
-<div class="code-block console-wrap">
-<div class="code-block code">
-<code>
- var re = /.*?\n/g; // match all lines of code
+\begin{codeblock}
+var re = /.*?\n/g; // match all lines of code
  var   s = $that.siblings('.code').text();
            s =s.match(re); 
 var temp = '';
- for (var i = 0;i&lt; s.length; i++){
+ for (var i = 0;i<s.length; i++){
           s[i]=(i+1)+'   '+s[i];
           temp = temp + s[i] ; 
 } 
 
-out(temp);
-</code>
-</div>
-<p class= "msg" id="msg" style="white-space:pre"></p>
-  <button class="eval">Button</button>
-<ol class="results"></ol>
-</div>
+logPRE(temp);
+\end{codeblock}
 
 If we want to get a bit more fancy, we could represent the code as an HTML list. This way we could also add some color on odd and even numbers.
 
-<div class="code-block console-wrap">
-<div class="code-block code">
-<code>
+\begin{codeblock}
  var re = /.*?\n/g; // match all lines of code
  var   s = $that.siblings('.code').text();
            s =s.match(re); 
-var temp = '&lt;ol&gt;';
- for (var i = 0;i&lt; s.length; i++){
-          s[i]=  '&lt;li&gt;' +s[i]  + '&lt;/li&gt;' ;
+var temp = '<ol>';
+ for (var i = 0;i< s.length; i++){
+          s[i]=  '<li>' +s[i]  + '</li>' ;
           temp = temp + s[i] ; 
 } 
 
-temp = temp + '&lt;/ol&gt;';
+temp = temp + '</ol>';
 $('#msg5').html(temp);
-</code>
-</div>
+\end{codeblock}
 <p class= "msg" id="msg5" ></p>
-  <button class="eval">Button</button>
-<ol class="results"></ol>
-</div>
+  
 
 This actually, does not look very nice. Jquery interpreted the html in the code and returned it as another list. We would have been better off using jQuery to wrap the lines.
 
 Here is the final version.
 
-<div class="code-block console-wrap">
-<div class="code-block code">
-<code>
+\begin{codeblock}
  var re = /.*?\n/g; // match all lines of code
  var   s = $that.siblings('.code').text();
            s =s.match(re); 
@@ -142,14 +101,9 @@ $('#msg6').append(temp);
 
 $('#msg6').append('&lt;'+'/ ol&gt;');
 $('#msg6').append('test');
-</code>
-</div>
+\end{codeblock}
 <p class= "msg" id="msg6" >
 
-</p>
-  <button class="eval">Button</button>
-<ol class="results"></ol>
-</div>
 
 Personally, I don't find the 'zebra' style very readable - unlike a lot of other people - and I am not using it. Also sometimes color-coding is confusing. I would rather stick to a simpler layout like I am using here.
 

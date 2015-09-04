@@ -1,27 +1,25 @@
 \section{Programming in a Hostile Environment}
 
-\lorem
 
 
 
 \href{http://marijn.haverbeke.nl/codemirror/story.html}{Marijn Haverbeke}, described his journey when developing \href{http://codemirror.net/}{CodeMirror} by saying:
 
 
-blockquote:
+\begin{quotation}
 In one of his (very informative) video lectures, Douglas Crockford remarks that writing JavaScript for the web is - programming in a hostile environment. I had done my fair share of weird workarounds, and even occasionally gave up an on idea entirely because browsers just wouldn't support it, but before this project I never really realized just how powerless a programmer can be in the face of buggy, incompatible, and poorly designed platforms.
+\end{quotation}
 
 
-<p style="position:absolute;right:10%;width:18%;border:1px solid;display:block">
-<img src="/application-latest/stamp-images/beta/che.jpg" style="display:block;width:99%"/>
-</p>
 
 The environment has still not changed but with the proliferation of libraries and some books, the job is now a little bit easier, but get prepared to have your fingers full of glue.
 
 When developing these notes, it became clear to me that you need to fight this war at the forefront, that is at the browser. All the notes are interactive, you can actually edit them and run them through the browser. It is a great way to learn and also to develop. No need for FireBug, which is giving me gray hairs since FireFox 3.5. and gladly now is back on track. My own recommendation is to you use Chrome, if you can and test for other browsers at the last minute. Another advantage in programming, straight in this hostile environment, is that you take the battle where it belongs. The console would automatically re-formats the scripts as well as test them against jslint - Crocford's hurt your feelings test!
 
-\end{document}
 
-<h3>What is it all About?</h3>
+
+\section{What is it all About?}
+
 
 This website started as a collection of JavaScript notes. It has one major difference from other similar sites and blogs. It enables you to interact with the code, directly into your own hostile environment! You can change and fork the examples as you like. You elect to publish these changes in the comments, pretty much like a mini-gib, but for JavaScript. These notes are intended to become a quick reference. For example besides the notes by just typing the url (ala PHP site, you will get to description of the relevant function or command).
 
@@ -31,10 +29,11 @@ jsNotes/blogs/js/toInteger
 
 will take you to the page where the method is described, with examples. It is still work in progress and I am currently working in improving, a cross-referencing site robot.
 
-<h3>How did it all started?</h3>
+\section{How did it all started?}
+
 It all started with Brendan Eich who wrote the JavaScript language. I like the guy and he looks like an older version of my son Nikolas, which is not surprising, since Nikolas is the product of a Greek and and a boeremeisie{{sup:1}}.
 <div style="width:35%;float:left">
-<img src="/application-latest/images/brendan_eich.jpg" />
+<img src="http://localhost/application-latest/images/brendan_eich.jpg" />
 </div>
 Brendan Eich (pronounced /&#712;&#1072;&#618;k/) (born 1961) is a computer programmer and creator of the JavaScript programming language. He is the Chief Technology Officer at the Mozilla Corporation.
 
@@ -88,7 +87,7 @@ Since early in high school I kept notes. Later I discovered the writings of {{wi
 
 On most pages you will find an image on the left drawn from our Galleries. For example on this page you can see an image by {{wi: August_Sander}}, sometimes the images relate to the post and sometimes they don't! I included them to give a bit of color to an otherwise colorless and odorless environment and to provide a bit of escapism, while writing!
 
-
+http://photogrist.com/wp-content/uploads/2014/05/Rennie-Ellis12.jpg
 
 
 

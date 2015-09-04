@@ -1,17 +1,8 @@
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
-
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
-
 <h2>Javascript Switch</h2>
+
 Sometimes we are faced with a lot of choices. 
-<div  class="code-block console-wrap"><div class="code code-block"><code>
+
+\begin{codeblock}
 function uptotwenty(d)
   { var lastdigitname;
     switch(d)
@@ -40,14 +31,7 @@ function uptotwenty(d)
 var z=uptotwenty(18);
 
 log(z);
-</code>
-</div>
-<div  class="msg" class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
+\end{codeblock}
 
 
 

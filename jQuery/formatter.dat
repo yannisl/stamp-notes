@@ -65,9 +65,9 @@ What the () does it tells Javascript to execute the function just before it. Let
 <code>
 
 var foo = (function (){
-                       log('I am in function foo ','');
-                       return 22; 
-                    })();
+               log('I am in function foo ','');
+               return 22; 
+            })();
 
 log('foo', foo);
 </code>

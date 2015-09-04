@@ -1,27 +1,18 @@
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
-{{feature-image: http://localhost/egypt/elliott-erwitt/EE-1150.jpg}}
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
 
--->
+
 
 <h3>Longest Biased Interval</h3>
+
 The Longest Biased Interval is a pattern search algorithm that given a data sequence, e.g. 
 
-{{plain: ACGTAGCAGATAGACAGGTTAGACAATAGAG
-}}
+<pre><code>ACGTAGCAGATAGACAGGTTAGACAATAGAG</code></pre>
+
 
 and a "bias" criterion, e.g. "at least 2/3 AT-rich", finds the longest contiguous interval (substring) that satisfies this criterion.
 
 For example  Plasmodium falciparum causes malaria. Its DNA is 80% AT, and contains repetitive patterns. It is also  highly [compressible] compared to ''most'' other DNA.  Allison's paper describes these routines.
 
-<div  class="code-block console-wrap" title="Longest Biased Interval">
-<div class="code code-block">
-<code>
+\begin{codeblock}
 /* Find a longest interval of data s.t. the interval contains
 at least a certain fraction of chars from choice.
 O(n)-time, always,  O(n)-space worst case.
@@ -82,24 +73,14 @@ function lloyd1(p, q, data, choice) {
   // output
   $z += 'interval = ' + begins + '..' + ends + ' (' + (ends - begins + 1) + ')';
   $z += '\n' + data.substring(0, begins) + '[' + data.substring(begins, ends + 1) + ']' + data.substring(ends + 1);
-  $that.siblings('.msg').text($z);
+  log('longest interval',$z);
 }
 
 // we separate the input form the output here
 // p=2, q=3, S=data;
 lloyd1(2, 3, 'ACGTAGCAGATAGACAGGTTAGACAATAGAG', 'AT');
 
-
-</code>
-
-</div>
-
-<div  class="msg" class="msg" style="white-space:pre;font-family:monospace;line-height:1.3">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
+\end{codeblock}
 
 <h3>Comments</h3>
 A routine like this can easily be changed to read a file from the server via Ajax or via http form another website. I have tried to separate the logic from the input and output, so that you can use the routine directly into a different interface and this was the primary aim of this page.

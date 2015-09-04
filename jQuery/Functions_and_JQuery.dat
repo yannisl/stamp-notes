@@ -1,109 +1,53 @@
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
-
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
-
-
-
+ 
 
 <h2>Execution of functions </h2>
 
 Consider normal function execution, which is written as follows:
 
-<div  class="code-block console-wrap">
-<div class="code-block code">
-<code>
-
+\begin{codeblock}
 var foo = (function fn(){
   log('I am in function fn ','');
 });
 foo();
-</code>
-</div>
-
-<div  id ="msg" class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
+\end{codeblock}
 
 Now check this one out, By just enclosing the functions in parentheses we get a JavaScript equivalent to the above. 
 
-<div  class="code-block console-wrap">
-<div class="code-block code">
-<code>
-
+\begin{codeblock}
 (function fn(){
     log('I am in function fn ','');
 })();
+\end{codeblock}
 
-</code>
-</div>
-
-<div  id ="msg" class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
 
 What the () does it tells Javascript to execute the function just before it. Let u s now assign the above function to a variable:
 
-<div  class="code-block console-wrap">
-<div class="code-block code">
-<code>
-
+\begin{codeblock}
 var foo = (function (){
                        log('I am in function foo ','');
                        return 22; 
                     })();
 
 log('foo', foo);
-</code>
-</div>
-
-<div  id ="msg" class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
+\end{codeblock}
 
 Now our example before the last:
 
-<div  class="code-block console-wrap">
-<div class="code-block code">
-<code>
-
+\begin{codeblock}
 var foo = (function (x){
                        log('I am in function foo ','');
                        return x + 22; 
                     })(10);
 
 log('foo', foo);
-</code>
-</div>
+\end{codeblock}
 
-<div  id ="msg" class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
+
 
 But do we need the var foo?
 
-<div  class="code-block console-wrap">
-<div class="code-block code">
-<code>
 
+\begin{codeblock}
 (function (x){
         foo =  x + 22; 
  })(10);
@@ -114,18 +58,7 @@ But do we need the var foo?
 
 log('foo',  foo);
 log('bar',  bar);
-
-
-
-</code>
-</div>
-
-<div  id ="msg" class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
+\end{codeblock}
 
 At this point you should open the jQuery Library and have a peek at the code there, it starts as 
 

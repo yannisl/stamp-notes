@@ -1,16 +1,4 @@
- <!--
-{{feature: .. A discussion of bubble sort with warnings that the performance
-is bad and the code isn't simple (arguably) is like
-telling someone "don't think about pink elephants. <a href="http://www.cs.duke.edu/~ola/papers/bubble.pdf">Owen Astrachan</a> }}
-{{feature-image: http://localhost/egypt/elliott-erwitt/EE-1150.jpg}}
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
-
+ 
 <h2>Heap Sort Part II - Visual Implementation</h2>
 Heapsort (method) is a comparison-based sorting algorithm, and is part of the selection sort family. Although somewhat slower in practice on most machines than a good implementation of quicksort, it has the advantage of a worst-case &Theta;(n log n) runtime. Heapsort is an in-place algorithm, but is not a stable sort.
 

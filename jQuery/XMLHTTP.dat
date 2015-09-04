@@ -1,16 +1,37 @@
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
-{{feature-image: http://localhost/egypt/elliott-erwitt/EE-1150.jpg}}
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
+ 
+<script src="/application-latest/js/prototype_part2.js" ></script>
 
--->
-<script src="/codeigniter/js/prototype_part2.js" ></script>
+\begin{codeblock}
+/** new, preferred syntax **/
+    
+// properties are directly passed to `create` method
+var Person = Class.create({
+  initialize: function(name) {
+    this.name = name;
+  },
+  say: function(message) {
+    return this.name + ': ' + message;
+  }
+});
+    
+// when subclassing, specify the class you want to inherit from
+var Pirate = Class.create(Person, {
+  // redefine the speak method
+  say: function($super, message) {
+    return $super(message) + ', yarr!';
+  }
+});
+    
+var john = new Pirate('Long John');
+john.say('ahoy matey');
+\end{codeblock}
+
 
 <h2>XMLHTTP</h2>
+
+
+
+
 In IE 5 and later support the __XMLHTTP__ object and Mozilla-based browsers provide an XMLHTTPRequest Object. These objects allow you to create arbitrary HTTP requests  to the server (including POSTs) and read the full response, incluidng headers. Table 19-1 shows the methods and properties of the XMLHTTP object.
 
 {{bulb: We will refer to the interfaces of XMLHTTP and XMLHTTPRequest objects simply as XMLHTTP}}
@@ -24,8 +45,9 @@ XMLHTTP requests can be either synchronous or asynchronous, as specified by the 
 To create an XMLHTTP object in Mozilla-based browsers, you use the XMLHttpRequest constructor.
 
 
-<div  class="code-block console-wrap"><div class="code code-block">
-<code>
+\begin{codeblock}
+$w('apples bananas kiwis')
+
 var xmlhttp = new XMLHttpRequest();
 
 //view properties
@@ -54,24 +76,15 @@ var Ajax = {
 };
 
 var z = Ajax.getTransport();
+\end{codeblock}
 
-</code>
-
-</div>
-<div  class="msg" class="msg" >
-</div>
-<div class="console"> </div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
 
 
 <h4>Sending and Receiving the Request</h4>
 
 
 
-<div  class="code-block console-wrap"><div class="code code-block">
-<code>
+\begin{codeblock}
 var xmlhttp = new XMLHttpRequest();
 var url = '/codeigniter/blogs/ajax_post/4';
 xmlhttp.open('GET', url, false);
@@ -79,15 +92,7 @@ xmlhttp.send('');
 log('response code : ' + xmlhttp.status);
 log(xmlhttp.responseText);
 log(xmlhttp.getAllResponseHeaders());
-</code>
-
-</div>
-<div  class="msg" class="msg" style="white-space:pre;font-family:monospace;line-height:1.3">
-</div>
-<div class="console"> </div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
+\end{codeblock}
 
 As you can see, despite all the hype its not that difficult. The difficulty lies in making these requests bulletproof! Care must be taken to ensure that remote Web Applications are programmed in an extremely defensive manner and do not block waiting for content or fail due to unforeseen network issues.
 

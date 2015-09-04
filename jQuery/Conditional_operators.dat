@@ -1,16 +1,6 @@
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
 
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
+## Conditional Statements and Operator 
 
--->
-
-
-<h2>Conditional Statements and Operator</h2>
 This is the only JavaScript operator that takes three arguments and is used as a shorter form of the if statement.
 
 The first argument takes an expression that evaluates to true or false. If the condition is true, the operator returns the value of expr1; otherwise, it returns the value of expr2.
@@ -21,56 +11,34 @@ condition ? expr1 : expr2
 }}
 
 Some examples:
-
-<div  class="code-block console-wrap"><div class="code code-block"><code>
+Javascript provides a shorthand statement for the "if...else" sequence. This
+coding standard allows the following formats:
+\begin{codeblock}
  var z = 23;
 
 log(z<20? 'less than 20' : 'greater or equal to twenty');
 var val =8;
 (val in ([1,2,3,4,5,6,7,8,'9']))?log(true): log(false); 
- Javascript provides a shorthand statement for the "if...else" sequence. This
-coding standard allows the following formats:
+ 
 
-#
-# // On one line, if it doesn't exceed the limit of 80 characters in length
-# var a = b ? b + 10 : 200;
-#
-# // On multiple lines, to improve readability:
-# var a = (value > 20 && otherValue < 10 && boolFoo === false)
-#           ? this.foo();
-#         : this.bar();
-</code>
-</div>
-<p id="msg1" class="msg" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
-</p>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
+\end{codeblock}
 
 For readability
 
-<div  class="code-block console-wrap"><div class="code code-block"><code>
+\begin{codeblock}
 /*
   On one line, if it doesn't exceed the limit of 80 characters in length
   var a = b ? b + 10 : 200;
 
   On multiple lines, to improve readability:
   var a = (value > 20 && otherValue < 10 && boolFoo === false)
-          ? this.foo();
+          ? this.foo()
           : this.bar();
  */
 var a = (value > 20 && otherValue < 10 && boolFoo === false)
-        ? this.foo();
+        ? this.foo()
         : this.bar();
-</code>
-</div>
-<p id="msg1" class="msg" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
-</p>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
+\end{codeblock}
 
 
 

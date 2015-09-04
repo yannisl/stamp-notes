@@ -1,8 +1,8 @@
 \chapter{1937 Coronation}    
 
 \begin{figure}
-\includegraphics[width=.40\textwidth]{../antigua/coronation-specimen-01.jpg}
-\includegraphics[width=.40\textwidth]{../antigua/coronation-specimen-back.jpg}
+\phc[30%]{../antigua/coronation-specimen-01.jpg}{}
+\phc[30%]{../antigua/coronation-specimen-back.jpg}{}
 \caption{1937 Antigua coronation King George VI Specimen MNH $85.}
 \end{figure}
             

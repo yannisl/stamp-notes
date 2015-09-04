@@ -2,7 +2,8 @@
 
 \section{Acute}
 
-\subsection{\'E}
+\section{E}
+
 É, é (e-acute) is a letter of the Latin alphabet. It is found in Czech, Hungarian, Icelandic, Kashubian, Luxembourgish, Slovak, Catalan, Danish, English, French, Galician, Iceland, Irish, Italian, Occitan, Norwegian, Portuguese, Spanish, Swedish, Vietnamese, and Welsh languages, as a variant of the letter "e". In English, it may be observed as a pronunciation aid in loanwords (e.g., résumé from French) or romanizations (e.g., Pokémon from Japanese). This is also used in Dutch and Navajo r\'esum\'e
 
 \subsection{\'I}
@@ -54,7 +55,7 @@ A	Á	B	D	Ð	E	É	F	G	H	I	Í	J	K	L	M	N	O	Ó	P	R	S	T	U	Ú	V	X	Y	Ý	Þ	Æ	Ö
 a	á	b	d	ð	e	é	f	g	h	i	í	j	k	l	m	n	o	ó	p	r	s	t	u	ú	v	x	y	ý	þ	æ	ö
 
 
-\ETH
+Type \verb+\ETH+ to get \ETH.
 
 
 

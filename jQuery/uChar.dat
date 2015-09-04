@@ -1,27 +1,9 @@
- <!--
-
-{{feature-image:/CodeIgniter/images/china/beauty_08.jpg}}
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
-
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
-
-
-
-
 <h2>Unicode and More Unicode</h2>
 Unicode will give you sleepless nights. Closure amongst others provides for a set of unicode character routines. 
 
 For example the uChar routines can handle a number of common unicode handling requirements.
 
-<div  class="code-block console-wrap">
-<div class="code-block code">
-<code>
+\begin{codeblock}
 (function testToHexString() {
   var result = goog.i18n.uChar.toHexString('\uD869\uDED6');
   assertEquals('U+2A6D6', 'U+2A6D6');
@@ -58,15 +40,7 @@ var 按 = function (){
 
 log(按());
 
-</code>
-</div>
-
-<div  id ="msg" class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
+\end{codeblock}
 
 
 

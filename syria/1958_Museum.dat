@@ -3,8 +3,10 @@
 \begin{figure}[htbp]
 \centering
 
+\begin{figure}
 \includegraphics[width=0.45\textwidth]{../syria/1958-museum-01.jpg}
 \includegraphics[width=0.45\textwidth]{../syria/1958-museum-02.jpg}
+\end{figure}
 
 \includegraphics[width=0.45\textwidth]{../syria/1958-museum-03.jpg}
 \includegraphics[width=0.45\textwidth]{../syria/1958-museum-04.jpg}

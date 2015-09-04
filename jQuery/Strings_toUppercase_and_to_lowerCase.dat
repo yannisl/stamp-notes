@@ -1,16 +1,6 @@
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
 
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
+## String.prototype toUpperCase() and toLowerCase() methods 
 
--->
-
-
-<h2>String.prototype toUpperCase() and toLowerCase() methods</h2>
 String.prototype.toLowerCase ( )
 
 If this object is not already a string, it is converted to a string. The characters in that string are converted one by one to lower case. The result is a string value, not a String object.
@@ -35,16 +25,14 @@ When comparing two strings, normally convert the the strings to all uppercase or
 You can convert the string to either upper-case or lower-case , using
 
 {{plain:
-         .toUpperCase();
-         .toLowerCase();
+.toUpperCase();
+.toLowerCase();
 }}
 
 We can then use the JavaScript equality
 operator (==) to make the comparison. Javascript always attempts to convert the type of strings before a comparison. The strict operator (===), will compare including the type. Consider the following:
 
-<div  class="code-block console-wrap">
-<div class="code code-block">
-<code>
+\begin{codeblock}
 var s,s1;
        s = "washington";
        s2="Washington";
@@ -53,14 +41,7 @@ var s,s1;
 assert(s.toUpperCase()==s2.toUpperCase(),'strings are equal');
 assert(s===s3,'strings are not equal');
 assert(s==s3,'strings are equal');
-</code>
-
-</div>
-<p id="msg1" class="msg"  style="width:400px;font-size:24px;font-weight:bold;background:#fff">
-</p>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
+\end{codeblock}
 
 These two variables might contain the same series of characters but are different data types. The first is a <strong>string value</strong>,
 while the second is an instance of a <strong>String object</strong>. If you place these two values on either side of an equality (= =)

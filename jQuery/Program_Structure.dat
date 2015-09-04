@@ -1,0 +1,14 @@
+\chapter{The Structure of a JavaScript Program}
+
+## The console.log function
+
+The alert function can be useful as an output device when experimenting, but clicking away all those little windows will get on your nerves. In past examples, we’ve used console.log to output values. Most JavaScript systems (including all modern web browsers and node.js) provide a `console.log` function that writes out its arguments to some text output device. In browsers, the output lands in the JavaScript console. This part of the browser interface is hidden by default, but most browsers open it when you press F12 or, on Mac, when you press Command-Option-I. If that does not work, search through the menus for an item named “web console” or “developer tools”.
+
+When running the examples, or your own code, on the pages of this book, console.log output will be shown after the example, instead of in the browser’s JavaScript console.
+
+\begin{codeblock}
+var x = 30;
+console.log("the value of x is", x);
+//  the value of x is 30
+log("the value of x is", x);
+\end{codeblock}

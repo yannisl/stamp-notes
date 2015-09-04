@@ -80,8 +80,7 @@ The preferred way of binding handlers to DOm objects is to use the __addEventLis
 In the example below, we will change the color of text on hover. We will also log the properties of the Event object, which we are passing onto the handler.
 
 
-<div  class="code-block console-wrap"><div class="code code-block">
-<code>
+\begin{codeblock}
 Element.prototype.hasClassName = function(name) {
   return new RegExp("(?:^|\\s+)" + name + "(?:\\s+|$)").test(this.className);
 };
@@ -126,18 +125,8 @@ var cols = document.querySelectorAll('#columns .column');
   col.addEventListener('dragover', handleDragOver, false);
   col.addEventListener('dragleave', handleDragLeave, false);
 });
-</code>
+\end{codeblock}
 
-
-</div>
-<div id="myText"  style="white-space:pre;font-family:monospace;line-height:1.3">myText - mouse over me!
-</div>
-<div  class="msg" style="white-space:pre;font-family:monospace;line-height:1.3">
-</div>
-<div class="console"> </div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
 
 ###Draggables
 

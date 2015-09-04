@@ -1,22 +1,8 @@
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
-
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
-
-
 <h2>Number Object</h2>
 
 The Number object has some predefined constants.
 
-<div  class="code-block console-wrap"><div class="code code-block">
-<code>
-
+\begin{codeblock}
   var biggestNum = Number.MAX_VALUE;
   var smallestNum = Number.MIN_VALUE;
   var infiniteNum = Number.POSITIVE_INFINITY;
@@ -28,17 +14,7 @@ The Number object has some predefined constants.
   log('infinity positive = ',infiniteNum);
   log('negInfinity = ',negInfiniteNum);
   log(parseInt('134mary'));
-</code>
-</div>
-
-<div  class="msg" class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<div class="jslint"></div>
-<ol class="results"></ol> 
-<img src="http://localhost/codeigniter/images/jquery.png" style="float:right; width:85px"/>
-</div>
+\end{codeblock}
 
 The [ECMA, page 110](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-262.pdf) specification has some nice surprises.
 The output of toFixed may be more precise than toString for some values because toString only
@@ -47,8 +23,9 @@ prints enough significant digits to distinguish the number from adjacent number 
 (1000000000000000128).toFixed(0) returns "1000000000000000128".
 
 For alerts and screen prints the less accurate number is shown.
-<div  class="code-block console-wrap"><div class="code code-block">
-<code>
+
+
+\begin{codeblock}
 log(' case 1: ',1000000000000000128);
 log(' case 2: ',(1000000000000000128).toString());
 log(' case 3:',(1000000000000000128).toFixed(0));
@@ -66,54 +43,32 @@ var aDate= new Date(2009, 6, 28, 14, 39, 7);
   alert(biggestNum.toFixed());
   alert(smallestNum);
   alert(infiniteNum)
-</code>
-</div>
-
-<div  class="msg" class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-<img src="http://localhost/codeigniter/images/jquery.png" style="float:right; width:85px"/>
-</div>
+\end{codeblock}
 
 
 <h3>A bit more on toString()</h3>
 
 The toString() takes a parameter named radix, that is useful to change a number into another base.
 
-<div  class="code-block console-wrap"><div class="code code-block">
-<code>
+\begin{codeblock}
 var z = (1000000000000000128).toString(2);
 
 log(' case 1: ',(1000000000000000128).toString(2));
 log ('z         : ', (z-0).toString(10));
 log('typeof 123.00', typeof 123.00);
+\end{codeblock}
 
-</code>
-</div>
 
-<div  class="msg" class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-<img src="http://localhost/codeigniter/images/jquery.png" style="float:right; width:85px"/>
-</div>
+## Number.prototype.toString (radix)
 
-15.7.4.2 Number.prototype.toString (radix)
+If radix is the number 10 or undefined, then this number value is given as an argument to the `ToString operator`; the resulting string value is returned.
+If radix is an integer from 2 to 36, but not 10, the result is a string, the choice of which is implementation-dependent.
 
-If radix is the number 10 or undefined, then this number value is given as an argument to the
-ToString operator; the resulting string value is returned.
-If radix is an integer from 2 to 36, but not 10, the result is a string, the choice of which is
-implementation-dependent.
-The toString function is not generic; it throws a TypeError exception if its this value is not a
-Number object. Therefore, it cannot be transferred to other kinds of objects for use as a method
+The `toString` function is not generic; it throws a TypeError exception if its this value is not a Number object. Therefore, it cannot be transferred to other kinds of objects for use as a method.
 
-<h3>Extending the Number Object</h3>
+\section{Extending the Number Object}
 
-<div  class="code-block console-wrap"><div class="code code-block">
-<code>
+\begin{codeblock}
 Number.prototype.isInteger = function () {
   // if this == NaN ...
   if (this.isNaN) return false;
@@ -132,16 +87,7 @@ Number.prototype.isNatural = function () {
 };
 log((789).isNatural());
 log((789.88).isInteger());
-</code>
-</div>
-
-<div  class="msg" class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-<img src="http://localhost/codeigniter/images/jquery.png" style="float:right; width:85px"/>
-</div>
+\end{codeblock}
 
  
 

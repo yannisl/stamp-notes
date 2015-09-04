@@ -1,30 +1,6 @@
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
-
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
-
-<h2>Strategies for Cross Browser Code</h2>
+\chapter{Strategies for Cross Browser Code</h2>}
 
 
-<div  class="code-block console-wrap">
-<div class="code-block code">
-<code>
-
-</code>
-</div>
-
-<div  id ="msg" class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
 
 <h3>External Code and Markup</h3>
 
@@ -53,7 +29,7 @@ modifying function prototypes and existing DOM element methods, etc.). There are
 when dealing when situations of this nature, but here are a couple tips, from John Resig, the developer of jQuery:
 
 
-<strong>hasOwnProperty:</strong>
+\section{hasOwnProperty}
 
  When looping through the properties of an object you'll want to verify that the
 properties that you're expecting are from the object itself and not introduced by an extension to Object.prototype or any of the othe built-in objects. 
@@ -61,9 +37,7 @@ properties that you're expecting are from the object itself and not introduced b
 Thankfully the number of scripts that use this technique is very small but the harm is quite large. You can counter this by using the method hasOwnProperty to determine if the property is coming from this object or another one, as shown in Listing 2.
 
 
-<div  class="code-block console-wrap">
-<div class="code-block code">
-<code>
+\begin{codeblock}
 Object.prototype.otherKey = function(){return 'a';};
 var object = { key: "value" };
 for ( var prop in object ) {
@@ -71,15 +45,7 @@ if ( object.hasOwnProperty( prop ) ) {
 assert( prop, "key", "There should only be one iterated property." );
 }
 }
-</code>
-</div>
-
-<div  id ="msg" class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
+\end{codeblock}
 
 <strong>Greedy IDs:</strong>  Internet Explorer and Opera both have the concept of "greedy DOM IDs" - in which elements become properties of other objects based upon their ID names. Listing 9-2 shows two examples of this
 nasty trick in action.
@@ -94,7 +60,7 @@ Listing 9-2: A simple example of markup that's capable of causing great confusio
 &lt;/form&gt;
 }}
 
-If you were to call document.getElementsByTagName("input").length you'd
+If you were to call `document.getElementsByTagName("input").length` you'd
 find that the length property (which should contain a number) would now contain a reference to the input element with the ID of length. Additionally if you were to call document.getElementById("form").submit() that would no longer work as the submit method will have be overwritten by the submit input element. This particular "feature" of the browser can cause numerous problems in your code and will have to be taken in to consideration when calling default properties in the above situations
 
       

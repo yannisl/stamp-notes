@@ -1,26 +1,19 @@
-<!--
-{{feature-image:http://localhost/egypt/martin-schoeller/jack_nicholson_2002.jpg}}
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
 
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
 
--->
 
 <SCRIPT>
  //goog.require('goog.json');
 </SCRIPT>
-<h2>A strange looking JavaScript for...loop</h2>
-In Jslint I came across this strange looking contraption being used quite often, have a close look at the
-__for(;;)__, in the code block below. What does it do? Actually it looks in a way like a while loop with no limit. I wonder if we can simulate and see what it does, without creating a closure of some sort that would break it, or does it work because of a closure? I wish I could actually phone Crockford!
 
-<div class="code-block console-wrap">
-<div class="code-block code">
-<code>
-<span class="highlight">for (;;)</span>{
+<h2>A strange looking JavaScript for...loop</h2>
+
+In Jslint I came across this strange looking contraption being used quite often, have a close look at the
+__for(;;)__, in the code block below. What does it do? Actually it looks in a way like a while loop with no limit. 
+
+I wonder if we can simulate and see what it does, without creating a closure of some sort that would break it, or does it work because of a closure? I wish I could actually phone Crockford!
+
+\begin{codeblock}
+for (;;) {
   nexttoken = lookahead.shift() || lex.token();
   if (nexttoken.id === '(end)' || nexttoken.id === '(error)') {
     return;
@@ -32,16 +25,14 @@ __for(;;)__, in the code block below. What does it do? Actually it looks in a wa
     }
   }
 }
-</code>
-</div>
-</div>
+\end{codeblock}
 
 
 <h3>A bit of discovery</h3>
+
 Re-writing the above code with simpler variables and leaving only one if statement that can result in a break (so that we will no trigger an infinite loop, we get).
-<div  class="code-block console-wrap">
-<div class="code-block code">
-<code>
+
+\begin{codeblock}
 var i = 0;
 for (;;){
   log(i);
@@ -50,18 +41,11 @@ for (;;){
     break;
   }
 };
-</code>
-</div>
-<div   class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
+\end{codeblock}
 
 As we guessed, JavaScript does not complain about the lack of variables in the for..loop, it just goes happily (probably)  looping forever. Let us have a peek at the ECMA specification and see what it does, by looking at the extract from the specification below:
 
-<strong>The for Statement</strong>
+\subsection{The for Statement}
 
 The production IterationStatement : for (ExpressionNoInopt ; Expressionopt ; Expressionopt) Statement is evaluated as follows:
 
@@ -92,9 +76,7 @@ As we can see from the above the ECMA specification allows for this and results 
 Yes you guessed it better than me, it results in recursion. I wonder actually if it was not better to have written it as a recursive function. Let us try it out,
 
 
-<div  class="code-block console-wrap">
-<div class="code-block code">
-<code>
+\begin{codeblock}
 var i = 0;
 (function () {
   log(i);
@@ -104,14 +86,7 @@ var i = 0;
   }
   arguments.callee();
 })();
-</code>
-</div>
-<div   class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
+\end{codeblock}
 
 As you can observe the two programs are identical. What do you think, I think the second one is looking sexier!
 

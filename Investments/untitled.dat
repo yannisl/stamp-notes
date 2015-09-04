@@ -1,1 +1,31 @@
-\chapter{Write your title here}
+\chapter{TODO}
+
+
+\begin{upperalpha}
+\item Bank Account
+\item Bank account internet
+\item Trading Platform
+\item Hardware
+\item  $35,000.00
+\item Clean and quite environment
+\end{upperalpha}
+
+
+
+\begin{lowerroman}
+\item Bank Account
+\item Bank account internet
+\item Trading Platform
+\item Hardware
+\item  $35,000.00
+\item Clean and quite environment \lorem
+\end{lowerroman}
+
+\begin{upperroman}
+\item Bank Account
+\item Bank account internet
+\item Trading Platform
+\item Hardware
+\item  $35,000.00
+\item Clean and quite environment \lorem
+\end{upperroman}

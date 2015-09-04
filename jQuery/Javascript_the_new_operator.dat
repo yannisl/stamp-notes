@@ -1,44 +1,26 @@
- <!--
-
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
-
+ 
 \section{The new Operator}
 
-The \textsc{new} operator is used to create an _instance_ of an object. What happens if we forget to use it and simply call the constructor?
+The \textsc{new} operator is used to create an \textit{instance} of an object. What happens if we forget to use it and simply call the constructor?
 
-<div  class="code-block console-wrap"><div class="code code-block">
-<code>
+\begin{codeblock}
 function Person(){ 
   this.name = "Yannis"; 
 } 
-<span class="green">// undefined </span>
+
 var personA = Person(); 
 assert( !personA, "Is undefined, not an instance of Person." ); 
-<span class="green">// with new creates instance </span>
 var personB = new Person(); 
 assert( personB.name == "Yannis", "Property exists on the personB instance." );
-</code>
-</div>
-<p  class="msg" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
-</p>
-<button class="eval">Run Code!</button>
-<ol class="results">
-</ol> 
-</div>
 
-<hr/>
+\end{codeblock}
+
+
+
 A good pattern to use in order to avoid the possibility of such error is to use 
-<em>arguments.callee</em>. The function will first check if there is an instance of the object and if not then create one. 
+`arguments.callee`. The function will first check if there is an instance of the object and if not then create one. 
 
-<div  class="code-block console-wrap">
-<div class="code code-block">
-<code>
+\begin{codeblock}
 // A solution using arguments.callee.
 function Person(first, last){ 
 <span class="highlight">if ( !(this instanceof arguments.callee) ) </span>
@@ -53,13 +35,7 @@ var user = Person("John", "Lazarides");
       
 log('typeof  user', typeof  user ); 
 log( user.name, "Returns the right name." );
-</code>
-</div>
-<p class="msg"  style="width:400px;font-size:24px;font-weight:bold;background:#fff">
-</p>
-<button class="eval">Run Code!</button>
-<ol class="results" style="margin-top:8px"></ol> 
-</div>
+\end{codeblock}
 
 <strong>callee</strong> is a property of the arguments local variable available within all function objects; callee as a property of Function.arguments is no longer used. (Function.arguments itself is also deprecated.)
 

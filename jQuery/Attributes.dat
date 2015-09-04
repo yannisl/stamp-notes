@@ -1,14 +1,4 @@
- <!--
-{{feature-image:/codeigniter/images/china/beauty_15.jpg}}
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
 
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
 <script>
 goog.require('goog.dom');
 goog.require('goog.dom.selection');
@@ -18,10 +8,7 @@ goog.require('goog.dom.selection');
 To set an elements attributes, we use the __setProperties()__ method. In the example below we just set the name attribute, the title and a rel.
 
 
-<div  class="code-block console-wrap" title="Setting an Elements attribute" >
-<div class="code-block code" >
-<code>
-
+\begin{codeblock}
 (function testSetProperties() {
   var attrs = {
     'name': 'myName',
@@ -34,15 +21,10 @@ To set an elements attributes, we use the __setProperties()__ method. In the exa
   assertEquals(el.title, 'myTitle');
   assertEquals(el.rel, 'myRel');
 })();
-</code>
-</div>
-
+\end{codeblock}
 <div  id ="testEl" class="msg">
 </div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
+
 
 
 The method takes two arguments
@@ -53,9 +35,7 @@ The method takes two arguments
 
 The properties can be any valid string for element properties
 
-<div  class="code-block console-wrap" title="Setting the CSS style attribute">
-<div class="code-block code">
-<code>
+\begin{codeblock}
 (function testSetProperties() {
   var attrs = {
     'style': 'padding-left:15px;color: #fff;background:#dd0000;width:40%;line-height:1.5'
@@ -65,17 +45,10 @@ The properties can be any valid string for element properties
   log(el.style.color);
   log(el.style.backgroundColor);
 })();
+\end{codeblock}
 
-</code>
-</div>
-<div class="sandbox"  ><p id ="testEl2"  >Test Area for id=testEl2</p>
-</div>
-<div   class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
+<p id ="testEl2"  >Test Area for id=testEl2</p>
+
 
 Comparing this with jQuery
 

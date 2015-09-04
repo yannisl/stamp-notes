@@ -1,5 +1,5 @@
 
-<h2>The array methods `shift()` and unshift()</h2>
+## The array methods `shift()` and `unshift()`
 
 The standard JavaScript functions shift() and unshift()  either delete elements from the __front__ of the array or insert elements at the __front__ of the array. The unshift method can take more than one arguments. A datastructure implemented only with arrays and shift() and unshift(), will represent a LIFO (last in first out) operation. 
 

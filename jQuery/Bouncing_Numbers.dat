@@ -1,15 +1,8 @@
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
-
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
 
 <h2>Bouncing Numbers</h2>
+
+{{wi:Bouncing_Numbers}}.
+
 This problem is from [Project Euler](http://projecteuler.net/index.php?section=problems&id=112)
 
 The problem is stated as follows:
@@ -30,9 +23,11 @@ The answer is 1575699. Computation time about 20 seconds.
 
 Javascript is not ideal for this type of problems, however I have included a number of them in order to polish my skills in JavaScript programming and hoping that you can do the same and send me a better and more efficient solution.
 
-<h4>Writing a function to get each digit of a number in an Array</h4>
+## Writing a function to get each digit of a number in an Array 
 
-Since we will be examining digits, it will be appropriate to split the number into an array of digits.
+Clearly in order for us to find a solution to such a problem, we will need a helper function to examine each digit of the numbers we will be iterating over. 
+
+The easiest method is to to split the number into an array of digits.
 
 <div  class="code-block console-wrap">
 <div class="code-block code">

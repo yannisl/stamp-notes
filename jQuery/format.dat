@@ -1,13 +1,3 @@
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
-{{feature-image: /codeigniter/images/china/beauty_09.jpg}}
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
 
 <script>
 goog.require('goog.format.HtmlPrettyPrinter');
@@ -18,8 +8,7 @@ goog.require('goog.format');
 <h2>Closure format.js</h2>
 This is one of two rather more specialized helper objects for formatting strings and converting them to numbers of one  form or another. The second file is htmlprettyprinter and will be discussing it here.
 
-<div id="code" class="code-block console-wrap"><div class="code-block code">
-<code>
+\begin{codeblock}
 var d = goog.format.fileSize(1200, 2);
 log(d);
 // get html so that we can format it
@@ -33,15 +22,7 @@ log(f1);
 //var c = f2.entityify();
 //log(c);
 
-</code>
-</div>
-
-<div  id ="msg" class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
+\end{codeblock}
 
 
 

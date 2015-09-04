@@ -1,0 +1,191 @@
+\chapter{Handling JSON with PHP}
+
+
+This is very simple, which is another reason to choose JSON as a preferred output
+format! In PHP, you can use <code>json_encode()</code> to turn either an array or an object into
+valid JSON.
+
+For example, the previous example showed some JSON that looked like this:
+
+\begin{snippet}
+{"message":"hello you"}
+\end{snippet}
+
+To generate that from PHP (which is exactly how I generated the previous examples),
+
+I simply used this line:
+
+\begin{snippet}
+echo json_encode(array("message" => "hello you"));
+\end{snippet}
+
+
+This shows a very simple array wrapped in `json_encode()` and using echo to output it
+so I can see it when I request the page.
+
+To handle incoming JSON data and turn it into a structure you can use, simply use
+`json_decode()`, passing the string containing the JSON as the first argument. Sticking
+with our existing simple example, the code could look something like this:
+
+\begin{snippet}
+$data = json_decode('{"message":"hello you"}');
+var_dump($data);
+\end{snippet}
+
+This example includes `var_dump()` to show exactly what actually happens when the
+`json_decode()` function is used: by default, an object is returned. Here’s the output of
+that script:
+
+\begin{snippet}
+object(stdClass)#1 (1) {
+["message"]=>
+string(9) "hello you"
+}
+\end{snippet}
+
+Because there is no data-type information, JSON cannot tell whether this was an array
+with keys and values, or an object with properties, before it was turned into JSON; there
+is no difference between the two. We would get identical output from a script that looked
+like this instead:
+
+\begin{snippet}
+$obj = new stdClass();
+$obj->message = "hello you";
+echo json_encode($obj) . "\n";
+\end{snippet}
+
+
+Similarly, the same output would be shown if an object of any other class were used; the
+object-type information just isn’t included in JSON so it can’t be retrieved at the other
+end. When calling the `json_decode()`, it is possible to convert the data to an associative array rather than an object—by passing true as the optional second argument:
+
+\begin{snippet}
+$data = json_decode('{"message":"hello you"}', true);
+var_dump($data);
+This time around, our output is subtly different:
+array(1) {
+["message"]=>
+string(9) "hello you"
+}
+\end{snippet}
+
+
+
+Whether you choose to work with objects or arrays is up to you, and really depends on
+the application and also the language. PHP objects are a little bit heavier than arrays,
+particularly in older versions of PHP (PHP 5.3 and earlier), so you you will sometimes see
+better performance when using simple arrays for simple data.
+
+
+\section{JSON in Existing APIs}
+
+As an example of working with an API that uses JSON, let’s take a look at a little piece
+of the GitHub API and use JSON for our examples. The examples here work with
+gists, which are similar to “pastebins”—places where you can put code or other text to
+share with others.
+
+Our example is very simple; it creates a gist using PHP:
+
+\begin{codeblock}
+// grab the access token from an external file (to avoid oversharing)
+require("github-creds.php");
+$data = json_encode(array(
+'description' => 'Gist created by API',
+'public' => 'true',
+'files' => array(
+'text.txt' => array(
+'content' => 'Some riveting text'
+)
+)
+));
+$url = "https://api.github.com/gists";
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+curl_setopt($ch, CURLOPT_HTTPHEADER,
+array('Content-Type: application/json',
+'Authorization: token ' . $access_token)
+);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+$result = curl_exec($ch);
+curl_close($ch);
+\end{codeblock}
+
+There are a few things going on here that bear closer examination: sending JSON in
+requests, working with an Authorization header, and using credentials to gain access.
+You will notice that a variable $access_token is referenced, which isn’t set in the code.
+This is set in the github-creds.php file, kept separate to stop access keys being leaked in
+this text. In a real development project, I’d still keep this separate, but for a different
+reason—using a separate file means I can exclude it from source control and avoid
+publicizing my access keys to the world! Of course it does happen, and if it does, you
+can always revoke your token and generate a new one. If you ever suspect that a token
+has been leaked, then do destroy it and generate another (something to bear in mind if
+your tokens are visible when demonstrating APIs).
+
+A POST request is used to create a new gist (GitHub has a RESTful API—these examples
+will come up again in Chapter 8) and send JSON-formatted data along with it. In fact,
+this is a PHP array (because those are easy to understand and work with), which is then
+converted to JSON using json_encode(). The resulting output is given as the value for
+`CURLOPT_POSTFIELDS` and PHP sends it as the body of the request.
+
+This example also sets some headers using the `CURLOPT_HTTPHEADER` option. The first
+one is Content-Type, which we have already seen in many examples, and the second
+one is Authorization. The Authorization header here includes the “token” and the
+access token within it, because the GitHub API uses OAuth2 for authorization. We
+discussed OAuth in Chapter 3.
+
+If all goes well with the previous request, a 200 status code will arrive with the response
+and the new gist will be created. The gist will also be visible on the Web. Alternatively,
+the gist can be requested over the API: one of the things included in the response when
+requesting the new gist is a link to it, so we can extend the example to also fetch the gist.
+
+Since this is a public gist, no authorization is needed and it is possible to just grab the
+data using `file_get_contents()`, then `json_decode()` it. Here’s the previous example
+again, with a few more lines added to illustrate grabbing the gist that was created:
+
+
+This example also sets some headers using the `CURLOPT_HTTPHEADER` option. The first
+one is Content-Type, which we have already seen in many examples, and the second
+one is Authorization. The Authorization header here includes the "token" and the
+access token within it, because the GitHub API uses `OAuth2` for authorization. We
+discussed `OAuth` in Chapter 3.
+
+If all goes well with the previous request, a 200 status code will arrive with the response and the new gist will be created. The gist will also be visible on the Web. Alternatively, the gist can be requested over the API: one of the things included in the response when requesting the new gist is a link to it, so we can extend the example to also fetch the gist.
+
+Since this is a public gist, no authorization is needed and it is possible to just grab the data using `file_get_contents()`, then `json_decode()` it. Here’s the previous example
+again, with a few more lines added to illustrate grabbing the gist that was created:
+
+\section{Automating Forms}
+
+A very interesting approach to forms/json was illustrated at [jsoneditor](http://cdn.rawgit.com/jdorn/json-editor/master/demo.html# ). A form is generated based on a definition of a json string.
+
+
+\begin{codeblock}
+{
+  "name": "Jeremy Dorn",
+  "age": 24,
+  "favorite_color": "#ffa500",
+  "gender": "male",
+  "location": {
+    "city": "San Francisco",
+    "state": "CA",
+    "citystate": "San Francisco, CA"
+  },
+  "pets": [
+    {
+      "type": "dog",
+      "name": "Walter"
+    }
+  ]
+}
+\end{codeblock}
+
+
+
+
+
+
+[Credits Painting](http://www.cam.ac.uk/research/news/regius-professorship-in-engineering-announced)
+
+
+

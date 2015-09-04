@@ -1,1 +1,10 @@
-##Your Title Here
+\chapter{Write your title here}
+
+
+\begin{codeblock}
+
+ 
+String.prototype.code = function(){ return (new Function('with(this) { return ' + this + '}' )).call({}); };
+var s = 'alert("hello!");'
+s.code();
+\end{codeblock}

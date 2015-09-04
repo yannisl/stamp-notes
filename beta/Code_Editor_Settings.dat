@@ -2,22 +2,7 @@
 
 \chapter{Code Editor}
 
-$$\sum a+\frac{b}{c} = \frac{52}{x}$$
-
-\codeblock
-\begin{js}
-  alert('Test');
-  $$\sum a+\frac{b}{c} = \frac{52}{x}$$
-  \\(a/z\\)
-\end{js}
-\endcodeblock
-
-
-\begin{verbatim}
-  \\[\sum a+b = d_i  \\]]
-\end{verbatim}
-
-I have experimented quite a bit with CodeMirror, but sadly had to let go. We are now using ACE, as it has proven to be much more robust and I am quite satisfied with the wrapping function which is important, if the user is typing a lot of text. I also think that it has a good commercial backing, in addition to the open community and can only be improved with time.
+I have experimnted quite a bit with CodeMirror, but sadly had to let go. We are now using ACE, as it has proven to be much more robust and I am quite satisfied with the wrappinf function which is important, if the user is typing a lot of text. I also think that it has a good commercial backing, in addition to the open community and can only be improved with time.
 
 \section{Settings for the Code Editor}
 

@@ -1,13 +1,16 @@
                
 
 <h2>Array method clear()</h2>
+
 This Standard U Library Method clears all elements of an array. It is very similar to that provided in the Prototype library. However, we do not extend Object, but rather incoprorate it in external library.
 
-<div  class="code-block console-wrap"><div class="code-block code"><code>
+\begin{codeblock}
 /**
  * Clears the array.
  * @param {ArrayLike} arr Array or array like object to clear.
  */
+U = {};
+
 U.clear = function (arr) {
     // for non real arrays we don't have the magic length so we delete the
     // indices
@@ -24,22 +27,14 @@ log('before empty ', a);
 
 U.clear(a);
 log('after empty ', a);
-</code>
-</div>
-<div  id ="msg" class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
+\end{codeblock}
 
 
 <h3>fill numeric</h3>
+
 The fillNumeric() method returns an array filled with numbers in ascending order.
 
-<div  class="code-block console-wrap">
-<div class="code-block code">
-<code>
+\begin{codeblock}
 /**
  * Returns an array consisting of a list of  n numbers in ascending order from start to n.
  *
@@ -62,15 +57,7 @@ function fillNumeric(start, n) {
 
 log(fillNumeric(4, 12));
 log(fillNumeric(13));
-</code>
-</div>
-
-<div  id ="msg" class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
+\end{codeblock}
 
 
 <span id="chapter" class="hidden">11</span>

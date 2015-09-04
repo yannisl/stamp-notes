@@ -1,23 +1,18 @@
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
-{{feature-image:/codeigniter/images/angela.jpg}}
 
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
 <style type="text/css">
 p#msg6 > li { list-style-type: decimal;line-height:1.5; margin:5px }
 .shade{background:#ececec}
 </style>
+
 <h2>Regular Expressions: Some useful examples</h2>
 
 All regex repetition operators are {{wi:greedy}}. They try to match as much as possible in a string. Unfortunately, this might not always be a desired effect. Thus, lazy operators are used to solve this problem. They only match the smallest possible pattern and are used by adding a '?' after the respective greedy operator. In some implementations such as those for PHP , the 'U' modifier may be used to make all repetiton operators lazy. 
 
+
+
 {{bulb:<strong>Differentiating between greediness and laziness is key to fully understanding  regular expressions.</strong>}}
+
+
 
 In this article we will start developing a regular expression that will read the contents of this article - they reside in a <tt>&lt;div&gt;</tt> with an id main-content and count the number of words. We will start with a common example that will read everything including the code. This will give us an idea of the length of the article in word tokens.
 

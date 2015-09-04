@@ -2,18 +2,18 @@
 ##New Zealand
 ##Stamps with "Cancelled Obliterator"
 
-<div style="width:32.5%;float:left;margin-right:5px">
+\begin{marginfigure}
 <h4>1d block twelve</h4>
-<img src="http://localhost/egypt/new-zealand/1036.jpg" style="width:98%" />
-<p style="font-size:smaller"> 
+\includegraphics[width=1.0\textwidth]{../new-zealand/1036.jpg}
+\caption{
 1d. dull carmine on white paper, position 6 in the vertical block of six; superb. S.G. Cat. \pound28,000. provenance: R.C. Agabeg, March 1971 (Image) 	Est. $15,000-20,000
-</p>
-</div>
+}
+
+\end{marginfigure}
 
 These stamps have quite a colorfull history and are reputed to have cost Sir Edward Bacon his contract with
 the British Authorities for printing stamps of the United Kingdom and the Colonies. In 1861 a request by a member of the
-Rowland Hill family to Bacon for _specimens_ of their stamps, other than those of Great Britain
-for their private collections.
+Rowland Hill family to Bacon for _specimens_ of their stamps, other than those of Great Britainfor their private collections.
 
 In August of that year six copies of every colonial stamp, then available to the printers, were forwarded to Mr. Pearson Hill,
 with the request that he would present sets to his father, Sir Rowland Hill, and to Mr. Ormond Hill. In order that

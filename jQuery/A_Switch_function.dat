@@ -29,23 +29,14 @@ width:12px}
 <h2>A different Switch </h2>
 This is similar to a switch statement (it might find its way in version 1.8 of JavaScript)
 
-<div  class="code-block console-wrap">
-<div class="code-block code" >
-<code>
+\begin{codeblock}
 function switch_(i){
   return arguments[++i];
 }
 
 log(switch_(2,'aa','bb','cc','dd') ); // prints: cc
 log(switch_(100,'aa','bb','cc','dd') ); // prints: undefined
-</code>
-</div>
-<div   class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
+\end{codeblock}
 
 
 Why do you think we have used _++i_ and not _i++_?

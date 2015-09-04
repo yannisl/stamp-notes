@@ -1,23 +1,11 @@
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
-
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
-
-<h2>Chain Pattern</h2>
+\chapter{Chain Pattern}
 
 In this article we will discuss chaining. Chaining is a pattern that allows you to invoke methods on one line as if they are all links on one chain.
 
 
 When a function is instantiated as an object the <strong>this</strong> property is made available. Consider the following code:
 
-<div  class="code-block console-wrap"><div class="code code-block">
-<code>
+\begin{codeblock}
 var obj = {
   v: 0,
   increment: function (x) {
@@ -42,24 +30,16 @@ obj.v = 10;
 
 var z = obj.increment(15).decrement(5).log();
 
+\end{codeblock}
 
 
-</code>
-</div>
 
-<div  class="msg" class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-<img src="http://localhost/codeigniter/images/download_01.png" style="float:right"/>
-</div>
 
-A chain (it really looks like one)  is a set of methods connected in series, so that the output of one method is the input of the next one. You will see it all over advanced JavaScript libraries and it makes a lot of sense.
+A chain (it really looks like one)  is a set of Javascript methods connected in series, so that the output of one method is the input of the next one. You will see it all over advanced JavaScript libraries and it makes a lot of sense.
 
 Let us take a look at another example:
-<div  class="code-block console-wrap"><div class="code code-block">
-<code>
+
+\begin{codeblock}
 // namespace our application
 var MYAPP = {};
 
@@ -93,16 +73,9 @@ var MYAPP = {};
 
 var $_ = function(el){return new MYAPP.dom.element(el);}
 $_('msg5').setText('hello').setColor();
-</code>
-</div>
 
-<div  id="msg5" class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-<img src="http://localhost/codeigniter/images/download_01.png" style="float:right"/>
-</div>
+\end{codeblock}
+
 
 ##Further Reading
 

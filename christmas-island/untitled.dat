@@ -1,116 +1,457 @@
 \chapter{Write your title here}
+In [[fluid dynamics]], the '''Darcy friction factor formulae''' are equations – based on experimental data and theory – for the Darcy friction factor. The Darcy friction factor is a [[dimensionless quantity]] used in the [[Darcy–Weisbach equation]], for the description of friction losses in pipe flow as well as open channel flow. It is also known as the Darcy–Weisbach friction factor or Moody friction factor and is four times larger than the [[Fanning friction factor]].<ref>{{Cite book| title=Oilfield Processing of Petroleum. Vol. 1: Natural Gas | first1=Francis S. | last1=Manning | first2=Richard E. | last2=Thompson | publisher=PennWell Books | year=1991 | isbn=0-87814-343-2| postscript=<!--None--> }}, 420 pages. See page 293.</ref>
 
-[![Build Status](https://travis-ci.org/mongodb/mongo-php-driver.png?branch=v1.5)](https://travis-ci.org/mongodb/mongo-php-driver)
+==Flow regime==
+Which friction factor formula may be applicable depends upon the type of flow that exists:
+*Laminar flow
+*Transition between laminar and turbulent flow
+*Fully turbulent flow in smooth conduits
+*Fully turbulent flow in rough conduits
+*Free surface flow.
 
-## Installation
+===Laminar flow===
+The Darcy friction factor for laminar flow (Reynolds number less than 2100) is given by the following formula:
 
-To build and install the driver:
+:<math> f = \frac{64}{\mathrm{Re}}</math>
 
-    phpize
-    ./configure
-    make
-    sudo make install
+where:
+* <math>f</math> is the Darcy friction factor
+* <math>\mathrm{Re}</math> is the [[Reynolds number]].
 
-Then, add the following to your `php.ini` file:
+===Transition flow===
+Transition (neither fully laminar nor fully turbulent) flow occurs in the range of Reynolds numbers between 2300 and 4000.  The value of the Darcy friction factor may be subject to large uncertainties in this flow regime.
 
-    extension=mongo.so
+===Turbulent flow in smooth conduits===
+The Blasius correlation is the most simple equation for computing the Darcy friction
+factor. Because the Blasius correlation has no term for pipe roughness, it
+is valid only to smooth pipes. However, the Blasius correlation is sometimes
+used in rough pipes because of its simplicity. The Blasius correlation is valid
+up to the Reynolds number 100000.
 
-### Enabling enterprise features
+===Turbulent flow in rough conduits===
+The Darcy friction factor for fully turbulent flow (Reynolds number greater than 4000) in rough conduits is given by the Colebrook equation.
 
-To connect to MongoDB Enterprise using SASL (GSSAPI) or LDAP (PLAIN) you need
-to build the driver against cyrus-sasl2 (external library).
-This is done by passing --with-mongo-sasl to ./configure, optionally passing
-in the directory to where cyrus-sasl2 was installed:
+===Free surface flow===
+The last formula in the ''Colebrook equation'' section of this article is for free surface flow.  The approximations elsewhere in this article are not applicable for this type of flow.
 
-    phpize
-    ./configure --with-mongo-sasl=/usr/local
-    make
-    sudo make install
+==Choosing a formula==
+Before choosing a formula it is worth knowing that in the paper on the [[Moody chart]], Moody stated the accuracy is about ±5% for smooth pipes and ±10% for rough pipes. If more than one formula is applicable in the flow regime under consideration, the choice of formula may be influenced by one or more of the following:
+*Required precision
+*Speed of computation required
+*Available computational technology:
+**calculator (minimize keystrokes)
+**spreadsheet (single-cell formula)
+**programming/scripting language (subroutine).
 
-### Installing on Windows
+===Compact forms===
+The Colebrook equation is an implicit equation that combines experimental results of studies of [[turbulent]] flow in smooth and rough [[Pipe (material)|pipes]]. It was developed in 1939 by C. F. Colebrook.<ref>
+{{cite journal
+     | first=C.F. | last=Colebrook
+     | title=Turbulent flow in pipes, with particular reference to the transition region between smooth and rough pipe laws
+     | journal=Journal of the Institution of Civil Engineers
+     | location=London
+     |date=February 1939
+}}</ref> The 1937 paper by C. F. Colebrook and C. M. White<ref>
+{{cite journal |   title = Experiments with Fluid Friction in Roughened Pipes
+    | author = Colebrook, C. F. and White, C. M.
+    | journal = Proceedings of the Royal Society of London. Series A, Mathematical and Physical Sciences
+    | volume = 161
+    | pages = 367–381
+    | year = 1937
+    | issue = 906 |   doi = 10.1098/rspa.1937.0150 |bibcode = 1937RSPSA.161..367C }}</ref> is often erroneously cited as the source of the equation. This is partly because Colebrook in a footnote (from his 1939 paper) acknowledges his debt to White for suggesting the mathematical method by which the smooth and rough pipe correlations could be combined.  The equation is used to iteratively solve for the [[Darcy–Weisbach equation|Darcy–Weisbach]] friction factor ''f''. This equation is also known as the '''Colebrook–White equation'''.
 
-Windows builds are available through http://pecl.php.net/package/mongo.
+For conduits that are flowing completely full of fluid at Reynolds numbers greater than 4000, it is defined as:
 
-Builds for older driver versions may be found through
-https://s3.amazonaws.com/drivers.mongodb.org/php/index.html.
+:<math> \frac{1}{\sqrt{f}}= -2 \log_{10} \left( \frac { \varepsilon}
+{3.7 D_\mathrm{h}} + \frac {2.51} {\mathrm{Re} \sqrt{f}} \right)</math>
 
-Each driver release includes various builds to support specific versions of PHP
-and Windows. Select the correct DLL file for your environment, and add the
-following to your `php.ini` file (`VERSION` will vary by environment):
+:or
 
-    extension=php_mongo-VERSION.dll
+:<math> \frac{1}{\sqrt{f}}= -2 \log_{10} \left( \frac{\varepsilon}{14.8 R_\mathrm{h}} + \frac{2.51}{\mathrm{Re}\sqrt{f}} \right)</math>
 
-If the DLL is not located within the directory specified by the
-[extension_dir](http://www.php.net/manual/en/ini.core.php#ini.extension-dir) INI
-setting, you may need to specify its full path.
+where:
+* <math>f</math> is the Darcy friction factor
+* Roughness height, <math>\varepsilon</math> (m, ft)
+* [[Hydraulic diameter]], <math>D_\mathrm{h}</math> (m, ft) – For fluid-filled, circular conduits, <math>D_\mathrm{h}</math> = D = inside diameter
+* [[Hydraulic radius]], <math>R_\mathrm{h}</math> (m, ft) – For fluid-filled, circular conduits, <math>R_\mathrm{h}</math> = D/4 = (inside diameter)/4
+* <math>\mathrm{Re}</math> is the [[Reynolds number]].
 
-## Documentation
+Note: Some sources use a constant of 3.71 in the denominator for the roughness term in the first equation above.<ref name=VDI>
+VDI Heat Atlas second edition page 1058 (ISBN 978-3-540-77876-9)</ref>
 
-See [the PHP manual](http://php.net/mongo).
+===Solving===
+The Colebrook equation is usually solved numerically due to its implicit nature. Recently, the [[Lambert W]] function has been employed to obtain explicit reformulation of the Colebrook equation.<ref>{{cite journal | title = Analytical solutions for the Colebrook and White equation and for pressure drop in ideal gas flow in pipes | author = More, A. A. | journal =  Chemical Engineering Science | volume = 61 | pages = 5515–5519 | year = 2006 | issue = 16 | doi = 10.1016/j.ces.2006.04.003 }}</ref>
 
+===Expanded forms===
+Additional, mathematically equivalent forms of the Colebrook equation are:
 
-## Support / Feedback
+:<math> \frac{1}{\sqrt{f}}= 1.7384\ldots -2 \log_{10} \left( \frac { 2 \varepsilon}
+{D_\mathrm{h}} + \frac {18.574} {\mathrm{Re} \sqrt{f}} \right)</math>
 
-For issues with, questions about, or feedback for the PHP driver, please look
-into our [support channels](http://www.mongodb.org/about/support). Please do
-not email any of the PHP driver developers directly with issues or
-questions—you're more likely to get an answer on the 
-[mongodb-user list](http://groups.google.com/group/mongodb-user) on Google
-Groups.
+::where:
+:::1.7384... = 2 log (2 &times; 3.7) = 2 log (7.4)
+:::18.574 = 2.51 &times; 3.7 &times; 2
 
+and
 
-## Bugs / Feature Requests
+:<math> \frac{1}{\sqrt{f}}= 1.1364\ldots + 2 \log_{10} (D_\mathrm{h} / \varepsilon) -2 \log_{10} \left( 1 + \frac { 9.287} {\mathrm{Re} (\varepsilon/D_\mathrm{h}) \sqrt{f}} \right)</math>
+:or
+:<math> \frac{1}{\sqrt{f}}= 1.1364\ldots  -2 \log_{10} \left( \frac {\varepsilon}
+{D_\mathrm{h}} + \frac {9.287} {\mathrm{Re} \sqrt{f}} \right) </math>
 
-Think you have found a bug? Want to see a new feature in the driver? Please
-open a case in our issue management tool, JIRA:
+::where:
+:::1.1364... = 1.7384... &minus; 2 log (2) = 2 log (7.4) &minus; 2 log (2) = 2 log (3.7)
+:::9.287 = 18.574 / 2 = 2.51 &times; 3.7.
 
- - Create an account and login (https://jira.mongodb.org).
- - Navigate to [the PHP project](https://jira.mongodb.org/browse/PHP).
- - Click **Create Issue** - Please provide as much information as possible
-   about the issue type and how to reproduce it.
+The additional equivalent forms above assume that the constants 3.7 and 2.51 in the formula at the top of this section are exact.  The constants are probably values which were rounded by Colebrook during his [[curve fitting]]; but they are effectively treated as exact when comparing (to several decimal places) results from explicit formulae (such as those found elsewhere in this article) to the friction factor computed via Colebrook's implicit equation.
 
-Bug reports in JIRA for all driver projects, as well as for the MongoDB server
-project, are **public**. Please do not add private information to bug reports.
+Equations similar to the additional forms above (with the constants rounded to fewer decimal places, or perhaps shifted slightly to minimize overall rounding errors) may be found in various references.  It may be helpful to note that they are essentially the same equation.
 
+===Free surface flow===
+Another form of the Colebrook-White equation exists for free surfaces. Such a condition may exist in a pipe that is flowing partially full of fluid. For free surface flow:
 
-## Security Vulnerabilities
+:<math>\frac{1}{\sqrt{f}} = -2 \log_{10} \left(\frac{\varepsilon}{12R_\mathrm{h}} + \frac{2.51}{\mathrm{Re}\sqrt{f}}\right).</math>
 
-If you’ve identified a security vulnerability in a driver or any other
-MongoDB project, please report it according to the 
-[instructions here](http://docs.mongodb.org/manual/tutorial/create-a-vulnerability-report).
+==Approximations of the Colebrook equation==
 
+===Haaland equation===
+The ''Haaland equation'' was proposed by [[Norwegian University of Science and Technology|Norwegian Institute of Technology]] professor Haaland in 1984. It is used to solve directly for the [[Darcy–Weisbach equation|Darcy–Weisbach]] friction factor ''f'' for a full-flowing circular pipe.  It is an approximation of the implicit Colebrook–White equation, but the discrepancy from experimental data is well within the accuracy of the data.  It was developed by S. E. Haaland in 1983.
 
-## Testing
+The Haaland equation is defined as:
 
-The tests are not available as part of the PECL package, but they are available 
-on [Github](http://www.github.com/mongodb/mongo-php-driver/tree/master/tests).  
+:<math>    \frac{1}{\sqrt {f}} = -1.8 \log_{10} \left[ \left( \frac{\varepsilon/D}{3.7} \right)^{1.11} + \frac{6.9}{\mathrm{Re}} \right] </math><ref>BS Massey Mechanics of Fluids 6th Ed ISBN 0-412-34280-4</ref>
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for how to run and create new tests.
+where:
+* <math>f</math> is the [[Darcy friction factor]]
+* <math>\varepsilon/D</math> is the relative [[surface roughness|roughness]]
+* <math>\mathrm{Re}</math> is the [[Reynolds number]].
 
+===Swamee–Jain equation===
 
-## Credits
+The Swamee–Jain equation is used to solve directly for the [[Darcy–Weisbach equation|Darcy–Weisbach]] friction factor ''f'' for a full-flowing circular pipe.  It is an approximation of the implicit Colebrook–White equation.
 
-Jon Moss
+:<math>f = 0.25 \left[\log_{10} \left(\frac{\varepsilon}{3.7D} + \frac{5.74}{\mathrm{Re}^{0.9}}\right)\right]^{-2}</math>
 
-* Came up with the idea and implemented `MongoCursor` implementing `Iterator`
+where ''f'' is a function of:
+* Roughness height, ε (m, ft)
+* Pipe diameter, ''D'' (m, ft)
+* [[Reynolds number]], ''Re'' (unitless).
 
-Pierre-Alain Joye
+===Serghides's solution===
 
-* Helped build the Windows extension and has provided the VC6 builds
+Serghides's solution is used to solve directly for the [[Darcy–Weisbach equation|Darcy–Weisbach]] friction factor ''f'' for a full-flowing circular pipe.  It is an approximation of the implicit Colebrook–White equation. It was derived using [[Steffensen's method]].<ref>Serghides, T.K (1984). "Estimate friction factor accurately". ''Chemical Engineering Journal'' '''91'''(5): 63–64.</ref>
 
-Cesar Rodas
+The solution involves calculating three intermediate values and then substituting those values into a final equation.
 
-* Created the `MongoCursor::info` method
-* Implemented GridFS read streaming
+: <math> A = -2\log_{10}\left( {\varepsilon\over 3.7 D} + {12\over \mbox{Re}}\right) </math>
 
-William Volkman
+: <math> B = -2\log_{10} \left({\varepsilon\over 3.7 D} + {2.51 A \over \mbox{Re}}\right) </math>
 
-* Made connection code check & handle error status
+: <math> C = -2\log_{10} \left({\varepsilon\over 3.7 D} + {2.51 B \over \mbox{Re}}\right) </math>
 
-Derick Rethans
+: <math> f = \left(A - \frac{(B - A)^2}{C - 2B + A}\right)^{-2}</math>
 
-* Implemented `MongoInt32`, `MongoInt64` and related _php.ini_ options.
+where ''f'' is a function of:
+* Roughness height, ε (m, ft)
+* Pipe diameter, ''D'' (m, ft)
+* [[Reynolds number]], Re ([[dimensionless number|unitless]]).
 
-Taneli Leppä
+The equation was found to match the Colebrook–White equation within 0.0023% for a test set with a 70-point matrix consisting of ten relative roughness values (in the range 0.00004 to 0.05) by seven Reynolds numbers (2500 to 10<sup>8</sup>).
 
-* Provided a patch for PHP-706 to swap out select() for poll().
+===Goudar–Sonnad equation===
+
+Goudar equation is the most accurate approximation to solve directly for the [[Darcy–Weisbach equation|Darcy–Weisbach]] friction factor ''f'' for a full-flowing circular pipe.  It is an approximation of the implicit Colebrook–White equation. Equation has the following form<ref>Goudar, C.T., Sonnad, J.R. (August 2008). "Comparison of the iterative approximations of the Colebrook–White equation". ''Hydrocarbon Processing'' '''Fluid Flow and Rotating Equipment Special Report'''(August 2008): 79–83.</ref>
+
+: <math> a = {2 \over \ln(10)}</math>
+: <math> b = {\varepsilon/D\over 3.7} </math>
+: <math> d = {\ln(10)Re\over 5.02} </math>
+: <math> s = {bd + \ln(d)} </math>
+: <math> q = {{s}^{s/(s+1)}} </math>
+: <math> g = {bd + \ln{d \over q}} </math>
+: <math> z = {\ln{q \over g}} </math>
+: <math> D_{LA} = z{{g\over {g+1}}} </math>
+: <math> D_{CFA} = D_{LA} \left(1 + \frac{z/2}{(g+1)^2+(z/3)(2g-1)}\right) </math>
+:<math>    \frac{1}{\sqrt {f}} = {a\left[ \ln\left( \frac{d}{q} \right) + D_{CFA} \right] } </math>
+
+where ''f'' is a function of:
+* Roughness height, ε (m, ft)
+* Pipe diameter, ''D'' (m, ft)
+* [[Reynolds number]], Re ([[dimensionless number|unitless]]).
+
+===Brkić solution===
+
+Brkić shows one approximation of the Colebrook equation based on the Lambert W-function<ref>
+{{cite journal |   title = An Explicit Approximation of Colebrook’s equation for fluid flow friction factor
+    | author = Brkić, Dejan
+    | journal = Petroleum Science and Technology
+    | volume = 29
+    | pages = 1596–1602
+    | year = 2011
+    | issue = 15 |   doi = 10.1080/10916461003620453}}</ref>
+
+:<math> S = ln\frac{Re}{\mathrm{1.816ln\frac{1.1Re}{\mathrm{ln(1+1.1Re)}}}}</math>
+
+: <math> \frac{1}{\sqrt {f}} = -2\log_{10} \left({\varepsilon/D\over 3.71} + {2.18 S \over \mbox{Re}}\right) </math>
+
+where Darcy friction factor ''f'' is a function of:
+* Roughness height, ε (m, ft)
+* Pipe diameter, ''D'' (m, ft)
+* [[Reynolds number]], Re ([[dimensionless number|unitless]]).
+
+The equation was found to match the Colebrook–White equation within 3.15%.
+
+===Blasius correlations===
+
+Early approximations by [[Paul Richard Heinrich Blasius]] in terms of the Fanning friction factor are given in one article of 1913:<ref name="Trinh">[http://arxiv.org/ftp/arxiv/papers/1007/1007.2466.pdf Trinh, On the Blasius correlation for friction factors, p. 1]</ref>
+
+<math>f = 0.079 \mathrm{Re}^{-{1 \over 4}}</math>.
+
+[[Johann Nikuradse]] in 1932 proposed that this corresponds to a [[power law]] correlation for the fluid velocity profile.
+
+Mishra and Gupta in 1979 proposed a correction for curved or helically coiled tubes, taking into account the equivalent curve radius, R<sub>c</sub>:<ref>Adrian Bejan, Allan D. Kraus, Heat transfer handbook, John Wiley & Sons, 2003</ref>
+
+<math>f = 0.079 \mathrm{Re}^{-{1 \over 4}} + 0.0075\sqrt{\frac {D}{2 R_c}}</math>,
+
+with,
+
+<math>R_c = R\left[1 + \left(\frac{H}{2 \pi R} \right)^2\right]</math>
+
+where ''f'' is a function of:
+* Pipe diameter, ''D'' (m, ft)
+* Curve radius, ''R'' (m, ft)
+* Helicoidal pitch, ''H'' (m, ft)
+* [[Reynolds number]], ''Re'' (unitless)
+
+valid for:
+* ''Re<sub>tr</sub>'' < ''Re'' < 10<sup>5</sup>
+* 6.7 < ''2R<sub>c</sub>/D'' < 346.0
+* 0 < ''H/D'' < 25.4
+
+===Table of Approximations===
+The following table lists historical approximations where:<ref name=Beograd>{{cite journal|last=Beograd|first=Dejan Brkić|title=Determining Friction Factors in Turbulent Pipe Flow|journal=Chemical Engineering|date=March 2012|pages=34–39|url=http://www.che.com/processing_and_handling/liquid_gas_and_air_handling/9059.html}}{{subscription required}}</ref> 
+* Re, [[Reynolds number]] ([[dimensionless number|unitless]]);
+* &lambda;, [[Darcy friction factor]] (dimensionless);
+* &epsilon;, roughness of the inner surface of the pipe (dimension of length);
+* ''D'', inner pipe diameter;
+* <math>\log(x)</math> is the base-10 [[logarithm]].
+Note that the Churchill equation <ref>
+{{cite journal
+     | first=S.W. | last=Churchill
+     | title=Friction-factor equation spans all fluid-flow regimes
+     | journal=Chemical Engineering
+     | pages = 91–92
+     |date= November 7, 1977
+}}</ref> (1977) is the only one that returns a correct value for friction factor in the laminar flow region (Reynolds number < 2300). All of the others are for transitional and turbulent flow only.
+{| class="wikitable sortable" border="1"
+|+ Table of Colebrook equation approximations
+|-
+! scope="col" class="unsortable"| Equation
+! scope="col" | Author
+! scope="col" | Year
+! scope="col" class="unsortable"| Ref
+|-
+|
+<math>
+\lambda = .0055 (1 + (2 \times10^4 \cdot\frac{\varepsilon}{D} + \frac{10^6}{Re} )^\frac{1}{3})
+</math>
+|Moody
+|1947
+|
+|-
+|
+<math>
+\lambda = .094 (\frac{\varepsilon}{D})^{0.225} + 0.53 (\frac{\varepsilon}{D}) + 88 (\frac{\varepsilon}{D})^{0.44} \cdot {Re}^{-{\Psi}}
+</math>
+:where 
+:<math>\Psi = 1.62(\frac{\varepsilon}{D})^{0.134}</math>
+|Wood
+|1966
+|
+|-
+|
+<math>
+\frac{1}{\sqrt{\lambda}} = -2 \log (\frac{\varepsilon}{3.715D} + \frac{15}{Re})
+</math>
+|Eck
+|1973
+|
+|-
+|
+<math>
+\frac{1}{\sqrt{\lambda}} = -2 \log (\frac{\varepsilon}{3.7D} + \frac{5.74}{Re^{0.9}})
+</math>
+|Jain and Swamee
+|1976
+|
+|-
+|
+<math>
+\frac{1}{\sqrt{\lambda}} = -2 \log ((\frac{\varepsilon}{3.71D}) + (\frac{7}{Re})^{0.9})
+</math>
+|Churchill
+|1973
+|
+|-
+|
+<math>
+\frac{1}{\sqrt{\lambda}} = -2 \log ((\frac{\varepsilon}{3.715D}) + (\frac{6.943}{Re})^{0.9}))
+</math>
+|Jain
+|1976
+|
+|-
+|
+<math>
+\lambda = 8[(\frac{8}{Re})^{12} + \frac{1}{(\Theta_1 + \Theta_2)^{1.5}})]^{\frac{1}{12}}
+</math>
+:where
+:<math>\Theta_1=[-2.457 \ln[(\frac{7}{Re})^{0.9} + 0.27\frac{\varepsilon}{D}]]^{16}</math>
+:<math>\Theta_2 = (\frac{37530}{Re})^{16}</math>
+|Churchill
+|1977
+|
+|-
+|
+<math>
+\frac{1}{\sqrt{\lambda}} = -2 \log [\frac{\varepsilon}{3.7065D} - \frac{5.0452}{Re} \log(\frac{1}{2.8257}(\frac{\varepsilon}{D})^{1.1098} + \frac{5.8506}{Re^{0.8981}})]
+</math>
+|Chen
+|1979
+|
+|-
+|
+<math>
+\frac{1}{\sqrt{\lambda}} = 1.8\log[\frac{Re}{0.135Re(\frac{\varepsilon}{D}) +6.5}]
+</math>
+|Round
+|1980
+|
+|-
+|
+<math>
+\frac{1}{\sqrt{\lambda}} = -2 \log (\frac{\varepsilon}{3.7D} + \frac{5.158log(\frac{Re}{7})} {Re(1 + \frac{Re^{0.52}}{29} (\frac{\varepsilon}{D})^{0.7} }
+</math>
+|Barr
+|1981
+|
+|-
+|
+<math>
+\frac{1}{\sqrt{\lambda}} = -2 \log [\frac{\varepsilon}{3.7D} - \frac{5.02}{Re} \log(\frac{\varepsilon}{3.7D} - \frac{5.02}{Re} \log(\frac{\varepsilon}{3.7D} + \frac{13}{Re}))]
+</math>
+:or
+<math>
+\frac{1}{\sqrt{\lambda}} = -2 \log [\frac{\varepsilon}{3.7D} - \frac{5.02}{Re} \log(\frac{\varepsilon}{3.7D} + \frac{13}{Re})]
+</math>
+|Zigrang and Sylvester
+|1982
+|-
+|
+<math>
+\frac{1}{\sqrt{\lambda}} = -1.8 \log \left[\left(\frac{\varepsilon}{3.7D}\right)^{1.11} + \frac{6.9}{Re}\right]
+</math>
+|Haaland
+|1983
+|
+|-
+|
+<math>
+\lambda = [\Psi_1 - \frac{(\Psi_2-\Psi_1)^{2}}{\Psi_3-2\Psi_2+\Psi_1}]^{-2}</math>
+:or
+<math>
+\lambda = [4.781 - \frac{(\Psi_1-4.781)^{2}}{\Psi_2-2\Psi_1+4.781}]^{-2}</math>
+:where
+:<math>\Psi_1 = -2\log(\frac{\varepsilon}{3.7D} + \frac{12}{Re})</math>
+:<math>\Psi_2 = -2\log(\frac{\varepsilon}{3.7D} + \frac{2.51\Psi_1}{Re})</math>
+:<math>\Psi_3 = -2\log(\frac{\varepsilon}{3.7D} + \frac{2.51\Psi_2}{Re})</math>
+|Serghides
+|1984
+|
+|-
+|
+<math>
+\frac{1}{\sqrt{\lambda}} = -2 \log(\frac{\varepsilon}{3.7D} + \frac{95}{Re^{0.983}} - \frac{96.82}{Re})</math>
+|Manadilli
+|1997
+|
+|-
+|
+<math>
+\frac{1}{\sqrt{\lambda}} = -2 \log \lbrace \frac{\varepsilon}{3.7065D}-\frac{5.0272}{Re}\log[\frac{\varepsilon}{3.827D} - \frac{4.657}{Re} \log ((\frac{\varepsilon}{7.7918D})^{0.9924} + (\frac{5.3326}{208.815 + Re})^{0.9345})] \rbrace </math>
+|Monzon, Romeo, Royo
+|2002
+|
+|-
+|
+<math>
+\frac{1}{\sqrt{\lambda}} = 0.8686 \ln[\frac{0.4587Re}{(S-0.31)^{\frac{S}{(S+1)}}}]
+</math>
+:where:
+:<math>S = 0.124Re \frac{\varepsilon}{D} + \ln (0.4587Re)</math>
+|Goudar, Sonnad
+|2006
+|
+|-
+|
+<math>
+\frac{1}{\sqrt{\lambda}} = 0.8686 \ln[\frac{0.4587Re}{(S-0.31)^{\frac{S}{(S+0.9633)}}}]
+</math>
+:where:
+:<math>S = 0.124Re \frac{\varepsilon}{D} + \ln (0.4587Re)</math>
+|Vatankhah, Kouchakzadeh
+|2008
+|
+|-
+|
+<math>
+\frac{1}{\sqrt{\lambda}} = \alpha - [ \frac {\alpha + 2\log(\frac{\Beta}{Re})}{1 + \frac{2.18}{\Beta}}]
+</math>
+:where
+:<math>\alpha = \frac{(0.744\ln(Re)) - 1.41}{(1+ 1.32\sqrt{\frac{\varepsilon}{D}})}</math>
+:<math>\Beta = \frac{\varepsilon}{3.7D}Re + 2.51\alpha</math>
+|Buzzelli
+|2008
+|
+|-
+|
+<math>
+\lambda = \frac{6.4}{(\ln(Re) -\ln(1+.001Re\frac{\varepsilon}{D}(1+10\sqrt{\varepsilon}{D})))^{2.4}}
+</math>
+|Avci, Kargoz
+|2009
+|
+|-
+|
+<math>
+\lambda = \frac{0.2479 - 0.0000947(7-\log Re)^{4}}{(\log(\frac{\varepsilon}{3.615D} + \frac{7.366}{Re^{0.9142}}))^{2}}
+</math>
+|Evangleids, Papaevangelou, Tzimopoulos
+|2010
+|}
+
+==References==
+{{Reflist}}
+
+==Further reading==
+*{{cite journal | first=C.F. | last=Colebrook | title=Turbulent flow in pipes, with particular reference to the transition region between smooth and rough pipe laws | journal=Journal of the Institution of Civil Engineers | location=London |date=February 1939 | doi=10.1680/ijoti.1939.13150}} <br> For the section which includes the free-surface form of the equation – {{Cite journal | year=2002 |title=Computer Applications in Hydraulic Engineering | edition=5th | publisher=Haestad Press | postscript=<!--None--> }}, p.&nbsp;16.
+*{{cite journal|last = Haaland|first = SE|title = Simple and Explicit Formulas for the Friction Factor in Turbulent Flow|journal = Journal of Fluids Engineering | publisher=ASME|volume = 105|pages = 89–90|year = 1983|issue = 1|doi=10.1115/1.3240948
+}}
+*{{cite journal | author = Swamee, P.K. |author2=Jain, A.K. | year = 1976 | title = Explicit equations for pipe-flow problems | journal = Journal of the Hydraulics Division | publisher=ASCE | volume = 102 | issue = 5 | pages = 657–664}}
+*{{cite journal| author = Serghides, T.K | year = 1984 |title = Estimate friction factor accurately | journal = Chemical Engineering | volume = 91 | issue = 5 | pages = 63–64}} – Serghides' solution is also mentioned [http://www.cheresources.com/colebrook2.shtml here].
+*{{cite journal | first=L.F. | last=Moody | title=Friction Factors for Pipe Flow | journal=Transactions of the ASME | volume=66 | issue=8 | year=1944 | pages=671–684 }}
+*{{cite journal | first=Dejan | last=Brkić | title=Review of explicit approximations to the Colebrook relation for flow friction | journal=Journal of Petroleum Science and Engineering | volume=77 | issue=1 | year=2011 | pages=34–48 | doi=10.1016/j.petrol.2011.02.006 }}
+*{{cite journal | first=Dejan | last=Brkić | title=W solutions of the CW equation for flow friction | journal=Applied Mathematics Letters | volume=24 | issue=8 | year=2011 | pages=1379–1383 | doi=10.1016/j.aml.2011.03.014 }}
+
+==External links==
+*[http://www.calctool.org/CALC/eng/civil/friction_factor Web-based calculator of Darcy friction factors by Serghides' solution.]
+*[http://pfcalc.sourceforge.net Open source pipe friction calculator.]
+
+{{DEFAULTSORT:Darcy Friction Factor Formulae}}
+[[Category:Equations of fluid dynamics]]
+[[Category:Piping]]
+[[Category:Fluid mechanics]]
+
+[[fr:Équation de Darcy-Weisbach]]
+[[it:Equazione di Colebrook]]
+[[pt:Equações explícitas para o fator de atrito de Darcy-Weisbach]]
+

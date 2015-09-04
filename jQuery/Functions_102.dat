@@ -1,16 +1,6 @@
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
-
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
-
 
 <h2>Functions Properties and Methods</h2>
+
 Functions are <strong>objects</strong> in ECMAScript and, as mentioned previously have properties and methods. Each function has two properties:
 
 - length
@@ -19,10 +9,7 @@ Functions are <strong>objects</strong> in ECMAScript and, as mentioned previousl
 The <em>length</em> property indicates the number of named arguments
 that the function expects, as in the following example:
 
-<div  class="code-block console-wrap">
-<div class="code code-block">
-<code>
-
+\begin{codeblock}
 function add(num1, num2, num3, num4){
          return num1+num2+num3+num4;
 }
@@ -31,19 +18,13 @@ var s=add(2001,11,22,56 );
 var s2=add.length;
 log('value of s = ', s);
 log('length of function add = ', s2);
-</code>
-</div>
-<div id="msg1" class="msg">
-</div>
-<ol class="results"></ol>
-<button class="eval">Run Code!</button>
-</div>
-</code>
+\end{codeblock}
+
 
 Returning a <dfn>function from a function</dfn> is also possible and can be quite powerful. This is discussed further when we are discussing <dfn>anonymous function</dfn>:
 
 
-<h3>Functions and the Activation Object</h3>
+\subsection{Functions and the Activation Object}
 
 When control enters an execution context for function code, an object called the __activation object__ is
 created and associated with the execution context. The activation object is initialised with a property
@@ -56,9 +37,7 @@ The activation object is then used as the variable object for the purposes of va
 
 When the call operation is applied to a Reference value whose base object is an activation object, null is used as the this value of the call.
 
-<div  class="code-block console-wrap">
-<div class="code code-block">
-<code>
+\begin{codeblock}
 function test() {
   var d = ''
   for (var i = 0, length = arguments.length; i < length; i++) {
@@ -80,19 +59,12 @@ function add(a, b, c) {
 }
 
 add(12, 13, 1);
-</code>
-</div>
-<div id="msg1" class="msg">
-</div>
-<ol class="results"></ol>
-<button class="eval">Run Code!</button>
-</div>
-</code>
+\end{codeblock}
 
-<h3>This</h3>
-There is a this value associated with every active execution context. The this value depends on the __caller__
-and the type of code being executed and is determined when control enters the execution context. The
-__this__ value associated with an execution context is immutable.
+\section{This}
+
+There is a this value associated with every active execution context. The this value depends on the `caller` 
+and the type of code being executed and is determined when control enters the execution context. The `this` value associated with an execution context is immutable.
 
 10.1.8 <strong>Arguments Object</strong>
 

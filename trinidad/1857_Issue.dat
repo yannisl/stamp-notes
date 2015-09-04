@@ -12,7 +12,7 @@ A letter was written to the Governor by H. Labouchere, enclosing a letter
 from the Colonial Agents, enclosing a letter from Messrs. Perkins and Bacon
 relative to the perforation of these stamps.
 
-\begin{letter}
+\begin{blockquote}
 69 FLEET STREET, E.C.,
 
 February 5,1858.
@@ -51,7 +51,7 @@ We are, etc.,
 
 PERKINS, BACON AND Co.,
 
-\end{letter}
+\end{blockquote}
 
 The Agent general for the Crown Colonies responded with instructions to proceed as per previous supplies:
 

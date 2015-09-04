@@ -1,33 +1,16 @@
-      
-<!--
- directives
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
 
-{{feature-image:/codeigniter/images/china/beauty_06.jpg}}
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
 
 
 <h2>Lazy Loading</h2>
 
 Making Scripts Play Nice
 
-There are several techniques for downloading external scripts without having your page
-suffer from their blocking behavior. One technique I don't suggest doing is inlining all
-of your JavaScript. In a few situations (home pages, small amounts of JavaScript),
-inlining your JavaScript is acceptable, but generally it's better to serve your JavaScript
-in external files because of the page size and caching benefits derived. (For more
-information about these trade-offs,
+There are several techniques for downloading external scripts without having your page suffer from their blocking behavior. One technique I don't suggest doing is inlining all of your JavaScript. In a few situations (home pages, small amounts of JavaScript), inlining your JavaScript is acceptable, but generally it's better to serve your JavaScript in external files because of the page size and caching benefits derived. (For moreinformation about these trade-offs,
 
 The techniques listed here provide the benefits of external scripts without the slowdowns
 imposed from blocking:
 
-- XHR Eval
+- XHR Eval  
 - XHR Injection
 - Script in Iframe
 - Script DOM Element
@@ -38,9 +21,7 @@ The following sections describe each of these techniques in more detail, followe
 comparison of how they affect the browser and which technique is best under different
 circumstances.
 
-<div  class="code-block console-wrap">
-<div class="code-block code">
-<code>
+\begin{codeblock}
 log((countNumFilesLoaded_ = function () {
   var scripts = document.getElementsByTagName('script');
   var count = 0;
@@ -53,14 +34,8 @@ log((countNumFilesLoaded_ = function () {
   }
   return count;
 })());
-</code>
-</div>
-<div  id ="msg" class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
+\end{codeblock}
+
 
 <h3>XHR Injection</h3>
 

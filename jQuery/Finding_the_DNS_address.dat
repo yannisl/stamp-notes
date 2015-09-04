@@ -1,21 +1,10 @@
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
-{{feature-image: http://localhost/egypt/elliott-erwitt/EE-1150.jpg}}
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
-
 <h2>Finding the DNS address of a website</h2>
-This code is based on using a RESTful API provided by http://dig.jsondns.org/ and the code is written by.
+
+This code is based on using a RESTful API provided by http://dig.jsondns.org/ and the code is written by. See also [dnsapi](http://www.statdns.com/resources/)
 
 By querying the API the need for a DNS server falls away, you can actually use it straight from your server [see the discussion at HN](http://news.ycombinator.com/item?id=1017508)
-<div  class="code-block console-wrap">
-<div class="code code-block">
-<code>
+
+\begin{codeblock}
    
         // not sure if "debounce" is the right name for this
         Function.prototype.debounce = function(ms) {
@@ -77,20 +66,13 @@ By querying the API the need for a DNS server falls away, you can actually use i
     
 init();
 log('test');
-</code>
-</div>
-<div id = "chat_content">
-        
-</div>
+
+\end{codeblock}
+
 <input type="text" name="input" id="input" onkeyup="changed();">.
 <input type="text" name="tld" id="tld" value="com" size="3" onkeyup="changed();"> 
 
-<div  id="msg" class="msg" >
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results" id="results"></ol> 
-</div>
+
 
 
 

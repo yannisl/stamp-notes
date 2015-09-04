@@ -1,13 +1,3 @@
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
-
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
 
 
 
@@ -17,18 +7,12 @@
 This is an alias for __fill()__.
 This method returns an array of value repeated n times. Useful when you want to prefill an array.
 
-<div  class="code-block console-wrap">
-<div class="code-block code">
-<code>
+
+\begin{codeblock}
+
 var $A = function(){};
 
-/**
- * Returns an array consisting of the given value repeated n times.
- *
- * @param {*} value The value to repeat.
- * @param {number} n The repeat count.
- * @return {!Array.<*>} An array with the repeated value.
- */
+
 
 $A.fill = function (value, n) {
    var array = [];
@@ -40,30 +24,14 @@ $A.fill = function (value, n) {
 b = $A();
 log($A.fill('test ', 12));
 
-</code>
-</div>
-
-<div  id ="msg" class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
+\end{codeblock}
 
 
 <h3>fill numeric</h3>
 The fillNumeric() method returns an array filled with numbers in ascending order.
 
-<div  class="code-block console-wrap">
-<div class="code-block code">
-<code>
-/**
- * Returns an array consisting of a list of  n numbers in ascending order from start to n.
- *
- * @param {*} start the start number.
- * @param {number} n The repeat count.
- * @return {!Array.<*>} An array with the repeated value.
- */
+\begin{codeblock}
+
 
 function fillNumeric(start, n) {
   var array = [];
@@ -79,15 +47,7 @@ function fillNumeric(start, n) {
 
 log(fillNumeric(4, 12));
 log(fillNumeric(13));
-</code>
-</div>
-
-<div  id ="msg" class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
+\end{codeblock}
 
 
 <span id="chapter" class="hidden">11</span>

@@ -4,9 +4,7 @@
 
 The easiest way to enter links is to use markdown mark-up; \verb+[example](http://example.com)+ This is automatically changed during the LaTeX run to:
 
-
 \verb+\href{http://example.com}{example}.+
-
 
 The standard preamble.tex that we provide will load the hyperref package that handles urls correctly.
 

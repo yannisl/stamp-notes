@@ -1,155 +1,52 @@
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+<style>
 
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
+</style>
 
--->
-<h2>Checking if a Class exists on an element</h2>
+\section{Checking if an element has a class}
 
-Working with classes is more difficult than working with id's, where we are always dealing with a specific node. 
 
-Developers are mostly using libraries and such tasks are fairly easy to achieve. However, it is better somewhere along the line to understand, how this can be achieved by traditional methods.
+\begin{codeblock}
+hasClass = function (selector) {
+    var className = " " + selector + " ";
+    for (var i = 0, l = this.length; i < l; i++) {
+        if ((" " + this[i].className + " ").replace(rclass, " ").indexOf(className) > -1) {
+            return true;
+        }
+    }
 
-We can check if a certain element has a class, using various methods:
-
-- using one of the open source libraries like jQuery
-- using DOM browser built-in methods
-- using  the Selector API for compatibe browsers:
-
-Let us review it by  example .
-
-To test if an element has a class we use the
-<tt>hasClass()</tt>, jQuery method.
-
-<div  class="code-block console-wrap"><div class="code code-block">
-<code>
-// Test whether a DOM node has a certain CSS class. 
-var el1 = document.getElementById('msg');
-
-var el = $('.msg');
-log('hasClass = ' + el.hasClass('.msg'));
-
-log('$().hasClass() = ', $(el).hasClass('.msg'));
-
-function hasClass(domElement, className) {
-  return (' ' + domElement.className + ' ').indexOf(' ' + className + ' ') >= 0;
+    return false;
 }
+\end{codeblock}
 
-var li = document.querySelectorAll("li");
+
+<div id="foo" class="foo">Foo div</div>
+
+\begin{codeblock}
+// div is an object reference to a <div> element with class="foo bar"
+
+var el = document.getElementById("foo");
+    if (el.matches("div")) {
+      log("Match!");
+    }
+
+el.classList.remove("foo");
+el.classList.add("anotherclass");
+
+// if visible is set remove it, otherwise add it
+el.classList.toggle("visible");
+
+log(el.classList.contains("foo"));
+
+el.classList.add("foo","bar"); //add multiple classes
+\end{codeblock}
+
+\begin{codeblock}
+var sheets = document.styleSheetSets;
 
 
-</code>
-</div>
-
-<div  id = "msg" class="msg">
-</div>
-<div class=" console " id="console" ></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-<img src="http://localhost/codeigniter/images/jquery.png" style="float:right; width:85px"/>
-</div>
-
-One of the problems is that users might define class with spaces either before or after the class name.
-
-<pre>
-// Extract from prototype
- hasClassName: function(element, className) {
-    if (!(element = $(element))) return;
-    var elementClassName = element.className;
-    return (elementClassName.length > 0 && (elementClassName == className ||
-      new RegExp("(^|\\s)" + className + "(\\s|$)").test(elementClassName)));
-  },
-</pre>
-
-jQuery's code - as to be expected - is more laconic, there is an internal function and one open to the API, first the internal one.
-<pre>
-//Extract from jQuery
-// internal only, use hasClass("class")
-    has: function( elem, className ) {
-	return elem && jQuery.inArray( className, (elem.className || elem).toString().split(/\s+/) ) > -1;
+for (var i = 0; i < sheets.length; i++) {
+  log[sheets[i]];
 }
-</pre>
+\end{codeblock}
 
-As you can observe the method accepts two parameters, elent and className, it the checks and returns the test.
-
-{{plain:
-       elem.ClassName
-}}
-
-The external API, is an absolute gem, if you do not specify your class with a prefix (dot) it will return false. Short and sweet.
-
-{{plain:
-hasClass: function( selector ) {
-		return !!selector && this.is( "." + selector );
-	}
-}}
-
-
-
-
-
-
-
-
-With traditional methods we need to write our own function:
-
-
-<div  class="code-block console-wrap"><div class="code code-block">
-<code>
-// Test whether a DOM node has a certain CSS class. 
-
-var el1  = document.getElementById('msg1');
-function hasClass(domElement, className) {  
-  return (' ' + domElement.className + ' ')  
-        .indexOf(' ' + className + ' ') >= 0;  
-} 
-assert(hasClass(el1, 'msg')==true,'Element has the specified class');
-
-var elements = document.getElementsByClassName('msg');
-var el2=document.getElementById('msg')
-                                     .getElementsByClassName('msg');
-
-
-alert(el2);
-
-alert(elements);
-</code>
-</div>
-
-<div  id = "msg1" class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-<img src="http://localhost/codeigniter/images/jquery.png" style="float:right; width:85px"/>
-</div>
-
-Basically I have added one space at the beginning and end of each string, and see if the className property of the domElement contains the className string provided.
-Why adding those spaces? Well, if we don’t add spaces then we could have problems with names containing the given className.
-
-Also, the code is concise and most of the work is done by the built-in indexOf method, which is good for performance.
-http://blog.thejit.org/2009/08/22/back-to-basics/#theanswers
-
-We have not used a regex, we could perhaps be better off doing it and need to waterproof the method. Anyway it is just as an illustration.
-
-##Further Reading
-
-
-
-  
-
-
-
-  
-  
-
-
-
-
-
-
-
+[photo](http://www.rebeccamcdonald.eu/)

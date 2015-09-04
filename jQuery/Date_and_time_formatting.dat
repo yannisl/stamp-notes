@@ -1,28 +1,17 @@
- <!--
-{{feature-image: /codeigniter/images/china/beauty_04.jpg}}
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
 
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
 
 <SCRIPT>
 goog.require('goog.i18n.DateTimeFormat');
 goog.require('goog.i18n.TimeZone');
 goog.require('goog.i18n.DateTimeSymbols');
 goog.require('goog.i18n.DateTimeSymbols_de');
-  </SCRIPT>
+</SCRIPT>
 
 <h2>How to Internationalize Date and Time Formatting</h2>
+
 Closure's date time formatting classes deal with Date formatting in a standard way. First we will explore some of the properties and I will show you how to Inernationalize a date below the first notes.
 
-<div  class="code-block console-wrap">
-<div class="code-block code">
-<code>
+\begin{codeblock}
 var date;
 goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_de;
 
@@ -71,17 +60,8 @@ goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_de;
   fmt = new goog.i18n.DateTimeFormat('MM/dd/yyyy HH:mm:ss Z');
   log('10/29/2006 01:30:00 +0000', fmt.format(date, timeZone));
 })();
- 
+\end{codeblock} 
 
-</code>
-</div>
-
-<div  id ="msg" class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
 
 <h3>date Time Formatting Standards</h3>
 DateTime formatting functions following the pattern specification as defined

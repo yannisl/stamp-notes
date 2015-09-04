@@ -1,22 +1,10 @@
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+## Drawing a Circle with Canvas
 
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
-<style type="text/css">
-
-</style>
-<h2>Drawing a Circle with Canvas</h2>
 In this tutorial we will use the Canvas elements to draw a number of circles. We will create a function circle(). The function will receive as arguments an object with various properties. These properties will be merged with built-in defaults in order to make the function flexible to the use.
 
-<div  class="code-block console-wrap">
-<div class="code  code-block">
-<code>
+<div id="canvas"></div>
+
+\begin{codeblock}
 var $D = function circle(options) {
   // define some options
   var defaults = {
@@ -77,14 +65,7 @@ for (var i = 1; i < 10; i++) {
   $D(opt);
 }
 
-</code>
-</div>
-<canvas id="canvas" width="180" height="180">
-</canvas>
-<p id="msg1" class="msg" >
-</p>
-<button class="eval">Run Code!</button>
-</div>
+\end{codeblock}
 
 Here, the function createPerson() accepts arguments with which to build an object with all the necessary information to represent a Person object. The function can be called any number of times with different arguments and will still return an object that has three properties and one method. Though this solved the problem of creating multiple similar object the factory pattern didn't address the issue of object identification (what type of object an object is). As Javascript continued to evolve, a new pattern emerged. The Constructor Pattern.
 
@@ -92,9 +73,8 @@ Here, the function createPerson() accepts arguments with which to build an objec
 
 You can define constructors for your Objects, by re-writing the above code using the <df>Constructor Pattern</dfn> as follows:
 
-<div  class="code-block">
-<div class="code code-block">
-<code>
+
+\begin{codeblock}
 function Person(name, age, job){
           <span class="highlight">this</span>.name=name;
           <span class="highlight">this</span>.age=age;
@@ -108,14 +88,7 @@ var person1 = <span class="highlight">new</span> Person("Mary", 31, "Web Designe
 var person2= <span class="highlight">new</span> Person("Peter", 56, "Doctor");
 person1.sayName();
 person2.sayName();
-$('#msg1').text(s);
-</code>
-</div>
-<p id="msg1" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
-</p>
-<button class="eval">Run Code!</button>
-</div>
-</code>
+\end{codeblock}
 
 In the example, the Person() function takes the place of the createPerson() function. Note some important differences:
 

@@ -1,13 +1,3 @@
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
-
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
 <h2>Javascript Regular Expressions: Matching whole words</h2>
 
 One common problem facing JavaScript developers, is that since they are developing for the web, most of the times is important to address character encoding fairly early. Let us look at a common - and apparaently simple problem - that of matching whole words in text.
@@ -21,44 +11,30 @@ With these flavours you can only search on words in languages that use the lette
 
 Lets us have a test case:
 
-<div class="code-block console-wrap">
-<div class="code code-block">
-<code>
+\begin{codeblock}
 var s1 = 'This is a very long string of something';
-var s2 = 'McDonaldsÂ© copyrighted notice!'
+var s2 = 'McDonalds© copyrighted notice!'
 var pattern = /\b\w+\b/g;
 
 var result = s1.match(pattern);
 var result1 = s2.match(pattern);
 log(result);
 log(result1);
+\end{codeblock}
 
-</code>
-</div>
-<div class="msg" ></div>
-  <button class="eval">Run</button>
-<ol class="results"></ol>
-</div>
 
 What we need to capture the copyright symbol is we need to redefine our word in unicode. In this case I will use a wide unicode range.
 
-<div class="code-block console-wrap">
-<div class="code code-block">
-<code>
+\begin{codeblock}
 var s1 = 'This is a very long string of something';
-var s2 = 'McDonaldsÂ© copyrighted notice!'
+var s2 = 'McDonalds© copyrighted notice!'
 var pattern = /\b[\u0000-\u1FFF]+\b/g;
 
 var result = s1.match(pattern);
 var result1 = s2.match(pattern);
 log(result);
 log(result1);
-</code>
-</div>
-<div class="msg" ></div>
-  <button class="eval">Run</button>
-<ol class="results"></ol>
-</div>
+\end{codeblock}
 
 As you can see, now we have managed to capture the copyright symbol.
 

@@ -1,34 +1,24 @@
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
 
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
 
--->
 <style type="text/css">
 .code{margin:0;padding-top:0}
-.code-block{                        background:url(http://localhost/codeigniter/images/code-bg.gif);
+.code-block{background:url(http://localhost/codeigniter/images/code-bg.gif);
 margin:0;padding:0}
 .code-block .code{white-space:pre;font-family:inherit;padding:0;margin:0}
 .highlight{background:yellow}
 .green{color:green}
-.greek  { font-family: Aristarcoj, Cardo, "ALPHABETUM Unicode", "Arev Sans", AttikaU, BosporosU, "CMU Serif",
-	 CODE2000, "DejaVu Serif", Dioxipe, "Galilee Unicode Gk", "Gandhari Unicode",
-	"Hindsight Unicode", KadmosU, "New Athena Unicode"; font-size: 100% }
+.greek  { font-family: Aristarcoj, Cardo, "ALPHABETUM Unicode", "Arev Sans", AttikaU, BosporosU, "CMU Serif", CODE2000, "DejaVu Serif", Dioxipe, "Galilee Unicode Gk", "Gandhari Unicode", "Hindsight Unicode", KadmosU, "New Athena Unicode"; font-size: 100% }
 .eval{margin:5px}
-h2{line-height:1.2}
 </style>
 
 
 
-<h2>Excursions into Numbers, the Greek Numbering System Part &gamma;</h2>
+## Excursions into Numbers, the Greek Numbering System Part 
 
 I believe in minimalist User Interfaces. A good UI should demand as little as possible from a user. Let us now morph, our little exercise book, so that a user just types a number and we can immediately give him the results based on the <i>keyup()</i> event.
 
 <div  class="code-block"><div class="code code-block"><code><span class="green">//Greek Numbers Converter! </span></code></div>
+
 <form id="calc" name="calc"> 
 <p id="msg" class="msg" style="width:400px;font-size:24px;font-weight:bold;background:#fff">Greek Number : 
 </p>
@@ -41,6 +31,7 @@ I believe in minimalist User Interfaces. A good UI should demand as little as po
 
 <h3>Capturing the keypress() event</h3>
 The event is captured using jQuery's built-in method keyup().
+
 {{plain:
 $(".input").keyup(function()&#123;
       var num = $(this).val();

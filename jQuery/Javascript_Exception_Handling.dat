@@ -1,38 +1,19 @@
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
-{{feature-image:http://localhost/egypt/CMS/accordion.jpg}}
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
 
--->
-
-
-	
 ##Handling Exceptions
 
 JavaScript allows you to trap errors using the standard "try-catch" exception-handling combination. Here's what it looks like:
 
-<div class="code-block console-wrap" title="try-catch exception handling">
-<div class="code-block code">
-<code>
-<span class="highlight">try</span> {
+\begin{codeblock}
+ try{
   colours[2] = "red";
   } 
-  <span class="highlight">catch (e)</span> {
+ catch (e) {
 log(e);
    }
 finally{
    log('final');
 }
-</code>
-</div>
-<div class="msg"></div>
-  <button class="eval">Run Code</button>
-<ol class="results"></ol>
-</div>
+\end{codeblock}
 
 This is a very basic example of how JavaScript exceptions can be trapped, and appropriate action triggered. As you will see, the ability to handle errors in a transparent manner throws open some pretty powerful possibilities...but more on that later.
 
@@ -105,8 +86,7 @@ URIError - raised when the encodeURI() or decodeURI() functions are used in an i
 You can trap more than one exception, and handle each one in a different way, by using multiple "if" constructs within a single "catch" block.
 
 
-<div class="code-block">
-<div class="code">
+\begin{codeblock}
   code = prompt("Enter some JavaScript code");
   try {
     eval(code);
@@ -128,11 +108,8 @@ You can trap more than one exception, and handle each one in a different way, by
   alert("An unspecified error occurred!");
   }
   }
-</code>
-</div>
-<p id="msg" style="width:400px;font-size:24px;font-weight:bold;background:#fff"></p>
-  <button class="eval">Run Code</button>
-</div>
+\end{codeblock}
+
 
 <h3>Using Finally</h3>
 JavaScript also allows you to add a "finally" block to the "try-catch" block discussed previously. The "finally" block contains statements that are executed regardless of whether an exception is generated or not in the "try-catch" block.

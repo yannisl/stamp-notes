@@ -5,7 +5,7 @@ tables to more complicated ones.
 
 \section{Simple Tables}
 
-A simple table in LaTeX is marked as per the listing below. A tabular alone can be typeset by omitting the \verb+ \begin{table}...\end{table}+.
+A simple table in LaTeX is marked as per the listing below. A tabular alone can be typeset by omitting the \verb++ \begin{table}...\end{table}++.
 
 \begin{verbatim}
   \begin{table}[htbp]

@@ -6,14 +6,11 @@
 \item [Lorem] \lorem
 \end{description}
 
-\begin{enumerate}
-\item \lorem
-
-\item \lorem
-
-\item \lorem
-
-\end{enumerate}
+\begin{description}
+\item \lorem 
+\item \lorem 
+\item \lorem 
+\end{description}
 \end{tex}
 
 \begin{description}

@@ -1,0 +1,87 @@
+\chapter{Write your title here}
+
+
+\begin{codeblock}
+function dt(value) {
+	if (!value)
+		return new Date(0);
+
+	// examples: /Date(numbers)/    /Date(numbers-numbers)/    /Date(numbers+numbers)/
+	var pattern = /\/Date\(([0-9]+)((-|\+)[0-9]+)?\)\//i;
+	var match = pattern.exec(value.toString());
+	if (!match)
+		return new Date(0);
+
+	var utc = parseInt(match[1], 10);
+	var offset = (parseInt(match[2], 10) || 0) * 10 * 60 * 60; // convert to ms
+	return new Date(utc + offset);
+}
+
+Date.prototype.localize = function() {
+	return (this.valueOf() == new Date(0).valueOf() ? new Date(0) : new Date(this - this.getTimezoneOffset() * 60000));
+};
+
+window.clientTime = window.clientTime || new Date(); // already local time
+window.serverTime = window.serverTime ? serverTime.localize() : clientTime;
+
+// based upon the code found in the comments here http://ejohn.org/blog/javascript-pretty-date/#postcomment
+/*
+ * JavaScript Pretty Date
+ * Copyright (c) 2008 John Resig (jquery.com)
+ * Licensed under the MIT license.
+ */
+Date.prototype.since = function(now) {
+	if (this.valueOf() == new Date(0).valueOf())
+		return "never";
+
+	// "this" is always considered to be "server time", while now is always "clientTime"
+	now = now || new Date();
+	now = typeof(now) === "string" ? now.localize() : now;
+	var ms = (now - clientTime) - (this - serverTime);
+	var seconds = ms / 1000; // ms to seconds
+	var token = "ago", list_choice = 1;
+
+	if (seconds < 0) {
+		seconds = Math.abs(seconds);
+		token = "from now";
+		list_choice = 2;
+	}
+
+	times = [
+		[60, "just now", "right now"],
+		[120, "1 minute ago", "1 minute from now"],
+		[3600, "minutes", 60],
+		[7200, "about an hour ago", "in the next hour or so"],
+		[86400, "hours", 3600],
+		[172800, "in the last day or so", "in the next day or so"],
+		[604800, "days", 86400],
+		[1209600, "in the last week or so", "in the next week or so"],
+		[2419200, "weeks", 604800],
+		[5184000, "in the last month or so", "in the next month or so"],
+		[25920000, "months", 2592000],
+		[31536000, "in the last year or so", "in the next year or so"],
+		[31536000000, "years", 31536000],
+		[0, "a long time ago in a galaxy far, far away...", "a long time from now, in a galaxy far, far away..."]
+	];
+
+	var i = 0, format;
+	while (format = times[i++])
+		if (seconds < format[0])
+			return typeof(format[2]) == "string"
+				? format[list_choice]
+				: Math.floor(seconds / format[2]) + " " + format[1] + " " + token;
+
+	return times[times.length - 1][list_choice]; // default to "a long time ago ago..."
+};
+
+n = dt();
+
+log(n.localize())
+
+
+
+
+
+
+
+\end{codeblock}

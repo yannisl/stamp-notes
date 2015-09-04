@@ -13,7 +13,10 @@ by philatelists.
 
 The first stamp of Haiti was issued in 1881 in the 1c value and showed the head of Liberty.
 
-\ph[30%]{../haiti/liberty-head.jpg}{1881 liberty head stamp}
+\begin{marginfigure}
+\includegraphics[width=1.0\textwidth]{../haiti/liberty-head.jpg}
+\caption{1881 liberty head stamp}
+\end{marginfigure}
 
 At the time of the Liberty Hea stamps were issued in 1881, Salomon was in
 the second year of his seven-year term as President. Although it was suggested to him

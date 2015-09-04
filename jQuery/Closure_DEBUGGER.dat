@@ -194,9 +194,7 @@ The basic way to log a message is to invoke a logger's _log()_ method. This take
 
 
 
-<div  class="code-block console-wrap">
-<div class="code-block code">
-<code>
+\begin{codeblock}
 var timer = goog.now();
 // Set up a logger.
 goog.debug.LogManager.getRoot().setLevel(goog.debug.Logger.Level.ALL);
@@ -225,8 +223,7 @@ var c1 = new goog.ui.Control(
      (goog.now() - timer) + 'ms');
 
 $('#demo-container').show();
-</code>
-</div>
+\end{codeblock}
 
 <div class="sandbox-console"> 
 <legend>This control was created programmatically:&nbsp;</legend> 

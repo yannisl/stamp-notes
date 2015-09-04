@@ -1,18 +1,3 @@
- <!--
-{{feature-image:/codeigniter/images/china/beauty_02.jpg}}
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
-
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
-<style type="text/CSS">
-h2,h3,h4 {color:black}
-</style>
-
 <script>
 goog.require('goog.array');
 goog.require('goog.events');
@@ -31,15 +16,15 @@ goog.require('goog.net');
 </script>
 
 <h2>Classes with Closure</h2>
+
 In this tutorial we will create a more visual example and will intermingle, jQuery with closure.
 
 <h3>Step 1: Constructor Function</h3>
+
 The Constructor function will construct the basic class and will set some
 basic parameters  and methods.
 
-<div  class="code-block console-wrap">
-<div class="code-block code">
-<code>
+\begin{codeblock}
 goog.provide('example.Box');
   example.Box = function (name, el, numberOfBoxes) {
   this.name_ = name;
@@ -48,15 +33,8 @@ goog.provide('example.Box');
   }
   //this.itemsInTheBox = goog.isDef(itemsInTheBox) ? itemsInTheBox : [];
 };
+\end{codeblock}
 
-</code>
-</div>
-<div  id ="msg" class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
 
 
 <h3>Step 2: Add Methods and properties</h3>
@@ -65,9 +43,7 @@ Like in other class-based programming models, the _constructor function_ sets up
 initial state of the class. It takes the parameter's address, numberOfBathrooms, and
 itemsInTheGarage and assigns them to fields of the class. Each assignment applies only to the newly created instance of the class
 
-<div  class="code-block console-wrap">
-<div class="code-block code">
-<code>
+\begin{codeblock}
 /**
 * @type {number}
 * @private
@@ -77,20 +53,12 @@ example.Box.prototype.numberOfBoxes_ = 1;
 example.Box.prototype.name_ = 'default name';
 example.Box.prototype.itemsInTheBox = ['test','other'];
 
-</code>
-</div>
-
-<div   class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
+\end{codeblock}
 
 
 <h3>Step 3: Creating an instance of the Class</h3>
 
-An instance of the Class, is created using the _new_ keyword. We can the get the
+An instance of the Class, is created using the `new` keyword. We can the get the
 properties and access methods.
 
 <div  class="code-block console-wrap"  title="Create Instances" >

@@ -1,18 +1,8 @@
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
-
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
-
 <h2>jQuery extend() </h2>
 
 
-<img src="http://localhost/codeigniter/images/jquery.png" />
+<img src="http://localhost/application-latest/images/jquery.png" />
+
 Extend one object with one or more others, returning the modified object.
 
 If no target is specified, the JQuery namespace itself is extended. (See last example).

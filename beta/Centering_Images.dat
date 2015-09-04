@@ -4,6 +4,20 @@
 
 LaTeX is good with its minipages and figure environments and the `\centering` command is very powerfull. Centering a bunch of images on web pages is much harder, although if done manually and for individual images, finer control of the output is possible.
 
+\begin{verbatim}
+\documentclass{article}
+\usepackage{graphicx}
+
+\begin{document}
+\centering
+\includegraphics[width=1.0\textwidth]{che.jpg}
+\caption{Some Caption}
+\end{document}
+\end{verbatim}
+
+
+
+
 \section{Single Images}
 
 Single images and their captions can be positioned centered on the page using the command `\ph`.

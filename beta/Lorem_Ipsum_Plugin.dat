@@ -10,11 +10,7 @@ The command \verb+\lorem+ will render one paragraph of {{wi: lorem_ipsum}} fille
 
 \section{The Lipsum Plugin}
 
-The \textit{Lipsum} plugin brings the functionality of the Patrick Happel's\cite{options} LaTeX \textit{lispum} package to the browser. It can be used unchanged in LaTeX.
+The \textit{Lipsum} plugin brings the functionality of the Patrick Happel's LaTeX \textit{lispum} package to the browser. It can be used unchanged in LaTeX.
 
 To use it, type the command \verb+ \lipsum[1-2]+ with the optional bracket denoting the
 paragraphs, you want to use. You can \verb+ \textdoc lipsum + or view the package at the [ctan](http://ctan.org/pkg/lipsum) website.
-
-\noindent{-- yiannis}
-
-\bibliography{ceylon}

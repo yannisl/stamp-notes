@@ -1,22 +1,12 @@
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
-
-{{feature-image: /codeigniter/images/china/beauty_22.jpg}}
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
+ 
 <script type="text/javascript">
 goog.require('goog.color');
 goog.require('goog.color.alpha')
 </script>
 
-<h2>Colors Part II the Alpha Channel</h2>
+## Colors Part II the Alpha Channel 
  
-In the first part of this article series we have examined the rgb color space which takes three components red, green and blue. The alpha channel adds another component that of transparency. This is a much more useful set of routines in that in modern browsers and websites you are likely to encounter colors with transparency and for which the earlier routines might stand a chance of breaking and not responding the way you want them to be.
+In the first part of this article series we have examined the `rgb` color space which takes three components red, green and blue. The alpha channel adds another component that of transparency. This is a much more useful set of routines in that in modern browsers and websites you are likely to encounter colors with transparency and for which the earlier routines might stand a chance of breaking and not responding the way you want them to be.
 
 
 <div  class="code-block console-wrap" title="Testing color strings containing Alpha channel values">

@@ -1,42 +1,20 @@
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+ 
+\chapter{Javascript True or False}
 
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
-
-<h2>Javascript True or False?</h2>
 
 When using the comparison operators, JavaScript demands that you extra careful. Too many bugs are introduced accidentally when using comparisons.
 
-<div  class="code-block console-wrap  ui-corner-all">
-<div class="code-block code">
-<code id="editable">
+\begin{codeblock}
 (function () {
   var f;
-  var f={}
   assert(f == 0, 'equal to zero');
   assert(f == '', 'empty string');
   assert(f == null, 'equals null');
   assert(f == undefined, 'undefined is true');
   assert(f = 0, 'assignment will fail');
 })();
-</code>
-</div>
+\end{codeblock}
 
-<div  id ="msg" class="msg">
-</div>
-<div class="console"></div>
-<button id="eval" class="eval ui-corner-all">Run Code!</button>
-
-<ol class="results"></ol> 
-<div   class="jslint"></div>
-</div>
-<hr />
 
 <h3>Accidental Assignment</h3>
 A very common error (not just in JavaScript, but also in other languages is the

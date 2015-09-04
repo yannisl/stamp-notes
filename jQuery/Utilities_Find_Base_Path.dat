@@ -1,23 +1,11 @@
- <!--
-{{feature-image:/codeigniter/images/amato.jpg}}
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
-
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
-
-
 
 <h2>How to Determine the Base Path of a Script</h2>
+
 A useful technique for finding the base path of a string is shown below. While developing plugins, this is important, in that the user will not be required to set-up anything.
 
-Essentially the script finds all the tags with a tag name &lt;script&gt; and then searches for its own base name. If it finds it it then sets a property to the path. Check this one out from Google.
+Essentially the script finds all the tags with a tag name `<script>` and then searches for its own base name. If it finds it it then sets a property to the path. Check this one out from Google.
 
-<div  class="code-block console-wrap"><div class="code code-block"><code>
+\begin{codeblock}
 goog.findBasePath_ = function () {
   if (!goog.inHtmlDocument_()) {
     return;
@@ -41,23 +29,14 @@ goog.findBasePath_ = function () {
 };
 
 log(goog.basePath);
+\end{codeblock}
 
 
-</code>
-</div>
-<p class="msg">
-</p>
+\section{Generic Function}
 
-<button class="eval">Run Code!</button>
-<ol class="results" style="white-space:pre"></ol> 
-</div>
-
-<hr/>
-
-<h3>Generic Function</h3>
 I have adapted the function to a more generic form, that can actually check for any base name file and made into a self-executing function, which is a more hackish - ala- jQuery style JavaScript and removed some of the checks that Closure has, such as checking if the script is being executed in an HTML page and their global setting variable, for simplicity. You may want to change it slightly in your applications and make it part of a settings object.
 
-<div  class="code-block console-wrap"><div class="code code-block"><code>
+\begin{codeblock}
 // find the base path of a script
 
 var settings = {};
@@ -81,20 +60,14 @@ if (!settings.basePath) {
 }
 
 log(settings.basePath);
+\end{codeblock}
 
-</code>
-</div>
-<p class="msg">
-</p>
-
-<button class="eval">Run Code!</button>
-<ol class="results" ></ol> 
-</div>
 
 <h3>Getting the Basepath of CSS</h3>
+
 We could use a similar method to capture CSS information, although less useful, as we can use DOM methods for this.
 
-<div  class="code-block console-wrap"><div class="code code-block"><code>
+\begin{codeblock}
 // find the base path of a script
 var settings = {};
 settings.basePath = null;
@@ -117,15 +90,7 @@ if (!settings.basePath) {
 }
 
 log(settings.basePath);
-
-</code>
-</div>
-<p class="msg">
-</p>
-
-<button class="eval">Run Code!</button>
-<ol class="results" ></ol> 
-</div>
+\end{codeblock}
 
 
 ##Further Reading

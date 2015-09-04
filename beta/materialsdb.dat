@@ -1,7 +1,7 @@
 \chapter{Materials DB}
 
 
-\begin{enumerate}
+\begin{decimal}
 
 \item Release from Site. 
 
@@ -23,16 +23,58 @@
 
 \item Required on Site.
 
-\end{enumerate}
+\item Deliveries
+
+\item Invoices
+
+\end{decimal}
 
 
 When a step is reached, an email is automatically sent for persons to approve.
+
+\subsection{Release from Site}
+
+When the Site is ready to release an enquiry to Suppliers either directly or indirectly a form is prepared and mailed. This will include either links to documents or will have the necessary attachments via downloads.
+
 
 \section{Document Control}
 
 The system shall be used for document control as well, i.e., people will be allowed to upload and save information in the form of pdfs, excel sheets etc, in a flexible directory structure.
 
 \section{Reports and Views}
+
+
+\begin{codeblock}
+var material = {
+   _id : "061322b79a8275c572d084688ae87a00",
+   _rev: "asdfgthjkpppp",
+   "type" : "materials",
+   "code" : "AHU-01",
+   "discipline" : "mechanical", 
+   "group" : "pipes and fittings",
+   "groupCode"  : "2000-10-20-300-10",
+   "longLead" : true,
+   "orders" : ["567890", "67890", "89000", "67890", "456789"],
+    "transactions" :  {
+          id [0] : "0613567890098333", 
+          id [1] : "098900788999 5678",
+          id [2] : "908767893456789912"
+     },
+     "submittals" : {
+     
+     
+     },
+     "LPOs" : {},
+     "LOI"  : {"refnumber": "LOI-2003", 
+               "date" : "12.12.13",
+               "refnumber": "LOI-2004",
+               "date": "15.12.13"
+              },
+     "CTC"   : "25678.28",
+     ""      : "",
+    
+}
+\end{codeblock}
 
 
 \section{Exporting to Excel Sheets}

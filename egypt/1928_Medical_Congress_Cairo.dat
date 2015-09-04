@@ -4,10 +4,10 @@ The set at a first glance does not look like it has anything to do with a Medica
 
 The stamps were printed by the Survey department in Cairo using photogravure and issued on the 15th December 1928.
 
-\begin{marginfigure}
-\includegraphics[width=1.0\textwidth]{../egypt/1928-medical-congress-01.jpg}
-\includegraphics[width=1.0\textwidth]{../egypt/1928-medical-congress-02.jpg}
-\end{marginfigure}
+\begin{figure}
+\phc[30%]{../egypt/1928-medical-congress-01.jpg}{}
+\phc[30%]{../egypt/1928-medical-congress-02.jpg}{}
+\end{figure}
 
 The successful design was selected  by the Dean of the Faculty of Medicine in April of 1928 and subsequently accepted by the Postmaster General in May of the same year.
 
@@ -16,13 +16,14 @@ The successful design was selected  by the Dean of the Faculty of Medicine in Ap
 
 
 
-\begin{marginfigure}
-\includegraphics[width=1.0\textwidth]{../egypt/1928-medical-congress-03.jpg}
-\includegraphics[width=1.0\textwidth]{../egypt/1928-medical-congress-04.jpg}
-1928 Medical Congress set of two with oblique perforations, mint nh, 5m with pulled corner perf otherwise fine (NP $170)
-Catalogue ref	C27b-C28b. &euro;180.
+\begin{figure}
+\phc[30%]{../egypt/1928-medical-congress-03.jpg}{}
+
+\phc[30%]{../egypt/1928-medical-congress-04.jpg}{}
+\caption{1928 Medical Congress set of two with oblique perforations, mint nh, 5m with pulled corner perf otherwise fine (NP $170)
+Catalogue ref	C27b-C28b. \euro180.}
 {{auction: Feldman Geneva, September 2012}}
-\end{marginfigure}
+\end{figure}
 
 
 

@@ -1,88 +1,53 @@
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
-
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-{{next:http://127.0.0.1/CodeIgniter/index.php/Blogs/tutorials/jQuery/Sieve_of_Eratosthenes}}
--->
-
-
-
-
 <h2>Chapter 5,  Expressions and Operators</h2>
+
 <h3>Expressions</h3>
+
 An expression is a phrase of JavaScript that a Javascript interpreter can evaluate to produce a value. The simplest expressions are literals or variable names like these:
-<div  class="code-block console-wrap">
-<div class="code code-block">
-<code>
+
+\begin{codeblock}
 var a=2, b=5;
 log ('a+b = ', a+b);
-</code>
-</div>
-<div  class="msg" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
-</div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
+\end{codeblock}
 
 
 <h3>Operator Precedence</h3>
+
 Operator precedence controls the order in which operations are performed.
 Consider the following expression:
-<div  class="code-block console-wrap">
-<div class="code code-block">
-<code>
+
+\begin{codeblock}
 var x=2, y=3, z=2;
 var w= x +y*z;
 var w1=(x+y)*z;
 log('w = ',w);
 log('w1=',w1);
-</code>
-</div>
-<p  class="msg" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
-</p>
-<button class="eval">Run Code!</button>
-<ol class="results" style="margin-top:8px"></ol> 
-</div>
-</code>
+\end{codeblock}
 
 <h3>Equality Operators</h3>
-<div  class="code-block console-wrap"><div class="code code-block"><code>
+
+\begin{codeblock}
 var a = "Text", b="Text";
 if (a =="Text") alert('True');
 <span class="green">// Using the (=) will accidentally assign the value rather than compare! </span>
 if ( b = "Number") alert(' True ' + b);
-</code>
-</div>
-<p class="msg" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
-</p>
-<button class="eval">Run Code!</button>
-<ol class="results" style="margin-top:8px"></ol> 
-</div>
-</code>
+\end{codeblock}
 
 <h3>String Operators</h3>
+
 The + operator is a special one. It gives priority to string operands over numeric operands. If one operand is a number ad=nd the other is a string they will both be converted to strings.
-<div  class="code-block console-wrap"><div class="code code-block"><code>
+
+\begin{codeblock}
 var a = "3", b="3";
 var c = a + b;
 var d = (1 + 1 + a);
 alert(c);
 alert(d);
-</code>
-</div>
-<p class="msg" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
-</p>
-<button class="eval">Run Code!</button>
-<ol class="results" style="margin-top:8px"></ol> 
-</div>
+\end{codeblock}
 
 A final note that when the operator + is used with strings and numbers it may not be associative. The result may depend on the order in which the operations are performed. See the example above. The + operator works from left to right, unless parentheses change the order.
 
 For logical operators Javascript will attempt to change a string to a number first!
+
 <div  class="code-block console-wrap">
 <div class="code code-block">
 <code>

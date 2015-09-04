@@ -1,16 +1,3 @@
-      
-<!--
- directives
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
-
-{{feature-image:/codeigniter/images/china/beauty_07.jpg}}
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
 
 <script type="text/javascript"> 
 goog.require('goog.dom');
@@ -31,9 +18,7 @@ goog.require('goog.ui.GaugeTheme');
    
 
   
-<div  class="code-block console-wrap">
-<div class="code-block code">
-<code>
+\begin{codeblock}
   var CustomGaugeTheme = function() {
     }
     goog.inherits(CustomGaugeTheme, goog.ui.GaugeTheme);
@@ -121,21 +106,11 @@ goog.require('goog.ui.GaugeTheme');
     }
 UI.filesLoaded();
 setupGauges();
-</code>
-</div>
-<div  id ="msg" class="msg">
-</div>
+\end{codeblock}
 
-<div class="clearfix">
-<div id="interactive" class="g">
-</div>
 <INPUT type="text" size="3" value="22" id="v1"> 
 <INPUT type="button" onclick="setValue()" value="Set"> 
-</div>
-<div id="log" class="console" style="white-space:pre"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
+
 
 
 <div id="basic" class="g"></div>

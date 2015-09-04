@@ -1,0 +1,108 @@
+\chapter{Routers}
+
+Traditional server side frameworks such as CodeIgniter and CakePHP provided built-in routers for MVC applications.
+
+<pre><code>
+index.php/controller/function/data
+</code></pre>
+
+We need to find a way to have href properties that are valid, but do not reload the page. Enter the #(hash) part of the URL. Of course the original function of the hash was an anchor which unlike a link, when clicked would take you to a page anchr. Changing the hash of a URL will not reload the page. But the history will affected. So we could obviously just bind to the `onhashchanged` event and parse the URL, run some AJAX, and update the page. Even though this would be fine for a small site, if things get more complicated that won't fly. We'll need some sort of URL router.
+
+There are a few good ones out there. [crossroads](http://millermedeiros.github.io/crossroads.js/), [director](https://github.com/flatiron/director#readme), and [backbone](backbone.js) also contain an excellent router. But slapping out some ready made library is no fun at all. I encourage the use of frameworks, but before you do, always try to make your own. It will give you a better understanding if something goes wrong.
+
+
+
+<ul>
+<li><a href="#/author">#/author</a></li>
+<li><a href="#/books">#/books</a></li>
+<li><a href="#/books/view/1">#/books/view/1</a></li>
+
+<li><a href="#home">#home</a></li>
+<li><a href="#home/about">#about</a></li>
+<li><a href="#products/">#products</a></li>
+</ul>
+
+The basic idea of one page applications, is that when a user clicks one of the links, the router will detect the portion of the url after the hashtag and will pass it onto a controller, which will send it by Ajax to the backend and once the response is received a view on tha page will be changed.
+
+
+\section{Detecting Changes}
+
+First we'll need to detect that the URL hash has changed. This is done by binding to the `onhashchange` event. (See [onhashchange](https://developer.mozilla.org/en-US/docs/Web/API/Window.onhashchange)).
+
+\begin{codeblock}
+if ("onhashchange" in window) { 
+   // event supported?
+    window.onhashchange = function () {
+        log(window.location.hash.split('#')[1]);
+        log(location.hash);
+    };
+}  else    {
+    
+    log("hashchanging not supported!");
+}
+\end{codeblock}
+
+Please do note that writing to console.log on IE gives an exception when the log isn't open. Whoever came up with that! So let's write our little log function to prevent this from happening.
+
+\begin{codeblock} 
+function log(message)   {
+    
+    try     {
+        console.log(message)
+    }
+    catch(err) { 
+        //no action. probably just IE
+    }
+}
+\end{codeblock}
+
+
+
+\section{Using the director Library}
+
+On our next attempt we will introduce gently the director library. the library works both for the server side as well as the browser ised and of course in our litle experiments here we will introduce it on the browser side. 
+
+\begin{codeblock}
+
+    var author = function () { log("author"); };
+    var books = function () { log("books"); };
+    var viewBook = function (bookId) {
+        log("viewBook: bookId is populated: " + bookId);
+    };
+
+    var routes = {
+        '/author': author,
+        '/books': [books, function() {
+            log("An inline route handler.");
+        }],
+        '/books/view/:bookId': viewBook
+    };
+
+    var router = Router(routes);
+
+    router.init();
+    
+
+\end{codeblock}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script
+src="https://rawgit.com/flatiron/director/master/build/director.min.js">
+</script>

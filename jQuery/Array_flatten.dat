@@ -1,21 +1,9 @@
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
 
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
-
-<h2>Standard Library flatten() method</h2>
+## Standard Library flatten() method 
 
 The method takes one or more arrays and flattens the results.
 
-<div  class="code-block console-wrap">
-<div class="code-block code">
-<code>
+\begin{codeblock}
 /**
  * Returns an array consisting of every argument with all arrays
  * expanded in-place recursively.
@@ -41,17 +29,7 @@ var b=['a','b','c',[1,2,3,4]];
 var d = goog.array.flatten(b);
 
 log('the flattened array ', d);
-
-
-</code>
-</div>
-
-<div  id ="msg" class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
+\end{codeblock}
 
 
 <h3>fill numeric</h3>

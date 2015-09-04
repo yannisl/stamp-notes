@@ -1,52 +1,40 @@
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
-{{feature-image:http://localhost/egypt/CMS/accordion.jpg}}
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
 
--->
 
 	
 ##Handling Elements
-Access to specific elements is normally achieved by using one of the standard DOM methods such as __document.getElementById()__. This returns an HTMLElement object. We can then manipualte this object as we like.
 
-First let us access the div msg on this page. We will then access its parent and list the HTML, effectively listing the html of the console.
+Access to specific elements is accomplished by using one of the standard `DOM` methods such as `document.getElementById()`. This returns an `HTMLElement` object. We can then manipulate this object as we like.
 
-<div  class="code-block console-wrap">
-<div class="code code-block">
-<code>
+\\[a+b/c\\]
+
+This page includes a `<div>` with the `id` `msg`. 
+First let us access the `div msg` on this page. We will then access its parent and list the HTML, effectively listing the html of the console.
+
+\begin{codeblock}
 // access div element id="msg"
-var e = document.getElementById('msg');
+var el = document.getElementById('msg');
 // access its parent node
-var e = e.parentNode;
+var el = el.parentNode;
 // access outer HTML - includes itself
-var z = e.outerHTML;
+var z = el.outerHTML;
+var zin = el.innerHTML;
 
 // escape HTML and output to logger
 log(z.entityify());
+log(zin.entityify());
+\end{codeblock}
 
-</code>
-
-</div>
-<div  id="msg" class="msg" style="white-space:pre;
-font-family:monospace;line-height:1.3">
-</div>
-<div class="console"> 
-</div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
+<div id="test">
+<div id="msg"></div>
 </div>
 
-<h3>Basic Document Methods</h3>
-Historically, the Document object supported five methods for controlling output to the document: __clear()__, __close()__, __open()__, __write()__ and __writeln()__. You shouldn't need to use any of them, but rather use a library's methods to write to elements. I mentioned them here, in the unlike event you may want to use them when opening a new window (but remeber, pop-ups are not a good idea, they were left behind about 10 years ago!
+### Basic Document Methods
+
+Historically, the Document object supported five methods for controlling output to the document: `clear()`, `close()`, `open()`, `write()` and `writeln()`. You shouldn't need to use any of them, but rather use a library's methods to write to elements. I mentioned them here, in the unlike event you may want to use them when opening a new window (but remeber, pop-ups are not a good idea, they were left behind about 10 years ago!
 
 <h3>Traditional HTML Element Access within Document</h3>
 
-<div  class="code-block console-wrap"><div class="code code-block">
-<code>
+\begin{codeblock}
 function showAllLinks() {
   return document.links;
 }
@@ -54,16 +42,9 @@ function showAllLinks() {
 var z = showAllLinks();
 log(z);
 assert(z == '[object HTMLCollection]', 'object is HTMLCollection');
-log(z[10])
-</code>
-
-</div>
-<div  class="msg" class="msg" style="white-space:pre;font-family:monospace;line-height:1.3">
-</div>
-<div class="console"> </div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
+assertEquals (z , '[object HTMLCollection]');
+log(z[100])
+\end{codeblock}
 
 
 

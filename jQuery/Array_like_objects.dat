@@ -1,21 +1,10 @@
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
-
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
-
-
 <h2>Array Like Objects</h2>
+
 The array-like object looks very similar to an array. Although you cannot invoke array methods on them you can still iterate through them with the same code you would use for an array. Many array algorithms will work as well on array-like objects as well as arrays.
 
 Here is an example of a pseudo-array object:
-<div  class="code-block console-wrap"><div class="code code-block"><code type="other">
 
+\begin{codeblock}
 var a = {}; //start with a regular empty object
 // add properties to make it array like
 var i = 0;
@@ -29,14 +18,7 @@ log((document.getElementsByTagName("li")).toString());
 
 var b = new Array(5);
 log(typeof b);    
-</code>
-</div>
-<p id="msg1" class="msg" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
-</p>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
+\end{codeblock}
 
 Unlike arrays the above returns undefined for the length method, since it has not been defined.
 
@@ -110,10 +92,8 @@ The easiest way is to use jQuery's <a href="http://docs.jquery.com/Utilities/jQu
 jQuery.makeArray( obj )
 }}
 
-<div  class="code-block console-wrap"><div class="code"><code>
-//  
-//  array-like objects</span>
-// 
+
+\begin{codeblock}
 var a = {}; //start with a regular empty object
 // add properties to make it array like
 var i = 0;
@@ -136,15 +116,7 @@ log("value of total = ",total);
  
 var z=jQuery.makeArray(a);
 log('Array z.length ', a.length)
-</code>
-</div>
-<p id="msg1" class="msg" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
-</p>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div> 
-
+\end{codeblock}
 
 
 ##Further Reading

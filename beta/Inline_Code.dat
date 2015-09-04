@@ -1,26 +1,26 @@
 \chapter{Inline Code}
 
 
-This is achieved by using \verb+\test+. This is not so convenient for html, but you can also use the markdown backtick quotes (`). We have it in case you just copying code from a LaTeX file. The code is protected during parsing so that it does not get expanded.
+This is achieved by using `\test`. This is not so convenient for html, but you can also use the markdown backtick quotes. We have it in case you just copying code from a LaTeX file. The code is protected during parsing so that it does not get expanded.
 
 
-This is another test \verb+ \ldots \item \begin{itemize}+\ldots  
+This is another test `\ldots \ item \ begin{itemize}` \ldots
 
 \subsection{Code Blocks in Markdown}
 
 
-Pre-formatted code blocks are used for writing about programming or markup source code. Rather than forming normal paragraphs, the lines of a code block are interpreted literally. Markdown wraps a code block in both \verb+<pre>+ and \verb+<code>+ tags.
+Pre-formatted code blocks are used for writing about programming or markup source code. Rather than forming normal paragraphs, the lines of a code block are interpreted literally. Markdown wraps a code block in both `pre` and `code` tags.
 
 To produce a code block in Markdown, simply indent every line of the block by at least 4 spaces or 1 tab. For example, given this input:
 
 This is a normal paragraph:
 
-<p>This is a normal paragraph:</p>
+    <p>This is a normal paragraph:</p>
 
-<pre><code>This is a code block.
-</code></pre>
+    <pre><code>This is a code block.
+    </code></pre>
     
     
-To indicate a span of code, wrap it with backtick quotes (`). Unlike a pre-formatted code block, a code span indicates code within a normal paragraph. For example:
+To indicate a span of code, wrap it with backtick quotes. Unlike a pre-formatted code block, a code span indicates code within a normal paragraph. For example:
 
 Use the `printf()` function.

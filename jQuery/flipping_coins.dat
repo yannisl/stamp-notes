@@ -3,8 +3,7 @@
 [Reading](http://www.fourmilab.ch/rpkp/experiments/statistics.html) 
 It is easier for the human brain to understand probabilities, if one starts with the simple act of flipping a coin, which we are about to flip with the script below. Up to ten million trials Google's chrome should have no problem. For higher numbers get prepared to press the wait button. At ten million flips it is almost certain that you can get more than 20 heads or tails in a row (a stroke of luck!). If half million people flipped a coin 20 times, one is bound to get twenty heads or tails in a row? Are you sure?
 
-<div  class="code-block console-wrap"><div class="code code-block">
-<code>
+\begin{codeblock}
 function random(x) {
   return Math.floor(Math.random() * x);
 }
@@ -42,14 +41,8 @@ while (i < trials) {
 log(headsCount, ' ', tailsCount);
 log(headsCount / tailsCount);
 log(headsConsecutiveMax);
-</code>
-</div>
-<div  class="msg" class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
+
+\end{codeblock}
          
 ###More Trials
 

@@ -1,22 +1,29 @@
- \begin{comment}
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
 
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-\end{comment}
 
 
 \section{How to check if an element exists with jQuery}
 
-We can easily check if an element exists with jQuery, by using the \texttt{length} property or by checking if the selector evaluates to \texttt{true}.
+We can easily check if an element exists with jQuery, by using the `length` property or by checking if the selector evaluates to `true`.
 
-\begin{jscodeblock}
-var z = $('#aTest').length;
-log('z', typeof z);
-z === 0 ? log('true') : log('false');
-\end{jscodeblock}
+\begin{codeblock}
+var alength = $('#aTest').length;
+log('alength', typeof alength);
+alength === 0 ? log('true') : log('false');
+
+log($('#aTest'));
+\end{codeblock}
+
+
+This is really not one of the areas where jQuery excels, as we could use plain Javascript
+
+\begin{codeblock}
+if(document.getElementById("myElement")) {
+    //Do something...
+} else {
+  log('does not exist');
+}
+\end{codeblock}
+
+There is a whole discussion at [stackoverflow](http://stackoverflow.com/questions/31044/is-there-an-exists-function-for-jquery#answer-13313296).
 
                                                 

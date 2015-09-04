@@ -1,52 +1,7 @@
-<style type="text/css"> 
+
+##China 1954 Technical Innovation (S11)
 
 
-.hor-minimalist-a
-{
-	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-	font-size: 12px;
-	background: #fff;
-	margin: 45px;
-	width: 480px;
-        border:none;
-        background:none;
-	border-collapse: collapse;
-	text-align: left;
-}
-.hor-minimalist-a th
-{
-	font-size: 14px;
-	font-weight: normal;
-	color: #039;
-	padding: 10px 8px;
-        background:none;
-        border:none;
-	border-bottom: 2px solid #6678b1;
-}
-.hor-minimalist-a td
-{
-	
-	padding: 9px 8px 0px 8px;
-}
-.hor-minimalist-a tbody tr:hover td
-{
-	color: #009;
-}
-</style>
-
-
-
-
-
-##China 1954 Technical Innovation
-
-
-<div style="width:80%;margin:0 auto;display:block">
-<img src="http://localhost/egypt/china-stamps/S11.jpg" style="width:90%;margin:0 auto;display:block" />
-<p style="font-size:smaller">
-China Stamps S11 Scott#235-236 Technical Innovation, 1954
-$5.60
-</p>
-</div>    
+\ph[80%]{../china/S11.jpg}{China Stamps S11 Scott 235-236 Technical Innovation, 1954 $1.}    
 
                                                                                                                                                                                                                                                       

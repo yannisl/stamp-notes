@@ -30,7 +30,7 @@ This brings me to Halley's mortality tables. It might come to you as a surprise 
 
 
     
-\\[(\textbf{x},Y) = (x_1, x_2, x_3, ..., x_k, Y)\\]
+\\[(Y) = (x_1, x_2, x_3, ..., x_k, Y)\\]
 
 The dependent variable, \\(Y\\), is the target variable that we are trying to understand, classify or generalise. The vector \\(x\\) is composed of the input variables, \\(x_1, x_2, x_3\\) etc., that are used for that task.
 
@@ -41,7 +41,7 @@ The dependent variable, \\(Y\\), is the target variable that we are trying to un
 
 
 
-\begin{jscodeblock}
+\begin{codeblock}
 var DATA_LABELS = ['Age curtate', 'persons'],
 DATA_SET = [
   [1, 1000], [2, 855], [3, 798], [4, 760], [5, 732],[6, 710], [7, 692], [8, 680],
@@ -64,16 +64,16 @@ for (i = 0; i < 100; i++) {
   sum = DATA_SET[i][1] + sum;
 }
 log(sum);
-\end{jscodeblock}
+\end{codeblock}
 
-\end{document}
+
 
 Both http://www.pierre-marteau.com/editions/1693-mortality.html and a paper at
 http://articles.adsabs.harvard.edu/cgi-bin/nph-iarticle_query?bibcode=1994QJRAS..35..151H&db_key=AST&page_ind=1&plate_select=NO&data_type=GIF&type=SCREEN_GIF&classic=YES show the tables up to the age of 84, but have another table showing that 107 persons survived until the age of 100, but not giving the details per age group. I have filled those years with my own estimate to get a the total population of 34,000 as published by Halley, but if anyone has a better table I will appreciate it.
 
 On a population that has a _steady_ birthrate, just by observation we can see that a person at age one has a 50% chance of surviving to age 34. The population started at a 1000 and ended at 499 by the age of 34. There are a lot of assumptions here, but the importance of the steady birthrate did not escape Halley who wrote:
 
-{{blockquote:
+{{bulb:
 It appears that in the Five Years mentioned, viz. from 87 to 91 inclusive, there were born 6193 Persons, and buried 5869; that is, born per Annum 1238, and buried 1174; whence an Encrease of the People may be argued of 64 per Annum, of f about a 20th part, which may perhaps be ballanced by the Levies for the Emperor's Service in his Wars...
 }}
 
@@ -93,7 +93,7 @@ Halley's assumption that half the population was female, must have been slightly
 <h3>Producing some tables and Graphs</h3>
 
 
-<div  class="code-block console-wrap"><div class="code code-block"><code>
+\begin{codeblock}
 var element = goog.dom.getElement;
 var i=0;
 var DATA=[]
@@ -109,15 +109,10 @@ for (i = 0; i < 100; i++) {
     //chart.setMinValue(-50);
     chart.decorate(element('line_chart'));
 //log(DATA);
-</code>
-</div>
-<p class="msg" id='sortMe' style="width:400px;font-size:24px;font-weight:bold;background:#fff">
-</p>
+\end{codeblock}
+
 <p>Age Distribution Chart:</p> 
  <img id="line_chart">
-<button class="eval">Run Code!</button>
-<ol class="results" style="white-space:pre"></ol> 
-</div>
 
 <div id="test" style="width:200px;height:300px"></div>
 

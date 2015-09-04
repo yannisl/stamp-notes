@@ -1,33 +1,8 @@
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
-
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
-<style type="text/css">
-.code{margin:0;padding-top:0}
-.code-block{                        background:url(http://localhost/codeigniter/images/code-bg.gif);
-margin:0;padding:0}
-.code-block .code{white-space:pre;font-family:inherit;padding:0;margin:0}
-.highlight{background:yellow}
-</style>
-
-
-
-
-
-
 
 <h2>Can we cache the results from a function?</h2>
 
 
-<div  class="code-block">
-<div class="code code-block">
-<code>
+\begin{codeblock}
 function getElements( name ) { 
   var results; 
  
@@ -44,22 +19,11 @@ getElements.cache = {};
 log( "Elements found: ", getElements("li").length );
 
 log( "Elements found: ", getElements("p").length );
-</code>
-</div>
-<p id="msg1" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
-</p>
-<button class="eval">Run Code!</button>
-<ol id="results"></ol> 
-
-</div>
-</code>
+\end{codeblock}
 
 
 
-<hr/>
-<div  class="code-block">
-<div class="code code-block">
-<code>
+\begin{codeblock}
 //23: What happens if a function is an object property?
 var katana = { 
   isSharp: true, 
@@ -80,15 +44,8 @@ loop([0, 1, 2], function(value, i){
   assert(value == num++, "Make sure the contents are as we expect it."); 
   assert(this instanceof Array, "The context should be the full array."); 
 });
+\end{codeblock}
 
-</code>
-</div>
-<p id="msg1" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
-</p>
-<button class="eval">Run Code!</button>
-<ol class="results1" style="margin-top:8px"></ol> 
-</div>
-</code>
 
 ##Further Reading
 

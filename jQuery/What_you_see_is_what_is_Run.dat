@@ -1,22 +1,6 @@
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
-
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
-
-<style type="text/css">
-button#cbutton{color:blue}
-div#ex1{};
-
-</style>
-
 
 <h2>What you see is what is Run</h2>
+
 I am a personal fan of intorducing as much interactivity on web pages as 
 possible, especially on websites that offer tutorials and discussions about
 programming. It becomes rather laborious to have to type both the

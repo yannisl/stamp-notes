@@ -1,19 +1,7 @@
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
 
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
+## Object prototypes
 
--->
-
-
-<h2>Object prototypes</h2>
-
-<div  class="code-block console-wrap"><div class="code code-block">
-<code>
+\begin{codeblock}
 // Rectangle is an ordinary function.
 var Rectangle = function() {};
 // Every function has a property named 'prototype' whose value is an object
@@ -24,22 +12,12 @@ Rectangle.prototype.height = 4;
 // Creates an instance of a Rectangle, which is an object whose
 // __proto__ property points to Rectangle.prototype. 
 var rect = new Rectangle();
+\end{codeblock}
 
-</code>
-</div>
-
-<div  class="msg" class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-<img src="http://localhost/codeigniter/images/jquery.png" style="float:right; width:85px"/>
-</div>
 
 <h2>Another Method</h2>
 
-<div  class="code-block console-wrap"><div class="code code-block">
-<code>
+\begin{codeblock}
 var myNamespace = {};
   myNamespace.foo = function() {
       var privateFoo = 1;
@@ -53,17 +31,7 @@ var myNamespace = {};
   // usage
   myFoo = new myNamespace.foo();
   log('i',myFoo.publicFn().publicBar);
-</code>
-</div>
-
-<div  class="msg" class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-<img src="http://localhost/codeigniter/images/jquery.png" style="float:right; width:85px"/>
-</div>
-
+\end{codeblock}
 
 ##Further Reading
 

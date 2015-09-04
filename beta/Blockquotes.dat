@@ -1,7 +1,7 @@
 \chapter{Blockquotes}    
 
-For discussion on the semantics of `blockquote` and `cite` elements there
-is a very good article on [blockquote](http://html5doctor.com/blockquote-q-cite/  "article on the html element blockquote ") and cite  the html5doctor website. \footnote{testing}
+For discussion on the semantics of `\blockquote` and `\cite` elements 
+there is a very good article on [blockquote](http://html5doctor.com/blockquote-q-cite/  "article on the html element blockquote ") and cite  the html5doctor website. \footnote{testing}
 
 For writers and authors, The Chicago Manual of Style recommends using a block quotation when cited text is 100 words or more, or at least eight lines.2 The block quotation may also be used to distinguish shorter citations from original text, though strictly speaking this does not follow APA or MLA style guidelines. 
 Use of the block quotation for shorter passages is a stylistic choice that may or 

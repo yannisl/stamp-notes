@@ -1,16 +1,6 @@
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
-{{feature-image: http://localhost/CodeIgniter/images/beauty.jpeg}}
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
-
 
 <h2>Cookies</h2>
+
 Local data storage has been available to developers since the early days of the web
 browser in the form of cookies. These are small text files, with an upper size limit of 4KB,
 which are stored on the user's computer and associated with a particular web site domain.
@@ -29,9 +19,7 @@ web sites that require a user to log in, disabling cookies entirely is rarely do
 <h3>Determining if cookies are enabled</h3>
 You want your scripts to know whether the user's browser has cookies enabled. We can use a small test to try to write a cookie and return true if enabled.
 
-<div  class="code-block console-wrap">
-<div class="code code-block">
-<code>
+\begin{codeblock}
 // test cookies
 var cookieEnabled = false;
 if (typeof document.cookie == "string") {
@@ -44,42 +32,23 @@ cookieEnabled = true;
 }
 }
 log(cookieEnabled);
-</code>
-</div>
-<div  id="msg5" class="msg">
- </div>
-<div class="console"></div>
-<hr/>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
+\end{codeblock}
 
 <h3>Loading a Cookie plugin</h3>
+
 Although, it is not hard to write your own code for cookies, there is a jQuery plugin that you can use. We will use this plugin in the example below.
 
 We will first load the plugin using ajax, rather than a script tag and set the value of a cookie to the title of this article.
 
-<div  class="code-block console-wrap">
-<div class="code code-block">
-<code>
-$('#ajax-button-03').click(function(){
-     $.getScript('/CodeIgniter/js/cookies.js', function(){
+\begin{codeblock}
+ $.getScript('/application-latest/js/cookies.js', function(){
           var cookieValue= $('title').text();
           $.cookie('the_cookie', cookieValue);
            var z = $.cookie('the_cookie');
             log('script loaded and executed value of  ' + z);
         });
-     return false;
-});
-</code>
-</div>
-<div  id="msg5" class="msg">
- </div>
-<div class="console"></div>
-<hr/>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
+     
+\end{codeblock}
 
 We can use cookies to preserve values and setting provided by the user.
 
@@ -110,6 +79,9 @@ against unforeseen network connection drops and unfortunate browser crashes.
 
 
 ##Further Reading
+
+
+[phot-credit](http://photogrist.com/black-white-photography-janine-niepce/)
 
 
 

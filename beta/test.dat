@@ -1,4 +1,3 @@
-\lorem
+\chapter{Write your title here}
 
-\lorem
-
+\phl[37%]{../beta/che.jpg}{This is some text.}

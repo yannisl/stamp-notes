@@ -1,20 +1,13 @@
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
 
-{{feature-image:/codeigniter/images/china/beauty_02.jpg}}
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
 
 <script>
 goog.require('goog.structs.Heap');
 </script>
-<h2>Heap</h2>
+
+\chapter{Heap}
+
 In computer science, a data structure is a particular way of storing and organizing data in a computer so that it can be used efficiently.[1][2]
+
 Different kinds of data structures are suited to different kinds of applications, and some are highly specialized to specific tasks. For example, B-trees are particularly well-suited for implementation of databases, while compiler implementations usually use hash tables to look up identifiers.
 
 Data structures are used in almost every program or software system. Specific data structures are essential ingredients of many efficient algorithms, and make possible the management of huge amounts of data, such as large databases and internet indexing services. Some formal design methods and programming languages emphasize data structures, rather than algorithms, as the key organizing factor in software design.
@@ -24,22 +17,20 @@ This file provides the implementation of a Heap datastructure. Smaller keys
 
  The big-O notation for all operations are below:
 
-<div class="code-block code"><code>
+\begin{verbatim}
  *  Method        big-O
 * - insert           O(logn)
  * - remove      O(logn)
  * - peek            O(1)
  * - contains    O(n)</code>
- </div>
+\end{verbatim}
 
 
 
 // TODO: Should this rely on natural ordering via some Comparable
 //     interface?
 
-<div  class="code-block console-wrap">
-<div class="code-block code">
-<code>
+\begin{codeblock}
 var arr = {
   'Yiannis': 8,
   'Anne': 2,
@@ -51,19 +42,11 @@ b.insert('Helen', 1);
 
 log(b.peekKey());
 log(b.getKeys());
-</code>
-</div>
+\end{codeblock}
 
-<div  id ="msg" class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
+\section{heap}
 
-<h3>heap</h3>
-
-<img src="/codeigniter/images/heap.png" style="display:block;float:left;margin-left:15px" />
+<img src="/application-latest/images/heap.png" style="display:block;float:left;margin-left:15px" />
 
 A heap is a specialized tree-based data structure that satisfies the heap property: if B is a child node of A, then key(A) &#8805; key(B). This implies that an element with the greatest key is always in the root node, and so such a heap is sometimes called a max-heap. (Alternatively, if the comparison is reversed, the smallest element is always in the root node, which results in a min-heap.) 
 

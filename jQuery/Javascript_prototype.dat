@@ -1,16 +1,6 @@
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
-
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
-
 
 <h2>The prototype constructor</h2>
+
 All functions have a <strong>prototype</strong> property which, by default
 contains an empty object. This property does not serve a purpose until the function is instantiated. In order to understand what it does it is important to remember the simple fact about JavaScript: Functions can behave both as regular functions as well a classes (where the can be instantiated).
 

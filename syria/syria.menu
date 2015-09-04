@@ -1,4 +1,7 @@
 \begin{accordion}
+ \begin{category}{Background}
+\mitem{Introduction}{Introduction}
+ \end{category}
   \begin{category}{Early Mails}
    \mitem{18th Century Mail}{Early_Mail}
    \mitem{19th Century Prestamp}{}
@@ -12,4 +15,18 @@
  \begin{category}{Arab Kingdom}
   \mitem{1920 Arab Kingdom}{Arab_Kingdom}
  \end{category} 
-\end{accordion}          
+
+\begin{category}{OMF}
+\mitem{Aleppo Issue}{Aleppo_Issue}
+\end{category}
+\begin{category}{French Mandate}
+\mitem{1924 Olympics}{1924_Olympics}
+\mitem{1930-31 Buildings}{1930-31_Buildings}
+\mitem{1936 Damascus Fair}{1936_Damascus_Fair}
+\end{category}
+
+\begin{category}{Republic}
+\mitem{1942 Republic}{1942 Independence}
+\mitem{1958 Museum}{1958_Museum}
+\end{category}
+\end{accordion}                              

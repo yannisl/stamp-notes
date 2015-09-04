@@ -1,16 +1,4 @@
-<!--
-{{feature-image:http://localhost/egypt/amato-01/aa_044.jpg}}
-{{credit-source: Allan Amato}}
-{{credit: /codeigniter/blogs/gallery/amato-01/3}}
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
 
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
 <script type="text/javascript">
 goog.require('goog.color');
 goog.require('goog.color.alpha')
@@ -23,9 +11,7 @@ One useful utility of the <tt>color.js</tt> library is its parser routine. It ta
 
 We can check some strings in the following example and assert that everything is working as it should.
 
-<div  class="code-block console-wrap" title="Parsing color strings">
-<div class="code-block code">
-<code>
+\begin{codeblock}
 // Utility Example for colors
 (function testParse() {
   var colors = ['rgb(15, 250, 77)','(127, 127, 127)', '#ffeedd', '123456', 'magenta'];
@@ -50,24 +36,15 @@ We can check some strings in the following example and assert that everything is
 })();
 
 log (typeof z);
-</code>
-</div>
+\end{codeblock}
 
-<div  id ="msg" class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-
-<ol class="results" style="width:90%"></ol> 
-</div>
 
 <h3>Validation</h3>
 
 The library has a number of useful methods for validating if a string is a valid color.
 
-<div  class="code-block console-wrap">
-<div class="code-block code">
-<code>
+
+\begin{codeblock}
 (function testIsValidRgbColor() {
   var goodRgbColors = ['(255, 26, 75)', 'RGB(2, 3, 4)', '(0,0,0)', 'rgb(255,255,255)'];
   var badRgbColors = ['(2555,0,0)', '(1,2,3,4)', 'rgb(1,20,)', 'RGB(20,20,20,)'];
@@ -78,35 +55,22 @@ The library has a number of useful methods for validating if a string is a valid
     log(badRgbColors[i], goog.color.isValidRgbColor_(badRgbColors[i]).length, 0);
   }
 })();
+\end{codeblock}
 
-</code>
-</div>
-<div  id ="msg" class="msg" >
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
+
+
+
 
 <h3>Conversion of Colors from one type to anoher</h3>
 
-<div  class="code-block console-wrap">
-<div class="code-block code">
-<code>
+
+\begin{codeblock}
 for (var prop in goog.color){
      log(prop);
 }
 log(typeof prop);
+\end{codeblock}
 
-</code>
-</div>
-
-<div  id ="msg" class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
 
 <h3>Color Manipulations</h3>
 The only color manipulation methods available and of interest are __blend()__, __darken()__ and __highContrast__. The latter is interesting as it offers a way to determine if a color scheme would pass W3C guidelines for accessibility.

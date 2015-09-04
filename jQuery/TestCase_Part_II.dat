@@ -1,21 +1,9 @@
-      
-<!--
- directives
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
-
-{{feature-image:/codeigniter/images/china/beauty_06.jpg}}
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
 
 
 <h2>TestCase Part II</h2>
 
 In the first part of this article we have examined, how we can look for a function into the window global object. We will now see how we can look for functions starting with __test__.
+
 Since we can iterate though the global object and find what functions have been defined in the
 global context, we can use regular expressions and look for anything starting from __test__ or any of the other prefixes we want to reserve for automated tests. We simply define it as:
 
@@ -28,9 +16,7 @@ if ((new RegExp('^' + prefix)).test(name) && goog.isFunction(ref)) &#123;
 
 
 
-<div  class="code-block console-wrap">
-<div class="code-block code">
-<code>
+\begin{codeblock}
 function testSomething(a) {
    return a+4;};
 function testSomethingElse() {};
@@ -63,23 +49,14 @@ autoDiscoverTests = function () {
 }
 
 autoDiscoverTests();
-</code>
-</div>
+\end{codeblock}
 
 
-<div  id ="msg" class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
 
 <h3>Running the Tests </h3>
 Once we have captured all the functions in an array we can now proceed to execute them. while doing so we will take a couple of precautions, one is to ensure that we provide some form of a timeout, in case there is a problem with one of the tests.
 
-<div  class="code-block console-wrap">
-<div class="code-block code">
-<code>
+\begin{codeblock}
 var p = [];
 
 var testSource = window;
@@ -99,15 +76,9 @@ log(p);
 /*goog.exportSymbol = function(publicPath, object, opt_objectToExportTo) {
   goog.exportPath_(publicPath, object, opt_objectToExportTo);
 };*/
-</code>
-</div>
+\end{codeblock}
 <div id="closureTestRunnerLog"></div>
-<div  id ="msg" class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
+
 
 <h3>Cycling through the Tests</h3>
 As you can see we have now managed to capture all the test names into an array. What remains now is a way to execute them. Simply eval(function), will not work, you will need to actually call the function as name.call(this). This is the context of the function in our case it will be the global space and we can let it be null. We simply at this stage just iterate all the properties of our __foundTests()__ array and call each function.
@@ -116,10 +87,7 @@ If the notion of storing functions in an array is alien to you, remember that fu
 
 
 
-
-<div  class="code-block console-wrap">
-<div class="code-block code">
-<code>
+\begin{codeblock}
 function testSomethingElse() {
   log('testSomethingElse executed');
   assertEquals('a test', 12, 12);
@@ -162,14 +130,7 @@ function autoTest() {
 };
 
 autoTest();
-</code>
-</div>
-<div  id ="msg" class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
+\end{codeblock}
 
 I have kept the above code to a minimum. To write a full functional TestCase class, we need to watch-out both for some minor Browser differences as well as to build-in both a bit more functionality, such as error trapping and the possibility of a function taking too long to execute in which case we need to have some form of a time-out. We can accomplish the latter using Timers.
 

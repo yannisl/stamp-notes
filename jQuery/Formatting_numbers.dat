@@ -1,16 +1,3 @@
-<!--
-
-{{feature-image:http://localhost/egypt/che-guevara/Scott-2003.jpeg }}
-{{feature: "Mathematical symbols cross linguistic borders less readily than do mathematical ideas [...]. In fact, no American mathematical symbol, except perhaps the dollar mark ($), has found acceptance in Europe. Florian Cajori, 1929 Blackboard Notes
-}}
-
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
 <script type="text/javascript">
     goog.require("goog.i18n.NumberFormat");
 </script>
@@ -21,8 +8,7 @@ A common problem encountered in programming is the mundane task of formatting a 
 
 There are four types of formatting for numbers (dates and time are not considered numbers) in this article.
 
-<div class="code-block code">
-<code>
+\begin{codeblock}
 /**
  * Standard number formatting patterns.
  * @enum {number}
@@ -33,8 +19,7 @@ goog.i18n.NumberFormat.Format = {
   PERCENT: 3,
   CURRENCY: 4
 };
-</code>
-</div>
+\end{codeblock}
 
 
 For example for currency you will, probably need to add the currency symbol applicable in your country, or preferably let it be decided by the program based on the user's locale. 
@@ -43,9 +28,8 @@ When we dealing with currency, the applicable methods known as (i18n) are to be 
 
 {{plain: 'USD', 'YPY', 'EUR'}}
 
-<div  class="code-block console-wrap">
-<div class="code-block code">
-<code>
+
+\begin{codeblock}
 var options = {
   currencyCode: 'SAR',
   pattern: 4
@@ -70,15 +54,8 @@ for (var prop in goog.i18n.currencyCodeMap) {
     log(prop, formatNumber('2100.821100', options));
   }
 }
-</code>
-</div>
+\end{codeblock}
 
-<div  id ="msg" class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
 
 <h3>Formatting other numeric strings</h3>
 
@@ -88,8 +65,8 @@ Other numeric strings are normally formatted based on a pattern. A pattern is no
 
 This pattern will be interpreted by your program to format all numbers with this pattern with two decimal points and with all thousands to be separated by commas.
 
-<div class="code-block code">
-<code>
+
+\begin{codeblock}
 /**
  * Number formatting symbols for locale en.
  * @enum {string}
@@ -111,14 +88,11 @@ goog.i18n.NumberFormatSymbols_en = {
   CURRENCY_PATTERN: '\u00A4#,##0.00;(\u00A4#,##0.00)',
   DEF_CURRENCY_CODE: 'USD'
 };
-</code>
-</div>
+\end{codeblock}
 
 
 
-<div  class="code-block console-wrap">
-<div class="code-block code">
-<code>
+\begin{codeblock}
 var options = {
   numberFormat: 1,
   // 'DECIMAL',
@@ -149,15 +123,8 @@ log(formatNumber(1000345.01309, options));
 log(formatNumber(1000345.01309, {
   numberFormat: 3
 }));
-</code>
-</div>
+\end{codeblock}
 
-<div  id ="msg" class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
 
 As you will observe, I have wrapped Closure's methods in a function and used an option object to set the options required. I prefer to use option objects, as it enables one to only set the parameters required and rely on the system deafults. Another advantage, one does not need to remember the exact order of the function argument list. (see article on [Configuration Object Pattern](http://127.0.0.1/CodeIgniter/index.php/Blogs/tutorials/jQuery/Patterns_Configuration_Object ) )
 

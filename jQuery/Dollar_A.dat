@@ -1,24 +1,10 @@
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
-
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
-
-
-
 
 <h2>Prototype's $A </h2>
+
 Prototype has a handy global constructor of Arrays or Array like objects. It is simply $A(). The beauty of this, is that it inherits a lot of properties from other Objects, so that it lets you really do almost anything with arrays. Lets us explore its properties a little.
  
 
-<div  class="code-block console-wrap">
-<div class="code-block code">
-<code>
+\begin{codeblock}
 log(Prototype.Version);
 function $A(iterable) {
   if (!iterable) return[];
@@ -50,16 +36,8 @@ log('z5', z5);
 for (var prop in $A) {
   log(prop);
 }
- 
-</code>
-</div>
+\end{codeblock} 
 
-<div  id ="msg" class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
 
 What the () does it tells Javascript to execute the function just before it. Let u s now assign the above function to a variable:
 

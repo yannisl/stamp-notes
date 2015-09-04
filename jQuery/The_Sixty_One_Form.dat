@@ -1,14 +1,4 @@
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
 
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-{{previous: http://127.0.0.1/CodeIgniter/index.php/Blogs/tutorials/jQuery/The_Sixty_One}}
-
--->
  <style type="text/css"> 
 .saving{background:rgb(192,67,67);color;white;position:fixed;top:50px;left:250px}
 .saved{background:green;color:white}
@@ -24,10 +14,10 @@ h2, h3{color:rgb(108,108,108)}
 </style> 
 
 <h2>The SixtyOne progress bar</h2>
+
 This absolutely delicious site is not only famous by now for its music, but also for its well designed UI. This progress bar is lifted from them and dedicated to Kate!
-<div  class="code-block console-wrap" style="border-left:7px solid rgb(108,108,108)" >
-<div class="code code-block" >
-<code>
+
+\begin{codeblock}
 var loading = {
      inc: 10,
     book: null,
@@ -64,17 +54,14 @@ var loading = {
 }
 //document.getElementById('go').onclick = loading.init;
 loading.init();
-</code>
-</div>
+\end{codeblock}
 
-<div  class="msg" class="msg">
-</div>
 <div style="height:40px">
 <button id="go" class="hidden saving" style="color:#fff;border:0;margin-left:60%">Click Me</button>
 </div>
-<div id="book1" style="background-position: -500px; padding:1px;width: 400px;border;solid #ececec;background-image: url(http://localhost/codeigniter/images/player_loader.gif); " class="clearfix"> 
-<img src="http://localhost/codeigniter/images/kate_small.jpg"  class="cover" />  
-<input type="text" value="name"  class="book" style="background-position: -500px; padding:1px;width: 400px;border;solid #ececec;background-image: url(http://localhost/codeigniter/images/player_loader.gif); "  /><br/>
+<div id="book1" style="background-position: -500px; padding:1px;width: 400px;border;solid #ececec;background-image: url(http://localhost/application-latest/images/player_loader.gif); " class="clearfix"> 
+<img src="http://localhost/application-latest/images/kate_small.jpg"  class="cover" />  
+<input type="text" value="name"  class="book" style="background-position: -500px; padding:1px;width: 400px;border;solid #ececec;background-image: url(http://localhost/application-latest/images/player_loader.gif); "  /><br/>
 <input type="text" value="email" class="book" /> 
 </div> 
 <div class="console"></div>

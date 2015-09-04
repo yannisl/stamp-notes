@@ -1,0 +1,15 @@
+\begin{category}{Background}
+\mitem{Introduction}{Introduction}
+\end{category}
+
+\begin{category}{Operators}
+\mitem{Conditional Operators}{Conditional_operators}
+\end{category}
+
+\begin{category}{Lexical Structures}
+\mitem{Strings}{Javascript_Strings}
+\end{category}
+\begin{category}{Functions}
+\mitem{Higher Order Functions}{Higher_Order_Functions}
+\end{category}
+          

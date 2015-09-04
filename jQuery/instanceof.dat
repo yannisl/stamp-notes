@@ -1,48 +1,28 @@
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
-
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
-
-
 <h2>instanceof</h2>
+
 Use instanceof when you need to confirm the type of an object at runtime. For example, when catching exceptions, you can branch to different exception-handling code depending on the type of exception thrown.
 
-You must specify an object on the right side of the instanceof operator. For example, you can specify a string created with the String constructor, but you cannot specify a string literal.
+You must specify an object on the right side of the `instanceof` operator. For example, you can specify a string created with the String constructor, but you cannot specify a string literal.
 
 {{plain:
 var isInstance = objectName instanceof objectType;
 }}
 
-<div  class="code-block console-wrap"><div class="code code-block"><code>
+\begin{codeblock}
 var color1 = new String("green");
 color1 instanceof String; // returns true
 var color2 = "blue";
 log(color2 instanceof String); // returns false (color2 is not a String object)
+\end{codeblock}
 
 
 
-</code>
-</div>
-<p id="msg1" class="msg" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
-</p>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
-
-<hr/>
 
 <h3>Checking a custom object</h3>
  
 
 
-<div  class="code-block console-wrap"><div class="code code-block"><code>
+\begin{codeblock}
 function House() {
   this.price = 20000;
   this.location = 'nowhere';
@@ -51,7 +31,7 @@ function House() {
 var z = [2, 3, 4, 5];
 var newHouse = new House();
 
-log(newHouse instanceof House);
+assert(newHouse instanceof House,'instance of House');
 
 log(z instanceof Array);
 
@@ -65,14 +45,7 @@ log(z1);
 var z3=[0,1,2,3,4];
 log(z3 instanceof Array);
 
-</code>
-</div>
-<p id="msg1" class="msg" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
-</p>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
+\end{codeblock}
 
 If you check the above example, we have tested if a DOM element is of type HTMLParagraphElement. The instanceof is a safer bet to check for typing during run-time.
 

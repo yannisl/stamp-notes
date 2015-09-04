@@ -1,13 +1,3 @@
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
-
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
 
 <style type="text/css">
 .hidden{display:none}
@@ -22,18 +12,19 @@ margin-bottom:2px;}
 
 
 <h2>The Maya Numbering System</h2>
+
 Instead of ten digits like we have today, the Maya used a base number of 20. (Base 20 is also known as {{wi:vigesimal}}.) They  used a system of bars and dots as "shorthand" for counting. A dot stood for one and a bar stood for five.
 
 In the following table, you can see how this (works.http://www.michielb.nl/maya/math.html). We will use images from this website.
 {{example:
 <div style="width:170px">
-<img class="maya" src="http://localhost/codeigniter/images/maya/0.gif" />
-<img class="maya" src="http://localhost/codeigniter/images/maya/1.gif" />
-<img class="maya" src="http://localhost/codeigniter/images/maya/2.gif" />
-<img class="maya" src="http://localhost/codeigniter/images/maya/3.gif" />
-<img class="maya" src="http://localhost/codeigniter/images/maya/4.gif" />
-<img class="maya" src="http://localhost/codeigniter/images/maya/5.gif" />
-<img class="maya" src="http://localhost/codeigniter/images/maya/6.gif" />
+<img class="maya" src="http://localhost/application-latest/images/maya/0.gif" />
+<img class="maya" src="http://localhost/application-latest/images/maya/1.gif" />
+<img class="maya" src="http://localhost/application-latest/images/maya/2.gif" />
+<img class="maya" src="http://localhost/application-latest/images/maya/3.gif" />
+<img class="maya" src="http://localhost/application-latest/images/maya/4.gif" />
+<img class="maya" src="http://localhost/application-latest/images/maya/5.gif" />
+<img class="maya" src="http://localhost/application-latest/images/maya/6.gif" />
 
 <img class="maya" src="http://localhost/codeigniter/images/maya/7.gif" />
 <img class="maya" src="http://localhost/codeigniter/images/maya/8.gif" />

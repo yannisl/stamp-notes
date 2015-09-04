@@ -1,16 +1,5 @@
       
-<!--
- directives
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
 
-{{feature-image:/codeigniter/images/china/beauty_07.jpg}}
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
 
 <script type="text/javascript"> 
  goog.require('goog.array');
@@ -139,11 +128,11 @@ On the first run this sample loaded 73 files, in order to run. Pretty much every
 
 Examine the code below. We will insert a logger and capture the CLICK event on an image using jQuery and Closure respectively. They both play nicely together in this regards. 
 
-<div  class="code-block console-wrap">
-<div class="code-block code">
-<code>
+<div id="feature-image1"></div>
+
+\begin{codeblock}
 (function () {
-  filesLoaded();
+  goog.filesLoaded();
 
   var timer = goog.now();
 
@@ -172,21 +161,7 @@ Examine the code below. We will insert a logger and capture the CLICK event on a
     logger.info('in jquery ' + (goog.now() - t) + 'ms');
   });
 })();
-</code>
-</div>
-<div id="feature-image1" >
-<img src="/codeigniter/images/china/beauty_02.jpg" style="width:130px" />
-</div>
-<div  id ="msg" class="msg">
-</div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-<fieldset class="goog-debug-panel bordered" > 
-    <legend>Event Log</legend> 
-    <div id="log" class=" logdiv">
-    </div>
-</fieldset>
-</div>
+\end{codeblock}
 
 
 

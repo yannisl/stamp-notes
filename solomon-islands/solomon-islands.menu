@@ -1,3 +1,4 @@
+\begin{accordion}
 \begin{category}{Background}
 \mitem{History}{History}
 \end{category}
@@ -14,4 +15,9 @@
 \mitem{1s Large Canoe}{1s_Large_Canoe}
 \mitem{Large canoe Forgeries}{Large_Canoe_Forgeries}
 \mitem{Large Canoe Covers}{Large_Canoe_Covers}
-\end{category}                            
+\end{category}        
+
+\begin{category}{King George VI}
+\mitem{1939-41 Pictorials}{1939-41_Pictorials}
+\end{category}
+\end{accordion}                        

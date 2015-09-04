@@ -1,17 +1,3 @@
- <!--
-{{feature-image: /egypt/amato-01/aa_098.jpg }}
-{{credit-source: Allan Amato}}
-{{credit: /codeigniter/blogs/gallery/amato-01/29}}
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
-
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
-
 <script type="text/javascript"> 
 goog.require('goog.structs.LinkedMap');
 goog.require('goog.structs');
@@ -22,6 +8,7 @@ goog.require('goog.structs.Map');
 
 
 <h2>Linked Map</h2>
+
 <!--TOC-->
 Class for a LinkedMap datastructure, which combines O(1) map access for
  key/value pairs with a linked list for a consistent iteration order. 
@@ -36,9 +23,7 @@ Class for a LinkedMap datastructure, which combines O(1) map access for
 
 
 
-<div  class="code-block console-wrap">
-<div class="code-block code">
-<code>
+\begin{codeblock}
 var m = new goog.structs.LinkedMap(100);
 m.set('param1', 'A');
 m.set('param2', 'B');
@@ -54,15 +39,7 @@ log(c.getKeys()); // entry9, entry8, entry7, entry6, entry5
 c.set('entry5', true);
 c.set('entry1', false);
 log(c.getKeys()); // entry1, entry5, entry9, entry8, entry7
-</code>
-</div>
-
-<div  id ="msg" class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
+\end{codeblock}
 
 
 

@@ -1,16 +1,14 @@
 
 ## The array methods pop() and push()
 
-The pop() method is used to remove the last element of the array, whereas the push() method is used to append elements to the array. They affect the arrays directly.
+The `pop()` method is used to remove the last element of the array, whereas the `push()` method is used to append elements to the array. They affect the arrays directly.
 
 
 {{bulb: pop() and push()   change the original array.}}
 
 Observe the following example to understand what is being returned from the methods, as mentioned above all these methods change the original array directly.
 
-<div  class="code-block console-wrap">
-<div class="code-block code">
-<code>
+\begin{codeblock}
 // pop and push example
 // note pop and push change
 // the original array
@@ -23,15 +21,8 @@ c = a.push('new 1', 'new 2', 'new 3');
 log('return value from push = ', c);
 log('array after push = ', a);
 
-</code>
-</div>
+\end{codeblock}
 
-<div  id ="msg" class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
 
 
 

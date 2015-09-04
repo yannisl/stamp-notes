@@ -1,20 +1,5 @@
- <!--
 
-{{feature-image:http://localhost/egypt/hakan/web105.jpg}}
-{{image-credit: Hagan}}
-{{feature: .. Objects in the real world have only one thing in common
--- they are all different -- Antero Taivalsaari}}
-
-
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
-
-<h2>Class like code</h2>
+\chapter{Class like code}
 
 One common requirement from a language is the ability to specify classes from which instances and sub-classes are created. JavaScript does NOT have classes. Inheritance is based on prototypes. Most libraries though have devised methods that Classe can be emulated. Some good ways of handling this can be found in the Prototype library and base2 library. Crockford and YUI also offer different methods. It is actually not very hard to create your own methodology.
 

@@ -2,15 +2,16 @@
 
 \section{What problem are we trying to solve?}
 
-If you ever lost a document you will agree that there is always a need to keep control of important documents. The document control system has been designed to aid in the  filing of documents and provide an easy way of retrieving this information.
-Some documents we keep because is required by law to keep them. Others we need them in order to control the flow of money in a Company. To summarize the system described in this chapter will help you file your documents better and enable you to retrieve these documents easier.
-
-
 \begin{marginfigure}
 \includegraphics[width=.99\linewidth]{../angola/gudea-plans.jpg}
 \caption{Clay plans of a six-room building, a sanctuary or a private house. From Telloh, ancient Girsu circa 2125.}
   \label{fig:marginfig1}
 \end{marginfigure}
+
+If you ever lost a document you will agree that there is always a need to keep control of important documents. The document control system has been designed to aid in the  filing of documents and provide an easy way of retrieving this information.
+Some documents we keep because is required by law to keep them. Others we need them in order to control the flow of money in a Company. To summarize the system described in this chapter will help you file your documents better and enable you to retrieve these documents easier.
+
+
 
 
 
@@ -152,9 +153,9 @@ The empirical equation below, can be used to estimate the number of files that w
 
 
 
-\begin{equation}
+\[[
    N = \frac{p^{0.8}(t + d)}{d} 
-\end{equation}
+\]]
 
 
 where,

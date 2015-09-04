@@ -8,9 +8,12 @@
     \mitem{GB Used in Bahamas}{GB_Used_in_Bahamas}
   \end{category}
 
-\begin{category}{QV Issues}
+\begin{category}{Perkins Bacon Issues}
    \mitem{1859 Issue (June 10th)}{}
    \mitem{1861-62 Rough perforations}{1861-62_Rough_Perforations}
+\end{category}
+
+\begin{category}{De La Rue Issues}
    \mitem{1862 No watermark}{1862_De_La_Rue}
    \mitem{1862 Covers}{1862_Covers}
 
@@ -70,4 +73,4 @@
 \begin{category}{Bibliography and References}
    \mitem{Bibliography and References}{Bibliography_and_References}
 \end{category}
-\end{accordion}                                                            
+\end{accordion}                                                              

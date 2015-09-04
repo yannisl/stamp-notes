@@ -1,13 +1,4 @@
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
 
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
 <style type="text/css">
 div.exercise{ white-space:pre;line-height:1.3;
                          color:grey;
@@ -27,28 +18,16 @@ width:12px}
 </style>
 
 <h2>Geolocation</h2>
+
 Most browsers other than Internet Explorer support a special array called _navigator.plugins_, which contains a list of installed plugins, making it easy to check for a given plugin name. In  Internet Explorer it' s surprisingly difficult to do the same. IE has the same array, but it's empty, making it useless for detecting plugins. Instead, you need to do something quite unbelievable: use VBScript. This is a book about JavaScript, not VBScript, but to get past this difficult problem there really is no alternative but to include VBScript in the detection script.
 
-<div  class="code-block console-wrap">
-<div class="code-block code" >
-<code class="PHP">
+\begin{codeblock}
 if (navigator.geolocation) {
   log('geolocation available');
 } else {
   log('No geolocation');
 }
-</code>
-</div>
-<div   class="msg">
-
-</div>
-<div id="hack" >
-
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
+\end{codeblock}
 
 
 

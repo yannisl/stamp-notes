@@ -1,25 +1,12 @@
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+\chapter{The Limits of the Human Body}
 
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
-
-
-<h2>Limits</h2>
 What if I told you that I can make you not being able to get up from a chair, without anyone tying you up? Unbelievable? Try to sit as the picture shown below. [From Physics for entertainment](http://www.archive.org/stream/physicsforentert035428mbp#page/n31/mode/2up). Sit down on a chair in the same way as the boy shown in the illustration below. Sit upright and _don't shove your feet under the chair_. Now try to get up without moving your feet or bending forward. You can't, however hard you try. You'll never stand up until you push your feet under the chair or lean forward.
 
-<div  class="code-block console-wrap"><div class="code code-block">
-<img src="http://localhost/codeigniter/images/impossible.jpg" />
-</div>
 
-<div  class="msg" class="msg">
-</div>
-</div>
+<img src="/application-latest/images/impossible.jpg" />
+
+
+
 
 
 

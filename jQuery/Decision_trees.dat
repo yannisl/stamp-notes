@@ -1,13 +1,3 @@
- <!--
-{{feature: .. a good worker knows all her tools}}
-
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
 
 <script type="text/javascript"> 
 goog.require('goog.ui.TableSorter');
@@ -167,9 +157,9 @@ For example, if a message source always sends exactly the same message, the rece
 information to know what message has been sent is always the same! The entropy of such a source is _zero_: there is no uncertainty at all. On the other hand, if a source can send
 possible messages and each
 message occurs independently of the preceding message with equal probability, then the uncertainty of
-the receiver is maximised. The receiver will need to ask \\(n\\)
+the receiver is maximised. The receiver will need to ask \\(n\\)
 yes/no questions to determine which
-message has been sent, i.e. the receiver needs \\(log_{2}n\)
+message has been sent, i.e. the receiver needs \\(log_{2}n\)
 bits of information. Why does the receiver need log2n _bits_ of information? Think about representing each message as a binary number.
 
 Considering a source with \\(n\\) messages \\(\{m_1,m_2,\ldots, m_n\}\\). All messages 

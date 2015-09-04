@@ -1,15 +1,6 @@
- <!--
-{{feature-image:http://localhost/codeigniter/images/china/beauty_06.jpg}}
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
 
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
 <script type="text/javascript" src="http://www.marinetraffic.com/ais/embed.js"></script>
+
 <h3>marine Tracking</h3>
 <script type="text/javascript">
         width=600;          //the width of the embedded map in pixels or percentage

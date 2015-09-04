@@ -1,3 +1,4 @@
+\begin{accordion}
 \begin{category}{Perkins Bacon}
 \mitem{Perkins Bacon Introduction}{Perkins_Bacon_Introduction}
 \mitem{1853 Perkins Bacon}{1853_Perkins_Bacon_Stamps}
@@ -77,6 +78,7 @@
 \begin{category}{Revenues}
 \mitem{Patent and Proprietary}{Patent_and_Proprietary_stamps}
 \end{category}
+\end{accordion}
 
 <div style="width:180px">
 <h4 class="country" style="background:#000040;color:white">Introduction</h4>
@@ -249,4 +251,4 @@
 </div>
 
 
-                                                                                                            
+                                                                                                              

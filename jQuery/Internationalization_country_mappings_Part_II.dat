@@ -1,14 +1,4 @@
        
-<!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
-
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
 
 <h3>Country and Language Mappings Part II : handling dates and times</h3>
 In the previous tutorial we have seen how to handle the Country and Currency codes. In this section we will investigate time and date problems related to Internationalization.
@@ -17,9 +7,7 @@ The i18n Standard defines a series of constants for these, which are available a
 
 For example let us view the different ways that English (en) and French(fr) handle these:
 
-<div  class="code-block console-wrap">
-<div class="code-block code">
-<code style="font-size:smaller">
+\begin{codeblock}
 
 /**
  * Date/time formatting symbols for locale en.
@@ -90,15 +78,7 @@ goog.i18n.DateTimeSymbols_fr = {
 
 log('en ', goog.i18n.DateTimeSymbols_en.SHORTWEEKDAYS);
 log('fr ', goog.i18n.DateTimeSymbols_fr.SHORTWEEKDAYS);
-</code>
-</div>
-
-<div  id ="msg" class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
+\end{codeblock}
 
 
 

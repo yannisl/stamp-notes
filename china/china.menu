@@ -1,12 +1,50 @@
+\begin{accordion}
+\begin{category}{General}
+\mitem{Introduction}{Introduction}
+\mitem{Series Identification}{Numbering_of_China_Stamps}
+\mitem{Valuing Chinese Stamps}{Valuing_Chinese_Stamps}
+\mitem{Valuing Chinese Covers}{Valuing_Chinese_Covers}
+\end{category}
+
+\begin{category}{1949 Issues}
+\mitem{C1 1st Plenary Session}{1949_First_Plenary_Session}
+\mitem{C3 Trade Union Conference}{1949_Trade_Union}
+\end{category}
+
+\begin{category}{1950 Issues}
+\mitem{R1-R5 Tian An Men}{1950_Tian_An_Men}
+\mitem{C2 Political Conference}{1950_Political_Conference}
+\mitem{C4 Inauguration of Chinese Republic}{1950_Inauguration_of_Chinese_Republic}
+\mitem{C5 Defend World Peace}{1950_Defend_World_Peace_C5}
+\mitem{SC1 Overprints}{1950_SC1}
+\mitem{SC2 Overprints}{1950_SC2}
+\end{category}
+
+
+
+
+
+
+\begin{category}{1952 Commemoratives}
+\mitem{1952 Agragarian Reform S2}{1952_Agragarian_Reform}
+\end{category}
+
+\begin{category}{1954 Issues}
+\mitem{S7 Ancient Inventions}{1954_Ancient_Inventions}
+\mitem{S8 Economic Construction}{1954_Economic_Construction}
+\mitem{S9 Ancient Cultural Relics 5th Series}{1954_Ancient_Cultural_Relics_5th_Series}
+\mitem{S10 Seamless Steel Mill}{1954_Steel_Mill}
+\mitem{S11 Technical Innovation}{1954_Technical_Innovation}
+\end{category}
+
+
+\end{accordion}
+
+
+
 <div style="width:230px">
 
 <h4 class="country" style="background:#000040">General</h4>
-<ul class="LHnav nav" style="margin-left:0px;width:210px">
-<li><a href="../china/Introduction">Introduction</a></li>
-<li><a href="../china/Numbering_of_China_Stamps">Numbering of Chinese Stamps</a></li>
-<li><a href="../china/Valuing_Chinese_Stamps">Valuing Chinese Stamps</a></li>
-<li><a href="../china/Valuing_Chinese_Covers">Valuing Chinese Covers</a></li>
-</ul>
 
 <h4 class="country" style="background:#000040">Ching Dynasty</h4>
 <ul class="LHnav nav" style="margin-left:0px;width:210px">
@@ -40,22 +78,10 @@
 </ul>
 
 
-<h4 class="country" style="background:#000040" >1949 Issues</h4>
-<ul class="LHnav nav" style="margin-left:0px;width:210px">
-<li><a href="../china/First_Plenary_Session">C1 1st Plenary Session</a></li>
-<li><a href="../china/1949_Trade_Union">C3 Trade Union Conference</a></li>
-</ul>
 
 
-<h4 class="country" style="background:#000040" >1950 Issues</h4>
-<ul class="LHnav nav" style="margin-left:0px;width:210px">
-<li><a href="../china/1950_Tian_An_Men"><strong style="color:olive">R1-R5</strong> Tian An Men</a></li>
-<li><a href="../china/1950_Political_Conference">C2 Political Conference</a></li>
-<li><a href="../china/1950_Inauguration_of_Chinese_Republic">C4 Inauguration of Chinese Republic</a></li>
-<li><a href="../china/1950_Defend_World_Peace_C5">C5 Defend World Peace</a></li>
-<li><a href="../china/1950_SC1">SC1 Overprints</a></li>
-<li><a href="../china/1950_SC2">SC2 Overprints</a></li>
-</ul>
+
+
 
 <h4 class="country" style="background:#000040" >1951 Issues</h4>
 <ul class="LHnav nav" style="margin-left:0px;width:210px">
@@ -79,14 +105,7 @@
 <li><a href="../china/1953_Dunhuang_Murals"><strong style="color:purple">S6</strong> Dunhuang Murals</a></li>
 </ul>
 
-<h4 class="country" style="background:#000040" >1954 Issues</h4>
-<ul class="LHnav nav" style="margin-left:0px;width:210px">
-<li><a href="../china/1954_Ancient_Inventions"><strong class="S">S7</strong> Ancient Inventions</a></li>
-<li><a href="../china/1954_Economic_Construction"><strong class="S">S8</strong> Economic Construction</a></li>
-<li><a href="../china/1954_Ancient_Cultural_Relics_5th_Series">S9 Ancient Cultural Relics 5th Series</a></li>
-<li><a href="../china/1954_Steel_Mill">S10 Seamless Steel Mill</a></li>
-<li><a href="../china/1954_Technical_Innovation">S11 Technical Innovation</a></li>
-</ul>
+
 
 <h4 class="country" style="background:#000040" >1955 Issues</h4>
 <ul class="LHnav nav" style="margin-left:0px;width:210px">
@@ -365,4 +384,4 @@
 
 
 </div>
-        
+                        

@@ -5,74 +5,12 @@ This file contains utilities for arrays, with the  base object being \textbf{arr
  
 
 
-\begin{codeblock}
-\startLineAt{10}
-\begin{teX}
-\def\test(\*@\sidenote{The definition of a test macro}@\*)#1{%
-  \ifnum #1<22 \true \else \false\fi {(\*@\label{linelabel}@\*)}
-\end{teX}
-\end{codeblock}
-
-\lorem
-
-\begin{codeblock}
-
-
-\lstdefinelanguage{JavaScript} {
-	morekeywords={
-		break,const,continue,delete,do,while,export,for,in,function,
-		if,else,import,in,instanceOf,label,let,new,return,switch,this,
-		throw,try,catch,typeof,var,void,with,yield
-	},
-	sensitive=false,
-	morecomment=[l]{//},
-	morecomment=[s]{/*}{*/},
-	morestring=[b]",
-	morestring=[d]'
-}
-
-
-\lstset{
-	%frame=tb,
-	framesep=5pt,
-	basicstyle=\ttfamily,
-	showstringspaces=false,
-	keywordstyle=\color{blue},
-	identifierstyle=\ttfamily,
-	stringstyle=\ttfamily\color{orange},
-	commentstyle=\color{orange},
-	rulecolor=\color{Gray},
-	xleftmargin=5pt,
-	xrightmargin=5pt,
-	aboveskip=\bigskipamount,
-	belowskip=\bigskipamount,
-        backgroundcolor=\color{LightGray!.50}
-}
-
-
-\emphasis{headline,appendChild}
-\begin{lstlisting}[language=JavaScript]
-// create some nodes
-// and comments
-var headline = document.createElement(h1);
-var text = document.createTextNode(Dies ist eine Uberschrift)
-// "offline" node manipulation
-headline.appendChild(text);
-// adding node to DOM
-document.getElementsByTagName("body")[0].appendChild(headline);
-\end{lstlisting}
-
-\end{codeblock}
-
-
-\lorem\lorem
-
-
-
 
 
 \begin{codeblock} 
-goog.array.peek();
+var a = [0, 10, 9, 8, 6, 5, 4, 3, 123, 3, 105, 211];
+var temp = goog.array.peek(a);
+log(temp);
 \end{codeblock}
 
 
@@ -80,8 +18,7 @@ goog.array.peek();
 
 
 
-\begin{jscodeblock}
-\begin{lstlisting}[language=JavaScript]
+\begin{codeblock}
 // fill the array with 100,000 elements
 var arr = [];
 var length = 100000;
@@ -103,14 +40,14 @@ for (var i = 0, length = arr.length; i < length; i++) {
 }
 profiler.stop();
 profiler.timeDiff();
-\end{lstlisting}
-\end{jscodeblock}
+
+\end{codeblock}
 
 
 \subsection{Some Methods Provided by the array class}
 
-\begin{lstlisting}[language=JavaScript]
-\begin{jscodeblock}
+
+\begin{codeblock}
 
 // almost equivalent to jQuery's grep
 (function testArrayFilter() {
@@ -120,8 +57,8 @@ profiler.timeDiff();
   });
   logPRE(a);
 })();
-\end{jscodeblock}
-\end{lstlisting}
+\end{codeblock}
+
 
 
 

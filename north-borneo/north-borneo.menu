@@ -1,20 +1,14 @@
-<div style="width:230px">
-<ul id="LHnav" style="margin-left:0px;width:210px">
-<li><a href="../north-borneo/introduction">Historical Background.</a></li>
-<li><a href="../north-borneo/introduction">Postal History Introduction</a></li>
-</ul>
+\begin{accordion}
+\begin{category}{1880's}
+\mitem{1888-92}{1888-92}
+\end{category}
 
-<h4 class="country" style="background:#000040">1900-1930</h4>
-<ul id="LHnav" style="margin-left:0px;width:210px">
-  <li><a href="../north-borneo/1918_Red_Cross_Surcharges">1918 Red Cross Surcharges</a></li>
-  </ul>
-</div> 
-
-<h4 class="country" style="background:#000040">1930-1940</h4>
-  <ul id="LHnav" style="margin-left:0px;width:210px">
-  <li><a href="../north-borneo/1939_Issue">1939 Issue</a></li>
-  </ul>
-</div>   
-
-
-     
+\begin{category}{King George V}
+\mitem{1918 Red Cross Surcharges}{1918_Red_Cross_Surcharges}
+\end{category}
+\begin{category}{King George IV}
+\mitem{1939 Issue}{1939_Issue}
+\mitem{1947 Monograms}{1947_Monograms}
+\end{category}
+\end{accordion}
+                 

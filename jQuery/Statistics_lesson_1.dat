@@ -1,15 +1,4 @@
  
- <!--
-{{feature: .. It were needless to advertise, that the great trouble of working so many Proportions will be very much alleviated by using Logarithms; Halley}}
-
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
-
 <script type="text/javascript"> 
 goog.require('goog.ui.TableSorter');
 goog.require('goog.ui.ServerChart');
@@ -28,7 +17,7 @@ $$ \bar x = \frac{\sum x}{n}$$
 
 $$\(\(X\)\)$$
 
-<div  class="code-block console-wrap python"><div class="code code-block python"><code class="python">
+\begin{codeblock}
 var DATA_LABELS = ['Salary (X)', 'Frequency (f)'],
 DATA = [[20,1],[25,2],[30,3],[35,4],[40,5],[45,6],[50,5],[55,4],
                    [60,3],[65,2],[70,1] ],
@@ -44,14 +33,7 @@ var mean = temp/sum;
 log(sum);
 log(temp);
 log(mean);
-</code>
-</div>
-<p class="msg" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
-</p>
-<button class="eval">Run Code!</button>
-<ol class="results" style="white-space:pre"></ol> 
-</div>
-
+\end{codeblock}
 
 
 

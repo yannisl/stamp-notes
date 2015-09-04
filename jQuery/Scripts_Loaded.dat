@@ -1,0 +1,22 @@
+\chapter{Simple Scripts Loader Logger}
+
+
+\begin{codeblock}
+var t = {   /* logger for scripts loaded  */
+            arr : [],
+            getScripts : function scripts() {
+                        this.arr =  document.getElementsByTagName('script');
+                   },
+            logScripts : function () { 
+                   var s = '';
+                   this.getScripts();
+                   for (var i=1;i<this.arr.length;i++) {
+                      s += this.arr[i].src;
+                }
+                return log(s);
+           }
+        };
+
+
+    t.logScripts();
+\end{codeblock}

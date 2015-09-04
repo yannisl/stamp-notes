@@ -1,13 +1,3 @@
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
-
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
 <style type="text/css">
 p#wikipedia, .wikipedia{
     background: #000;
@@ -19,13 +9,11 @@ p#wikipedia, .wikipedia{
 
 <h2>Chapter 12 Dom Modification</h2>
 
-Before attempting to write to the DOM using JavaScript, we need to do some pre-processing and clean up the HTML code to meet user expectations. The first step will certainly depend upon the context, but within the construction of jQuery Risig reports correctly that it became important to be able to support XML style elements like &lt;hr/&gt;.
+Before attempting to write to the DOM using JavaScript, we need to do some pre-processing and clean up the HTML code to meet user expectations. The first step will certainly depend upon the context, but within the construction of jQuery Risig reports correctly that it became important to be able to support XML style elements like `<hr/>'.
 
 He gives the code for a quick pre-parse on the HTML string as follows:
 
-<div  class="code-block console-wrap">
-<div class="code-block code">
-<code>
+\begin{codeblock}
 // Ninja Code! Thanks John Risig
 var tags = /^(abbr|br|col|img|input|link|meta|param|hr|area|embed)$/i;
 function convert(html){
@@ -38,18 +26,12 @@ function convert(html){
 
 assert( convert("&lt;a/&gt;") === "&lt;a&gt;&lt;/a&gt;", "Check anchor conversion." );
 assert( convert("&lt;hr/&gt;") === "&lt;hr/&gt;", "Check hr conversion." );
-alert( convert('&lt;a/&gt;') );
-</code>
-</div>
+log(convert('<a/>'));
+\end{codeblock}
 
-<div  id ="msg" class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
 
 <h3>Manipulating Attributes</h3>
+
 Some attributes are not manipulated easily without a library such as jQuery. For example jQuery allows us to change more than one attribute at a time, in a similar fashion that let u s manipulate CSS properties.
 
 Consider a block of text that has been copied from Wikipedia. All internal links are actually relative links and are pointing to the Wikipedia domain. We want to achieve two things, firstly to add a <tt>rel</tt> attribute to indicate that they are all external links and second to actually repair the links<sup title="In reality this is not a good practice in that if the user has JavaScript disabled he will not be able to navigate the links. It is better to do this sort of parsing at the Server!">1</sup>.

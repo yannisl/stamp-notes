@@ -1,21 +1,9 @@
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
-
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
-
 
 <h2>Strings and the String Object</h2>
+
 The String object is the real power-house of JavaScript.  Build-in methods are defined in the ECMA standard and are as follows:
 
-<div  class="code-block console-wrap" title="String functions">
-<div class="code code-block">
-<code>
+\begin{codeblock}
 var s = String('      << This is a test string       ');
 log(s.match(/is/));
 log(s.replace(/is/g, 'Is'));
@@ -39,20 +27,14 @@ String.prototype.strip = function () {
 
 log(s.strip());
 log($.trim(s));
+\end{codeblock}
 
-</code>
-
-</div>
-<p id="msg1" class="msg"  style="width:400px;font-size:24px;font-weight:bold;background:#fff">
-</p>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
 
 <h3>Word Borders</h3>
+
 Let us now use our knowledge of all those functions to see if we can do a bit of text-analysis without using Regular Expressions.
 
-In the book <i>Text Algorithms</i>, Maxime Chrochemore and Wojciech Rytter, define a  border of a word as,  x is any shorter word that is both a prefix and a suffix of x. Borders and
+In the book <i>Text Algorithms</i>, Maxime Chrochemore and Wojciech Rytter, define a  border of a word as,  $x$ is any shorter word that is both a prefix and a suffix of \\(x\\). Borders and
 periods are dual notions, as shown by condition 3 of the previous proposition. We can state it
 more precisely, defining Border(x) as the longest proper border of a nonempty word x. The
 border of a word x is the longest (non-trivial) overlap when we try to match x with itself. Since
@@ -63,10 +45,7 @@ eventually to the empty word. We also say that x is border-free if Border(x) is 
 
 The borders of <strong>aabaaabaa</strong> are <strong>aabaa</strong>, <strong>aa</strong>, <strong>a</strong> and &#949;. Note that $#949;, is just the empty word, which is also considered a border.
 
-<hr/>
-<div  class="code-block console-wrap" title="Border words">
-<div class="code code-block">
-<code>
+\begin{codeblock}
 var s = 'aabaaabaa';
 var n;
 var result = [];
@@ -77,14 +56,7 @@ for (i = 0; i < s.length; i++) {
   log(s1, s2);
 }
 log(result);
-</code>
-</div>
-<p  class="msg" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
-</p>
-<button class="eval">Run Code!</button>
-<ol class="results" style="margin-top:8px"></ol> 
-</div>
-</code>
+\end{codeblock}
 
 <h2>Fibonacci words</h2>
 
@@ -108,9 +80,7 @@ repetitions. One can note that Fibonacci words (except the two first words of th
 prefixes of their successors. Indeed, there is an even stronger property : the square of any
 Fibonacci word is a prefix of its succeeding Fibonacci words of high enough rank
 
-<div  class="code-block console-wrap" title="Fibonacci Words">
-<div class="code code-block">
-<code>
+\begin{codeblock}
 var alphabet = 'ab';
 // define the first three
 var fibonacci = [0, 'b', 'a'];
@@ -119,15 +89,8 @@ for (i = 3; i < 10; i++) {
   fibonacci[i] = fibonacci[i - 1] + fibonacci[i - 2];
   log(fibonacci[i]);
 }
+\end{codeblock}
 
-</code>
-</div>
-<p  class="msg">
-</p>
-<button class="eval">Run Code!</button>
-<ol class="results" style="margin-top:8px"></ol> 
-</div>
-</code>
 
 
 ##Further Reading

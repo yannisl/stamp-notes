@@ -1,43 +1,18 @@
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
-
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
-
-
 <h2>Chapter 2,  Lexical Structure Topics</h2>
+
 <h3>String Literals</h3>
 
 
-<div  class="code-block console-wrap">
-<div class="code code-block">
-<code>
+\begin{codeblock}
 var s = "I am a string";
-
 log( "value of s: ", s.length );
-
-$('#msg1').properties(s);
-</code>
-
-</div>
-<p id="msg1" class="msg" >
-</p>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
+\end{codeblock}
 
 
 <strong>Omitting semicolons is not a good programming practice. Consider the following code</strong>
 
-<hr/>
-<div  class="code-block">
-<div class="code code-block">
-<code>
+
+\begin{codeblock}
 function a(){
   return
   true;
@@ -46,18 +21,12 @@ function a(){
 function b(){
   return true;
 }
-alert (a());
-alert(b());
-</code>
-</div>
-<p  style="width:400px;font-size:24px;font-weight:bold;background:#fff">
-</p>
-<button class="eval">Run Code!</button>
-<ol class="results1" style="margin-top:8px"></ol> 
-</div>
-</code>
+log (a());
+log (b());
+\end{codeblock}
 
 <h2>Literals</h2>
+
 A <strong>literal</strong> is a data value that appears directly in a program. The following are all literals:
 
 {{plain:
@@ -83,42 +52,41 @@ Literals are an important part of any programming language, since it is impossib
 
 
 <h2>Identifiers</h2>
+
 An identifier is simply a name. The first letter can be an underscore (_), or a dollar sign ($). Subsequent characters maybe any letter or digit or an underscore or dollar sign. Numbers are not allowed as a first character.
 
 From ECMAScript v3, identifiers can contain letters and digits from the complete Unicode character set. It also allows Unicode escape characters
 to appear in identifiers. A Unicode escape is the character \u followed by 4 hexadecimal digits that specify a 16-bit character encoding. For example the identifier &#pi; could be written as \u03c0. 
-<div  class="code-block"><div class="code code-block"><code>
-<span class="green">// Javascript allows identifiers to be any valid Unicode character</span>
+
+\begin{codeblock}
 function a(){
- var \u03c0=3.1413;     
-  return  &Theta;=21+\u03c0;   
+ var π = 3.1413;     
+  return  π;
  }
-alert (a());
-</code>
-</div>
-<p  class="msg" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
-</p>
-<button class="eval">Run Code!</button>
-<ol class="results" style="margin-top:8px"></ol> 
-</div>
-</code>
+log (a());
+\end{codeblock}
+
 Since a function name is simply a variable name, this can also be written with any valid Unicode character.
-<div  class="code-block"><div class="code code-block"><code>
-<span class="green">// Javascript allows identifiers to be any valid Unicode character</span>
+
+\begin{codeblock}
 function unicode_\u03c0(){
  var pi=3.1413;     <span class="green">//  pi in hex</span>
-&Theta;=72;
-  return  pi+&Theta;   
+ &Theta;=72;
+ return  pi+&Theta;   
  }
-alert (unicode_\u03c0());
-</code>
-</div>
-<p class="msg" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
-</p>
-<button class="eval">Run Code!</button>
-<ol class="results1" style="margin-top:8px"></ol> 
-</div>
-</code>
+log(unicode_\u03c0());
+\end[codeblock}
+
+\section{Long Strings}
+
+\begin{codeblock}
+s = ['This is the first line ',
+     'This is the second line',
+     'This is the third line',
+
+     ]
+log(s.join('</br> '))    
+\end{codeblock}
 
 ##Further Reading
 

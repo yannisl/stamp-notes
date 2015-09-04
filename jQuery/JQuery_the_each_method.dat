@@ -1,25 +1,13 @@
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
-{{feature-image:http://localhost/CodeIgniter/images/run_time_error.jpg}}
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: UI, jQuery, Visibility Filters, CSS Visibility }}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
-
-
 <style>
   .ex1 { background:yellow; font-weight:bold; cursor:pointer; 
       padding:5px; width:50%}
  
 
-  div.red { color:red; text-align:center; cursor:pointer; 
+<div.red { color:red; text-align:center; cursor:pointer; 
         font-weight:bolder; width:300px; }
   </style>
 
- </style>
+</style>
 
 
 
@@ -39,8 +27,7 @@ Returning 'false' from within the each function completely stops the loop throug
 
 
 
-<pre style="background:url(http://localhost/CodeIgniter/images/code-bg.gif)">
-<code class="js">
+\begin{codeblock}
  $(document.body).click(function () {
       $("div").each(function (i) {
         if (this.style.color != "blue") {
@@ -50,10 +37,8 @@ Returning 'false' from within the each function completely stops the loop throug
         }
       });
     });
+\end{codeblock}
 
-
-</code>
-</pre>
 
 You should spend a good amount of time with this method. It is a widely used iterator especially for plugins.
 
@@ -63,17 +48,6 @@ You should spend a good amount of time with this method. It is a widely used ite
 <div class="ex1">these divs.</div>
 }}
 
-<script>
-$(document.body).click(function () {
-      $("div.ex1").each(function (i) {
-        if (this.style.color != "blue") {
-          this.style.color = "blue";
-        } else {
-          this.style.color = "";
-        }
-      });
-    });
-</script>
 
 
 

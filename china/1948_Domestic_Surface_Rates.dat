@@ -174,17 +174,17 @@ China 1948 from Wuhsien (Soochow) internal $15,000 rate cover. 1948 30th Sept, f
 
 
 
-<div style="width:90%;margin:0 auto;display:block">
+
 <h4>30 July 1948, $20,000 Surface Printed rate</h4>
 
-<img src="http://localhost/egypt/china-stamps/printed-20000.jpg" style="width:80%;margin:0 auto;display:block" />
-<img src="http://localhost/egypt/china-stamps/printed-20000-01.jpg" style="width:80%;margin:0 auto;display:block" />
-<p style="font-size:smaller">
+\begin{figure}
+\ph[99%]{../china/printed-20000.jpg}{}
+\ph[99%]{../china/printed-20000-1.jpg}{}
 	
-China 1948 July $20,000 rate printed matter cover Shanghai to London ($13)	
-China 1948 July 30th printed matter cover at $20,000 rate franked 4 x $5,000
-</p>
-</div>
+\caption{China 1948 July $20,000 rate printed matter cover Shanghai to London ($13)	
+China 1948 July 30th printed matter cover at $20,000 rate franked 4 x $5,000.}
+
+\end{figure}
 
 ###DS-6 21 Jul 48 - 18 Nov 48
 

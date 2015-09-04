@@ -1,16 +1,5 @@
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
-
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
-
-
 <h2>Animation Basics Part I</h2>
+
 Computer animations, trick the eye to view motion, by re-painting elements on the screen.
 
 With JavasScript this can be achieved by using timers. As an example we will show a Fade technique, where we will manipulate the background colour to create a yellowish tint. I am going to use standard JavaScript, in order for you to understand the techniques used by libraries. (With jQuery is a snap!)

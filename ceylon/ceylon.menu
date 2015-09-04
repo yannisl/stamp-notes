@@ -1,12 +1,9 @@
-\begin{category}{Introduction}
-\mitem{Introduction}{Introduction}
-\end{category} 
+\begin{category}{Queen Victoria}
+\mitem{1857-1859 Proofs}{1857-1859_Issue_Proofs}
+\mitem{1857-59 Proofs Part II}{1857-1859_Issue_Proofs_Part_II}
+\mitem{1872-80 Issues}{1872-80_Issues}
+\end{category}  
 
-\begin{category}{1857-1864}
-\mitem{1857-64 Halfpenny}{1857-1864_Half-Penny}
-\end{category}
-
-\begin{category}{Revenue Stamps}
-\mitem{Revenues}{Revenues}
-\mitem{1882 Revenues}{1882_Revenues}
-\end{category}        
+\begin{category}{Provisionals}
+\mitem{1885 Surcharges}{1885_Surcharges}
+\end{category}      

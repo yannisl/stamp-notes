@@ -1,20 +1,11 @@
-\chapter{Lists}
-
-This plugin brings LaTeX style lists to the browser. 
 
 
 
+\begin{codeblock}
+function f() {
+  return [1, 2, 3];
+}
 
-\begin{enumerate}
-  \item [test] This is a test. stopping here.\lorem
-  \item This is a test.
-\end{enumerate}
-
-
-\begin{itemize}
- \item [test] This is a test. stopping here.\lorem
- \item This is a test.
- \item [test] This is a test.
-
-\end{itemize}
-
+var [a, , b] = f();
+console.log("A is " + a + " B is " + b);
+\end{codeblock}

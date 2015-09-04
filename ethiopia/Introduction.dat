@@ -5,12 +5,9 @@
 
 
 
-<div style="width:38%;float:left;margin-right:10px">
-<img src="http://localhost/egypt/ethiopia/postcard-01.jpg" style="width:98%"/>
-<p style="font-size:smaller"> 
-</p>
-</div>
-{{cuil:Ethiopia}} has a long philatelic history. In December 1867, British military authorities
+\phl[40%]{../ethiopia/postcard-01.jpg}{}
+
+{{wi:Ethiopia}} has a long philatelic history. In December 1867, British military authorities
 opened a main post office at Annesley bay, south of __Massawa__. By the time the Anglo-Ethiopian
 War ended, there were military post offices in Adigrat, Antalo, Kumayli, and {{wi:Senafe}}, at British military headquarters, and in every
 deployed brigade. These facilities maintained communications betwen Ethiopia, Britain, and India.
@@ -33,7 +30,7 @@ produced Ethiopia's first stamps in the same year. In 1895, stamps appeared in A
 <div style="width:98%;float:left;margin-right:10px">
 <h4 style="text-align:center">The First Issue 1895-1911</h4>
 
-<img src="http://localhost/egypt/ethiopia/first-issue.jpg" style="display:block;margin:0 auto"/>
+<img src="http://localhost/application-latest/stamp-images/ethiopia/first-issue.jpg" style="display:block;margin:0 auto"/>
 <p style="font-size:smaller"> 
 </p>
 </div>

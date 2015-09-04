@@ -1,14 +1,5 @@
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: UI, jQuery, Visibility Filters, CSS Visibility }}
-{{snippet:using CodeIgniter's file_helper class}}
 
--->
-
-<link type="text/css" media="screen" rel="stylesheet" href="/CodeIgniter/colorbox/example1/colorbox.css" />
+<link type="text/css" media="screen" rel="stylesheet" href="/application-latest/colorbox/example1/colorbox.css" />
 
 
 <script type="text/javascript" src="http://localhost/CodeIgniter/colorbox/colorbox/jquery.colorbox.js"></script>
@@ -55,7 +46,7 @@ covered elsewhere as well as Cycle. This one is a bit different, developed by
  Jack Moore of [colorpwered](http://colorpowered.com/colorbox/). He has developed a very flexible and adaptable application and had no trouble in installing it within a few minutes, here. I had to only adjust for my .httaccess file for CodeIgniter in order to adjust the directory structures and presto. Jack has also managed to set up both a google groups as well as a twitter account. If you place a plugin in the wild you need to follow the wild fire and he has done so.
 
 <h2>elastic transition</h2>
-<p><a href="http://localhost/CodeIgniter/images/angela.jpg" rel="example1" title=" Angela"><img src="http://localhost/CodeIgniter/images/angela.jpg" style="width:130px"></a></p>
+<p><a href="http://localhost/application-latest/images/angela.jpg" rel="example1" title=" Angela"><img src="http://localhost/application-latest/images/angela.jpg" style="width:130px"></a></p>
 
 <p><a href="http://localhost/CodeIgniter/images/samples/jacko.jpg" rel="example1" title="On the Ohoopee as a child"><img src="http://localhost/CodeIgniter/images/samples/jacko.jpg" style="width:130px"> </a></p>
 

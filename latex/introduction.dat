@@ -1,0 +1,33 @@
+\chapter{Writing Beautiful Documents with LaTeX}
+
+\begin{codeblock}
+\startLineAt{10}
+\begin{teX}
+{
+   "_id": "3c974dd1135a01d743bc703a68004dab",
+   "_rev": "1-4720e54129240ffe3d383cc42afa9f8b",
+   "type": "material",
+   (*@\textbf{"code": "M-1025"}@*),
+   "description": "Calorifiers",
+   "internalApprovals": {
+   },
+   "externalApprovals": {
+   },
+   "comments": [
+   ],
+   "transactions": [
+   ],
+   "loi": [
+   ],
+   "shortDescription": "calorifiers",
+   "supplier": "Faisal Jassim",
+   "department": "mechanical",
+   "class": "equipment",
+   "budget": 1000000,
+   "lbudget": 839,
+   "photo":"materials/M-1025.jpg",
+   "longLead": false,
+   "lasteditedby": "yannisl"
+}
+\end{teX}
+\end{codeblock}

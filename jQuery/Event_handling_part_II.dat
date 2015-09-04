@@ -1,13 +1,4 @@
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
-{{feature-image: http://localhost/egypt/elliott-erwitt/EE-1150.jpg}}
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
 
--->
 <style type="text/css">
 .myForm{margin:15px;
 padding:15px;
@@ -20,6 +11,7 @@ border:1px solid #bebebe;
 <h2>Event Handling</h2>
 
 <h3>Event Binding in X(HTML)</h3>
+
 HTML supports core __event binding__ for most element. These bindings are element attributes, like __onclick__ and __onmouseover__. As the browser parses the page and creates the object hierarchy, it populates event handlers with the javascript code bound to elements using these attributes. 
 
 {{plain:
@@ -33,24 +25,17 @@ While you can bind event handlers to parts of a document using X(HTML) event att
 
 To do so it is important to understand that event handlers are accessed as methods of the objects to which they are bound. 
 
-
-<div  class="code-block console-wrap"><div class="code code-block">
-<code>
-document.myForm.myButton.onclick=function(){
-alert('Hello');
-};
-</code>
-
-</div>
 <div id="myForm" name="myForm">
 <button id="myButton">alert</button>
 </div>
-<div  class="msg" class="msg" style="white-space:pre;font-family:monospace;line-height:1.3">
-</div>
-<div class="console"> </div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
+\begin{codeblock}
+document.myForm.myButton.onclick=function(){
+   alert('Hello');
+};
+\end{codeblock}
+
+
+
 
 Regardless of how the function used is defined, you must make sure, to register the event handler after the HTML element has been added to the DOM. Otherwise you will cause a runtime error by trying to set a property (an even handler) of a non-existent object. One way to ensure this is to assign handler's after the document's __onload__ handler fires. Another way to ensure this condition is to place the script that assigns the handler after the element in question.
 

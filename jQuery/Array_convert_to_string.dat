@@ -1,3 +1,14 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+{{feature-image: http://localhost/egypt/elliott-erwitt/EE-1150.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
 
 <h2>Converting Between Arrays and Strings</h2>
 
@@ -8,9 +19,11 @@ character between the array values when they become embedded in a string. The ch
 the data entries. Specify that character as the sole parameter to the join( ) method of the array. The following
 statement uses a comma as a delimiter between entries after the conversion to string form:
 
+
 {{plain:
 var arrayAsString = myArray.join(",");
 }}
+
 
 The original array is not disturbed in the course of this transformation.
 If you have a string with a delimiter character separating individual points of data that you want to convert to an array,

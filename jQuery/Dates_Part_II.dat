@@ -1,13 +1,4 @@
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
-{{feature-image: http://localhost/codeigniter/images/beauty.jpeg}}
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
+ 
 <script type="text/javascript">
 goog.require('goog.date');
 goog.require('goog.date.Date');
@@ -18,6 +9,7 @@ goog.require('goog.userAgent');
 </script>
 
 <h2>Dates Part II </h2>
+
 If your program requires the handling of dates in a complex way, you will be better off to use either routines, borrowed from a public library or to develop a set of routines of your own. I will be discussing issues with dates, mostly using routines extracted from Google's closure library. 
 
 Library routines can be summarized in a few objects:
@@ -30,9 +22,7 @@ For UI components we will be using jQuery's UI datepicker, a much easier to use 
 
 First we will need to define some standard objects, such as the week days, month names and the like. Although we should be able to internationalize the language in a well written industrial application, all the programming can be done in English. For the final output we can use i18n strings to convert it to any language that your user is using.
 
-<div  class="code-block console-wrap">
-<div class="code code-block">
-<code>
+\begin{codeblock}
 /**
  * Constants for weekdays.
  * @enum {number}
@@ -88,15 +78,7 @@ window.date=date;
 log(date.weekDay.MON);
 log(date.month.DEC)
 log(date.getNumberOfDaysInMonth(2000,2));
-
-</code>
-</div>
-<div  id="msg" class="msg" >
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
+\end{codeblock}
 
 Please note the use of jSon objects, rather than arrays, in these definitions. Uisng objects will provide us with a lot of assistance from othe robject handling routines. We could develop everything based on arrays if we wanted.
 

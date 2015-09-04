@@ -1,15 +1,8 @@
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
-{{feature-image: http://localhost/egypt/elliott-erwitt/EE-1150.jpg}}
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
 
--->
 
 <h2>What is the Google Application Engine?</h2>
+
+
 Google's App Engine opens Google's production infrastructure to any person in the
 world at no charge. Much like Google gives us all free email with an amazing amount
 of long-term storage, we now have the ability to run the software that we write in
@@ -17,7 +10,7 @@ Google's data centers (i.e., in the Google "cloud").
 
 What Is the "Cloud"?
 
-<img src="/codeigniter/images/cloud-computing.png" style="display:block;float:none;margin:0 auto" />
+<img src="/application-latest/images/cloud-computing.png" style="display:block;float:none;margin:0 auto" />
 
 <hr/>
 The term "{{wi:cloud_computing}}" is often used when we know how to use something at a high level

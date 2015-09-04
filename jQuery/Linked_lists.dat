@@ -1,0 +1,24 @@
+\chapter{Linked Lists}
+
+\begin{codeblock}
+// items of the list
+var bird = {name:'Mockingbird'};
+var cat = {name:'Keyboard'};
+var dog = {name:'Fort'};
+var duck = {name:'Scrooge'};
+
+// the linked-list itself
+var animals = {
+    head : bird
+};
+// each item of the list stores reference to the next one
+bird.next = cat;
+cat.next = dog;
+dog.next = duck;
+
+
+log(cat.next.name)
+\end{codeblock}
+
+
+http://blog.millermedeiros.com/linked-lists/#more-1732

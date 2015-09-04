@@ -1,16 +1,6 @@
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
-{{feature-image: http://localhost/egypt/imogen-cunningham/7.jpg}}
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
-
 
 <h2>JavasScript  Types</h2>
+
 Javascript internally uses a typing system based on the value of a variable. A _value_ is an entity that takes, one of nine types. 
 
 There are nine types defined by ECMA script (Undefined, Null, Boolean, String,
@@ -19,8 +9,7 @@ only as intermediate results of expression evaluation and cannot be stored as pr
 
 
 
-<div  class="code-block console-wrap"><div class="code code-block">
-<code>
+\begin{codeblock}
  var z2 = null; 
  var z3 = false;
  var z4 = '';
@@ -39,17 +28,7 @@ log('z4 type : ', typeof z5.a );
 log('z  type : ',typeof z);
 log('a number as string', typeof z.toString());
 log('z type of', typeof window);
-</code>
-
-</div>
-
-<div  class="msg" class="msg" style="white-space:pre;font-family:monospace;line-height:1.3">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-
-</div>
+\end{codeblock}
 
 If you notice in the code block above, z1 was not defined and returned _undefined_. 
 

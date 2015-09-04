@@ -1,23 +1,11 @@
       
-<!--
- directives
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
-
-{{feature-image:/codeigniter/images/china/beauty_07.jpg}}
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
-
 <script type="text/javascript"> 
 goog.require('goog.ui.TableSorter');
 </script>
  
  
 <h3>Profiling Part II</h3>
+
 While profiling applications, the act of logging some values itself, can introduce errors. There are two ways to handle this. The first one, is to actually run tests for a longer time so that any errors in the logging act itself, can be very small. The second way is to buffer the results (which will take a very short time) and only output once the operation has been completed.
 
 When timing events logging would certainly introduce errors (for example if you were to monitor the time for a click event to propagate).

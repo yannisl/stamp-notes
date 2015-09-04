@@ -1,18 +1,7 @@
-<!--
-{{feature: <div class="rot-ex">... I remember the awe with which we looked at it when it performed its first production program, a computation of transversational movements of railway carriages.  <a href="http://www.cs.utexas.edu/users/EWD/ewd05xx/EWD568.PDF">E.W. Djikstra</a></div>
-}}
-{{feature-image:/egypt/amato-01/aa_151.jpg}}
-{{credit-source: Allan Amato}}
-{{credit: /codeigniter/blogs/gallery/amato-01/50}}
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: JavaScript, closure, google closure, javascript libraries}}
-{{snippet:using CodeIgniter's file_helper class}}
--->
 
 
 ##Getting Started with Closures
+
 
 The Closure Library is a broad, well-tested, modular, and cross-browser JavaScript library. Web developers can pull just what they need from a wide set of reusable UI widgets and controls, as well as lower-level utilities for the DOM, server communication, animation, data structures, unit testing, rich-text editing, and much, much more. It has been received rather warmly by the broad web community, although there were instances of criticism. If you interested in an assessment I wrote you can read it [here](/codeigniter/Blogs/tutorials/jQuery/Closure_assessment).
 
@@ -28,9 +17,7 @@ Personally after downloading a few files manually I used a  Web Spider [FDM](htt
 
 {{bulb: You'll be downloading  ~126MB! Which contains Code & Docs & Demos. The code only is ~7.6MB.}}
 
-<math>
-a = \frac{a}{b}
-</math>
+
 
 <h3>Assembling the scripts you need</h3>
 
@@ -46,6 +33,7 @@ And you should get a new file hello-clac.js that is 228KB!
 
 
 <h3>Compiling</h3>
+
 After assembling, we need to shrink the file size! Google's engineer's call this step _compiling_. Of course we do not really compile the code to produce machine language, but simply shrink and optimize the code.
 
 There are three ways you can do this:
@@ -128,10 +116,11 @@ There is also a [discussion group](https://groups.google.com/group/closure-libra
 
 Have you just installed Python, Now time to install Java runtime too, No kidding :) 
 
-1 -  After JRE (Java runtime) is setup, download Closure Compiler compiler.jar.
+1 -  After JRE (Java runtime) is setup, download Closure Compiler `compiler.jar`.
 
-2 -  Place the compile.jar next to hello-calc.js and run this command there:
-java -jar compiler.jar --js hello-calc.js --js_output_file hello-compiled.js
+2 -  Place the `compile.jar` next to hello-calc.js and run this command there:
+
+`java -jar compiler.jar --js hello-calc.js --js_output_file hello-compiled.js`
 
 It will show some warnings but no errors! and you will get hello-compiled.js which is 48KB, Awesome!
 
@@ -139,6 +128,7 @@ That command is not what instructed in [Using the Dependency Calculation Script]
 
 
 <span id="chapter" class="hidden">11</span>
+
 ##Further Reading for the future 
 
 <script>

@@ -7,16 +7,17 @@
 
 <h4>SG 138-141</h4>
 
-\phl[23%]{../bechuanaland/SG138.jpg}{
+\begin{figure}
+\phc[35%]{../bechuanaland/SG138.jpg}{
 }
-\phl[23%]{../bechuanaland/SG139.jpg}{
+\phc[35%]{../bechuanaland/SG139.jpg}{
 }
-\phl[23%]{../bechuanaland/SG140.jpg}{
+\phc[35%]{../bechuanaland/SG140.jpg}{
 }
-\phl[23%]{../bechuanaland/SG141.jpg}{
+\phc[35%]{../bechuanaland/SG141.jpg}{
 }
 
-
+\end{figure}
 
 
 This issue which was released simultaneously in all British Colonies has been adversely criticised. The 3d stamp is the 

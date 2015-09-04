@@ -1,13 +1,3 @@
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
-
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
 
 <style type="text/css">
 button#cbutton{color:blue}
@@ -21,11 +11,9 @@ Javascript kept giving me surprises when I was still finding my way through it. 
 
 The next example declares array <dfn>aFunctionArray</dfn> as an array of three functions:
 
-<div  class="code-block console-wrap">
-<div class="code-block code">
-<code>
+\begin{codeblock}
 var aFunctionArray = [
-   function(x) {
+   function next (x) {
         return x;
    },
   function(x) {
@@ -37,15 +25,13 @@ var aFunctionArray = [
 ];
 var z=aFunctionArray[1](3);
 log(z);
-</code>
-</div>
+\end{codeblock}
 
-<div  class="msg" class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
+
+
+
+
+
 
 It can be quite useful, if you want to run a variable against a number of functions.
 

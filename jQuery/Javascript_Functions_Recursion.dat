@@ -1,14 +1,3 @@
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
-
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
-
 <style type="text/css">
 button#cbutton{color:blue}
 div#ex1{};
@@ -20,9 +9,7 @@ div#ex1{};
 
 A function can even be {{wi:recursive}}, that is, it can call itself. For example, here is a function that computes {{wi:factorial}}s:
 
-<pre style="background:url(http://localhost/codeigniter/images/code-bg.gif)">
-<div class="code-block console-wrap">
-<code>
+\begin{codeblock}
 function factorial(n) {
    if ((n == 0) || (n == 1))
       return 1;
@@ -31,18 +18,15 @@ function factorial(n) {
       return result;
    }
 }
-alert(factorial(90));
-</code>
-</div>
-<button class="eval">Run</button>
-</pre>
+log(factorial(90));
+\end{codeblock}
 
 If you use recursion, just make sure that there is always a way to stop it!
 
 Another typical example used in many Computer Science Books to illustrate
 recursion is the {{wi:greatest_common_denominator}}.
 
-<pre style="background:url(http://localhost/codeigniter/images/code-bg.gif)">
+<pre style="background:url(http://localhost/application-latest/images/code-bg.gif)">
 <div>
 function gcd(x, y)
 {
@@ -57,14 +41,15 @@ alert(gcd(868,434));
 <button>Run</button>
 </pre>
 
-<h2>A number that grows too fast</h2>
+\section{A number that grows too fast}
+
 The {{wi:Ackermann_Number}} is actually defined as a recursive algorithm. It
 is given by the following equation:
 
-<img src="http://localhost/codeigniter/images/ackermann_function.png"  style="margin:0 auto"/>
-<hr/>
-<pre style="background:url(http://localhost/codeigniter/images/code-bg.gif)">
-<div>
+<img src="http://localhost/application-latest/images/ackermann_function.png"  style="margin:0 auto"/>
+
+
+\begin{codeblock}
 function ackermann(a,b)
   {
   if (a < 1)
@@ -88,13 +73,10 @@ function ackermann(a,b)
     { c = ackermann(3,3333333333); }
   return(c);
   }
-alert(ackermann(1,3));
-alert(ackermann(3,30));
+log(ackermann(1,3));
+log(ackermann(3,30));
+\end{codeblock}
 
-
-</div>
-<button>Run</button>
-</pre>
 
 <pre style="background:url(http://localhost/codeigniter/images/code-bg.gif)">
 <div>
