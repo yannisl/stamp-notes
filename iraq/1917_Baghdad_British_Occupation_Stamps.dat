@@ -4,21 +4,23 @@
 ###British Occupation Issue
 
 
-<div style="width:45%;float:left;margin-right:10px">
-<h4>SG 3</h4>
-<img src="http://localhost/egypt/iraq/SG3.jpg" style="width:98%" />
 
-<p style="font-size:smaller"> 
- Sale 3025 Lot 290
+<h4>SG 3</h4>
+\begin{marginfigure}
+\includegraphics[width=.98\textwidth]{../iraq/SG3.jpg}
+
+
+\caption{ Sale 3025 Lot 290
 
 Iraq
 Issues for Baghdad
 Pictorial Design of 1914
 1/2a. on 10pa. green (Lighthouse garden), unused with part original gum. B.P.A. Certificate (1948). Sc. N3; S.G. 3, &pound;550. (WF). Photo
-Estimate &pound 150-180 Sold for &pound;200
-</p>
+Estimate &pound 150-180 Sold for &pound;200.}
+
+\end{marginfigure}
 {{auction:Spinks,Sale 3025 Lot 290. 04 Feb 2004  London}}
-</div>
+
 
 After long months of strenuous fighting, Baghdad was at last
 entered by the British forces under {{wi:General_Maude}} on march 11th, 1917.
