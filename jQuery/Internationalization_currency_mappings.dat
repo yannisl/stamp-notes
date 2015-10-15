@@ -1,24 +1,14 @@
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
-
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
 
 
+# Dealing with International Currencies
 
-
-<h2>Dealing with International Currencies</h2>
 Dealing with International Currencies, means you should be able to display currency information with the right kind of symbol. We are all familiar with the dollar, euro and yen, but being truly international means we might have to display currency information from many diverse sources.
 
 Since JavaScript fully supports unicode, the display of these currencies on screen do not present much difficulty, other than obtaining listings of the various currencies and standard codes. 
 
 Here are some routines from Google's Closure library. 
 
+<pre>
 <div  class="code-block console-wrap">
 <div class="code-block code">
 <code>
@@ -229,7 +219,7 @@ log(goog.locale.currencyCodeMap.JPY + 2000.00);
 <ol class="results"></ol> 
 </div>
 
-
+</pre>
 
 
 <span id="chapter" class="hidden">11</span>

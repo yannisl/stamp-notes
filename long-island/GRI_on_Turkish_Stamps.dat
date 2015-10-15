@@ -170,10 +170,9 @@ Estimate &pound; 100-120 (Sold for &pound;160)
 
 <hr/>
 ###Third Issue
-<div style="width:32.5%;float:left;margin-right:5px">
+
 <h4>SG 7</h4>
-<img src="http://localhost/egypt/long-island/SG7.jpg" style="width:98%" />
-<p style="font-size:smaller"> 
+\phc[27%]{../long-island/SG7.jpg}{
 Sale 3025 Lot 336
 
 Long Island
@@ -181,9 +180,9 @@ Third Issue
 On thin horizontally laid paper
 1/2d. black, fine unused. S.G. 7, &pound;425. (WF). Photo
 Estimate &pound;240
-{{auction: Spinks: Sale 3025 Lot 331. 04 Feb 2004 London}}
-</p>
-</div>
+auction: Spinks: Sale 3025 Lot 331. 04 Feb 2004 London
+}
+
 
 <div style="width:32.5%;float:left;margin-right:5px">
 <h4>SG 7a</h4>

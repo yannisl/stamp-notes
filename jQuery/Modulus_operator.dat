@@ -1,16 +1,7 @@
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
-{{feature-image: http://localhost/codeigniter/images/china/beauty_17.jpg}}
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
 
 
-<h2>The modulus operator (%)</h2>
+
+# The modulus operator
 
 The modulo (% ) operator in JavaScript has some peculiarities compared to other common programming languages. The operator yields the remainder of its operands from an implied division; the left operand is the
 dividend and the right operand is the divisor.

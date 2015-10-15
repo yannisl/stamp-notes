@@ -1,5 +1,5 @@
 \chapter{Progressive JPG}
 
-\phc[23%]{../beta/normal.jpg}{}
-\phc[23%]{../beta/progressive.jpg}{}
-\phc[23%]{../beta/progressive-02.jpg}{}
+\phc[23%]{../beta/normal.jpg}{normal}
+\phc[23%]{../beta/progressive.jpg}{progressive}
+\phc[23%]{../beta/progressive-02.jpg}{progressive}
