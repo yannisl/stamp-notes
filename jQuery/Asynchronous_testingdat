@@ -1,0 +1,127 @@
+ <!--
+
+{{feature-image:/codeigniter/images/china/beauty_02.jpg}}
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<script>goog.require('goog.math.Long');</script>
+
+
+<h2>Asynchronous Testing</h2>
+The first complication that you may encounter in developing a proper test suite,
+is when your tests depend on results that might be obtained asynchronously. These can be results that will come back after for example long calculations or Ajax. To handle asynchronous tests in this case one needs to use timers.
+
+An example implementation of such a testing suite was described by John Resig and I have copied it below.
+
+To carry out the tests properly you will need to follow these steps:
+
+- Group all assertions that depend on the same asynchronous operation into a unifying test.
+
+- Each test will need to be placed on the queue and will only run once all the previous tests have been completed.
+
+
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+function iterate(n) {
+  for (var i = 0; i < n; i++) {
+    var a = i;
+  }
+  return a;
+}
+
+(function () {
+
+  var queue = [],
+  paused = false;
+  this.test = function (fn) {
+    queue.push(fn);
+    runTest();
+  };
+  this.pause = function () {
+    paused = true;
+  };
+  this.resume = function () {
+    paused = false;
+    setTimeout(runTest, 1);
+  };
+  function runTest() {
+    if (!paused && queue.length) {
+      queue.shift()();
+      if (!paused) {
+        resume();
+      }
+    }
+  }
+})();
+
+test(function () {
+  pause();
+  setTimeout(function () {
+    var b = iterate(15000000);
+    assert(b > 10000000, "First test completed");
+    log(b);
+    resume();
+  },
+  100);
+});
+test(function () {
+  pause();
+  setTimeout(function () {
+    var b = iterate(2000000);
+    assert(b > 900000, "Second test completed");
+    log(b);
+    resume();
+  },
+  200);
+});
+
+
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+The code needs some explanation. There are three publicly available methods,
+test(), pause() and delay();
+
+- test (fn) takes a function (which contains a number of assertions which will be either synchronously or asynchronously). This function is then placed on the queue to await execution. 
+
+- pause() is called from within a test function and tells the test suite to pause executing tests until the test group is done.
+
+- resume() un-pause the tests and starts the next test running, after a short delay (this in order to avoid long running code blocks).
+
+The one internal function runTest, is called whenever a test i s qued and dequed. It examins if the suite is currently unpaused and if there is something in the queue it will dequeue a test and try to execute it.
+
+I have used an iterate function on top to simulate an asynchronous test where, the operation can take a long time.
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+

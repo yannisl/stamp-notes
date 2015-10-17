@@ -1,0 +1,14 @@
+\begin{accordion} 
+\begin{accordiongroup}{General}
+\mitem{Introduction}{introduction}
+\mitem{1906 Issue}{1906_Issue}
+\mitem{Covers and Cancellations}{Covers_and_Cancellations}
+\end{accordiongroup}
+
+\begin{accordiongroup}{Related}
+\mitem{Diego Suarez}{../diego-suarez/introduction}
+\mitem{Madagascar}{../madagascar/introduction}
+
+\end{accordiongroup}
+
+\end{accordion}                        

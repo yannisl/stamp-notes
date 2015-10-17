@@ -1,0 +1,115 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+{{feature-image: http://localhost/egypt/elliott-erwitt/EE-1150.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<h2>Templates</h2>
+
+
+The template syntax in Google App Engine augments the HTML by using curly braces
+to identify where we are giving commands to the template system. The template for
+our number-guessing program when we are responding to a GET request is in the file
+index.htm:
+
+<pre>
+&lt;title&gt;
+      {% block title %}AppEngine{% endblock %}
+   &lt;/title&gt;
+</pre>
+
+
+Google App Engine includes Django 0.96, so if you are on the latest stable release, there's nothing to install. Just import your Django modules as you would normally. We cover the modifications you will need to include if you are using the Django development version as well.
+
+
+<div  class="code-block console-wrap">
+<div class="code code-block">
+<code class="PHP">
+# Yest
+#test
+
+from google.appengine.ext import webapp
+import wsgiref.handlers
+class MainHandler(webapp.RequestHandler):
+	formstring = '''&lt;form method="post" action="/"&gt;
+	&lt;p&gt;Enter Guess: &lt;input type="text" name="guess"/&gt;&lt;/p&gt;
+	&lt;p&gt;&lt;input type="submit"&gt;&lt;/p&gt;
+	&lt;/form&gt;'''
+def get(self):
+	self.response.out.write('&lt;p&gt;Good luck!&lt;/p&gt;\n')
+	self.response.out.write(self.formstring)
+def post(self):
+	stguess = self.request.get('guess')
+	try:
+		guess = int(stguess)
+	except:
+		guess = -1
+        answer = 42
+	if guess == answer:
+                 msg = 'Congratulations'
+   	self.response.out.write('&lt;p&gt;Guess:' + stguess + '&lt;/p&gt;\n')
+	self.response.out.write('&lt;p&gt;' + msg + '&lt;/p&gt;\n')
+	self.response.out.write(self.formstring)
+def main():
+	application = webapp.WSGIApplication([
+		('/.*', MainHandler)],
+		debug=True)
+	wsgiref.handlers.CGIHandler().run(application)
+if __name__ == '__main__':
+    main()
+
+def odd( spin ):
+    """Return true if this spin is odd."""
+if spin % 2 == 1:
+   return True
+   return False    
+
+</code>
+</div>
+<div  id="msg" class="msg" >
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+##Further Reading
+
+
+
+ 
+
+
+
+  
+  
+
+
+
+
+
+
+
+                                                          

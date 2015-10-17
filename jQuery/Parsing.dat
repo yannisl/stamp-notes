@@ -1,0 +1,295 @@
+      
+<!--
+ directives
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{feature-image:/codeigniter/images/china/beauty_06.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+ 
+
+<h2>Javascript Parsers</h2>
+
+<img src="/codeigniter/images/parser.gif" style="display:block;float:right;margin-left:20px">
+
+I have touched briefly here on some interpreters and parsers that people build, for example jslint, which parses Javascript and produces a report. 
+
+In this four part article, we will discuss parsing in general and build a parser for JavaScript.
+
+We will use our example parser to parse a subset of Pascal. Pascal was a very popular language and is still being used as Pseudo code. Why do people use it as pseudo-code? They do because of the clarity of the language.
+
+The following example demonstrates the common case of parsing a computer language with two levels of grammar: __lexical__ and __syntactic__.
+
+The first stage is the token generation, or lexical analysis, by which the input character stream is split into meaningful symbols defined by a grammar of regular expressions. For example, a calculator program would look at an input such as "12*(3+4)^2" and split it into the tokens 12, *, (, 3, +, 4, ), ^, and 2, each of which is a meaningful symbol in the context of an arithmetic expression. The __lexer__ would contain rules to tell it that the characters *, +, ^, ( and ) mark the start of a new token, so meaningless tokens like "12*" or "(3" will not be generated.
+
+The next stage is __parsing__  or __syntactic analysis__, which is checking that the tokens form an allowable expression. This is usually done with reference to a context-free grammar which recursively defines components that can make up an expression and the order in which they must appear. However, not all rules defining programming languages can be expressed by context-free grammars alone, for example type validity and proper declaration of identifiers. 
+
+These rules can be formally expressed with attribute grammars.
+
+The final phase is __semantic parsing__ or analysis, which is working out the implications of the expression just validated and taking the appropriate action. In the case of a calculator or interpreter, the action is to evaluate the expression or program; a compiler, on the other hand, would generate some kind of code. Attribute grammars can also be used to define these actions.
+
+We will take advantage of JavaScript's prototypal nature to make token objects that inherit from symbols. Our implementation depends on an Object.create method (which makes a new object that inherits members from an existing object) and a tokenizer (which produces an array of simple token objects from a string). We will advance through this array of tokens as we grow our parse tree.
+
+<h3>The Source</h3>
+In our case the source will be fetched either via an src or obtained via a text node of a page.
+We will distingusih the src from other type of code by :
+
+{{plain:  &lt;script type="application/pascal" /&gt; }}
+
+
+<h3>The tokenizer</h3>
+The tokenizer follows that of Crockford, which extends the string object. It walks through the text looking for symbols, in a symbol table. If it finds them it creates an object out of the token with the properties of __type__, __value__, __from__ and __to__. That is what we need from our tokenizer. The tokenizer 
+
+We assume that the source text has been transformed into an array of simple token objects (tokens), each containing a type member ("name", "string", "number", or "operator"), and a value member, which is a string or number. The tokenizer below also records the start and end position in the text of the token characters.
+
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+var s = 'procedure put (var j:integer);'+
+            'begin j:=a[j+1]*3; end;';
+
+var s = 'function $google($number){$j=$j+1;}';
+var z = s.tokens('test');
+
+for (i = 0; i < z.length; i++) {
+  log(z[i].value, z[i].type, z[i].from, z[i].to);
+}
+</code>
+</div>
+<div  id ="msg1" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+The essential concept of Crockford's tokenizer is that it looks for tokens and once it finds them it transforms them into __objects__. 
+
+{{bulb: The result from the tokenizer are placed in an array and returned. At this stage we do not concern ourselves with what the tokens are or what they do, we simply classify them}} During this phase some very simple syntax checking is made (i.e for bad numbers and the like). }}
+
+<h3>The Symbol Table</h3>
+
+Every token, such as an operator or identifier, will inherit from a symbol. We will keep all of our symbols (which determine the types of tokens in __our language__) in a __symbol_table object__.
+
+{{plain:
+var symbol_table = &#123;&#125;;
+}}
+
+
+The __original_symbol__ object is the __prototype__ for all other symbols. Its methods will usually be overridden. (We will describe the role of __nud__ and __led__ and binding powers in the section on Precedence below).
+
+{{plain:
+
+var original_symbol = &#123;
+    nud: function () &#123;
+        this.error("Undefined.");
+    &#125;,
+    led: function (left) {
+        this.error("Missing operator.");
+    &#125;
+&#125;
+
+}}
+
+Let's define a function that makes symbols. It takes a __symbol id__ and an optional binding power that defaults to 0 and returns a symbol object for that id. If the symbol already exists in the symbol_table, the function returns that symbol object. Otherwise, it makes a new symbol object that inherits from the original_symbol, stores it in the symbol table, and returns it. A symbol object initially contains an id, a value, a left binding power, and the stuff it inherits from the original_symbol.
+
+{{plain:
+
+var symbol = function (id, bp) &#123;
+    var s = symbol_table[id];
+    bp = bp || 0;
+    if (s) {
+        if (bp >= s.lbp) &#123;
+            s.lbp = bp;
+        &#125;
+    &#123; else &#125;
+        s = Object.create(original_symbol);
+        s.id = s.value = id;
+        s.lbp = bp;
+        symbol_table[id] = s;
+    &#125;
+    return s;
+&#125;;
+
+}}
+The following symbols are popular separators and closers.
+
+{{plain:
+symbol(":");
+symbol(";");
+symbol(",");
+symbol(")");
+symbol("]");
+symbol("&#125");
+symbol("else");
+symbol("if");
+}}
+
+The (end) symbol indicates the end of the token stream. The (name) symbol is the prototype for new names, such as __variable names__. 
+
+{{bulb: The parentheses that that Crockford  included in the ids of these symbols avoid collisions with user-defined tokens.}}
+
+{{plain:
+symbol("(end)");
+symbol("(name)");
+}}
+
+<h3>Token</h3>
+
+We assume that the source text has been transformed into an array of simple token objects (tokens), each containing a type member ("name", "string", "number", or "operator"), and a value member, which is a string or number.
+
+The token variable always contains the current token.
+
+{{plain: var token;}}
+
+The __advance()__ function makes a new token object from the next simple token in the array and assigns it to the token variable. It can take an optional id parameter which it can check against the id of the previous token. The new token object's prototype is a (name) token in the current scope or a symbol from the symbol table. The new token's arity is __"name"__, __"literal"__, or __"operator"__. Its arity may be changed later to __"binary"__, __"unary"__, or __"statement"__ when we know more about the token's role in the program.
+
+
+
+<div  class="code-block console-wrap">
+<div class="code code-block ">
+<code>
+var advance = function (id) {
+    var a, o, t, v;
+    if (id && token.id !== id) {
+        token.error("Expected '" + id + "'.");
+    }
+
+    if (token_nr >= tokens.length) {
+        token = symbol_table["(end)"];
+        return;
+    }
+
+    t = tokens[token_nr];
+
+    token_nr += 1;
+
+   // make shorter variable names
+   // v is token.value
+   // a is token.type
+
+    v = t.value;
+    a = t.type;
+    
+  
+    if (a === "name") {
+        o = scope.find(v);
+    } else if (a === "operator") {
+        o = symbol_table[v];
+        if (!o) {
+            t.error("Unknown operator.");
+        }
+    } else if (a === "string" || a ===  "number") {
+        a = "literal";
+        o = symbol_table["(literal)"];
+    } else {
+        t.error("Unexpected token.");
+    }
+    
+    // create the token object
+    // can make a function for this 
+    token = Object.create(o);
+    token.value = v;
+    token.arity = a;
+
+    return token;
+};
+
+</code>
+</div>
+
+<div   class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+
+
+<h3>The Parser</h3>
+
+Once we have the tokens we can then pass them onto a parser.
+
+<div class="code-block console-wrap" title="Simple parser">
+<div class="code-block code">
+<code>
+if (typeof Object.create !== 'function') {
+    Object.create = function (o) {
+        function F() {}
+        F.prototype = o;
+        return new F();
+    };
+}
+ 
+// Transform a token object into an exception object and throw it.
+ 
+Object.prototype.error = function (message, t) {
+    t = t || this;
+    t.name = "SyntaxError";
+    t.message = message;
+    throw t;
+};
+ 
+ 
+try {
+   parse = make_parse();
+ 
+// We are going to make the parse function parse itself.
+ 
+  source = make_parse.toSource ?
+            make_parse.toSource() : make_parse.toString();
+    source = "var a='2193';" ;
+    tree = parse(source);
+   if (tree) {
+        logPRE(JSON.stringify(tree, ['key', 'name', 'message',
+            'value', 'arity', 'first', 'second', 'third', 'fourth'], 4));
+   }
+ 
+} catch (e) {
+    $('#msg10').text(JSON.stringify(e, ['name', 'message', 'from', 'to', 'key',
+            'value', 'arity', 'first', 'second', 'third', 'fourth'], 4));
+}
+
+     
+
+</code>
+</div>
+<div  id ="msg10" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+<script type="text/javascript">
+
+ 
+</script>
+
+
+
+  
+  
+
+
+
+
+
+
+
+                                                                          

@@ -1,0 +1,504 @@
+<style>
+ol{width:300px}
+author{font-weight:normal}
+em{background-color:white; font-style:italic;font-weight:normal}
+volume{font-weight:bold}
+pages{font-weight:normal}
+articletitle{font-style:italic}
+journal, year, url{font-weight:normal}
+</style>
+
+<h2>Bibliography</h2>
+A bibliography is a list of sources (books, journals, websites, periodicals, etc.) one has used for researching a topic. Bibliographies are sometimes called "references" or "works cited" depending on the style format you are using. A bibliography usually just includes the bibliographic information (i.e., the author, title, publisher, etc.).
+
+Although annotated bibliographies, might exist for your topic of research, it is always better to develop your own.
+
+I personally use LaTeX and JabRef to help me with bibliographies. The aim of the code presented here is to be able to utilize this information on web pages.
+
+
+<!--TOC-->
+
+<h3>Data Input</h3>
+
+Data input is normally in the format dictated by BibTeX. Most scientific and other publications still use such a format. Now with the web, although eventually if the text is going to end in a TeX format we don't have to follow it as we can always translate it before saving it. Some formatted examples are shown below:
+
+<pre>
+<div class="snippet" style="font-size:12px;font-family:arial">
+ @inproceedings{Steele94,
+    author = {G. L. Steele Jr.},
+    articletitle = {Building interpreters by composing monads},
+    booktitle = {{Symposium on Principles of Programming Languages}},
+    year = {1994},
+    month = {January},
+    publisher = {Association for Computing Machinery},
+    pages = {472--492}
+}
+@article{Takayama91,
+  author = {Y. Takayama},
+  articletitle = {{Extraction of Redundancy-free Programs from
+		  Constructive Natural Deduction Proofs }},
+  journal = {Journal of Symbolic Computation},
+  year = {1991},
+  volume = {1},
+  number = {12},
+  pages = {29-69}
+}
+</div>
+</pre>
+
+If you observe the above structure of a bibliography record, it bears close similarity
+to JavaScript object notation. We will experiment around this to try and simplify things.
+
+<pre>
+<div class="snippet" style="font-size:12px;font-family:arial">
+ Takayama91 = {
+  type : 'article',
+  author : 'Y. Takayama',
+  title :'Extraction of Redundancy-free Programs from'+
+		  'Constructive Natural Deduction Proofs',
+  journal : 'Journal of Symbolic Computation',
+  year : '1991',
+  volume : '1',
+  number : '12',
+  pages : '29-69'
+}
+</div>
+</pre>
+
+<h3>Entry types</h3>
+
+This section gives a quick overview of the entry types s supported by [biblatex](http://ctan.um.ac.ir/macros/latex/contrib/biblatex/doc/biblatex.pdf) along
+with the fields supported by each type. Biblatex has the notion of _regular types_ and _unsupported_ types. We will store both of these in arrays.
+
+
+<div  class="code-block console-wrap"><div class="code code-block"><code type="other">
+function Biblatex() {
+  this.regularEntryTypes = function () {
+    return['article', 'book', 'mvbook', 'inbook', 'bookinbook', 'suppbook', 'booklet', 'collection', 'mvcollection', 'incollection', 'suppcollection', 'manual', 'misc', 'online', 'patent', 'periodical', 'suppperiodical', 'proceedings', 'mvproceedings', 'inproceedings', 'reference', 'mvreference', 'inreference', 'report', 'set', 'thesis', 'unpublished', 'customa']
+  };
+
+  this.unsupportedTypes = function () {
+    return[];
+  }
+
+  this.typeAliases = function () {
+    return['conference', 'electronic', 'masterthesis', 'phdthesis', 'techreport', 'www', 'artwork', 'audio', 'bibnote', 'commentary', 'image', 'jurisdiction', 'legislation', 'legal', 'letter', 'movie', 'music', 'performance', 'review', 'softaware', 'standard', 'video']
+  }
+
+}
+
+article = {
+  'title': 'em',
+  'author': 'author',
+  'url': 'url',
+  'pages':'pages',
+  'journal': 'journal',
+  'journalTerminator': '; ',
+  'urlTerminator': '. ',
+  'pagesTerminator': '. ',
+  'volume': 'volume',
+  'volumeTerminator': ':'
+};
+
+function Citation(obj) {
+  if (! (this instanceof arguments.callee)) return new Citation();
+  this.data = [];
+  this.labels = [];
+  this.count = 1;
+  this.dataStore = [];
+}
+
+
+
+Citation.prototype.pushFields = function (obj) {
+  this.data.push('\n [' + (this.count++)  +'] ');
+  for (var key in obj) {
+    //log(key,' ', article[key], article[key+'Terminator']);
+   var el = key;
+   // default terminator as comma
+   var terminator = ', ';
+   if (key !== 'type' && key !== 'label') {
+     if (article[key+'Terminator']) terminator = article[key+'Terminator'] ;
+     if (article[key]) el = article[key] ;
+     var s = '&lt;' + el + '&gt;' + obj[key] + terminator+ '  &lt;/' + el + '&gt; '
+     this.data.push(s);
+   }
+  }
+  this.data.push(' &lt;p&gt;&lt;/p&gt;');
+};
+
+
+Citation.prototype.render = function () {
+  return this.data.join('');
+};
+
+Citation.prototype.add = function (obj) {
+  // add name in array of citation labels
+  // this acts as a cache to speed things up
+  for (var k = 0; k < obj.length; k++) {
+    this.labels.push(obj[k].label);
+    var tempObj = {};
+    for (var prop in obj[k]) {
+      tempObj[prop] = obj[k][prop];
+    };
+    // save in store
+    this.dataStore.push(tempObj);
+    // save rendered
+    this.pushFields(tempObj);
+  }
+}
+
+// finds label
+Citation.prototype.getLabel = function (x) {
+  for (var i = 0; i < this.dataStore.length; i++) {
+    for (var key in this.dataStore[i]) {
+      if (key === 'label' && this.dataStore[i]['label'] === x) return this.dataStore[i]['label'];
+    }
+  }
+}
+
+t = Citation();
+t.add([{
+  type: 'article',
+  label: 'Quinlan86',
+  author: 'Quinlan, J. R.',
+  title: 'Induction of decision trees',
+  year: '1986',
+  journal: 'Machine Learning 1(1)',
+  pages: '81-106'
+},
+{
+  type: 'article',
+  label: 'Shannon48',
+  author: 'Shannon, C.E.',
+  title: 'A mathematical theory of communication',
+  journal: 'Bell System Technical Journal',
+  volume: '27',
+  pages: '379-456',
+  url: 'http://cm.bell-labs.com/cm/ms/what/shannonday/paper.html'
+},
+{ 
+  type:'article', 
+  label: 'Williams64',
+  author : 'J. W. J. Williams',
+  title : 'Algorithm 232: Heapsort',
+  journal : 'Communications of the ACM',
+  year : '1964',
+  volume : '7',
+  number : '6',
+  month : 'June'
+}
+]);
+
+//log(t.labels);
+log(t.render());
+
+
+function test_labels() {
+  assert(t.getLabel('Quinlan86') === 'Quinlan86', ' record found');
+  assert(t.getLabel('Shannon48') === 'Shannon48', ' record found');
+};
+
+test_labels();
+
+</code>
+</div>
+<p id="msg1" class="msg" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<hr/>
+
+So far I sketched a simple quick and dry solution, just to get the procedure and interface more or less right. Before you say, but you can write it in a much clearer and quicker way let me say I know, but bear with me. Once the basic routines are ready we want to check usage. There is still a lot of thinking and design to be done, for example the ordering of the fields is important and for this I am contemplating templating the solution. For one it will be much easier that building a record for each article etc....
+
+{{plain:
+
+&lt;cite&gt;Takayama91, Quinlan86&lt;/cite&gt;
+&lt;references&gt;&lt;/references&gt;
+&lt;bibliography&gt;&lt;/bibliography&gt;
+}}
+
+This follows closely the LaTeX workflow and I presume authors will find it easy to 
+move between the two authoring systems.
+
+<div  class="code-block console-wrap"><div class="code code-block"><code>
+(function getElements() {
+  refCount = 0;
+  var citeElements = $('cite').each(function (i) {
+    log(refCount++);
+    this.innerHTML = '&lt;sup&gt;&lt;span style="font-size:3px"&gt; &lt;/span&gt;' + refCount + '&lt;/sup&gt;';
+  });
+  log(citeElements[0].innerHTML)
+  for (var prop in citeElements[0]) {
+    log(prop, ' ', citeElements[0][prop]);
+  }
+})();
+
+</code>
+</div>
+<p id="test-cite">
+This is based on  Dymanic Trees<span class="cite">Quinlan86</span>  theory.
+</p>
+<p id="msg1" class="msg">
+</p>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<div  class="code-block console-wrap"><div class="code code-block"><code>
+</code>
+</div>
+<p id="msg1" class="msg" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<hr/>
+
+
+<div  class="code-block console-wrap"><div class="code code-block"><code>
+</code>
+</div>
+<p id="test-cite">
+This is based on  Dymanic Trees<cite></cite>  theory.
+</p>
+<p id="msg1" class="msg">
+</p>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<h3>Handling Spacing</h3>
+To honour Knuth that defined the typesetting field with TeX, I have allowed for
+a span element to be inserted before the superscript. This is to enable the spacing to be controlled. One can use space characters from the system, but I found the use of font-size to be the easiest. Of course at the final version, this can have a proper semantically defined CSS rule rather than the inline style.
+
+<h3>The Bibliography Object</h3>
+
+The bibliography class, would handle storing of the actual citation elements. In addition it would hold objects for defaults, settings and options, pretty much like most of the jQuery code.
+
+<div  class="code-block console-wrap"><div class="code code-block"><code>
+</code>
+</div>
+<p id="test-cite">
+This is based on  Dymanic Trees<cite></cite>  theory.
+</p>
+<p id="msg1" class="msg">
+</p>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<h2>Style matters</h2>
+
+The original BibTeX code written in 'C', has many rules and files where these rules are written. Although the word 'template' can not be found anywhere in the original papers a templating system would be much more easier to use. It will also be much more flexible for the web. 
+
+[bib2x](http://www.xandi.eu/bib2x/templates.html) offers such a system and [bibtex.org](http://www.bibtex.org/Convert/) has an online converter. But of course the whole exercise so far was to offer a more convenient means.
+
+<h2>Importing and Exporting</h2>
+
+The methodology so far, looks promising for dealing with new Bibliographies, however it is likely that people will have a bibliography file and they would prefer to import it. In this case we will have to do a full parse. Exporting should be much easier, as the data incoming data is already in an object form.
+
+
+<h3>Exporting</h3>
+
+Grab all elements of the object and save into a string, using the BibTeX style. This is a fairly straightforward approach. Since our data structure differs slightly we first check for the type, which we add to the string. The only difficult aspect is catching the name of the object. If you recall the citation shortstring is our object's name. JavaScript does not offer a straightforward way of doing this (it does for a function). To enable this, during object creation we need to capture the object's name. This - to my knowledge - can only be done if we extend the Object's prototype methods.
+
+Will experiment with this on the next block.
+
+
+<div  class="code-block console-wrap"><div class="code code-block" title="Exporting"><code>
+Citation.prototype.exportBiblio = function () {
+  for (var i = 0; i < this.dataStore.length; i++) {
+    var s = '@' + this.dataStore[i].type + '{';
+    for (var key in this.dataStore[i]) {
+      if (key === 'label') s += this.dataStore[i][key] + ', \n';
+      if (key !== 'type' && key !== 'label') s += '    ' + key + ' = ' + '{' + this.dataStore[i][key] + '}, \n ';
+    }
+    // removes last comma
+    s = s.slice(0, s.length - 4);
+    s += '\n }';
+    logPRE(s);
+  }
+}
+
+t.exportBiblio(t);
+</code>
+</div>
+<p class="msg">
+</p>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+The _exportBiblio_ was added to enable exporting to a string (we still need to remove the logPRe on the final version and just store it in a string variable. We still need to send it to the server to save it. Another item we may wish to develop is the closing in double curly brackets of strings in the title section. Text that is enclosed in "{{...}}" has the capitalization of all the words preserved. To do so we can parse all the words in the title and if we find any of the words after the first capitalized we can then add an extra pair of curly brackets.
+
+<hr/>
+
+<h3>Importing</h3>
+
+Next we will try to import the text and modify it to conform with the style we set. I am not sure that it is possible to do all the modifications we want with manipulating the text with regular expressions, but certainly we can simplify it, quite a lot and make any parsing left simpler. I am not worried too much at this stage about speed, as one would do this sort of thing during editing of an article.
+
+We will use the following sample to experiment. It is within a div with an id="test". We will fetch the text using jQuery $().text().
+
+<div class="clearfix">
+<pre id="test" style="font-size:small;height:auto">
+@inproceedings{GuzmanSuarez94,
+  author = {J. Guzm\'an and A. Su\'arez},
+  title = {{An Extended Type System for Exceptions}},
+  booktitle = {{Record of the fifth ACM SIGPLAN workshop on
+          ML and its Applications}},
+  year = 1994,
+  month = {June},
+  note = {Also appears as Research Report 2265, INRIA,
+                  BP 105 - 78153 Le Chesnay Cedex, France},
+  url = {http://www.ldc.usb.ve/~suarez/PAPERS/except.ps}
+}
+</pre>
+</div>
+
+</hr>
+
+<div  class="code-block console-wrap"><div class="code code-block"><code>
+// fetch the text using jQuery
+var n = $('#test').text();
+
+// first replace all the = with :
+var re = /\=/g;
+     n = n.replace(re, ':');
+// replace any double curlies with single curlies
+re = /\{\{/g;
+n = n.replace(re, '{')
+re = /\}\}/g;
+n = n.replace(re, '}');
+
+//removes the @article etc
+re = /^@.*?\{/g;
+n = n.replace(re, '_{');
+
+log(n);
+</code>
+</div>
+<p id="msg1" class="msg" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<hr/>
+
+A bit of digression is necessary here. For simple substitutions, it maybe faster to use
+a simpler routine such as the one shown below. 
+<div  class="code-block console-wrap"><div class="code code-block">
+function string_replace(haystack, find, sub) {
+  return haystack.split(find).join(sub);
+}
+var n = string_replace(n, '}', '_');
+log(n);
+</code>
+</div>
+<p id="msg1" class="msg" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+<h3>Importing from the server</h3>
+Of course the development so far, was rather simplistic. For the routines to be useful, the bibliography will need to be imported from a file. This way, you can have one file with all your references, which can be loaded on any page via ajax and used as required by the particular article.
+
+<div  class="code-block"><div class="code code-block"><code>
+$('#bib').load('/CodeIgniter/js/bibliography.bib');
+</code>
+<div id="bib">a</div>
+</div>
+<p id="msg1" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+We can now go back to the code listing-8, if you wish and change the capturing id to #bib from #test. Running the example again will modify the file we just loaded to our standard object type. However, at this point it is best to integrate everything to our Class.
+
+<div  class="code-block"><div class="code code-block"><code>
+Citation.prototype.getFromFile = function (options){
+  this.url = options.url;
+  this.displayElement=options.element;
+  this.truncateLength = options.truncateLength;
+  var z = $('#biblio').load('/CodeIgniter/js/bibliography.bib');
+}
+
+
+Citation.prototype.convert = function (element){
+  var n = $('element').text();
+  // first replace all the = with :
+  var re = /\=/g;
+     n = n.replace(re, ':');
+  // replace any double curlies with single curlies
+  re = /\{\{/g;
+  n = n.replace(re, '{')
+  re = /\}\}/g;
+  n = n.replace(re, '}');
+  //removes the @article etc
+  re = /^@.*?\{/g;
+  n = n.replace(re, '_{');
+  this.converted = n;
+}
+</code>
+<div id="biblio">a</div>
+</div>
+<p id="msg1" class="msg" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<h3>Final Integration</h3>
+
+We are now almost ready for final integration of the script. We can stitch all the parts together, discard any routines that were only used for development and export the full script to the server. 
+
+Once a bibliography file has been exported to js format, it is best to save it on the server. This means that our server script, when importing a file, can look for a bib or a file with the same name but a js extension. 
+
+<h3>Things to do at the next version</h3>
+
+It is not everybody's cup of tea to use custom made tags in html. Most browsers will treat [unknown HTML](http://127.0.0.1/CodeIgniter/index.php/Blogs/tutorials/jQuery/HTML5-unknowntags) tags as tags. The script can easily have an option added to rather use classes in lieu of tags and have the user activate this via an option.
+
+There are a number of public bibliographies that can be accessed via JSONP, this can also make a nice feature.
+
+Ultimately though we have achieved to introduce a utility script, which will enable you to use your biTex bibliography file on any HTML page. 
+
+Personally, I have integrated this on the _editing side_ of posts. This way the references are attached to the post during development and there is no need to do any server processing after the page is saved. The rendering of the references is done through javascript. This is fairly quick and only needed a couple of extra methods to achieve it.
+
+The strength of using javascript, lies on having perhaps only one bibliography file (perhaps all the related publications that a Department uses) and access it via the web.
+
+Another approach is for a citations bot, that can search the web for citations and add it onto the bibliography.
+
+I am busy working on the latter as part of a Machine Learning exercise that I am developing. Here more routines are needed for example being able to pick-up references from places like Wikipedia, which uses its own format. 
+
+##Further Reading
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+                                                                                                                                                        

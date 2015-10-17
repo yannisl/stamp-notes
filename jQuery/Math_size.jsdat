@@ -1,0 +1,134 @@
+ <!--
+{{feature-image:/codeigniter/images/china/beauty_02.jpg}}
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+
+
+<h2>Math size.js </h2>
+
+The math.Box class just defines some methods to handle sizes. A size is defined as an object that has a width and a height property (can be confusing, since to be developers size can also refer to the number of elements in an array or object), imho it could have been bettered named __BoxSize()__. Anyway this is not a method that is going to be widely adopted.
+
+Anyway I got very interested in all these routines, as I saw the possibility of a development shortcut for __Progress__, a project that I am currently developing.
+
+<hr/>
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+var b1 = new goog.math.Size(100, 100);
+
+// this is box p2
+$('#box-wrapper').css({
+  'width': b1.width + 'px',
+  'height': b1.height + 'px',
+  'border': '1px solid red'
+});
+$('#box').css({
+  position: 'relative',
+  top: '10px',
+  left: '10px'
+});
+
+$('#box').css({
+  'width': b1.width - 20 + 'px',
+  'height': b1.height - 20 + 'px',
+  'border': '1px solid blue'
+});
+</code>
+</div>
+<div id="box-wrapper" class="clearfix">
+   <div id="box" style="border:1px solid #bebebe;">
+
+</div>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+As you can see for the example I have used __Size__, is a better choice than box.
+
+Some of the other routines, that can be useful are routines that assist with checking if a box would fit into another, I also guess can be used for calculations involving divs, overflows and the like. One interesting one is .scaleToFit(). This can scale a box, keeping the aspect ratio the same, if necessary.
+
+{{bulb: I am using jQuery for DOM manipulation, so far Google plays nicely with her, as Nelson Mandela said, when you make new friends you should not forget your old ones.}}
+
+I have always been using a short-cut image technique for sizing images during developent, just specifying the width of the image in an in-line style declaration.
+
+If you loading images via Ajax this can be a handy routine.
+
+
+<hr/>
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+// capture images dimensions
+w = $('#box>img').css('width');
+h = $('#box>img').css('height');
+w = w.slice(0, w.length - 2);
+h = h.slice(0, h.length - 2);
+log(w, h);
+log('aspect ratio ', (w / h).toFixed(2));
+// create box
+var b1 = new goog.math.Size(130, 280);
+var b2 = new goog.math.Size(w, h);
+var b2 = b2.scaleToFit(b1);
+
+log('new aspect ratio ', (b2.width / b2.height).toFixed(2));
+log(b2.width, b2.height);
+$('#box >img ').css({
+  'width': b2.width + 'px',
+  'height': b2.height + 'px',
+ });
+</code>
+</div>
+<div id="box-wrapper" class="clearfix">
+   <div id="box" style="border:1px solid #bebebe;">
+   <img src="/codeigniter/images/lenna.jpg" style="width:200px;" />
+</div>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<h3>Exercise 1</h3>
+
+By adjusting font-size get a given text, to fit into a given box, by adjusting the font-size. A common problem when developing flexible layouts. 
+
+__Hint__:  Write the text in a node you create on the fly. Get the width and height of this box. If it does not fit the given box size, reduce the font-size, or expand box! Profile the operation to see if you can find a faster algorithm than just iterating through font-sizes.
+
+<h3>Exercise 2</h3>
+
+Include in the html text, headings, images and the like. Reduce the whole block, proportionally to a smaller box, at the click of a button. 
+
+
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+

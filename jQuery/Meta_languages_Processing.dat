@@ -1,0 +1,144 @@
+<!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<SCRIPT>
+ //goog.require('goog.json');
+</SCRIPT>
+
+
+<h2>Meta Languages</h2>
+The power of code evaluation can be explored in two libraries, processing.js and Objective-J.
+Processing.js is a port written by John Resig of the processing Visualization Language (which is typically implemented using Java to Javascript, running on the HTML 5 Canvas element.
+
+The code is parsed by JavaScript and then translated back into JavaScript and executed via using eval().
+
+The second major project is a port of the Objective-C programming language called Objectiv-J, by the company 280 North for the product 280 Slides (an on-line slides show builder).
+
+The 280 North team had extensive experience developing applications for OS X (which is written in Objective-C). To create a more-productive environment to work in they ported the language to JavaScript providing a thin layer over the JavaScript language. An important point though, they allow JavaScript code mixed with their Objective-C code; the result of which can dumb Objective-J.
+
+<h3>Pseudo Language Pascal to JavaScript</h3>
+
+As an example of what one can do is we can attempt to parse pseudo language Pascal, written in many Computer books for illustrating algorithms.
+
+<div class="code-block console-wrap ">
+<div id="pascal">
+<pre id="pascal">
+function brute_force1: boolean;
+var i, j : integer;
+begin
+i := 0;
+while i < = n-m do begin
+{ left-to-right scan of pat }
+j := 0;
+while j < m and pat[j+1] = text[i+j+1] do j := j+1;
+if j=m then return(true);
+{ inv1(i, j) }
+i := i+1; { length of shift = 1 }
+end;
+return(false);
+end;
+</pre>
+</div>
+</div>
+
+<div class="code-block console-wrap">
+<div class="code-block code">
+<code>
+var pascalCode = $('#pascal').text();
+// replace comments
+var text = pascalCode.replace(/\}/g, '');
+var text = text.replace(/\{/g, '//');
+
+// replace typing operators
+var text = text.replace(/(boolean|integer)/g, '');
+
+// replace assignment operator
+var text = text.replace(/\:/g, '');
+
+// replace begin end
+var text = text.replace(/begin/, '');
+var text = text.replace(/begin/g, '\{');
+var text = text.replace(/end;/g, '\}');
+
+//replace logical operators
+var text = text.replace(/and/, '\&\&');
+
+//function 
+var text = text.replace(/(function)\s*([^\;]+)\;/g, '$1 $2( )\{');
+
+var text = text + '\n}';
+// while do loops
+var text = text.replace(/while\s*([^d]+)do/g, 'while ($1) ');
+text = js_beautify(text);
+logPRE(text);
+</code>
+</div>
+
+<div  id ="msg5" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+We are almost there, one item that will give us a bit of trouble is the comparison operators.
+Pascal used only one (=). Since it was a typed language it did not concern itself, with the problems facing JavaScript, For assignment it used (:=). Actually it made sense and I like it.
+
+
+<div class="code-block console-wrap">
+<div class="code-block code">
+<code>
+text=$('#msg5').text();
+text = js_beautify(text);
+logPRE(text);
+
+var d= 'test'.String.name();
+log(d);
+</code>
+</div>
+
+<div  id ="msg6" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+Although using regular expressions you can almost do everything you want the preferred way for the conversion would have been a parser which understands the rules of both Pascal and Javascript. However, the languages are close enough to almost achieve a good translation, just using mostly replace.
+
+Many good programs and 'compilers' will actually do almost a full parse. Jslint uses a Prat parser
+
+
+
+
+
+
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+                                                            

@@ -1,0 +1,78 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<script type="text/javascript" src="http://localhost/codeIgniter/js/jslint.js" />
+
+<h2>JSLint</h2>
+{{bulb: Always use JSLint. If you haven't run your code through JSLint, then it's not really JavaScript. It's not about being cool, or smart, etc. It's about saving time and bugs ...  Dmitry Baranovkiy }}
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+// on document ready we call JSLint
+$(document).ready(function(){
+  var source = 'var a = 22; \n';
+  var myResult = JSLINT(source);
+  alert(myResult);
+});
+</code>
+</div>
+
+<div  class="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+<img src="http://localhost/codeigniter/images/jquery.png" style="float:right; width:85px"/>
+</div>
+
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+// on document ready we call JSLint
+$(document).ready(function(){
+  var source = 'var a;\n   a = 22; \n function test (){ var z = 52;\n return z;}';
+  var myResult = JSLINT(source);
+  var myData = JSLINT.data();
+  alert(myResult);
+  var myReport = JSLINT.report(false);
+  $('#msg2').html(myReport);
+});
+</code>
+</div>
+
+<div  id="msg2" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+<img src="http://localhost/codeigniter/images/jquery.png" style="float:right; width:85px"/>
+</div>
+
+
+
+
+##Further Reading
+
+
+
+ 
+
+
+
+  
+  
+
+
+
+
+
+
+

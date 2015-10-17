@@ -1,0 +1,270 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<h2>Encode a String into base64</h2>
+
+http://plugins.jquery.com/project/base64
+
+Encodes and Decodes the given data in base64.
+This encoding is designed to make binary data survive transport through transport layers that are not 8-bit clean, such as mail bodies.
+Base64-encoded data takes about 33% more space than the original data.
+
+This javascript code is used to encode / decode data using base64 (this encoding is designed to make binary data survive transport through transport layers that are not 8-bit clean). Script is fully compatible with UTF-8 encoding. You can use base64 encoded data as simple encryption mechanism.
+If you plan using UTF-8 encoding in your project don't forget to set the page encoding to UTF-8 (Content-Type meta tag).
+
+http://www.webtoolkit.info/javascript-base64.html
+
+http://tools.ietf.org/html/rfc1421
+
+Example
+
+{{plain:
+$.base64Encode("I'm Persian."); // return "SSdtIFBlcnNpYW4u"
+$.base64Decode("SSdtIFBlcnNpYW4u"); // return "I'm Persian."
+}}
+
+<div  class="code-block console-wrap"><div class="code code-block"><code>
+/**
+	 * jQuery BASE64 functions
+	 * 
+	 * 	<code>
+	 * 		Encodes the given data with base64. 
+	 * 		String $.base64Encode ( String str )
+	 *		<br />
+	 * 		Decodes a base64 encoded data.
+	 * 		String $.base64Decode ( String str )
+	 * 	</code>
+	 * 
+	 * Encodes and Decodes the given data in base64.
+	 * This encoding is designed to make binary data survive transport through transport layers that are not 8-bit clean, such as mail bodies.
+	 * Base64-encoded data takes about 33% more space than the original data. 
+	 * This javascript code is used to encode / decode data using base64 (this encoding is designed to make binary data survive transport through transport layers that are not 8-bit clean). Script is fully compatible with UTF-8 encoding. You can use base64 encoded data as simple encryption mechanism.
+	 * If you plan using UTF-8 encoding in your project don't forget to set the page encoding to UTF-8 (Content-Type meta tag). 
+	 * This function orginally get from the WebToolkit and rewrite for using as the jQuery plugin.
+	 * 
+	 * Example
+	 * 	Code
+	 * 		<code>
+	 * 			$.base64Encode("I'm Persian."); 
+	 * 		</code>
+	 * 	Result
+	 * 		<code>
+	 * 			"SSdtIFBlcnNpYW4u"
+	 * 		</code>
+	 * 	Code
+	 * 		<code>
+	 * 			$.base64Decode("SSdtIFBlcnNpYW4u");
+	 * 		</code>
+	 * 	Result
+	 * 		<code>
+	 * 			"I'm Persian."
+	 * 		</code>
+	 * 
+	 * @alias Muhammad Hussein Fattahizadeh < muhammad [AT] semnanweb [DOT] com >
+	 * @link http://www.semnanweb.com/jquery-plugin/base64.html
+	 * @see http://www.webtoolkit.info/
+	 * @license http://www.gnu.org/licenses/gpl.html [GNU General Public License]
+	 * @param {jQuery} {base64Encode:function(input))
+	 * @param {jQuery} {base64Decode:function(input))
+	 * @return string
+	 */
+	
+	(function($){
+		
+		var keyString = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
+		
+		var uTF8Encode = function(string) {
+			string = string.replace(/\x0d\x0a/g, "\x0a");
+			var output = "";
+			for (var n = 0; n < string.length; n++) {
+				var c = string.charCodeAt(n);
+				if (c < 128) {
+					output += String.fromCharCode(c);
+				} else if ((c > 127) && (c < 2048)) {
+					output += String.fromCharCode((c >> 6) | 192);
+					output += String.fromCharCode((c & 63) | 128);
+				} else {
+					output += String.fromCharCode((c >> 12) | 224);
+					output += String.fromCharCode(((c >> 6) & 63) | 128);
+					output += String.fromCharCode((c & 63) | 128);
+				}
+			}
+			return output;
+		};
+		
+		var uTF8Decode = function(input) {
+			var string = "";
+			var i = 0;
+			var c = c1 = c2 = 0;
+			while ( i < input.length ) {
+				c = input.charCodeAt(i);
+				if (c < 128) {
+					string += String.fromCharCode(c);
+					i++;
+				} else if ((c > 191) && (c < 224)) {
+					c2 = input.charCodeAt(i+1);
+					string += String.fromCharCode(((c & 31) << 6) | (c2 & 63));
+					i += 2;
+				} else {
+					c2 = input.charCodeAt(i+1);
+					c3 = input.charCodeAt(i+2);
+					string += String.fromCharCode(((c & 15) << 12) | ((c2 & 63) << 6) | (c3 & 63));
+					i += 3;
+				}
+			}
+			return string;
+		}
+		
+		$.extend({
+			base64Encode: function(input) {
+				var output = "";
+				var chr1, chr2, chr3, enc1, enc2, enc3, enc4;
+				var i = 0;
+				input = uTF8Encode(input);
+				while (i < input.length) {
+					chr1 = input.charCodeAt(i++);
+					chr2 = input.charCodeAt(i++);
+					chr3 = input.charCodeAt(i++);
+					enc1 = chr1 >> 2;
+					enc2 = ((chr1 & 3) << 4) | (chr2 >> 4);
+					enc3 = ((chr2 & 15) << 2) | (chr3 >> 6);
+					enc4 = chr3 & 63;
+					if (isNaN(chr2)) {
+						enc3 = enc4 = 64;
+					} else if (isNaN(chr3)) {
+						enc4 = 64;
+					}
+					output = output + keyString.charAt(enc1) + keyString.charAt(enc2) + keyString.charAt(enc3) + keyString.charAt(enc4);
+				}
+				return output;
+			},
+			base64Decode: function(input) {
+				var output = "";
+				var chr1, chr2, chr3;
+				var enc1, enc2, enc3, enc4;
+				var i = 0;
+				input = input.replace(/[^A-Za-z0-9\+\/\=]/g, "");
+				while (i < input.length) {
+					enc1 = keyString.indexOf(input.charAt(i++));
+					enc2 = keyString.indexOf(input.charAt(i++));
+					enc3 = keyString.indexOf(input.charAt(i++));
+					enc4 = keyString.indexOf(input.charAt(i++));
+					chr1 = (enc1 << 2) | (enc2 >> 4);
+					chr2 = ((enc2 & 15) << 4) | (enc3 >> 2);
+					chr3 = ((enc3 & 3) << 6) | enc4;
+					output = output + String.fromCharCode(chr1);
+					if (enc3 != 64) {
+						output = output + String.fromCharCode(chr2);
+					}
+					if (enc4 != 64) {
+						output = output + String.fromCharCode(chr3);
+					}
+				}
+				output = uTF8Decode(output);
+				return output;
+			}
+		});
+	})(jQuery);
+
+var s ="Man is distinguished, not only by his reason, but by this singular passion from other animals, which is a lust of the mind, that by a perseverance of delight in the continued and indefatigable generation of knowledge, exceeds the short vehemence of any carnal pleasure "
+
+out($.base64Encode(s));
+
+</code>
+</div>
+
+   <div  id="msg" class="msg">
+   </div>
+<button class="eval">Run Code!</button>
+<button id="modal">Test Modal Dialog</button>
+<ol class="results"></ol> 
+<img src="http://localhost/codeigniter/images/download_01.png" style="float:right"/>
+</div>
+
+<h3>Using get() to return one element only</h3>
+
+Note that I have used get(). Just to refresh your memory;
+get() serves as a backwards-compatible way of accessing all matched elements (other than the jQuery object itself, which is, in fact, an array of elements). 
+This is useful if you need to operate on the DOM elements themselves instead of using built-in jQuery functions.
+
+This function called as <em>$(this).get(0)</em> is the equivalent of using square bracket notation on the jQuery object itself like <em>$(this)[0]</em>.
+
+<h3>Assignment</h3>
+
+Modify the above code to return a string with the first letter of each word capitalized. Hint write a function ucFirst() to do this.
+
+
+<div  class="code-block clearfix"><div class="code code-block"><code>
+/* we define three input fields
+<input type="text" value="John" />
+<input type="text" value="Lazarides" />
+<input type="text" value="Moderator" />
+    we will capture the value
+    and join it.
+    then we will display the joined string
+
+function callback(index, domElement) {
+  var replacement;
+
+  this; // also dom element
+
+  // replacement == null : delete spot
+  // replacement == array : insert the elements of the array
+  // else replace the spot with replacement
+  return replacement;
+}
+*/
+function ucFirst(n){
+ 
+}
+
+$(".msg").append( 
+    $("input")
+     .map(function(){
+      log("in map : ", $(this).val().toUpperCase());
+         return $(this).val().toUpperCase();
+               }
+       )
+    <a href="http://docs.jquery.com/Core/get">.get()</a>
+    .join(", ") 
+);
+
+log("length of input element", $("input").length);
+log("type of  result",typeof  $(".msg").text());
+</code>
+</div>
+
+   <div  class="msg">
+   </div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+<img src="http://localhost/codeigniter/images/download_01.png" style="float:right"/>
+</div>
+
+
+
+##Further Reading
+
+http://en.wikipedia.org/wiki/Base64
+
+ 
+
+
+
+  
+  
+
+
+
+
+
+
+

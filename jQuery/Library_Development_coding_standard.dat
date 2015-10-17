@@ -1,0 +1,169 @@
+\chapter{Coding Styling Standards}
+
+Each development team will have their own coding standards for readability. Even if you are a solo developer it is good to have a style that you follow. Most large projects will have their own coding standards, for example you can find Google's  at
+[JavaScript Guide](http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml). Another good one is the one from Ajax.org (the good people at Cloud9). This is on github [apf coding standards](https://github.com/ajaxorg/apf/blob/master/CODING_STANDARDS).
+
+## Indentation
+
+Indentation is normally a matter of preference. Most people would prefer either 2 or 4 spaces. The apf guide recommends 4 spaces while Google in general uses two.
+
+\begin{codeblock}
+// four indents
+var numPeople = 2;
+switch (numPeople) {
+    case 1:
+        break;
+    case 2:
+        log(2);
+    default:
+        break;
+}    
+
+// two indents
+var numPeople = 2;
+switch (numPeople) {
+  case 1:
+    break;
+  case 2:
+    log(2);
+  default:
+    break;
+}  
+\end{codeblock}
+
+In general, as you can observe from the code above, four indents identifies the scoping more clearly, however, if you got two many levels of indentation, it sometimes has the opposite effect. My personal preference is to choose four indents. At this point a suggestion also to choose a nice font is appropriate. In general use a font that you will be using in documentation as well.
+
+## Comments
+
+Use as shown below. Do not leave an empty line between the comment and the
+code. make it as informative as possible. if you are going to use a library like jsDoc (more about this later), use appropriate comments.
+
+
+\begin{codeblock}
+/* Use comments to document code 
+ * use them on top of you functions 
+ * as shown here
+ */
+function test(msg) {
+   log(msg);
+}
+test('a message');
+\end{codeblock}
+
+
+
+<h3>Adding Utilities</h3>
+
+You can add more utilities to your library by extending the prototype.
+
+\begin{codeblock}
+/* Class creator
+ * {String} name          the name of the changed property
+ * {Mixed}  originalvalue the value it had before the change
+ * {Mixed}  value         the value it has after the change
+ *
+ */
+var Apf = function(){};
+var apf = new Apf();  
+apf.Class = function(){};
+
+apf.Class.prototype = new (function(){
+    // privates
+    var FUN   = "function",
+         OBJ   = "object",
+         UNDEF = "undefined",
+         SEL   = "model", //selected|selection|properties|
+         PROP  = "prop.",
+         MODEL = "model",
+         VALUE = "value";
+
+    this.$regbase   = 0;
+    /**
+     * Tests whether this object has implemented a {@link term.baseclass baseclass}.
+     * @param {Number} test the unique number of the {@link term.baseclass baseclass}.
+     */
+    this.hasFeature = function(test){
+        return this.$regbase & test;
+    };
+    
+    this.$initStack    = [];
+    this.$bufferEvents = [];
+});
+\end{codeblock}
+
+### Curly braces
+
+Because of implicit semicolon insertion is always safer to start curly braces on the same line that they are opening.
+
+\begin{codeblock}
+/* Because of implicit semicolon insertion, always start 
+ * curly braces on the same line as whatever they're opening. 
+ */
+var something = {};
+if (something) {
+   log('true');
+} else {
+   log('false');
+};
+\end{codeblock}
+
+
+##For Loop
+
+Control statements written with the "for" statement must have a single
+space before the opening parenthesis of the initialization clause and after the
+closing parenthesis. Each clause of the "for" statement should be followed by one space to mark the end of the clause and the start of the following one.
+All content within the "for" statement must be indented using four spaces.
+
+\begin{codeblock}
+// Example reads better 
+for (var i = 0; i < j; i++) {
+     this.foo();
+}
+
+// than this
+for (var i=0;i&lt;j;i++){
+     this.foo();
+}
+\end{codeblock}
+
+In general always use a single space before the opening parenthesis. The while and do while loops are very similar to the for statement.
+
+
+\begin{codeblock}
+// example
+while (condition) {
+    statement;
+}
+
+// example
+do {
+    statement;
+}
+while (condition);
+
+// example
+var i = 10;
+while (i >= 10) {
+    this.foo(i);
+    i--;
+}
+\end{codeblock}
+
+
+##Further Reading
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+                                                    

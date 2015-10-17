@@ -1,0 +1,84 @@
+
+<h2>Bubble Sort Part II - Performance</h2>
+
+
+
+\begin{codeblock}
+function populateArrayRandom(n) {
+  var newArray = new Array(n);
+  for (var i = 0; i < n; i++) {
+    var x = Math.floor(Math.random() * n + 1);
+    newArray[i] = x;
+  }
+  return newArray;
+}
+
+/* Bubble Sort
+ * Parameters:
+ *   data - reference to the integer array to sort, must not be null
+ * Postcondition:
+ *   The array is sorted in ascending order.
+*/
+function bubbleSort(data) {
+  var tempVariable = [];
+  for (var k = 0; k < data.length - 1; k++) {
+    var isSorted = true;
+    for (var i = 1; i < data.length - k; i++) {
+      if (data[i] < data[i - 1]) {
+        tempVariable = data[i];
+        data[i] = data[i - 1];
+        data[i - 1] = tempVariable;
+        isSorted = false;
+      }
+    }
+    if (isSorted) {
+      return data;
+    }
+  }
+}
+var data = [];
+data = populateArrayRandom(10000);
+//log(data);
+profiler.start();
+var d = bubbleSort(data);
+profiler.stop();
+profiler.timeDiff();
+log(d);
+\end{codeblock}
+
+
+Some Computer Scientists like <a href="http://www.cs.duke.edu/~ola/papers/bubble.pdf">Owen Astrachan</a> preach that the Bubble Sort should be removed from Computer Science books and his argument goes something like this:
+
+<blockquote>
+Although
+examples used in first year courses must be simple
+enough to be understandable and complex enough to
+be useful in a variety of situations, they should also
+exemplify best practices so that these practices endure
+after many of the details of a course have been forgotten.
+</blockquote>
+
+But he is right in claiming that Bubble Sort is a term that most Computer Science graduates will remember from their Algo classes! Personally I wouldn't like to see it removed as it conjures happy memories of a time that just studying algorithms was new and a much happier time of my life. In support for it also, it is a good example to use while learning the _syntax_ of a new language, which for most Computer Science students will be about the same time that they are learning the concept.
+
+In any case in  practical situations the best sort to use is the
+one provided by the standard (e.g., Python, Java, C, or C++)
+libraries. However, we study sorts because general sorts
+do not work in all situations and because sorting is a
+simple illustration of algorithmic techniques. JavaScript provides a built-in method for sorting arrays and you can find more about it in ['Sorting Arrays in Javascript'](http://127.0.0.1/CodeIgniter/index.php/Blogs/tutorials/jQuery/Array_sort).
+
+
+
+ 
+
+
+
+  
+  
+
+
+
+
+
+
+
+                                            

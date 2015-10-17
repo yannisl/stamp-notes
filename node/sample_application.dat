@@ -1,0 +1,173 @@
+\chapter{Sample Application}
+
+Most tutorials on the web, start with a hello world, but for real world applications it is better to 
+
+The use cases
+
+Let's keep it simple, but realistic:
+
+
+\begin{enumerate}
+
+\item The user should see a welcome page when requesting http://domain/start which displays a
+file upload form
+
+\item  By choosing an image file to upload and submitting the form, this image should then be
+uploaded to http://domain/upload, where it is displayed once the upload is finished
+Fair enough. Now, you could achieve this goal by googling and hacking together something. But
+that’s not what we want to do here.
+
+Furthermore, we don’t want to write only the most basic code to achieve the goal, however elegant
+and correct this code might be. We will intentionally add more abstraction than necessary in order
+to get a feeling for building more complex Node.js applications.
+The application stack
+Let’s dissect our application. Which parts need to be implemented in order to fulfill the use cases?
+
+\item We want to serve web pages, therefore we need an HTTP server
+
+\item Our server will need to answer differently to requests, depending on which URL the request
+was asking for, thus we need some kind of router in order to map requests to request handlers
+
+\item To fullfill the requests that arrived at the server and have been routed using the router, we
+need actual request handlers
+
+\item The router probably should also treat any incoming POST data and give it to the request
+handlers in a convenient form, thus we need request data handling
+
+\item  We not only want to handle requests for URLs, we also want to display content when these
+URLs are requested, which means we need some kind of view logic the request handlers can
+use in order to send content to the user’s browser
+
+\item Last but not least, the user will be able to upload images, so we are going to need some kind
+of upload handling which takes care of the detailsA full blown web application with Node
+
+\end{enumerate}
+
+Let’s think a moment about how we would build this stack with PHP. It’s not exactly a secret that the typical setup would be an Apache HTTP server with `mod_php5` installed. PHP also provides a 
+
+Which in turn means that the whole “we need to be able to serve web pages and receive HTTP
+requests” stuff doesn’t happen within PHP itself.
+
+
+Well, with node, things are a bit different. Because with Node.js, we not only implement our
+application, we also implement the whole HTTP server. In fact, our web application and its web
+server are basically the same.
+
+This might sound like a lot of work, but we will see in a moment that with Node.js, it’s not.
+
+Let’s just start at the beginning and implement the first part of our stack, the HTTP server.
+
+
+Building the application stack
+A basic HTTP server
+When I arrived at the point where I wanted to start with my first “real” Node.js application, I
+wondered not only how to actually code it, but also how to organize my code.
+Do I need to have everything in one file? Most tutorials on the web that teach you how to write a
+basic HTTP server in Node.js have all the logic in one place. What if I want to make sure that my
+code stays readable the more stuff I implement?
+Turns out, it’s relatively easy to keep the different concerns of your code separated, by putting them
+in modules.
+This allows you to have a clean main file, which you execute with Node.js, and clean modules that
+can be used by the main file and among each other.
+So, let’s create a main file which we use to start our application, and a module file where our HTTP
+server code lives.
+My impression is that it’s more or less a standard to name your main file index.js. It makes sense to
+put our server module into a file named server.js.
+Let’s start with the server module. Create the file server.js in the root directory of your project, and
+fill it with the following code:
+
+\begin{codeblock}
+ var http = require("http");
+
+ http.createServer(function(request, response) {
+   response.writeHead(200, {"Content-Type": "text/plain"});
+   response.write("Hello World");
+   response.end();
+ }).listen(8888);
+\end{codeblock}
+
+That’s it! You just wrote a working HTTP server. Let’s prove it by running and testing it. First,
+execute your script with Node.js:
+
+
+`1 node server.js`
+
+Now, open your browser and point it at http://localhost:8888/. This should display a web page that says “Hello World”.
+
+That’s quite interesting, isn’t it. How about talking about what’s going on here and leaving the
+question of how to organize our project for later? I promise we’ll get back to it.
+Analyzing our HTTP server
+Well, then, let’s analyze what’s actually going on here.
+The first line requires the http module that ships with Node.js and makes it accessible through the
+variable http.
+We then call one of the functions the http module offers: createServer. This function returns an
+object, and this object has a method named listen, and takes a numeric value which indicates the
+port number our HTTP server is going to listen on.
+Please ignore for a second the function definition that follows the opening bracket of http.createServer.
+
+We could have written the code that starts our server and makes it listen at port 8888 like this:
+
+1 var http = require("http");
+2
+3 var server = http.createServer();
+4 server.listen(8888);
+
+That would start an HTTP server listening at port 8888 and doing nothing else (not even answering any incoming requests).
+
+The really interesting (and, if your background is a more conservative language like PHP, odd looking) part is the function definition right there where you would expect the first parameter of the createServer() call.
+
+Turns out, this function definition IS the first (and only) parameter we are giving to the createServer() call. Because in JavaScript, functions can be passed around like any other value.
+
+Passing functions around
+
+You can, for example, do something like this:
+
+
+Building the application stack 12
+1 function say(word) {
+2 console.log(word);
+3 }
+4
+5 function execute(someFunction, value) {
+6 someFunction(value);
+7 }
+8
+9 execute(say, "Hello");
+Read this carefully! What we are doing here is, we pass the function say as the first parameter to
+the execute function. Not the return value of say, but say itself!
+Thus, say becomes the local variable someFunction within execute, and execute can call the function
+in this variable by issuing someFunction() (adding brackets).
+Of course, because say takes one parameter, execute can pass such a parameter when calling
+someFunction.
+We can, as we just did, pass a function as a parameter to another function by its name. But we don’t
+have to take this indirection of first defining, then passing it - we can define and pass a function as
+a parameter to another function in-place:
+
+\begin{codeblock}
+1 function execute(someFunction, value) {
+2 someFunction(value);
+3 }
+4
+5 execute(function(word){ console.log(word) }, "Hello");
+\end{codeblock}
+
+We define the function we want to pass to execute right there at the place where execute expects its
+first parameter.
+
+This way, we don’t even need to give the function a name, which is why this is called an anonymous function.
+
+This is a first glimpse at what I like to call “advanced” JavaScript, but let’s take it step by step. For now, let’s just accept that in JavaScript, we can pass a function as a parameter when calling another function. We can do this by assigning our function to a variable, which we then pass, or by defining the function to pass in-place.
+
+
+
+
+
+
+
+
+
+
+
+
+
+

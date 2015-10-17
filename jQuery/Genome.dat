@@ -1,0 +1,272 @@
+
+<h2>Bioinformatics</h2>
+
+The information shown in the box below maybe able to kill you. I believe that down the line the web will morph into an automated talking web, where distributed computing will become a reality by just pointing your browser to a URL. Is it possible with Javascript to perform genomics?
+
+A virus, with the absurd name <i>Xenotropic Murine leukemia virus-Related Virus</i>, was found a few years ago in many cases of <a href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC1434790/?tool=pmcentrez">prostate cancer</a> and very recently <a href="http://www.sciencemag.org/cgi/content/abstract/326/5952/585">found</a> in many people suffering from chronic fatigue syndrome (<a href="http://www.nytimes.com/2009/10/21/opinion/21johnson.html">more</a>, <a href="http://www.nytimes.com/2009/10/13/health/13fatigue.html">more</a>).  
+
+If these studies turn out to be true, it would be quite remarkable that an obscure new retrovirus causes such differing diseases.
+ 
+Our goal is to take the XMRV genome (the sequence of c's, g's, a's, and t's that make up its RNA), and see if the combination "cg" is a lot more rare than you'd expect.  This probably seems like a pretty random thing to do, but there's actually a biological reason.
+ 
+One way the human immune system detects invaders is by looking for DNA containing a cytosine followed by a guanine (which is called a
+<a href="http://en.wikipedia.org/wiki/CpG_site">CpG</a> dinucleotide).  
+
+In mammals, most CpG dinucleotides are methylated (specially tagged), so any CpG that shows up is a sign of something invading.  My hypothesis was that XMRV might have a very low number of CpG dinucleotides, helping it avoid the immune system and contributing to its ability to cause disease.
+
+Conveniently, the genome of XMRV has been sequenced and can be <a href="http://www.ncbi.nlm.nih.gov/nuccore/NC_007815">downloaded</a>, consisting of 8185 bases:
+
+{{plain:      1 gcgccagtca tccgatagac tgagtcgccc gggtacccgt gttcccaata aagccttttg
+       61 ctgtttgcat ccgaagcgtg gcctcgctgt tccttgggag ggtctcctca gagtgattga
+}}
+ 
+A similar analysis using Arch can be fount at http://arcfn.com/
+
+Our results should look like this, pretty much like a frequency analysis of words on a web page.
+
+{{plain:
+cc: 862 (10.53%)
+gg: 639 (7.81%)
+ag: 616 (7.53%)
+ct: 612 (7.48%)
+aa: 588 (7.18%)
+ga: 585 (7.15%)
+ca: 537 (6.56%)
+ac: 529 (6.46%)
+tg: 494 (6.04%)
+tc: 469 (5.73%)
+gc: 458 (5.6%)
+tt: 401 (4.9%)
+gt: 375 (4.58%)
+ta: 368 (4.5%)
+at: 344 (4.2%)
+cg: 307 (3.75%)
+
+}}
+
+<h3>The genome</h3>
+
+<div  class="code-block console-wrap" title="Complete Genome of  Xenotropic MuLV-related virus VP62, complete  ">
+<div class="code code-block">
+<code id="genome" style="font-family: arial, sans-serif;">
+          1 gcgccagtca tccgatagac tgagtcgccc gggtacccgt gttcccaata aagccttttg
+        61 ctgtttgcat ccgaagcgtg gcctcgctgt tccttgggag ggtctcctca gagtgattga
+      121 ctacccagct cgggggtctt tcatttgggg gctcgtccgg gattcggaga cccccgccca
+      181 gggaccaccg acccaccgtc gggaggtaag ccggccggcg atcgttttgt ctttgtctct
+      241 gtctttgtgc gtgtgtgtgt gtgccggcat ctaatcctcg cgcctgcgtc tgaatctgta
+      301 ctagttagct aactagatct gtatctggcg gttccgcgga agaactgacg agttcgtatt
+      361 cccggccgca gccctgggag acgtcccagc ggcctcgggg gcccgttttg tggcccattc
+      421 tgtatcagtt aacctacccg agtcggactt tttggagtgg ctttgttggg ggacgagaga
+      481 cagagacact tcccgccccc gtctgaattt ttgctttcgg ttttacgccg aaaccgcgcc
+      541 gcgcgtctga tttgttttgt tgttcttctg ttcttcgtta gttttcttct gtctttaagt
+      601 gttctcgaga tcatgggaca gaccgtaact acccctctga gtctaacctt gcagcactgg
+      661 ggagatgtcc agcgcattgc atccaaccag tctgtggatg tcaagaagag gcgctgggtt
+      721 accttctgtt ccgccgaatg gccaactttc aatgtaggat ggcctcagga tggtactttt
+      781 aatttaggtg ttatctctca ggtcaagtct agagtgtttt gtcctggtcc ccacggacac
+      841 ccggatcagg tcccatatat cgtcacctgg gaggcacttg cctatgaccc ccctccgtgg
+      901 gtcaaaccgt ttgtctctcc taaaccccct cctttaccga cagctcccgt cctcccgccc
+      961 ggtccttctg cgcaacctcc gtcccgatct gccctttacc ctgcccttac cccctctata
+     1021 aagtccaaac ctcctaagcc ccaggttctc cctgatagcg gcggacctct cattgacctt
+     1081 ctcacagagg atcccccgcc gtacggagca caaccttcct cctctgccag ggagaacaat
+     1141 gaagaagagg cggccaccac ctccgaggtt tccccccctt ctcccatggt gtctcgactg
+     1201 cggggaagga gagaccctcc cgcagcggac tccaccacct cccaggcatt cccactccgc
+     1261 atggggggag atggccagct tcagtactgg ccgttttcct cctctgattt atataattgg
+     1321 aaaaataata acccttcctt ttctgaagat ccaggtaaat tgacggcctt gattgagtcc
+     1381 gtcctcatca cccaccagcc cacctgggac gactgtcagc agttgttggg gaccctgctg
+     1441 accggagaag aaaagcagcg ggtgctccta gaggctagaa aggcagtccg gggcaatgat
+     1501 ggacgcccca ctcagttgcc taatgaagtc aatgctgctt ttccccttga gcgccccgat
+     1561 tgggattaca ccactacaga aggtaggaac cacctagtcc tctaccgcca gttgctctta
+     1621 gcgggtctcc aaaacgcggg caggagcccc accaatttgg ccaaggtaaa agggataacc
+     1681 cagggaccta atgagtctcc ctcagccttt ttagagagac tcaaggaggc ctatcgcagg
+     1741 tacactcctt atgaccctga ggacccaggg caagaaacca atgtgtccat gtcattcatc
+     1801 tggcagtctg ccccggatat cggacgaaag ttagagcggt tagaagattt aaagagcaag
+     1861 accttaggag acttagtgag ggaagctgaa aagatcttta ataagcgaga aaccccggaa
+     1921 gaaagagagg aacgtatcag gagagaaata gaggaaaaag aagaacgccg tagggcagag
+     1981 gatgagcaga gagagagaga aagggaccgc agaagacata gagagatgag caagctcttg
+     2041 gccactgtag ttattggtca gagacaggat agacaggggg gagagcggag gaggccccaa
+     2101 cttgataagg accaatgcgc ctactgcaaa gaaaagggac actgggctaa ggactgccca
+     2161 aagaagccac gagggccccg aggaccgagg ccccagacct ccctcctgac cttaggtgac
+     2221 tagggaggtc agggtcagga gcccccccct gaacccagga taaccctcaa agtcgggggg
+     2281 caacccgtca ccttcctggt agatactggg gcccaacact ccgtgctgac ccaaaatcct
+     2341 ggacccctaa gtgacaagtc tgcctgggtc caaggggcta ctggaggaaa gcggtatcgc
+     2401 tggaccacgg atcgcaaagt acatctggct accggtaagg tcacccactc tttcctccat
+     2461 gtaccagact gcccctatcc tctgctagga agagacttgc tgactaaact aaaagcccaa
+     2521 atccactttg agggatcagg agctcaggtt gtgggaccga tgggacagcc cctgcaagtg
+     2581 ctgacagtaa acatagaaga tgagtattgg ctacatgata ccaggaaaga gccagatgtt
+     2641 cctctagggt ccacatggct ttctgatttc cttcaggcct gggcggaaac cgggggcatg
+     2701 ggactggcag ttcgccaagc tcctctgatc atacctctga aggcaacctc tacccccgtg
+     2761 tccataaaac aataccccat gtcacaagaa gccagactgg ggatcaagcc ccacatacag
+     2821 aggctgttgg accagggaat actggtaccc tgccagtccc cctggaacac gcccctgcta
+     2881 cccgttaaga aaccagggac taatgattat aggcctgtcc aggatctgag agaagtcaac
+     2941 aagcgggtgg aagacatcca ccccaccgtg cccaaccctt acaacctctt gagcgggctc
+     3001 ccaccgtccc accagtggta cactgtgctt gatttaaagg atgccttttt ctgcctgaga
+     3061 ctccacccca ccagtcagcc tctcttcgcc tttgagtgga gagatccaga gatgggaatc
+     3121 tcaggacaac tgacctggac cagactccca cagggtttca aaaacagtcc caccctgttt
+     3181 gatgaggcac tgcacagaga cctagcagat ttccggatcc agcacccaga cttgatcctg
+     3241 ctacagtacg tggatgactt actgctggcc gccacttctg agcaagactg ccaacgaggt
+     3301 actcgggccc tattacaaac cctagggaac ctcgggtatc gggcctcggc caagaaagcc
+     3361 caaatttgcc agaaacaggt caagtatctg gggtatctcc taaaagaggg acagagatgg
+     3421 ctgactgagg ccagaaaaga gactgtgatg gggcagccca ctccgaagac ccctcgacaa
+     3481 ctaagggagt tcctagggac ggcaggcttc tgtcgcctct ggatccctgg gtttgcagaa
+     3541 atggcagccc ccttgtaccc tcttaccaaa acggggactc tgtttaattg gggcccagac
+     3601 cagcaaaagg cctatcaaga aatcaaacag gctcttctaa ctgcccccgc cctgggattg
+     3661 ccagatttga ctaagccctt tgaactcttt gtcgacgaga agcagggcta cgccaaaggc
+     3721 gtcctaacgc aaaaactggg accttggcgt cggcctgtgg cctacctgtc caaaaagcta
+     3781 gacccagtgg cagctgggtg gcccccttgc ctacggatgg tagcagccat tgccgttctg
+     3841 acaaaaaatg caggcaagct aactatggga cagccgctag tcattctggc cccccatgcg
+     3901 gtagaagcac tggtcaaaca accccctgac cgttggctat ccaatgcccg catgacccac
+     3961 tatcaggcaa tgctcctgga tacagaccgg gttcagttcg gaccggtggt ggccctcaac
+     4021 ccggccaccc tgctccccct accggaaaag gaagcccccc atgactgcct cgagatcttg
+     4081 gctgagacgc acggaaccag accggacctc acggaccagc ccatcccaga cgctgattac
+     4141 acttggtaca cagatggaag cagcttccta caagaaggac aacggagagc tggagcagcg
+     4201 gtgactactg agaccgaggt aatctgggcg agggctctgc cggctggaac atccgcccaa
+     4261 cgagccgaac tgatagcact cacccaagcc ttaaagatgg cagaaggtaa gaagctaaat
+     4321 gtttacactg atagccgcta tgccttcgcc acggcccatg tccatggaga aatatatagg
+     4381 aggcgagggt tgctgacctc agaaggcaga gaaattaaaa acaagaacga gatcttggcc
+     4441 ttgctaaaag ctctctttct gcccaaacga cttagtataa ttcactgtcc aggacatcaa
+     4501 aaaggaaaca gtgctgaggc cagaggcaac cgtatggcag atcaagcagc ccgagaggca
+     4561 gccatgaagg cagttctaga aacctctaca ctcctcatag aggactcaac cccgtatacg
+     4621 cctccccatt tccattacac cgaaacagat ctcaaaagac tacgggaact gggagccacc
+     4681 tacaatcaga caaaaggata ttgggtccta caaggcaaac ctgtgatgcc cgatcagtcc
+     4741 gtgtttgaac tgttagactc cctacacaga ctcacccatc tgagccctca aaagatgaag
+     4801 gcactcctcg acagagaaga aagcccctac tacatgttaa accgggacag aactatccag
+     4861 tatgtgactg agacctgcac cgcctgtgcc caagtaaatg ccagcaaagc caaaattggg
+     4921 gcaggggtgc gagtacgcgg acatcggcca ggcacccatt gggaagttga tttcacggaa
+     4981 gtaaagccag gactgtatgg gtacaagtac ctcctagtgt ttgtagacac cttctctggc
+     5041 tgggtagagg cattcccgac caagcgggaa actgccaagg tcgtgtccaa aaagctgtta
+     5101 gaagacattt ttccgagatt tggaatgccg caggtattgg gatctgataa cgggcctgcc
+     5161 ttcgcctccc aggtaagtca gtcagtggcc gatttactgg ggatcgattg gaagttacat
+     5221 tgtgcttata gaccccagag ttcaggacag gtagaaagaa tgaatagaac aattaaggag
+     5281 actttgacca aattaacgct tgcatctggc actagagact gggtactcct actcccctta
+     5341 gccctctacc gagcccggaa tactccgggc ccccacggac tgactccgta tgaaattctg
+     5401 tatggggcac ccccgcccct tgtcaatttt catgatcctg aaatgtcaaa gttaactaat
+     5461 agtccctctc tccaagctca cttacaggcc ctccaagcag tacaacaaga ggtctggaag
+     5521 ccgctggccg ctgcttatca ggaccagcta gatcagccag tgataccaca ccccttccgt
+     5581 gtcggtgacg ccgtgtgggt acgccggcac cagactaaga acttagaacc tcgctggaaa
+     5641 ggaccctaca ccgtcctgct gacaaccccc accgctctca aagtagacgg catctctgcg
+     5701 tggatacacg ccgctcacgt aaaggcggcg acaactcctc cggccggaac agcatggaaa
+     5761 gtccagcgtt ctcaaaaccc cttaaagata agattaaccc gtggggcccc ctgataatta
+     5821 tggggatctt ggtgagggca ggagcctcag tacaacgtga cagccctcac caggtcttta
+     5881 atgtcacttg gaaaattacc aacctaatga caggacaaac agctaatgct acctccctcc
+     5941 tggggacgat gacagacact ttccctaaac tatattttga cttgtgtgat ttagttggag
+     6001 acaactggga tgacccggaa cccgatattg gagatggttg ccgctctccc gggggaagaa
+     6061 aaaggacaag actatatgat ttctatgttt gccccggtca tactgtatta acagggtgtg
+     6121 gagggccgag agagggctac tgtggcaaat ggggatgtga gaccactgga caggcatact
+     6181 ggaagccatc atcatcatgg gacctaattt cccttaagcg aggaaacact cctaagggtc
+     6241 agggcccctg ttttgattcc tcagtgggct ccggtagcat ccagggtgcc acaccggggg
+     6301 gtcgatgcaa ccccctagtc ctagaattca ctgacgcggg taaaagggcc agctgggatg
+     6361 cccccaaaac atggggacta agactgtatc gatccactgg ggccgacccg gtgaccctgt
+     6421 tctctctgac ccgccaggtc ctcaatgtag ggccccgcgt ccccattggg cctaatcccg
+     6481 tgatcactga acagctaccc ccctcccaac ccgtgcagat catgctcccc aggactcctc
+     6541 gtcctcctcc ttcaggcgcg gcctctatgg tgcctggggc tcccccgcct tctcaacaac
+     6601 ctgggacggg agacaggctg ctaaacctgg tagaaggagc ctacctagcc ctcaacctca
+     6661 ccagtcccga caaaacccaa gagtgctggc tgtgtctagt atcgggaccc ccctactacg
+     6721 aaggggtggc cgtcctaggt acttactcca accatacctc tgccccggct aactgctccg
+     6781 tgacctccca acacaagctg accctgtccg aagtgaccgg gcagggactc tgcataggag
+     6841 cagttcccaa aacccatcag gccctgtgta ataccaccca gaagacgagc gacgggtcct
+     6901 actatttggc ctctcccgcc gggaccattt gggcttgcag caccgggctc actccctgtc
+     6961 tatctactac tgtgcttaac ttaaccactg attactgtgt cctggttgaa ctctggccaa
+     7021 aggtaaccta ccactcccct aattatgttt atggccagtt tgaaaagaaa actaaatata
+     7081 aaagagagcc ggtgtcatta actctggccc tgctgttggg aggacttact atgggcggca
+     7141 tagctgcagg agttggaaca gggactacag ccctagtggc caccaaacaa ttcgagcagc
+     7201 tccaggcagc catacataca gaccttgggg ccttagaaaa atcagtcagt gccctagaaa
+     7261 agtctctgac ctcgttgtct gaggtggtcc tacagaaccg gaggggatta gatctactgt
+     7321 tcctaaaaga aggaggatta tgtgctgccc taaaagaaga atgctgtttt tacgcggacc
+     7381 acactggcgt agtaagagat agcatggcaa agctaagaga aaggttaaac cagagacaaa
+     7441 aattgttcga atcaggacaa gggtggtttg agggactgtt taacaggtcc ccatggttca
+     7501 cgaccctgat atccaccatt atgggccctc tgatagtact tttattaatc ctactcttcg
+     7561 gaccctgtat tctcaaccgc ttggtccagt ttgtaaaaga cagaatttcg gtagtgcagg
+     7621 ccctggttct gacccaacag tatcaccaac tcaaatcaat agatccagaa gaagtggaat
+     7681 cacgtgaata aaagatttta ttcagtttcc agaaagaggg gggaatgaaa gaccccacca
+     7741 taaggcttag cacgctagct acagtaacgc cattttgcaa ggcatggaaa agtaccagag
+     7801 ctgagttctc aaaagttaca aggaagttta attaaagaat aaggctgaat aacactggga
+     7861 caggggccaa acaggatatc tgtagtcagg cacctgggcc ccggctcagg gccaagaaca
+     7921 gatggtcctc agataaagcg aaactaacaa cagtttctgg aaagtcccac ctcagtttca
+     7981 agttccccaa aagaccggga aataccccaa gccttattta aactaaccaa tcagctcgct
+     8041 tctcgcttct gtacccgcgc tttttgctcc ccagtcctag ccctataaaa aaggggtaag
+     8101 aactccacac tcggcgcgcc agtcatccga tagactgagt cgcccgggta cccgtgttcc
+     8161 caataaagcc ttttgctgtt tgcaa
+</code>
+</div>
+<p  class="msg"  style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+<button >Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<h3>Analysis</h3>
+
+
+<div  class="code-block console-wrap" title="Complete Genome of  Xenotropic MuLV-related virus VP62, complete  ">
+<div class="code code-block">
+<code>
+profiler.start();
+var genome = $('#genome').text();
+genome = genome.replace(/\s*/g, '').replace(/\d*/g, '');
+log(genome.length);
+//match all pairs
+genome = genome.match(/../g);
+log('genome total pairs : ', genome.length);
+
+// compact to unique pairs
+pairs = U.uniq(genome);
+var numberPairs = pairs.length;
+log(numberPairs);
+//log(pairs.join(', '));
+var statistics = {}
+// create hash keys
+var total = 0;
+for (var i = 0; i < numberPairs; i++) {
+  var sum = 0;
+  statistics[i] = {
+    name: pairs[i],
+    qty: function () {
+      for (var j = 0; j < genome.length; j++) {
+        if (pairs[i] == genome[j]) {
+          sum = sum + 1;
+        }
+      }
+      return sum;
+    }
+
+  }
+  // find frequency
+  var f = (statistics[i].qty() / genome.length * 100).toFixed(2);
+  log(statistics[i].name + ': ' + statistics[i].qty(), f + '%');
+  total = total + sum;
+
+}
+log('summation', total);
+profiler.stop();
+profiler.timeDiff();
+</code>
+</div>
+<div class="console"></div>
+<p class="msg" >
+</p>
+<button class="eval" >Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+
+
+
+
+
+##Further Reading
+
+<span class="chapter">22</span>
+
+
+  
+  
+
+
+
+
+
+
+
+        

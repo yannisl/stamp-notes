@@ -1,0 +1,177 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+<h2>Execution of functions </h2>
+The same is true of top-level functions. Remember that top-level functions are
+properties of window, so their function contexts, when called as top-level functions,
+are the window objects.
+
+Although that may be the usual and implicit behavior, JavaScript gives us the
+means to explicitly control what’s used as the function context. We can set the function
+context to whatever we want by invoking a function via the Function methods
+<strong>call()</strong> or <strong>apply()</strong>.
+
+Yes, as first-class objects, even functions have methods as defined by the Function
+constructor.
+
+The call() method invokes the function specifying, as its first parameter, the
+object to serve as the function context, while the remainder of the parameters
+become the parameters of the called function—the second parameter to call()
+becomes the first argument of the called function and so on. 
+
+The apply() method
+works in a similar fashion except that its second parameter is expected to be an
+array of objects that become the arguments to the called function
+
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+var o1 = {handle:'o1'};
+var o2 = {handle:'o2'};
+var o3 = {handle:'o3'};
+window.handle = 'window';
+function whoAmI() {
+return this.handle;
+}
+o1.identifyMe = whoAmI;
+alert(whoAmI());
+alert(o1.identifyMe());
+alert(whoAmI.call(o2));
+alert(whoAmI.apply(o3));
+
+log((new Error).stack);
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+What the () does it tells Javascript to execute the function just before it. Let u s now assign the above function to a variable:
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+
+var foo = (function (){
+                       log('I am in function foo ','');
+                       return 22; 
+                    })();
+
+log('foo', foo);
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+Now our example before the last:
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+But do we need the var foo?
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+
+(function (x){
+        foo =  x + 22; 
+ })(10);
+
+(function (x){
+        bar =  x + 22; 
+        window.$ = 100;
+ })();
+
+
+
+
+alert(window.$);
+
+log('foo',  foo);
+log('bar',  bar);
+
+
+
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+At this point you should open the jQuery Library and have a peek at the code there, it starts as 
+
+(function(){
+... about 3 500 lines of code
+})();
+
+If you have managed to work through the above code you must by now realize that everything within the jQuery library protects the outside world! This avoid name pollution and elminates errors in coding.
+
+
+
+
+
+
+
+
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+<script>
+function getID(elem) {
+   var id = elem.id;
+   alert("This element's id attribute is set to \"" + id + "\"."); 
+} 
+
+window.defaultStatus = "Click on a link on the left to navigate this website."
+</script>
+ 
+
+
+
+  
+  
+
+
+
+
+
+
+

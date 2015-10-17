@@ -1,0 +1,159 @@
+ <!--
+ {{feature: <div class="rot-ex">... I remember the awe with which we looked at it when it performed its first production program, a computation of transversational movements of railway carriages.  <a href="http://www.cs.utexas.edu/users/EWD/ewd05xx/EWD568.PDF">E.W. Djikstra</a></div>
+}}
+
+{{feature-image:/egypt/amato-01/aa_151.jpg}}
+{{credit-source: Allan Amato}}
+{{credit: /codeigniter/blogs/gallery/amato-01/50}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+<h2>Getting Started with Closures</h2>
+
+The Closure Library is a broad, well-tested, modular, and cross-browser JavaScript library. Web developers can pull just what they need from a wide set of reusable UI widgets and controls, as well as lower-level utilities for the DOM, server communication, animation, data structures, unit testing, rich-text editing, and much, much more. It has been received rather warmly by the broad web community, although there were instances of criticism. If you interested in an assessment I wrote you can read it [here](/codeigniter/Blogs/tutorials/jQuery/Closure_assessment).
+
+<h3>Downloading</h3>
+You only need to download it if you gonna really build something with it now.
+If you just want to see how it is organized. go to Simple view or Browse Source. 
+
+Library code are currently offered through a SVN(version control). to download it: you need a SVN client. or easier get a SVN Desktop-integrated client. then use those instructions.
+Personally after downloading a few files manually I used a  Web Spider [FDM](http://www.freedownloadmanager.org/index.htm) to download the files. You will not need all the files and if you use FDM some of the files will fail to download, however, you are looking at over 2000 files to download! This includes all the documentation.
+
+{{bulb: You'll be downloading  ~126MB! Which contains Code & Docs & Demos. The code only is ~7.6MB.}}
+
+
+<h3>Assembling the scripts you need</h3>
+
+Now, you are talking about doing a real application and ready to launch it. You should assemble(bundle) all these JS files into one. So, you need to download the library. and use the included python script to do the assembling for us. you need to download Python Runtime first, then:
+
+-  After downloading, you have a 'closure' folder that contains 2 folders 'bin' and 'goog'
+-  place the hello.js beside 'Closure' and run this command there
+
+"closure/bin/calcdeps.py" -i hello.js \ -p closure/ -o script > hello-calc.js
+
+And you should get a new file hello-clac.js that is 228KB!
+
+
+
+<h3>Compiling</h3>
+After assembling, We need to shrink the file size! Google's engineer's call this step __compiling__. Of course we do not really compile the code to produce machine language, but simply shrink and optimize the code.
+
+
+There are three ways you can do this:
+
+- Use Java. You download [compiler.jar](http://closure-compiler.googlecode.com/files/compiler-latest.zip) (If you know Java this is for you!)
+- Use a simple web form (Google calls this the  [Closure Compiler Service UI](http://closure-compiler.appspot.com/home) ). Use this while evaluating the library.
+- Use the Closure Compliler Service API. Using this you can build your own tools and create your own work flow. This will process a chunk of JavaScript code or file to achieve significant size reduction. This is the hackish way to do it, you will not need to worry about versions etc and you will assume that Google will provide support for it. For example if you are using PHP you can use [curl](http://bohuco.net/blog/2009/11/google-closure-compiler-with-php/) to fetch the response and manipulate it in any way you like.
+
+It is worth to spend a few minutes and read more about the [Closure Compiler](http://code.google.com/closure/compiler/docs/overview.html) even if you do not eventually use Closure you may wish to use the Compressor for your own programs.
+
+I will be concentrating on the last method and let you experiment with the first two yourself.
+
+<h3>Compiling via Restful API</h3>
+
+<div class="code-block console-wrap clearfix">
+<form action="http://closure-compiler.appspot.com/compile" method="POST">
+    <p>Type JavaScript code to optimize here:</p>
+    <textarea name="js_code" cols="50" rows="5">
+    /**
+ * A simple script for adding a list of notes to a page. The list diplays
+ * the text of each note under its title.
+ */
+
+/**
+ * Creates the DOM structure for a note and adds it to the document.
+ */
+function makeNoteDom(noteTitle, noteContent, noteContainer) {
+  // Create DOM structure to represent the note.
+  var headerElement = document.createElement('div');
+  var headerText = document.createTextNode(noteTitle);
+  headerElement.appendChild(headerText);
+  
+  var contentElement = document.createElement('div');
+  var contentText = document.createTextNode(noteContent);
+  contentElement.appendChild(contentText);
+
+  var newNote = document.createElement('div');
+  newNote.appendChild(headerElement);
+  newNote.appendChild(contentElement);
+
+  // Add the note's DOM structure to the document.
+  noteContainer.appendChild(newNote);
+}
+
+/**
+ * Iterates over a list of note data objects and creates a DOM
+ */
+function makeNotes(data, noteContainer) {
+  for (var i = 0; i < data.length; i++) {
+    makeNoteDom(data[i].title, data[i].content, noteContainer);
+  }
+}
+
+function main() {
+  var noteData = [
+      {title: 'Note 1', content: 'Content of Note 1'},
+      {title: 'Note 2', content: 'Content of Note 2'}];
+  var noteListElement = document.getElementById('notes');
+  makeNotes(noteData, noteListElement);
+}
+
+main();  
+    </textarea>
+    <input type="hidden" name="compilation_level" value="WHITESPACE_ONLY">
+    <input type="hidden" name="output_format" value="text">
+    <input type="hidden" name="output_info" value="compiled_code">
+    <br><br>
+    <input type="submit" value="Optimize">
+    </form>
+
+</div>
+
+
+<h3>Discussion</h3>
+
+Some developers might be put off by the hassle of taking a three step process to install a JavaScript library, afterall the like's of jQuery and Prototype have spoiled us by only having to include a single script tag on our page. One other difficulty in doing so is if your application has different requirements for different sections, like what I am doing here. In this case nothing is stopping you to just include the base.js and deps.js, scripts on your general template and use the _required()_ functions to load what you need. It will still add-up to sizeable files, but I find it easier while developing on localhost. Later for your production environment you can compile the code accordingly.
+
+There is also a [discussion group](https://groups.google.com/group/closure-library-discuss/browse_thread/thread/b92115ac2b158018), which so far has managed not to attract any pornography which is the baine of most of the other google groups! 
+
+
+Have you just installed Python, Now time to install Java runtime too, No kidding :) 
+
+1 -  After JRE (Java runtime) is setup, download Closure Compiler compiler.jar.
+
+2 -  Place the compile.jar next to hello-calc.js and run this command there:
+java -jar compiler.jar --js hello-calc.js --js_output_file hello-compiled.js
+
+It will show some warnings but no errors! and you will get hello-compiled.js which is 48KB, Awesome!
+
+That command is not what instructed in [Using the Dependency Calculation Script] as it didn't work for me. I used command from [Getting Started with the Closure Compiler Application]!
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading for the future 
+
+<script>
+$(document).ready(function(){
+//$('#rot-ex').rotate3Di(180, 1000); 
+$('.rot-ex').rotate3Di(360, 1000); 
+});       
+</script>
+
+
+
+  
+  
+
+
+
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    

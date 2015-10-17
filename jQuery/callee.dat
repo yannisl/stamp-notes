@@ -1,0 +1,38 @@
+ 
+<h2>argument.callee()</h2>
+Although there is no problem in referring to a named function, it does presents a problem for anonymous functions. After all,  that is why we call them anonymous.
+
+__callee__  is a property of the arguments local variable available within all function objects; 
+
+arguments.callee allows anonymous functions to refer to themselves, which is necessary for recursive anonymous functions.
+
+The this keyword does not refer to the currently executing function. Use the callee property to refer to a function within the function body.
+
+<div  class="code-block console-wrap" title="A down-count timer using a recursive function and arguments.callee"><div class="code code-block"><code>
+
+</code>
+</div>
+<p id="msg1" class="msg" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<hr/>
+
+For simple cases like the above, my own recommendation is to actually __name__ the function, while debugging it makes it easier to trace and is debatable if typing __arguments.callee__ is less cumbersome than typing the function name twice. However, there are a number of useful instances where, such a call is necessary. For a more involved example see this [article](/CodeIgniter/index.php/Blogs/tutorials/jQuery/Javascript_the_new_operator ).
+
+
+<span class="chapter">5</span>
+
+  
+  
+
+
+
+
+
+
+
+              

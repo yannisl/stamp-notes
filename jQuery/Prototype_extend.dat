@@ -1,0 +1,145 @@
+               
+<!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<script>
+goog.require('goog.date');
+</script>
+
+
+<h2>Extending the build-in Objects prototype</h2>
+
+This is from the prototype library
+
+<div  class="code-block console-wrap"><div class="code-block code"><code>
+/** section: Language
+ * class Date
+ *
+ *  Extensions to the built-in `Date` object.
+**/
+
+
+(function(proto) {
+  
+  /**
+   *  Date#toISOString() -> String
+   *
+   *  Produces a string representation of the date in ISO 8601 format.
+   *  The time zone is always UTC, as denoted by the suffix "Z".
+   *
+   *  <h5>Example</h5>
+   *
+   *      var d = new Date(1969, 11, 31, 19);
+   *      d.getTimezoneOffset();
+   *      //-> -180 (time offest is given in minutes.)
+   *      d.toISOString();
+   *      //-> '1969-12-31T16:00:00Z'
+  **/
+  
+  function toISOString() {
+    return this.getUTCFullYear() + '-' +
+      (this.getUTCMonth() + 1).toPaddedString(2) + '-' +
+      this.getUTCDate().toPaddedString(2) + 'T' +
+      this.getUTCHours().toPaddedString(2) + ':' +
+      this.getUTCMinutes().toPaddedString(2) + ':' +
+      this.getUTCSeconds().toPaddedString(2) + 'Z';
+  }
+  
+  /**
+   *  Date#toJSON() -> String
+   *
+   *  Internally calls [[Date#toISOString]].
+   *
+   *  <h5>Example</h5>
+   *
+   *      var d = new Date(1969, 11, 31, 19);
+   *      d.getTimezoneOffset();
+   *      //-> -180 (time offest is given in minutes.)
+   *      d.toJSON();
+   *      //-> '1969-12-31T16:00:00Z'
+  **/
+
+  function toJSON() {
+    return this.toISOString();
+  }
+  
+  if (!proto.toISOString) proto.toISOString = toISOString;
+  if (!proto.toJSON) proto.toJSON = toJSON;
+  
+})(Date.prototype);
+
+
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+<h3>fill numeric</h3>
+The fillNumeric() method returns an array filled with numbers in ascending order.
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+/**
+ * Returns an array consisting of a list of  n numbers in ascending order from start to n.
+ *
+ * @param {*} start the start number.
+ * @param {number} n The repeat count.
+ * @return {!Array.<*>} An array with the repeated value.
+ */
+
+function fillNumeric(start, n) {
+  var array = [];
+  if (arguments.length < 2) {
+    var n = start;
+    var start = 0;
+  }
+  for (var i = start; i < n - start; i++) {
+    array[i] = i;
+  }
+  return array;
+};
+
+log(fillNumeric(4, 12));
+log(fillNumeric(13));
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+              

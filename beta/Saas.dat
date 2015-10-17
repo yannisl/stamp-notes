@@ -1,0 +1,12 @@
+\chapter{Installing Sass on Windows}
+
+[Ricardo Zea](https://medium.com/web-design-tutorials/22ff4a32c1f7) wrote an article how to install Saas on Windows \textit{Sass For Beginners: The Friendliest Guide About How to INSTALL & USE Sass on Windows}.  The author claims that this is the simplest and most detailed guide to install and use Sass you’ll ever read and is probably is.
+
+I also tried installed [Compass](http://compass-style.org/install/), truly the ruby guys did a great job in tooling. No problems in installing and the best part is the `--watch` command, that automatically compiles and updates the `css` source, when changes are detected in the file.
+
+To create a new file on the command line use
+
+`type NUL>1.txt`
+
+This is almost equivalent to the *NIX `touch` command.
+

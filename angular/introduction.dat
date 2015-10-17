@@ -1,0 +1,77 @@
+
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/
+angular.js"></script>
+
+
+<div ng-app ng-init="name = 'World'" ng-cloak>
+
+<h1>Hello, {{name}}!</h1>
+Say hello to: <input type="text" ng-model="name" ng-cloak>
+<h1>Hello, {{name}}!</h1>
+<ul ng-controller="WorldCtrl">
+
+<li ng-repeat="country in countries">
+{{country.name}} has population of {{country.population}}
+</li>
+
+<hr>
+World's population: {{population}} millions
+</ul>
+</div>
+
+\chapter{What you need to Experiment with Angular }
+
+
+To experiment with AngularJS examples all you need is a web browser and a text
+editor (or your favorite IDE). 
+
+But in order to take full advantage of this book we
+would recommend installing node.js (http://nodejs.org/) and its npm package
+manager with the following modules:
+
+
+- [Grunt](http://gruntjs.com/)
+
+- [Karma runner](http://karma-runner.github.io)
+
+Code examples illustrating interactions with a back-end are making use of a
+cloud-hosted MongoDB database (MongoLab) and couchdb. Most examples here can be run through as you study the material.
+
+
+Meet AngularJS
+
+AngularJS is a client-side MVC framework written in JavaScript. It runs in a web
+browser and greatly helps developers to write modern, single-page, AJAX-style
+web applications. It is a general purpose framework, but it shines when used to write
+CRUD (Create Read Update Delete) type web applications.
+
+\begin{codeblock}
+log(angular.version);
+\end{codeblock}
+
+The controller is as follows:
+
+<script>
+var WorldCtrl = function ($scope) {
+$scope.population = 7000;
+$scope.countries = [
+{name: 'France', population: 63.1},
+{name: 'United Kingdom', population: 61.8},
+{name: 'Cyprus',population:0.7}
+];
+};
+</script>
+
+\section{Design Concepts}
+
+There is an interesting video on youtube, where the creator of Angular describes the design decisions behind the framework. I recommend you watch it, as it will give you a good background, as to why things are the way they are with Angular.
+
+<iframe width="560" height="315" src="//www.youtube.com/embed/HCR7i5F5L8c?list=PL1w1q3fL4pmgqpzb-XhG7Clgi67d_OHXz" frameborder="0" allowfullscreen></iframe>
+
+And the markup fragment looks in the following manner:
+
+<iframe width="560" height="315" src="//www.youtube.com/embed/8uj7YSqby7s" frameborder="0" allowfullscreen></iframe>
+
+[photo-credits](http://photogrist.com/fashion-photography-by-annie-leibovitz/)
+
+

@@ -1,0 +1,58 @@
+\begin{thebibliography}{9}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Benny(2011)]{options}
+Jordan Benny.
+\newblock \emph{Options, The Plain and Simple Guide to Succesful Strategies},
+  volume~85.
+\newblock Prentice Hall, London, 2011.
+
+\bibitem[E.(2011)]{gillis}
+Gillis~David E.
+\newblock \emph{Fiji's Times Express Stamps, The Three Issued Paper Types and
+  Other FTE Topics}.
+\newblock Pacific Islands Study Circle, 2011.
+
+\bibitem[Eastgate(1996)]{eastgate}
+A.C. Eastgate.
+\newblock Fiji---100 {Y}ears of {S}tamps and {P}ostal {H}istory.
+\newblock \emph{The London Philatelist}, 105\penalty0 (1236):\penalty0
+  144--154, June 1996.
+
+\bibitem[Evans(1882)]{evans:1882}
+Edward~B. Evans.
+\newblock \emph{A {C}atalogue {F}or {C}ollectors}.
+\newblock Wilson \& Co., London, 1882.
+
+\bibitem[Evans(1885)]{evans:1885}
+Edward~B. Evans.
+\newblock \emph{The {P}hilatelic {H}andbook, {A} {G}uide {F}or {C}ollectors}.
+\newblock Stanley Gibbons\& Co., London, 1885.
+
+\bibitem[Gillis(2011)]{gillis01}
+David~E. Gillis.
+\newblock Fiji {T}imes {E}xpress {S}tamps, {T}he {T}hree {I}ssued {P}aper
+  {T}ypes.
+\newblock \emph{The London Philatelist}, 120:\penalty0 338--346, November 2011.
+
+\bibitem[J.G. and R.F.(1970)]{roger}
+Roger J.G. and Duberal R.F.
+\newblock \emph{Fiji the {S}tamps and {P}ostal {H}istory}.
+\newblock The Hawthorne Press, Melbourne, 1970.
+
+\bibitem[L.N.(1990)]{williams}
+Williams L.N.
+\newblock \emph{Fundamentals of Philately}.
+\newblock American Philatelic Society, State College, Pennsylvania, 1990
+  edition, 1990.
+
+\bibitem[Phillips(1908)]{phillips:fiji}
+Charles~J. Phillips.
+\newblock \emph{The Postage Stamps, etc, of the Fiji Islands}.
+\newblock Stanley Gibbons Ltd, London, 1908.
+
+\end{thebibliography}

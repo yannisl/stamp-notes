@@ -1,0 +1,233 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+{{feature-image:http://localhost/egypt/CMS/accordion.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<style type="text/css">
+p.cstar{display:block;margin:0 auto;width:98%}
+.green{color:green}
+.jslint{display:none}
+</style>
+	
+
+<h2>Repeat Stars</h2>
+A loop is a set of commands that executes repeatedly until a specified condition is met. JavaScript supports the <dfn>for</dfn>, <dfn>do while</dfn>, and <dfn>while</dfn> loop statements, as well as label (label is not itself a looping statement, but is frequently used with these statements). In addition, you can use the break and continue statements within loop statements.
+
+<div  class="code-block console-wrap">
+<div class="code code-block"><code><span class="green">//do .. while loops</span>
+var i=0;var s='';
+<span class="highlight"> do </span>{
+  s=s+'*';
+  i++;
+ } <span class="highlight">while</span> (i<5);
+$('#msg').text(s);
+</code>
+</div>
+<p id="msg" class="msg" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+<button class="eval">Make Stars!</button>
+<ol class="results"></ol>
+</div>
+</code>
+
+ You should be careful when writing do-while loops, as you can crush the browser if a limit is not reached. Also note that the do loop will execute at least once.
+
+<h3>More Stars!</h3>
+Can we now draw out some stars in a tower like fashion?
+
+Since we are working in the browser, I will always start, by defining the output
+first in html and css and then automating it. 
+This is so that we do not fight CSS (we always try and avoid these types of fights when we are fighting javascript we will first draw the stars.
+
+{{example:
+<div style="width:50%"><span style="margin:0 auto;border:1px solid red;clear:both;display:block;width:5px;padding:0">*</span></div>
+<div style="width:50%"><span style="margin:0 auto;border:1px solid blue;clear:both;display:block;width:10px;padding:0">**</span></div>
+<div style="width:50%"><span style="margin:0 auto;border:1px solid blue;clear:both;display:block;width:15px;padding:0">***</span></div>
+<div style="width:50%"><span style="margin:0 auto;border:1px solid blue;clear:both;display:block;width:20px;padding:0">****</span></div>
+}}
+
+The CSS and HTML is shown below:
+{{plain:
+&lt;div style="width:50%">
+   &lt;span style="margin:0 auto;border:1px solid red;clear:both;display:block;width:5px;padding:0">
+  *
+  &lt;/span>
+&lt;/div>
+}}
+
+Each consecutive block will have one more star and the width will be multiplied by the number of stars! Unlike programming in other languages, javascript gets mingled with html (not always very good, we will see in future lessons how to simplify this).
+
+<div  class="code-block">
+<div class="code code-block"><code><span class="green">//do .. while loops</span>
+
+function drawRowStars(numStars){
+var stars = '';
+var pixels=5;
+for (var i=0;i&lt;numStars-1;i++){
+    stars +='*';
+    pixels +=5;
+}
+var s='&lt;div style="width:50%"&gt;&lt;span style="margin:0 auto;border:1px solid red;clear:both;display:block;width:'+pixels+'px;padding:0"&gt;' + stars+'&lt;/span&gt;&lt;/div&gt;';
+return s;
+}
+
+var i=1;var s='';
+<span class="highlight"> do </span>{
+ s +=drawRowStars(i);
+  i++;
+ } <span class="highlight">while</span> (i<15);
+$('#msg1').html(s);
+</code>
+</div>
+<p id="msg1" class="msg" style="width:400px;font-size:12px;background:#fff">
+</p>
+<button class="eval">Make Stars!</button>
+<ol class="results"></ol>
+</div>
+
+
+
+
+
+
+
+Now that we have made a lot of stars. Let us write a program that puts a pyramid upside down!
+
+{{example:
+<div style="width:50%"><span style="margin:0 auto;border:1px solid blue;clear:both;display:block;width:20px;padding:0">****</span></div>
+
+<div style="width:50%"><span style="margin:0 auto;border:1px solid blue;clear:both;display:block;width:15px;padding:0">***</span></div>
+
+<div style="width:50%"><span style="margin:0 auto;border:1px solid blue;clear:both;display:block;width:10px;padding:0">**</span></div>
+
+<div style="width:50%"><span style="margin:0 auto;border:1px solid red;clear:both;display:block;width:5px;padding:0">*</span></div>
+
+}}
+
+
+<div  class="code-block">
+<div class="code code-block"><code><span class="green">//do .. while loops</span>
+
+function drawRowStars(numStars){
+var stars = '';
+var pixels=5;
+for (var i=0;i&lt;numStars-1;i++){
+    stars +='*';
+    pixels +=5;
+}
+var s='&lt;div style="width:50%"&gt;&lt;span style="margin:0 auto;border:1px solid red;clear:both;display:block;width:'+pixels+'px;padding:0"&gt;' + stars+'&lt;/span&gt;&lt;/div&gt;';
+return s;
+}
+
+var i=15;var s='';
+<span class="highlight"> do </span>{
+ s +=drawRowStars(i);
+  i--;
+ } <span class="highlight">while</span> (i>0);
+$('#msg2').html(s);
+</code>
+</div>
+<p id="msg2" class="msg" style="width:400px;font-size:12px;background:#fff">
+</p>
+<button class="eval">Make Stars!</button>
+</div>
+</code>
+
+
+<h3>Some Sugar explained</h3>
+
+<div  class="code-block">
+<div class="code code-block"><code>
+var i = 9;
+// this is not a spelling mistake
+ for (;i<12;i++){
+    alert('i '+i);
+}
+
+
+</code>
+</div>
+<p class="msg" style="width:400px;font-size:12px;background:#fff">
+</p>
+<ol class="results"></ol> 
+<button class="eval">Make Stars!</button>
+<ol class="results"></ol>
+</div>
+
+
+
+
+
+
+
+
+
+<h2>For the Mathematically Inclined</h2>
+<div  class="code-block">
+<div class="code code-block">
+<code>
+function fe(x)
+  { var y=8;
+    for (i=10;i&lt;x;i=i+2) { y=y+1; }
+    return(y); }
+
+function we(x)
+  { return(0); }
+
+var z=fe(903);
+alert(z);
+$('#msg3').html(z);
+</code>
+</div>
+<p id="msg3" class="msg">
+</p>
+<button class="eval">Make Stars!</button>
+<ol class="results"></ol>
+</div>
+
+Now let us write the second function and see how we can make it into a do-loop:
+
+<div  class="code-block">
+<div class="code code-block">
+<code>
+function fe(x)
+  { var y=8;
+    for (i=10;i&lt;x;i=i+2) { y=y+1; }
+    return(y); }
+
+function we(x)
+ { var y=8;
+    i=10;
+    do {i=i+2;
+            y=y+1; } while (i&lt;x);
+    return(y); }
+
+var z=we(903);
+alert(z);
+$('#msg4').html(z);
+</code>
+</div>
+<p id="msg4" class="msg" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+<button class="eval">Make Stars!</button>
+<ol class="results"></ol>
+</div>
+
+
+
+
+
+
+##References
+
+https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Loop_Statements/do...while_Statement
+
+http://www.comp.nus.edu.sg/~gem1501/assignment03.html
+
+
+

@@ -1,0 +1,113 @@
+
+<link type="text/css" media="screen" rel="stylesheet" href="/application-latest/colorbox/example1/colorbox.css" />
+
+
+<script type="text/javascript" src="http://localhost/CodeIgniter/colorbox/colorbox/jquery.colorbox.js"></script>
+<script type="text/javascript" src="http://localhost/CodeIgniter/js/timeout.js"></script>
+
+<script type="text/javascript">
+			$(document).ready(function(){
+				//Examples of how to assign the ColorBox event to elements
+				$("a[rel='example1']").colorbox();
+				$("a[rel='example2']").colorbox({transition:"fade"});
+				$("a[rel='example3']").colorbox({transition:"none", width:"50%", height:"50%"});
+				$("a[rel='example4']").colorbox({slideshow:true});
+				$(".single").colorbox({}, function(){
+					alert('Howdy, this is an example callback.');
+				});
+				$(".ajax").colorbox();
+				$(".flash").colorbox({href:"http://localhost/CodeIgniter/colorbox/content/flash.html"});
+				$(".iframe").colorbox({width:"80%", height:"80%", iframe:true});
+				$(".inline").colorbox({width:"50%", inline:true, href:"#inline_example1"});
+				
+				//Example of preserving a JavaScript event for inline calls.
+				$("#click").click(function(){ 
+					$('#click').css({"background-color":"#f00", "color":"#fff", "cursor":"inherit"}).text("Open this window again and this message will still be here.");
+					return false;
+				});
+			});
+</script>
+
+
+
+
+
+<style>
+ .hidden{display:none;}
+
+</style>
+
+
+
+<h2>ColorBox</h2>
+
+If there is one thing that spread like wild fire in the web, is the handling of images via lightboxes, scrollable galleries and the like. The fade in plugin was
+covered elsewhere as well as Cycle. This one is a bit different, developed by
+ Jack Moore of [colorpwered](http://colorpowered.com/colorbox/). He has developed a very flexible and adaptable application and had no trouble in installing it within a few minutes, here. I had to only adjust for my .httaccess file for CodeIgniter in order to adjust the directory structures and presto. Jack has also managed to set up both a google groups as well as a twitter account. If you place a plugin in the wild you need to follow the wild fire and he has done so.
+
+<h2>elastic transition</h2>
+<p><a href="http://localhost/application-latest/images/angela.jpg" rel="example1" title=" Angela"><img src="http://localhost/application-latest/images/angela.jpg" style="width:130px"></a></p>
+
+<p><a href="http://localhost/CodeIgniter/images/samples/jacko.jpg" rel="example1" title="On the Ohoopee as a child"><img src="http://localhost/CodeIgniter/images/samples/jacko.jpg" style="width:130px"> </a></p>
+
+<p><a href="http://localhost/CodeIgniter/images/Champagne_ulorinvex.jpg" rel="example1" title="On the Ohoopee as an adult"><img src="http://localhost/CodeIgniter/images/Champagne_ulorinvex.jpg " style="width:130px" /> </a></p>
+
+<hr/>
+<h3>Fixed width and height (50% of screen size)</h3>
+<p><a href="http://localhost/CodeIgniter/images/angela.jpg" rel="example3" title=" Angela"><img src="http://localhost/CodeIgniter/images/angela.jpg" style="width:130px"></a></p>
+
+
+<p><a href="http://localhost/CodeIgniter/images/Atomic_by_miss_mosh.jpg" rel="example3" title="On the Ohoopee as a child"><img src="http://localhost/CodeIgniter/images/Atomic_by_miss_mosh.jpg" style="width:130px"> </a></p>
+
+<p><a href="http://localhost/CodeIgniter/images/Champagne_ulorinvex.jpg" rel="example3" title="On the Ohoopee as an adult"><img src="http://localhost/CodeIgniter/images/Champagne_ulorinvex.jpg " style="width:130px" /> </a></p>
+
+
+
+<hr/>
+<h2>Other Content Types</h2>
+<p><a class='iframe' href="http://colorpowered.com/colorbox/">Outside webpage (IFrame)</a></p>
+
+<p><a class='ajax' title="Homer Defined" href="/CodeIgniter/colorbox/content/ajax.html">Outside HTML (Ajax)</a></p>
+<p><a class='inline' href="#">Inline HTML</a></p>
+<p><a class='flash'  href="http://www.vimeo.com/2285902" title="dance">Flash / Video</a></p>
+
+
+<!-- This contains the hidden content for inline calls -->
+<div class='hidden'>
+<div id='inline_example1' style='padding:10px; background:#fff;'>
+<p><strong>This content comes from a hidden element on this page.</strong></p>
+
+<p>The inline option preserves bound JavaScript events and changes, and it puts the content back where it came from when it is closed.<br />
+<a id="click" href="#" style='padding:5px; background:#ccc;'>Click me, it will be preserved!</a></p>
+			
+<p><strong>If you try to open a new ColorBox while it is already open, it will update itself with the new content.</strong></p>
+<p>Updating Content Example:<br />
+<a class="flash" href="#">Click here to load new content</a></p>
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          

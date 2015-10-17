@@ -1,0 +1,93 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+<h2>instanceof</h2>
+Use instanceof when you need to confirm the type of an object at runtime. For example, when catching exceptions, you can branch to different exception-handling code depending on the type of exception thrown.
+
+You must specify an object on the right side of the instanceof operator. For example, you can specify a string created with the String constructor, but you cannot specify a string literal.
+
+{{plain:
+var isInstance = objectName instanceof objectType;
+}}
+
+<div  class="code-block console-wrap"><div class="code code-block"><code>
+var color1 = new String("green");
+color1 instanceof String; // returns true
+var color2 = "blue";
+log(color2 instanceof String); // returns false (color2 is not a String object)
+
+
+
+</code>
+</div>
+<p id="msg1" class="msg" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<hr/>
+
+<h3>Checking a custom object</h3>
+ 
+
+
+<div  class="code-block console-wrap"><div class="code code-block"><code>
+function House() {
+  this.price = 20000;
+  this.location = 'nowhere';
+}
+
+var z = [2, 3, 4, 5];
+var newHouse = new House();
+
+log(newHouse instanceof House);
+
+log(z instanceof Array);
+
+var z1 = document.getElementById('msg1');
+
+log(z1 instanceof HTMLParagraphElement);
+
+log(z1);
+
+// using Protype.js
+var z3=$A(0,1,2,3,4);
+log(z3 instanceof Array);
+
+</code>
+</div>
+<p id="msg1" class="msg" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+If you check the above example, we have tested if a DOM element is of type HTMLParagraphElement. The instanceof is a safer bet to check for typing during run-time.
+
+<h3>Exercises</h3>
+
+- write a function to test and return the instance of the object type, i.e a number should return Number etc..
+
+
+
+  
+  
+
+
+
+
+
+
+

@@ -1,0 +1,206 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+<style ="type/css">
+div#flipBox2, .flipCard, div#fContainer {
+	width: 500px;
+	height: 380px;
+	margin: 0 auto;
+	background: #b34212;
+       	color: #fff;
+	font-weight: bold;
+	font-size: 16px;
+	padding: 15px;	
+}
+
+div#flipBox > * {
+	padding: 15px;
+}
+
+div#fContainer{width:535px}
+ </style>
+
+
+
+<script src = "http://localhost/codeigniter/js/flip.js" />
+
+<h2>A flip animation Part II</h2>
+
+We are now nearer to a very rough prototype. I always strive to produce an early prototype. It sorts of guides me as to what I need to do next, it can generate some discussion and can become the basis for more detail work later on to beautify the design, server and database strategies and so on.
+
+We will now complete the AJAX functionality, by writing a short PHP script. The last phase will be work on the database and the server routines.
+
+This is how it looks up to now.
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+var temp = $('#flipBox').html();
+var next;
+        next = 0;
+// Adding AJAX functionality
+
+// outputs questions and answers to card
+function show_questions(){
+    $('.question').text(flashCard.question);
+    $('.answer').each(function(i){
+        $(this).text(flashCard.answers[i+1]);
+    });
+
+}
+
+// callback
+function next_question(data, status)
+{
+  //alert(status);
+ flashCard = eval ( '(' + data +')' );
+ show_questions();
+}
+
+// get data from server
+function get_data(user, questionID, next){
+$.ajax({
+    type : "GET",
+    url : "/CodeIgniter/Blogs/ajax_question/"+next,
+    data:'',
+    success: next_question,
+   });
+}
+
+// first uri
+get_data("y","1",next);
+
+
+
+
+$('.answer').live('click', function(){
+   var wrong='&lt;div&gt; Wrong Answer &lt;/div&gt;'; 
+   var corr = '&lt;div&gt;  Correct Answer &lt;/div&gt;';
+   var message = wrong;
+   
+   var correct = $('.answer:eq('+parseInt(flashCard.correctAnswer-1)+')').text();
+
+   // increment  counter 
+       next = next +1;
+   if ($(this).text()== correct){
+   message = corr;}else{message = wrong}
+  $('#flipBox').flip({
+  direction: 'bt',
+  color: '#D46419',
+  speed: 100,
+  content: message + flashCard.answerExplanation 
+});
+});
+
+$('a#next').click( function(){
+   $('#flipBox').html(temp);
+   get_data("", "", next);
+   return false;
+});
+
+</code>
+</div>
+
+<div  id ="msg5" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<div id="fContainer" style="height:480px;width:630px;background:#000">
+<div class="flipCard" id="flipBox" style="background: #b34212;color:#fff"><ol>
+<div class="question">Question</div>
+<li class="answer">Pls wait ...</li>
+<li class="answer">Pls wait ...</li>
+<li class="answer">Pls wait ...</li>
+<li class="answer">Pls wait ...</li></ol>
+</div>	
+<div class="next" >
+     <a id="next" href="#" style="color: #fff;font-weight:bold;font-size:16px;display:block;float:right">Next ></a>
+</div>	
+
+</div>
+
+<p>Further Enhancements</p> 
+
+The script is growing and by now we need to give some attention to the other details, first the User Information, what are we going to log, how are they to progress through lectures and so on.
+
+I will not bore you the the details, you can download the full script at git and fork it on your own way. Please let me know how it looks and where you have used it.
+
+
+<hr/>
+
+
+<span id="chapter" class="hidden">15</span>
+##Further Reading
+http://foolsworkshop.com/reviews/basics
+
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+				
+				$("a#mail").attr("href","mailto"+":"+"luca"+"@smas"+"hup.it");
+				
+$("#flipBT").click(function(){
+					$("#flipBox").flip({
+						direction: 'bt',
+						color: '#D46419',
+						speed: 100,
+content: "<div class='demo_one'><strong>recluse </strong><br/><ol><li>hermit loner</li>excessive interest in ones self belief that one should be interested in one self rather than in others; selfishness<li>please satisfy</li><li>generous gift (given to people who do not have enough)</li></ol></div>"
+					});
+                                     return false;
+				});
+				$("#flipTB").click(function(){
+					$("#flipBox").flip({
+						direction: 'tb',
+						color: '#B34212',
+						speed: 100,
+						content: "<div class='demo_two'><img src='http://localhost/codeigniter/images/angela.jpg' style='height:180px' /></div>"
+					});
+                                    return false;
+				});
+				$("#flipLR").click(function(){
+                                        
+					$("#flipBox").flip({
+						direction: 'bt',
+						color: '#341405',
+                                                speed: 100,
+						content: $('#question').html()
+					});
+                                     return false;
+				});
+				$("#flipRL").click(function(){
+					$("#flipBox").flip({
+						direction: 'rl',
+						color: '#166665',
+						speed: 100,
+						content: "<div class='demo_four'>"+$("#footer div:eq(0)").html()+"<br/><span style='font-size:11px'>This is a taken directly <a href='#footer' style='color:#fff'>from</a> this page<code style='display:block;padding:5px;font-family:monospace'>$('#footer div:eq(0)').html()</code></span></div>"
+					});
+                                     return false;
+				});
+				
+																		
+			});
+</script> 
+
+
+  
+  
+
+
+
+
+
+
+

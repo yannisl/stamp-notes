@@ -1,0 +1,99 @@
+
+\section{array}
+
+This file contains utilities for arrays, with the  base object being \textbf{array}. I will be spending a bit of time to dissect the inner workings of these routines, especially since Closure has been criticised at Sitepoint for some oversignts of micro-optimization, such as not using a predefined length in loops, resulting in slower implemenations. As you can see for yourself by running the example here, the time difference is in microseconds once you are looping over 100,000 loops. The V8 engine is intelligent enough to optimize looping, without depending on the programmer to do this.
+ 
+
+
+
+
+\begin{codeblock} 
+var a = [0, 10, 9, 8, 6, 5, 4, 3, 123, 3, 105, 211];
+var temp = goog.array.peek(a);
+log(temp);
+\end{codeblock}
+
+
+
+
+
+
+\begin{codeblock}
+// fill the array with 100,000 elements
+var arr = [];
+var length = 100000;
+for (var i = 0; i < length; i++) {
+  arr[i] = i;
+}
+
+// start profiling
+profiler.start();
+for (var i = 0; i < arr.length; i++) {
+  arr[i] = i;
+}
+profiler.stop();
+profiler.timeDiff();
+
+profiler.start();
+for (var i = 0, length = arr.length; i < length; i++) {
+  arr[i] = i;
+}
+profiler.stop();
+profiler.timeDiff();
+
+\end{codeblock}
+
+
+\subsection{Some Methods Provided by the array class}
+
+
+\begin{codeblock}
+
+// almost equivalent to jQuery's grep
+(function testArrayFilter() {
+  var a = [0, 10, 9, 8, 6, 5, 4, 3, 123, 3, 105, 211];
+  a = goog.array.filter(a, function (val, index, a2) {
+    return val > 100;
+  });
+  logPRE(a);
+})();
+\end{codeblock}
+
+
+
+
+
+
+
+\end{document}
+
+<span id="chapter" class="hidden">1</span>
+##Further Reading
+
+
+
+
+
+  
+  
+<!--
+{{feature-image:/codeigniter/images/china/beauty_02.jpg}}
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+--> 
+
+<script>goog.require('goog.array');</script>
+
+
+
+
+
+
+
+                                                                                                  

@@ -1,0 +1,244 @@
+<style type="text/css">
+ .box{width:13px;height:13px;font-weight:bold;
+fontsize:10px;white;float:left;margin:1px;
+color:#606060;}
+hr{clear:both;width:100%;height:0px;clear:both;margin:0px;margin-bottom:1px;padding:0px;}
+</style>
+
+
+
+##Heuristic functions
+
+ In [game renderer](http://127.0.0.1/CodeIgniter/index.php/Blogs/tutorials/jQuery/Languages), we discussed briefly, how to render an 9-box board, in preparation for the 8-puzzle.
+
+In this section, we will look at heuristics for the 8-puzzle, in order to shed light on the nature of heuristics in general.
+
+The 8-puzzle was one of the earliest heuristic search problems. As mentioned in Section 3.2 of (aima), the object of the puzzle is to slide the tiles horizontally or vertically into the empty space until the configuration matches the goal configuration. The images are from the University of Waterloo [algorithms](https://ece.uwaterloo.ca/~ece250/Algorithms/N_puzzles/) page. The \\((N^2 - 1)\\)-puzzle is a collection of \\(N^2 - 1\\) movable tiles number 1 through \\(N^2 - 1\\)) together with one blank arranged in an \\((N \times N\\) square.
+
+The average solution cost for a randomly generated puzzle according to Norvig is about 22 steps. The branching factor is about 3. (When the empty tile is in the middle, there are four possible
+moves; when it is in a corner there are two; and when it is along an edge there are three.) This
+means that an exhaustive search to depth 22 would look at about \\(3^{22} = 3.1 \times 10^{10}\\) states.
+
+If we want to find the shortest
+solutions by using \\(A^*\\), we need a heuristic function that never overestimates the number of steps to the goal.
+
+<div style="width:98%;margin-bottom:1.5em" >
+<img src="http://localhost/codeigniter/images/8-puzzle.png" style="display:block;margin:0 auto" />
+<div style="display:block;float:none;margin:0 auto;text-align:center;width:70%;font-size:12px" >Figure 1: The solution to the eight-puzzle (goal) and a random permutation of the tiles.</div>
+</div>
+
+
+\\(h_1 =\\) the number of misplaced tiles. For the above figure, seven tiles are out of
+position, so the start state would have \\(h_1\\) = 7. \\(h_1\\) is an admissible heuristic, because it is clear that any tile that is out of place must be moved at least once. This is also called the The _Hamming_ distance. Put another way, it measures the minimum number of substitutions required to change one state into the other, or the number of errors that transformed one state into the other.
+
+\\(h_2 =\\) the sum of the distances of the tiles from their goal positions. Because tiles
+cannot move along diagonals, the distance we will count is the sum of the horizontal
+and vertical distances. This is sometimes called the _city block distance_ or _Manhattan
+distance_. \\(h_2\\) is also admissible, because all any move can do is move one tile one step
+closer to the goal. Tiles 1 to 8 in the start state give a Manhattan distance of
+
+$$h_2 =  2 + 0 + 4 + 2 + 1 + 1 + 2 + 3 + 1 = 16. $$
+
+As we would hope, neither of these overestimates the true solution cost, which is 26.
+The equation for the Manhattan distance is:
+
+$$ d_{ij} = \sum_{k=1}^{n}\left|x_{ik}-x_{jk} \right| $$ 
+
+
+before we continue with the solution we will create the routines to hold the correct data structures, define the goal and the game.
+
+Filling the board with random numbers can be simulated with a shuffled array
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+function shuffledArray(length){
+  function random(x){
+    return Math.floor(Math.random()*(x));
+   }
+  var  shuffled = [];
+  while (shuffled.length < length ){
+  var val = random(length);
+  if($.inArray(val, shuffled)== -1) {  
+    shuffled.push(val);}
+  }; 
+  return shuffled;  
+}
+
+/* Draws a board of size x,y 
+ * tiles are arranged randomly
+ * or tiles are arranged as an input array
+ * 
+ */
+
+function Board(obj, opt_params){
+  var arr = [];
+  var size ={x:3, y:3} 
+  if (opt_params !== undefined) {
+     //log('optional parameters specified');
+     arr = shuffledArray(opt_params.size.x*opt_params.size.y); 
+     size.x = opt_params.size.x;
+     size.y = opt_params.size.y;
+     //log(size.x, size.y);
+    }
+    else {
+     //log('using default 3 x 3');
+     arr = shuffledArray(size.x*size.y);
+  }
+
+  // renders the tiles  
+  var makeSquare = function (n,cnt){
+    if (n ===0){n=''};
+    var square;
+         return square = '&lt;div  class="box" id="zz-'+cnt+'"&gt;' + n + '&lt;/div&gt;' ;
+  };
+
+ //populates randomly
+function populateRandom(){
+   var count = 0;
+   for (var j=0;j< size.y;j++){
+     var s='';
+     for (var i=0;i< size.x ;i++){
+       s = s+makeSquare(arr[count],count+1);
+       count++;
+     };
+     //log(s);
+     //log('&lt;hr/&gt;');
+   }
+ };
+
+ function populateGoal(){
+   var count = 1;
+   for (var j=0;j< size.y;j++){
+     var s='';
+     for (var i=0;i< size.x ;i++){
+       if(count< (size.x*size.y))s = s+makeSquare(count)
+         else {
+          s=s+makeSquare(0);
+         };
+       count++;
+     };
+     log(s);
+     log('&lt;hr/&gt;');
+   }
+ };
+
+ //populates state
+ function populateState(){
+   var count = 0;
+   for (var j=0;j< size.y;j++){
+     var s='';
+     for (var i=0;i< size.x ;i++){
+       s = s+makeSquare(obj[count],count+1);
+       count++;
+     };
+     log(s);
+     log('&lt;hr/&gt;');
+   }
+ };
+
+function goal(){
+   //stores goal in anarry  
+   var gl=[];
+   var count = 0;
+       i,j=0;
+  for (var j=0;j< size.y;j++){
+     var s='';
+     for (var i=0;i< size.x ;i++){
+        if(count < (size.x*size.y)-1)gl[count]=count+1;
+          else {
+            gl[count]=0;
+          }
+        count++;
+     };
+  } 
+  log(gl);
+ }
+  hammingDistance = function (obj){
+    var dist = 0;  
+    i=1; //start at one empty is last
+    for(i=1;i<9;i++) {
+     if (obj[i-1] !==i || obj[i-1] == 0){dist++};     
+    };
+    return dist;
+ };  
+ 
+//goal();
+ populateRandom();
+ //log(arr);
+ //log('hamming',hammingDistance(arr));
+ 
+// log('');
+// populateGoal();
+// log('');
+// populateState();
+// goal();
+  return hammingDistance(arr);
+};
+
+var s='hit: '
+for(var k=0;k < 500000;k++){
+  var param = {size:{x:3,y:3},element:'puzzle'};
+  var problem = Board();
+  if(problem < 1) s += problem + ', ';
+};
+
+log(s);
+</code>
+</div> <div class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+Running the code, we see that we can have approximately 1:500000 random hit with the board in full position.
+
+The hamming distance does not tell us much though. A better metric would be the amount of 'walk' the pieces need to do to go to their position. This is given by the Manhattan distance, which will also be used for the solution.
+
+The problem is to be stored in a collection. Each element of the collection, will hold a node with the values for that node. The values will be:
+
+{{example: currentposition(x,y),  targetposition(x,y), distance }}
+
+
+###Notes
+
+the programming style, have been kept as simple as possible. I have avoided iterators to illustrate some of the problems in a clearer procedural way.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                                                     

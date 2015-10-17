@@ -1,0 +1,126 @@
+
+<h2>Can we cache the results from a function?</h2>
+
+
+\begin{codeblock}
+function getElements( name ) { 
+  var results; 
+ 
+  if ( getElements.cache[name] ) { 
+    results = getElements.cache[name]; 
+  } else { 
+    results = document.getElementsByTagName(name); 
+    getElements.cache[name] = results; 
+  } 
+ 
+  return results; 
+} 
+getElements.cache = {}; 
+log( "Elements found: ", getElements("li").length );
+
+log( "Elements found: ", getElements("p").length );
+\end{codeblock}
+
+
+
+\begin{codeblock}
+//23: What happens if a function is an object property?
+var katana = { 
+  isSharp: true, 
+  use: function(){ 
+    this.isSharp = !this.isSharp; 
+    alert(this.isSharp);
+  } 
+}; 
+katana.use(); 
+assert( !katana.isSharp, "Verify the value of isSharp has been changed." );
+
+function loop(array, fn){ 
+  for ( var i = 0; i < array.length; i++ ) 
+    fn.call( array, array[i], i ); 
+} 
+var num = 0; 
+loop([0, 1, 2], function(value, i){ 
+  assert(value == num++, "Make sure the contents are as we expect it."); 
+  assert(this instanceof Array, "The context should be the full array."); 
+});
+\end{codeblock}
+
+
+##Further Reading
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+$('button.eval').click(function(){
+   var code=$(this).siblings('.code').text();
+   eval(code);
+});
+
+
+
+$(".input").keyup(function(){
+    var pattern=$(this).siblings('.regex').val(); 
+    var str=$(this).val();
+     s=isValid(str,pattern);
+    //alert(str);
+     $(this).siblings('.msg').text(s);
+});
+
+$(".regex").keyup(function(){
+    var str=$(this).siblings('.input').val();
+    var pattern=$(this).val();
+     s=isValid(str,pattern);
+     $(this).siblings('.msg').text(s);
+    // alert(pattern);
+});
+
+
+
+function error(msg){
+  jQuery("#results").append("<li class='error'><b>ERROR</b> " + msg + "</li>");
+}
+function log(){
+  var msg = "";
+  for ( var i = 0; i < arguments.length; i++ ) {
+    msg += " " + arguments[i];
+  }
+  jQuery("#results").append("<li class='LOG'><b>LOG</b> " + msg + "</li>");
+}
+
+function assert(pass, msg){
+var type = pass ? "PASS" : "FAIL";
+$(".results1").append('<li class=" ' + type + ' "><b>' + type + "</b> " 
+         + msg + "</li>");
+
+}
+
+
+});
+
+function isValid(str,pattern){
+    s=pattern;//alert(s);
+   var dateformat =new RegExp(pattern,'msi');
+    //alert(dateformat);
+   return dateformat.test(str);
+}
+
+//change to pass regex
+//must do to make more general solution
+
+
+ </script>
+
+
+
+  
+  
+
+
+
+
+
+
+
+                    

@@ -1,0 +1,55 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<script>goog.require('goog.window');</script>
+
+
+<h2>Clean</h2>
+
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+for (var prop in goog.info){
+  log(prop);
+}
+
+var d = new goog.window.open('#');
+
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+

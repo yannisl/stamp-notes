@@ -1,0 +1,262 @@
+##Flipping coins
+
+[Reading](http://www.fourmilab.ch/rpkp/experiments/statistics.html) 
+It is easier for the human brain to understand probabilities, if one starts with the simple act of flipping a coin, which we are about to flip with the script below. Up to ten million trials Google's chrome should have no problem. For higher numbers get prepared to press the wait button. At ten million flips it is almost certain that you can get more than 20 heads or tails in a row (a stroke of luck!). If half million people flipped a coin 20 times, one is bound to get twenty heads or tails in a row? Are you sure?
+
+\begin{codeblock}
+function random(x) {
+  return Math.floor(Math.random() * x);
+}
+
+var trials = 10000000,
+flips = 32,
+heads = 0,
+tails = 1,
+headsCount = 0,
+tailsCount = 0,
+headsConsecutive = 0,
+headsConsecutiveMax = 0;
+
+var i = 0,
+j = 0;
+
+// Begin trial
+while (i < trials) {
+  spin = random(2);
+  if (spin === 0) {
+    headsCount++;
+    headsConsecutive++;
+  }
+  else {
+    tailsCount++;
+    if (headsConsecutive > headsConsecutiveMax) {
+      headsConsecutiveMax = headsConsecutive;
+    }
+    headsConsecutive = 0;
+  }
+  //log(spin);
+  i++;
+}
+
+log(headsCount, ' ', tailsCount);
+log(headsCount / tailsCount);
+log(headsConsecutiveMax);
+
+\end{codeblock}
+         
+###More Trials
+
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+function random(x) {
+  return Math.floor(Math.random() * x);
+}
+
+var trials = 500000,
+flips = 20,
+heads = 0,
+tails = 1,
+headsCount = 0,
+tailsCount = 0,
+headsConsecutive = 0,
+headsConsecutiveMax = 0;
+
+var i = 0,
+j = 0;
+
+// Begin trial
+while (i < trials + 1) {
+  j = 0;
+  headsConsecutive = 0;
+  while (j < flips + 1) {
+    spin = random(2);
+    if (spin === 0) {
+      headsCount++;
+      headsConsecutive++;
+    }
+    else {
+      tailsCount++;
+      (headsConsecutive > headsConsecutiveMax)? headsConsecutiveMax = headsConsecutive : null;
+
+      headsConsecutive = 0;
+    }
+    //log(spin);
+    j++;
+  }
+  i++;
+}
+
+log(headsCount, ' ', tailsCount);
+log(headsCount / tailsCount);
+log(headsConsecutiveMax);
+</code>
+</div>
+
+<div  class="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>    
+
+You can get a 20 fairly easily, if you run the above code. With a slight modification we can also see, if more than one person managed it.
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+function random(x) {
+  return Math.floor(Math.random() * x);
+}
+
+var trials = 1000000,
+flips = 20,
+heads = 0,
+tails = 1,
+headsCount = 0,
+tailsCount = 0,
+headsConsecutive = 0,
+headsConsecutiveMax = 0,
+trialsAboveN = 0;
+
+var i = 0,
+j = 0;
+
+// Begin trial
+while (i < trials + 1) {
+  j = 0;
+  headsConsecutive = 0;
+  while (j < flips + 1) {
+    spin = random(2);
+    if (spin === 0) {
+      headsCount++;
+      headsConsecutive++;
+    }
+    else {
+      tailsCount++;
+      (headsConsecutive > headsConsecutiveMax) ? headsConsecutiveMax = headsConsecutive : null;
+
+      headsConsecutive = 0;
+    }
+    if (headsConsecutive > 19) trialsAboveN++;
+    //log(spin);
+    j++;
+  }
+  i++;
+}
+
+log(headsCount, ' ', tailsCount);
+log(headsCount / tailsCount);
+log(headsConsecutiveMax);
+log(trialsAboveN);
+</code>
+</div>
+
+<div  class="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>   
+
+##Counting Frequencies
+
+So far the coin flipping has been interesting, but not informative. Is there a distribution? How many people got three heads, how many four etc? Most of them should have a number close to ten, after all the probability is 50/50 that you would get a head or a tail.
+
+This will slightly complicate the code, which I tried to keep as simple as possible. So what we will do we will keep these values in buckets. Think of the 20 flips as buckets holding the number of people that achieved a number. We will use arrays for this.
+
+
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+function random(x) {
+  return Math.floor(Math.random() * x);
+}
+
+var trials = 1000,
+flips = 10,
+heads = 0,
+tails = 1,
+headsCount = 0,
+tailsCount = 0,
+headsConsecutive = 0,
+headsConsecutiveMax = 0,
+trialsAboveN = 0,
+buckets = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+var s = '';
+var i = 0,
+j = 0;
+
+// Begin trial
+while (i < trials) {
+  s = '';
+  j = 0;
+  headsConsecutive = 0;
+  headsConsecutiveMax = 0;
+  while (j < flips) {
+    spin = random(2);
+    if (spin === 0) {
+      headsCount++;
+      headsConsecutive++;
+      s = s + 'H';
+    }
+    else {
+      tailsCount++;
+      buckets[headsConsecutive] = buckets[headsConsecutiveMax] + 1
+      headsConsecutiveMax = 0;
+      headsConsecutive = 0;
+      s = s + 'T';
+    };
+    (headsConsecutive > headsConsecutiveMax) ? headsConsecutiveMax = headsConsecutive : null;
+    j++;
+  };
+  i++;
+}
+
+assert(i == 1, i);
+
+//log(headsCount, ' ', tailsCount);
+//log(headsCount / tailsCount);
+log(headsConsecutiveMax);
+//log(trialsAboveN);
+log(buckets.toString());
+
+var sum = 0;
+for (var i = 0; i < buckets.length; i++) {
+  sum = (buckets[i] * i) + sum;
+}
+log(sum);
+
+assert(buckets.length == 20);
+log(s);
+
+
+</code>
+</div>
+
+<div  class="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div> 
+
+http://20bits.com/articles/graph-theory-part-i-introduction/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        

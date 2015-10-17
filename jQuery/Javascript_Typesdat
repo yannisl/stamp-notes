@@ -1,0 +1,77 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+{{feature-image: http://localhost/CodeIgniter/images/china/beauty_04.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+<h2>JavasScript  Types</h2>
+A value is an entity that takes on one of nine types. 
+
+There are nine types defined by ECMA script (Undefined, Null, Boolean, String,
+Number, Object, Reference, List, and Completion). Values of type Reference, List, and Completion are used
+only as intermediate results of expression evaluation and cannot be stored as properties of objects.
+
+
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+ var z2 = null; 
+ var z3 = false;
+ var z4 = '';
+ var z5 ={test: 12,
+                        a:function(){}
+                 };
+ var z = 12;
+  
+log('z1 type : ', typeof z1);
+log('z2 type : ', typeof z2);
+log('z3 type : ', typeof z3);
+log('z4 type : ', typeof z4);
+log('z4 type : ', typeof z5 );
+log('z4 type : ', typeof z5.test );
+log('z4 type : ', typeof z5.a );
+log('z  type : ',typeof z);
+log('a number as string', typeof z.toString());
+log('z type of', typeof window);
+</code>
+
+</div>
+
+<div  class="msg" class="msg" style="white-space:pre;font-family:monospace;line-height:1.3">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+<img src="http://localhost/codeigniter/images/jquery.png" style="float:right; width:85px"/>
+</div>
+
+<h3>Automatic type conversion</h3>
+The ECMAScript runtime system performs automatic type conversion as needed. To clarify the semantics of
+certain constructs it is useful to define a set of conversion operators. These operators are not a part of the
+language; they are defined here to aid the specification of the semantics of the language. The conversion
+operators are polymorphic; that is, they can accept a value of any standard type, but not of type Reference,
+List, or Completion (the internal types).
+
+##Further Reading
+
+
+
+ 
+
+
+
+  
+  
+
+
+
+
+
+
+

@@ -1,0 +1,111 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<h2>How to find the true type of an object</h2>
+This continues are examination of typeof and instanceof as tools in determining the type of an object. But, what happens if we want a bit more details? The code below is used to examine and build a case by case output. Check how it compares with instanceOf. The code has been adapted from Closure who 'borrowed it' from jsUnit.
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+function Test() {
+
+}
+
+var test = new Test();
+
+function trueTypeOf(something) {
+  // defaults to typeof if it does not match
+  var result = typeof something;
+  try {
+    switch (result) {
+    case 'string':
+      break;
+    case 'boolean':
+      break;
+    case 'number':
+      break;
+    case 'object':
+    case 'function':
+      switch (something.constructor) {
+      case new String('').constructor:
+        result = 'String';
+        break;
+      case new Boolean(true).constructor:
+        result = 'Boolean';
+        break;
+      case new Number(0).constructor:
+        result = 'Number';
+        break;
+      case new Array().constructor:
+        result = 'Array';
+        break;
+      case new RegExp().constructor:
+        result = 'RegExp';
+        break;
+      case new Date().constructor:
+        result = 'Date';
+        break;
+      case Function:
+        result = 'Function';
+        break;
+      default:
+        var m = something.constructor.toString().match(/function\s*([^( ]+)\(/);
+        if (m) {
+          result = m[1];
+        } else {
+          break;
+        }
+      }
+      break;
+    }
+  } finally {
+    result = result.substr(0, 1).toUpperCase() + result.substr(1);
+    return result;
+  }
+}
+
+var z;
+
+log(trueTypeOf(''));
+log(trueTypeOf(/klkllkk/));
+log(trueTypeOf(function () {}));
+log(trueTypeOf({}));
+log(trueTypeOf(Test));
+log(trueTypeOf(test));
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+

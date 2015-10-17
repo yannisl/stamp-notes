@@ -1,0 +1,92 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<style>
+pre{white-space: pre}
+
+</style>
+
+
+<h3>Selectors API</h3>
+
+The latest W3C specifications may, simplify the way JavaScript libraries use selection engines (once all browsers are actually fully compatible).
+
+The W3C Selectors API is a, comparatively, new API that is designed to reduce much of the work that it
+takes to implement a full CSS selector engine in JavaScript. Browser vendors have pounced on this new
+API and it's implemented in all major browsers (starting in Safari 3, Firefox 3.1, Internet Explorer 8, and
+Opera 10). Implementations of the API generally support all selectors implemented by the browser's CSS
+engine. Thus if a browser has full CSS 3 support their Selectors API implementation will reflect that.
+The API provides two methods:
+
+- querySelector: Accepts a CSS selector string and returns the first element found (or null if no
+matching element is found).
+
+- querySelectorAll: Accepts a CSS selector string and returns a static NodeList of all elements
+found by the selector.
+and these two methods exist on all DOM elements, DOM documents, and DOM fragments.
+
+The following example has a couple examples of how it could be used.
+
+
+<div  class="code-block console-wrap">
+
+<div id="b">Me too</div>
+<div class="code code-block"><code>
+
+var divs = document.querySelectorAll("div.console-wrap");
+var li = document.querySelectorAll("li");
+log(divs.length);
+log(li.length);
+
+li = $('li').length;
+log('li elements count using jQuery', li);
+</code>
+</div>
+<p id="msg1" class="msg">
+</p>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol>
+</div>
+</code>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+##Further Reading
+
+
+
+
+  
+  
+
+
+
+
+
+
+

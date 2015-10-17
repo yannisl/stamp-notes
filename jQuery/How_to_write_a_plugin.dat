@@ -1,0 +1,174 @@
+
+<style>
+.starhidden { display:none; }
+.tip{}
+.imgtip{}  
+</style>
+
+
+<h2>How to write a Plugin</h2>
+
+So far you have been using jQuery plugins and now you have some great idea and want to write a plugin? Put some music on from [thesixtyone](http://thesixtyone.com), grub a drink and let us run through a typical cycle of a jQuery plugin development. I will be using an example from the 'thesixtyone' Site, which besides their great music, have in my opinion one of the most well thought ajax sites. The problem is we want to develop a plugin that can truncate a chunk of text. It allows one to present material in a less cluttered page and if the user decides to read the text, unlike typical CMS style of "..more" you can have it there and then without navigating away from the page. For anyone wearing a black hat it might even offer a slight SEO bonus.
+
+
+
+<div  style="padding:10px;width:600px;line-height:1.5">
+<div class="tip" style="background:url(http://localhost/CodeIgniter/images/code-bg.gif)">
+<img src="http://localhost/codeigniter/images/kate.jpg" style="display:block;float:left;margin-right:8px;width:100px" class="imgtip"/>
+<p>
+ I have so many hours of dreaming logged in at my parents gas station in Chugiak, Alaska. Ring up a customer- dream, stock the shelves-dream, mop the floors- dream, plow the snow-dream... I had spent my whole life in this precious little town doing the same things and it was kinda like "what am i gonna do with myself if i stay here?" so just as i was about to crack, i put it all on red...LA that is.
+I needed to see more of the world... I inherited the pioneer spirit from my Dutch/Welsh father who dropped out of 6th grade to survive the Great Depression by picking cotton for bowls of beans until he lied about his age to serve during the Korean War to support his parents... he was a self made man...he built our gas station with his own hands...he taught me to choose the day that i would wake up to...and my Filipino mother who left her parents to board in another town and walked miles in the rain with a banana leaf for an umbrella to go to school and sewed her own uniform and cooked her meals on a little fire as a child, who beleived in the american dream knowing that she could have a new life with greater possibilities for her children...she taught me that an understanding of what you are capable of combined with a healthy bit of resolve and improvisation can go a long way...
+with stories like these a part of me, it was not hard for me to save a lump of change and go to the city...did the Hollywood thing hittin the streets with the demo i made at my friends house...at the time those were the only songs i had written...I mean I had played piano and sang in church since I was yay high but this was a whole new game... I was learning as i was going...all by the seat of my pants, figuring out my sound as I wrote...then I ended up at this party where I met my future boss...Record Collection signed me within 6 mos of moving to LA...I've spent the last couple of years developing and recording the material on my album and...the dream is lookin pretty good so far, but we shall see. 
+</p>
+ </div>
+</div>
+<hr/>
+<div  style="padding:10px;width:600px;line-height:1.5">
+<div class="tip" style="background:url(http://localhost/CodeIgniter/images/code-bg.gif)">
+<img src="http://localhost/codeigniter/images/sarah.jpg" style="display:block;float:left;margin-right:8px;width:100px" class="imgtip"/>
+<p>
+  Hmm, what can I tell you about myself... 
+
+My name is Sarah Alison Solovay, and I write songs. I sing these songs, play guitar with them, and perform them whenever I can. 
+
+I attend high school in New York City. 
+
+I have a very serious addiction to cookie dough (the kind you buy at the supermarket, that comes in a tube-like bag it's incredible). 
+
+I recently discovered my love of black and white photographs. I taped them to my walls, and scattered the extras all over my room. 
+
+I hate warm weather, and I love rain. There's something so comforting about being indoors on a rainy day. 
+
+I think super fat dogs are the most adorable things ever. 
+
+I love complimenting people. My friends make fun of me because I stop random people in the street to say  or other comments like that. 
+
+I love making fun of really awkward situations especially while I'm still in them. I believe humor is one of the most important qualities a person can possess. A little bit of intelligence doesn't hurt either. 
+
+I'm obsessed with love. It confuses me, it fascinates...
+</p>
+ </div>
+</div>
+
+
+<script type="text/javascript">
+(function($){
+ $.fn.truncate = function(options) {
+    
+  var defaults = {
+   length: 450,
+   minTrail: 200,
+   moreText: "(+) expand",
+   lessText: "(-) collapse",
+   ellipsisText: "...",
+   bg: "#fff"
+  };
+  
+  var options = $.extend(defaults, options);
+    
+  return this.each(function() {
+   obj = $(this);
+   var body = obj.html();
+   
+   if(body.length > options.length + options.minTrail) {
+    var splitLocation = body.indexOf(' ', options.length);
+    if(splitLocation != -1) {
+     // truncate tip
+     var splitLocation = body.indexOf(' ', options.length);
+     var str1 = body.substring(0, splitLocation);
+     var str2 = body.substring(splitLocation, body.length - 1);
+     obj.html(str1 + '<span class="truncate_ellipsis">' + options.ellipsisText + 
+      '</span>' + '<span  class="truncate_more">' + str2 + '</span>');
+     obj.find('.truncate_more').css("display", "none");
+     obj.find('img.imgtip').css('width','100px');
+     // insert more link
+     obj.append(
+      '<span>' +
+       '<a href="#" class="truncate_more_link">' +  options.moreText + '</a>' + 
+      '</span>'
+     );
+
+     // set onclick event for more/less link
+     var moreLink = $('.truncate_more_link', obj);
+     var moreContent = $('.truncate_more', obj);
+     var image=$('img.imgtip',obj);
+     var ellipsis = $('.truncate_ellipsis', obj);
+     moreLink.click(function() {
+      if(moreLink.text() == options.moreText) {
+       moreContent.show('normal');
+       moreLink.text(options.lessText);
+       ellipsis.css("display", "none");
+       image.css('width','180px');
+      
+      } else {
+       moreContent.hide('normal');
+       moreLink.text(options.moreText);
+       ellipsis.css("display", "inline");
+       image.css('width','100px');
+      }
+      return false;
+       });
+    }
+   } // end if
+   
+  });
+ };
+})(jQuery);
+
+
+
+
+</script>
+<script type="text/javascript">
+  $().ready(function() {
+    $('.tip').truncate();
+  });
+ </script>
+<hr/>
+One thing to remember is to pass to the jQuery object a reference for  <em>this</em>, if you want to capture a class for example only within the context of the current object. In the code below $(this) is assigned to the <strong>obj</strong>. 
+
+This catches me quite a bit often.
+
+{{plain:
+  
+  obj = $(this);
+  var moreContent = $('.truncate_more', obj);
+}}
+The root of the jQuery library is the jQuery function, defined as follows:
+{{plain: 
+var jQuery = window.jQuery = window.$ = function( selector, context ) 
+&#123;
+   return new jQuery.fn.init( selector, context );
+&#125;;
+}}
+
+The $ function is an alias for the jQuery function. When you create a jQuery object, you pass a selector and a context. The selector indicates the query expression; the context indicates the portion of the DOM on which to run the query. If no context is specified, the jQuery function looks for DOM elements within the entire page DOM.
+
+The jQuery function (as well as its $ alias) performs some work on the provided arguments, runs the query, and then returns a new jQuery object that contains the results. The newly created jQuery object can, in turn, be further queried, or filtered, in a new statement as well as in a chain of statements.
+
+<p>The root jQuery object supports the following signatures:</p>
+
+{{plain:
+    jQuery( expression, [context] )
+    jQuery( html, [ownerDocument] )
+   jQuery( elements )
+   jQuery( callback )  
+}}
+
+
+
+<hr/>
+<h3>Further Reading</h3>
+
+http://bililite.com/blog/understanding-jquery-ui-widgets-a-tutorial/
+
+http://msdn.microsoft.com/en-us/magazine/dd453033.aspx
+<script type="text/javascript">
+$(window).load(function() {
+  var pic = $('img.imgtip');
+
+  pic.removeAttr("width"); 
+  pic.removeAttr("height");
+
+  });
+</script>

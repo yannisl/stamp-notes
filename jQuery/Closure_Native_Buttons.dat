@@ -1,0 +1,217 @@
+      
+<!--
+ directives
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{feature-image:http://localhost/egypt/martin-schoeller/helen_mirren_2006.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<script type="text/javascript"> 
+ goog.require('goog.dom');
+ goog.require('goog.events');
+ goog.require('goog.testing.events');
+ goog.require('goog.ui.Button');
+ goog.require('goog.ui.ButtonRenderer');
+ goog.require('goog.ui.NativeButtonRenderer');
+</script>
+ 
+ 
+<h3>Native Buttons and Closure</h3>
+Native buttons is what you would normally have when you insert a button  in a page with the &lt;button&gt; tag. Closure handles these buttons a bit differently so that they can seamlessly be integrated with the rest of the framework.
+
+First let us create two buttons, with semi-traditional ways. First we get an element (we will use Closure's __dom.$__ method and then we will insert it into a div with the id sandbox. We will use the __.innerHTML__ for this. 
+  
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+var sandbox = goog.dom.$('sandbox');
+var s = '<' + 'button id="foo" title="Hello!" value="bar"' + ' > ' + 'Foo Button ' + ' <' + '/button>\n';
+s += '<' + 'button id="disabledButton" value="foo" disabled' + '> ' + 'Disabled' + ' <' + '/button' + '>';
+sandbox.innerHTML = s;
+
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<DIV id="sandbox" class="sandbox curvy" style="border:1px solid #ececec;width:85%"></DIV>
+<div id="log" class="console" style="white-space:pre"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<h3>Closure' Button Class</h3>
+
+A button control, rendered as a native browser button by default.
+
+ 
+{{plain:
+goog.ui.Button = function(content, opt_renderer, opt_domHelper) 7#123;
+  goog.ui.Control.call(this, content, opt_renderer ||
+      goog.ui.NativeButtonRenderer.getInstance(), opt_domHelper);
+&#125;
+goog.inherits(goog.ui.Button, goog.ui.Control);
+}}
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+ var sandbox1 = goog.dom.$('sandbox1');
+var testButton = goog.dom.$('testButton');
+var renderer = goog.ui.NativeButtonRenderer.getInstance();
+var button = new goog.ui.Button('test', renderer);
+
+log(button.toString());
+log(testButton.toString());
+var d = renderer.createDom(button);
+goog.dom.appendChild(sandbox1, d)
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div id="sandbox1" class="sandbox-console curvy" >
+<button class="curvy" value="test" name="test" id="testButton" title="I am a Test Button">testButton</button>
+</div>
+<div id="log" class="console" style="white-space:pre"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+So far we have managed to create a new native button using Closure. In order to be able to insert it into the DOM we had to create it using a __renderer__. Renderers and decorator classes are used all over by Google's ui routines, so is worth spending a bit of time on it.
+
+The __renderer__, class will enable us to add properties to the button object, before we insert it into the dom. Let's have a look. We will now add a title and set the value and content to 'foo'. Hover over the button to see the tooltip. (Remember that the tooltip is shown if the element has a title).
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+// get elements
+var sandbox2 = goog.dom.$('sandbox2');
+var testButton = goog.dom.$('testButton');
+
+// remove previous button
+goog.dom.removeChildren(sandbox2);
+var renderer = goog.ui.NativeButtonRenderer.getInstance();
+var button1 = new goog.ui.Button('test', renderer);
+// add properties
+button1.setTooltip('Hello, world!');
+button1.setValue('foo');
+button1.setContent('foo');
+
+var d = renderer.createDom(button1);
+goog.dom.appendChild(sandbox2, d)
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div id="sandbox2" class="sandbox curvy" style="border:1px solid #ececec;width:85%">
+<button value="test" name="test" id="testButton1">testButton</button>
+</div>
+<div id="log" class="console" style="white-space:pre"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<h3>A gentle introduction to decorators</h3>
+A decorator uses the properties of one element as a template and is a helper class taht is inherited by controls. So if  you have a button, somewhere you can just transfer the same properties onto another. 
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+// get elements
+var sandbox2 = goog.dom.$('sandbox2');
+var testButton = goog.dom.$('testButton');
+
+// remove previous button
+goog.dom.removeChildren(sandbox3);
+var renderer = goog.ui.NativeButtonRenderer.getInstance();
+
+var button2 = new goog.ui.Button('test', renderer);
+button2.setTooltip('Hello, world!');
+assert(renderer.canDecorate(goog.dom.$('testButton')) == true);
+renderer.decorate(button2, testButton);
+
+var d = renderer.createDom(button2);
+
+goog.dom.appendChild(sandbox3, d);
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div id="sandbox3" class="sandbox curvy" style="border:1px solid #ececec;width:85%">
+
+</div>
+<div id="log" class="console" style="white-space:pre"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+The __decorator__ provided us with a simple way, for copying all the properties from one element to another easily and the __renderer__ class was used to create a new native button, rather than a goog button, which is quite different from native objects.
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+// get elements
+var sandbox4 = goog.dom.$('sandbox4');
+var testButton = goog.dom.$('testButton');
+log(testButton);
+// remove previous button
+goog.dom.removeChildren(sandbox4);
+var renderer = goog.ui.NativeButtonRenderer.getInstance();
+
+var button4 = new goog.ui.Button('test', renderer);
+
+assert(renderer.canDecorate(goog.dom.$('testButton')) == true);
+renderer.decorate(button4, testButton);
+
+var d = renderer.createDom(button4);
+
+goog.dom.appendChild(sandbox4, d);
+
+assertFalse(button4.isHandleMouseEvents());
+assertFalse(button4.isSupportedState(goog.ui.Component.State.FOCUSED));
+
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div id="sandbox4" class="sandbox-console curvy">
+
+</div>
+<div id="log" class="console" style="white-space:pre"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+When a button is created this way the Renderer   Renders and decorates native HTML
+ button elements.  Since native HTML buttons have built-in support for many
+ features, overrides many expensive (and redundant) superclass methods to
+ be no-ops. The button does not have to support the FOCUSED state of teh ui.Component class.
+
+
+You might probably thinking why  all these and do you need this? There are many other way to create buttons programmatically - and you should take a very hard look if you need to do this-, however building more complicated menus and interfaces you will come to the point where you need to. I will show you a final example in a future tutorial where we will programmatically provide an interface for a form builder.
+
+{{bulb: Closure has so much that you need time to digest it. You need to get into the philosphy behind the structuring of the Classes. Remember Gmail is a killer application and it was build on this.}}
+
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+                                                                                                                              

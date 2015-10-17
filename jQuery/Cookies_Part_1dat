@@ -1,0 +1,128 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+{{feature-image: http://localhost/CodeIgniter/images/beauty.jpeg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+<h2>Cookies</h2>
+Local data storage has been available to developers since the early days of the web
+browser in the form of cookies. These are small text files, with an upper size limit of 4KB,
+which are stored on the user's computer and associated with a particular web site domain.
+
+This adds a level of security, since a site can access only the cookies associated with its domain
+name.
+
+Cookies can be set by the web server and also through JavaScript in most web browsers.
+
+They are commonly used to store small items of data, such as a user's login ID or username for
+a certain web site to allow the user to log in automatically.
+The browser manages the cookies internally and often provides a means, usually through
+its settings or preferences window, for users to view and delete cookies. Users can also disable
+cookies altogether. However, in practice, since so many web sites rely on them, including all
+web sites that require a user to log in, disabling cookies entirely is rarely done.
+<h3>Determining if cookies are enabled</h3>
+You want your scripts to know whether the user's browser has cookies enabled. We can use a small test to try to write a cookie and return true if enabled.
+
+<div  class="code-block console-wrap">
+<div class="code code-block">
+<code>
+// test cookies
+var cookieEnabled = false;
+if (typeof document.cookie == "string") {
+if (document.cookie.length === 0) {
+document.cookie = "test";
+cookieEnabled = (document.cookie == "test");
+document.cookie = "";
+} else {
+cookieEnabled = true;
+}
+}
+out(cookieEnabled);
+</code>
+</div>
+<div  id="msg5" class="msg">
+ </div>
+<div class="console"></div>
+<hr/>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<h3>Loading a Cookie plugin</h3>
+Although, it is not hard to write your own code for cookies, there is a jQuery plugin that you can use. We will use this plugin in the example below.
+
+We will first load the plugin using ajax, rather than a script tag and set the value of a cookie to the title of this article.
+
+<div  class="code-block console-wrap">
+<div class="code code-block">
+<code>
+$('#ajax-button-03').click(function(){
+     $.getScript('/CodeIgniter/js/cookies.js', function(){
+          var cookieValue= $('title').text();
+          $.cookie('the_cookie', cookieValue);
+           var z = $.cookie('the_cookie');
+            alert('script loaded and executed value of  ' + z);
+        });
+     return false;
+});
+</code>
+</div>
+<div  id="msg5" class="msg">
+ </div>
+<div class="console"></div>
+<hr/>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+We can use cookies to preserve values and setting provided by the user.
+
+
+<h3>Limitations of Cookies</h3>
+
+Cookies provide a simple, cross-browser way of storing small amounts of text-based data within the browser for later retrieval. They do have a downside, though.
+
+When your browser makes a request for a page or file that resides on a certain domain, it also sends the entire contents of the cookie associated with that domain along with the request.
+
+This is by design, as it allows the web server to read the cookies stored on the user's machine and personalize the response based on its values. The more data you store in cookies, the larger these requests are going to be, up to the maximum limit of 4KB. This may not sound like
+a lot, but remember that the cookies are sent regardless of the content type of the file being
+requested. For example, if your page consists of one HTML file, two CSS files, two JavaScript files, and twenty image files, the cookie data will be sent to the server with the request for each of these files, adding a maximum of 100KB extra data (25 requests &#10005; 4KB cookie size) being sent
+to the web server.
+
+You may wonder why this behavior exists at all, since it might result in excessive amounts of data being sent to the server for no reason. Unfortunately, it is the only guaranteed way to ensure that, should the server wish to use this cookie data to alter an image, script, HTML page, or some other file, it has that cookie available. This is by no means an elegant solution, but it is the simplest, and the approach taken when the HTTP specification was written to
+include cookie support.
+
+Also remember that many users have an asynchronous connection, meaning their upload speed from the browser to the server is much slower than their download speed from the server to the browser. Therefore, the time taken to transmit this extra cookie data could have a big impact on performance. 
+
+In Chapter 4, I explained a work-
+around
+for this technique, which
+involves hosting your images and external assets on a second domain, separate from the
+domain containing the HTML file itself. Still, sending the cookie data with every HTML request
+seems a little unnecessary when you consider the main goal here is to store data locally to protect
+against unforeseen network connection drops and unfortunate browser crashes.
+
+
+##Further Reading
+
+
+
+ 
+
+
+
+  
+  
+
+
+
+
+
+
+

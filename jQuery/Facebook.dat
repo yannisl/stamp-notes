@@ -1,0 +1,103 @@
+ <!--
+{{feature-image:http://localhost/codeigniter/images/china/beauty_08.jpg}}
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<div id="fb-root">test</div>
+<script>
+window.fbAsyncInit = function() {
+    FB.init({appId: 'YOUR APP ID', status: true, cookie: true,
+             xfbml: true});
+
+    FB.getLoginStatus(function(o) { 
+       if (!o && o.status) return;
+       if (o.status == 'connected') {
+          // USER IS LOGGED IN AND HAS AUTHORIZED APP
+       } else if (o.status == 'notConnected') {
+          // USER IS LOGGED IN TO FACEBOOK (BUT HASN'T AUTHORIZED YOUR APP YET)
+       } else {
+          // USER NOT CURRENTLY LOGGED IN TO FACEBOOK
+       }
+    });
+
+  };
+  (function() {
+    var e = document.createElement('script'); e.async = true;
+    e.src = document.location.protocol +
+      '//connect.facebook.net/en_US/all.js';
+    document.getElementById('fb-root').appendChild(e);
+  }());
+</script>
+
+
+<h3>Standard Library method: isEmpty()</h3>
+
+<script type="text/javascript"
+src="https://twitter.com/account/use_phx?setting=false&amp;format=text"
+ onload="not_logged_in_to_twitter()"
+ onerror="alert("logged_in_to_twitter()");"
+ async="async"></script>
+			
+<script type="text/javascript"
+        src="https://www.facebook.com/imike3"
+        onload="logged_in_to_facebook()"
+        onerror="not_logged_in_to_facebook()"
+        async="async">
+</script>
+
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+<script type="text/javascript"
+        src="https://twitter.com/account/use_phx?setting=false&amp;format=text"
+        onload="not_logged_in_to_twitter()"
+        onerror="logged_in_to_twitter()"
+        async="async"
+></script>
+			
+<script type="text/javascript"
+        src="https://www.facebook.com/imike3"
+        onload="logged_in_to_facebook()"
+        onerror="not_logged_in_to_facebook()"
+        async="async"
+></script>
+
+
+</code>
+</div>
+
+<div  id ="msg" class="msg" style="white-space:pre">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+            

@@ -1,0 +1,155 @@
+<script type="text/javascript">
+goog.require('goog.asserts');
+goog.require('goog.testing.jsunit');
+</script>
+
+\section{jsUnit}
+
+
+The jsUnit library will help you run unit test for your programs. It will produce an output similar to what you see below, which is a live test we have just run!
+
+<div class="curvy code-block" id="closureTestRunnerLog" style="border:1px solid #ececec;padding:15px">
+</div>
+
+
+The test has been prepared as follows:
+
+<div class="curvy code-block" id="closureTestRunnerLog" style="border:1px solid #ececec;padding:15px">
+<code>
+function testString() {
+goog.asserts.assertString('1');
+assertThrows('assertString(null)',
+goog.partial(goog.asserts.assertString, null));
+}
+function testObject() {
+  goog.asserts.assertObject({});
+  assertThrows('assertObject(null)',
+      goog.partial(goog.asserts.assertObject, null));
+}
+ 
+function testInstanceof(a) {
+  /** @constructor */
+  var F = function() {};
+  goog.asserts.assertInstanceof(new F(), F);
+  assertThrows('assertInstanceof({}, F)',
+  goog.partial(goog.asserts.assertInstanceof, {}, F));
+}
+</code>
+</div>
+
+
+
+
+
+jsUnit is a JavaScript library that can assist you with the testing of your JavaScript code.   The library was developed by Edward Hieatt of [pivotal](http://pivotallabs.com/).
+
+Unit Testing is a method of software verification and validation method in which a programmer tests if individual units of source code are fit for their intended use.
+A unit is the smallest testable part of an application in our case this is functions.
+
+The origins of {{wi:xUnit}} was the {{wi:SUnit}} for Smalltalk. This was originally written by the father of extreme programming Kent Beck, who published it as chapter 30 in his book ...
+
+jsUnit has been written using this spirit and its aim is to actually aid you with the testing - but not the actual writing of the tests - this you have to do! jsUnit is licensed under a GPL license and was developed by ........ .
+
+The code has recently been moved to github and you can download  at [jsunit](http://github.com/pivotal/jsunit).
+
+The testing philosophy is as follows:
+
+- You write tests
+- You put them through a TestCase
+- You call TestRunner
+
+If you are going to use google's Closure, you can find enhanceemnts to the jsUnit under the testing directory. Google created wrapper classes for most of the tests. (Closure does not aactually require jsUnit by itself, if it is available it will be used but if is not it call its own testRunner object). See code testing/jsunit at about line 69. 
+
+
+\section{Setting Up the Test Page}
+
+In your pages you have to write test functions as shown below. It is important that the name of the test functions begin with the word `test`. jsUnit has an auto-discover unit that finds all the functions in global space starting from the word test and automatically executes them.
+
+
+\begin{codeblock}
+function testString() {
+goog.asserts.assertString('1');
+assertThrows('assertString(null)',
+goog.partial(goog.asserts.assertString, null));
+}
+function testObject() {
+  goog.asserts.assertObject({});
+  assertThrows('assertObject(null)',
+      goog.partial(goog.asserts.assertObject, null));
+}
+ 
+function testInstanceof() {
+  /** @constructor */
+  var F = function() {};
+  goog.asserts.assertInstanceof(new F(), F);
+  assertThrows('assertInstanceof({}, F)',
+      goog.partial(goog.asserts.assertInstanceof, {}, F));
+}
+\end{codeblock}
+
+What happens is that jsunit has a self-executing function - rarely encountered in Closure. Upon execution it attaches iteslf to the `onlad` window function. Once it executes it actually disables the onload handler, thus any jQuery document ready functions will fail, unless you hack the class a bit.
+
+
+<h3>Running Individual tests</h3>
+
+You might have seen on other pages here, that we can test :
+
+\begin{codeblock}
+function testString() {
+goog.asserts.assertString('1');
+assertThrows('assertString(null)',
+goog.partial(goog.asserts.assertString, null));
+}
+function testObject() {
+  goog.asserts.assertObject({});
+  assertThrows('assertObject(null)',
+      goog.partial(goog.asserts.assertObject, null));
+}
+ 
+(function testInstanceof() {
+  /** @constructor */
+  var F = function() {};
+  goog.asserts.assertInstanceof(new F(), F);
+  assertThrows('assertInstanceof({}, F)',
+      goog.partial(goog.asserts.assertInstanceof, {}, F));
+})();
+\end{codeblock}
+
+
+
+##Further Reading
+
+<script>
+
+function testString() {
+goog.asserts.assertString('1');
+assertThrows('assertString(null)',
+goog.partial(goog.asserts.assertString, null));
+}
+function testObject() {
+  goog.asserts.assertObject({});
+  assertThrows('assertObject(null)',
+      goog.partial(goog.asserts.assertObject, null));
+}
+ 
+function testInstanceof(a) {
+  /** @constructor */
+  var F = function() {};
+  goog.asserts.assertInstanceof(new F(), F);
+  assertThrows('assertInstanceof({}, F)',
+  goog.partial(goog.asserts.assertInstanceof, {}, F));
+}
+</script>
+ 
+
+
+  
+  
+
+
+
+
+
+
+
+                                                                                                            

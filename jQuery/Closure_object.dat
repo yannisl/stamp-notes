@@ -1,0 +1,434 @@
+ <!--
+{{feature-image:/CodeIgniter/images/china/beauty_02.jpg}}
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+{{credit_source: TESTING}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<style type="text/css">
+em{font-style:normal;
+      font-family:arial;
+      font-weight:normal;
+      background:none;
+}
+h3,h4{font-color:black;}
+method{font-family:arial;color:black;font-weight:bold;font-size;1.5em}
+</style>
+
+<script>goog.require('goog.object');</script>
+
+
+
+<h2>The Closure object.js methods</h2>
+As the name implies, this script provides general routines for the handling of key, value objects and iterating through them. For a general outline of objects see 
+[Eloquent JavaScript](http://eloquentjavascript.net/chapter8.html)
+
+<method>goog.object.get()</method>
+
+_goog.object.get()_ returns the value associated with key on _obj_ if it has key as a property
+in its prototype chain; otherwise, it returns _opt_value_ (which defaults to _undefined_).
+Note that _opt_value_ will not be returned if key maps to a value that is _false_ in a boolean
+context's it is only returned if there is no such key:
+
+
+
+<div  class="code-block console-wrap"><div class="code-block code"><code>
+// A map of first to last names (if available).
+var names = { 'Elton': 'John', 'Madonna': undefined };
+// Evaluates to 'John' because that is what 'Elton' maps to in names.
+goog.object.get(names, 'Elton', 'Dwight');
+// Evaluates to undefined because that is what 'Madonna' maps to in names.
+goog.object.get(names, 'Madonna', 'Ciccone');
+// Evaluates to the optional value 'Bullock' because 'Anna' is not a key
+// in names.
+goog.object.get(names, 'Anna', 'Bullock');
+// Evaluates to the built-in toString function because every object has a
+// property named toString.
+goog.object.get(names, 'toString', 'Who?');</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+<method>goog.object.setIfUndefined()</method>
+
+_goog.object.setIfUndefined()_  sets the value associated with key on _obj_. If the key has been set but does not have a value, it will not set it. 
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+var chessboard = { 
+   'a1': 'white_knight',
+   'a2': 'white_pawn' };
+log(chessboard.a3);
+// Try to move the pawn from a2 to a3.
+goog.object.setIfUndefined(chessboard, 'a3', 'white_pawn');
+log(chessboard.a3);
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+If you think about it, in this example, we do not want to set the piece on a square that has already some value on it. In this case this value is _undefined_. A better way to handle it would be.
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+// Do not add a key for 'a3' because it does not have a piece on it.
+var chessboard = { 'a1': 'white_knight', 'a2': 'white_pawn' };
+// Now this will set 'a3' to 'white_pawn'.
+goog.object.setIfUndefined(chessboard, 'a3', 'white_pawn');
+// This will free up 'a2' so other pieces can move there.
+delete chessboard['a2'];
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+This example is from Closure the Definite Guide, which is a brilliant book in every respect.
+
+
+<h3>goog.object.create()</h3>
+
+I will first discuss the object creation methods. The __object.create__, creates names from an array of key values and presumably you should use it only when these key values are not available during the development of your program, but are values obtained from your users. 
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+<pre id="js1" style="white-space:wrap">
+
+/**
+ * Creates a new object built from the key-value pairs provided as arguments.
+ * @param {*} var_args If only one argument is provided and it is an array then
+ *     this is used as the arguments,  otherwise even arguments are used as the
+ *     property names and odd arguments are used as the property values.
+ * @return {!Object} The new object.
+ * @throws {Error} If there are uneven number of arguments or there is only one
+ *     non array argument.
+ */
+goog.object.create = function(var_args) {
+  var argLength = arguments.length;
+  if (argLength == 1 && goog.isArray(arguments[0])) {
+    return goog.object.create.apply(null, arguments[0]);
+  }
+
+  if (argLength % 2) {
+    throw Error('Uneven number of arguments');
+  }
+
+  var rv = {};
+  for (var i = 0; i < argLength; i += 2) {
+    rv[arguments[i]] = arguments[i + 1];
+  }
+  return rv;
+};
+
+var arr=['mary','jones','anne','rooney','yannis','lazarides'];
+
+var names=goog.object.create(arr);
+
+log(names['mary'], names.anne);
+</pre>
+
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+Obviously do not use this if you only want one instance of this object, rather use the jSon notation:
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<pre id="js1" style="white-space:wrap">
+/**
+ * Creates a new object built from the key-value pairs provided as arguments.
+ * @param {*} var_args If only one argument is provided and it is an array then
+ *     this is used as the arguments,  otherwise even arguments are used as the
+ *     property names and odd arguments are used as the property values.
+ * @return {!Object} The new object.
+ * @throws {Error} If there are uneven number of arguments or there is only one
+ *     non array argument.
+ */
+goog.object.create = function(var_args) {
+  var argLength = arguments.length;
+  if (argLength == 1 && goog.isArray(arguments[0])) {
+    return goog.object.create.apply(null, arguments[0]);
+  }
+
+  if (argLength % 2) {
+    throw Error('Uneven number of arguments');
+  }
+
+  var rv = {};
+  for (var i = 0; i < argLength; i += 2) {
+    rv[arguments[i]] = arguments[i + 1];
+  }
+  return rv;
+};
+
+var arr=['mary','jones','anne','rooney','yannis','lazarides'];
+
+var names=goog.object.create(arr);
+
+log(names['mary'], names.anne);
+</pre>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+{{plain:  var obj=&#123;&#125; }}
+
+<h3>goog.object.createSet()</h3>
+
+Creates a new object where the property names come from the arguments but
+ the value is always set to true
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+
+goog.object.createSet = function(var_args) {
+  var argLength = arguments.length;
+  if (argLength == 1 && goog.isArray(arguments[0])) {
+    return goog.object.createSet.apply(null, arguments[0]);
+  }
+  var rv = {};
+  for (var i = 0; i < argLength; i++) {
+    rv[arguments[i]] = true;
+  }
+  return rv;
+};
+var arr=['mary','john','yannis'];
+
+var present=goog.object.createSet(arr);
+
+log(present.yannis, present.test);
+
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+<h3>goog.object.extend()</h3>
+
+Extends an object
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code id="js2">
+/**
+ * The names of the fields that are defined on Object.prototype.
+ * @type {Array.<string>}
+ * @private
+ */
+goog.object.PROTOTYPE_FIELDS_ = [
+  'constructor',
+  'hasOwnProperty',
+  'isPrototypeOf',
+  'propertyIsEnumerable',
+  'toLocaleString',
+  'toString',
+  'valueOf'
+];
+
+
+/**
+ * Extends an object with another object.
+ * This operates 'in-place'; it does not create a new Object.
+ *
+ * Example:
+ * var o = {};
+ * goog.object.extend(o, {a: 0, b: 1});
+ * o; // {a: 0, b: 1}
+ * goog.object.extend(o, {c: 2});
+ * o; // {a: 0, b: 1, c: 2}
+ *
+ * @param {Object} target  The object to modify.
+ * @param {Object} var_args The objects from which values will be copied.
+ */
+goog.object.extend = function(target, var_args) {
+  var key, source;
+  for (var i = 1; i < arguments.length; i++) {
+    source = arguments[i];
+    for (key in source) {
+      target[key] = source[key];
+    }
+
+    // For IE the for-in-loop does not contain any properties that are not
+    // enumerable on the prototype object (for example isPrototypeOf from
+    // Object.prototype) and it will also not include 'replace' on objects that
+    // extend String and change 'replace' (not that it is common for anyone to
+    // extend anything except Object).
+
+    for (var j = 0; j < goog.object.PROTOTYPE_FIELDS_.length; j++) {
+      key = goog.object.PROTOTYPE_FIELDS_[j];
+      if (Object.prototype.hasOwnProperty.call(source, key)) {
+        target[key] = source[key];
+      }
+    }
+  }
+};
+
+var obj = {};
+
+goog.object.extend(obj, {
+  'a': 5,
+  'b': 4
+});
+
+log(obj.a)
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+<h3>goog.object.clone()</h3>
+
+Clones an object - see also mixin in __base.js__
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+/**
+ * Does a flat clone of the object.
+ *
+ * @param {Object} obj Object to clone.
+ * @return {!Object} Clone of the input object.
+ */
+goog.object.clone = function(obj) {
+  // We cannot use the prototype trick because a lot of methods depend on where
+  // the actual key is set.
+
+  var res = {};
+  for (var key in obj) {
+    res[key] = obj[key];
+  }
+  return res;
+  // We could also use goog.mixin but I wanted this to be independent from that.
+};
+
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+<h3>goog.object.transpose()</h3>
+
+Extends an object
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+/**
+ * Returns a new object in which all the keys and values are interchanged
+ * (keys become values and values become keys). If multiple keys map to the
+ * same value, the chosen transposed value is implementation-dependent.
+ *
+ * @param {Object} obj The object to transpose.
+ * @return {!Object} The transposed object.
+ */
+goog.object.transpose = function (obj) {
+  var transposed = {};
+  for (var key in obj) {
+    transposed[obj[key]] = key;
+  }
+  return transposed;
+};
+
+var arr = ['one', 1, 'two', 2, 'three', 3, 'four', 4, 'five', 5, 'six', 6];
+
+var obj1 = goog.object.create(arr);
+
+var obj2 = goog.object.transpose(obj1);
+
+$that.siblings('.msg').properties(obj1);
+
+$that.siblings('.msg').properties(obj2);
+
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+<h3>Run-of-the-mill methods</h3>
+The balance of the object library is run-of-the-mill stuff, getters setters, finders and the like, sandly no grep no gsub and no deep extend of objects. I will not go over these methods in detail, but you can list them for your reference and try them out in the console below, create an object and a couple of callbacks and manipulate them as you like.
+
+
+
+<div  class="code-block console-wrap" title="Properties listing of object">
+<div class="code-block code">
+<code>
+$that.siblings('.msg').properties(goog.object);
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+
+
+
+
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+                                                          

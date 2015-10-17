@@ -1,0 +1,399 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+{{feature-image: http://localhost/egypt/elliott-erwitt/EE-1150.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+Hostgator to get into website http://70.85.248.226/cpanel/yannisl/PUREFAJO13
+<style type="text/css">
+.cell{width:16px;height:16px}
+</style>
+
+
+<h2>Search Algorithms - string searching</h2>
+In this article, I will not introduce you to any new JavaScript concepts but rather examine some Computer Science concepts. We will then use JavaScript to program these concepts as a means of reinforcing the concepts we have studied so far.
+
+The string-matching problem is one of the most studied problem in algorithmics on words. There are many algorithms for solving this problem efficiently. Ee assumed that the
+pattern pat is of length m, and that the text text has length {{it:n}}. If the only access to text text and
+pattern pat is by comparisons of symbols, then the lower bound on the maximum number of
+comparisons required by a string-matching algorithm is n-m . The best algorithms presented in
+the book will make no more than 2.n-m comparisons in the worst case. Recently, the lower
+bound has been improved, to around 4/3.n on a two letter alphabet. However, algorithms
+become quite sophisticated and are beyond the scope of this book.
+We start with a brute-force algorithm that uses quadratic time. Such a naive algorithm is
+in fact an origin of a series of more and more complicated and more efficient algorithms. The
+informal scheme of such a _naive_ algorithm is :
+
+{{plain:
+for i := 0 to n-m do check if pat=text[i+1...i+m].
+}}
+
+The actual implementation differs with respect to how we implement the checking operation :
+
+scanning the pattern from the left or scanning the pattern from the right. So we get two bruteforce
+algorithms. Both algorithms have quadratic worst-case complexity. We discuss in this
+chapter the first of them (left-to-right scanning of the pattern).
+
+This problem is common in text editors and other search related fields.
+
+<h3>Brute-force or Naive Search</h3> 
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+var comparisons;
+comparisons = 0;
+
+function naiveSearch(pat, txt) {
+  var i, j, found;
+  for (i = 0; i < txt.length - pat.length + 1; i++) {
+    found = true;
+    for (j = 0; j < pat.length; j++)
+    if (pat.charAt(j) != txt.charAt(i + j)) {
+      comparisons++;
+      found = false;
+      break;
+    }
+    if (found) break;
+  }
+  return found ? i : -1;
+}
+var pat = 'needle';
+var txt = 'Find a needle in a haystack';
+var result = naiveSearch(pat, txt);
+
+//say('end');
+var s = U.boxString(txt);
+var s = s + U.boxString('       needle              ');
+s += 'found = ' + result + '<' + 'br' + ' />';
+s += 'number of comparisons = ' + comparisons;
+$that.siblings('.msg ').html(s);
+
+</code>
+
+</div>
+
+<div  class="msg" class="msg" style="white-space:pre;font-family:monospace;line-height:1.3">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<hr/>
+Although this the brute force algorithm is fairly simple we will explore it further to develop more visual teaching aids for this.
+
+Firstly we will modify our routine U.boxString() to enable us to add white space automatically. Let us do this first.
+</hr>
+
+<h3>Improving the Inner Loop Display</h3>
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+var comparisons;
+comparisons = 0;
+var s = '';
+// utility function pad
+// pad characters before a string
+function naiveSearch(pat, txt) {
+  var i, j, found, accumulator = '';
+  for (i = 0; i < txt.length - pat.length + 1; i++) {
+    found = true;
+    for (j = 0; j < pat.length; j++) {
+      accumulator = accumulator + pat.charAt(j);
+      s = s + U.boxString(i + U.padString(i - 1, accumulator));
+
+      if (pat.charAt(j) != txt.charAt(i + j)) {
+        accumulator = '';
+        comparisons++;
+        found = false;
+        break;
+
+      }
+
+    }
+    if (found) break;
+
+  }
+  return found ? i : -1;
+}
+
+var pat = 'ABCDABD';
+var txt = ' ABC ABCDAB ABCDABCDABDE';
+var s = U.boxString(txt);
+var result = naiveSearch(pat, txt);
+
+$that.siblings('.msg').html(s);
+
+s += 'found = ' + result - 1;
+s += 'number of comparisons = ' + comparisons;
+</code>
+
+</div>
+
+<div  class="msg" class="msg" style="white-space:pre;font-family:monospace;line-height:1.3">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+var comparisons;
+comparisons = 0;
+
+// utility function pad
+// pad characters before a string
+function padString(pos, str, orientation) {
+  var t1 = '';
+  var z = '';
+  for (var i = 0; i < pos; i++) {
+    t1 = t1 + ' '; // empty string
+  }
+  z = t1 + str;
+  return z;
+}
+
+function naiveSearch(pat, txt) {
+  var i, j, found;
+  for (i = 0; i < txt.length - pat.length + 1; i++) {
+    found = true;
+    for (j = 0; j < pat.length; j++)
+    if (pat.charAt(j) != txt.charAt(i + j)) {
+      comparisons++;
+      found = false;
+      break;
+    }
+    if (found) break;
+  }
+  return found ? i : -1;
+}
+
+var pat = 'ABCDABD';
+var txt = ' ABC ABCDAB ABCDABCDABDE';
+var result = naiveSearch(pat, txt);
+
+var v1 = '';
+var s = U.boxString(txt);
+for (var i = 0; i < result; i++) {
+  var z = padString(i, pat);
+  var iteration = i;
+  if (i > 9) {
+    iteration = i - 10
+  };
+  var v1 = v1 + U.boxString(iteration + z);
+}
+
+$that.siblings('.msg').html(s + v1);
+
+s += 'found = ' + result - 1;
+s += 'number of comparisons = ' + comparisons;
+</code>
+
+</div>
+
+<div  class="msg" class="msg" style="white-space:pre;font-family:monospace;line-height:1.3">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<h3>Brute Force 2</h3>
+In the brute force algorithm that we have see above, we are looping <strong>both</strong>, through the text as well as through the pattern. An obvious improvement id to start searching from the rightmost letter of the pattern. If there is no match we could then stop and return control to the text loop. This way we can save iterations through the inner loop.
+
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+// Naive Algorithm No. 2
+// Right to left inner pattern
+// Aim is to avoid iterating through the inner loop if the 
+// last character of the pattern does not much
+var comparisons, step;
+comparisons = 0;
+step = 0;
+var s = '';
+// utility function pad
+// pad characters before a string
+function naiveSearch(pat, txt) {
+  var i, j, found;
+  // initialize accumulator with empty chars
+  var accumulator = pat;
+  U.padString(pat.length - 1, '');
+  var j = pat.length;
+  for (var i = 0; i < txt.length + 1; i++) {
+    found = true;
+    // inner loop 
+    for (j = pat.length - 1; j > -1; j--) {
+      var chr = pat.charAt(j).toLowerCase();
+      var temp = U.replaceChar(chr, accumulator.length - pat.length + j, accumulator);
+      s = s + U.boxString(U.padString(i, temp));
+
+      if (pat.charAt(j) != txt.charAt(i + j)) {
+        temp = U.replaceChar('0', accumulator.length - pat.length + j, accumulator);
+        s = s + U.boxString(U.padString(i, temp));
+     
+        comparisons++;
+        found = false;
+        break;
+
+      }
+
+    }
+    if (found) break;
+  }
+  return found ? i : -1;
+}
+
+var pat = 'DAB';
+var txt = 'ABC ABCDAB ABCDABCDABDE';
+var s = U.boxString(txt);
+var result = naiveSearch(pat, txt);
+
+s += 'found = ' + result - 1;
+
+s += 'number of comparisons = ' + comparisons;
+
+$that.siblings('.msg').html(s);
+
+</code>
+
+</div>
+
+<div  class="msg" class="msg" style="white-space:pre;font-family:monospace;line-height:1.3">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+var comparisons;
+comparisons = 0;
+
+// utility function pad
+// pad characters before a string
+function padString(pos, str, orientation) {
+  var t1 = '';
+  var z = '';
+  for (var i = 0; i < pos; i++) {
+    t1 = t1 + ' '; // empty string
+  }
+  z = t1 + str;
+  return z;
+}
+
+function naiveSearch(pat, txt) {
+  var i, j, found;
+  for (i = 0; i < txt.length - pat.length + 1; i++) {
+    found = true;
+    for (j = 0; j < pat.length; j++)
+    if (pat.charAt(j) != txt.charAt(i + j)) {
+      comparisons++;
+      found = false;
+      break;
+    }
+    if (found) break;
+  }
+  return found ? i : -1;
+}
+
+var pat = 'ABCDABD';
+var txt = ' ABC ABCDAB ABCDABCDABDE';
+var result = naiveSearch(pat, txt);
+
+var v1 = '';
+var s = U.boxString(txt);
+for (var i = 0; i < result; i++) {
+  var z = padString(i, pat);
+  var iteration = i;
+  if (i > 9) {
+    iteration = i - 10
+  };
+  var v1 = v1 + U.boxString(iteration + z);
+}
+
+$that.siblings('.msg').html(s + v1);
+
+s += 'found = ' + result - 1;
+s += 'number of comparisons = ' + comparisons;
+</code>
+
+</div>
+
+<div  class="msg" class="msg" style="white-space:pre;font-family:monospace;line-height:1.3">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+<h3>The Knuth-Morris-Pratt algorithm</h3>
+
+Our next aim must be to find strategies to save also iterations on the outer loop. One such algorithm is the Knuth-Morris-Pratt algorithm.
+
+
+The KnuthÃ�ï¿½Ã�Â¯Ã�ï¿½Ã�Â¿Ã�ï¿½Ã�Â½MorrisÃ�ï¿½Ã�Â¯Ã�ï¿½Ã�Â¿Ã�ï¿½Ã�Â½Pratt string searching algorithm (or KMP algorithm) searches for occurrences of a "word" W within a main "text string" S by employing the observation that when a mismatch occurs, the word itself embodies sufficient information to determine where the next match could begin, thus bypassing re-examination of previously matched characters.
+
+The algorithm was conceived by Donald Knuth and Vaughan Pratt and independently by J. H. Morris in 1977, but the three published it jointly.
+In this article, we will be using zero-based arrays for our strings; thus the 'C' in W (shown below) will be denoted W[2].
+
+{{plain:
+m: 01234567890123456789012;
+S: ABC ABCDAB ABCDABCDABDE;
+                x
+W: ABCDABD;
+i: 0123456;
+}}
+
+We proceed by comparing successive characters of W to "parallel" characters of S, moving from one to the next if they match. However, in the fourth step, we get S[3] is a space and W[3] = 'D', a mismatch. Rather than beginning to search again at S[1], we note that no 'A' occurs between positions 0 and 3 in S except at 0; hence, having checked all those characters previously, we know there is no chance of finding the beginning of a match if we check them again. Therefore we move on to the next character, setting m = 4 and i = 0.
+
+{{plain:
+m: 01234567890123456789012;
+S: ABC ABCDAB ABCDABCDABDE;
+W:ABCDABD;
+i:     0123456;
+}}
+
+
+
+<h3>The "Partial match" table (also known as "failure function")</h3>
+In order to be able to keep track of matches you will need to create a partial match table.
+
+{{bulb:The goal of the table is to allow the algorithm not to match any character of S more than once. }}
+
+The key observation about the nature of a linear search that allows this to happen is that in having checked some segment of the main string against an initial segment of the pattern, we know exactly at which places a new potential match which could continue to the current position could begin prior to the current position. 
+
+In other words, we "pre-search" the pattern itself and compile a list of all possible fallback positions that bypass a maximum of hopeless characters while not sacrificing any potential matches in doing so.
+
+We want to be able to look up, for each position in W, the length of the longest possible initial segment of W leading up to (but not including) that position, other than the full segment starting at W[0] that just failed to match; this is how far we have to backtrack in finding the next match. 
+
+Hence T[i] is exactly the length of the longest possible proper initial segment of W which is also a segment of the substring ending at W[i - 1]. We use the convention that the empty string has length 0. Since a mismatch at the very start of the pattern is a special case (there is no possibility of backtracking), we set T[0] = -1, as discussed above.
+
+{{bulb: Note that in practice, the KMP algorithm is not good at searching in natural language texts because it can only skip characters when the first part of the pattern actually matches a part of the text. In practice this only happens occasionally in natural language texts. For instance, consider how many times a prefix of the pattern "text" matches something in this paragraph.
+}}
+
+##Further Reading
+
+
+
+ 
+
+
+
+  
+  
+
+
+
+
+
+
+
+                                              

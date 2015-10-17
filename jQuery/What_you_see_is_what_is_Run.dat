@@ -1,0 +1,60 @@
+
+<h2>What you see is what is Run</h2>
+
+I am a personal fan of intorducing as much interactivity on web pages as 
+possible, especially on websites that offer tutorials and discussions about
+programming. It becomes rather laborious to have to type both the
+code and then cut-and-paste-and-adjust to show you what I am talking about.
+
+<pre style="background:url(http://localhost/codeigniter/images/code-bg.gif)">
+<div id="ex7">
+var f;
+    alert(f==0);
+    alert(f=='');
+    alert(f==null);
+    alert(f==undefined);
+    eval(alert('a recursive eval!'));
+</div>
+<button>Run</button>
+</pre>
+
+Using eval and jQuery I created a snippet as shown below. Once the DOM is loaded, jQuery binds all buttons to a click anonymous function. I then
+capture the contents of the div enclosing the code and using <dfn>eval</dfn>,
+the code is executed. I got this inspiration from Johns Resig which has used
+a similar init method for his Processing library. 
+
+<pre style="background:url(http://localhost/codeigniter/images/code-bg.gif)">
+$(document).ready(function(){
+   $('button').click(function(){
+       var aText=$(this).parent().text();
+       eval(aText);
+    });
+});
+</pre>
+<hr />
+
+
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+   $('button').click(function(){
+       var aText=$(this).parent().text();
+       eval(aText);
+    });
+});
+
+</script>
+
+
+
+
+
+##Further Reading
+
+http://ajaxian.com/archives/javascript-associative-arrays-considered-harmful
+
+http://andrewdupont.net/2006/05/18/javascript-associative-arrays-considered-harmful/
+
+
+

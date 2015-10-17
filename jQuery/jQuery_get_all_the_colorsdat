@@ -1,0 +1,135 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+{{feature-image:http://localhost/CodeIgniter/images/run_time_error.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: UI, jQuery, Visibility Filters, CSS Visibility }}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+<style>
+  .ex1 { background:yellow; font-weight:bold; cursor:pointer; 
+      padding:5px; }
+  .ex2{ background:#bebebe; font-weight:bold; cursor:pointer; 
+      padding:5px; }
+ .over { background: #ccc; }
+#cbutton{color:blue}
+
+.dcolor{width:30px;height:40px;}
+.dtext	{  }
+.dwrapper	{ width:200px; float:left; padding:10px; margin:0 20px 20px 0; border:1px solid #ccc; }
+ </style>
+
+
+
+
+<h2 id="firstHeading" class="firstHeading" style="background-color: rgb(239, 239, 239)">
+Get All the Colors
+</h2>
+
+jQuery has attracted a lot of young and bright hackers such as [david wals](http://davidwalsh.name/color-palette-generator-jquery). He wrote an article Color Palette Generator Using jQuery. With minor modifications I have used it in a recent project and here is what it can do and not do:
+
+{{example:
+<input type="button" id="get-colors" value="Get Colors" class="button" />
+<div id="colors-wrapper">
+
+</div>
+}}
+
+<script>
+/* when the dom is ready */
+$(document).ready(function() {
+	$('#get-colors').click(function() {  
+		
+		//my colors array
+		var colors = [];
+		
+		//get all elements
+		$('*').each(function() {
+			if($(this).css('background-color') && $(this).css('background-color') != 'transparent') { colors.push($(this).css('background-color')); }
+			if($(this).css('color')) { colors.push($(this).css('color')); }
+			if($(this).css('border-color')) { colors.push($(this).css('border-color')); }
+		});
+		
+		//remove dupes and sort
+		colors=$.unique(colors);//.sort();
+		
+		//create a color block for all of them
+		jQuery.each(colors,function(it,value) {
+			
+			if(!$('div[rel=\'' + value + '\']').length)
+			{
+			
+				//inject the wrapper
+				var wrapper_id = 'w' + it;
+				$('<div class="dwrapper" id="' + wrapper_id + '" rel="' + value + '"> </div>').appendTo('#colors-wrapper');
+				
+				//inject the color div
+				$('<div class="dcolor" style="height:40px;background-color:' + value + '"> </div>').appendTo('#' + wrapper_id);
+				
+				//inject text div
+				$('<div class="text">' + value + '</div>').appendTo('#' + wrapper_id);
+			}
+			
+		});
+		
+	}).fadeIn('slow',0.33).fadeTo('slow','1');
+});
+</script>
+
+
+The script is shown here:
+
+
+<pre style="background:url(http://localhost/CodeIgniter/images/code-bg.gif)">
+<code class="js">
+/* when the dom is ready */
+$(document).ready(function() {
+	$('#get-colors').click(function() {  
+		
+		//my colors array
+		var colors = [];
+		
+		//get all elements
+		$('*').each(function() {
+			if($(this).css('background-color') && $(this).css('background-color') != 'transparent') { colors.push($(this).css('background-color')); }
+			if($(this).css('color')) { colors.push($(this).css('color')); }
+			if($(this).css('border-color')) { colors.push($(this).css('border-color')); }
+		});
+		
+		//remove dupes and sort
+		colors.sort();
+		
+		//create a color block for all of them
+		jQuery.each(colors,function(it,value) {
+			
+			if(!$('div[rel=\'' + value + '\']').length)
+			{
+			
+				//inject the wrapper
+				var wrapper_id = 'w' + it;
+				$('&lt;div class="dwrapper" id="' + wrapper_id + '" rel="' + value + '"> &lt;/div>').appendTo('#colors-wrapper');
+				
+				//inject the color div
+				$('&lt;div class="dcolor" style="height:40px;background-color:' + value + '"> &lt;/div&gt;').appendTo('#' + wrapper_id);
+				
+				//inject text div
+				$('&lt;div class="text"&gt;' + value + '&lt;/div&gt;').appendTo('#' + wrapper_id);
+			}
+			
+		});
+		
+	})
+});</code>
+</pre>
+
+
+
+
+
+
+
+

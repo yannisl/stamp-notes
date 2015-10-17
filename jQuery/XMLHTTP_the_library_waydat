@@ -1,0 +1,138 @@
+<!--
+{{feature-image:/CodeIgniter/images/beauty.jpeg}}
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+{{keywords: XMLHTTP, Ajax, How to use Ajax with the Prototype library}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+<h2>XMLHTTP the Prototype Library Way</h2>
+
+As much of DOM manipulation, libraries provide useful shortcuts, as well as additional methods to manipulate the XMLHTTP object, thus saving the developer - in the long run, time and headaches.
+
+<h3>Creating and sending Requests</h3>
+
+The Prototype framework enables you to deal with Ajax calls in a very easy and fun way that is also safe (cross-browser). Besides simple requests, this module also deals in a smart way with JavaScript code returned from a server and provides helper classes for polling.
+
+Ajax functionality is contained in the global Ajax object. The transport for Ajax requests is xmlHttpRequest, with browser differences safely abstracted from the user. Actual requests are made by creating instances of the Ajax.Request object.
+
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+// just logging the version to see if loaded
+log(Prototype.Version);
+
+// a url at the server
+var url = '/codeigniter/blogs/ajax_post/4';
+
+// setting the request object
+
+var t = new Ajax.Request(url, {
+  method: 'get',
+  onSuccess: function (transport) {
+    var response = log(transport.responseText) || log("No response text ...");
+  },
+  onFailure: function () {
+    log('Something went wrong...');
+  }
+});
+
+// another request
+url = '/codeigniter/blogs/ajax_post/1';
+var t1 = new Ajax.Request(url, {
+  method: 'get',
+  onSuccess: function (transport) {
+    var response = log(transport.responseText) || "no response text";
+  },
+  onFailure: function () {
+    alert('Something went wrong...');
+  }
+});
+
+</code>
+
+</div>
+<div  class="msg" class="msg" style="white-space:pre;font-family:monospace;line-height:1.3">
+</div>
+<div class="console"> </div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<h3>Global Responders</h3>
+There is an object that is informed about every Ajax request: Ajax.Responders. With it, you can register callbacks that will fire on a certain state of any Ajax.Request issued:
+
+
+Ajax.Responders.register({
+  onCreate: function(){
+    log('a request has been initialized!);
+  }, 
+  onComplete: function>(){
+    log('a request completed');
+  }
+};
+
+Every callback matching an xmlHttpRequest transport state is allowed here, with an addition of onCreate. Globally tracking requests like this can be useful in many ways: you can log them for debugging purposes using a JavaScript logger of your choice or make a global exception handler that informs the users of a possible connection problem.
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+// just logging the version to see if loaded
+window.COUNT = 0;
+log('Prototype Version Number : ',Prototype.Version);
+
+// a url at the server
+var url = '/codeigniter/blogs/ajax_post/4';
+
+// setting the request object
+var t = new Ajax.Request(url, {
+  method: 'get',
+  onSuccess: function (transport) {
+    var response = log(transport.responseText) || log("No response text ...");
+  },
+  onFailure: function () {
+    log('Something went wrong...');
+  }
+});
+
+Ajax.Responders.register({
+  onCreate: function () {
+    COUNT++;
+    log(COUNT, 'Global monitor: a request has been initialized!');
+  },
+  onComplete: function () {
+    COUNT++;
+    log(COUNT, 'Global monitor: a request completed ');
+  }
+});
+log('active request count: ',Ajax.activeRequestCount );
+</code>
+
+</div>
+<div  class="msg" class="msg" style="white-space:pre;font-family:monospace;line-height:1.3">
+</div>
+<div class="console"> </div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+##Further Reading
+
+
+ <span class="chapter hidden">19</span>
+
+
+
+  
+  
+
+
+
+
+
+
+

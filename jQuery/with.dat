@@ -1,0 +1,191 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+
+
+<h2>The with() statement </h2>
+The <strong>with()</strong> statement is an often misunderstood component of JavaScript. Some people like Crockford and for some valid reason consider it evil. As a matter of fact if you check the jslint in the examples below, the test will fail. Crockford's jslint does not even provide an option for allowing with() through your code! John Resig in his book {{ninja}} discusses the with extensively <strong>and makes a strong case for the careful use of it</strong>.
+
+They allow
+you to put all the properties of an object within the current scope - as if they were normal JavaScript
+variables (allowing you to reference them and assign to them - while having their values be maintained in
+the original object). Figuring out how to use them correctly can be tricky, but doing so gives you a huge
+amount of power in your application code.
+
+<h3>A simple example</h3>
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+var body='other body ';
+var colors={
+         body:'white',
+         text  :'grey',
+         headings:'red'
+}
+assert(body=='undefined','body does not exist outside the object');
+with(colors){
+       log('body color =', body);
+       log('text color = ', text);
+       log('headings =', headings);
+}
+
+var feed = new SimplePie('http://feeds.feedburner.com/simplepie', {
+ 
+	// Set one configuration option
+	setTimeout: 30,
+ 
+	// Set up a handler for a successful response
+	onSuccess: function(feed) {
+		alert(feed.title.toUpperCase() + "\n" + feed.description);
+	},
+ 
+	// Do this if we encounter an error
+	onFailure: function(feed) {
+		alert(feed.error);
+	}
+});
+</code>
+</div>
+
+<div   class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+In the above listing we can see how the properties of the color object are selectively introduced within
+the scope of the with(){} statement. You can use them directly as if they were first-class variables
+or methods. 
+
+Note that within the scope of the statement the properties introduced by with(){} take
+absolute precedence over the other variables, of the same name, that might exist (as we can see with the
+use property and variable). You can also see that the this context is preserved while you are within
+the statement - as is true with virtually all variables keywords - only the ones specified by the original
+object are introduced. 
+
+Note that the with(){} statement is able to take any JavaScript object, it's not
+restricted in any sense.
+
+<h3>Assigning Proprties within a with statement</h3>
+
+One of the first things that most people try, when using with(){}, is to assign a new property to the
+original object. However, this does not work. It's only possible to use and assign existing properties within
+the with(){} statement - anything else (assigning to new variables) is handled within the native scope
+and rules of JavaScript (as if there was no with(){} statement there at all).
+In the above listing we can see that the cut method - which we presumed would be assigned to the katana
+object - is instead introduced as a global variable.
+
+{{warning: This should be implied with the results from above but misspelling a property name can lead to strange results (namely that a new global variable will be introduced rather than modifying the existing property on the with object). }}
+
+
+Of course, this is, effectively, the same thing that occurs with normal variables,
+so you'll just need to carefully monitor your code, as always.
+There's one major caveat when using with(){}, though: It slows down the execution performance of
+any JavaScript that it encompasses - and not just objects that it interacts with. Let's look at three examples,
+in Listing 7-3.
+
+
+
+
+
+
+<h3>performance considerations</h3>
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+profiler.start();
+var obj = { foo: "bar" }, value;
+// "No With"
+for ( var i = 0; i < 1000; i++ ) {
+value = obj.foo;
+}
+
+profiler.stop();
+// "Using With"
+with(obj){
+for ( var i = 0; i < 1000; i++ ){
+value = foo;
+}
+}
+profiler.stop();
+// "Using With, No Access"
+with(obj){
+for ( var i = 0; i < 1000; i++ ){
+value = "no test";
+}
+}
+profiler.stop();
+</code>
+</div>
+
+<div   class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+<h3>Usage in libraries</h3>
+One can find usages in public libraries where it provides concise code. The below example is from base2.js. One can also find examples in Firebug.
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+var Rect = Base.extend({
+constructor: function(left, top, width, height) {
+this.left = left;
+this.top = top;
+this.width = width;
+this.height = height;
+this.right = left + width;
+this.bottom = top + height;
+},
+contains: function(x, y) {
+with (this)
+return x >= left && x <= right && y >= top && y <= bottom;
+},
+toString: function() {
+with (this) return [left, top, width, height].join(",");
+}
+});
+</code>
+</div>
+
+<div   class="msg">
+</div>
+<div class="console"></div>
+<ol class="results"></ol> 
+</div>
+
+<h3>Summary</h3>
+
+If anything has become obvious, over the course of this chapter, is that the primary goal of with(){} is to make complex code simple: simplifying access to namespaced code, improving the usability of test suites, building usable templating utilities, and even improving the use of existing JavaScript libraries.
+
+Discretion should be applied when using it, but having a good understanding of how it works can only lead to better-quality code.
+
+
+
+
+
+
+
+
+
+
+
+
+<span id="chapter" class="hidden">18</span>
+
+##Further Reading
+
+  

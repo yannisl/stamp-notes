@@ -1,0 +1,11 @@
+
+
+
+\begin{codeblock}
+function f() {
+  return [1, 2, 3];
+}
+
+var [a, , b] = f();
+console.log("A is " + a + " B is " + b);
+\end{codeblock}

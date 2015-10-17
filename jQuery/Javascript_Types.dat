@@ -1,0 +1,61 @@
+
+<h2>JavasScript  Types</h2>
+
+Javascript internally uses a typing system based on the value of a variable. A _value_ is an entity that takes, one of nine types. 
+
+There are nine types defined by ECMA script (Undefined, Null, Boolean, String,
+Number, Object, Reference, List, and Completion). Values of type Reference, List, and Completion are used
+only as intermediate results of expression evaluation and cannot be stored as properties of objects.
+
+
+
+\begin{codeblock}
+ var z2 = null; 
+ var z3 = false;
+ var z4 = '';
+ var z5 ={test: 12,
+                        a:function(){}
+                 };
+ var z = 12;
+  
+log('z1 type : ', typeof z1);
+log('z2 type : ', typeof z2);
+log('z3 type : ', typeof z3);
+log('z4 type : ', typeof z4);
+log('z4 type : ', typeof z5 );
+log('z4 type : ', typeof z5.test );
+log('z4 type : ', typeof z5.a );
+log('z  type : ',typeof z);
+log('a number as string', typeof z.toString());
+log('z type of', typeof window);
+\end{codeblock}
+
+If you notice in the code block above, z1 was not defined and returned _undefined_. 
+
+{{snippett: log('z1 type : ', typeof z1);}}
+
+<h3>Automatic type conversion</h3>
+The ECMAScript runtime system performs automatic type conversion as needed. To clarify the semantics of
+certain constructs it is useful to define a set of conversion operators. These operators are not a part of the
+language; they are defined here to aid the specification of the semantics of the language. The conversion
+operators are polymorphic; that is, they can accept a value of any standard type, but not of type Reference,
+List, or Completion (the internal types).
+
+##Further Reading
+
+
+
+ 
+
+
+
+  
+  
+
+
+
+
+
+
+
+                                                                

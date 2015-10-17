@@ -1,0 +1,42 @@
+\chapter{Blocks}
+
+
+\codeblocks
+{{pinnote: Don't forget about something!}}
+
+or
+
+\pinnote{test}
+
+\endcodeblocks
+
+Blocks are only used to call attention; they are useful in instructional books and common in webpages, where the user normally scans rather than reads.
+
+{{pinnote: Don't forget about something!}}
+
+\pinnote{This was done using a LaTeX command}
+
+If you only want them on the webpage, use the wiki-style commands, i.e `{{function:  }}`
+
+
+\subsection{Nutshell Block}
+
+{{nutshell: Don't forget about something!}}
+
+If you want them to appera in both use `\ nutshell{..}` or other similar commands.
+
+\nutshell{This is using \ nutshell.}
+
+
+They are highly customizable via CSS (each command has its own class, as well as via LaTeX commands, which they can be overwritten). For example to customize `nutshell` you will need to both customize the CSS as well as the LaTeX command `\nutshell`
+
+{{warning: Don't do this!!}}
+
+\subsection{Sticky notes}
+
+\stickynote{This is a sticky note.}
+
+
+{{sandbox: test }}
+
+\subsubsection{A subsubsection}

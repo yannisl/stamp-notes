@@ -1,0 +1,76 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+{{feature-image: http://localhost/codeigniter/images/beauty.jpeg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<h3>String.prototype.lastIndexOf()  method</h3>
+
+If searchString appears as a substring of the result of converting this object to a string, at one or more positions that are greater than or equal to position, then the index of the smallest such position is returned; otherwise, -1 is returned. If position is undefined, 0 is assumed, so as to search all of the string.
+
+{{bulb:This is a method of the String.prototype. If you need to transfer the property to another object you need to transfer  from String.prototype}}
+
+See both the examples below for further information.
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+ var s = 'testing and testing';
+var index = s.lastIndexOf('ing');
+
+log("index of 'ing' = ", index); 
+</code>
+
+</div>
+
+<div  class="msg" class="msg" style="white-space:pre;font-family:monospace;line-height:1.3">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+The ECMA specification (15.5.3.2) does not specify that the fromCharAt() function is  generic; However, you can test it in your browser with the example below. As you  can observe it can be transferred to other kinds of objects to use as you may wish.
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+var text = {
+  name: 'text'
+};
+text.fromCharCode = function () {
+  return String.fromCharCode.apply(this.name, arguments);
+};
+
+log(text.fromCharCode(112, 113));
+
+</code>
+
+</div>
+<div  class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+##Further Reading
+
+
+
+ 
+
+
+
+  
+  
+
+
+
+
+
+
+

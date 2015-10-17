@@ -1,0 +1,57 @@
+\chapter{CouchDB Integration}
+
+The easiest way to have a `GET` request to a `couchdb` database is probably jQuery. At least is easier to understand what is happening, while you are making the calls. 
+
+\begin{codeblock}
+var dbname = 'texigniter',
+    dns = 'https://yannisl.iriscouch.com/';
+
+
+$.ajax({
+    type: "GET",
+    url: dns+dbname +'/austria/',
+    xhrFields: {withCredentials:true},
+    cache: false,
+    success: function(data) {
+        result = jQuery.parseJSON(data);
+        log(result.view);
+        log(result.splash);
+        log(data);
+    },
+    error: function(XMLHttpRequest, textStatus, errorThrown) { 
+        alert("Error: " + errorThrown + ' ' + textStatus);
+        result = {};
+    },
+    async: true
+});
+\end{codeblock}
+
+
+The data is from [mledoze](https://github.com/mledoze/countries) which can be found on github. Fork it, if you want to do your own experiments.
+
+\begin{codeblock}
+var dbname = 'texigniter',
+    dns = 'https://yannisl.iriscouch.com/';
+
+
+function test (country) {return $.ajax({
+    type: "GET",
+    url: dns+dbname +'/'+country+'/',
+    xhrFields: {withCredentials:true},
+    cache: false,
+    success: function(data) {
+        result = jQuery.parseJSON(data);
+        log(result.view);
+        log(result.splash);
+        log(data);
+    },
+    error: function(XMLHttpRequest, textStatus, errorThrown) { 
+        alert("Error: " + errorThrown + ' ' + textStatus);
+        result = {};
+    },
+    async: true
+});}
+
+test('austria');
+test('ajman');
+\end{codeblock}

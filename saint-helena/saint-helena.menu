@@ -1,0 +1,42 @@
+\begin{accordion}
+\begin{category}{Early Mail}
+\mitem{Early Mail}{Early_Mail}
+\mitem{Napoleon}{1815-1821_Napoleonic_Era}
+\end{category}
+\begin{category}{Queen Victoria}
+  \mitem{1856 Issues}{1856_Issues}
+  \mitem{1861 Issues}{1861_Issues}
+  \mitem{1863 Issue}{1863_Issue}
+  \mitem{1864-80 Issue}{1864-80_Issue}
+\end{category}
+\begin{category}{Edward VII issues}
+  \mitem{1903 Pictorial}{1903_Series}
+  \mitem{1911 Unissued}{1911_Unissued}
+  \mitem{1913 Watermark Mult Crown}{1913_Watermark_Mult_Crown}
+\end{category}
+\begin{category}{King George V}
+ \mitem{1922-37 Definitives}{1922-37_Definitives}
+ \mitem{1922-37 Specimens}{1922-37_Specimen}
+ \mitem{1934 Centenary}{1934_Centenary}
+\end{category}
+\begin{category}{King Edward VIII}
+\mitem{King Edward VII}{1936_Unissued}
+\end{category}
+\begin{category}{King George VI}
+\mitem{1938-44 Badge of Colony}{1938-44_Badge_of_Colony}
+\end{category}
+
+\begin{category}{Queen Elizabeth II}
+\mitem{1956 Post Centenary}{1956_Post_Centenary}
+\mitem{1961 Tristan Relief}{1961_Tristan_Relief } 
+\mitem{1968 Issues}{1968_Issues}
+\end{category}
+
+\begin{category}{Postal History}
+ \mitem{Incoming Mail}{Incoming_Mail}
+ \mitem{Cork Cancellations}{Cork_Cancellations}
+ \mitem{Registration}{Registration}
+ \mitem{Boer War}{Boer_War}
+ \mitem{World War I censorship}{World_War_I_Censorship}
+\end{category}
+\end{accordion}                                                    

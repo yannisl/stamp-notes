@@ -1,0 +1,72 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+{{feature-image:http://localhost/egypt/CMS/accordion.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+	
+<h3>Sliders</h3>
+
+Lists are one of the most commonly found elements in web pages. In many instances used to create buttons and menus. There are a lot of properties that designers do not normally encounter and this is one of the aims of this tutorial, to familiarize developers with the more esoteric parts of CSS.
+
+
+
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+ // this will set the maximum and minimum values of the slider
+// this will set the maximum and minimum values of the slider
+$("#sliderExample").slider({
+  min: 1,
+  max: 100,
+  handle: '#ui-slider-handle',
+  change: function () {
+    $('#msg').text(ui.value());
+  }
+});
+// this will get the value of the slider
+var z = $("#sliderExample").slider("value");
+log('value =', z);
+
+// this will get the value of the slider
+var z1 = $("#sliderExample").slider().change(function () {
+  log('value =');
+});
+
+$('#msg').text('test');
+</code>
+
+</div>
+<div id="sliderExample" class="ui-slider-1" >
+<div class="ui-slider-handle">
+</div>
+</div>
+<div  id="msg" class="msg" style="white-space:pre;font-family:monospace;line-height:1.3">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+
+
+##Exercise
+
+- Write a list that can display a tree made of 'chapters' in Latin and sections in 'numbers'.
+
+
+
+
+
+
+
+
+
+
+

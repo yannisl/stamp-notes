@@ -1,0 +1,347 @@
+
+<script type="text/javascript"> 
+goog.require('goog.ui.TableSorter');
+</script>
+
+<h2>Decision Trees</h2>
+Decision trees are a topic of artificial intelligence. More specifically, they belong to the subfield of machine learning. This is due to their ability to learn--through example--to classify individual records in a data set.
+
+Decision tree learning is a method commonly used in data mining. The goal is to create a model that predicts the value of a target variable based on several input variables. An example is shown on the right. Each interior node corresponds to one of the input variables; there are edges to children for each of the possible values of that input variable. Each leaf represents a value of the target variable given the values of the input variables represented by the path from the root to the leaf.
+A tree can be "learned" by splitting the source set into subsets based on an attribute value test. This process is repeated on each derived subset in a recursive manner called recursive partitioning. The recursion is completed when the subset at a node all has the same value of the target variable, or when splitting no longer adds value to the predictions.
+
+Data comes in records of the form:    
+    
+$$(\textbf{x},Y) = (x_1, x_2, x_3, ..., x_k, Y)$$
+
+The dependent variable, \\(Y\\), is the target variable that we are trying to understand, classify or generalise. The vector \\(x\\) is composed of the input variables, \\(x_1, x_2, x_3\\) etc., that are used for that task.
+
+
+<h3>Preparing the Dataset</h3>
+
+Since our intention is to have an interactive console for developing the algorithms in JavaScript, we need to give some thought as to how we intent to hold the data. One way is to use an a array of objects as shown below. The user can then add the data, using short commands.
+
+<div  class="code-block console-wrap"><div class="code code-block"><code>
+var data = [];
+
+function add(obj) {
+  var x1 = {
+    'age': obj[0],
+    'education': obj[1],
+    'income': obj[2],
+    'status': obj[3],
+    'buy': obj[4]
+  }
+  data.push(x1);
+}
+
+add(['36-55', 'masters', 'high', 'married', 'buy']);
+add(['18-35', 'basic', 'low', 'single', 'no']);
+
+log(data[0].age);
+
+log(Math.log(8388608, 2));
+
+</code>
+</div>
+<p class="msg" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+<button class="eval">Run Code!</button>
+<ol class="results" style="white-space:pre"></ol> 
+</div>
+
+
+An alternative way is to use a CSV file and load the data via ajax as was described in this article. This is perhaps the best way if the data resides on a server that is under your control. An alternative way of course is to let the user enter the data via a textarea and have it comma delimited or even upload a CSV file.
+
+Another issue to consider is if one needs to have the data in an object or an array. An array will be a much better option and will require less memory for large data sets.
+
+<h3>Data Set Development</h3>
+
+This dataset is from [ai4r](http://ai4r.rubyforge.org/machineLearning.html#mach-dataload). The link provides ruby sources for many common AI algorithms. If you prefer to have a look at them it is a great library.
+
+<div  class="code-block console-wrap"><div class="code code-block"><code>
+var DATA_LABELS = ['city', 'age_range', 'gender', 'marketing_target'];
+
+var DATA_SET = [
+  ['New York', '<30', 'M', 'Y'],
+  ['Chicago', '<30', 'M', 'Y'],
+  ['Chicago', '<30', 'F', 'Y'],
+  ['New York', '<30', 'M', 'Y'],
+  ['New York', '<30', 'M', 'Y'],
+  ['Chicago', '30-50', 'M', 'Y'],
+  ['New York', '30-50', 'F', 'N'],
+  ['Chicago', '30-50', 'F', 'Y'],
+  ['New York', '30-50', 'F', 'N'],
+  ['Chicago', '50-80', 'M', 'N'],
+  ['New York', '50-80', 'F', 'N'],
+  ['New York', '50-80', 'M', 'N'],
+  ['Chicago', '50-80', 'M', 'N'],
+  ['New York', '50-80', 'F', 'N'],
+  ['Chicago', '>80', 'F', 'Y']];
+
+var numberClasses = DATA_LABELS.length;
+var T = DATA_SET.length;
+
+//log(numberClasses);
+//log(T);
+var Y = 0;
+var N = 0;
+for (var i = 0; i < T; i++) {
+  var row = DATA_SET[i];
+  if (row[3] == 'Y') Y++
+  else {
+    N++
+  };
+}
+
+// renders the head part of a
+// table
+function renderHead(elm) {
+  var s = '&lt;thead&gt;&lt;tr&gt;';
+  for (var i = 0; i < elm.length; i++) {
+    s += '&lt;th&gt;' + elm[i] + '&lt;/th&gt;';
+  }
+  s += '&lt;/tr&gt;&lt;/thead&gt;';
+  return s;
+}
+
+//iterating through the data set
+// and printing it onto a table
+(function renderTable() {
+  var s = '&lt;table id="sort" style="border:1px solid red"&gt;';
+  s += renderHead(DATA_LABELS);
+  for (var i = 0; i < T; i++) {
+    s += '&lt;tr&gt;';
+    var row = DATA_SET[i];
+    for (var j = 0; j < 4; j++) {
+      s += '&lt;td style="border: 1px solid green"&gt;';
+      s += DATA_SET[i][j];
+      s += '&lt;/td&gt;';
+    }
+    s == '&lt;/tr&gt;';
+  }
+  s += '&lt;/table&gt;';
+  log(s);
+})();
+
+var c = new goog.ui.TableSorter();
+     c.decorate(goog.dom.$('sort'));
+     c.setSortFunction(0, 
+goog.ui.TableSorter.createReverseSort(goog.ui.TableSorter.alphaSort));
+
+c.setSortFunction(1, goog.ui.TableSorter.createReverseSort(goog.ui.TableSorter.alphaSort));
+c.setSortFunction(2, goog.ui.TableSorter.createReverseSort(goog.ui.TableSorter.alphaSort));
+
+c.setSortFunction(3, goog.ui.TableSorter.createReverseSort(goog.ui.TableSorter.alphaSort));
+
+
+</code>
+</div>
+<p class="msg" id='sortMe' style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+
+<button class="eval">Run Code!</button>
+<ol class="results" style="white-space:pre"></ol> 
+</div>
+
+Thinking a little bit about presentation at this stage, makes no harm as in many cases nice tabulation can catch errors, by observation. I have used a closure UI component called TableSorter to give the user the possibility of sorting the table, when the heading element is clicked. There are many other similar routines, including jQuery plugins (search for grids). The article on [Table Sorting](http://127.0.0.1/CodeIgniter/index.php/Blogs/tutorials/jQuery/Table_sorter) has more information about it.
+
+
+
+<h3>Entropy</h3>
+
+In information theory, entropy is a measure of the uncertainty about a source of messages. The more
+uncertain a receiver is about a source of messages, the more information that receiver will need in order
+to know what message has been sent.
+
+For example, if a message source always sends exactly the same message, the receiver does not need any
+information to know what message has been sent is always the same! The entropy of such a source is _zero_: there is no uncertainty at all. On the other hand, if a source can send
+possible messages and each
+message occurs independently of the preceding message with equal probability, then the uncertainty of
+the receiver is maximised. The receiver will need to ask \\(n\\)
+yes/no questions to determine which
+message has been sent, i.e. the receiver needs \\(log_{2}n\)
+bits of information. Why does the receiver need log2n _bits_ of information? Think about representing each message as a binary number.
+
+Considering a source with \\(n\\) messages \\(\{m_1,m_2,\ldots, m_n\}\\). All messages 
+ are independent of each other and the probability of producing message m_1 is p_i. For such message probability distribution  \\(P = (p_1,p_2,p_3,\ldots,p_n)\\), the entropy H(P) is
+
+$$ H(P) = -\sum_{i=1}^{n}p_i\log_{2}(p_i).$$
+
+
+
+
+
+<div  class="code-block console-wrap"><div class="code code-block"><code>
+/**
+ * Checks if a value exists in an array
+ * @param needle
+ * @param the array
+ * @return boolean
+ */
+
+function inArray(needle, haystack) {
+  for (var key in haystack) {
+    if (needle === haystack[key]) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
+var a = ['test', 'yiannis', 'maybe', 'other', 'hence'];
+
+if (inArray('test', a)) log('found')
+else {
+  log('notfound')
+};
+</code>
+</div>
+<p class="msg" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+
+<button class="eval">Run Code!</button>
+<ol class="results" style="white-space:pre"></ol> 
+</div>
+
+<p>
+When the block for the renderer was drafted,  we just sampled the html. Now we will go back and build-up the attributes.
+</p>
+
+
+<div  class="code-block console-wrap"><div class="code code-block"><code>
+/**
+   * Builds the attributes of a string
+   * 
+   *
+   */
+
+function buildAttrString(attr) {
+  var tempStr = '';
+  for (var key in attr) {
+    tempStr += key + ' = "' + attr[key] + '"  ';
+  }
+  return tempStr;
+};
+
+var attr = {
+  'name': 'firstName',
+  'style': 'font-size:12px',
+  'value': 'Write your name'
+};
+
+var z = buildAttrString(attr);
+
+log(z);
+</code>
+</div>
+<p class="msg" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+
+<button class="eval">Run Code!</button>
+<ol class="results" style="white-space:pre"></ol> 
+</div>
+
+<h3>Some more iteration on building attribute strings</h3>
+
+Some attributes do not take a value, as for example _enabled_ or _disabled_. These need to be handled with a different function or the routine needs to be generalized a bit further.
+
+<div  class="code-block console-wrap"><div class="code code-block"><code>
+/**
+   * Builds the attributes of a string, such as enabled
+   * or disabled, requiring no quotation marks or other
+   * example;
+   *  input  type=text disabled 
+   */
+
+function buildAttrSingleString(attr) {
+  var tempStr = '';
+  for (var key in attr) {
+    tempStr += key;
+  }
+  return tempStr;
+};
+
+var attr = {
+  'name' : 'firstName',
+  'style' : 'font-size:12px',
+  'value' : 'Write your name'
+};
+
+var z = buildAttrString(attr);
+
+log(z);
+</code>
+</div>
+<p class="msg" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+
+<button class="eval">Run Code!</button>
+<ol class="results" style="white-space:pre"></ol> 
+</div>
+
+
+
+<form id="aform">
+<fieldset name="clubfields" disabled>
+<legend>
+ <input type="checkbox" name="club" onchange="aform.clubname.disabled = !checked">
+  Use Club Card
+</legend>
+ <p><label>Name on card: <input id="clubname" name="clubname" required></label></p>
+ <p><label>Card number: <input name="clubnum" required pattern="[-0-9]+"></label></p>
+ <p><label>Expiry date: <input name=clubexp type=month></label></p>
+</fieldset>
+</form>
+
+<h3>Some special attributes</h3>
+
+We consider the attributes _id_, _class_ and _data_ as specials. The reason for this is that in order for us to build highly interactive forms we would need the _id_ attribute as well as the class attribute. If the user does not specify them our algorithm should provide them based on some logical values.
+
+<h4>id</h4>
+
+The id, if not provided should be provided automatically as _formID-id-element-number_. For a form with the _id = login_ this will become 
+
+
+id = login-input-01  
+
+The class name will become
+
+{{plain:
+class= login-input
+class= login-button-submit
+}}
+
+By having such a convention both ids as well as classes can be used to generate CSS automatically at a later stage.
+
+<h3>Layout Issues</h3>
+
+According to [W3C](http://www.w3.org/TR/html5/forms.html), each part of a form is considered a paragraph, and is typically separated from other parts using _p_ elements. However, the reality is that most forms on the web that are a bit more complicated than normal have a structure made of other elements such as divs and even sometimes you find these forms embedded in tables. 
+
+On closer examination the almost automatic solution would be to allow for top, left, right, bottom text in the fields. For a more complicated solution we can offer a template. So instead of _render.toHTML()_, we would offer a _render.toTemplate()_ method. Which one is the best can only be found out, once we start using the form.
+
+Whatever, the final solution is, we should try hard to keep presentational matters away from programmers.
+
+
+
+<hr/>
+
+
+
+##Further Reading
+
+[Decision Trees in Python](http://onlamp.com/lpt/a/6464)
+
+Good tutorial at [Monash University](http://www.csse.monash.edu.au/courseware/cse5230/2004/assets/decisiontreesTute.pdf). As a bonus it includes write-up as to how to properly reference a web resource. Useful if you are developing your bibliography.
+
+[Decision Trees for Predictive Modeling](http://www.sasenterpriseminer.com/documents/Decision%20Trees%20for%20Predictive%20Modeling.pdf)
+
+[Online tutorial](http://people.revoledu.com/kardi/tutorial/DecisionTree/how-decision-tree-algorithm-work.htm)
+
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+                                                                                                                                                                                                                          

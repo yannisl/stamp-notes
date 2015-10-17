@@ -1,0 +1,280 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+
+
+<h2>Designing a tic-tac-toe game</h2>
+Tic-tac-toe, also spelled tick tack toe, and alternatively called noughts and crosses, X's and O's, and many other names, is a pencil-and-paper game for two players, O and X, who take turns marking the spaces in a 3 x 3 grid, usually X going first. The player who succeeds in placing three respective marks in a horizontal, vertical or diagonal row wins the game.
+
+
+The simplicity of tic-tac-toe makes it ideal as a pedagogical tool for teaching the concepts of combinatorial game theory and the branch of artificial intelligence that deals with the searching of game trees. It is straightforward to write a computer program to play tic-tac-toe perfectly, to enumerate the 765 essentially different positions (the state space complexity), or the 26,830 possible games up to rotations and reflections (the game tree complexity) on this space.
+
+The first known video game, OXO (or Noughts and Crosses, 1952) for the EDSAC computer played perfect games of tic-tac-toe against a human opponent.
+
+
+
+
+<h3>Getting past the visual stuff first</h3>
+What we need first is to design our JavaScript to draw out the boxes and to decide if we need to draw the O and X using graphics or using some images. In any case we will start first with drawing out the boxes. I will use a similar methodology we have used in this example. 
+
+I will use jQuery to capture the Browser events and to provide the user interaction.
+
+First we will develop a routine to draw out the &lt;div&gt;'s. We could use tables, but I prefer using div's. The structure of the html is as follows:
+
+<div  class="code-block console-wrap">
+<div style="white-space:pre">
+&lt;div class="tic-tac"&gt;
+
+    &lt;div class="cell"&gt;&lt;/div&gt;  &lt;div class="cell"&gt;&lt;/div&gt;  &lt;div class="cell"&gt;&lt;/div&gt;
+    &lt;div class="cell"&gt;&lt;/div&gt;  &lt;div class="cell"&gt;&lt;/div&gt;  &lt;div class="cell"&gt;&lt;/div&gt;
+    &lt;div class="cell"&gt;&lt;/div&gt;  &lt;div class="cell"&gt;&lt;/div&gt;  &lt;div class="cell"&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+</div>
+</div>
+
+As you can see, we just nesting divs. Below, we will develop a simple routine that will draw a 3 x 3 matrix or any matrix for that matter. Edit it to remind you how to add some css, can you catch all the elements with jQuery - the class is 'cell'. We will see down the line how we will get to know which cell is clicked and which one is its neighbour.
+
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+// utility to draw a table using
+// divs
+var divTable = function (rows, columns) {
+
+  var s = '';
+
+  // draw one div
+  function wrap(n, n1) {
+    var div = '<' + 'div' + ' class="cell"' + '>';
+    var divend = '<' + '/div' + '>';
+    var span = '<' + 'span' + '>';
+    var spanend = '<' + '/span' + '>';
+    var z = div + span + (n + 1) + '-' + (n1 + 1) + spanend + divend;
+    return z;
+  }
+
+  // loop through rows and columns
+  for (var i = 0; i < rows; i++) {
+    for (var j = 0; j < columns; j++) {
+      s = s + wrap(i, j);
+    }
+    s = s + '<' + 'div style="clear:both"' + '> ';
+  }
+  return s;
+};
+
+// output box
+var z1 = divTable(5, 5);
+$that.siblings('.msg').html();
+$that.siblings('.msg').html(z1).hide().fadeIn(2000);
+</code>
+</div>
+
+<div  class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+As you can see from the above, it is always good practice when you draw out something on the screen automatically to provide some form of visual cue, in this case we just used fadeIn() to show the user that there was some output from the program. Change it to hide() and show(), if you wish to practice a bit on jQuery or another animation. 
+
+<h3>Capturing the user Click</h3>
+
+The divTable() routine is also in the U.library. From now on we will use the library routine to make the code easier to read and to concentrate on developing the tic-tac-toe algorithm. We capture the user click using jQuery's click function and display an 'X'  in the box at this stage. Later on we will provide the checks for illegal moves (i.e, the program should check for illegal moves).
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+// output boxes 
+// output boxes 
+var z1 = U.divTable(3, 3);
+$that.siblings('.msg').html();
+$that.siblings('.msg').html(z1).hide().fadeIn(2000);
+
+$('.cell').click(function () {
+  var z = 'X';
+  $(this).text(z);
+});
+$('#cell-1').text('0');
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+// output boxes 
+var z1 = U.divTable(3, 3);
+$that.siblings('.msg').html();
+$that.siblings('.msg').html(z1).hide().fadeIn(2000);
+
+function Board() {
+  for (i = 0; i < 9; i++) this[i] = 0;
+  return this;
+}
+
+var board = new Board();
+
+$('.cell').click(function () {
+
+    var id = $(this).attr('rel');
+
+    clickSqr(id);
+
+    // The board is an 'array' 0..8 of 0=empty, 1=player1, 2=player2.
+    // Lots of superfluous code and stuff.
+    // Computer player is a complete and utter idiot.
+    function clearBoard() {
+        for (var i = 0; i < 9; i++) {
+            board[i] = 0;
+            var id = '#cell-' + i;
+            $(id).text('');
+        }
+    }
+
+    function doMove(sqr, plyr) {
+        var s = '';
+        board[sqr] = plyr;
+        if (plyr == 1) {
+            s = 'X';
+        } else {
+            s = 'O';
+        }
+        var id = '#cell-' + sqr;
+        $(id).text(s);
+        var win = checkWinner();
+        if (win) {
+            confirm("Player " + win + " Press yes to run again");
+            clearBoard();
+        }
+    }
+
+    function computerMove() // make any old move
+    {
+        for (var i = 0; i < 9; i++)
+            if (!board[i]) {
+                doMove(i, 4);
+                break;
+            }
+    } // some room for an improved AI algorithm here
+    //main function that captures the click
+    function clickSqr(sqr) {
+
+        if (!board[sqr]) {
+            doMove(sqr, 1);
+            computerMove();
+        }
+    }
+
+    function checkLine(a, b, c) {
+        var s;
+        s = board[a] + board[b] + board[c];
+        if (s == 3) return 1;
+        if (s == 12) return 2;
+        return 0;
+    }
+
+    function checkWinner() { // check rows
+        var r;
+        r = checkLine(0, 1, 2);
+        if (r) return r;
+        r = checkLine(3, 4, 5);
+        if (r) return r;
+        r = checkLine(6, 7, 8);
+        if (r) return r;
+        r = checkLine(0, 3, 6);
+        if (r) return r;
+        r = checkLine(1, 4, 7);
+        if (r) return r;
+        r = checkLine(2, 5, 8);
+        if (r) return r;
+        r = checkLine(0, 4, 8);
+        if (r) return r;
+        r = checkLine(2, 4, 6);
+        if (r) return r;
+        // no winner yet
+        return 0;
+    }
+
+});
+
+ 
+  
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+
+<h3>Try random walk as a strategy for the computer</h3>
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+
+
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+One example of a Tic-Tac-Toe playing computer is the Tinkertoy computer, developed by MIT students, and made out of Tinker Toys[2]. It only plays Tic-Tac-Toe and has never lost a game. It is currently on display at the Museum of Science, Boston.
+
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+<script>
+function getID(elem) {
+   var id = elem.id;
+   alert("This element's id attribute is set to \"" + id + "\"."); 
+} 
+
+window.defaultStatus = "Click on a link on the left to navigate this website."
+</script>
+ 
+
+
+
+  
+  
+
+
+
+
+
+
+

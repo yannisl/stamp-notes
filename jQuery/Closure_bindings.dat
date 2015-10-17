@@ -1,0 +1,105 @@
+ <!--
+{{feature-image:  /codeigniter/images/telegram.jpg }}
+{{feature: <span style="font-size:smaller">Do you find yourself pondering the possibility of flight? 
+Suffering from anxiety over those troublesome alien abductions? 
+Or maybe just having a real problem trying to figure out who you are? 
+Search no further! Telegram is here to offer a solution. Have a listen, it's a guaranteed fix. Doctor's orders... </span>}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+<h2>Clojure</h2>
+Clojure Number data structure has some surprises, including a data structure for fractions, so that you can represent 1/3 as is and not 0.33333! Try the example below and we will discuss it further after the REPL.
+
+<div  class="code-block console-wrap">
+<div class="code-block code" >
+<code class="PHP">
+;Fractions
+(println 1/234)
+(println (+ 1.0 1/23 ))
+</code>
+</div>
+<div   class="msg">
+</div>
+<div class="console"></div>
+<button class="evalPerl">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+When you define an object with def or defn, that object is stored in a
+Clojure __var__. For example, the following def creates a var named user/foo:
+
+{{snippet:
+(def foo 10)
+) #'user/foo
+}}
+
+
+{{bulb:The initial value of a var is called its <strong>root binding</strong>.}}
+
+<div  class="code-block console-wrap">
+<div class="code-block code" >
+<code class="PHP">
+;Binding Example
+(def v 1)
+(println "the value of v is: " v)
+(print (var v))
+</code>
+</div>
+<div   class="msg">
+</div>
+<div class="console"></div>
+<button class="evalPerl">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+Why would you want to refer to a var directly? Most of the time, you
+won't, and you can often simply ignore the distinction between symbols
+and vars.
+
+But keep in the back of your mind that vars have many abilities other
+than just storing a value:
+
+- The same var can be aliased into more than one namespace (Section
+2.4, Namespaces, on page 64). This allows you to use convenient
+short names.
+- Vars can have metadata (Section 2.7, Metadata, on page 74). Var
+metadata includes documentation (Section 1.3, Finding Documentation,
+on page 39), type hints for optimization (Section 3.2, Adding
+Type Hints, on page 92), and unit tests (Section 9.1, Testwith :test,
+on page 266).
+- Vars can be dynamically rebound on a per-thread basis (Section
+6.5, Managing Per-Thread State with Vars, on page 192).
+
+Lots of hidden gems, but let us now continue with our syntax and language exploration by going to the next tutorial that will cover collections.
+
+
+##Further Reading
+
+- http://stackoverflow.com/questions/760868/in-a-emacs-slime-clojure-windows-setup-failure-to-load-clojure-auto
+
+- http://tommih.blogspot.com/2009/08/emacs-clojure-and-windows.html
+
+- http://clojure.bighugh.com/
+
+- http://clojure.org/
+
+- http://writingcoding.blogspot.com/2008/06/clojure-series-table-of-contents.html
+
+- A library for <a href="http://osteele.com/sources/javascript/functional/">functional javascript</a> has been developed by Oliver Steel. You can view some [slides](http://www.slideshare.net/osteele/oliver-steele-functional-javascript-presentation) on the concept.
+
+- [An Introduction to Clojure ]([pdf]http://scorciapino.com/pub/txt/Pragmatic.Programming.Clojure.May.2009.pdf)
+
+- [An annotated list of Clojure lists](http://blog.higher-order.net/2008/11/17/annotated-clojure-links-1/)
+
+- If you prefer lectures on <a href ="http://clojure.blip.tv/file/707974/"> videos</a>. These two videos are excellent but rather slow. They are presented by by Rich Hickey, the author of Clojure. Part I covers numbers, symbols, keywords, lists, vectors and maps.
+
+
+
+                                              

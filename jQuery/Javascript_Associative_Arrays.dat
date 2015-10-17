@@ -1,0 +1,54 @@
+
+
+<h2>Associative Arrays</h2>
+
+Let's get this straight. There are no associative arrays in Javascript! If you familiar with PHP, you must have been looking have to declare associative
+arrays in vain. 
+
+{{bulb: There are no associative arrays in JavaScript}}
+
+Consider the following code (which works) and appears
+to set values in an associative array. try it first.
+
+\begin{codeblock}
+   var sColors = new Array();
+    sColors["Passion"] = "Red";
+    sColors["Peace"] = "Green";
+    sColors["Calm"] = "Blue";
+ 
+  for(description in sColors) {  // print out the bands with descriptions
+  log(sColors[description] + " == " + description);
+}
+\end{codeblock}
+
+Now try to get the length of the array!
+
+\begin{codeblock}
+   var mColors = new Array();
+    mColors["Passion"] = "Red";
+    mColors["Peace"] = "Green";
+    mColors["Calm"] = "Blue";
+ 
+ 
+   log(mColors.length);
+\end{codeblock}
+
+
+So, what is happening here? essentially we have created an object and we have set the Object's properties.
+<hr />
+
+See our tutorial as to how to simulate an associative array better, 
+[here.](http://127.0.0.1/CodeIgniter/index.php/Blogs/tutorials/jQuery/Patterns_Cache_Object)
+
+
+
+
+
+##Further Reading
+
+http://ajaxian.com/archives/javascript-associative-arrays-considered-harmful
+
+http://andrewdupont.net/2006/05/18/javascript-associative-arrays-considered-harmful/
+
+
+

@@ -1,0 +1,177 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+{{feature-image: http://localhost/egypt/elliott-erwitt/EE-1150.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+Hostgator to get into website http://70.85.248.226/cpanel/yannisl/PUREFAJO13
+
+<h2>Creating a Unit Conversion Library</h2>
+
+A common Engineering problem is to convert units from one system to another. Although this does not sound like a very difficult exercise, in my opinion it is a rather difficult software design problem. Ideally we would like a very easy and memorable API, for some of the units to be converted the API can be very easy for example:
+
+{{plain:
+      Convert.psi(u.pa, 5000);
+      Convert.pa(u.psi, 2000);
+}}
+
+The object <strong>u</strong> should define a series of conversions, for example if we measuring vacuum in SI we may wish to use the {{wi:torr}}, which is  (1 mm Hg at 0&deg;C), rather than Pascals. Each industry seems to be settling on their own set of convenient standards. 
+
+For convenience - similar to jQuery and other libraries we can allow for the method arguments to have options or for parameters to be omitted. For example:
+
+{{plain:
+      Units.psi(5000);  //returns psi from pascals
+      Units.pa(2000);  // returns pa from psi 
+}}
+
+The latter is a much more clearer API, but the user should remember the base units for the conversion, i.e, base for SI is Pascals and for Imperial is psi.
+
+The objects should provide some chainability for convenience:
+{{plain:
+      Units.psi(5000).toString();  //  '2345 Pa'
+      Units.pa(2000).toString();  //  '0.0345 psi' 
+}}
+
+Since we expected users to be using JavaScript it is quite possible that they will want their results to strings. Unit conversions will also need methods such as toFixed() toPrecision and so on. As I mentioned earlier, although for a simple conversion of one or two units is fairly easy, if we want to make a general library it is a fairly involved exercise.
+
+{{plain:
+      Units.psi(5000).toFixed(2).toString();  //  '2345 Pa'
+      Units.pa(2000).toPrecision(3).toString();  //  '0.0345 psi' 
+}}
+
+Some of these ideals might be possible and others might present difficulies, and we will drop them.
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+
+var pressure = {
+  base: 1,
+  pascal: function (n) {
+    return n * 1
+  },
+  kgf: 1.01972e-5,
+  bar: function (n) {
+    return n * 10e-5
+  },
+  mmHg: 7.50e-3,
+  atmosphere: 9.8692e-6,
+  inH2O: 4.0186e-3,
+  psi: function (n) {
+    return n * 1.45038e-4
+  },
+  name: pressure
+};
+
+log(pressure.psi(100000))
+log(pressure.pascal(60000));
+log(Prototype.Version);
+
+pressure.help;
+
+</code>
+
+</div>
+
+<div  class="msg" class="msg" style="white-space:pre;font-family:monospace;line-height:1.3">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+By coding a little 'trial' object it points us to some observations. For every unit, we need a:
+
+- base  (i.e, all conversions to Pascals for example)
+- function to return the value
+- a constant to hold the value
+
+In the coded example above, we do not have the ability to do this:
+
+{{plain:
+    Units.psi(mmHg, 2000);
+}}
+
+Here, lies the difficulty. So far we also achieved to repeat ourselves, all the functions are actually very similar, they just return a value, is there a shorter an more flexible way? Let us try something different:
+
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+var pressure = {};
+
+var kgf = 1.01972e-5;
+var mmHg = 7.50e-3;
+var pascal = 1;
+var bar = 10e-5;
+var unit;
+
+function convert(context, unit, n) {
+  return context * unit * n;
+}
+
+function Pressure() {
+
+  var m = {
+    base: 1,
+    pascal: function (b, c) {
+      return convert(pascal, b, c);
+    },
+    kgf: function (b, c) {
+      return convert(kgf, b, c);
+    },
+    bar: function (b, c) {
+      return convert(bar, b, c);
+    },
+    mmHg: function (unit, n) {
+      return mmHg * unit * n;
+    },
+    atmosphere: 9.8692e-6,
+    inH2O: 4.0186e-3,
+    psi: function (n) {
+      return n * 1.45038e-4
+    },
+    name: pressure
+  };
+  return m;
+}
+var p = new Pressure();
+
+//var p = new Pressure;
+log(p.pascal(mmHg, 1000).toFixed(8));
+log(p.mmHg(pascal, 100).toFixed(8));
+log(p.kgf(pascal, 100).toFixed(8));
+
+</code>
+
+</div>
+
+<div  class="msg" class="msg" style="white-space:pre;font-family:monospace;line-height:1.3">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+
+##Further Reading
+
+
+
+ 
+
+
+
+  
+  
+
+
+
+
+
+
+

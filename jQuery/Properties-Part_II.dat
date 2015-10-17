@@ -1,0 +1,103 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+{{feature-image: http://localhost/egypt/elliott-erwitt/EE-1150.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<style type="text/css">
+label{font-weight:bold;
+            width:25%}
+</style>
+<h3>Developing an Engineering Calculation Library Part II</h3>
+<script>
+function Calculate( form ) {
+  var T
+  var rho
+  var cp
+  var mu
+  var nu
+  var k
+  var alpha
+  
+  T = (form.T.value)
+  rho = (form.rho.value)
+  cp= (form.cp.value)
+  mu = (form.mu.value)
+  nu = (form.nu.value)
+  k = (form.k.value)
+  alpha = (form.alpha.value)
+ 
+  //Density function R^2 = 1.//
+  form.rho.value = 360.77819*(Math.pow(T,-1.00336))
+ 
+  //Specific heat function R^2 = 0.9996//
+  form.cp.value = 1.9327E-10*(Math.pow(T,4))-7.9999E-7*(Math.pow(T,3))+1.1407E-03*(Math.pow(T,2))-0.4489*T+1057.5
+ 
+  //Viscosity function R^2 = 0.9993//
+  form.mu.value = -1E-17*(Math.pow(T,4))+4E-14*(Math.pow(T,3))-7E-11*(Math.pow(T,2))+8E-8*T-5E-7
+ 
+  //Kinematic viscosity function R^2 = 0.9997//
+  form.nu.value = -1.1555E-14*(Math.pow(T,3))+9.5728E-11*(Math.pow(T,2))+3.7604E-8*T-3.4484E-6
+ 
+  //Thermal conductivity function R^2 = 0.9999//
+  form.k.value = 1.5207E-11*(Math.pow(T,3))-4.8574E-8*(Math.pow(T,2))+1.0184E-04*T-3.9333E-04
+ 
+  //Thermal diffusivity function R^2 = 0.999//
+  form.alpha.value = 9.1018E-11*(Math.pow(T,2))+8.8197E-8*T-1.0654E-5
+ 
+}
+//end hiding script from old browsers --> 
+</script> 
+
+
+<H1>Air Property Calculator</H1> 
+<HR> 
+This tool calculates thermophysical properties of air for 100K < T < 1600K.
+<TABLE> 
+<TR> 
+<TD WIDTH=40%><H1>About</H1> 
+The thermophysical properties of air are calculated from polynomial curve fits to a data set for 100K to 1600K in the SFPE Handbook of Fire Protection Engineering 2nd Edition Table B-2.  Therefore, the property infromation is valid in the range of 100K to 1600K.  Plots of the data set with the best-fit curve,
+the equation of the best-fit curve and it's R<sup>2</sup> value, and error analysis of the curve fit with respect the measured values have been performed.
+<UL> 
+<LI>Density: <A HREF="../PDF/air_density_plot.PDF">Plot with curve fit</A>. 
+<BR>Error: Max= -1.35%, Average= 0.25%
+<LI>Specific Heat: <A HREF="../PDF/air_cp_plot.PDF">Plot with curve fit</A>. 
+<BR>Error: Max= -0.38%, Average= 0.10%
+<LI>Thermal Conductivity: <A HREF="../PDF/air_k_plot.PDF">Plot with curve fit</A><BR>Error: Max= 0.83%, Average= 0.30%
+<LI>Kinematic Viscosity: <A HREF="../PDF/air_nu_plot.PDF">Plot with curve fit (to come)</A> 
+<BR>Error: Max= -34.6%(@100K), Average= 2.48%
+<BR>Error (100K-250K): Max= -34.6%, Average= 12.7%
+<BR>Error (300K-1600K): Max= -4.18%, Average= 0.52% 
+<LI>Thermal Diffusivity: <A HREF="../PDF/air_alpha_plot.PDF">Plot with curve fit (to come)</A> 
+<BR>Error: Max= -136.96%(@100K), Average= 7.92%
+<BR>Error (100K-250K): Max= -136.96%, Average= 42.49%
+<BR>Error (300K-1600K): Max= 8.29%, Average= 1.34%
+</UL> 
+ 
+<TD valign="top"><TABLE BORDER><TR><TD><TABLE><form><tr> 
+<TR><TD>Temperature:</TD><TD><input type="text" size=4 name="T"> K</TD> 
+<TR><TD> </TD><TD><input type="button" value="  GO  " onClick="Calculate(this.form)"></TD><TD> </TD></TR> 
+<TR><TD>Density = </TD><TD><input type="text" size=6 name="rho"></TD><TD>kg/m<sup>3</sup></TD></TR> 
+<TR><TD>Specific heat = </TD><TD><input type="text" size=8 name="cp"></TD><TD>Ws/kgK</TD></TR> 
+<TR><TD>Viscosity = </TD><TD><input type="text" size=9 name="mu"></TD><TD>kg/ms</TD></TR> 
+<TR><TD>Kinematic viscosity = </TD><TD><input type="text" size=9 name="nu"></TD><TD>m<sup>2</sup>/s</TD></TR> 
+<TR><TD>Thermal conductivity = </TD><TD><input type="text" size=9 name="k"></TD><TD>W/mK</TD></TR> 
+<TR><TD>Thermal diffusivity = </TD><TD><input type="text" size=9 name="alpha"></TD><TD>m<sup>2</sup>/s</TD></TR> 
+</form></TABLE></TD></TR></TABLE></TD> 
+<TD valign="top"><H2>Instructions</H2> 
+<OL> 
+<LI>Enter the temperature of interest in degrees Kelvin.
+<LI>Click on the "GO" button.
+</OL> 
+</TD> 
+</TR> 
+</TABLE> 
+
+
+
+
+                      

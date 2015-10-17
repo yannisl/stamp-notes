@@ -1,0 +1,161 @@
+      
+<!--
+ directives
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{feature-image:/codeigniter/images/china/beauty_07.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<script type="text/javascript"> 
+goog.require('goog.ui.TableSorter');
+</script>
+ 
+ <STYLE type="text/css"> 
+    /** Each application can choose how to show sorted state.
+        This is a simple way, just toggling background colors. */
+ 
+    th.goog-tablesorter-sorted {
+      background-color: #eef;
+    }
+ 
+    th.goog-tablesorter-sorted-reverse {
+      background-color: yellow;
+    }
+  </STYLE> 
+<h2>A Table Sorter</h2>
+One useful component of Google's UI Classes is the Table sorter. 
+A table sorter allows for sorting of a table by column.  To use the  component, you first need to have the table in your page. The method then decorates the table with sorting
+features.
+
+{{bulb: The TABLE must have a THEAD containing TH elements for the table column
+headers.}}
+
+We will the example table shown below. The Table lists months and the number of days in the month. Once we activate the routines, by running the code below in the notes area, we will then move the table to the side margin and decorate it with the sorting functions. You will then be able to sort the columns, by clicking at the labels in the head area of the table.
+
+The TableSorter class can be found under the ui directory of the Closure files. Once you add it as your required file, Closure will load about 28 files in order to be able to process the code. What I found is that this is about the average number of files that any ui component uses.
+
+<div class="clearfix" style="width:280px" >
+<TABLE border="0" cellpadding="3" id="sortMe"> 
+ <THEAD> 
+ <tr> 
+ <TH class="">Number</TH> 
+ <TH class="">Month</TH> 
+ <TH class="goog-tablesorter-sorted">Days (non-leap year)</TH> 
+ </tr> 
+ </THEAD> 
+ <TBODY> 
+ <TR> 
+ <TD>1</TD> 
+ <TD>January</TD> 
+ <TD>31</TD> 
+ </TR><TR> 
+ <TD>3</TD> 
+ <TD>March</TD> 
+ <TD>31</TD> 
+ </TR><TR> 
+ <TD>5</TD> 
+ <TD>May</TD> 
+ <TD>31</TD> 
+ </TR><TR> 
+ <TD>7</TD> 
+ <TD>July</TD> 
+ <TD>31</TD> 
+      </TR><TR> 
+        <TD>8</TD> 
+        <TD>August</TD> 
+        <TD>31</TD> 
+      </TR><TR> 
+        <TD>10</TD> 
+        <TD>October</TD> 
+        <TD>31</TD> 
+      </TR><TR> 
+        <TD>12</TD> 
+        <TD>December</TD> 
+        <TD>31</TD> 
+      </TR><TR> 
+        <TD>4</TD> 
+        <TD>April</TD> 
+        <TD>30</TD> 
+      </TR><TR> 
+        <TD>6</TD> 
+        <TD>June</TD> 
+        <TD>30</TD> 
+      </TR><TR> 
+        <TD>9</TD> 
+        <TD>September</TD> 
+        <TD>30</TD> 
+      </TR><TR> 
+        <TD>11</TD> 
+        <TD>November</TD> 
+        <TD>30</TD> 
+      </TR><TR> 
+        <TD>2</TD> 
+        <TD>Februrary</TD> 
+        <TD>28</TD> 
+ </TR></TBODY></TABLE> 
+
+  </div>
+
+  
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+//filesLoaded();
+//googInfo();
+
+var component = new goog.ui.TableSorter();
+component.decorate(goog.dom.$('sortMe'));
+component.setSortFunction(1, goog.ui.TableSorter.alphaSort);
+component.setSortFunction(2, goog.ui.TableSorter.createReverseSort(goog.ui.TableSorter.numericSort));
+
+//move table to sidemargin for covenience
+var $table = $('#sortMe');
+$('#demo-area').append($table).css({
+  paddingLeft: '10px'
+}).fadeOut('slow').fadeIn('slow');
+
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+I battled to get it going as the idgenerator file taht I downloaded was different from those of the examples, eventually sorted it out. There is a need to write the version number on top of the class, rather than rely on svg, as one will be using the examples.
+<h3>Sorting a Table</h3>
+
+The Table Sorting code, starts by using a constructor to create a __component__. 
+
+<pre>
+<code class="snippet curvy">
+var component = new goog.ui.TableSorter();
+</code>
+</pre>
+
+The sorting methods are then specified by calling the __TableSorter__, method __setSortFunction()__. In our case we let column 0 default to an numeric sort. The month name is sorted alphabetically, whereas for the last column we provide a special callback that sorts the days in the month, in ascending or descending order.
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+                                                                                                                          

@@ -1,0 +1,90 @@
+ <!--
+{{feature: .. The take home message: seek the signal, avoid the noise, and do your own homework .. zerohedge.com}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: UI, jQuery, Visibility Filters, CSS Visibility }}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<style type="text/css">
+
+.sales1{color:red}
+ul.ex {font-size:13px;display:block}
+ul.ex {list-type:none;list-style-type:none}
+ul.ex li, ul.ex1 li{display:block;width:90%;border:1px solid #ececec;margin-bottom:1px}
+ul.ex li span{cursor:pointer}
+</style>
+
+
+
+<h3>Ajax, adding magic to HTML</h3>
+
+<p>
+AJAX in many respects has a bit of a hype. It is just a means of loading data from the <tt>server</tt> to the browser without a visible page refresh. This data can take many forms, and we have many options for what to do with it when it arrives.
+</p>
+
+We are going to build an example that displays images from a gallery, grouped by the artist. TheHTML defining the content area of the page will look like this:
+
+{{plain:
+   &lt;div id="gallery"&gt;
+   &lt;/div&gt;
+}}
+
+<h3>Appending HTML</h3>
+In many instances AJAX applications are often no more than a request for a chunk of HTML. This technique is sometimes referred to as AHAH (asynchronous HTTP and HTML), is almost trivial to implement with jQuery.
+First we need to insert some HTML to insert, which we'll place in afile called,
+a.html alongside our main document. This is not a true HTML document it is just a fragment.
+
+
+<h3>Getting data from the server using $.ajax()</h3>
+
+
+<div  class="code-block console-wrap">
+<div class="code code-block">
+
+<code id="ajax">
+$('#ajax-button').click(function(){
+     $('#ajax').load('/CodeIgniter/js/sizzle.html');
+     alert('data loaded ... ');
+      return false;
+});
+
+</code>
+
+</div>
+
+<div class="msg">
+ </div>
+<div class="console"></div>
+<hr/>
+<button class="eval">Run Code!</button>
+<button id="ajax-button">Load Data!</button>
+
+<ol class="results"></ol> 
+</div>
+
+<hr/>
+
+The .load() method does all our work for us! We specified the target location for the HTML snippet by using a normal
+jQuery selector, and the pass the URL on the file to be loaded as a parameter to the method. Now when the link is clicked the file is loaded and placed
+inside the <tt>&lt;div id="msg"&gt;</tt>. The browser renders the new HTML as soon as it is inserted.
+
+
+When testing this example, the image will probably appear instantaneously when the button is clicked. This is a hazard of working on our applications locally; it is hard to account for delays in transferring documents
+across the network. 
+
+If we added an alert box to display after the definitions are loaded, the alert box will in all probability display earlier. That what is meant by asynchronous.
+
+This happens because all AJAX calls are by default <strong>asynchronous</strong>. Otherwise, we'd have to call it SJAX, which hardly has the same ring to it! Asynchronous loading means that once the HTTP request to retrieve the HTML snippet is issued, script execution immediately resumes without waiting. Some time later, the browser receives the response from the server and handles it. 
+
+<strong>This is generally desired behavior; it is unfriendly to lock up the whole web browser while waiting for data to be retrieved.</strong>
+
+If actions must be delayed until the load has been completed, jQuery provides a callback for this. An example will be provided below.
+
+
+
+
+
+

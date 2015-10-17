@@ -1,0 +1,61 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+<h2>Function (Built-in Object)</h2>
+<strong>Function</strong> is the object from which JavaScript functions are derived.  Functions are first-class data types in JavaScript, so that they may be assigned to variables and passed to functions as you would any other piece of data. Functions are, of course, reference types.
+
+<div  class="code-block console-warp"><div class="code code-block">
+<code>
+var sayHi = new Function("msg", "alert('msg')");
+
+sayHi();
+log(typeof sayHi);
+</code>
+</div>
+<p class="msg">
+</p>
+
+<button class="eval">Run Code!</button>
+<ol class="results" style="white-space:pre"></ol> 
+</div>
+
+One of the main advantages of using  such an approach is that the script will create the function after it loads. It can also be used in certain instances in place of eval().
+
+
+<hr/>
+<div  class="code-block console-warp"><div class="code code-block">
+<code>
+var s1='var a=function(){return 1;}';
+var s2='var b=function(){return 2;}';
+var s3='var c=function(){return  3;}';
+
+var s4 = s1+s2+s3+s4;
+
+var f=new Function('s4', 'return s5(12)');
+
+log(f);
+
+</code>
+</div>
+<p class="msg">
+</p>
+
+<button class="eval">Run Code!</button>
+<ol class="results" style="white-space:pre"></ol> 
+</div>
+
+
+##Further Reading
+
+http://xregexp.com/syntax/
+
+

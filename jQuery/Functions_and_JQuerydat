@@ -1,0 +1,257 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+
+
+<h2>Execution of functions </h2>
+
+Consider normal function execution, which is written as follows:
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+
+var foo = (function fn(){
+  log('I am in function fn ','');
+});
+foo();
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+Now check this one out, By just enclosing the functions in parentheses we get a JavaScript equivalent to the above. 
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+
+(function fn(){
+    log('I am in function fn ','');
+})();
+
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+What the () does it tells Javascript to execute the function just before it. Let u s now assign the above function to a variable:
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+
+var foo = (function (){
+                       log('I am in function foo ','');
+                       return 22; 
+                    })();
+
+log('foo', foo);
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+Now our example before the last:
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+
+var foo = (function (x){
+                       log('I am in function foo ','');
+                       return x + 22; 
+                    })(10);
+
+log('foo', foo);
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+But do we need the var foo?
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+
+(function (x){
+        foo =  x + 22; 
+ })(10);
+
+(function (x){
+        bar =  x + 22; 
+  })();
+
+log('foo',  foo);
+log('bar',  bar);
+
+
+
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+At this point you should open the jQuery Library and have a peek at the code there, it starts as 
+
+(function(){
+... about 3 500 lines of code
+})();
+
+If you have managed to work through the above code you must by now realize that everything within the jQuery library protects the outside world! This avoid name pollution and elminates errors in coding.
+
+So how does the jQuery object jumps out of its prison simply, by declaring
+
+{{plain:
+          window.$ = jQuery;
+}}
+
+There is also some other code that enables jQuery to manipulate the $ symbol for no conflict situations. (See jQuery).
+
+But why does $()? is jQuery a function?
+
+{{plain:
+var jQuery = window.jQuery = function( selector, context ) &#123;
+	// The jQuery object is actually just the init constructor 'enhanced'
+	return new jQuery.prototype.init( selector, context );
+&#125;;
+}}
+
+In later versions this was changed to :
+
+{{plain:
+<code>
+jQuery = window.jQuery = window.$ = function( selector, context ) &#123;
+		// The jQuery object is actually just the init constructor 'enhanced'
+		return new jQuery.fn.init( selector, context );
+	&#125;;
+</code>
+}}
+where, simply the .fn is just an alias for prototype.
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+
+var foo = (function (x){
+                       log('I am in function foo ','');
+                       return x + 22; 
+                    })(10);
+
+log('foo', foo);
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+But do we need the var foo?
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+(function(){
+  var jQ  = window.jQ = function(x ) {
+	// The jQuery object is actually just the init constructor 'enhanced'
+	return x +100;
+  }
+})()
+
+alert(jQ(100))
+alert(jQuery.now());
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+
+
+
+
+<h3>Summary</h3>
+
+It is preferable to create a library within your own namespace, made out simply by one object which consists of methods and properties, will see about this a bit later, your library could be called:
+
+  y(selector, context).chineseRods();
+  y(selector, context).mayaNumbers();
+  y(selector, context).hieroNumbers();
+  y(selector, content).longInt();
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+ 
+
+
+
+  
+  
+
+
+
+
+
+
+

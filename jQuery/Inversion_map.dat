@@ -1,0 +1,74 @@
+ <!--
+{{feature-image:/codeigniter/images/china/beauty_11.jpg}}
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<script type="text/javascript">
+goog.require('goog.structs.InversionMap');
+</script>
+
+<h2>Inversion Map</h2>
+Can someone make a better example of this? Is this supposed to invert a monotonic function? (Google is using it in the graphemeBreak class);
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+/**
+ * Maps ranges to values using goog.structs.Inversion.
+ * @param {Array.} rangeArray An array of monotonically
+ *     increasing integer values, with at least one instance.
+ * @param {Array.*} valueArray An array of corresponding values.
+ *     Length must be the same as rangeArray.
+ * @param {boolean} opt_delta If true, saves only delta from previous value.
+ * @constructor
+*/
+
+log(goog.info.inversionmap);
+
+var a1 = [1, 5, 19, 800];
+
+var a3 = [1, 0, 200, 345];
+var delta = false;
+
+var arr5 = new goog.structs.InversionMap(a1, a3, delta);
+var z1 = arr5;
+
+log('Monotonic function ', a1);
+log('Inversion Map', arr5.values);
+log('Range array  ', arr5.rangeArray);
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+      

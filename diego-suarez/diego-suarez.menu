@@ -1,0 +1,14 @@
+\begin{accordion}
+\begin{accordiongroup}{General}
+\mitem{Introduction}{introduction}
+\end{accordiongroup}
+
+\begin{accordiongroup}{Stamp Issues}
+\mitem{Introduction}{introduction}
+\mitem{1890 Issue}{1890_Issue}
+\mitem{1890 Lithographed}{1890_Lithographed}
+\mitem{1892 Diego Suarez Overprints}{1892_Diego_Suarez_Overprints}
+
+\end{accordiongroup}
+
+\end{accordion}        

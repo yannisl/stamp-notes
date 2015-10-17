@@ -1,0 +1,72 @@
+\chapter{Entities}
+
+\section{Acute}
+
+\section{E}
+
+É, é (e-acute) is a letter of the Latin alphabet. It is found in Czech, Hungarian, Icelandic, Kashubian, Luxembourgish, Slovak, Catalan, Danish, English, French, Galician, Iceland, Irish, Italian, Occitan, Norwegian, Portuguese, Spanish, Swedish, Vietnamese, and Welsh languages, as a variant of the letter "e". In English, it may be observed as a pronunciation aid in loanwords (e.g., résumé from French) or romanizations (e.g., Pokémon from Japanese). This is also used in Dutch and Navajo r\'esum\'e
+
+\subsection{\'I}
+
+Í, í (i-acute) is a letter in the Faroese, Hungarian, Icelandic, Czech, Slovak, and Tatar languages, where it often indicates a long /i/ vowel. This letter also appears in Catalan, Irish, Occitan, Portuguese, Spanish, Galician, Leonese, Navajo, and Vietnamese language as a variant of the letter “i”. 
+
+
+\'O
+
+Ó, ó (o-acute) is a letter in the Faroese, Hungarian, Icelandic, Kashubian, Polish, Czech, Slovak, and Sorbian languages. This letter also appears in the Catalan, Irish, Occitan, Portuguese, Spanish, Italian and Vietnamese languages as a variant of letter “o”. It is also used in English for other purposes. This also appears in {{wi:Pumpokol}}.
+
+\subsection{\'U}
+
+Ú or ú (U with acute) is a Latin letter used in the Czech, Faroese, Hungarian, Icelandic, and Slovak writing systems. This letter also appears in Dutch, Irish, Occitan, Pinyin, Portuguese, Spanish, Italian, and Vietnamese as a variant of the letter "U".
+
+In Italian Ú/ú is used in words like "Menú", "Virtú", and "Gioventú".
+
+\subsection{\'Y}
+
+\'Y and \'y 
+
+
+\section{Cedilla}
+
+The most frequent character with cedilla is "ç" ("c" with cedilla, as in façade). It was first used for the sound of the voiceless alveolar affricate /ts/ in old Spanish and stems from the Visigothic form of the letter "z" (ʒ), whose upper loop was lengthened and reinterpreted as a "c", whereas its lower loop became the diminished appendage, the cedilla.
+
+In LaTeX \verb+\c{c}+ produces a cedilla, ç.\c{C}. \c{a}
+
+\c{S} and \c{s}.
+
+\section{Circumflex
+}
+The circumflex is a diacritic in the Latin, Greek and Cyrillic scripts that is used in the written forms of many languages and in various romanization and transcription schemes. It received its English name from Latin circumflexus 'bent around' – a translation of the Greek περισπωμένη (perispōménē). The circumflex in the Latin script is chevron-shaped ( ˆ ), while the Greek circumflex may be displayed either like a tilde ( ˜ ) or like an inverted breve (   ̑ ).
+
+\verb+\^A , \^a, \^O, \^o+, typesets Â , â, Ô, ô.
+
+\subsection{Icelanding}
+
+Thorn or þorn (Þ, þ) is a letter in the Old English, Gothic, Old Norse, and Icelandic alphabets, as well as some dialects of Middle English. It was also used in medieval Scandinavia, but was later replaced with the digraph \textit{th}, except in Iceland where it survives. The letter originated from the rune  in the Elder Fuþark, and was called thorn in the Anglo-Saxon and thorn or thurs ("giant") in the Scandinavian rune poems. Its reconstructed Proto-Germanic name is \textit{Thurisaz}.
+
+The most defining characteristics of the alphabet were established in the old treatise:
+Use of the acute accent (originally to signify vowel length).
+Use of þ, also used in the Old English alphabet as the letter thorn.
+The later Rasmus Rask standard was basically a re-enactment of the old treatise, with some changes to fit concurrent North Germanic conventions, such as the exclusive use of k rather than c. Various old features, like ð, had actually not seen much use in the later centuries, so Rask's standard constituted a major change in practice.
+Later 20th century changes are most notably the adoption of é, which had previously been written as je (reflecting the modern pronunciation), and the abolition of z in 1973.
+
+A	Á	B	D	Ð	E	É	F	G	H	I	Í	J	K	L	M	N	O	Ó	P	R	S	T	U	Ú	V	X	Y	Ý	Þ	Æ	Ö
+
+a	á	b	d	ð	e	é	f	g	h	i	í	j	k	l	m	n	o	ó	p	r	s	t	u	ú	v	x	y	ý	þ	æ	ö
+
+
+Type \verb+\ETH+ to get \ETH.
+
+
+
+\subsection{Ligatures}
+
+Æ (minuscule: æ) is a grapheme formed from the letters a and e. Originally a ligature representing a Latin diphthong, it has been promoted to the full status of a letter in the alphabets of some languages, including Danish, Norwegian, Icelandic and Faroese. As a letter of the Old English Latin alphabet, it was called æsc ("ash tree") \ae \Ae \oe
+
+
+
+
+
+
+
+

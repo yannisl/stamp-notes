@@ -1,0 +1,291 @@
+
+
+<h2>What is the Google Application Engine?</h2>
+
+
+Google's App Engine opens Google's production infrastructure to any person in the
+world at no charge. Much like Google gives us all free email with an amazing amount
+of long-term storage, we now have the ability to run the software that we write in
+Google's data centers (i.e., in the Google "cloud").
+
+What Is the "Cloud"?
+
+<img src="/application-latest/images/cloud-computing.png" style="display:block;float:none;margin:0 auto" />
+
+<hr/>
+The term "{{wi:cloud_computing}}" is often used when we know how to use something at a high level
+but we are conveniently shielded from the detail about how it actually works. 
+
+We know
+that we have ways to work with and use things in the cloud, but we don't bother looking
+at what is going on inside. Sometimes we refer to this concept as abstraction; we deal
+with something complex and detailed in a very simple and abstract way and are unaware
+of the many intricate details that may be involved. For most of us, the automobile is an
+abstraction. We use a key, steering wheel, gearshift, gas pedal, and brake to drive
+around and we seldom worry about the thousands of highly specialized parts that are
+combined to produce the car. Of course, when your car breaks down or performs badly,
+those details begin to matter a lot. And when we do not have the skills to address the
+details, we hire someone (a mechanic), paying the professional to dig into those details
+and give us back a nicely working abstraction and of course a hefty bill listing all
+the details within the abstraction that needed some work.
+
+<img src="/codeigniter/images/google_application_engine.jpg" style="float:left" />
+
+<h3>Do You You Really Want to Run in the Cloud</h3>
+
+You might initially think that you donâ��t want to run in the Google cloud because you
+want to make your own decisions and control your own destiny. You might want to
+run your own servers in your own facility and make all the decisions about your application.
+Perhaps you just like walking into a server room and seeing the hardware
+that is running the application. Although this sense of control might sound appealing
+at first, it is really just a lot of trouble and energy that does not advance the cause of
+your application. 
+
+Here are a few of the things that you have to worry about when you
+run on your own servers: what operating system should I run? What version of the
+operating system is the most reliable? When do I apply vendor patches (especially those
+pesky security patches)? How do I protect my system from intruders? Do I need a
+firewall to protect my servers? How do I monitor my servers to detect when an intrusion
+happens and then how do I get notified? How far do I have to drive to the server room
+to reformat and reinstall the software at 4:00 a.m. so that it is back up by 10:00 a.m.?
+What database do I run? What version? What patches? Should I upgrade the memory
+of my database server, or should I add an additional disk to the RAID controller? Can
+I use a single database server, or do I need to cluster several database servers? How does
+the clustered database server get backed up? How long does it take to restore my
+database when there is a hardware problem with the database serverâ��s disk drives? How
+many application web servers do I need? I know that my applicationâ��s peak usage is
+from 7:00 p.m. to 9:00 p.m. each day. Do I buy enough hardware to handle that peak
+load, or do I buy a little less hardware and just let the servers slow down a bit during
+the 7:00 p.m. to 9:00 p.m. period? 
+
+If my application is so popular that it is used both
+in the United States and Europe, do I need to find a data center in Europe and put some
+hardware in Europe so that all the European users see a quick response time? When
+should I upgrade my hardware? Should I add more hardware and keep the old hardware
+or simply pitch the old hardware and install all new hardware? How much energy does
+my hardware take? Is there a way to reduce the energy footprint of my hardware?
+
+And on and on. These problems do not go away just because you run on the Google
+infrastructure. But they are Googleâ��s problems, not your problems. You have outsourced
+these and hundreds of other subtle issues by running a production facility at
+Google. Google has some of the brightest production engineers in the world, who are
+very good at solving these problems and doing so very efficiently.
+
+Although Google will charge you when your application begins to use significant resources,
+there is virtually no way that you could build the same scalable, worldwide,
+reliable, redundant, and efficient production environment anywhere near as cheaply
+as you can purchase those services from Google.
+
+It is important to note that although Google App Engine is very exciting, because it is
+freely available to anyone to use and explore, there are many other available options
+for hosting applications on the Web. You should carefully investigate the appropriate
+production solution for your particular application.
+
+{{bulb: For me the decision was not that difficult. I can't everything alone! Partnering with Google sounded like a good idea to explore! What have I got to lose? At worse I will migrate everything to normalhosting or to somebody like slicehost, if I need to and if I need to I will be doing very well. It's like tax, in a way it is a good problem to have!}}
+
+<h3>Application Engine Accounts</h3>
+If you reciding in one of the major metropolitan areas you probably have everything you need to create you Application Engine Accounts. I was caught at first as I am currently living in a small Island in the Meditteranean and my mobile operator was NOT on Google's list! Anyway, went the next morning and got another sim card just to receive the code from Google and to be able to complete my promise and upload an application to the cloud before the new year!
+
+
+
+{{bulb:Google makes a basic level of App Engine service available to anyone at no charge.}}
+
+ If
+your application exceeds the limits for bandwidth, storage, or computation on your
+free accounts, you can upgrade to a pay plan and scale your application as far as you like.
+All that is required to get started is a Google account and the ability to receive an SMS
+(text) activation message.
+
+To set up your App Engine account, start by visiting the [App Engine developer's site](http://appengine.google.com). If you do not already have a Google account, you can create
+one there with an existing email address or create a Gmail account here (which will
+allow you to log into the Application Console): http://mail.google.com.
+
+{{nutshell: To summarize, you need a Gmail account and a mobile from an accredited provided, the rest is free!}}
+
+<h3>Creating an Application on App Engine</h3>
+
+Each application is given a hostname on <tt>appspot.com</tt>, like __mysexyspace.appspot.com__,
+which corresponds to the application field from __app.yaml__. This is called the __Application
+Identifier__; it may not be changed for an application. 
+
+{{bulb:Currently, accounts are limited
+to 10 applications. Google does not yet allow applications to be deleted, so you should
+take care to not use up all your applications.}}
+
+Creating a new application is simple. From the Application Console, click the Create
+an Application button. You will need to specify a few basic items to finish creating
+your app:
+
+- The Application Identifier (App ID), which must be unique and not already in use.
+- The Application Title, which will be displayed in places like the login screen.
+- (Optional) The authentication mode, which, if your application uses the Users API,
+will decide whether your application is available to the public (those with Google
+accounts), or restricted to a specific Google Apps domain.
+
+
+In this sample, we are creating an application to house the AJAX chat program from
+the book.
+
+In Figure 10-1, we have chosen an available Application Identifier (ae-12-ajax), given
+the application a title, and left the authentication settings at the defaults. After clicking
+Save, we get the success page, when the application is created.
+
+<div  class="code-block console-wrap">
+<div class="code code-block">
+<code>
+
+ function testExportSymbolExceptions() {
+  var thrown = false;
+  try {
+    exceptionTest();
+  } catch (e) {
+    thrown = true;
+    if (e.message != 'ERROR') {
+      fail('Unexpected error thrown', e);
+    }
+  }
+ 
+  if (!thrown) {
+    fail('Exception wasn\'t thrown by exported function');
+  }
+}
+  
+
+</code>
+</div>
+<div  id="msg" class="msg" >
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+At this point, the application is registered, but there is nothing uploaded.
+
+<h3>Uploading Your Application</h3>
+
+After ensuring that the Application Identifier is correct in <tt>app.yaml</tt>, we can upload our
+application:
+
+{{plain:
+application: ae-12-ajax
+version: 1
+runtime: python
+api_version: 1
+}}
+
+We use appcfg.py to upload applications to App Engine. The simplest form is to use
+the update command with the directory of your application. You will be prompted for
+your account information. After entering your email address and password (which will
+not be shown), everything will be uploaded in one step:
+
+{{plain:
+golabki:~/Desktop/appeng botimer$ ls
+ae-12-ajax
+golabki:~/Desktop/appeng botimer$ appcfg.py update ae-12-ajax/
+Email: noahbotimer@gmail.com
+Password for noahbotimer@gmail.com:
+Saving authentication cookies to /Users/botimer/.appcfg_cookies
+Scanning files on local disk.
+Initiating update.
+Cloning 2 static files.
+Cloning 12 application files.
+Uploading 12 files.
+Closing update.
+Uploading index definitions.
+golabki:~/Desktop/appeng botimer$
+}}
+
+
+You may notice that the appcfg.py script saves authentication cookies, which allows
+you to issue repeated commands without logging in each time. You can use the --nocookies
+option to disable this behavior if you prefer.
+
+<h3>Testing Your Application</h3>
+
+Once appcfg.py finishes uploading and you are returned to the command prompt, the
+application will be live. You can verify that your application is up and running by simply
+visiting it in your browser at http://ae-12-ajax.appspot.com. Figure 10-2 shows the application
+running at appspot.com.
+
+You can continue to run your local version of your application with the SDK and use
+update when you are ready to upload changes. If you don't change the version number
+in app.yaml, your changes will be made live immediately. When you are developing
+your application and are not formally in production, it is good practice to leave the
+version number unchanged when you upload new versions.
+
+
+<h3>Uploading New Versions</h3>
+
+When developing an application that people actively use, it is important that changes
+are pushedto the users only when they are tested and ready for deployment. App
+Engine allows you to upload multiple versions of your application and activate them
+when ready or to roll them back if needed. If we make some changes to our application
+and want to test them out on App Engine but do not want to affect other users, we can
+modify the version field in app.yaml:
+
+{{plain:
+application: ae-12-ajax
+version: 2
+runtime: python
+api_version: 1
+}}
+
+After the number is changed, all we have to do is issue another update with
+appcfg.py. When the upload is finished, the new version will not be the default for your
+regular users, so their experience will not be disrupted. Visiting the Application Console
+and selecting Versions will show all of the active versions of your app, as shown in
+Figure 10-6.
+
+In the Live URI column, you can retrieve a direct link to any version of the application
+to test it. When you are comfortable that your users should be served a given version
+by default, you can select it and click Make Default.
+
+<h3>Collaboration on Applications</h3>
+
+When working on some projects, it is important for multiple people to be able to upload
+updates to your application on App Engine. It is very easy to allow this. From the
+Application Console Developers page, you can invite other Google accounts, which
+will let them collaborate on the application. Here is the screen where the current developers
+are listed; you can send an invitation to a colleague (Figure 10-7).
+
+<h3>Summing Up</h3>
+
+We have covered a lot of ground so far, for sure developing an application for the SDK and deploying it to the cloud, is not the equivalent of using cpanel to install wordpress on hostgator, however, it will get your programming skills up, will polish your python and it will give you immense satisfaction to know that your application has the support of all Google's data centers!
+
+{{bulb: And is all Free!}}
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+##Further Reading
+
+
+
+ 
+
+
+
+  
+  
+
+
+
+
+
+
+
+                                          

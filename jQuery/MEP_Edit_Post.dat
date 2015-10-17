@@ -1,0 +1,64 @@
+###tabs snippets In form more tests
+
+<div style="width:800px">test</div>
+<div id="#maindraggable" style="width:618px;float:left">
+<div id="maintabs" style="font-size:10px">
+	<ul>
+		<li><a href="#tabs-1" >Post</a></li>
+		<li><a href="#tabs-2">Preview</a></li>
+                <li><a href="#tabs-2">Pages</a></li>
+                <li><a href="#tabs-2">Posts</a></li>
+       </ul>
+<div id="tabs-1" class="tabp">
+<p><span style="float:right;font-size:12px"><a>Save</a> <a>Delete</a></span></p>
+<p>
+Proin elit 
+<a href="http://127.0.0.1/CodeIgniter/index.php/Blogs/tutorials/jQuery/introduction">
+arcu
+</a>, rutrum commodo, vehicula tempus, commodo a, risus. Curabitur nec arcu. Donec sollicitudin mi sit amet mauris. Nam elementum quam ullamcorper ante. Etiam aliquet massa et lorem. Mauris dapibus lacus auctor risus. Aenean tempor ullamcorper leo. Vivamus sed magna quis ligula eleifend adipiscing. Duis orci. Aliquam sodales tortor vitae ipsum. Aliquam nulla. Duis aliquam molestie erat. Ut et mauris vel pede varius sollicitudin. Sed ut dolor nec orci tincidunt interdum. Phasellus ipsum. Nunc tristique tempus lectus.</p>
+
+</div>
+
+<div id="tabs-2">
+<p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molestie lectus, ut tempus eros massa ut dolor. Aenean aliquet fringilla sem. Suspendisse sed ligula in ligula suscipit aliquam. Praesent in eros vestibulum mi adipiscing adipiscing. Morbi facilisis. Curabitur ornare consequat nunc. Aenean vel metus. Ut posuere viverra nulla. Aliquam erat volutpat. Pellentesque convallis. Maecenas feugiat, tellus pellentesque pretium posuere, felis lorem euismod felis, eu ornare leo nisi vel felis. Mauris consectetur tortor et purus.</p>
+</div>
+<!-- end tabs-->
+</div>
+</div>
+
+
+
+
+<script>
+$(function() {
+  $( "#maintabs" ).tabs().draggable({ opacity: 0.35 });
+});
+</script>
+
+
+<hr/>
+
+<span id="chapter" class="hidden">13</span>
+##Further Reading
+
+
+
+  
+<!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class,tabs, jquery}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, jQuery tabs}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+--> 
+
+
+
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            

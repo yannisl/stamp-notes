@@ -1,0 +1,88 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+
+<h2>A Regular Expression Library</h2>
+Certainly Regular Expressions are a difficult concept to grasp and master and some inconsistencies between browsers, make it even more hard.
+
+An interesting open source JavaScript library, named XRegExp has been developed by Steven levithan - who is the author - of a couple of books on regular expressions.
+
+The library which has an open source (MIT license) augments, extensible, cross-browser implementation of regular expressions, including support for additional syntax, flags, and methods.
+
+XRegExp is fully compliant with the regular expression flavor specified in ECMA-262 Edition 3 (ES3), and has been tested with Internet Explorer 5.5-8, Firefox 2-3.5, Safari 3-4, Chrome 1-2, and Opera 9. 
+
+Certain portions of it are under development and I am sure the end result deserves to be ported into one of the libraries, such as Prototype.
+
+
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+var regex = XRegExp("(?#month)\\d\\d?[-/. ](?#day)\\d\\d?[-/. ](?#year)(?:\\d\\d){1,2}");
+var isDate = regex.test("04/20/2008"); // -> true
+log('is date :', isDate);
+var regex2 = XRegExp('aaaa', 'i');
+var z = regex2.test('AaaZaaabbb');
+
+log(z);
+</code>
+</div>
+<p id="msg1" class="msg" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<h3>Common tasks libraries</h3>
+
+What is not widely available is a compilation of regular expressions for common tasks. One comes across tasks, such as validating emails, web adresses (will become more difficult with utf characters, being allowed in the future), social security numbers, credit card numbers and the like. Such a library, should be extensible, to allow for developers to personalize it, without losing the advantages of a library that is open to the developer community to mould.
+
+What I am talking about is just a set of conventions and the development of a library in this form
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+// $R - dollar factory regular expressions
+$R1 = {
+  email: /aaa/,
+  socialSecurityNumber: /aaa/,
+  url: /aaaa/,
+  date: /aaa/,
+  numeric: /[0-9]+/g,
+  ID: /#((?:[\w\u00c0-\uFFFF-]|\\.)+)/,
+  ATTR: /\[\s*((?:[\w\u00c0-\uFFFF-]|\\.)+)\s*(?:(\S?=)\s*(['"]*)(.*?)\3|)\s*\]/,
+};
+
+var s1 = '200.000005';
+var s = 'AAAAA';
+var s3='rel="Test" '
+log(($R1.numeric).test(s));
+log($R1.numeric);
+log($R1.ATTR.test(s3));
+</code>
+</div>
+<p id="msg1" class="msg" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+<hr/>
+
+
+
+##Further Reading
+
+http://xregexp.com/syntax/
+
+

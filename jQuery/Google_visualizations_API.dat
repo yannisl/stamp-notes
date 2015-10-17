@@ -1,0 +1,193 @@
+
+<script type='text/javascript' src='http://www.google.com/jsapi'></script>
+<script type='text/javascript'>
+google.load('visualization', '1', {'packages': ['geomap']});
+google.setOnLoadCallback(drawMap);
+
+function drawMap() {
+var data = new google.visualization.DataTable();
+data.addRows(8);
+data.addColumn('string', 'Country');
+data.addColumn('number', 'Popularity');
+data.setValue(0, 0, 'Germany');
+data.setValue(0, 1, 200);
+data.setValue(1, 0, 'United States');
+data.setValue(1, 1, 300);
+data.setValue(2, 0, 'Brazil');
+data.setValue(2, 1, 400);
+data.setValue(3, 0, 'Canada');
+data.setValue(3, 1, 500);
+data.setValue(4, 0, 'France');
+data.setValue(4, 1, 600);
+data.setValue(5, 0, 'RU');
+data.setValue(5, 1, 700);
+data.setValue(6, 0, 'China');
+data.setValue(6, 1, 1000);
+data.setValue(7, 0, 'Cyprus');
+data.setValue(7, 1, 1000);
+var options = {};
+options['dataMode'] = 'regions';
+
+var container = document.getElementById('map_canvas');
+var geomap = new google.visualization.GeoMap(container);
+geomap.draw(data, options);
+};
+</script>
+
+
+
+  
+
+
+
+
+<h2>What is the Google Visualization API?</h2>
+
+If you have a lot of data in your Application and want to turn that into visualizations one option is to create a mash-up using the Google Visualization API. With the API you can produce for example maps as shown below, with a few lines of code. For maps Google offers two libraries, the one [geomap]() and the [geochart](http://code.google.com/apis/chart/interactive/docs/gallery/geochart.html). The older version uses flash, and the latter, which is possibly better to use in the long term uses {{wi:svg}}. With TeXIgniter this is a compomise, as we should be drawing our charts with PGF/TiKZ.
+
+<div id='map_canvas' style="display:block;width:555px;margin:0 auto"></div>
+
+
+\section{Getting Started}
+
+The Google Visualization API lets you access multiple sources of structured data that you can display, choosing from a large selection of visualizations. Google Visualization API enables you to expose your own data, stored on any data-store that is connected to the web, as a Visualization compliant datasource. Thus you can create reports and dashboards as well as analyze and display your data through the wealth of available visualization applications. The Google Visualization API also provides a platform that can be used to create, share and reuse visualizations written by the developer community at large.
+
+It is not a very complicated API and you can absorb most of it over a nice relaxing weekend. 
+
+This article is what I call a highspeed tutorial. I will quickly cover the ground, if you find that this is what you need then you should explore the source directly which is at [Google's Visualizations API](http://code.google.com/apis/visualization/) page. You should also  try  Google's [interactive playground](http://code.google.com/apis/ajax/playground/?type=visualization#geo_map), which is a couple of notches up on what I am offering here, although the approach I took, is one that notes get mixed with the interactivity which is perhaps a better way to learn. 
+
+
+\section{Creating the Map}
+
+The pattern of creating and displaying a visualization of a map typically will be to set values in the function drawMap() and to call the function with the page onLoad event or jQuery's $(document)(ready) method if you wish. Here is how it looks like. (We display a new Map in our console sanbox area).
+
+<div  class="code-block console-wrap" title="Parsing color strings">
+<div class="code-block code"><code>
+    //clear the sandbox so we can see if we
+    // are reloading information
+
+     $('#sandbox1').text('');
+
+    function drawMap() {
+      var data = new google.visualization.DataTable();
+      data.addRows(6);
+      data.addColumn('string', 'Country');
+      data.addColumn('number', 'Popularity');
+      data.setValue(0, 0, 'Germany');
+      data.setValue(0, 1, 200);
+      data.setValue(1, 0, 'United States');
+      data.setValue(1, 1, 300);
+      data.setValue(2, 0, 'Brazil');
+      data.setValue(2, 1, 400);
+      data.setValue(3, 0, 'Canada');
+      data.setValue(3, 1, 500);
+      data.setValue(4, 0, 'France');
+      data.setValue(4, 1, 600);
+      data.setValue(5, 0, 'RU');
+      data.setValue(5, 1, 700);
+
+      var options = {};
+      options['dataMode'] = 'regions';
+
+      var container = document.getElementById('sandbox1');
+      var geomap = new google.visualization.GeoMap(container);
+      geomap.draw(data, options);
+  };
+
+drawMap()
+</code>
+</div>
+
+<div id="sandbox1"></div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+
+<ol class="results" style="width:90%"></ol> 
+</div>
+
+<h3>the dataTable API</h3>
+
+This is the heart of the API, we use a constructor (the API provides two)
+
+{{snippet:
+ var data = new google.visualization.DataTable();
+}}
+
+The DataTable() represents a two-dimensional, mutable table of values. To make a read-only copy of a DataTable (optionally filtered to show specific values, rows, or columns), create a DataView.
+
+Each column is assigned a data type, plus several optional properties including an ID, label, and pattern string.
+
+In addition, you can assign custom properties (name/value pairs) to any cell, row, column, or the entire table. Some visualizations support specific custom properties; for example the Table visualization supports a cell property called 'style', which lets you assign an inline CSS style string to the rendered table cell. A visualization should describe in its documentation any custom properties that it supports.
+
+### Production of Oil by Gulf States 
+
+Let us now try and quickly build a map with some real data. Production in 1000's of barrels a day by Middle East countries.
+
+The statistics are for 2008 and I obtained them from the [US Energy Information Administration of the US Department of Energy](http://tonto.eia.doe.gov/cfapps/ipdbproject/IEDIndex3.cfm?tid=5&pid=53&aid=1)
+
+
+<div  class="code-block console-wrap" title="Parsing color strings">
+<div class="code-block code"><code>
+  //clear the sandbox so we can see if we
+// are reloading information
+$('#sandbox1').text('');
+
+function drawMap() {
+  var data = new google.visualization.DataTable();
+  data.addRows(9);
+  data.addColumn('string', 'Country');
+  data.addColumn('number', '000\'s Barrels Per Day ');
+  data.setValue(0, 0, 'Saudi Arabia ');
+  data.setValue(0, 1, 10782.124);
+  data.setValue(1, 0, 'Yemen ');
+  data.setValue(1, 1, 300.119);
+  data.setValue(2, 0, 'Bahrain ');
+  data.setValue(2, 1, 400);
+  data.setValue(3, 0, 'United Arab Emirates ');
+  data.setValue(3, 1, 3046.470);
+  data.setValue(4, 0, 'Oman');
+  data.setValue(4, 1, 760.999);
+  data.setValue(5, 0, 'Qatar');
+  data.setValue(5, 1, 207.560);
+  data.setValue(6, 0, 'Kuwait');
+  data.setValue(6, 1, 741.384);
+  data.setValue(7, 0, 'Iran');
+  data.setValue(7, 1, 741.384);
+  data.setValue(8, 0, 'Iraq');
+  data.setValue(8, 1, 741.384);
+
+  var options = {};
+  options = {
+    dataMode: 'regions',
+    region: '145'
+  }
+
+  var container = document.getElementById('sandbox2');
+  var geomap = new google.visualization.GeoMap(container);
+  geomap.draw(data, options);
+};
+
+drawMap() 
+</code>
+</div>
+
+<div id="sandbox2"></div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+
+<ol class="results" style="width:90%"></ol> 
+</div>
+
+The statistics are available yearly going back to 1980. Of interest the World total production has not significantly changed from 2004-2008 although prices were very volatile. Which means one of two things countries were stockpiling or alternatively digging into their stock-piles and the traders were smelling blood.
+
+
+##Further Reading
+
+http://xregexp.com/syntax/
+
+
+                                                                                                                                                                                                                                                                          

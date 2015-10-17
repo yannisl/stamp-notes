@@ -1,0 +1,36 @@
+\chapter{Write your title here}
+
+\begin{codeblock}
+var a = 1, b = 2;
+    a = c;
+\end{codeblock}
+
+
+
+\codeblock 
+
+ test
+
+\endcodeblock
+
+
+\begin{verbatim}
+ This is some test
+\end{verbatim}
+
+\begin{tex}
+  test 
+\end{tex}
+
+\begin{jscodeblock}
+alert('testing')
+\end{jscodeblock}
+
+<pre class="nice">
+
+test some code
+
+</pre>
+
+
+

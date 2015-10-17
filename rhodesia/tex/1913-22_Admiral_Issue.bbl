@@ -1,0 +1,19 @@
+\begin{thebibliography}{2}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Benny(2011)]{options}
+Jordan Benny.
+\newblock \emph{Options, The Plain and Simple Guide to Succesful Strategies},
+  volume~85.
+\newblock Prentice Hall, London, 2011.
+
+\bibitem[Smith(1967)]{smith:rhodesia}
+R.C. Smith.
+\newblock \emph{Rhodesia a Postal History, Its Stamps Posts and Telegraphs}.
+\newblock Published by the author, Salisbury, Rhodesia, 1967.
+
+\end{thebibliography}

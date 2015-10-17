@@ -1,0 +1,124 @@
+ <!--
+{{feature-image:/codeigniter/images/china/beauty_11.jpg}}
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+
+
+<h2>Math range</h2>
+Google's Closure <strong>range.js</strong> contains functions that handle ranges. 
+
+A range is a range of numbers :
+
+{{plain: n<sub>1</sub> ... n<sub>1</sub>}}
+
+I do not know if it was intentional, but all the methods outlined did not change the prototype and hence I could not call them from below, I patched the file to include for prototype, just to be able to view them. If the prototype is was changed in other areas, I am not sure, but as it was the methods were unusable.
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+var r1 = new goog.math.Range(10, 20); //function
+var r2 = new goog.math.Range(15, 25)
+log(goog.info.range);
+log(goog.info.rangeset);
+
+log(r1.toString());
+log(r1.start);
+
+var rs = new goog.math.RangeSet();
+rs = goog.math.RangeSet.add(r2);
+
+var inter = rs.union(r2, r2);
+log(union);
+//log(inter);
+log(rs.toString());
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+<h3>Range sets</h3>
+A RangeSet is a structure that manages a list of ranges.
+
+ Numeric ranges may be added and removed from the RangeSet, and the set may
+ be queried for the presence or absence of individual values or ranges of
+ values.
+
+ This may be used, for example, to track the availability of sparse elements
+ in an array without iterating over the entire array.
+
+
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+var r1 = new goog.math.Range(10, 20);
+var r2 = new goog.math.Range(15, 25);
+var r3 = new goog.math.Range(30, 100);
+var rs = new goog.math.RangeSet();
+var rs1 = new goog.math.RangeSet();
+rs.add(r2);
+rs.add(r1);
+rs.add(r3);
+
+// adding elements to second range
+rs1.add(r2);
+
+log('range set : ', rs.toString());
+log(goog.info.range);
+log(goog.info.rangeset);
+
+log(r1.toString());
+log(r2.toString());
+log(rs.containsValue(101));
+log(rs.containsValue(99));
+log(rs.getBounds());
+
+log('intersection ', rs.intersection(rs1));
+log('union ', rs.union(rs1));
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+You might need to revise your sets maths a bit, if you will be using these routines, to be honest personally I am a bit rusty and it probably shows, but these routines can come very handy for graphics. For example to define the x-axis of a graph you could just define a range, based on some scaling function. You can then check if a point falls within this range, if for example you do not want to plot outside a certain window. 
+
+Gets a rating as per the feature picture!
+
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+

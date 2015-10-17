@@ -1,0 +1,64 @@
+\begin{accordion}
+
+  \begin{category}{General}
+    \mitem{Background}{Background}
+    \mitem{Introduction}{Introduction}
+  \end{category}
+
+  \begin{category}{Queen Victoria Era (1851-1902)}
+  \mitem{II. Postmaster's Provisional}{PostmastersProvisional}
+  \mitem{1851 - Imperforate, Laid Paper (Sc 1-3)}{First_Stamps}
+  \mitem{First Cents Issue}{First_Cents_Issue}
+  \mitem{IV. The Second Issue}{Second_Issue}
+  \mitem{V. The Perforated Issue}{Perforated_Stamps}
+\end{category}
+
+\begin{category}{Large Queens}
+  \mitem{First Dominion Issue}{First_Dominion_Issue}
+\mitem{5c Large Queens}{5c_Large_Queens}
+  \mitem{VIII. 1869 One Cent Orange}{1869_One_Cent_Orange}
+ \end{category}
+
+\begin{category}{Other}
+  \mitem{X. The Small Cents Stamps}{The_Small_Cents_Stamps}
+  \mitem{XII. 1893 8c Issue}{1893_8_Cent_Issue}
+ \mitem{XIII Diamond Jubilee}{Diamond_Jubilee}
+ \mitem{XIV. Maple Leaf Issue}{Maple_Leaf_Issue}
+ \mitem{XV. 1898 Numeral Issue}{1898_Numeral_Issue}
+  \mitem{XVI. 1898 Map Issue}{1898_Map_Stamps_Issue}
+\mitem{1899 Port Hood Provisionals}{1899_Port_Hood_Provisionals}
+\mitem{1899 2 CENT Provisionals}{1899_2_CENTS_Provisionals}
+   \mitem{XX. 1900 20c Stamp}{1900_20_cents_stamp}
+  \mitem{XXI QV 7c Issue}{Queen_Victoria_Seven_Cents_Stamp}
+\mitem{XXIII The Quebec Tercentenary Issue}{The_Quebec_Tercentenary_Issue}
+ \end{category}
+
+ 
+ \begin{category}{King George V}
+ \mitem{XXIV. King George V Issues}{King_George_V_Stamp_Issues}
+\mitem{1928-29 Dominion}{1928-29-Dominion}
+\mitem{1931 Cartier}{1931_Cartier}
+\mitem{1935 Silver Jubilee}{1935_Silver_Jubilee}
+\mitem{1935 Dated Dies}{1935_Dated_Dies}
+ \end{category}
+
+
+\begin{category}{King George VI}
+\mitem{1937 Definitives}{1937_Definitives}
+\mitem{Coronation}{Coronation}
+\mitem{1939 Royal Visit}{1939_Royal_Visit}
+\mitem{1942-43 War Effort Definitives}{1942-43_War_Issue}
+\mitem{1946 Peace Issue}{1946_Peace}
+\mitem{1947 Bell Centenary}{1947_Bell_Centenary}
+\mitem{1948 Princess Elizabeth's Wedding}{1948_Princess_Elizabeths_Wedding}
+\mitem{1948 Centenary of Self Government}{1948_Centenary_of_Self_Government}
+\mitem{1950 Resources}{1950_Resources}
+\end{category}
+
+\begin{category}{Back of the Book}
+   \mitem{XXXI Officially Sealed Labels}{../canada/Officially_Sealed_Labels}
+  \mitem{XXX. Postage Due stamps}{../canada/Postage_Due_Stamps}
+  \mitem{XXIX. Registration Stamps}{Registration_Stamps}
+ \end{category}
+
+\end{accordion}                                                                                                                    

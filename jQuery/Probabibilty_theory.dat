@@ -1,0 +1,115 @@
+<!--{{feature:
+<p>"Sir, you must be the greatest archer in the world - everywhere around on walls, trees and fences there are targets, each with your arrow exactly in the middle. How did you achieve such greatness?"</p>
+<p>"I paint the targets after shooting."</p>}}-->
+
+by praptak 16 hours ago | link
+
+
+##Monty Hall Problem
+
+<img src="http://localhost/CodeIgniter/images/monty-door.png" style="display:block;float:right"> 
+The Monty Hall problem has probably the longest discussion page on Wikipedia and frequently appears in many other forums. The puzzle is loosely based on the American television game show Let's Make a Deal and named after the show's original host, Monty Hall. The problem, also called the Monty Hall paradox, is a veridical paradox because the result appears odd but is demonstrably true. The Monty Hall problem, in its usual interpretation, is mathematically equivalent to the earlier Three Prisoners problem, and both bear some similarity to the much older Bertrand's box paradox.
+The problem was originally posed in a letter by Steve Selvin to the American Statistician in 1975. (Selvin 1975a) (Selvin 1975b) A well-known statement of the problem was published in Marilyn vos Savant's "Ask Marilyn" column in Parade magazine in 1990 (vos Savant 1990):
+
+
+{{blockquote:
+Suppose you're on a game show, and you're given the choice of three doors: Behind one door is a car; behind the others, goats. You pick a door, say No. 1 - but the door is not opened, and the host, who knows what's behind the doors, opens another door, say No. 3, which has a goat. He then says to you, Do you want to pick door No. 2? Is it to your advantage to switch your choice?}}
+
+
+Vos Savant's response was that the contestant should always switch to the other door. If the car is initially equally likely to be behind each door, a player who picks Door 1 and doesn't switch has a 1 in 3 chance of winning the car while a player who picks Door 1 and does switch has a 2 in 3 chance. Consequently, contestants who switch double their chances of winning the car.
+
+
+
+First a small simulation.
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+// credit https://github.com/Paton/Monty-Hall-Paradox-Simulation/blob/master/index.php
+
+function random(x){
+  return Math.floor(Math.random(1, x) * x) + 1
+};
+
+/** initialize variables
+ *
+ */
+
+trials = 100; //number of trials
+wins1 = 0;
+wins2 = 0;
+wins3 = 0;
+var i = 0;
+var winningdoor = 0;
+
+var pick1, pick2, pick3;
+
+// Begin trial
+while (i < trials) {
+
+  // First pick
+  var pick1 = random(3); 
+
+  // Determine which door wins
+  var winningdoor = random(3);
+
+  // Expose a non-winning door
+  var expose = random(3);
+  while ((expose == winningdoor) || (expose == pick1)) expose = random(3);
+
+  // Switch door
+  if (pick1 == 1) if (expose == 2) pick2 = 3;
+  if (expose == 3) pick2 = 2;
+  else { if (pick1 == 2) if (expose == 1) pick2 = 3;
+    if (expose == 3) pick2 = 1;
+    else { if (pick1 == 3) if (expose == 1) pick2 = 2;
+      if (expose == 2) pick2 = 1;
+    }
+  }
+
+  // 3rd pick after 1 door is eliminated
+  pick3 = random(3);
+  while (pick3 == expose) pick3 = random(3);
+  // Open door
+  if (pick1 == winningdoor) wins1++;
+  if (pick2 == winningdoor) wins2++;
+  if (pick3 == winningdoor) wins3++;
+  // Next trial
+  i++;
+}
+
+log('Number of Trials: ',i);
+log('Before Switching:', ((wins1 /trials) * 100).toFixed(3), '%');
+log('After Switching:', ((wins2 / trials) * 100).toFixed(3), '%');
+log('Door picked after one was exposed:', ((wins3 /trials) * 100).toFixed(3), '%');
+
+</code>
+</div>
+
+<div  class="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+Tierny (Tierny 1991) reported that many readers refused to believe that switching is beneficial. After the Monty Hall problem appeared in Parade, approximately 10,000 readers, including nearly 1,000 with PhDs, wrote to the magazine claiming that vos Savant was wrong.  
+
+Even when given explanations, simulations, and formal mathematical proofs, many people still do not accept that switching is the best strategy. I posed the problem to at least ten mathematically inclined engineers and they all failed to accept it even after a mathematical proof was shown to them.
+
+The Monty Hall problem still attracts considerable academic interest because the result is surprising and the problem is interesting to formulate. Furthermore, variations of the Monty Hall problem are made by changing the implied assumptions, and the variations can have drastically different consequences. 
+
+For example, if Monty only offered the contestant a chance to switch _when the contestant had initially chosen the car_, then the contestant should never switch. Variations of the Monty Hall problem are described in the Wikipedia article. (The discussion page is actually more interesting).
+
+
+http://singingbanana.tumblr.com/post/9166555322/flipping-10-heads-in-a-row-full-video-by
+
+http://beust.com/weblog/2010/08/17/fun-with-the-anthropic-principle/
+
+[HN discussion](http://news.ycombinator.com/item?id=2907338)
+
+TODO: need to look at the IF sttaements carefully, they are plain ugly, maybe use select.
+
+
+
+
+                                      

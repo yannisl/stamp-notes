@@ -1,0 +1,126 @@
+
+<script>
+goog.require('goog.array');
+goog.require('goog.events');
+goog.require('goog.Timer');
+goog.require('goog.debug.Logger');
+goog.require('goog.debug.errorHandlerWeakDep');
+goog.require('goog.events.EventTarget');
+goog.require('goog.json');
+goog.require('goog.net.ErrorCode');
+goog.require('goog.net.EventType');
+goog.require('goog.net.XmlHttp');
+goog.require('goog.net.xhrMonitor');
+goog.require('goog.structs');
+goog.require('goog.structs.Map');
+goog.require('goog.net');
+</script>
+
+<h2>Ajax with Closure</h2>
+
+
+{{plain: 
+<script>
+
+</script>
+}}
+</pre>
+
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+goog.provide('example.House');
+example.House = function (address, numberOfBathrooms, itemsInTheGarage) {
+
+  this.address_ = address;
+  if (goog.isDef(numberOfBathrooms)) {
+    this.numberOfBathrooms_ = numberOfBathrooms;
+  }
+
+  this.itemsInTheGarage = goog.isDef(itemsInTheGarage) ? itemsInTheGarage : [];
+};
+
+/**
+* @type {number}
+* @private
+*/
+
+example.House.prototype.numberOfBathrooms_ = 1;
+/**
+* @type {boolean}
+* @private
+*/
+
+example.House.prototype.needsPaintJob_ = false;
+/** @return {string} */
+example.House.prototype.getAddress = function () {
+  return this.address_;
+};
+                    
+/** @return {number} */
+example.House.prototype.getNumberOfBathrooms = function() {
+return this.numberOfBathrooms_;
+};
+/** @return {boolean} */
+example.House.prototype.isNeedsPaintJob = function() {
+return this.needsPaintJob_;
+};
+/** @param {boolean} needsPaintJob */
+example.House.prototype.setNeedsPaintJob = function(needsPaintJob) {
+this.needsPaintJob_ = needsPaintJob;
+};
+/** @param {string} color */
+example.House.prototype.paint = function(color) {
+/* some implementation */
+};
+/** @return {number} */
+example.House.prototype.getNumberOfItemsInTheGarage = function() {
+return this.itemsInTheGarage.length;
+};
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+<h3>Some Methods Provided by the array class</h3>
+
+<div  class="code-block console-wrap"  title="Array filter" >
+<div class="code-block code">
+<code>
+
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+                                                                    

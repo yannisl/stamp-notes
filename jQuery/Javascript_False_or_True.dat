@@ -1,0 +1,175 @@
+ 
+\chapter{Javascript True or False}
+
+
+When using the comparison operators, JavaScript demands that you extra careful. Too many bugs are introduced accidentally when using comparisons.
+
+\begin{codeblock}
+(function () {
+  var f;
+  assert(f == 0, 'equal to zero');
+  assert(f == '', 'empty string');
+  assert(f == null, 'equals null');
+  assert(f == undefined, 'undefined is true');
+  assert(f = 0, 'assignment will fail');
+})();
+\end{codeblock}
+
+
+<h3>Accidental Assignment</h3>
+A very common error (not just in JavaScript, but also in other languages is the
+accidental use of the assignment operator (=) in a comparison statement. The code below will return false and <strong>assign</strong> the value zero to the variable <strong>f</strong>.
+
+{{plain:
+   if (f=0) alert(f);
+}}
+
+<div  class="code-block console-wrap  ui-corner-all">
+<div class="code-block code">
+<code id="editable">
+(function () {
+  var f = 12;
+  assert(f === 0, 'equal to zero');
+  assert(f = 0, 'assignment will fail');
+  log(f,'value assigned accidentally to zero');
+})();
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button id="eval" class="eval ui-corner-all">Run Code!</button>
+
+<ol class="results"></ol> 
+<div   class="jslint"></div>
+</div>
+
+<h3>Comparisons with zero</h3>
+
+<div  class="code-block console-wrap  ui-corner-all">
+<div class="code-block code">
+<code>
+(function () {
+  var f = false;
+  assert(f === 0, 'Fail f === 0 ');
+  assert(f == 0, 'assignment will pass');
+})();
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button id="eval" class="eval ui-corner-all">Run Code!</button>
+
+<ol class="results"></ol> 
+<div   class="jslint"></div>
+</div>
+
+
+## Some unexpected results
+
+<div  class="code-block console-wrap  ui-corner-all">
+<div class="code-block code">
+<code>
+function f( ) { 
+    var a = true;
+        b = 100;
+    return !!(a && b);
+}
+log(f());
+
+function y (a,b){
+  return (a && b).toUppercase;
+}
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button id="eval" class="eval ui-corner-all">Run Code!</button>
+
+<ol class="results"></ol> 
+<div   class="jslint"></div>
+</div>
+
+
+{{bulb: By the way, The ECMA Script specification explicitly mentions this in a note:
+The value produced by a && or || operator is not necessarily of type Boolean. The value produced will always be the value of one of the two operand expressions.}}
+
+### Ensuring an operation returns a boolean
+
+A convention used by programmers of some libararies is to use two negation operators (!!) to ensure that a boolean value is returned.
+
+<div  class="code-block console-wrap  ui-corner-all">
+<div class="code-block code">
+<code>
+// first test
+function y (a, b){
+  return (a && b);
+}
+log(y(true,'test'));
+
+//second test
+function k (a, b){
+  return !!(a && b);
+}
+log(k(true, 'test'));
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button id="eval" class="eval ui-corner-all">Run Code!</button>
+<ol class="results"></ol> 
+<div   class="jslint"></div>
+</div>
+
+Just remember this, if you want to make sure that you always return a boolean, just use two (!!). It even gets more interesting if you have more arguments in the function.
+
+<div  class="code-block console-wrap  ui-corner-all">
+<div class="code-block code">
+<code>
+// first test
+function y (a, b, c){
+  return (a && b && c);
+}
+log(y(true, 'test1', 'test2'));
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button id="eval" class="eval ui-corner-all">Run Code!</button>
+<ol class="results"></ol> 
+<div   class="jslint"></div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+##Further Reading
+
+http://ajaxian.com/archives/javascript-associative-arrays-considered-harmful
+
+http://andrewdupont.net/2006/05/18/javascript-associative-arrays-considered-harmful/
+
+http://www.mennovanslooten.nl/blog/post/61
+
+                        

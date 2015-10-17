@@ -1,0 +1,100 @@
+<script>goog.require('goog.string')</script>
+##Proper names class
+
+This class forms part of the named entities routines for Natural Language Processing. It employs algorithms for lexical attacks, guessing, training and machine learning.
+
+###Class Interface
+This class offers utility methods to load and update lexicons to search for an item
+in the lexicon and return matches. It also returns near matches using Levenstein distances, soundex and the like.
+
+\begin{codeblock}
+function NLP (obj) {
+ defaults ={
+   lexicons : [''],
+   cache : true      // caches lexicons in browsers
+ }
+ this.patterns = {
+    prefix : 'Mr|Miss|Ms|Mrs|Prof|Rev'
+  };
+  (obj.lexicons)? this.lexicons = obj.lexicons : this.lexicons =  defaults.lexicons; 
+};
+
+NLP.prototype.display = {
+ add : function (element){
+   log(element)
+ }
+}
+var options ={
+  lexiconsBasePath : '/application-latest/strings/',
+  lexicons : ['greek-surnames',
+                 'irish-surnames',
+                 'afrikaans-surnames']
+};
+nlp = new NLP(options);
+nlp.lexicons.push('french-surnames');
+log(nlp.lexicons);
+nlp.display.add('test');
+\end{codeblock}
+
+
+\section{Lexical Attack}
+
+\begin{codeblock}
+$('#test').text('');
+$('#test').load('/application-latest/strings/afrikaans-names.txt?', function(){
+  var text = $('#test').text().split(" ");
+   logPRE(text.length);
+   (text.indexOf('Malone')>-1)?log('found'):log('not found');
+  var d = text.join(' ');
+   d=goog.string.truncate(d, 300);
+   log(d);
+});
+\end{codeblock}
+
+
+
+\begin{codeblock}
+var uri = ['greek-surnames'];
+
+for (i=0;i < uri.length;i++){
+$('#test').text('');
+$('#test').load('/application-latest/strings/greek-surnames.txt?', function(){
+  var text = $('#test').text().split(",");
+   logPRE(text.length);
+   (text.indexOf('Lazarides')>-1)?log('found'):log('not found');
+});
+}
+
+$('#test').show();
+
+\end{codeblock}
+
+
+<p id="test" class="hidden"></p>
+
+
+## Personal Identification
+
+Although, these algorithms can assist in identifying Proper names, identifying a particular person is harder see for example [Issues Related to the use
+of Personal Identifiers](http://www.statcan.gc.ca/pub/85-602-x/4193729-eng.pdf) and [match rating](http://en.wikibooks.org/wiki/Algorithm_Implementation/String_searching/Match_Rating_Approach)
+
+\section{API}
+
+http://namesorts.com/api/
+
+https://news.ycombinator.com/item?id=8003686 discussion on names
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                          

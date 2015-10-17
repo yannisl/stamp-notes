@@ -1,0 +1,99 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+
+
+<h2>The Internet Explorer memory leak problem</h2>
+
+Internet Explorer, is constipated when in comes to cleaning-up memory garbage. When a loop contains both DOM elements and regular JavaScript objects, IE cannot release either one because tehy are handled by different memory managers. These loops are never freed until the browser is closed, which can eat up a great deal of memory over time. A common cause of such a loop is a simple event hnadler:
+
+
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+
+<code>
+$(document).ready(function(){
+       var div = document.getElementById('msg');
+              div.onclick = function (){
+                  alert('hello');
+              };
+});
+</code>
+</div>
+<div  id ="msg"  style="background:#fefefe">
+ //       Click Here to Check
+</div>
+
+<div class="console"></div>
+<div  class="msg" style="background:#fefefe">
+</div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+When the <tt>click</tt> handler is assigned, this creates a closure with <tt>div</tt> in the enclosing environment(s). But div now contains a reference back to the closure - the onclick property itself. Thus the resulting loop cannot be released by Internet Explorer even when we navigate away from the page.
+
+<div>jQuery and IE Memory Leaks</div>
+Now let's write the same code, but using normal jQuery constructs:
+<div  class="code-block console-wrap">
+<div class="code-block code">
+
+<code>
+$(document).ready(function(){
+       var $div = $('#msg1');
+              $div.click(function(){
+                    alert('hello');
+                });
+});
+</code>
+</div>
+<div  id ="msg1"  style="background:#fefefe">
+ // $div       Click Here to Check
+</div>
+
+<div class="console"></div>
+<div  class="msg" style="background:#fefefe">
+</div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+Even though a closure is still created, causing the same kind of loop as before, we do not get an IE memory leak from this code. Thankfully, jQuery is aware of the potential for leaks, and manually releases all of the event handlers that it assigns. As long as we faithfully adhere to using jQuery event binding methods for our handlers, we need not fear leaks caused by this particular common idiom.
+
+This doesn't mean we're completely out of the woods; we must continue to take care when we're performing other tasks with DOM elements. Attaching JavaScript objects to DOM elements can still cause memory leaks in Internet Explorer; jQuery just helps make this situation far less prevalent.
+
+Because of this, jQuery gives us another tool to help avoid these leaks. 
+
+In Chapter 7, we saw that the .data() method allows us to attach information to DOM elements in much the same way as we can with expando properties. Since this data is not stored directly as an expando (jQuery uses an internal map to store the data using IDs it creates), the reference loop is never formed and we sidestep the memory leak issue. 
+
+Whenever an expando seems like a convenient data storage mechanism, we should consider whether .data() is a safer alternative.
+
+<span id="chapter" class="hidden">11</span>
+
+##Further Reading
+
+
+
+ 
+
+
+
+  
+  
+
+
+
+
+
+
+

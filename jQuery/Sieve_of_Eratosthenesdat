@@ -1,0 +1,157 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<h2>Sieve of Eratosthenes</h2>
+There is nothing more classic than mixing the ancient with the new. The Sieve of Eratosthenes is a simple ancient algorithm for finding prime numbers up to a specified integer. I was created by Eratosthenes. His works did not survive and the sieve is known from a book by Nicomachus.
+
+A prime number is a natural number which has exactly two distinct natural number divisors: 1 and itself.
+
+First the preparatory works. 
+
+In our example we are not interested in just pouring numbers out, but to observe the process visually. Hey! That is a great application for some divs and css classes. Let us first draw it out. We will use 100 numbers to start with.
+
+<div  class="code-block console-wrap clearfix"><div class="code code-block"><span class="hidden"> log( "Click #", 'button' ); </span>
+<span class="green">//
+//  function to draw out 120 divs
+//  
+//    </span>
+<code>
+function wrap (n){
+  var z = '&lt;div class="cell"&gt;&lt;span&gt;'+n+'&lt;/span&gt;&lt;/div&gt;';
+  return z;
+}
+var a = []; <span class="green">//start with a regular empty object
+// add properties to make it array like</span>
+var i = 1;
+var s = '';
+while (i < 121) {
+   a[i] =wrap(i);
+   s += wrap(i);
+   i++;   
+}
+
+$('.cell').click(function(){
+  $(this).addClass('prime');
+});
+$('#msg5').html(s);
+</code>
+</div>
+
+<div id="msg5" class="msg" >
+</div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol>
+<div class="console"></div> 
+</div>
+
+I have added a simple click function to illustrate, how the cell will look, if is a prime. Just click on any cell. This will be removed on the last version. Now let us develop the function for the sieve.
+
+<hr/>
+<div  class="code-block console-wrap"><div class="code code-block"><code><span class="hidden"> log( "Click #", 'button' ); </span>
+<span class="green">//
+//  function to draw out 120 divs
+//  
+//    </span>
+profiler.start();
+var nprimes = 1001;
+function wrap (n){
+  var z = '&lt;div class="cell" id="c'+n+'"  &gt;&lt;span&gt;'+n+'&lt;/span&gt;&lt;/div&gt;';
+  return z;
+}
+var a = []; //start with a regular empty object
+// add properties to make it array like
+var i = 1;
+var s = '';
+while (i&lt;nprimes) {
+   a[i] =wrap(i);
+   s += wrap(i);
+   i++;   
+}
+
+// function Sieve of Eratosthenes
+// returns array primes
+function sieve(max) {
+	var D = [], primes = [];
+	for (var q=2; q&lt;max; q++) {
+		if (D[q]) {
+			for (var i=0; i&lt;D[q].length; i++) {
+				 var p = D[q][i];
+				 if (D[p+q]) D[p+q].push(p);
+				 else D[p+q]=[p];
+			}
+			delete D[q];
+		} else {
+			primes.push(q);
+			if (q*q&lt;max) D[q*q]=[q];
+		}
+	}
+	return primes;
+ }
+var p =  sieve(nprimes);
+//draw divs first
+
+$('#msg2').html(s);
+
+function changeClass(element){
+  $(element).addClass('prime');
+}
+
+
+//add prime class
+for (var k=1;k&lt;p.length;k++){
+  var el='#c'+p[k];
+ changeClass(el); 
+}
+
+
+$('.cell').click(function(){
+  $(this).addClass('prime');
+});
+
+
+
+$(".prime").each(function (i) {
+$(this).css("color","blue");         
+ });
+
+profiler.stop();
+profiler.timeDiff();
+</code>
+</div>
+<div id="msg2" class="clearfix" style="width:98%;font-size:24px;font-weight:bold;background:#fff;height:600px">
+</div>
+<hr/>
+<div class="console"  style="width:98%;background:#fff">
+</div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+##Further Reading
+
+Sieve in many other computer languages
+http://c2.com/cgi/wiki?SieveOfEratosthenesInManyProgrammingLanguages
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+

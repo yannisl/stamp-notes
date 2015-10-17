@@ -1,0 +1,164 @@
+
+<style type="text/css">
+.myForm{margin:15px;
+padding:15px;
+border:1px solid #bebebe;
+}
+
+</style>
+
+
+<h2>Event Handling</h2>
+
+<h3>Event Binding in X(HTML)</h3>
+
+HTML supports core __event binding__ for most element. These bindings are element attributes, like __onclick__ and __onmouseover__. As the browser parses the page and creates the object hierarchy, it populates event handlers with the javascript code bound to elements using these attributes. 
+
+{{plain:
+       &lt;div onclick="alert('hello world')" &gt;
+}}
+
+At the early days of JavaScript this was the most common way of binding events.
+
+<h3>Binding Event Handler Attributes  with JavaScript</h3>
+While you can bind event handlers to parts of a document using X(HTML) event attributes, it is more convenient to use JavaScript instead. 
+
+To do so it is important to understand that event handlers are accessed as methods of the objects to which they are bound. 
+
+<div id="myForm" name="myForm">
+<button id="myButton">alert</button>
+</div>
+\begin{codeblock}
+document.myForm.myButton.onclick=function(){
+   alert('Hello');
+};
+\end{codeblock}
+
+
+
+
+Regardless of how the function used is defined, you must make sure, to register the event handler after the HTML element has been added to the DOM. Otherwise you will cause a runtime error by trying to set a property (an even handler) of a non-existent object. One way to ensure this is to assign handler's after the document's __onload__ handler fires. Another way to ensure this condition is to place the script that assigns the handler after the element in question.
+
+<h3>Event Handler Scope</h3>
+
+<h3>Return Values</h3>
+A very useful feature of event handlers is that their return values can effect the default behaviour of the event . The <strong>default behaviour</strong> is what would normally happen when the event occurs if it is left unhandled. For example, the default behavior of links is to load the link target into the browser window.
+
+To cancel the default behavior of an event, you can simply return false from its event handler. 
+
+|Event Handler| Effect of Returning false|
+| ----------------|-----------------------------|
+|click|Radio buttons and checkboxes are not set. For submit buttons, form submission is cancelled. For reset buttons, the form is not reset. For links, the link is not followed|
+|dragdrop|Drag and drop is cancelled|
+|keydown|Cancels the keypress events that follow(while the user holds the keydown)|
+|keypress|Cancels the keypress event.|
+|mousedown|Cancels the default action (beginning of a drag, beginning selection mode, or arming a link).|
+|mouseover|Causes any changes made to the window's status or defaultStatus properties to be ignored, by the browser. (Conversely, returning true causes any change in the window's status to be reflected by the browser|
+|submit|Cancels form submission|
+
+<h3>Cancelling the submit button event</h3>
+One of the most common web development tasks is to validate user input beofre submitting a form's values to the server. Consider the following example that validates a single field.
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+function validateField(){
+ if (field.value=''){
+  alert('you must enter a user name');
+  field.focus();
+  return  false;
+}
+return true;
+}
+
+document.myForm1.onsubmit=validateField;
+</code>
+
+</div>
+
+<form action="" id="myForm1" name="myForm1" onsubmit="validateField(this.username)">
+
+<input type="text" name="username" id="username"/>
+
+<button type="submit" name="submit" id="submit">submit</button>
+
+</form>
+
+<div  class="msg" class="msg" style="white-space:pre;font-family:monospace;line-height:1.3">
+</div>
+<div class="console"> </div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<h3>Firing Events Manually</h3>
+
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+// will automatically trigger a click
+// on evaluating of code
+
+document.myForm2.button1.click();
+
+</code>
+
+</div>
+
+<form action="" id="myForm2" name="myForm2" class="myForm clearfix" onsubmit="validateField(this.username)">
+
+<input type="text" name="username" id="username"/>
+
+<button type="submit" name="button1" id="button1" onclick="alert('Hi');return false;">Press Me!</button>
+
+</form>
+
+
+<div  class="msg" class="msg" >
+</div>
+<div class="console"> </div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+
+
+
+<h3>Event Bubbling</h3>
+
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+$(function () {
+  $('*').each(function () {
+    var current = this;
+    this.onclick = function (event) {
+      if (!event) event = window.event;
+      var target = (event.target) ? event.target : event.srcElement;
+      log('For ' + current.tagName + '#' + current.id + ' target is ' + target.id);
+    }
+  });
+});
+</code>
+</div>
+<div  class="msg" class="msg" >
+</div>
+<div class="console"> </div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+##Further Reading
+
+
+  
+
+
+
+
+
+
+
+                      

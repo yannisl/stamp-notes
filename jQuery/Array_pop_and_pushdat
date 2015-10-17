@@ -1,0 +1,65 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+
+
+<h2>The array methods pop() and push()</h2>
+
+The pop() method is used to remove the last element of the array, whereas the push() method is used to append elements to the array. They affect the arrays directly.
+
+
+{{bulb: pop() and push()   change the original array.}}
+
+Observe the following example to understand what is being returned from the methods, as mentioned above all these methods change the original array directly.
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+var a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+b = a.pop();
+log('results from pop () = ', b);
+log('array after pop() = ', a);
+
+c = a.push('new 1', 'new 2', 'new 3');
+log('return value from push = ', c);
+log('array after push = ', a);
+
+
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+

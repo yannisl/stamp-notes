@@ -1,0 +1,117 @@
+
+
+<!--{{feature-image:http://localhost/CodeIgniter/images/royo-01.jpg }}-->
+
+
+<style>
+.id3{width:80%}
+</style>
+
+
+
+
+ <h2>Adding, Removing and Toggling Classes</h2>
+
+Manipulating classes via Javascript has always been a very laborious and prone to errors process. jQuery has simplified it to the point, where this can be achieved with a few lines of code. There are three basic methods to manipulate this attribute. The addClass(), removeClass() and toggleClass(). There is also a __hasClass()__ method to check if a class exists at least on one of the selected elements.
+
+###The addClass() Method
+
+Adds the specified class(es) to each of the set of matched elements.
+
+{{example:
+<p   class="id1">
+This is a test
+</p>
+
+<p   class="id1">
+This is a test
+</p>
+
+<div   class="id1">
+This is a test
+</div>
+
+}}
+
+###The toggleClass() Method
+
+This method adds the specified class if it is not present, removes the specified class if it is not present.
+
+
+{{example:
+<p   class="id3">
+This is a test
+</p>
+
+<p   class="id3">
+This is a test
+</p>
+
+<div   class="id3">
+This is a test
+</div>
+
+}}
+
+<script type="text/javascript">
+$(".id1").click(function () {
+      $(this).addClass("red");
+    });
+
+
+ </script>
+
+
+
+The script is very simple, we just capture the click function and toggle the css class __.red__.
+
+{{plain:
+$(".id3").click(function () &#123;
+      $(this).toggleClass("red");
+    &#125;);
+
+}}
+<script type="text/javascript">
+$(".id3").click(function () {
+      $(this).toggleClass("red");
+    });
+
+  
+
+ </script>
+
+##The hasClass() Method
+
+This jQuery method, checks if the targeted element or elements have a class. It returns true if at least one of them has a class. You can use the toString() to print the result on the screen.
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $("div#result1").append($("p:first").hasClass("selected").toString());
+$("div#result2").append($("p:last").hasClass("selected").toString());
+$("div#result3").append($("p").hasClass("selected").toString());
+  });
+  </script>
+
+  <style>
+  p { margin: 8px; font-size:16px; }
+  .selected { color:red; }
+  .highlight { background:yellow; }
+  </style>
+
+  <p>Hello</p>
+  <p class="selected">Goodbye</p>
+  <div id="result1">First paragraph has selected class: </div>
+  <div id="result2">Last paragraph has selected class: </div>
+  <div id="result3">Some paragraph has selected class: </div>
+
+
+
+
+
+
+
+
+
+
+
+

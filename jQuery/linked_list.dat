@@ -1,0 +1,274 @@
+ <!--
+{{feature-image: /egypt/amato-01/aa_098.jpg }}
+{{credit-source: Allan Amato}}
+{{credit: /codeigniter/blogs/gallery/amato-01/29}}
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<script> 
+ goog.require('goog.structs.Trie');
+ goog.require('goog.crypt.hash32');
+</script> 
+
+
+<h2>linked lists</h2>
+
+<img src="/CodeIgniter/images/linked-list.png" style="display:block;float:left;width:57%"/>
+
+A linked list is a data structure used for collecting a sequence of objects, which allows efficient addition, removal and retrieval of elements from any position in the sequence. It is implemented as nodes, each of which contains a reference (i.e., a link) to the next and/or previous node in the sequence.
+
+The principal benefit of a linked list over a conventional array is that the list elements can easily be added or removed without reallocation or reorganization of the entire structure because the data items need not be stored contiguously in memory or on disk. Linked lists allow insertion and removal of nodes at any point in the list, and can do so with a constant number of operations if the link previous to the link being added or removed is maintained during list traversal.
+On the other hand, simple linked lists by themselves do not allow random access to the data, or any form of efficient indexing. Thus, many basic operations such as obtaining the last node of the list (assuming that the last node is not maintained as separate node reference in the list structure), or finding a node that contains a given datum, or locating the place where a new node should be inserted  may require scanning most or all of the list elements.
+
+<h2>Node structure</h2>
+
+The node structure is just a record holding the data (can be any object) and a node holding the reference next to the next record.
+
+{{plain:
+var node = &#123; 
+       data: data, 
+       next: null 
+ &#125;
+}}
+
+<h2>Code Development</h2>
+
+This example, will have a rather long code in order to consolidate some of the previous examples used. We will comment all code and run tests to see that all is working properly.
+
+<div  class="code-block console-wrap">
+<div class="code-block code"><code>
+/**
+ * A linked list implementation in JavaScript.
+ * @class LinkedList
+ * @constructor
+ */
+function LinkedList() {
+
+  /**
+     * The number of items in the list.
+     * @property _length
+     * @type int
+     * @private
+     */
+  this._length = 0;
+
+  /**
+     * Pointer to first item in the list.
+     * @property _head
+     * @type Object
+     * @private
+     */
+  this._head = null;
+  this._tail = null;
+}
+
+LinkedList.prototype = {
+
+  //restore constructor
+  constructor: LinkedList,
+
+  /**
+     * Appends some data to the end of the list. This method traverses
+     * the existing list and places the value at the end in a new item.
+     * @param {variant} data The data to add to the list.
+     * @return {Void}
+     * @method add
+     */
+  add: function (data) {
+
+    //create a new item object, place data in
+    var node = {
+      data: data,
+      next: null
+    },
+
+    //used to traverse the structure
+    current;
+
+    //special case: no items in the list yet
+    if (this._head === null) {
+      this._head = node;
+    } else {
+      current = this._head;
+
+      while (current.next) {
+        current = current.next;
+      }
+
+      current.next = node;
+    }
+
+    //don't forget to update the count
+    // and tail
+    this._length++;
+    this._tail = node;
+
+  },
+
+  /**
+     * Retrieves the data in the given position in the list.
+     * @param {int} index The zero-based index of the item whose value 
+     *      should be returned.
+     * @return {variant} The value in the "data" portion of the given item
+     *      or null if the item doesn't exist.
+     * @method item
+     */
+  item: function (index) {
+
+    //check for out-of-bounds values
+    if (index > -1 && index < this._length) {
+      var current = this._head,
+      i = 0;
+
+      while (i++ < index) {
+        current = current.next;
+      }
+
+      return current.data;
+    } else {
+      return null;
+    }
+  },
+
+  /**
+     * Removes the item from the given location in the list.
+     * @param {int} index The zero-based index of the item to remove.
+     * @return {variant} The data in the given position in the list or null if
+     *      the item doesn't exist.
+     * @method remove
+     */
+  remove: function (index) {
+
+    //check for out-of-bounds values
+    if (index > -1 && index < this._length) {
+
+      var current = this._head,
+      previous, i = 0;
+
+      //special case: removing first item
+      if (index === 0) {
+        this._head = current.next;
+      } else {
+
+        //find the right location
+        while (i++ < index) {
+          previous = current;
+          current = current.next;
+        }
+
+        //skip over the item to remove
+        previous.next = current.next;
+      }
+
+      //decrement the length
+      this._length--;
+
+      //return the value
+      return current.data;
+
+    } else {
+      return null;
+    }
+
+  },
+
+  /**
+     * Returns the number of items in the list.
+     * @return {int} The number of items in the list.
+     * @method size
+     */
+  size: function () {
+    return this._length;
+  },
+
+  /**
+     * Converts the list into an array.
+     * @return {Array} An array containing all of the data in the list.
+     * @method toArray
+     */
+  toArray: function () {
+    var result = [],
+    current = this._head;
+
+    while (current) {
+      result.push(current.data);
+      current = current.next;
+    }
+
+    return result;
+  },
+
+  /**
+     * Converts the list into a string representation.
+     * @return {String} A string representation of the list.
+     * @method toString
+     */
+  toString: function () {
+    return this.toArray().toString();
+  },
+
+  /** Renders the list into a box
+    * @return the html
+    * @method toBoxList
+    */
+  toBoxList: function () {
+    var temp = this.toString();
+    temp = U.boxString(temp);
+    return temp;
+  }
+};
+list = new LinkedList();
+
+list.add('Y');
+list.add('M');
+list.add('W');
+list.add('Z');
+log(list.toString());
+
+log(list._head.data);
+log(list._tail.data);
+
+log(list.toBoxList());
+list.remove(2);
+log(list.toBoxList());
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<h2>Linked maps</h2>
+
+As you experiment with linked lists you will realize some of the limitations. On the next one we will explore [linked maps](http://localhost/CodeIgniter/Blogs/tutorials/jQuery/Closure_LinkedMap).
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+The Wikipedia article on [linked lists](http://en.wikipedia.org/wiki/Linked_list) is one of the best on the web. If you want to explore the concept further start from there. Also if you have a basic knowledge of 'C' it will be good to study how link lists are implemented in memory using pointers.
+
+<img src="http://chart.apis.google.com/chart?cht=bvg&chs=250x150&chd=s:Monkeys&chxt=x,y&chxs=0,ff0000,12,0,lt|1,0000ff,10,1,lt" />
+
+
+
+  
+  
+
+
+
+
+
+
+
+                                                                                                                              

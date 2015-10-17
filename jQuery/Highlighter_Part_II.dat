@@ -1,0 +1,371 @@
+  
+    
+<!--
+{{feature-image:/CodeIgniter/images/china/beauty_02.jpg}}
+{{feature: Sign Sign Everywhere a sign Blocking out the scenery, breaking my mind. Do this Dont do that Can't you read the sign - Five Man Electric Band 1971 }}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+{{next:/CodeIgniter/Blogs/tutorials/jQuery/memoization_Part_II}}
+
+-->
+<style type="text/css">
+.comment {color:rgb(120,120,120)}
+.lineComment{color:rgb(120,120,120)};
+</style>
+
+<script>
+ goog.require('goog.json');
+goog.require('goog.dom.annotate');
+</script>
+<script src="/codeigniter/js/highlighter.js" ></script>
+
+<h2>Highlighting HTML Part II</h2>
+
+In the first part of this article we have covered quite a bit of ground with our __tinyHighlighter__. We will now try and turn it into a __dynamoHighlighter__.
+
+We will add more options and more functionality. The additional functionality will be to add:
+
+- zebra striping
+- numbering of code lines
+
+The latter would also be very useful for debugging jsLint lines.
+
+<h3>Options</h3>
+We will create an options hash, in-line with most jQuery plugins.
+
+<div class="code-block console-wrap"><div class="code-block code">
+<code id="js1">
+
+var options = {
+  version: "2.2",
+  automatic: true,
+  automaticSelector: "js1",
+  lineNumbers: false,
+  zebraLines: false,
+  recipeLoading: true,
+  cssFolder: "",
+  // if not in recipes folder
+  highLights: ['test'] // a list of words to be highlighted
+  // within the code  
+}
+
+var defaults = {
+  version: "2.2",
+  automatic: true,
+  automaticSelector:'js1',
+  lineNumbers: false,
+  zebraLines: false,
+  recipeLoading: true,
+  cssFolder: "",
+  // if not in recipes folder
+  highLights: ['plugins', 'jQuery']
+  // within the code  
+}
+
+var empty = {};
+var settings = $.extend(empty, defaults, options || {});
+
+log(settings.highLights);
+log(settings.automaticSelector);
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="timer" style="font-size:10px"></div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+The above would do for the time being. As you can see, we still do not want to catch the selector with $(). We will leave this for last.
+
+
+
+<h3>Language Settings</h3>
+At this point we will introduce the concept of a 'recipe'. the recipe will hold information which we have hard-coded earlier, such as, teh one shown below. We will fetch the via via Ajax and execute it (See loading scripts with Jquery). 
+<div class="code-block console-wrap"><div class="code-block code">
+<code>
+// operators
+// operators
+$.getScript('/codeigniter/js/recipe.js', function () {
+  log(operators);
+});
+
+log(operators[0])
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="timer" style="font-size:10px"></div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+Some of the library's will also offer options for style. This has merits, in that in-line styling can be introduced in the final HTML output, however, I personally prefer to use css classes. This has the disantavantage of the user having to include the css file or append the classes into his own code. It is also possible that our program can add these classes and give them default values, so if they do not exist they can be added. Since we may want to add more options later on when the program is used, it would be advnatgeous at this stage to create an options object, but first let us change our code into a global object:
+
+<div class="code-block console-wrap"><div class="code-block code">
+<code id="js1">
+var options = {
+  version: "2.2",
+  automatic: true,
+  //automaticSelector: "js1",
+  lineNumbers: false,
+  zebraLines: false,
+  recipeLoading: true,
+  cssFolder: "",
+  // if not in recipes folder
+  highLights: ['test'] // a list of words to be highlighted
+  // within the code  
+}
+
+
+
+$.tinyHighlighter = function(options) { //implied global
+var defaults = {
+  version: "2.2",
+  automatic: true,
+  automaticSelector:'js1',
+  lineNumbers: false,
+  zebraLines: false,
+  recipeLoading: true,
+  cssFolder: "",
+  // if not in recipes folder
+  highLights: ['plugins', 'jQuery']
+  // within the code  
+}
+
+var empty = {};
+var settings = $.extend(empty, defaults, options || {});
+
+// shorter variables
+id=settings.automaticSelector;
+
+
+// a function to match a non-empty string
+function matcher(regExpr, aString){
+ if (aString!==null && aString !==undefined){return aString.match(regExpr);}else {return null;}
+}
+
+function doAnnotation(termIndex, termHtml) {
+    return '&lt;span class="str" style="color:rgb(206,123,0)" &gt;' + termHtml + '&lt;/span&gt;';
+  }
+
+function doAnnotationKeyword(termIndex, termHtml) {
+    return '&lt;span class="keyword" style="color:rgb(0,0,230);font-style:italic" &gt;' + termHtml + '&lt;/span&gt;';
+  }
+
+function doAnnotationComment(termIndex, termHtml) {
+    return '&lt;span class="comment"&gt;' + termHtml + '&lt;/span&gt;';
+  }
+
+function doAnnotationLineComment(termIndex, termHtml) {
+    return '&lt;span class="lineComment"&gt;' + termHtml + '&lt;/span&gt;';
+  }
+
+function doAnnotationRegularExpression(termIndex, termHtml ) {
+    return '&lt;span class="regex" style="color:maroon" &gt;' + termHtml + '&lt;/span&gt;';
+  }
+
+function doAnnotationBrace(termIndex, termHtml ) {
+    return '&lt;span class="keyword" style="color:rgb(0,0,230);font-style:italic" &gt;' + termHtml + '&lt;/span&gt;';
+  }
+
+function doAnnotationObject(termIndex, termHtml ) {
+    return '&lt;span class="regex" style="color:green" &gt;' + termHtml + '&lt;/span&gt;';
+  }
+
+// get the HTML using jQuery
+var HTML = $('#'+id).html();
+
+
+// get the node 
+var _$e = goog.dom.getElement(id);
+
+
+// catch block comments 
+
+var _comment = /\/\*[^*]*\*+(?:[^\/][^*]*\*+)*[\/]/g;
+var html = matcher( _comment,HTML);
+
+if (html !==null){
+for(var i=0;i < html.length;i++){
+   html1 = goog.dom.annotate.annotateTerms(_$e,[ [html[i],true]] , doAnnotationComment, false,['lineComment']);
+}
+}
+// catch line comments 
+var  _lineComment = /\/\/.*/g;
+html=matcher(_lineComment, HTML);
+if (html !==null){
+for(var i=0;i < html.length;i++){
+   var result = goog.dom.annotate.annotateTerms(_$e,[ [html[i],true]] , doAnnotationLineComment, false,['comment']);
+}
+}
+
+
+// annotate strings
+
+var _string = /(?:\'[^\'\\\n]*(?:\\.[^\'\\\n]*)*\')|(?:\"[^\"\\\n]*(?:\\.[^\"\\\n]*)*\")/g;
+html = matcher( _string,HTML);
+for(var i=0;i < html.length;i++){
+if (html !==null){
+  //html[i]=' style="color: rgb(206,123,0)" '+'html[i]' 
+  html1 = goog.dom.annotate.annotateTerms(_$e,[ [html[i],false]] , doAnnotation, false,['comment','regex','lineComment']);
+}
+}
+
+// annotate regular expressions
+var regex = /\/[^\/\\\n]*(?:\\.[^\/\\\n]*)*\/[gim]*/g;
+html = matcher(regex,HTML);
+if (html!==null){
+for(var i=0;i < html.length;i++){
+  //html[i]=' style="color: rgb(206,123,0)" '+'html[i]' 
+  html1 = goog.dom.annotate.annotateTerms(_$e,[ [html[i],false]] , doAnnotationRegularExpression, false,['comment','lineComment','str']);
+}
+}
+
+//annotate all keywords
+var keywords=[ ['with',true],['while',true],['try',true],['throw',true],['switch',true],['finally',true],['else',true],['do',true],['default',true],['continue',true],['const',true],['catch',true],['case',true],['function',true],['var',true],['if',true],['for',true], ['return',true],['null',true],['break',true],['true',true],['false',true]];
+
+var all=['comment','lineComment', 'str','regex','keyword'];
+html1 = goog.dom.annotate.annotateTerms(_$e, keywords, doAnnotationKeyword, false,all);
+
+// objects in global space?
+// mock first
+html1 = goog.dom.annotate.annotateTerms(_$e,[ ['goog',false]] , doAnnotationObject, false,['comment','lineComment','str']);
+
+// braces
+html1 = goog.dom.annotate.annotateTerms(_$e,[ ['{',false],['}',false]] , doAnnotationBrace, false,['comment','lineComment','str','regex']);
+
+// operators
+var operators= [ ['void',true],['typeof',true],
+['this',true],['new',true],['instanceof',true],['in',true],['delete',true] ];
+html1 = goog.dom.annotate.annotateTerms(_$e,operators, doAnnotationBrace, false,all);
+
+
+};
+
+
+
+$.tinyHighlighter(options);
+
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="timer" style="font-size:10px"></div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<h3>Can we change it in a jQuery Plugin?</h3>
+<div  class="code-block console-wrap  ui-corner-all">
+<div class="code-block code">
+<code id="js10">
+
+options{automaticSelector="js10"}
+$.tinyHighlighter(options);
+var z1=$('#js10').html();
+logPRE(z1.entityify());
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button id="eval" class="eval ui-corner-all">Run Code!</button>
+
+<ol class="results"></ol> 
+<div   class="jslint"></div>
+</div>
+
+<h3>Still some problems</h3>
+
+The plugin as it stands has a lot of limitations, we still have not passed it any options hash. Google's routines will also complain if we sent them an empty string to match. If you take the example out from the above you will see the problem.
+
+<div  class="code-block console-wrap  ui-corner-all">
+<div class="code-block code">
+<code id="js-11">
+// Test once more 
+// with some comments
+// entityify() is gift from jslint!
+
+options={automaticSelector:'js-11'}
+$.tinyHighlighter(options);
+var z1=$('#js-11').html();
+log(z1.entityify());
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button id="eval" class="eval ui-corner-all">Run Code!</button>
+
+<ol class="results"></ol> 
+<div   class="jslint"></div>
+</div>
+
+<h3>What's next</h3>
+
+In the next part of this article we will discuss, how to add the options and also to enable us to be able to highlight all the code referring to it by class rather than by an id, so that we will be able to iterate over all the page in order to do so. We will turn the tinyHighlighter, into a proper jQuery plugin that can be worth of its name!
+
+I also want to add a feature, where we can highlight on the fly, specific keywords.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+var options = {
+  version: "2.2",
+  automatic: true,
+  automaticSelector: "js1",
+  lineNumbers: false,
+  zebraLines: false,
+  recipeLoading: true,
+  cssFolder: "",
+  // if not in recipes folder
+  highLights: ['test'] // a list of words to be highlighted
+  // within the code
+}
+  $.tinyHighlighter(options);
+;
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      

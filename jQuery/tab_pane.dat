@@ -1,0 +1,318 @@
+<script> 
+    goog.require('goog.ui.TabPane');
+</script>
+<style> 
+    .goog-tabpane {
+      background: threedface;
+      padding: 5px;
+      position: relative;
+      width:95%;
+      margin:0 auto;
+    }
+ 
+    .goog-tabpane-tabs {
+      list-style: none;
+      margin: 0px;
+      padding: 0px;
+      height: 1ex;
+      position: relative;
+    }
+ 
+    .goog-tabpane-left .goog-tabpane-tabs {
+      float: left;
+    }
+ 
+    .goog-tabpane-right .goog-tabpane-tabs {
+      float: right;
+    }
+ 
+    .goog-tabpane-cont {
+      overflow: auto;
+      background: threedface;
+      border: 1px solid;
+      border-color: threedhighlight threedshadow threedshadow threedhighlight;
+      padding: 2px;
+      height: 400px;
+    }
+ 
+    .goog-tabpane-tab, .goog-tabpane-tab-selected {
+      display: block;
+      padding: 0px 3ex;
+      background: threedface;
+      border: 1px solid;
+      margin: 0px;
+    }
+ 
+    .goog-tabpane-top .goog-tabpane-tab,
+    .goog-tabpane-top .goog-tabpane-tab-selected,
+    .goog-tabpane-bottom .goog-tabpane-tab,
+    .goog-tabpane-bottom .goog-tabpane-tab-selected {
+      float: left;
+    }
+ 
+    .goog-tabpane-top .goog-tabpane-tab,
+    .goog-tabpane-top .goog-tabpane-tab-selected {
+      border-color: threedhighlight threedshadow threedface threedhighlight;
+    }
+ 
+    .goog-tabpane-bottom .goog-tabpane-tab,
+    .goog-tabpane-bottom .goog-tabpane-tab-selected {
+    border-color: threedface threedshadow threedshadow threedhighlight;
+    }
+ 
+    .goog-tabpane-left .goog-tabpane-tab,
+    .goog-tabpane-left .goog-tabpane-tab-selected {
+      border-color: threedhighlight threedface threedshadow threedhighlight;
+    }
+ 
+    .goog-tabpane-right .goog-tabpane-tab,
+    .goog-tabpane-right .goog-tabpane-tab-selected {
+      border-color: threedhighlight threedshadow threedshadow threedface;
+    }
+ 
+    .goog-tabpane-top .goog-tabpane-tab {
+      margin-top: 3px;
+    }
+ 
+    .goog-tabpane-tab-selected {
+      font-weight: bold;
+    }
+ 
+    .goog-tabpane-tab-selected,
+    .goog-tabpane-tab-selected {
+      padding-bottom: 2px;
+      padding-top: 2px;
+    }
+ 
+    .goog-tabpane-top .goog-tabpane-tab-selected {
+      position: relative;
+      top: 1px;
+    }
+ 
+    .goog-tabpane-bottom .goog-tabpane-tab-selected {
+      position: relative;
+      top: -1px;
+    }
+ 
+    .goog-tabpane-left .goog-tabpane-tab-selected {
+      position: relative;
+      left: 1px;
+    }
+ 
+    .goog-tabpane-right .goog-tabpane-tab-selected {
+      position: relative;
+      left: -1px;
+    }
+ 
+    #tabpane2 .goog-tabpane-tab {
+      margin-top: 0px;
+    }
+ 
+    p {
+      margin-top: 0px;
+    }
+ 
+</style> 
+
+<div id="tabpane1"></div> 
+<strong id="tabpane1index"></strong> selected in tab pane 1.<br/><br/> 
+ 
+ 
+<h2>goog.ui.TabPane</h2> 
+ 
+<steps>Step 1: Include the necessary files</steps>
+
+{{plain:
+&lt;script&gt; 
+    goog.require('goog.ui.TabPane');
+&lt;/script&gt;}}
+
+<steps>Step 2: Write the HTML</steps>
+{{plain:
+&lt;div id="tabpane1">&lt;/div> 
+&lt;strong id="tabpane1index">&lt;/strong> selected in tab pane 1.
+}}
+
+The _id="tabpanel1"_ and the _id="tabpanel1index"_ are used to display the tabular view. So far this is very similar to what one would do with other libraries such as jQuery.
+
+<steps>Step 3: Write the code</steps>
+
+The code is normally written in a script tag and is placed at the end of the Page. 
+{{plain:
+var tabPane = new goog.ui.TabPane(document.getElementById('tabpane1'));
+     tabPane.addPage(new goog.ui.TabPane.TabPage(
+             document.getElementById('page1')));
+     tabPane.addPage(new goog.ui.TabPane.TabPage(
+        document.getElementById('page2'), 'Page 2'));
+     tabPane.addPage(new goog.ui.TabPane.TabPage(null, 'Page 3'));
+     tabPane.addPage(new goog.ui.TabPane.TabPage('Page 5'));
+     tabPane.addPage(new goog.ui.TabPane.TabPage('Page 4'), 3);
+ 
+var pg5 = new goog.ui.TabPane.TabPage(document.getElementById('page5'))
+    tabPane.addPage(pg5);
+    tabPane.addPage(new goog.ui.TabPane.TabPage('Page 6'));
+    tabPane.removePage(pg5);
+    tabPane.removePage(2);
+ 
+
+function tabChanged(event) &#123;
+      goog.dom.setTextContent(document.getElementById('tabpane1index'),
+                              event.page.getTitle());
+    &#125;
+    goog.events.listen(tabPane, goog.ui.TabPane.Events.CHANGE, tabChanged);
+    tabPane.setSelectedIndex(1);
+}}
+
+
+
+
+
+
+
+<h3>Bottom tabs</h3> 
+On the next step we will place the tabs at the bottom
+<div id="tabpane2"> 
+    <div> 
+       <h2>Automated</h2> 
+         This page was created automatically from tab pane child node.
+    </div> 
+</div> 
+
+The other difference between this container and the first one is that we have included a child div. Closure will pick up all children and create pages automatically from these (pretty much like jQuery).
+
+{{plain:
+ var tabPane2 = new goog.ui.TabPane(document.getElementById('tabpane2'),
+                                       goog.ui.TabPane.TabLocation.BOTTOM);
+    tabPane2.addPage(new goog.ui.TabPane.TabPage('Page 7'));
+    tabPane2.addPage(pg5);
+ 
+    pg5.select();
+    pg5.setTitle('Renamed Page');
+}}
+
+The location of the tabs is simply setting the TabLocation property
+
+{{plain:
+goog.ui.TabPane.TabLocation.BOTTOM
+}}
+
+
+<step>Creating a Panel with Left Tabs</step>
+ 
+  <h3>Left tabs</h3> 
+  <div id="tabpane3"> 
+    <div> 
+      <h2>Front page!</h2> 
+         Page created automatically from tab pane child node.
+    </div> 
+  </div> 
+
+{{plain:
+var tabPane3 = new goog.ui.TabPane(document.getElementById('tabpane3'),
+                                       goog.ui.TabPane.TabLocation.LEFT);
+      tabPane3.addPage(new goog.ui.TabPane.TabPage('Page 7'));
+ 
+      var tabPane4 = new goog.ui.TabPane(document.getElementById('tabpane4'),
+                                       goog.ui.TabPane.TabLocation.RIGHT);
+      tabPane4.addPage(new goog.ui.TabPane.TabPage('Page 99'));
+}}
+
+
+
+ 
+  <h3>Right tabs</h3> 
+  <div id="tabpane4"> 
+    <div> 
+      <h2>Right 1</h2> 
+      <p> 
+        Page created automatically from tab pane child node.
+      </p> 
+    </div> 
+    <div> 
+      <h2>Right 2</h2> 
+      <p> 
+        So was this page.
+      </p> 
+    </div> 
+  </div> 
+ 
+<div id="page1"> 
+<h2>General</h2> 
+  <img src="http://127.0.0.1/codeigniter/images/users/george_clooney_2007.jpg" style="display:block;float:left"/>
+<div style="float:left;height:390px" class="bordered">ATTT</div>
+      
+              
+  </div> 
+ 
+  <div id="page2"> 
+    <p> 
+      Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Cras et nisi id
+      lorem tempor semper. Suspendisse ante. Integer ligula urna, venenatis quis,
+      placerat vitae, commodo quis, sapien. Quisque nec lectus. Sed non dolor. Sed
+      congue, nisi in pharetra consequat, odio diam pulvinar arcu, in laoreet elit
+     </p> 
+    <input type="text" /> 
+     <input type="text" /> 
+     <input type="text" /> 
+    <select><option>Select box</option></select> 
+    <button>Button</button> 
+  </div> 
+ 
+  <div id="page5"> 
+    <h2>Page 5</h2> 
+    <p> 
+      This is page 5.
+    </p> 
+  </div> 
+ 
+
+<h2>Summary</h2>
+
+This is a very good UI component, easy to use and easily understandable. There are a still a few gaps to fill, but overall is comparable and perhaps more robust than the jQuery UI tabs, although it does required marginally a little more work to set. Still my gripe, one should have option objects.
+
+The TabBar is an updated version of TabPane, which is deprecated, but I kept the page as the demo was still using this (August 2011).
+
+
+<script> 
+var tabPane = new goog.ui.TabPane(document.getElementById('tabpane1'));
+ 
+    tabPane.addPage(new goog.ui.TabPane.TabPage(
+        document.getElementById('page1')));
+    tabPane.addPage(new goog.ui.TabPane.TabPage(
+        document.getElementById('page2'), 'Page 2'));
+    tabPane.addPage(new goog.ui.TabPane.TabPage(null, 'Page 3'));
+    tabPane.addPage(new goog.ui.TabPane.TabPage('Page 5'));
+    tabPane.addPage(new goog.ui.TabPane.TabPage('Page 4'), 3);
+ 
+    var pg5 = new goog.ui.TabPane.TabPage(document.getElementById('page5'))
+    tabPane.addPage(pg5);
+    tabPane.addPage(new goog.ui.TabPane.TabPage('Page 6'));
+    tabPane.removePage(pg5);
+    tabPane.removePage(2);
+ 
+
+    function tabChanged(event) {
+      goog.dom.setTextContent(document.getElementById('tabpane1index'),
+                              event.page.getTitle());
+    }
+    goog.events.listen(tabPane, goog.ui.TabPane.Events.CHANGE, tabChanged);
+ 
+    tabPane.setSelectedIndex(0);
+ 
+ 
+    var tabPane2 = new goog.ui.TabPane(document.getElementById('tabpane2'),
+                                       goog.ui.TabPane.TabLocation.BOTTOM);
+    tabPane2.addPage(new goog.ui.TabPane.TabPage('Page 7'));
+    tabPane2.addPage(pg5);
+ 
+    pg5.select();
+    pg5.setTitle('Renamed Page');
+ 
+    var tabPane3 = new goog.ui.TabPane(document.getElementById('tabpane3'),
+                                       goog.ui.TabPane.TabLocation.LEFT);
+    tabPane3.addPage(new goog.ui.TabPane.TabPage('Page 7'));
+ 
+    var tabPane4 = new goog.ui.TabPane(document.getElementById('tabpane4'),
+                                       goog.ui.TabPane.TabLocation.RIGHT);
+    tabPane4.addPage(new goog.ui.TabPane.TabPage('Page 99'));
+  </script>                                                                        

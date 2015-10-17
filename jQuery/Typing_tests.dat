@@ -1,0 +1,113 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: UI, jQuery, Visibility Filters, CSS Visibility }}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<style>
+ .hidden{display:none;}
+.ex1,.ex2,.ex3{width:100px;height:180px;border:1px solid red;float:left;margin-right:1px}
+a#cbutton, a#cbutton1{color:blue}
+p#out{font-size:30px;font-weight:bold}
+</style>
+
+
+
+<h2>Javascript Timers</h2>
+This is an example to show how two events can be timed using the Date object in javascript. Type in the text in the textarea below. When you are completed you can check how many words per minute you have typed at 5 characters assumed to be words.
+
+{{example:
+<h4>Determine Your Typing Speed</h4>
+<form>
+
+<div style="width:90%;background:#fff;padding:8px">
+The Urine Tax (Latin: vectigal urinae) was a tax levied by the Roman emperor Nero in the 1st century upon the collection of urine. The lower classes of Roman society urinated into pots which were emptied into cesspools. The liquid was then collected from public latrines, where it served as the raw material for a number of chemical processes: it was used in tanning, and also by launderers as a source of ammonia to clean and whiten woollen togas.
+
+The tax was eventually discontinued, but it was re-enacted by Nero's successor Vespasian and applied to all public toilets within Rome's now famous Cloaca Maxima (great sewer) system. The Roman historians Suetonius and Dio Cassius report that when Vespasian's son Titus complained to him about the disgusting nature of the tax, his father held up a gold coin and told him, "Non olet! ("It doesn't stink!"). (Dio Cassius, Roman History, Book 65, chapter 14.) 
+
+his phrase is still used today to show that money is all equally filthy (or clean), regardless of its source. Vespasian's name still attaches to public urinals in France (vespasiennes), Italy (vespasiani), and Romania (vespasiene).
+</div>
+
+<textarea id="textin" style="width:90%;height:300px">
+
+</textarea>
+
+</form>
+<p><a href="#" id="cbutton">Reset</a> </p>
+<p id="out">Words per Minute :</p>
+
+
+}}
+
+
+
+<script language="JavaScript">
+var enterD, outD;
+
+function startTimer()
+   {
+   enterD = new Date();
+   }
+
+function stopTimer()
+   {
+   outD = new Date();
+   var difference = outD.getTime() - enterD.getTime();
+   var seconds = difference / 1000;
+   var s=$('textarea').val().length;
+   var wpm=Math.round((s/(seconds*5))*60);
+   $('p#out').text ('Words per Minute : '+wpm);
+   }
+startTimer();
+
+</script>
+
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+   $('textarea').click(function(){
+        startTimer();
+    });
+   $('textarea').keyup(function(){
+        stopTimer();
+    });
+  $('a#cbutton').click(function(){
+        $('p#out').text('Words per Minute : ');
+        $('textarea').text('');return false;
+    });
+});
+
+</script>
+
+
+
+
+
+<hr/>
+
+http://dev.opera.com/articles/view/timing-and-synchronization-in-javascript/
+
+http://ejohn.org/blog/how-javascript-timers-work/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,97 @@
+<h2>Finding the DNS address of a website</h2>
+
+This code is based on using a RESTful API provided by http://dig.jsondns.org/ and the code is written by. See also [dnsapi](http://www.statdns.com/resources/)
+
+By querying the API the need for a DNS server falls away, you can actually use it straight from your server [see the discussion at HN](http://news.ycombinator.com/item?id=1017508)
+
+\begin{codeblock}
+   
+        // not sure if "debounce" is the right name for this
+        Function.prototype.debounce = function(ms) {
+            var fn = this;
+            var timer = null;
+        
+            return function() {
+                var self = this;
+                var args = arguments;
+            
+                if (timer)
+                    window.clearTimeout(timer);
+            
+                timer = window.setTimeout(function() {
+                    fn.apply(self, args);
+                }, ms);
+
+            }
+        }
+    
+        var input, tld, results, checked;
+        
+        var init = function() {
+            checked = {};
+            
+            results = document.getElementById("results");
+            input = document.getElementById("input");
+            tld = document.getElementById("tld");
+            
+            input.focus();
+        }
+        
+        var changed = (function() {
+            var domain = input.value + "." + tld.value;
+            
+            if (!(/^(?:[0-9a-zA-Z\-]+\.)+[0-9a-zA-Z\-]+$/).test(domain)) {
+                input.style.backgroundColor = "rgba(255,0,0,0.25)";
+                return;
+            }
+            input.style.backgroundColor = "";
+            
+            if (checked[domain])
+                return;
+            checked[domain] = true;
+            
+            var url = "http://dig.jsondns.org/IN/"+domain+"/A?callback=response";
+            
+            document.body.appendChild(document.createElement("script")).src = url;
+        }).debounce(250);
+        
+        var response = function(r) {
+            var li = document.createElement("li");
+            li.style.color = r.answer.length ? "green" : "red";
+            li.appendChild(document.createTextNode(r.question[0].qname + ((r.answer.length ? " ("+r.answer[0].rdata+")" : ""))));
+            results.insertBefore(li, results.firstChild);
+        }
+        
+        // p.s. if you have an urge to tell me this could be done in 5 lines of jQuery, fuck off, I'm //hardcore.
+    
+init();
+log('test');
+
+\end{codeblock}
+
+<input type="text" name="input" id="input" onkeyup="changed();">.
+<input type="text" name="tld" id="tld" value="com" size="3" onkeyup="changed();"> 
+
+
+
+
+
+
+##Further Reading
+
+
+
+ 
+
+
+
+  
+  
+
+
+
+
+
+
+
+                            

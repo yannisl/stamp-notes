@@ -1,0 +1,162 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+<h2>Array Like Objects</h2>
+The array-like object looks very similar to an array. Although you cannot invoke array methods on them you can still iterate through them with the same code you would use for an array. Many array alogorithms will work as well on array-like objects as well as arrays.
+
+Here is an example of a pseudo-array object:
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+var a = {}; //start with a regular empty object
+// add properties to make it array like
+var i = 0;
+while (i < 10) {
+    a[i] = i * i;
+    i++;
+}
+log("value of a[5]", a[5]);
+log(a.length, 'will cause an error');
+log((document.getElementsByTagName("li")).toString());
+
+var b = new Array(5);
+log(typeof b);    
+</code>
+</div>
+<p class = "msg" style="width:400px;font-size:12px;font-weight:bold;background:#fff">
+</p>
+
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+Unlike arrays the above returns undefined for the length method, since it has not been defined.
+
+We will now add it as a property to the object:
+
+<div  class="code-block console-wrap"><div class="code"><code><span class="hidden"> log( "Click #", 'button' ); </span>
+<span class="green">//
+//  
+//  array-like objects</span>
+// 
+var a = {}; //start with a regular empty object
+// add properties to make it array like
+var i = 0;
+while (i<10) {
+   a[i] = i*i;
+   i++;   
+}
+a.length = i;
+var total = 0;
+for (var j=0;j< a.length;j++){
+     total += a[j];
+}
+log("value of a[5]",a[5]);
+log("length = ", a.length);
+log("value of total = ",total);
+
+</code>
+</div>
+<p class="msg" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<hr/>
+To understand better what is happening here, we will replace the
+variable i with a string:
+
+<div  class="code-block console-wrap"><div class="code"><code><span class="hidden"> log( "Click #", 'button' ); </span>
+<span class="green">//
+//  
+//  array-like objects</span>
+// 
+var a = {}; //start with a regular empty object
+// add properties to make it array like
+var i = 0; var method='';
+while (i<5) {
+     var z = i;
+     prop = "property"+z;
+     a.prop = i*i;
+    log("created : property ",prop, " value: "+a.prop);
+    i++;   
+}
+ 
+ log("outside loop is a mystery ! ",   a.prop4);
+</code>
+</div>
+<p class="msg" style="width:400px;font-size:12px;font-weight:bold;background:#fff">
+</p>
+
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<h3>Converting an Object into an Array</h3>
+
+The easiest way is to use jQuery's <a href="http://docs.jquery.com/Utilities/jQuery.makeArray#obj ">makeArray()</a> method
+
+{{plain:
+jQuery.makeArray( obj )
+}}
+
+<div  class="code-block console-wrap"><div class="code"><code><span class="hidden"> log( "Click #", 'button' ); </span>
+<span class="green">//
+//  
+//  array-like objects</span>
+// 
+var a = {}; //start with a regular empty object
+// add properties to make it array like
+var i = 0;
+while (i<10) {
+   
+   a[i] = i*i;
+   i++;   
+}
+a.length = i;
+var total = 0;
+for (var j=0;j< a.length;j++){
+     total += a[j];
+}
+log("value of a[5]",a[5]);
+log("length = ", a.length);
+log("value of total = ",total);
+
+ 
+var z=jQuery.makeArray(a);
+log('Array z.length ', a.length)
+ </code>
+</div>
+<p class="msg" style="width:400px;font-size:12px;font-weight:bold;background:#fff">
+</p>
+
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+##Further Reading
+
+
+
+
+  
+  
+
+
+
+
+
+
+

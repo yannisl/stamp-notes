@@ -1,0 +1,95 @@
+\section{Programming in a Hostile Environment}
+
+
+
+
+\href{http://marijn.haverbeke.nl/codemirror/story.html}{Marijn Haverbeke}, described his journey when developing \href{http://codemirror.net/}{CodeMirror} by saying:
+
+
+\begin{quotation}
+In one of his (very informative) video lectures, Douglas Crockford remarks that writing JavaScript for the web is - programming in a hostile environment. I had done my fair share of weird workarounds, and even occasionally gave up an on idea entirely because browsers just wouldn't support it, but before this project I never really realized just how powerless a programmer can be in the face of buggy, incompatible, and poorly designed platforms.
+\end{quotation}
+
+
+
+The environment has still not changed but with the proliferation of libraries and some books, the job is now a little bit easier, but get prepared to have your fingers full of glue.
+
+When developing these notes, it became clear to me that you need to fight this war at the forefront, that is at the browser. All the notes are interactive, you can actually edit them and run them through the browser. It is a great way to learn and also to develop. No need for FireBug, which is giving me gray hairs since FireFox 3.5. and gladly now is back on track. My own recommendation is to you use Chrome, if you can and test for other browsers at the last minute. Another advantage in programming, straight in this hostile environment, is that you take the battle where it belongs. The console would automatically re-formats the scripts as well as test them against jslint - Crocford's hurt your feelings test!
+
+
+
+\section{What is it all About?}
+
+
+This website started as a collection of JavaScript notes. It has one major difference from other similar sites and blogs. It enables you to interact with the code, directly into your own hostile environment! You can change and fork the examples as you like. You elect to publish these changes in the comments, pretty much like a mini-gib, but for JavaScript. These notes are intended to become a quick reference. For example besides the notes by just typing the url (ala PHP site, you will get to description of the relevant function or command).
+
+{{plain:
+jsNotes/blogs/js/toInteger
+}}
+
+will take you to the page where the method is described, with examples. It is still work in progress and I am currently working in improving, a cross-referencing site robot.
+
+\section{How did it all started?}
+
+It all started with Brendan Eich who wrote the JavaScript language. I like the guy and he looks like an older version of my son Nikolas, which is not surprising, since Nikolas is the product of a Greek and and a boeremeisie{{sup:1}}.
+<div style="width:35%;float:left">
+<img src="http://localhost/application-latest/images/brendan_eich.jpg" />
+</div>
+Brendan Eich (pronounced /&#712;&#1072;&#618;k/) (born 1961) is a computer programmer and creator of the JavaScript programming language. He is the Chief Technology Officer at the Mozilla Corporation.
+
+Eich started his career at Silicon Graphics, working for seven years on operating system and network code. He then worked for three years at MicroUnity Systems Engineering writing microkernel and DSP code, and doing the first MIPS R4000 port of gcc.
+
+Eich is best known for his work on Netscape and Mozilla. He started work at Netscape Communications Corporation in April 1995, working on JavaScript (originally called Mocha, then called LiveScript) for the Netscape Navigator web browser. He then helped found mozilla.org in early 1998, serving as chief architect. When AOL shut down the Netscape browser unit in July 2003, Eich helped spin out the Mozilla Foundation.
+
+In August 2005, after serving as Lead Technologist and as a member of the Board of Directors of the Mozilla Foundation, Brendan became CTO of the newly founded Mozilla Corporation.
+
+Brendan Eich is still active in the development of the language. You can read an interview [here](http://www.infoworld.com/d/developer-world/javascript-creator-ponders-past-future-704?page=0,0)
+
+<h3>Javascript Challenges</h3>
+From Risig's unfinished book, Javscript Ninja
+<blockquote>
+Browser-based JavaScript development is much more complicated than it seems. It's more than just
+a knowledge of the JavaScript language it's the ability to understand and work around browser
+incompatibilities coupled with the development skills needed to have that code survive for a long time.
+While JavaScript development can certainly be challenging there are those who've already gone down
+this route route: JavaScript libraries. Distilling the knowledge stored in the construction of these code
+bases will effectively fuel our development for many years to come. This exploration will certainly be
+informative, particular, and educational - enjoy
+</blockquote>
+<h3>Who am I?</h3>
+I have humble beginnings and probably will also have a humble end. These notes were written out on and off over a period of about three years. When I lost my job due to the Company I was working with closed down, I used a month to polish them and publish them. I am still looking for part-time freelance work and if you have anything to offer please let me know. I would appreciate it.
+
+My background is Mechanical Engineering (I have a PhD).
+
+<h3>Do you want to be a Ninja?</h3>
+
+If you want to be a {{wi:Ninja}} I suggest you take a course in Marshal Arts. If you want to be a better programmer in JavaScript you need to give attention to the details. 
+
+If you still like symbolism by going through the contents of this website carefully, I will turn  into a {{wi:Commando}}.
+
+<h3>What about the Highlighting</h3>
+
+Beautiful code should be  human-readable even without syntax highlighting. In
+other words, we don't have to depend on context-sensitive source code editors to read it.
+
+It's just as readable when displayed as plain text by debuggers, compilers, and web. For the web, however, sometimes - actually most of the time - people don't read but actually only scan quickly the content. From this point of view a I have used a minimum highlighting scheme
+that is both easy on the eyes as well as add to the readability of the code. I find that many commonly used highlighters produce just too many colors and the stripes normally used for displaying tables of codes, just adds to the visual clutter.
+
+I have kept to this dictum, first described in Beautiful Code and have tried my best to review the examples and make them better. Coding is my part-time passion not my work. Please be easy on me!
+
+
+<h3>Why Notes?</h3>
+
+Since early in high school I kept notes. Later I discovered the writings of {{wi:Edsger_W._Dijkstra}} and his method of meticulously keeping of notes (which I aspired to, but never managed to put fully into practice). Life became easier when HTML came around, as Dijkstra's underlining could now become hyper links. It also enabled me to refer to sources other than my own. I began editing these notes starting from Javascript and hence I named this site jsNotebooks.
+
+
+<h3>What about the images?</h3>
+
+On most pages you will find an image on the left drawn from our Galleries. For example on this page you can see an image by {{wi: August_Sander}}, sometimes the images relate to the post and sometimes they don't! I included them to give a bit of color to an otherwise colorless and odorless environment and to provide a bit of escapism, while writing!
+
+http://photogrist.com/wp-content/uploads/2014/05/Rennie-Ellis12.jpg
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          

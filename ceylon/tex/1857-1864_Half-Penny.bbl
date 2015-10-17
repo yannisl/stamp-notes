@@ -1,0 +1,32 @@
+\begin{thebibliography}{4}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Benny(2011)]{options}
+Jordan Benny.
+\newblock \emph{Options, The Plain and Simple Guide to Succesful Strategies},
+  volume~85.
+\newblock Prentice Hall, London, 2011.
+
+\bibitem[Chapman(1975)]{chapman-75}
+Jefferson Chapman.
+\newblock \emph{The {Icehouse Bottom} Site---{40MR23}}.
+\newblock Number~23 in University of Tennessee Department of Anthropology
+  Publication. Univ. of Tennessee Press, Knoxville, 1975.
+
+\bibitem[Corinphila(2014)]{cor186}
+Corinphila.
+\newblock Auction 186.
+\newblock May 2014.
+\newblock URL \url{http://www.stampauctionnetwork.com/f/f109.cfm}.
+
+\bibitem[R.C.(1976)]{agabeg}
+Agabeg R.C.
+\newblock Ceylon 1815-1872.
+\newblock \emph{The London Philatelist}, 85\penalty0 (1001-1002):\penalty0
+  97--105, 1976.
+
+\end{thebibliography}

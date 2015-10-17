@@ -1,0 +1,117 @@
+ <!--
+{{feature: .. A discussion of bubble sort with warnings that the performance
+is bad and the code isn't simple (arguably) is like
+telling someone "don't think about pink elephants. <a href="http://www.cs.duke.edu/~ola/papers/bubble.pdf">Owen Astrachan</a> }}
+{{feature-image: http://localhost/egypt/elliott-erwitt/EE-1150.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<h2>Quick Sort </h2>
+
+
+
+
+<div  class="code-block console-wrap">
+<div class="code code-block">
+<code>
+data = [-900, 21, 1, 1000, 5, 6, 7, 800, 9, 11, 14, 35, 67, 0];
+
+function mergeSort(data) {
+  if (data.length > 1) {
+    var firstHalf = Math.floor(data.length / 2);
+    var secondHalf = data.length - firstHalf;
+    var arr1 = new Array(firstHalf);
+    var arr2 = new Array(secondHalf);
+    for (var i = 0; i < firstHalf; i++) {
+      arr1[i] = data[i];
+    }
+    for (var i = firstHalf; i < firstHalf + secondHalf; i++) {
+      arr2[i - firstHalf] = data[i];
+    }
+    mergeSort(arr1);
+    mergeSort(arr2);
+    var i = 0;
+    var j = 0;
+    var k = 0;
+    while (arr1.length != j && arr2.length != k) {
+      if (arr1[j] <= arr2[k]) {
+        data[i] = arr1[j];
+        i++;
+        j++;
+      } else {
+        data[i] = arr2[k];
+        i++;
+        k++;
+      }
+    }
+    while (arr1.length != j) {
+      data[i] = arr1[j];
+      i++;
+      j++;
+    }
+    while (arr2.length != k) {
+      data[i] = arr2[k];
+      i++;
+      k++;
+    }
+  }
+  return data;
+}
+
+profiler.start();
+var d = mergeSort(data);
+profiler.stop();
+profiler.timeDiff();
+log(d);
+</code>
+</div>
+<div  id="msg" class="msg" >
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+Algorithm
+
+Conceptually, a merge sort works as follows:
+
+- If the list is of length 0 or 1, then it is already sorted. Otherwise:
+- Divide the unsorted list into two sublists of about half the size.
+- Sort each sublist recursively by re-applying merge sort.
+- Merge the two sublists back into one sorted list.
+
+Merge sort incorporates two main ideas to improve its runtime:
+
+- A small list will take fewer steps to sort than a large list.
+- Fewer steps are required to construct a sorted list from two sorted lists than two unsorted lists. For example, you only have to traverse each list once if they're already sorted.
+
+
+
+In any case in  practical situations the best sort to use is the
+one provided by the standard (e.g., Python, Java, C, or C++)
+libraries. However, we study sorts because general sorts
+do not work in all situations and because sorting is a
+simple illustration of algorithmic techniques. JavaScript provides a built-in method for sorting arrays and you can find more about it in ['Sorting Arrays in Javascript'](http://127.0.0.1/CodeIgniter/index.php/Blogs/tutorials/jQuery/Array_sort).
+
+
+
+ 
+
+
+
+  
+  
+
+
+
+
+
+
+
+                                            

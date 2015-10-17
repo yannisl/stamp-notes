@@ -1,0 +1,121 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+{{feature-image: http://localhost/egypt/elliott-erwitt/EE-1150.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<h2>Editable Console</h2>
+Most of  the code shown in this website is editable. In this tutorial I will show you how this is achieved. 
+
+Firstly we need to decide our strategy. 
+
+- Once the code is 'run', we add a button for 'edit' and hide the 're-run' button
+- On click edit we add a button 'done'. This can be changed later for a 'save' button as well.
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code id='editable'>
+$('#edit').live('click', function(){
+     var z = $('#editable').text();
+     var e=$('#editable');
+     var w=e.width();
+     var h=e.height();
+     $('#editable').toggle();
+     $('&lt;textarea&gt;').insertBefore('#msg').val(z).addClass('text');
+     $('.text').css('font-size',e.css('font-size'));
+     $('.text').css('font-family',e.css('font-family'));
+     $('.text').css('line-height',e.css('line-height'));
+     $('.text').height(h+60);
+     log('',w,h); 
+     $('#eval').toggle();
+     $('#done').show();
+     $(this).hide();
+});
+
+$('#done').live('click', function(){
+    var z1 = $('textarea.text').val();
+    $('#editable').text(z1).show();
+    $('.text').remove();
+    $('#eval').toggle();
+    $('#edit').show();
+    $(this).toggle();
+});
+</code>
+</div>
+<div  id="msg" class="msg" style="white-space:pre;font-family:monospace;line-height:1.3">
+</div>
+<div class="console"></div>
+<button id="eval" class="eval">Run Code!</button>
+<button id="edit">Edit Code!</button>
+<button id="done" class="hidden">Done</button>
+<ol class="results"></ol> 
+<img src="http://localhost/codeigniter/images/jquery.png" style="float:right; width:85px"/>
+</div>
+
+<h3>The Server Involvement</h3>
+This CMS allows for the inclusion of transclusion templates. While developing the pages we should minimize the user input for the description of the code-blocks.
+
+I have used a template as follows:
+
+<p style="white-space:pre">
+{{console:
+    
+    code is typed here
+
+}}
+</p>
+
+<h3>Options and Defaults</h3>
+The console can be configured with various options:
+
+{{plain:
+var defaults=&#123;
+        debug:true,
+        showJslint:true,
+        format:true,
+        autoNumber:true,
+        highlighter:true,
+        profilerAuto:true,
+        highlighterOptions:&#123;&#125;,
+        formatterOptions:&#123;&#125;,
+        buttons:['','','','',''],   // buttons
+        language: EN                // language
+    &#125;
+}}
+
+
+The server produces the necessary enclosures. It also provides a means of progressive enhancement. If JavaScript is off, it will default to a slightly different layout. This was probably an unnecessary step, since presumably anyone visiting this site is not afraid of JavaScript.
+
+<h3>Adding a User Save Button</h3>
+
+Further improvements to the script can be added, using a 'save' button. This website is not a 'wiki'. That is users are not allowed to edit the pages (if you want to do this you can e-mail me to discuss). However, a user should be able to save his edits. Firstly to be able to follow his own progress in using this side or provide a url, where he can discuss with other programmers a new approach etc.
+
+This will be provided, once my user model is a bit more advanced in order to minimize potential abuse by spammers.
+
+<h3>Keeping Karma Score</h3>
+In order to motivate users to learn, re-use this website as well as interact with other users a point score (karma) is utilized. Every time a user runs a successful edit, his karma points are increased. Karma is being tracked on a per exercise basis. This is to prevent abuse, but also to pin-point weaknesses of a user. If for example a user tried an exercise for ten times, we presume that he is weak in this area and he is trying to improve. This pin-points related exercises recommendations.
+
+
+
+
+##Further Reading
+
+
+
+ 
+
+
+
+  
+  
+
+
+
+
+
+
+

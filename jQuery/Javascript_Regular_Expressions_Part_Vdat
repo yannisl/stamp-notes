@@ -1,0 +1,209 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<style type="text/css">
+p#msg6 > li { list-style-type: decimal;line-height:1.5; margin:5px }
+.shade{background:#ececec}
+</style>
+<h2>Checking for Australia</h2>
+
+All regex repetition operators are {{wi:greedy}}. They try to match as much as possible in a string. Unfortunately, this might not always be a desired effect. Thus, lazy operators are used to solve this problem. They only match the smallest possible pattern and are used by adding a '?' after the respective greedy operator. In some implementations such as those for PHP , the 'U' modifier may be used to make all repetiton operators lazy. 
+
+<strong>Differentiating between greediness and laziness is key to fully understanding  regular expressions.</strong>
+
+
+<div class="code-block console-wrap">
+<div class="code-block code">
+<code>
+/**
+  *Checks to see if Australia is typed into the other country box
+  */
+  function checkContactCountry(inputBox)
+  {
+    var validator = new RegExp(
+         /^(A|a)(U|u)(S|s)(T|t)(R|r)(A|a)(L|l)(I|i)(A|a) |(N|n)(E|e)(W|w)(Z|z)(E|e)(A|a)(L|l)(A|a)(N|n)(D|d)|(N|n)(E|e)(W|w) (Z|z)(E|e)(A|a)(L|l)(A|a)(N|n)(D|d)$/);
+
+    if(validator.test(inputBox.value))
+    {
+         alert("Your Residential Address must be outside Australia. "
+             + "Enter your residential address outside this country,"
+             + "or visit redacted-travel.com.au to make a booking if "
+             + " you live in Australia.");
+         inputBox.focus();
+         inputBox.select();                  
+    }
+ }
+ 
+</code>
+<input type="text" id="inputBox"  onClick="checkContactCountry(this); "/>
+</div>
+<p class= "msg" id="msg"></p>
+  <button class="eval">Button</button>
+<ol class="results"></ol>
+</div>
+
+
+<h3>Lazy</h3>
+I we now change the above operator by adding a '?' after it. This will make it lazy:
+<div class="code-block console-wrap">
+<div class="code-block code">
+<code>
+ var re = /&lt;h1&gt;.*<span class="highlight">?</span>&lt;\/h1&gt;/;
+ var   s = "&lt;h1&gt;This is a heading.&lt;/h1&gt;&lt;h1&gt;This is another one.&lt;/h1&gt; ";
+           s =s.match(re); 
+ out(s.toString());
+</code>
+</div>
+<p class= "msg" id="msg" style="white-space:pre"></p>
+  <button class="eval">Button</button>
+<ol class="results"></ol>
+</div>
+
+
+<h3>Matching with the 'g' flag</h3>
+Another confusing aspect of regular expressions is the flag <tt>g</tt>. If used with the above code, it will return an array of <strong>all matches</strong>.
+
+<div class="code-block console-wrap">
+<div class="code-block code">
+<code>
+ var re = /&lt;h1&gt;.*<span class="highlight">?</span>&lt;\/h1&gt;/g;
+ var   s = "&lt;h1&gt;This is a heading.&lt;/h1&gt;&lt;h1&gt;This is another one.&lt;/h1&gt; ";
+           s =s.match(re); 
+ out(s.toString());
+</code>
+</div>
+<p class= "msg" id="msg" style="white-space:pre"></p>
+  <button class="eval">Button</button>
+<ol class="results"></ol>
+</div>
+
+<h3>A more practical example</h3>
+We will now develop a short program to capture code from a page, add line numbers and re-format it. Pretty much what you get if you use some of the common highlighting libraries.
+
+First we will check that capturing works properly.
+
+
+<div class="code-block console-wrap">
+<div class="code-block code">
+<code>
+ var re = /.*?\n/g; // match all lines of code
+ var   s = $that.siblings('.code').text();
+           s =s.match(re); 
+ out(s.toString());
+</code>
+</div>
+<p class= "msg" id="msg" style="white-space:pre"></p>
+  <button class="eval">Button</button>
+<ol class="results"></ol>
+</div>
+
+Once we are sure that our regex is working, we will then add the numbers at the beginning of each line.
+
+<div class="code-block console-wrap">
+<div class="code-block code">
+<code>
+ var re = /.*?\n/g; // match all lines of code
+ var   s = $that.siblings('.code').text();
+           s =s.match(re); 
+var temp = '';
+ for (var i = 0;i&lt; s.length; i++){
+          s[i]=(i+1)+'   '+s[i];
+          temp = temp + s[i] ; 
+} 
+
+out(temp);
+</code>
+</div>
+<p class= "msg" id="msg" style="white-space:pre"></p>
+  <button class="eval">Button</button>
+<ol class="results"></ol>
+</div>
+
+If we want to get a bit more fancy, we could represent the code as an HTML list. This way we could also add some color on odd and even numbers.
+
+<div class="code-block console-wrap">
+<div class="code-block code">
+<code>
+ var re = /.*?\n/g; // match all lines of code
+ var   s = $that.siblings('.code').text();
+           s =s.match(re); 
+var temp = '&lt;ol&gt;';
+ for (var i = 0;i&lt; s.length; i++){
+          s[i]=  '&lt;li&gt;' +s[i]  + '&lt;/li&gt;' ;
+          temp = temp + s[i] ; 
+} 
+
+temp = temp + '&lt;/ol&gt;';
+$('#msg5').html(temp);
+</code>
+</div>
+<p class= "msg" id="msg5" ></p>
+  <button class="eval">Button</button>
+<ol class="results"></ol>
+</div>
+
+This actually, does not look very nice. Jquery interpreted the html in the code and returned it as another list. We would have been better off using jQuery to wrap the lines.
+
+Here is the final version.
+
+<div class="code-block console-wrap">
+<div class="code-block code">
+<code>
+ var re = /.*?\n/g; // match all lines of code
+ var   s = $that.siblings('.code').text();
+           s =s.match(re); 
+var temp = '&lt;' + 'ol id="code"  '+'&gt;';
+$('#msg6').append(temp);
+ for (var i = 0;i&lt; s.length; i++){
+          s[i]=  s[i] ;
+             if (i  % 2 == 0) {
+                      class=' class="shade" ' ;}
+                             else{class='';};
+             $('#msg6').append('&lt;li' + class +'&gt;'+ s[i] + '&lt;' + '/li&gt;');
+       
+          temp = temp + s[i] ; 
+} 
+
+
+$('#msg6').append('&lt;'+'/ ol&gt;');
+$('#msg6').append('test');
+</code>
+</div>
+<p class= "msg" id="msg6" >
+
+</p>
+  <button class="eval">Button</button>
+<ol class="results"></ol>
+</div>
+
+Personally, I don't find the 'zebra' style very readable - unlike a lot of other people - and I am not using it. Also sometimes color-coding is confusing. I would rather stick to a simpler layout like I am using here.
+
+We can use similar methods to number lines in a textarea or re-format text. 
+Life is not easy for programmers, but is getting easier with good libraries.
+
+<h3>Summary</h3>
+
+We have reviewed, lazy and greedy expressions. A lazy expression uses *?. we then used the flag 'g' to match a number of lines globally and build a small example to number lines of code. Not bad for a few minutes of your time. Try it on your own, without copying the code from here. These are __important__ concepts and fundamental. Memorize them and let them become second nature to you.
+
+##Further Reading
+
+<ol>
+<li>Regular Expression  Blog of [Steven Levithan](http://blog.stevenlevithan.com/)</li>
+
+<li>[Mozilla's reference for match()](https://developer.mozilla.org/En/Core_JavaScript_1.5_Reference:Objects:String:match)</li>
+  
+  
+<li>A good article at [Smashing Magazine](http://www.smashingmagazine.com/2009/05/06/introduction-to-advanced-regular-expressions/), but based on PHP.</li>
+
+</ol>
+
+<span class="chapter">13</span>
+
+

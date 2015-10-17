@@ -1,0 +1,225 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+{{feature-image:http://localhost/CodeIgniter/images/run_time_error.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: UI, jQuery, Visibility Filters, CSS Visibility }}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+<style>
+  .ex1 { background:yellow; font-weight:bold; cursor:pointer; 
+      padding:5px; }
+  .ex2{ background:#bebebe; font-weight:bold; cursor:pointer; 
+      padding:5px; }
+ .over { background: #ccc; }
+#cbutton{color:blue}
+.out{};
+ </style>
+
+
+
+
+<h2 id="firstHeading" class="firstHeading" style="background-color: rgb(239, 239, 239)">
+Arrays in Javascript
+</h2>
+Based on http://www.javascriptkit.com/javatutors/arraysort4.shtml
+Sorting a JavaScript array using <strong>array.sort()</strong>
+
+Sorting arrays in JavaScript is done via the method array.sort(), a method that's probably as much misunderstood as it is underestimated. While calling sort() by itself simply sorts the array in {{wi:lexicographical}} (aka alphabetical) order, the sky's really the limit once you go beyond the surface.
+<form>
+<input type="text" value="50"  class="iterations" name="test_1" id="test_1" />
+</form>
+<p class="out"></p>
+<script>
+
+var hits = 0;
+var darts = 0;
+var i = 0;
+while (i<=200000) {
+x = Math.random();
+y = Math.random();
+t = Math.sqrt(2.0);
+dist = Math.sqrt((x*x)+(y*y));
+if (dist<=1.0) {
+hits = hits+1;
+}
+if (dist<=t) {
+darts = darts+1;
+}
+pi = 4*(hits/darts);
+i = i+1;
+}
+document.write(pi);
+
+
+
+</script>
+
+
+
+
+Sorting an array in lexicographical order
+
+Sorting an array lexicographically (aka "alphabetically" or in dictionary order) is easy to do. Just call array.sort() without any parameters passed in:
+
+{{plain:
+<code class="js">
+//Sort alphabetically and ascending:
+var myarray=["Bob", "Bully", "Amy"]
+myarray.sort() //Array now becomes ["Amy", "Bob", "Bully"]
+</code>
+}}
+
+
+Notice that the order is ascending. To make it descending instead, the simplest way is to enlist the help of another Array method in combination, 
+{{plain:
+<code class="js">
+array.reverse():
+//Sort alphabetically and descending:
+var myarray=["Bob", "Bully", "Amy"]
+myarray.sort()
+myarray.reverse() //Array now becomes ["Bully", "Bob", "Amy"]
+</code>
+}}
+
+To check this for yourself type in an array
+
+{{example:
+<form name="sorter">
+<textarea rows="10" name="sorter2" cols="50" wrap="virtual">012 11 22 55 1 4</textarea><br>
+<input type="button" value="Sort alphabetically" onClick="sortvalues(0)">
+<input type="button" value="Sort numerically" onClick="sortvalues(1)">
+<input type="reset" value="Reset">
+</form>
+}}
+
+
+
+
+
+
+
+Now, before you start feeling comfortable, consider what happens if we call array.sort() on an array consisting of numbers:
+
+{{plain:
+<code class="js">
+var myarray=[7, 40, 300]
+myarray.sort() 
+//Array now becomes [300,40,7]
+</code>
+}}
+
+
+Although 7 is numerically smaller than 40 or 300, lexicographically, it is larger, so 7 appears at the very right of the sorted array. Remember, by default array.sort() sorts its elements in lexicographical order.
+
+And there you have it with array.sort() in terms of its basic usage. But there's a lot more to this method than meets the eye. Array.sort() accepts an optional parameter in the form of a function reference that pretty much lets you sort an array based on any custom criteria, such as sort an array numerically or shuffle it (randomize the order of its elements).
+
+## Passing in a function reference into array.sort()
+
+As touched on already, array.sort() accepts an optional parameter in the form of a function reference (lets call it sortfunction). The format of this function looks like this:
+
+{{plain:
+<code class="js">
+array.sort(sortfunction)
+
+function sortfunction(a, b)&#123;
+//Compare "a" and "b" in some fashion, and return -1, 0, or 1
+&#125;
+</code>
+}}
+
+
+When such a function is passed into array.sort(), the array elements are sorted based on the relationship between each pair of elements "a" and "b" and the function's return value. 
+
+The three possible return numbers are: <0 (less than 0), 0, or >0 (greater than 0):
+
+Less than 0: Sort "a" to be a lower index than "b"
+ Zero: "a" and "b" should be considered equal, and no sorting performed.
+ Greater than 0: Sort "b" to be a lower index than "a".
+To sort an array numerically and ascending for example, the body of your function would look like this:
+
+{{plain:
+<code class="js">
+function sortfunction(a, b)&#123;
+return (a - b) //causes an array to be sorted numerically and ascending
+&#125;
+</code>
+}}
+
+
+More on this below.
+
+ Sorting an array in numerical order
+
+To sort an array in numerical order, simply pass a custom sortfunction into array.sort() that returns the difference between "a" and "b", the two parameters indirectly/ automatically fed into the function:
+
+{{plain
+//Sort numerically and ascending:
+var myarray=[25, 8, 7, 41]
+myarray.sort(function(a,b)&#123;return a - b&#125;) //Array now becomes [7, 8, 25, 41]
+}}
+
+This works the way it does because whenever "a" is less than "b", a negative value is returned, which results in the smaller elements always appearing to the left of the larger ones, in other words, ascending.
+
+Sort an array numerically but descending isn't much different, and just requires reversing the two operands "a" and "b":
+
+<pre>
+//Sort numerically and descending:
+var myarray=[25, 8, 7, 41]
+myarray.sort(function(a,b){return b - a}) //Array now becomes [41, 25, 8, 71]
+</pre>
+
+ Shuffling (randomizing) the order of an array
+
+To randomize the order of the elements within an array, what we need is the body of our sortfunction to return a number that is randomly <0, 0, or >0, irrespective to the relationship between "a" and "b". The below will do the trick:
+
+//Randomize the order of the array:
+{{plain:
+var myarray=[25, 8, "George", "John"]
+myarray.sort(function() &#123;return 0.5 - Math.random()&#125;) //Array elements now scrambled
+}}
+
+As you can see, there is a lot more to <strong>array.sort()</strong> than many have mistakenly thought. And don't you think for a second all you can do is sort your arrays in the three criteria shown above. Play around with how your sortfunction returns its value, and you'll see.
+
+<p>
+<script type="text/javascript">
+function sortit(a,b){
+return(a-b)
+}
+function sortvalues(param){
+var inputvalues=document.sorter.sorter2.value.split(" ")
+if (param==0) //if sort alphabetically
+inputvalues.sort()
+else //else if sort numerically
+inputvalues.sort(sortit)
+document.sorter.sorter2.value=''
+for (i=0;i<inputvalues.length-1;i++)
+document.sorter.sorter2.value=document.sorter.sorter2.value+inputvalues[i]+" "
+document.sorter.sorter2.value+=inputvalues[inputvalues.length-1]
+}
+</script>
+</p>
+
+
+
+<script>
+  $(document).ready(function(){
+    $('.out').text(($("input[name='test_1']").attr("value")));
+  });
+  </script>
+  
+
+
+
+
+
+
+
+
+
+
+

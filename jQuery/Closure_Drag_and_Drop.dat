@@ -1,0 +1,623 @@
+      
+<!--
+ directives
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{feature-image:/codeigniter/images/angela.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<style>
+ul#list1, ul#list2 {padding: 0px;width:20ex;}
+ul#list1 li, ul#list2 li , button1,button2{
+      list-style: none; 
+      font: menu;
+      width: 20ex;
+      border: 1px solid gray;
+      margin: 1px;
+      padding: 0px 2px 0px 2px;
+      background: silver;
+    }
+.source {
+      cursor: move;
+      -moz-user-select: none;
+    }
+.drag {
+      cursor: move;
+      background: green;
+}
+.target {
+ 
+}
+#list2 {
+  margin: 0px 30px 30px 30px;
+   padding-left: 30px;
+}
+.foo {
+ position: absolute;
+ background: pink;
+ padding: 5px;
+}
+ .modal-dialog-bg {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: #FFF;
+  }
+ 
+  .modal-dialog {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 300px;
+    background-color: #AAF;
+    border: 2px solid #99c0ff;
+  }
+ 
+  .modal-dialog-title {
+    position:relative;
+    background: #C3D9FF;
+    padding: 4px;
+    font: bold 11px verdana;
+    cursor: default;
+  }
+ 
+  .modal-dialog-content {
+    background: #E8EEF7;
+    padding: 12px 18px 12px 18px;  font: normal 12px verdana;
+    font: normal 12px verdana;
+  }
+ 
+  .modal-dialog-userInput {
+    font: normal 12px verdana;
+    width: 90%;
+  }
+ 
+  .modal-dialog-buttons {
+    background: #E8EEF7;
+    padding: 4px;
+    font: normal 12px verdana;
+    text-align: right;
+  }
+ 
+  .modal-dialog-buttons button {
+    margin: 5px;
+  }
+</style>
+<script> 
+goog.require('goog.fx.DragDrop');
+goog.require('goog.fx.DragDropGroup');
+goog.require('goog.dom');
+goog.require('goog.ui.Prompt');
+</script>
+
+
+<h2>Closure Drag and Drop</h2>
+<div class="clearfix draggable" style=
+
+          "background:#fff;width:100%;margin:0 auto;padding-top:30px;padding-bottom:30px"> 
+          <div style=
+
+          "color:#666;font:13px Arial;width:40%;float:left;padding:50px;padding-top:0px;padding-bottom:0; border-right:1px solid #d3d3d3"> 
+            <h2 style=
+
+            "color:#333;font-family:Georgia,Times,serif;font-size:20px;line-height:1.3em;margin-bottom:13px"> 
+              Welcome to <sub>fk</sub>Surreal.com
+              </h2> 
+              <p class="hometext"> 
+                Create a web-site in one minute. Create a blog in
+                four minutes. Create an application in four days.
+                If this appeals to you read on. If it doesn't,
+                thanks for the visit and goodbye! Check the
+                <a href="http://localhost/CodeIgniter/admin/component/four_column/cms/Classes_Multicolumn"> 
+                four column</a> template produced with the
+                framework.
+              </p> 
+            </div> 
+            <div style=
+
+            "color:#666;font:13px Arial;background:#fff;width:38%;float:left;padding:55px;padding-top:0px;padding-bottom:0"> 
+            <h2 style=
+
+            "color:#333;font-family:Georgia,Times,serif;font-size:20px;line-height:1.3em;margin-bottom:13px"> 
+              Mix-and-Match
+              </h2> 
+              <p class="hometext"> 
+                <sub>fk</sub>Surreal uses objects to manipulate the
+                looks-and-feel of your website. Each section, is
+                cast into objects which they can inherit
+                properties, draw content from almost anywhere,
+                databases, feeds or your tweets, even the mighty
+                government! It is build with <a href=
+
+                "http://localhost/CodeIgniter/Blogs/go/php">php</a> 
+                using <a href=
+
+                "http://localhost/CodeIgniter/Blogs/go/CodeIgniter"> 
+                CodeIgniter</a> as the framework, <a href=
+
+                "http://localhost/CodeIgniter/Blogs/go/jQuery">jQuery</a> 
+                and a lot of Love and Care.
+              </p> 
+            </div><!--end container --> 
+          </div> 
+
+
+<ul id="list1" class="draggable"> 
+  <li class="source target" >Item 1.1</li> 
+  <li class="source target">Item 1.2</li> 
+  <li class="source target" >Item 1.3</li> 
+  <li class="source target" >Item 1.4</li> 
+  <li class="source target" >Item 1.5</li> 
+  <li class="source target" >Item 1.6</li> 
+  <li class="source target">Item 1.7</li> 
+  <li class="source target">Item 1.8</li> 
+  <li class="source target">Item 1.9</li> 
+  <li class="source target">Item 1.10</li> 
+  <li class="source target">Item 1.11</li> 
+  <li class="source target">Item 1.12</li> 
+  <li class="source target">Item 1.13</li> 
+  <li class="source target">Item 1.14</li> 
+  <li class="source target">Item 1.15</li> 
+</ul> 
+
+
+<ul id="list2"> 
+  <li class="source">Item 2.1</li> 
+  <li class="source">Item 2.2</li> 
+  <li class="source">Item 2.3</LI> 
+  <li class="source">Item 2.4</LI> 
+  <li class="source">Item 2.5</LI> 
+  <LI class="source">Item 2.6</LI> 
+  <LI class="source">Item 2.7</LI> 
+  <LI class="source">Item 2.8</LI> 
+  <LI class="source">Item 2.9</LI> 
+  <LI class="source">Item 2.10</LI> 
+  <LI class="source">Item 2.11</LI> 
+  <LI class="source">Item 2.12</LI> 
+  <LI class="source">Item 2.13</LI> 
+  <LI class="source">Item 2.14</LI> 
+  <LI class="source">Item 2.15</LI> 
+</ul> 
+ 
+<hr/>
+<div id="button1" class="source target" style="border:1px solid #bebebe;width:100px"> 
+  Button 1 (combined source/target, can be dropped on list 1)
+</div> 
+ 
+<div id="button2" class="target" style="border:1px solid #bebebe;width:100px"> 
+  Button 2 (target only)
+</div> 
+ <H1>goog.ui.Prompt</H1> 
+ 
+  <P>The default text is selected when the prompt displays</P> 
+ 
+  <P>You can use 'Enter' or 'Esc' to click 'Ok' or 'Cancel' respectively</P> 
+ 
+  <P> 
+  <A href="#" onclick="prompt.setDefaultValue(&#39;Pink&#39;);prompt.setVisible(true);"> 
+    Prompt
+  </A> 
+  </P> 
+ 
+<hr/> 
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+
+  // Custom implementation demo. Overrides createDragElement and
+  // positionDragElement.
+  function FooDrag(element, opt_data) {
+    goog.fx.DragDrop.call(this, element, opt_data);
+  }
+  goog.inherits(FooDrag, goog.fx.DragDrop);
+ 
+  FooDrag.prototype.createDragElement = function(sourceEl) {
+    return goog.dom.createDom('div', 'foo', 'Custom drag element');
+  };
+ 
+  FooDrag.prototype.getDragElementPosition = function(sourceEl, el, event) {
+    return new goog.math.Coordinate(event.clientX, event.clientY);
+  };
+ 
+ 
+  var button1, button2, list1, list2, i, len, nodes, el;
+ 
+  // Create drop targets (either by id or element reference)
+  button1 = new FooDrag(
+    document.getElementById('button1'), 'button 1'
+  );
+  button2 = new goog.fx.DragDrop('button2', 'button 2');
+ 
+  // Create drag clusters (multiple elements shares the same
+  // drag properties)
+  list1 = new goog.fx.DragDropGroup();
+  list2 = new goog.fx.DragDropGroup();
+ 
+  nodes = document.getElementById('list1').childNodes;
+  len = nodes.length;
+  for (i = 0; i < len; i++) {
+    el = nodes[i];
+    if ((el.nodeType == 1) && (el.nodeName == 'LI')) {
+      list1.addItem(el, el.firstChild.nodeValue);
+    }
+  }
+ 
+  nodes = document.getElementById('list2').childNodes;
+  len = nodes.length;
+  for (i = 0; i < len; i++) {
+    el = nodes[i];
+    if ((el.nodeType == 1) && (el.nodeName == 'LI')) {
+      list2.addItem(el, el.firstChild.nodeValue);
+    }
+  }
+ 
+  // Set valid targets for list1
+  list1.addTarget(button1);
+  list1.addTarget(button2);
+  list1.addTarget(list1);
+ 
+  // Set valid targets for list2
+  list2.addTarget(button2);
+  list2.addTarget(list1);
+ 
+  // Set valid target for button1 (allow button1 to be dragged onto list1)
+  button1.addTarget(list1);
+ 
+  // Set additional classes used to indicate dragging
+  button1.setSourceClass('source');
+  button1.setTargetClass('target');
+  button1.setDragClass('drag');
+  button2.setSourceClass('source');
+  button2.setTargetClass('target');
+  list1.setSourceClass('source');
+  list1.setTargetClass('target');
+  list2.setSourceClass('source');
+ 
+  // Init drag objects
+  button1.init();
+  button2.init();
+  list1.init();
+  list2.init();
+ 
+  // Set up event handlers
+  goog.events.listen(list1, 'dragover', dragOver);
+  goog.events.listen(list1, 'dragout', dragOut);
+  goog.events.listen(list1, 'drop', dropList1);
+  goog.events.listen(list1, 'drag', dragList1);
+  goog.events.listen(list1, 'dragstart', dragStart);
+  goog.events.listen(list1, 'dragend', dragEnd);
+ 
+  goog.events.listen(list2, 'dragover', dragOver);
+  goog.events.listen(list2, 'dragout', dragOut);
+  goog.events.listen(list2, 'drop', drop);
+  goog.events.listen(list2, 'dragstart', dragStart);
+  goog.events.listen(list2, 'dragend', dragEnd);
+ 
+  goog.events.listen(button1, 'dragover', dragOver);
+  goog.events.listen(button1, 'dragout', dragOut);
+  goog.events.listen(button1, 'drop', drop);
+  goog.events.listen(button1, 'dragstart', dragStart);
+  goog.events.listen(button1, 'dragend', dragEnd);
+ 
+  goog.events.listen(button2, 'dragover', dragOver);
+  goog.events.listen(button2, 'dragout', dragOut);
+  goog.events.listen(button2, 'drop', drop);
+ 
+  goog.events.listen(document.getElementById('button1'), 'click',
+                     function(e) { alert('click'); });
+ 
+  function dragOver(event) {
+    event.dropTargetItem.element.style.background = 'red';
+  }
+ 
+  function dragOut(event) {
+    event.dropTargetItem.element.style.background = 'silver';
+  }
+ 
+  function drop(event) {
+    event.dropTargetItem.element.style.background = 'silver';
+    var str = [
+      event.dragSourceItem.data,
+      ' dropped onto ',
+      event.dropTargetItem.data,
+      ' at ',
+      event.viewportX,
+      'x',
+      event.viewportY
+    ];
+    alert(str.join(''));
+  }
+ 
+  function dropList1(event) {
+    event.dropTargetItem.element.style.background = 'silver';
+    var str = [
+      event.dragSourceItem.data,
+      ' dropped onto ',
+      event.dropTargetItem.data,
+      ' in list 1.'
+    ];
+    alert(str.join(''));
+  }
+ 
+  function dragList1(event) {
+    var str = [
+      event.dragSourceItem.data,
+      ' dragged from list 1'
+    ];
+    alert(str.join(''));
+  }
+ 
+  function dragStart(event) {
+    goog.style.setOpacity(event.dragSourceItem.element, 0.5);
+  }
+ 
+  function dragEnd(event) {
+    goog.style.setOpacity(event.dragSourceItem.element, 1.0);
+  }
+ 
+     
+</code>
+
+</div>
+
+<div style="width:95%;position:relative">
+<div id="test1" ></div>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<div width:50%;position:relative;top:200;left:100>
+    <button id="but0" onclick="return slide(70,0);">Slide To 70x0</button>
+    <BUTTON id="but1" onclick="return slide(400,0);">Slide To 400x0</BUTTON>
+    <BUTTON id="but2" onclick="return slide(0,20);">Slide To 0x20</BUTTON>
+    <BUTTON id="but3" onclick="return slide(300,10);">Slide To 300x10</BUTTON> 
+</div> 
+ 
+<ol class="results"></ol> 
+</div>
+
+
+<hr/> 
+
+<h3>Fading in and Fading Out</h3>
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+
+    var col = [0,0,0];
+    var duration = 1000;
+ 
+    var el = document.getElementById('test2');
+ 
+    function enableButtons() {
+      for (var i = 0; i <= 13; i++) {
+        document.getElementById('but' + i).disabled = false;
+      }
+    }
+ 
+    function disableButtons() {
+      for (var i = 0; i <= 13; i++) {
+        document.getElementById('but' + i).disabled = true;
+      }
+    }
+ 
+  function fadeout() {
+      var anim = new goog.fx.dom.FadeOutAndHide(el, duration);
+      goog.events.listen(anim, goog.fx.Animation.EventType.BEGIN, disableButtons);
+      goog.events.listen(anim, goog.fx.Animation.EventType.END, enableButtons);
+      anim.play();
+      return false;
+    }
+
+    function fadein() {
+      var anim = new goog.fx.dom.FadeInAndShow(el, duration);
+      goog.events.listen(anim, goog.fx.Animation.EventType.BEGIN, disableButtons);
+      goog.events.listen(anim, goog.fx.Animation.EventType.END, enableButtons);
+      anim.play();
+      return false;
+    }
+ 
+       
+</code>
+<div style="width:95%;height:230px">
+<div id="test2" >
+  <img src="/CodeIgniter/images/angela.jpg" style="width:130px" />
+</div>
+</div>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<div>
+    <BUTTON id="but8" onclick="return fadeout();">Fade Out</BUTTON>
+    <BUTTON id="but9" onclick="return fadein();">Fade In</BUTTON> 
+ </div> 
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<h3>Resizing</h3>
+
+<hr/> 
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+
+    var col = [0,0,0];
+    var duration = 1000;
+ 
+    var el = document.getElementById('test3');
+ 
+    function enableButtons() {
+      for (var i = 0; i <= 13; i++) {
+        document.getElementById('but' + i).disabled = false;
+      }
+    }
+ 
+    function disableButtons() {
+      for (var i = 0; i <= 13; i++) {
+        document.getElementById('but' + i).disabled = true;
+      }
+    }
+ 
+     
+    function resize(a, b) {
+      var w = el.offsetWidth;
+      var h = el.offsetHeight;
+      var anim = new goog.fx.dom.Resize(el, [w, h], [a, b], duration,
+                                        goog.fx.easing.easeOut);
+      goog.events.listen(anim, goog.fx.Animation.EventType.BEGIN, disableButtons);
+      goog.events.listen(anim, goog.fx.Animation.EventType.END, enableButtons);
+      anim.play();
+      return false;
+    }
+ 
+     
+ 
+</code>
+
+</div>
+<div style="width:95%;position:relative">
+<div id="test3" >
+</div>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<div width:50%;position:relative;top:200;left:100>
+    <BUTTON id="but4" onclick="return resize(50,50);">Resize To 50x50</BUTTON> 
+    <BUTTON id="but5" onclick="return resize(250,50);">Resize To 250x50</BUTTON> 
+    <BUTTON id="but6" onclick="return resize(5,5);">Resize To 5x5</BUTTON>
+    <BUTTON id="but7" onclick="return resize(250,250);">Resize To 250x250</BUTTON> 
+</div> 
+ 
+<ol class="results"></ol> 
+</div>
+
+
+<hr/> 
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+
+    var col = [0,0,0];
+    var duration = 1000;
+ 
+    var el = document.getElementById('test4');
+ 
+    function enableButtons() {
+      for (var i = 0; i <= 13; i++) {
+        document.getElementById('but' + i).disabled = false;
+      }
+    }
+ 
+    function disableButtons() {
+      for (var i = 0; i <= 13; i++) {
+        document.getElementById('but' + i).disabled = true;
+      }
+    }
+ 
+        
+    function color(r,g,b) {
+      var anim = new goog.fx.dom.BgColorTransform(el, col, [r,g,b], duration);
+      goog.events.listen(anim, goog.fx.Animation.EventType.BEGIN, disableButtons);
+      goog.events.listen(anim, goog.fx.Animation.EventType.END, enableButtons);
+      goog.events.listen(anim, goog.fx.Animation.EventType.ANIMATE,
+                         function(e) { col = [e.x,e.y,e.z]; });
+      anim.play();
+      return false;
+    }
+ 
+  
+ 
+</code>
+
+</div>
+<div style="width:95%;position:relative">
+<div id="test4" style="height:130px;width:130px">
+</div>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<div width:80%;position:relative;top:200;left:100>
+    <BUTTON id="but10" onclick="return color(200,0,0);">Transform to red</BUTTON><BR> 
+    <BUTTON id="but11" onclick="return color(180,180,180);">Transform to grey</BUTTON>
+    <BUTTON id="but12" onclick="return color(0,0,0);">Transform to black</BUTTON>
+    <BUTTON id="but13" onclick="return color(100,100,255);">Transform to blue</BUTTON> 
+</div> 
+ 
+<ol class="results"></ol> 
+</div>
+
+<h3>Discussion</h3>
+
+I am just a bit sceptical about all these work being dismissed by the web community as bloated. It will certainly not going to attract anyone from the design community, who have been slowly encroaching into simple Javascript animations based on jQuery. 
+
+The easing-in and easing-out functions are well though off accelerating and decelerating at a visually pleasing rate. The easing functions are simple power laws, whereas jQuery provides two different options:
+
+{{plain:
+
+easing: {
+		linear: function( p, n, firstNum, diff ) &#123;
+			return firstNum + diff * p;
+		&#125;,
+		swing: function( p, n, firstNum, diff ) &#123;
+			return ((-Math.cos(p*Math.PI)/2) + 0.5) * diff + firstNum;
+		&#125;
+	&#125;
+
+}}
+
+
+
+I am sure that with a bit of simplification though these routines will be very useful, especially on larger projects where you might want to stick only to one library. However, size might be a problem, 31 files are a lot and even after compression they are bound to be leaning on the heavy side.
+
+(Based loosly on my animation code for 13thparallel.org, with extra
+ * inspiration from the DojoToolkit's modifications to my code)
+
+{{bulb: Final recommendation, read slogan at top left of this page}}
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+<script type="text/javascript">
+$(document).ready(function(){
+$(function() {
+            $(".draggable").draggable({
+                cursor:'move',
+                //containment: 'parent',
+                zIndex: 2700
+ 
+            });
+        });
+ 
+ 
+});
+ 
+ 
+  
+</script>  
+  
+<h3>Further reading</h3>
+
+Nice presentation on fundamentals of [drag and drop](http://www.thecssninja.com/talks/dnd_and_friends/)
+
+http://html5demos.com/drag-anything
+
+http://www.html5rocks.com/en/tutorials/dnd/basics/
+
+Dragging out [files](http://www.thecssninja.com/javascript/gmail-dragout)
+
+Top editor http://aloha-editor.org/demos/3col/ really top presentation and the source is available.
+                                                                                                                                                                                                                                

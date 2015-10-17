@@ -1,0 +1,90 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+
+
+<h2>The Configuration Pattern </h2>
+This pattern is useful when you have a function or method that accepts a lot of
+parameters. It's up to you to decide how many constitutes "a lot", but generally a
+function with more than three parameters is probably not very convenient to call, as you have to remember the order of the parameters, and is even more inconvenient when some of the parameters are optional.
+
+Instead of having too many parameters, you can use one parameter and make it an
+object. The properties of the object are the actual parameters. 
+
+{{plain:
+    var cssOptions = &#123; 
+    'color' : blue,
+    'font-family':verdana
+    'font-size : 12px
+    &#125;
+}}
+
+
+This is especially
+suitable for passing configuration or option parameters, because these tend to be numerous
+and mostly optional (with smart defaults). The beauty of using a single object as
+opposed to multiple parameters is:
+
+- The order doesn't matter
+- You can easily skip parameters that you don't want to set
+
+This is a typical pattern found in many jQuery methods and widely used by plugin authors.
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+var MYAPP = {};
+MYAPP.dom = {};
+MYAPP.dom.Button = function (text, conf) {
+  var type = conf.type || 'submit';
+  var font = conf.font || 'Verdana'; // ...
+  var config = {
+    font: 'Arial, Verdana, sans-serif',
+    color: 'white'
+  };
+  var aButton = new MYAPP.dom.Button('puuush', config);
+};
+</code>
+</div>
+
+<div   class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+It makes the function signature easily extendable should future requirements
+necessitate this
+It makes the code more readable because the confi g object's properties are
+present in the calling code, along with their names.
+
+Imagine you have a Button constructor used to create input buttons. It accepts the
+text to put inside the button (the value attribute of the &lt;input&gt; tag) and an optional
+parameter of the type of button.
+
+As you can see, it's easy to set only selected parameters and to switch around their
+order. In addition, it's friendlier and makes the code easier to understand when you
+see the names of the parameters when you call the method.
+
+<span id="chapter" class="hidden">20</span>
+
+##Further Reading
+  
+  
+
+
+
+
+
+
+

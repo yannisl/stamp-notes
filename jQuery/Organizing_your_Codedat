@@ -1,0 +1,201 @@
+         
+<!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<h2>Organizing Your Code</h2>
+I just watched China's 60th Liberation Anniversary parade and was impressed. 
+<img src ="http://localhost/codeigniter/images/china.jpg" style="display:block;float:none;margin:0 auto;" />
+
+<hr/>
+ I was impressed with the organization abilities of the Chinese as a nation. I wish my code was as organized as this. What I find is that during development, there is not enough time to spend in cleaning-up files and refactoring code, but it is an essential task.
+
+<h3>Rule 1 : Namespacing</h3>
+
+One technique that you can use to clean and simplify your code and at the same time, play nicely as a group is that of <i>namespacing</i>. Javascript does not support namespacing (unlike Python and even PHP), but you can simulate this technique.
+
+Since in JavaScript all objects can have properties, which in turn contain other objects, you can create something that appears and works very similarly to the name spacing that you are used in other languages. Using this technique, you can create unique structures like the one shown below.
+
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+//  Create a default, global namespace
+var jQ = {};
+
+// Set-up child namespaces, using objects
+
+      jQ.util = {};
+
+// Create the final namespace, which contains a property 
+// with a function
+
+     jQ.util.strings = {
+           toString: function(s){alert(s);}
+};
+
+// Call the function within that particular namespace
+
+   jQ.util.strings.toString('A string');
+
+
+ // You can use with to keep your sanity
+// although soem people recommend against it
+// you can eliminate it by using a var
+
+   with (jQ.util){
+        strings.toString('another string');
+   }
+
+// getting rid of with and making it more sexy
+
+var str;
+ str = jQ.util.strings;
+ str.toString('one more string');
+
+</code>
+</div>
+
+<div  id = "msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+<img src="http://localhost/codeigniter/images/jquery.png" style="float:right; width:85px"/>
+</div>
+
+It is even better to automate namespacing through some library routine, in order to ensure that you are not overwriting any other variable in the global or local space with the same name. (see the [namespacing](/codeigniter/Blogs/tutorials/jQuery/namespacing) article for more details). Closure also offers a very good way of handling namespaces, you can read it at our article discussing the
+[Closure base](/codeigniter/Blogs/tutorials/jQuery/Closure_base).
+
+
+
+
+<h3>JSLint</h3>
+JSLint is a program written by Douglas Crockford to embody a style of coding, that can help standardize code. Some of the rules (especially on white-spacing) might seem a bit extreme, however most of the other rules good sense and you should follow them. Crockford claims that checking your code through JSLint can hurt your feelings, but whatever it does it forces you into a coding discipline that  you can only benefit from. All the demos in this website are tested via Jslint and a report generated. 
+
+{{pinnote: I can tell you writing code  this way was like having a pair programming partner that was twice as intelligent and knowledgeable as me.}}
+
+Some of the important rules in  are:
+
+<h4>Variable Declarations</h4>
+JSLint requires you that all variables are declared before used.
+
+
+Did you know this?
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+  var obj = {};
+         obj.one = 'one';
+         obj.two = 'two';
+
+function test(){
+  for (prop in obj) {
+  
+  }
+}
+test(obj);
+log('prop',prop);
+
+
+
+</code>
+</div>
+
+<div  id = "msg1" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+<img src="http://localhost/codeigniter/images/jquery.png" style="float:right; width:85px"/>
+</div>
+
+The <tt>prop</tt> variable, since it was not declared within the function it is now a 'global' ! We should have declared it as follows:
+
+{{plain:
+function test(){
+  for (var prop in obj) {
+  }
+}
+}}
+
+Try it again below!
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+  var obj = {};
+         obj.one = 'one';
+         obj.two = 'two';
+
+function test(){
+  for (var prop1 in obj) {
+  
+  }
+}
+test(obj);
+log('prop1', prop1);
+</code>
+</div>
+<div  id = "msg1" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+<img src="http://localhost/codeigniter/images/jquery.png" style="float:right; width:85px"/>
+</div>
+
+I have re-named the variable to <tt>prop1</tt>, since if you have run the example above the variable <tt>prop</tt>, will exist in the global space and no error would have been shown.
+
+To summarize, it is good practice to declare all your variables before you use them. You should also be very careful not to introduce global variables accidentally.
+
+{{bulb: Always use JSLint. If you haven't run your code through JSLint, then it's not really JavaScript. It's not about being cool, or smart, etc. It's about saving time and bugs ...  Dmitry Baranovkiy }}
+
+
+
+##Further Reading
+
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+ var str = 'testing one\'s string ';
+str.one = 'one ';
+str.two = 'two ';
+function test() {
+  for (var prop in str) {}
+}
+test(str);
+log('prop ', prop);
+log(str.length);
+log(str.name);
+log(str.valueOf()); 
+
+
+</code>
+</div>
+
+<div  id = "msg1" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+<img src="http://localhost/codeigniter/images/jquery.png" style="float:right; width:85px"/>
+</div>
+
+  
+
+
+
+  
+  
+
+
+
+
+
+
+

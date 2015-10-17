@@ -1,0 +1,16 @@
+\chapter{Citations}
+
+This system allows you to manage your citations and bibliography in a saner way. There are so many ways available to do so, and the toolsets have come a long way since the original days of LaTeX.
+
+The system acts as a pre-processor to a set of bibliography files with the extension `.bib`. These can be loaded at any place of the document, for example on a page on its own or at the end of a `main.tex` file.
+
+\begin{verbatim}
+\bibliography{cyprus,fiji,philately}
+\printbibliography
+\end{verbatim}
+
+The command `\printbibliography` will insert the references or the full bibliography at the place of insertion.
+
+
+This is a \cite{test} and \cite{another test}. This is a footnote.\footnote{this is a footnote} and this is another footnote.\footnote{The second footnote}
+\lorem

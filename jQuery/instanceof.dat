@@ -1,0 +1,67 @@
+<h2>instanceof</h2>
+
+Use instanceof when you need to confirm the type of an object at runtime. For example, when catching exceptions, you can branch to different exception-handling code depending on the type of exception thrown.
+
+You must specify an object on the right side of the `instanceof` operator. For example, you can specify a string created with the String constructor, but you cannot specify a string literal.
+
+{{plain:
+var isInstance = objectName instanceof objectType;
+}}
+
+\begin{codeblock}
+var color1 = new String("green");
+color1 instanceof String; // returns true
+var color2 = "blue";
+log(color2 instanceof String); // returns false (color2 is not a String object)
+\end{codeblock}
+
+
+
+
+<h3>Checking a custom object</h3>
+ 
+
+
+\begin{codeblock}
+function House() {
+  this.price = 20000;
+  this.location = 'nowhere';
+}
+
+var z = [2, 3, 4, 5];
+var newHouse = new House();
+
+assert(newHouse instanceof House,'instance of House');
+
+log(z instanceof Array);
+
+var z1 = document.getElementById('msg1');
+
+log(z1 instanceof HTMLParagraphElement);
+
+log(z1);
+
+// using Protype.js
+var z3=[0,1,2,3,4];
+log(z3 instanceof Array);
+
+\end{codeblock}
+
+If you check the above example, we have tested if a DOM element is of type HTMLParagraphElement. The instanceof is a safer bet to check for typing during run-time.
+
+<h3>Exercises</h3>
+
+- write a function to test and return the instance of the object type, i.e a number should return Number etc..
+
+
+
+  
+  
+
+
+
+
+
+
+
+  

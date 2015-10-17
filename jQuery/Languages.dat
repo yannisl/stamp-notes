@@ -1,0 +1,257 @@
+<style type="text/css">
+.box{width:10px;height:10px;font-weight:bold;
+       fontsize:10px;color:white;float:left;margin:1px;
+       color:#606060;
+ }
+hr{width:100%;height:0px;clear:both;margin:0px;margin-bottom:1px;padding:0px;}
+</style>
+
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+##Languages
+
+From a [HN discussion](http://news.ycombinator.com/item?id=1803815)
+
+{{blockquote:
+Peter Norvig here. I came to Python not because I thought it was a better/acceptable/pragmatic Lisp, but because it was better pseudocode. Several students claimed that they had a hard time mapping from the pseudocode in my AI textbook to the Lisp code that Russell and I had online. So I looked for the language that was most like our pseudocode, and found that Python was the best match. Then I had to teach myself enough Python to implement the examples from the textbook. I found that Python was very nice for certain types of small problems, and had the libraries I needed to integrate with lots of other stuff, at Google and elsewhere on the net.
+
+I think Lisp still has an edge for larger projects and for applications where the speed of the compiled code is important. But Python has the edge (with a large number of students) when the main goal is communication, not programming per se.
+In terms of programming-in-the-large, at Google and elsewhere, I think that language choice is not as important as all the other choices: if you have the right overall architecture, the right team of programmers, the right development process that allows for rapid development with continuous improvement, then many languages will work for you; if you don't have those things you're in trouble regardless of your language choice.
+}}  
+
+A lot of the examples here were written in JavaScript for one reason. It is currently the easiest language to communicate with. Secondly it has a great GUI. No other language can currently beat the UI, so when there is a need to visualize things and you should it is easy to implement.
+
+Although Knuth's {{wi:literate_programming}} does not have much current acceptance, with JavaScript and using the browser as an IDE, this became a better possibility for me, Especially where maths and equations are involved. I can communicate examples, where the user can interact.
+
+$$a^2=b^2_{1,2}$$
+
+{{plain:
+function RandomAgent(r)&#123;
+ this.n = Math.floor(Math.random()*(r.length));
+ this.choice = r[this.n]; 
+&#125;
+
+var ex = new RandomAgent(['a','b','c','d']);
+
+log(ex.choice);
+}}
+  
+We now extend the code to enable a random letter from the English alphabet.
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+function RandomAgent(obj, opt_param){
+  var i = 0,
+      s = '';
+  function random(x){
+    return Math.floor(Math.random()*(x));
+  };
+  for (i=0; i < opt_param; i++){
+    s += obj[random(obj.length)];
+  };
+  this.plet = s;
+  this.choice = random(obj.length);
+}
+
+// main
+var alphabet='abcdefghijklmnopqrstuvwxyz';
+var str='';
+for (i=1;i< 450000;i++){
+  var ex2 = new RandomAgent(alphabet, 4);
+  str = ex2.plet;
+  if (str==='fuck'||str==='arse'||str==='loan'||str==='debt'){ 
+    break;
+  }
+}
+log(str,i);
+</code>
+</div>
+<div  class="msg" class="msg" style="white-space:pre;font-family:monospace;line-height:1.3">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+         
+This is of course and totally a random thought translated to a program, just as a warm-up. But the simple idea behind it, is that you combine the write-up with the program. 
+
+###A game renderer
+
+To show that my claim for the UI is good we will now develop a short program
+to render a game board.
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+(function board(obj, opt_params){
+  var size ={x:3, y:3}
+  makeSquare = function (n){
+    var square,
+        color = 'red';
+    return square = '&lt;div class="box"&gt;' + n + '&lt;/div&gt;' 
+  };
+ var count = 1;
+ for (var j=0;j< size.y;j++){
+ var s='';
+ for (var i=0;i< size.x ;i++){
+  s = s+makeSquare(count);
+  count++;
+ };
+ log(s);
+ log('&lt;hr/&gt;');
+ };
+})();
+</code>
+</div>
+<div  class="msg" class="msg" style="white-space:pre;font-family:monospace;line-height:1.3">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+This of course, is just a sketch of the board game code. What we want is to place all the numbers randomly and leave on square without a number.
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+(function board(obj, opt_params){
+  var size ={x:3, y:3}
+  makeSquare = function (n){
+    var square,
+        color = 'red';
+    return square = '&lt;div class="box"&gt;' + n + '&lt;/div&gt;' 
+  };
+ var count = 1;
+ for (var j=0;j< size.y;j++){
+ var s='';
+ for (var i=0;i< size.x ;i++){
+  s = s+makeSquare(count);
+  count++;
+ };
+ log(s);
+ log('&lt;hr/&gt;');
+ };
+})();
+</code>
+</div>
+<div  class="msg" class="msg" style="white-space:pre;font-family:monospace;line-height:1.3">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+Filling the board with random numbers can be simulated with a shuffled array
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+function shuffledArray(length){
+  function random(x){
+    return Math.floor(Math.random()*(x));
+   }
+  var  shuffled = [];
+  while (shuffled.length < length ){
+  val = random(9);
+  if($.inArray(val, shuffled)== -1) {  
+    shuffled.push(val);}
+  }; 
+  return shuffled;  
+}
+
+function board(obj, opt_params){
+  var arr = shuffledArray(9);
+  var size ={x:3, y:3}
+  makeSquare = function (n,cnt){
+    if (n ===0){n=''};
+    var square;
+         return square = '&lt;div class="box" id="zz-'+cnt+'"&gt;' + n + '&lt;/div&gt;' ;
+  };
+ var count = 0;
+ for (var j=0;j< size.y;j++){
+ var s='';
+ for (var i=0;i< size.x ;i++){
+  s = s+makeSquare(arr[count],count+1);
+  count++;
+ };
+log(s);
+log('&lt;hr/&gt;');
+};
+};
+
+board();
+var t=$('#zz-5').text();
+log(t);
+
+</code>
+</div>
+<div  class="msg" class="msg" style="white-space:pre;font-family:monospace;line-height:1.3">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+Now what remains is to marry the two scripts
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+function shuffledArray(length){
+  function random(x){
+    return Math.floor(Math.random()*(x));
+   }
+  var  shuffled = [];
+  while (shuffled.length < length ){
+  val = random(9);
+  if($.inArray(val, shuffled)== -1) {  
+    shuffled.push(val);}
+  }; 
+  return shuffled;  
+}
+log(shuffledArray(9));
+</code>
+</div>
+<div  class="msg" class="msg" style="white-space:pre;font-family:monospace;line-height:1.3">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                         

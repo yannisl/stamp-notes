@@ -1,0 +1,56 @@
+\chapter{Blockquotes}    
+
+For discussion on the semantics of `\blockquote` and `\cite` elements 
+there is a very good article on [blockquote](http://html5doctor.com/blockquote-q-cite/  "article on the html element blockquote ") and cite  the html5doctor website. \footnote{testing}
+
+For writers and authors, The Chicago Manual of Style recommends using a block quotation when cited text is 100 words or more, or at least eight lines.2 The block quotation may also be used to distinguish shorter citations from original text, though strictly speaking this does not follow APA or MLA style guidelines. 
+Use of the block quotation for shorter passages is a stylistic choice that may or 
+may not be acceptable depending on the situation.\footnote{The Oxford Style has similar requirements.}
+
+\codeblock
+  \begin{blockquote}[shadow]
+    Some Text
+  \end{blockquote}
+\endcodeblock
+
+
+
+\begin{blockquote}[]  Blockquotes tend to appear more in webpages rather than books, where normal
+quotations are used. Translating them to TeX normally they will be printed
+in a more plain style, although we provide a number of them with rather more
+fancy typesetting.
+
+\end{blockquote}
+
+
+If you omit the optional bracket you need to make sure you terminate the expression
+with a blank space (although it might work without the space).
+
+\begin{blockquote}[shadow]
+ \lorem 
+\end{blockquote}
+
+\begin{blockquote}[custom]
+ \lorem 
+\end{blockquote}
+
+\begin{blockquote}[]
+   Fourth empty bracket \lorem 
+\end{blockquote}
+
+\beginblockquote    
+  
+\salutation{Dear John}
+
+ A  \lorem 
+
+\endblockquote
+
+
+
+
+\closing{Yours truly} 
+
+
+
+                                                                              

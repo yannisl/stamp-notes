@@ -1,0 +1,31 @@
+\begin{accordion}
+
+\begin{category}{Introduction}
+\mitem{Introduction}{Introduction}
+\end{category}
+\begin{category}{Installation}
+\mitem{Composer Package Manager}{composer}
+\mitem{Writing your own package with Composer}{Writing_your_own_package_with_Composer}
+\end{category}
+
+\begin{category}{Lists}
+\mitem{Ordered Lists}{Lists_Plugins}
+\mitem{Description Lists}{Description_Lists}
+\end{category}
+
+\begin{category}{Images}
+\mitem{Figures}{Figures_Plugin}
+\mitem{Margin Figures}{marginfigure}
+\mitem{Typesetting Images}{Typesetting_Images}
+\mitem{Centering Images}{Centering_Images}
+\mitem{Captions}{Images_Captions}
+\end{category}
+
+\begin{category}{TODOs}
+\mitem{Yiannis}{pouchdb}
+\mitem{George}{georgetodo}
+\end{category}
+
+\end{accordion}
+
+                                      

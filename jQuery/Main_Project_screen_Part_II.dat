@@ -1,0 +1,244 @@
+<!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<script type="text/javascript">
+$(document).ready(function(){
+ $('#saveasform').submit(function(){
+    alert('succesful');
+    return false;
+ });
+)};
+</script>
+
+<style id="firststyle"> 
+    .goog-tabpane {
+      background: threedface;
+      padding: 5px;
+      position: relative;
+      width:95%;
+      margin:0 auto;
+    }
+ 
+    .goog-tabpane-tabs {
+      list-style: none;
+      margin: 0px;
+      padding: 0px;
+      height: 1ex;
+      position: relative;
+    }
+ 
+    .goog-tabpane-left .goog-tabpane-tabs {
+      float: left;
+    }
+ 
+    .goog-tabpane-right .goog-tabpane-tabs {
+      float: right;
+    }
+ 
+    .goog-tabpane-cont {
+      overflow: auto;
+      background: threedface;
+      border: 1px solid;
+      border-color: threedhighlight threedshadow threedshadow threedhighlight;
+      padding: 2px;
+      height: 800px;
+    }
+ 
+    .goog-tabpane-tab, .goog-tabpane-tab-selected {
+      display: block;
+      padding: 0px 3ex;
+      background: threedface;
+      border: 1px solid;
+      margin: 0px;
+    }
+ 
+    .goog-tabpane-top .goog-tabpane-tab,
+    .goog-tabpane-top .goog-tabpane-tab-selected,
+    .goog-tabpane-bottom .goog-tabpane-tab,
+    .goog-tabpane-bottom .goog-tabpane-tab-selected {
+      float: left;
+    }
+ 
+    .goog-tabpane-top .goog-tabpane-tab,
+    .goog-tabpane-top .goog-tabpane-tab-selected {
+      border-color: threedhighlight threedshadow threedface threedhighlight;
+    }
+ 
+    .goog-tabpane-bottom .goog-tabpane-tab,
+    .goog-tabpane-bottom .goog-tabpane-tab-selected {
+    border-color: threedface threedshadow threedshadow threedhighlight;
+    }
+ 
+    .goog-tabpane-left .goog-tabpane-tab,
+    .goog-tabpane-left .goog-tabpane-tab-selected {
+      border-color: threedhighlight threedface threedshadow threedhighlight;
+    }
+ 
+    .goog-tabpane-right .goog-tabpane-tab,
+    .goog-tabpane-right .goog-tabpane-tab-selected {
+      border-color: threedhighlight threedshadow threedshadow threedface;
+    }
+ 
+    .goog-tabpane-top .goog-tabpane-tab {
+      margin-top: 3px;
+    }
+ 
+    .goog-tabpane-tab-selected {
+      font-weight: bold;
+    }
+ 
+    .goog-tabpane-tab-selected,
+    .goog-tabpane-tab-selected {
+      padding-bottom: 2px;
+      padding-top: 2px;
+    }
+ 
+    .goog-tabpane-top .goog-tabpane-tab-selected {
+      position: relative;
+      top: 1px;
+    }
+ 
+    .goog-tabpane-bottom .goog-tabpane-tab-selected {
+      position: relative;
+      top: -1px;
+    }
+ 
+    .goog-tabpane-left .goog-tabpane-tab-selected {
+      position: relative;
+      left: 1px;
+    }
+ 
+    .goog-tabpane-right .goog-tabpane-tab-selected {
+      position: relative;
+      left: -1px;
+    }
+ 
+    #tabpane2 .goog-tabpane-tab {
+      margin-top: 0px;
+    }
+ 
+    p {
+      margin-top: 0px;
+    }
+ 
+</style> 
+
+
+<script type="text/javascript">
+goog.require('goog.string');
+goog.require('goog.ui.TabPane');
+</script>
+
+##Main Project Screen Part II
+
+In the [previous](http://127.0.0.1/CodeIgniter/index.php/Blogs/tutorials/jQuery/Main_Project_screen_Part_II) section the creation of the component and  the related JavaScript code was developed and saved on the server. This section will _retrieve_, the saved JavaScript and continue to save the _html_ related details, combine them and produce the full component on its own html fragment or page. Stay with me! Retrieving is easy, as all we have to do is call the script - either lazily as shown below, or just include it in a script tag on top of the page.
+
+<div  class="code-block console-wrap"><div class="code-block code"><code>
+$.getScript('/codeigniter/js/project.js',
+ function(){log('script loaded');
+   log('version: '+project.settings.version)})
+
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+
+<form id="saveasform1" name='saveasform1' style="display:block;float:right" >
+<input type="text" id="filename" name="filename" value='sample.js'/>
+<input type="button"  class="small_button" id="saveAsJS" value="Save As JS"/>
+<textarea id="code1" name='code1' hidden>testing</textarea>
+</form>
+
+<ol class="results"></ol> 
+</div>
+
+
+<hr/>
+<div id="pane" class="clearfix"></div>     
+
+As the tabpane is retrieved via Ajax, one might want to cache the component and render it as actual HTML before serving it to the user. I cannot see much benefit in this and hence the problem is considered solved at this stage.
+
+
+
+<div  class="code-block console-wrap"><div class="code-block code"><code>
+$(document).ready(function(){
+     $('#saveAsJS').click(function(){
+       $(this).css({'color':'blue'});
+       $(this).val('Saved as JS');
+       var thefilename=$('#filename').val();
+       log('saving ... '+thefilename);
+       var apiUrl="/CodeIgniter/admin/api/save/js/"+thefilename;
+       log('sending request ...'+apiUrl);
+       var dataString = "code1="+encodeURIComponent($('#code1').val())+' ';
+       // alert (dataString);
+      //$('#saveasform1').submit();
+       $.ajax({
+          type: "POST",
+          url: apiUrl,
+          data: dataString,
+         success: function(msg) {
+              log(msg);
+             // alert( "Data Saved: " + msg );
+         }
+      });
+      return false;
+   });
+
+  
+   $('#left-menu').text('');
+   $('#left-menu').animate({'width':'150px'});
+   $('#left-menu').height('1000px');
+});
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+
+
+
+
+
+ 
+ 
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span id="chapter" class="hidden">1</span>
+##Further Reading
+                                                                                                                                                                                                                                                                                                                                          

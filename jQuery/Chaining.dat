@@ -1,0 +1,96 @@
+\chapter{Chain Pattern}
+
+In this article we will discuss chaining. Chaining is a pattern that allows you to invoke methods on one line as if they are all links on one chain.
+
+
+When a function is instantiated as an object the <strong>this</strong> property is made available. Consider the following code:
+
+\begin{codeblock}
+var obj = {
+  v: 0,
+  increment: function (x) {
+    this.v = x++;
+    return this;
+  },
+  decrement: function (x) {
+    this.v = this.v - x;
+    return this;
+  },
+  log: function () {
+    log(' value : ' + this.v);
+    return this;
+  },
+  add: function (v) {
+    this.v += v;
+    return this;
+  }
+}
+
+obj.v = 10;
+
+var z = obj.increment(15).decrement(5).log();
+
+\end{codeblock}
+
+
+
+
+A chain (it really looks like one)  is a set of Javascript methods connected in series, so that the output of one method is the input of the next one. You will see it all over advanced JavaScript libraries and it makes a lot of sense.
+
+Let us take a look at another example:
+
+\begin{codeblock}
+// namespace our application
+var MYAPP = {};
+
+        MYAPP.dom = function (el){
+           return {
+                           element: document.getElementById(el),
+                                       el : this
+                        }
+        };
+
+    MYAPP.dom.element = function(el) {
+    // private variables
+        var _setText = function(el) {
+          
+        var newtext = document.createTextNode(" Some text added dynamically. ");
+                                    alert(MYAPP.dom.el);
+        //ppendChild(newtext);
+
+
+           return this;}
+    var _setColor = function(){
+              $('#msg5').css({'color': 'blue'});
+                    return this;
+        };
+    
+    return {
+        setText: _setText,
+        setColor: _setColor
+    }
+};
+
+var $_ = function(el){return new MYAPP.dom.element(el);}
+$_('msg5').setText('hello').setColor();
+
+\end{codeblock}
+
+
+##Further Reading
+
+
+
+ 
+
+
+
+  
+  
+
+
+
+
+
+
+

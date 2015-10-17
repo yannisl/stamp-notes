@@ -1,0 +1,433 @@
+<!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<script type="text/javascript">
+$(document).ready(function(){
+ $('#saveasform').submit(function(){
+    alert('succesful');
+    return false;
+ });
+)};
+</script>
+
+<style id="firststyle"> 
+    .goog-tabpane {
+      background: threedface;
+      padding: 5px;
+      position: relative;
+      width:95%;
+      margin:0 auto;
+    }
+ 
+    .goog-tabpane-tabs {
+      list-style: none;
+      margin: 0px;
+      padding: 0px;
+      height: 1ex;
+      position: relative;
+    }
+ 
+    .goog-tabpane-left .goog-tabpane-tabs {
+      float: left;
+    }
+ 
+    .goog-tabpane-right .goog-tabpane-tabs {
+      float: right;
+    }
+ 
+    .goog-tabpane-cont {
+      overflow: auto;
+      background: threedface;
+      border: 1px solid;
+      border-color: threedhighlight threedshadow threedshadow threedhighlight;
+      padding: 2px;
+      height: 1300px;
+    }
+ 
+    .goog-tabpane-tab, .goog-tabpane-tab-selected {
+      display: block;
+      padding: 0px 3ex;
+      background: threedface;
+      border: 1px solid;
+      margin: 0px;
+    }
+ 
+    .goog-tabpane-top .goog-tabpane-tab,
+    .goog-tabpane-top .goog-tabpane-tab-selected,
+    .goog-tabpane-bottom .goog-tabpane-tab,
+    .goog-tabpane-bottom .goog-tabpane-tab-selected {
+      float: left;
+    }
+ 
+    .goog-tabpane-top .goog-tabpane-tab,
+    .goog-tabpane-top .goog-tabpane-tab-selected {
+      border-color: threedhighlight threedshadow threedface threedhighlight;
+    }
+ 
+    .goog-tabpane-bottom .goog-tabpane-tab,
+    .goog-tabpane-bottom .goog-tabpane-tab-selected {
+    border-color: threedface threedshadow threedshadow threedhighlight;
+    }
+ 
+    .goog-tabpane-left .goog-tabpane-tab,
+    .goog-tabpane-left .goog-tabpane-tab-selected {
+      border-color: threedhighlight threedface threedshadow threedhighlight;
+    }
+ 
+    .goog-tabpane-right .goog-tabpane-tab,
+    .goog-tabpane-right .goog-tabpane-tab-selected {
+      border-color: threedhighlight threedshadow threedshadow threedface;
+    }
+ 
+    .goog-tabpane-top .goog-tabpane-tab {
+      margin-top: 3px;
+    }
+ 
+    .goog-tabpane-tab-selected {
+      font-weight: bold;
+    }
+ 
+    .goog-tabpane-tab-selected,
+    .goog-tabpane-tab-selected {
+      padding-bottom: 2px;
+      padding-top: 2px;
+    }
+ 
+    .goog-tabpane-top .goog-tabpane-tab-selected {
+      position: relative;
+      top: 1px;
+    }
+ 
+    .goog-tabpane-bottom .goog-tabpane-tab-selected {
+      position: relative;
+      top: -1px;
+    }
+ 
+    .goog-tabpane-left .goog-tabpane-tab-selected {
+      position: relative;
+      left: 1px;
+    }
+ 
+    .goog-tabpane-right .goog-tabpane-tab-selected {
+      position: relative;
+      left: -1px;
+    }
+ 
+    #tabpane2 .goog-tabpane-tab {
+      margin-top: 0px;
+    }
+ 
+    p {
+      margin-top: 0px;
+    }
+ 
+</style> 
+
+
+<script type="text/javascript">
+goog.require('goog.string');
+goog.require('goog.ui.TabPane');
+</script>
+
+##MEP Persons
+The Person class component, records personal and employment details. It draws on other classes where necessary (CV). Packages etc.
+<div id="test1"></div>
+<div id="test" style="width:100%;padding:0;margin:0;height:auto" class="clearfix">
+
+</div>
+
+<hr/>
+
+<div  class="code-block console-wrap"><div class="code-block code"><code>
+
+
+/* Administration related
+ * properties and methods.
+ */
+function Admin (obj){
+    this.visa ={};
+    this.visa.transaction = {
+        dateApplied : '',
+        dateReceived : '',
+        visaType : '',
+        success : false
+     };
+     this.visaStatus = ['unknown'];
+     this.visaHistory = ['a', 'b', 'c'];
+     this.addTransaction = function(trans) {
+         this.visaHistory.push(trans);
+     };
+};
+
+
+function Package (obj){
+    var self = this,
+        packageTypes = ['basic', 'houseAllowance', 'travelAllowance',
+                                 'telephoneAllowance'],
+        version = 1.0, // real so we can have 1.0 < 1.1
+        init = function(){ packageTypes.forEach(function(k){
+                  self[k] = {'val':'1000'};
+                  self[k].get = function (){
+                                   return self[k]['val'];
+                                 };
+                  self[k].set = function(x) {
+                                    self[k]['val'] = x;
+                                 }
+                  });
+        }; 
+    this.showPackageTypes= function(){
+        packageTypes.forEach(function(e){log(e);});
+    };
+    init();
+    // aliases
+    this.show = this.showPackageTypes;
+    this.print = this.showPackageTypes;
+}
+
+
+function Leave (obj){
+  this.leaveDays = 22;
+  this.store=['a'];
+  this.add=function(x){
+     this.store.push(x);
+  }
+}
+
+/**
+ *   Project related components
+ */
+function Person (obj){
+// defaults are used to highlight
+// missing info and for testing
+
+//inherit some prototypes from other classe
+Person.prototype = Package.prototype;
+Person.prototype = Leave.prototype;
+Person.prototype = Admin.prototype;
+
+var defaults = {
+   version : '1.0',
+   number : 'HS-118',
+   firstName : 'first name',
+   secondName: 'second name',
+   gender : 'male',
+   description: 'Lorem ipsum dolor sit amet, consectetuer ...',
+   contacts : {
+           telephone:'',
+           mobile:'',
+           emails:'',
+           web:'',
+           address:''},
+   photo : '',  //path
+   prefix: 'person',
+   filename:'person.js', //persistent storage for changes
+   view:'/CodeIgniter/data/persontabs.html',
+   leave: new Leave(),
+   package: new Package(),
+   admin: new Admin()
+  }
+ 
+ this.settings = {};
+
+ // the meta object holds ancillary information
+ // for rendering fields etc
+ this.meta = {};
+
+
+ // extend object
+ for (var prop in defaults){
+  if (defaults.hasOwnProperty(prop)){
+    this.settings[prop]=defaults[prop];
+    if (obj!==undefined && obj[prop]!==undefined){this.settings[prop]=obj[prop];};
+  }
+ }
+
+
+ this.get = function (){
+   // gets values from server
+ }
+
+ this.save = function (){
+  // saves values to server
+ }
+
+this.populate = function (){
+ var tempS = '';
+ for (var prop in this.settings){
+   tempS ='#'+this.settings.prefix + prop.capitalize();
+   $(tempS).val(this.settings[prop]);
+ }
+}
+
+this.view = function (url,callback){
+  $('#pane').load(url,callback);
+};
+
+};
+// set some option parameters
+// 
+var options = {
+ name : 'North Gate Development',
+ number: 'HS-126',
+}
+// create new project
+person = new Person(options);
+
+person.settings.number='HS-226';
+
+person.view(person.settings.view, function(){
+ ('#pane').appendTo('#test').animate({'height':'100px'}).animate({'height':'1450px'}).animate({
+scrollTop: $("body").offset().top
+}, 2000);
+});
+
+$('#code1').val(z);
+$('#filename').val(person.settings.filename);
+
+
+// tests
+log(person.settings.leave.leaveDays);
+person.settings.leave.add('c');
+log(person.settings.leave.store);
+log(person.settings.package.basic);
+person.settings.admin.addTransaction(
+ {success : 'failed'}
+);
+person.settings.admin.addTransaction(
+ {success : 'successful'}
+);
+person.settings.admin.addTransaction({success:'ok'})
+log(person.settings.admin.visaHistory.length);
+for (var i=0;i<6;i++){
+  log(person.settings.admin.visaHistory[i]['success']);
+};
+var p = person.settings;
+    p.package.showPackageTypes();
+    
+log(p.package.basic.val,'test');
+log(p.package.basic.get(),'test');
+
+log(p.package.basic.get(),'test');
+
+// asserts
+// test setter and getter
+(function test_package(){
+    var john = new Person(options);
+    john = john.settings;
+    john.package.basic.set(30000);
+    assert(john.package.basic.get() == 30000,'true basic == 60000');
+    john.package.basic.set(50000);
+    assert(john.package.basic.get() == 50000,'true basic == 50000');
+    assert(john.package.houseAllowance.get() == 1000,'true houseAllowance == 1000');
+})();
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+
+<form id="saveasform1" name='saveasform1' style="display:block;float:right" >
+<input type="text" id="filename" name="filename" value='Person.js'/>
+<input type="button"  class="small_button" id="saveAsJS" value="Save As JS"/>
+<textarea id="code1" name='code1' hidden>testing</textarea>
+</form>
+
+<ol class="results"></ol> 
+</div>
+
+
+<hr/>
+<div id="pane" class="clearfix"></div>     
+
+
+###Notes
+
+This is possibly the most extensive and complicated Class of the Project. Automation benefits will be added later on.
+
+
+<div  class="code-block console-wrap"><div class="code-block code"><code>
+$(document).ready(function(){
+     $('#saveAsJS').click(function(){
+       $(this).css({'color':'blue'});
+       $(this).val('Saved as JS');
+       var thefilename=$('#filename').val();
+       var apiUrl="/CodeIgniter/admin/api/save/js/"+thefilename;
+       log('sending request ...'+apiUrl);
+       var dataString = "code1="+encodeURIComponent($('#code1').val())+' ';
+       $.ajax({
+          type: "POST",
+          url: apiUrl,
+          data: dataString,
+         success: function(msg) {
+           log('server says ... ok');
+          }
+      });
+      return false;
+   });
+
+
+});
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+### Notes on Classes
+
+It took a while to figure out a way to use Classes within Classes and I experimented with a number of library methods. The best conclusion I came so far, is to use standard JavaScript. It makes the code more readable and you can build a hierarchy of Classes, which you can improve on as you go along. For example the CV part of the form will be developed later on to use on its own as well as be used within the Person class.
+
+I am going to stick to this pattern for the mep application. It creates very long variable names, but is the logical method to avoid spaghetti code. It also helps to develop a quick prototype, which can then be developed at a later stage. Code can also be spread around to more than one developer without much difficulty in version control.
+
+###Rendering values workflow
+
+For each component the following workflow is envisaged:
+
+   - load the Class and dependencies using script tags
+   - load the template
+   - get values from database or server
+   - populate with the values
+   - wait for actions
+   - fetch values from server
+   - populate again
+   - repeat  
+ 
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span id="chapter" class="hidden">3</span>
+##Further Reading
+                                                                                                                                                                                                                                                                                                                                                                                                          

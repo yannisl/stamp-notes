@@ -1,0 +1,126 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+
+<h2>The Dollar Factory Library</h2>
+
+The dollar ($) sign is the most sought after JavaScript namespace estate. It is coveted by developers, as it provides a short variable name. It is claimed by jQuery and Prototype. The aim of the dollar factory library is to a bit different, it reserves the $ sign with a letter for namespacing sections of libraries in a non-conflicting way. For example, instead of typing this:
+
+{{plain:  goog.string.trim(str)}}
+
+you type this:
+
+{{plain: $S.trim()}}
+
+The letter should serve as a mnemonic for example $S, the (S) stands for string and $M, the (M) stands for Math. A second letter can be added for sub-libraries, for example one can divide all the date routines in, $D1,$D2,$D3 etc, or can uppercase and lowercase $d etc...
+
+|Letter| Description| Remarks|
+|-------|--------------|-----------|
+| $         | jQuery namespace| do not touch jQuery deserves it  |
+| $A      | Arrays          | Prototype is using this as an array constructor but it can be extended for any other array methods and function|
+|$B       |                        |                     |
+|$C       | Colors          |                     |
+|$D       | Date  | covers extensions to the date object, $DR closure daterange   |
+|$E       |  Error library    |                      |
+|$F        | function extensions|     |
+|$G        | Graphics |             |
+|$H        |HTML related    |             |
+|$I          |iterators                |             |
+|$J          |                                 |            |
+|$K       | Prototype              |             |
+|$L        |                                  |            |
+|$M      | Math functions   |            |
+|$N       | Number object extensions|    |
+|$O       | object methods   |             |
+|$P|||
+|$Q|||
+|$R|Regular Expressions||
+|$S|Strings|See also $T, below|
+|$T|Testing| Testing routines.|
+|$U|Utilities||
+|$V|Vectors||
+|$W|||
+|$X|||
+|$Y|||
+|$Z|||
+
+The letters cover well the basic built-in libraries Math, Array, String, Date, Number, which can be extended with methods as required, with or without affecting the Prototype.
+
+<hr/>
+<h3>But isn't this polluting the global space?</h3>
+The library, allows for a minimum of reserving 24 global namespaces. One must assume that both the developers as well as the library authors will adopt the techniques. A dependency method a.l.a. closure can be used to complile the final library in the end, loading only what one requires or the application they are developing.
+
+Most important it provides a suggested interface for all the great libraries to start talking to each other and avoid repeat routines.
+
+<hr/>
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+var regex = XRegExp("(?#month)\\d\\d?[-/. ](?#day)\\d\\d?[-/. ](?#year)(?:\\d\\d){1,2}");
+var isDate = regex.test("04/20/2008"); // -> true
+log('is date :', isDate);
+var regex2 = XRegExp('aaaa', 'i');
+var z = regex2.test('AaaZaaabbb');
+
+log(z);
+</code>
+</div>
+<p id="msg1" class="msg" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<h3>Common tasks libraries</h3>
+
+What is not widely available is a compilation of regular expressions for common tasks. One comes across tasks, such as validating emails, web adresses (will become more difficult with utf characters, being allowed in the future), social security numbers, credit card numbers and the like. Such a library, should be extensible, to allow for developers to personalize it, without losing the advantages of a library that is open to the developer community to mould.
+
+What I am talking about is just a set of conventions and the development of a library in this form
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+// $R - dollar factory regular expressions
+$R1 = {
+  email: /aaa/,
+  socialSecurityNumber: /aaa/,
+  url: /aaaa/,
+  date: /aaa/,
+  numeric: /[0-9]+/g
+};
+
+var s1 = '200.000005';
+var s = 'AAAAA';
+
+log(($R1.numeric).test(s));
+log($R1.numeric);
+
+</code>
+</div>
+<p id="msg1" class="msg" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+<hr/>
+
+
+
+##Further Reading
+
+http://xregexp.com/syntax/
+
+
+  

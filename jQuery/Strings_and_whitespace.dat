@@ -1,0 +1,66 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+
+
+<h2>Strings and Whitespace</h2>
+White space is mostly ignored by X(HTML), but is quite a bit of a problem, if you are outputting on an element whose properties are set as white-space:pre. Internet Explorer does not treat the non-breaking space utf-08 character properly. In this case a simple function can be used to replace these spaces and carriage returns etc, with a visible character as follows:
+
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+/**
+ * Makes whitespace visible by replacing it with printable characters.
+ * This is useful in finding differences between the expected and the actual
+ * output strings of a testcase.
+ * @param {string} string whose whitespace needs to be made visible.
+ * @return {string} string whose whitespace is made visible.
+ */
+
+function makeWhiteSpaceVisible(string) {
+  return string.replace(/ /g, '[ ]').replace(/\f/g, '[f]').replace(/\n/g, '[n]\n').replace(/\r/g, '[r]').replace(/\t/g, '[t]');
+};
+
+var test = 'This is a test                  case'+'\n'
+                    +'line break here';
+log(makeWhiteSpaceVisible(test));
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  

@@ -1,0 +1,66 @@
+<h2>Animation Basics Part I</h2>
+
+Computer animations, trick the eye to view motion, by re-painting elements on the screen.
+
+With JavasScript this can be achieved by using timers. As an example we will show a Fade technique, where we will manipulate the background colour to create a yellowish tint. I am going to use standard JavaScript, in order for you to understand the techniques used by libraries. (With jQuery is a snap!)
+
+<div  class="code-block console-wrap">
+<div class="code code-block">
+<code>
+var obj ={
+ fade: function(element, startcolour, endcolour, time_elapsed) {
+ var currentcolour = startcolour;
+ var steps = time_elapsed/50;
+ var red_change = (startcolour[0] - endcolour[0]) / steps;
+ var green_change = (startcolour[1] - endcolour[1]) / steps;
+ var blue_change = (startcolour[2] - endcolour[2]) / steps;
+ var stepcount = 0;
+ var timer = setInterval(function(){
+    currentcolour[0] = parseInt(currentcolour[0] - red_change);
+    currentcolour[1] = parseInt(currentcolour[1] - green_change);
+    currentcolour[2] = parseInt(currentcolour[2] - blue_change);
+    element.style.backgroundColor = 'rgb(' + currentcolour.toString() + ')';
+    stepcount += 1;
+    if (stepcount >= steps) {
+        element.style.backgroundColor = 'rgb(' + endcolour.toString() + ')';
+        clearInterval(timer);
+    }
+}, 50);
+      }
+}
+
+obj.fade(document.getElementById('msg'), [255,255,60], [255,255,255], 1750);
+</code>
+
+
+</div>
+<div  id="msg" class="msg" style="padding:15px">
+
+<p>FADING TECHNIQUE</p>
+
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+The technique can be used to manipulate any CSS attribute, although it can get a bit trickier than the simplified method described above and also one has to deal with the tricky compatibility issues between browsers.
+
+
+##Further Reading
+
+A good starter article at [Opera](http://dev.opera.com/articles/view/javascript-animation/), going in much more detail than I have gone through and where the above was based on.
+
+ 
+
+
+
+  
+  
+
+
+
+
+
+
+

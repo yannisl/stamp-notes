@@ -1,0 +1,184 @@
+<!--
+
+{{feature-image:/CodeIgniter/images/china/beauty_08.jpg}}
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+
+
+<h2>Formatting Numbers</h2>
+
+A common problem encountered in programming is the mundane task of formatting a number. JavaScript provides built-in methods to assist with this task the __.toFixed()__ and __.toExponential()__.Although these are adequate for simple applications, in most instances, you will want to format your number strings in a specific way. (There is also another general class provided in the library, under the maths folder, that provides a bundle of methods for formatting various other numeric entities, such as printing bytes into a human readable form and the like).
+
+There are four types of formatting for numbers (dates and time are not considered numbers) in this article.
+
+<div class="code-block code">
+<code>
+/**
+ * Standard number formatting patterns.
+ * @enum {number}
+ */
+goog.i18n.NumberFormat.Format = {
+  DECIMAL: 1,
+  SCIENTIFIC: 2,
+  PERCENT: 3,
+  CURRENCY: 4
+};
+</code>
+</div>
+
+
+For example for currency you will, probably need to add the currency symbol applicable in your country, or preferably let it be decided by the program based on the user's locale. 
+
+When we dealing with currency, the applicable methods known as (i18n) are to be preferred over custom methods. For example the script below, will format a currency number, using goog.i18n and other routines. Try it out before you read if you do not understand the concepts very well.
+
+{{plain: 'USD', 'YPY', 'EUR'}}
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+var options = {
+  currencyCode: 'SAR',
+  pattern: 4
+};
+
+function formatNumber(n, options) {
+  var f = new goog.i18n.NumberFormat(options.pattern, options.currencyCode);
+  return f.format(n);
+}
+
+var pattern = 4; // currency'#,###.##'
+var opt_currency = 'JPY';
+var n = new goog.i18n.NumberFormat(4, opt_currency);
+
+log(n.format('2300.8370890988'));
+log(goog.numberformat);
+log(goog.numberformat);
+
+for (var prop in goog.i18n.currencyCodeMap) {
+  if (goog.i18n.currencyCodeMap.hasOwnProperty(prop)) {
+    options.currencyCode = prop;
+    log(prop, formatNumber('2100.821100', options));
+  }
+}
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<h3>Formatting other numeric strings</h3>
+
+Other numeric strings are normally formatted based on a pattern. A pattern is normally denoted as
+
+{{plain:   #.###,##      }}
+
+This pattern will be interpreted by your program to format all numbers with this pattern with two decimal points and with all thousands to be separated by commas.
+
+<div class="code-block code">
+<code>
+/**
+ * Number formatting symbols for locale en.
+ * @enum {string}
+ */
+goog.i18n.NumberFormatSymbols_en = {
+  DECIMAL_SEP: '.',
+  GROUP_SEP: ',',
+  PERCENT: '%',
+  ZERO_DIGIT: '0',
+  PLUS_SIGN: '+',
+  MINUS_SIGN: '-',
+  EXP_SYMBOL: 'E',
+  PERMILL: '\u2030',
+  INFINITY: '\u221E',
+  NAN: 'NaN',
+  DECIMAL_PATTERN: '#,##0.###',
+  SCIENTIFIC_PATTERN: '#E0',
+  PERCENT_PATTERN: '#,##0%',
+  CURRENCY_PATTERN: '\u00A4#,##0.00;(\u00A4#,##0.00)',
+  DEF_CURRENCY_CODE: 'USD'
+};
+</code>
+</div>
+
+
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+var options = {
+  numberFormat: 1,
+  // 'DECIMAL',
+  pattern: 'number :#,###.##'
+};
+
+function formatNumber(n, options) {
+  var defaults = {
+    numberFormat: 4,
+    currencyCode: 'USD'
+  };
+
+  var settings = {};
+  if (arguments.length == 1) {
+
+    goog.object.extend(settings, defaults);
+  }
+  else {
+    goog.object.extend(settings, defaults);
+    goog.object.extend(settings, options);
+  }
+  var f = new goog.i18n.NumberFormat(settings.numberFormat, settings.currencyCode);
+  return f.format(n);
+}
+
+log(formatNumber(1000345.01309));
+log(formatNumber(1000345.01309, options));
+log(formatNumber(1000345.01309, {
+  numberFormat: 3
+}));
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+As you will observe, I have wrapped Closure's methods in a function and used an option object to set the options required. I prefer to use option objects, as it enables one to only set the parameters required and rely on the system deafults. Another advantage, one does not need to remember the exact order of the function argument list. (see article on [Congiguration Object Pattern](http://127.0.0.1/CodeIgniter/index.php/Blogs/tutorials/jQuery/Patterns_Configuration_Object ) )
+
+Google's Closure, is a great library in many respects, but its API needs to improve. The most important rule, in my opinion, is to provide an easy to remember API with options, defaults and settings wrapped in objects. This way one can develop without referring to documentation all the time.
+
+The checks and defaults that I have provided at this stage are just rudimentary and are for illustration purposes only. 
+
+{{bulb: Keep your library API simple and flexible! }}
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+

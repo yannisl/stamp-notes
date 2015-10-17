@@ -1,0 +1,211 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<h2>Developing Plugins for jQuery Part I</h2>
+Unlike the development of plugins for CMS's such as Wordpress and Drupal which you can find are complicated, developing plugins for jQuery are not much harder than developing the code itself.
+
+<h3>How to add new global functions</h3>
+You add jQuery global functions simply the same way you add methods to an object. 
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+ jQuery.myFirstFunction = function (){
+     say('My first function');
+};
+jQuery.myFirstFunction();
+</code>
+</div>
+<div  class="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+You don't have to type in jQuery and you can use the short-hand form <tt>$</tt>, however the recommended method is to actually use the full name since jQuery allows users to hange that.
+
+Multiple functions can be added this way.
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+ jQuery.myFirstFunction = function (){
+     alert('My first function');
+};
+jQuery.mySecondFunction = function (msg){
+     alert(msg);
+};
+
+jQuery.myFirstFunction();
+$.mySecondFunction(' jQuery is Tops! ');
+</code>
+</div>
+<div  class="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<h3>Extending jQuery using .extend()</h3>
+
+An alternative method is to use the $.extend() function. This is quite a handy function that can be used to combine properties from various objects. (See thsi for more details). When passed only one parameter extends the jQuery object itself.
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+jQuery.extend({
+   myFirstFunction : function (){
+     alert('My first function'); 
+    },
+   mySecondFunction : function (msg){
+      alert(msg);
+    }
+});
+$.myFirstFunction();
+$.mySecondFunction('Second Function');
+</code>
+</div>
+<div  class="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+As you can see this produces identical results. So far we have avoided to pollute the global namespace and used our variable within the jQuery object itself. This poses a new danger that of our names conflicting with names of other plugin authors. To avoid, this potential conflict, it is preferable to wrap our functions into an object:
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+ jQuery.myPlugin = ({
+   myFirstFunction : function (){
+     alert('My first function'); 
+    },
+   mySecondFunction : function (msg){
+      alert(msg);
+    }
+});
+
+$.myPlugin.myFirstFunction();
+$.myPlugin.mySecondFunction('testing');
+</code>
+</div>
+<div  class="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+With this technique we have managed to encapsulate our methods into an object and avoid name space collisions in our global functions.
+
+One advantage of wrapping utility functions in jQuery plugins is that the jQuery methods are made available to our functions and thus easing development. Otherwise we could have simply created an object ourselves called <tt>util</tt> or something. Currently there are over 2,000 plugins available at the jQuery.
+
+For example jQuery includes a number of utility functions for arrays but does not include one for the sum of all elements. (This is understandable due to all the type checking that one needs to build).
+
+Let us develop one:
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+ jQuery.sum = function (array) {
+    var total = 0;
+     jQuery.each(array, function(index, value){
+         total +=value;
+        });
+     return total;
+};
+
+var a = [13, 45, 67, 89, 90, 67];
+log('typeof a ', typeof a);
+log('sum ', $.sum(a));
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+So we've now seen the namespace protection and guaranteed library availability that jQuery plugins grant. These are just organizational benefits, though. To really tap into the power of jQuery plugins, we need to learn how to create new methods on individual jQuery object instances
+
+Most of jQuery's built-in functionality is provided through its object methods, and this is where plugins shine as well. Whenever we would write a function that acts on part of the DOM, it is probably appropriate instead to create an object method.
+We have seen that adding global functions requires extending the jQuery object with new methods. Adding instance methods is similar, but we instead extend the <tt>jQuery.fn</tt>  object:
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+ 
+jQuery.fn.myMethod = function() {
+alert('Nothing happens.');
+ }
+$('#msg2').myMethod();
+$('#msg2').myMethod().text('test');
+
+</code>
+</div>
+<div  id ="msg2" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+We can then call this new method from our code after using any selector expression:
+
+
+
+Our alert is displayed when we invoke the method. We might as well have written a global function, though, as we haven't used the matched DOM nodes in any way. A reasonable method implementation acts on its context.
+
+<h3>Method Chaining</h3>
+In addition to implicit iteration, jQuery users should be able to rely on
+<strong>chaining</strong> behavior. This means that we need to return a 
+jQuery object from all plugin methods unless the method is clearly intended to retrieve a different piece of information such as text. The returned query object is ususally the one provided as <tt>this</tt>. 
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+ jQuery.fn.myMethod = function (msg) {
+  log(msg);
+  return this;
+}
+
+$('#msg3').myMethod('testing');
+
+
+</code>
+</div>
+<div  id ="msg3" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+ 
+
+
+
+  
+  
+
+
+
+
+
+
+

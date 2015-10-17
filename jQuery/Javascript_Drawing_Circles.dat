@@ -1,0 +1,293 @@
+## Drawing a Circle with Canvas
+
+In this tutorial we will use the Canvas elements to draw a number of circles. We will create a function circle(). The function will receive as arguments an object with various properties. These properties will be merged with built-in defaults in order to make the function flexible to the use.
+
+<div id="canvas"></div>
+
+\begin{codeblock}
+var $D = function circle(options) {
+  // define some options
+  var defaults = {
+    fillStyle: '#dd0000',
+    steps: 30,
+    radius: 8,
+    X0: 100,
+    Y0: 100
+  };
+
+  // merge the defaults and options into
+  // settings
+  var settings = {};
+  var settings = $.extend(defaults, options);
+
+  // define shorter vars
+  radius = settings.radius;
+  steps = settings.steps;
+  centerX = settings.X0;
+  centerY = settings.Y0;
+
+  for (var prop in settings) {
+    log(prop, settings[prop]);
+  }
+
+  var xValues = [centerX];
+  var yValues = [centerY];
+
+  var ctx = $("#canvas")[0].getContext("2d");
+
+  ctx.fillStyle = settings.fillStyle;
+
+  ctx.beginPath();
+  for (var i = 0; i <= steps; i++) {
+    var radian = (2 * Math.PI) * (i / steps);
+    xValues[i + 1] = centerX + radius * Math.cos(radian);
+    yValues[i + 1] = centerY + radius * Math.sin(radian);
+    if (0 == i) {
+      ctx.moveTo(xValues[i + 1], yValues[i + 1]);
+    } else {
+      ctx.lineTo(xValues[i + 1], yValues[i + 1]);
+    }
+    //log(i, xValues[i + 1].toFixed(2), yValues[i + 1].toFixed(2));
+  }
+  ctx.fill();
+}
+
+var opt = {
+  fillStyle: '#dd0000',
+  steps: 25,
+  radius: 5,
+  X0: 25,
+  Y0: 125
+}
+//var s = $D(opt);
+for (var i = 1; i < 10; i++) {
+  opt.X0 = opt.X0 + 15;
+  $D(opt);
+}
+
+\end{codeblock}
+
+Here, the function createPerson() accepts arguments with which to build an object with all the necessary information to represent a Person object. The function can be called any number of times with different arguments and will still return an object that has three properties and one method. Though this solved the problem of creating multiple similar object the factory pattern didn't address the issue of object identification (what type of object an object is). As Javascript continued to evolve, a new pattern emerged. The Constructor Pattern.
+
+<h2>The Constructor Pattern</h2>
+
+You can define constructors for your Objects, by re-writing the above code using the <df>Constructor Pattern</dfn> as follows:
+
+
+\begin{codeblock}
+function Person(name, age, job){
+          <span class="highlight">this</span>.name=name;
+          <span class="highlight">this</span>.age=age;
+          <span class="highlight">this</span>.job=job;
+          <span class="highlight">this</span>.sayName=function(){
+              alert(this.name);
+          }
+  }
+
+var person1 = <span class="highlight">new</span> Person("Mary", 31, "Web Designer");
+var person2= <span class="highlight">new</span> Person("Peter", 56, "Doctor");
+person1.sayName();
+person2.sayName();
+\end{codeblock}
+
+In the example, the Person() function takes the place of the createPerson() function. Note some important differences:
+
+- There is no object being created explicitly.
+- The properties and methods are assigned directly onto <em>this</em> object.
+- There is no return statement.
+
+We have also introduced a naming convention. The name of the function is capitalized by using <span class="highlight">Person</span>. The convention is borrowed from other OO languages and helps distinguish function use in ECMAScript, since constructors are simply functions that create objects.
+
+<h3>The constructor Property</h3>
+Each Object has a <em>constructor</em> property that points back to 
+Person. Try it on the following code.
+
+<div  class="code-block">
+<div class="code code-block">
+<code>
+function Person(name, age, job){
+          <span class="highlight">this</span>.name=name;
+          <span class="highlight">this</span>.age=age;
+          <span class="highlight">this</span>.job=job;
+          <span class="highlight">this</span>.sayName=function(){
+              alert(this.name);
+          }
+  }
+
+var person1 = <span class="highlight">new</span> Person("Mary", 31, "Web Designer");
+var person2= <span class="highlight">new</span> Person("Peter", 56, "Doctor");
+person1.sayName();
+person2.sayName();
+alert(person1.constructor == Person); //true
+alert(person2.constructor == Person); //true
+$('#msg1').text(s);
+</code>
+</div>
+<p id="msg1" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+<button class="eval">Run Code!</button>
+</div>
+</code>
+
+The constructor property was originally intended for use in identifying, the object type. However the <dfn>instanceof</dfn> operator is considered to be a safer way to determine type. Each of the objects in this example is considered to be both an instance of Object and an instance of Person, as indicated by using the <em>instance</em> operator like this:
+
+<div  class="code-block">
+<div class="code code-block">
+<code>
+function Person(name, age, job){
+          <span class="highlight">this</span>.name=name;
+          <span class="highlight">this</span>.age=age;
+          <span class="highlight">this</span>.job=job;
+          <span class="highlight">this</span>.sayName=function(){
+              alert(this.name);
+          }
+  }
+
+var person1 = <span class="highlight">new</span> Person("Mary", 31, "Web Designer");
+var person2= <span class="highlight">new</span> Person("Peter", 56, "Doctor");
+<span class="highlight">
+alert(person1 instanceof Object); //true
+alert(person1 instanceof Person); //true
+alert(person2 instanceof Object); //true
+alert(person2 instanceof Person); //true
+</span>
+$('#msg1').text(s);
+</code>
+</div>
+<p id="msg1" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+<button class="eval">Run Code!</button>
+</div>
+</code>
+
+Defining your own constructors ensure that instances can be identified as a particular type later on, which is a great advantage over the factory pattern. In this example person1 and person2 are considered to be instances of Object because all custom objects inherit from Object.
+
+<h4>
+Constructors defined in this manner are defined on the Global object (the window object in web browsers). The instanceof operator and the constructor property always assumes that the constructor being queried exists in the gloabl scope unless otherwise indicated.
+</h4>
+<hr/><hr/>
+<h2>The Danger with Constructors</h2>
+
+<div  class="code-block">
+<div class="code code-block">
+<code>
+function Person(name, age, job){
+          <span class="highlight">this</span>.name=name;
+          <span class="highlight">this</span>.age=age;
+          <span class="highlight">this</span>.job=job;
+          <span class="highlight">this</span>.sayName=function(){
+              alert(this.name);
+          }
+  }
+
+var person1 = <span class="highlight">new</span> Person("Mary", 31, "Web Designer");
+var person2=  Person("Peter", 56, "Doctor");
+<span class="highlight">
+alert(person1 instanceof Object); //true
+alert(person1 instanceof Person); //true
+alert(person2 instanceof Object); //true
+alert(person2 instanceof Person); //true
+</span>
+$('#msg1').text(s);
+</code>
+</div>
+<p id="msg1" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+<button class="eval">Run Code!</button>
+</div>
+</code>
+
+What is the difference? If you haven't caught it yet the difference is that I omitted the <strong>new</strong> operator. The properties and methods were then automatically added to the window object. Remember that this always points to the Global object, when a function is called in the global scope.
+
+So constructors are not without their own bag of problems.
+
+There are more faults.
+
+Both person1 and person2 have a method called sayName(), but those methods are not the same instance of Function. Remeber - functions are objects in Javascript, so every time a function is defined, it;s actually an object being instantiated. Logically the constructor actually looks like this!
+
+<div  class="code-block">
+<div class="code code-block">
+<code>
+function Person(name, age, job){
+          <span class="highlight">this</span>.name=name;
+          <span class="highlight">this</span>.age=age;
+          <span class="highlight">this</span>.job=job;
+          <span class="highlight">this</span>.multiply =function(){ 
+               this.age+20;
+          }
+  }
+
+var person1 = <span class="highlight">new</span> Person("Mary", 31, "Web Designer");
+var person2=  Person("Peter", 56, "Doctor");
+<span class="highlight">
+person1.multiply();
+alert(person1 instanceof Object); //true
+alert(person1 instanceof Person); //true
+alert(person2 instanceof Object); //true
+alert(person2 instanceof Person); //true
+</span>
+$('#msg1').text(s);
+</code>
+</div>
+<p id="msg1" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+<button class="eval">Run Code!</button>
+</div>
+</code>
+
+
+<hr/>
+
+
+##Further Reading
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+$('button.eval').click(function(){
+   var code=$(this).siblings('.code').text();
+   eval(code);
+});
+
+
+
+$(".input").keyup(function(){
+    var pattern=$(this).siblings('.regex').val(); 
+    var str=$(this).val();
+     s=isValid(str,pattern);
+    //alert(str);
+     $(this).siblings('.msg').text(s);
+});
+
+$(".regex").keyup(function(){
+    var str=$(this).siblings('.input').val();
+    var pattern=$(this).val();
+     s=isValid(str,pattern);
+     $(this).siblings('.msg').text(s);
+    // alert(pattern);
+});
+});
+
+function isValid(str,pattern){
+    s=pattern;//alert(s);
+   var dateformat =new RegExp(pattern,'msi');
+    //alert(dateformat);
+   return dateformat.test(str);
+}
+
+//change to pass regex
+//must do to make more general solution
+ </script>
+
+
+
+  
+  
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+<div class="accordion" id="accordion2">
+  <!--  General -->
+  <div class="accordion-group">
+    <div class="accordion-heading" style="background-color:#eee">
+      <a class="accordion-toggle"  data-toggle="collapse" data-parent="#accordion2" href="#general">
+        1. General
+      </a>
+    </div>
+    <div id="general" class="accordion-body collapse in">
+      <div class="accordion-inner">
+        <ul class="nav" style="margin-left:0px;width:inherit">
+        <li><a href="../natal/introduction">Historical Background.</a></li>
+        <li><a href="../natal/introduction">Postal History Introduction</a></li>
+        <li><a href="../natal/Early_Mails">Early Mails</a></li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="accordion" id="accordion3">
+  <!--  Stamps -->
+  <div class="accordion-group">
+    <div class="accordion-heading" style="background-color:#eee">
+      <a class="accordion-toggle"  data-toggle="collapse" data-parent="#accordion3" href="#stamps">
+        1. Queen Victoria Reign
+      </a>
+    </div>
+    <div id="stamps" class="accordion-body collapse in">
+      <div class="accordion-inner">
+        <ul class="nav" style="margin-left:0px;width:inherit">
+        
+        <li><a href="../natal/1857_Embossed_Stamps">1857 Embossed Stamps.</a></li>
+        <li><a href="../natal/Embossed_fiscal_stamps">Embossed Fiscal Stamps.</a></li>
+<li><a href="../natal/1859-62_Issues">1859-62 Issues.</a>1859-62 Issues</li>
+        
+        <li><a href="../natal/1863-65_Watermark_Crown_CC_Issue">1863-65 Watermark Crown CC Issue</a></li>
+        <li><a href="../natal/1867_One_Shilling">1867 One Shilling</a></li>
+        <li><a href="../natal/1874-99_Issue">1874-99 Issue.</a></li>
+        <li><a href="../natal/1874-99_Proofs">1874-99 Issue Proofs.</a></li>
+        <li><a href="../natal/1874-99_Colour_Proofs">1874-99 Colour Trials.</a></li>
+         <li><a href="../natal/1874-99_Cancelled_and_Specimen_stamps">1874-99 Cancelled and Specimen Stamps.</a></li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+    <div class="accordion-group">
+    <div class="accordion-heading" style="background-color:#eee">
+      <a class="accordion-toggle"  data-toggle="collapse" data-parent="#accordion3" href="#edward">
+        2. King Edward VII Reign
+      </a>
+    </div>
+    <div id="edward" class="accordion-body collapse in">
+      <div class="accordion-inner">
+        <ul class="nav" style="margin-left:0px;width:inherit">
+        
+        <li><a href="../natal/King_Edward">King Edward VII issues.</a></li>
+                
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>                  

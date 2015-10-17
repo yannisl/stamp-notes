@@ -1,0 +1,226 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+{{feature-image: http://localhost/egypt/elliott-erwitt/EE-1150.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<h2>Deploying the Google Application Engine </h2>
+
+<img src="/codeigniter/images/google_application_engine.jpg" style="float:left" />
+There is no much use in keeping your application on your own computer. You have started this development and now is time to set it up on the Google Cloud. In this article we will show you how  to move from local development to hosting your application
+on the App Engine infrastructure. 
+
+We will cover the fundamentals of establishing an App
+Engine account, monitoring their health in the Application Console and managing versions of your applications.
+
+<h3>Application Engine Accounts</h3>
+If you reciding in one of the major metropolitan areas you probably have everything you need to create you Application Engine Accounts. I was caught at first as I am currently living in a small Island in the Meditteranean and my mobile operator was NOT on Google's list! Anyway, went the next morning and got another sim card just to receive the code from Google and to be able to complete my promise and upload an application to the cloud before the new year!
+
+
+
+{{bulb:Google makes a basic level of App Engine service available to anyone at no charge.}}
+
+ If
+your application exceeds the limits for bandwidth, storage, or computation on your
+free accounts, you can upgrade to a pay plan and scale your application as far as you like.
+All that is required to get started is a Google account and the ability to receive an SMS
+(text) activation message.
+
+To set up your App Engine account, start by visiting the [App Engine developer's site](http://appengine.google.com). If you do not already have a Google account, you can create
+one there with an existing email address or create a Gmail account here (which will
+allow you to log into the Application Console): http://mail.google.com.
+
+{{nutshell: To summarize, you need a Gmail account and a mobile from an accredited provided, the rest is free!}}
+
+<h3>Creating an Application on App Engine</h3>
+
+Each application is given a hostname on <tt>appspot.com</tt>, like __mysexyspace.appspot.com__,
+which corresponds to the application field from __app.yaml__. This is called the __Application
+Identifier__; it may not be changed for an application. 
+
+{{bulb:Currently, accounts are limited
+to 10 applications. Google does not yet allow applications to be deleted, so you should
+take care to not use up all your applications.}}
+
+Creating a new application is simple. From the Application Console, click the Create
+an Application button. You will need to specify a few basic items to finish creating
+your app:
+
+- The Application Identifier (App ID), which must be unique and not already in use.
+- The Application Title, which will be displayed in places like the login screen.
+- (Optional) The authentication mode, which, if your application uses the Users API,
+will decide whether your application is available to the public (those with Google
+accounts), or restricted to a specific Google Apps domain.
+
+
+In this sample, we are creating an application to house the AJAX chat program from
+the book.
+
+In Figure 10-1, we have chosen an available Application Identifier (ae-12-ajax), given
+the application a title, and left the authentication settings at the defaults. After clicking
+Save, we get the success page, when the application is created.
+
+<div  class="code-block console-wrap">
+<div class="code code-block">
+<code>
+
+ function testExportSymbolExceptions() {
+  var thrown = false;
+  try {
+    exceptionTest();
+  } catch (e) {
+    thrown = true;
+    if (e.message != 'ERROR') {
+      fail('Unexpected error thrown', e);
+    }
+  }
+ 
+  if (!thrown) {
+    fail('Exception wasn\'t thrown by exported function');
+  }
+}
+  
+
+</code>
+</div>
+<div  id="msg" class="msg" >
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+At this point, the application is registered, but there is nothing uploaded.
+
+<h3>Uploading Your Application</h3>
+
+After ensuring that the Application Identifier is correct in <tt>app.yaml</tt>, we can upload our
+application:
+
+{{plain:
+application: ae-12-ajax
+version: 1
+runtime: python
+api_version: 1
+}}
+
+We use appcfg.py to upload applications to App Engine. The simplest form is to use
+the update command with the directory of your application. You will be prompted for
+your account information. After entering your email address and password (which will
+not be shown), everything will be uploaded in one step:
+
+{{plain:
+golabki:~/Desktop/appeng botimer$ ls
+ae-12-ajax
+golabki:~/Desktop/appeng botimer$ appcfg.py update ae-12-ajax/
+Email: noahbotimer@gmail.com
+Password for noahbotimer@gmail.com:
+Saving authentication cookies to /Users/botimer/.appcfg_cookies
+Scanning files on local disk.
+Initiating update.
+Cloning 2 static files.
+Cloning 12 application files.
+Uploading 12 files.
+Closing update.
+Uploading index definitions.
+golabki:~/Desktop/appeng botimer$
+}}
+
+
+You may notice that the appcfg.py script saves authentication cookies, which allows
+you to issue repeated commands without logging in each time. You can use the --nocookies
+option to disable this behavior if you prefer.
+
+<h3>Testing Your Application</h3>
+
+Once appcfg.py finishes uploading and you are returned to the command prompt, the
+application will be live. You can verify that your application is up and running by simply
+visiting it in your browser at http://ae-12-ajax.appspot.com. Figure 10-2 shows the application
+running at appspot.com.
+
+You can continue to run your local version of your application with the SDK and use
+update when you are ready to upload changes. If you don't change the version number
+in app.yaml, your changes will be made live immediately. When you are developing
+your application and are not formally in production, it is good practice to leave the
+version number unchanged when you upload new versions.
+
+
+<h3>Uploading New Versions</h3>
+
+When developing an application that people actively use, it is important that changes
+are pushedto the users only when they are tested and ready for deployment. App
+Engine allows you to upload multiple versions of your application and activate them
+when ready or to roll them back if needed. If we make some changes to our application
+and want to test them out on App Engine but do not want to affect other users, we can
+modify the version field in app.yaml:
+
+{{plain:
+application: ae-12-ajax
+version: 2
+runtime: python
+api_version: 1
+}}
+
+After the number is changed, all we have to do is issue another update with
+appcfg.py. When the upload is finished, the new version will not be the default for your
+regular users, so their experience will not be disrupted. Visiting the Application Console
+and selecting Versions will show all of the active versions of your app, as shown in
+Figure 10-6.
+
+In the Live URI column, you can retrieve a direct link to any version of the application
+to test it. When you are comfortable that your users should be served a given version
+by default, you can select it and click Make Default.
+
+<h3>Collaboration on Applications</h3>
+
+When working on some projects, it is important for multiple people to be able to upload
+updates to your application on App Engine. It is very easy to allow this. From the
+Application Console Developers page, you can invite other Google accounts, which
+will let them collaborate on the application. Here is the screen where the current developers
+are listed; you can send an invitation to a colleague (Figure 10-7).
+
+<h3>Summing Up</h3>
+
+We have covered a lot of ground so far, for sure developing an application for the SDK and deploying it to the cloud, is not the equivalent of using cpanel to install wordpress on hostgator, however, it will get your programming skills up, will polish your python and it will give you immense satisfaction to know that your application has the support of all Google's data centers!
+
+{{bulb: And is all Free!}}
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+##Further Reading
+
+
+
+ 
+
+
+
+  
+  
+
+
+
+
+
+
+
+                            

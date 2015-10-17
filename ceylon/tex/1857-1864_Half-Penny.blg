@@ -1,0 +1,17 @@
+This is BibTeX, Version 0.99dThe top-level auxiliary file: 1857-1864_Half-Penny.aux
+The style file: plainnat.bst
+Illegal, another \bibdata command---line 42 of file 1857-1864_Half-Penny.aux
+ : \bibdata
+ :         {ceylon}
+I'm skipping whatever remains of this command
+Database file #1: ceylon.bib
+Warning--string name "may-june" is undefined
+--line 876 of file ceylon.bib
+Repeated entry---line 912 of file ceylon.bib
+ : @article{COR186
+ :                ,
+I'm skipping whatever remains of this entry
+Warning--I didn't find a database entry for "ceylon"
+Warning--can't use both volume and number fields in options
+Warning--empty journal in cor186
+(There were 2 error messages)

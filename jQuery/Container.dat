@@ -1,0 +1,193 @@
+      
+
+
+<script type="text/javascript"> 
+ goog.require('goog.array');
+ goog.require('goog.debug.DivConsole');
+ goog.require('goog.debug.Logger');
+ goog.require('goog.debug.LogManager');
+ goog.require('goog.dom');
+ goog.require('goog.events');
+ goog.require('goog.object');
+ goog.require('goog.style');
+ goog.require('goog.ui.Container');
+ goog.require('goog.ui.ContainerScroller');
+ goog.require('goog.ui.Control');
+ goog.require('goog.ui.CustomButton');
+ goog.require('goog.ui.Menu');
+ goog.require('goog.ui.MenuButton');
+ goog.require('goog.ui.Option');
+ goog.require('goog.ui.Select');
+ goog.require('goog.ui.Separator');
+ goog.require('goog.ui.ToggleButton');
+</script>
+
+<style type="text/css">
+.goog-control {
+      position: relative;
+      margin: 2px;
+      border: 2px solid #036;
+      padding: 2px;
+      font: normal 9pt "Trebuchet MS", Tahoma, Arial, sans-serif;
+      color: #036;
+      background-color:#69c;
+      cursor: pointer;
+      outline: none !important;
+    }
+ 
+    .goog-control-disabled {
+      border-color: #888;
+      color: #888;
+      background-color: #ccc;
+    }
+ 
+    .goog-control-hover {
+      border-color: #369;
+      color: #369;
+      background-color: #9cf;
+    }
+ 
+    .goog-control-active,
+    .goog-control-selected,
+    .goog-control-checked {
+      border-color: #9cf;
+      color: #9cf;
+      background-color: #369;
+    }
+ 
+    .goog-control-focused {
+      border-color: orange;
+    }
+ 
+    /* Demo styles for goog.ui.Container */
+    .goog-container {
+      position: relative;
+      margin: 0;
+      border: 0;
+      padding: 0;
+      background-color: #eee;
+      outline: none !important;
+      zoom: 1; /* The container element must have layout on IE. */
+    }
+ 
+    .goog-container-vertical {
+      width: 25ex;
+      border: 1px solid #888;
+    }
+ 
+    .goog-container-horizontal {
+      border-bottom: 1px solid #d5d5d5;
+      background: #fafafa url(images/toolbar-bg.png) repeat-x bottom left;
+    }
+ 
+    /* Additional demo styles. */
+ 
+    .goog-month .goog-menu-button-caption {
+      width: 18ex;
+    }
+ 
+    .goog-year .goog-menu-button-caption {
+      width: 6ex;
+    }
+ 
+    .goog-edit-font .goog-menu-button-caption {
+      width: 15ex;
+    }
+ 
+    .goog-edit-font-size .goog-menu-button-caption {
+      width: 5ex;
+    }
+ 
+    .goog-edit-bold {
+      width: 14px;
+      background: url(images/toolbar_icons.gif) no-repeat -1px;
+    }
+ 
+    .goog-edit-italic {
+      width: 14px;
+      background: url(images/toolbar_icons.gif) no-repeat -17px;
+    }
+ 
+    .goog-edit-underline {
+      width: 14px;
+      background: url(images/toolbar_icons.gif) no-repeat -33px;
+    }
+ 
+    #tb4_highlight_links span {
+      border: 1px solid #888;
+      cursor: pointer;
+      padding: 2px 4px;
+    }
+</style> 
+
+ 
+ 
+<h3>Container</h3>
+
+On the first run this sample loaded 73 files, in order to run. Pretty much everything, so if it was a bit slow to run you know why! The routines attempt to have too much of HTML manipulation hard-coded and are buggy. A much better way is to create all the HTML you need and just insert it at the right place through the DOM via an HTML fragment. jQuery comes top at this and is much simpler.
+
+Examine the code below. We will insert a logger and capture the CLICK event on an image using jQuery and Closure respectively. They both play nicely together in this regards. 
+
+<div id="feature-image1"></div>
+
+\begin{codeblock}
+(function () {
+  goog.filesLoaded();
+
+  var timer = goog.now();
+
+  // Set up a logger.
+  goog.debug.LogManager.getRoot().setLevel(goog.debug.Logger.Level.ALL);
+  var logger = goog.debug.Logger.getLogger('demo');
+  var logconsole = new goog.debug.DivConsole(goog.dom.$('log'));
+  logconsole.setCapturing(true);
+
+  var EVENTS = goog.object.getValues(goog.ui.Component.EventType);
+  logger.fine('Listening for: ' + EVENTS.join(', ') + '.');
+
+  function logEvent(e) {
+    var source = typeof e.target.getCaption == 'function' && e.target.getCaption() || e.target.getId();
+    logger.info('"' + source + '" dispatched: ' + e.type);
+  }
+
+  // Hook up checkboxes.
+  goog.events.listen(goog.dom.$('feature-image1'), goog.events.EventType.CLICK, function (e) {
+    var t = goog.now();
+    logger.info(' vertical container in ' + (goog.now() - t) + 'ms');
+  });
+
+  $('#feature-image1').click(function () {
+    var t = goog.now();
+    logger.info('in jquery ' + (goog.now() - t) + 'ms');
+  });
+})();
+\end{codeblock}
+
+
+
+<hr/>
+
+
+<h3>Almost like an Eastern Egg</h3>
+
+This jewel is from the container demo file:
+
+{{plain:
+var t = goog.now();
+logger.info(' vertical container in ' + (goog.now() - t) + 'ms');
+}}
+
+It prints zero ms all the time, but is a small hack for a buffer. It tries to remove the effect of the actual logging onto the timing!
+
+
+<span id="chapter" class="hidden">11</span>
+
+  
+
+
+
+
+
+
+
+                                                                                

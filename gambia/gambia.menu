@@ -1,0 +1,134 @@
+<div class="accordion" id="accordion2">
+  <!--  General -->
+  <div class="accordion-group">
+    <div class="accordion-heading" style="background-color:#eee">
+      <a class="accordion-toggle"  data-toggle="collapse" data-parent="#accordion2" href="#general">
+        1. General
+      </a>
+    </div>
+    <div id="general" class="accordion-body collapse in">
+      <div class="accordion-inner">
+        <ul class="nav" style="margin-left:0px;width:inherit">
+        <li><a href="../gambia/introduction">Historical Background.</a></li>
+        <li><a href="../gambia/introduction">Postal History Introduction</a></li>
+        <li><a href="../gambia/Early_Mail">Early Mail</a></li>
+        <li><a href="../gambia/Prestamp_Markings">Prestamp Markings</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+<!--  Queen Victoria -->
+  <div class="accordion-group">
+    <div class="accordion-heading" style="background-color:#eee" >
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#victoria">
+        2. Queen Victoria Reign
+      </a>
+    </div>
+    <div id="victoria" class="accordion-body collapse in">
+      <div class="accordion-inner">
+        <ul class="nav" style="margin-left:0px;width:inherit">
+        <li><a href="../gambia/1869-72_Issues">1869-72 Cameo No Watermark</a></li>
+         <li><a href="../gambia/1874_Watermark_Paper">1874 Cameo Watermark Paper</a></li>
+         <li><a href="../gambia/1886-1887_Queen_Victoria_Issue">1886-1887 Issue </a></li>
+         <li><a href="../gambia/1898-1922_Key_Plates">1898-1922 Key Plate Issue</a></li>
+
+
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+<!-- King Edward Reign -->
+  <div class="accordion-group">
+    <div class="accordion-heading " >
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+        3. King Edward VII Reign
+      </a>
+    </div>
+    <div id="collapseOne" class="accordion-body collapse in">
+      <div class="accordion-inner">
+        <ul class = "nav" style="margin-left:0px;" >
+       <li>
+         <a href="../gambia/1902_1905_King_Edward_VII_Issue">1902-1905 Issue</a>
+      </li>
+  <li><a href="../gambia/1902_1905_King_Edward_VII_Issue_Proofs">1902-1905 Die Proofs</a></li>
+<li><a href="../gambia/1902_1905_King_Edward_VII_Issue_Colour_Trials">1902-1905 Colour Trials</a></li>
+<li><a href="../gambia/1902_1905_King_Edward_VII_Issue_Specimens">1902-1905 Specimens</a></li>
+<li><a href="../gambia/1904-6_King_Edward_VII_Issue">1904-1906 Issue</a></li>
+<li><a href="../gambia/1906_Surcharged_Locally_Issue">1906 Surcharged Locally</a></li>
+<li><a href="../gambia/1909_King_Edward_VII_Issue">1909 Issue</a></li>
+<li><a href="../gambia/King_Edward_Covers">King Edward VII Covers</a></li>
+
+
+</ul>
+      </div>
+    </div>
+  </div>
+
+<!--  King George Period -->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+        4. King George V Reign
+      </a>
+    </div>
+    <div id="collapseTwo" class="accordion-body collapse in">
+      <div class="accordion-inner">
+        <ul class="nav" style="margin-left:0px;width:inherit">
+        <li><a href="../gambia/1912-22_King_George_V">1912-22 Issue</a></li>
+        <li><a href="../gambia/1921-22_King_George_V_Watermark_Multiple_Script_CA">1921-22 Watermark Multiple Script</a></li>
+      
+        <li><a href="../gambia/1922-27_King_George_Pictorials ">1922-27 Pictorials</a></li>
+      
+ 
+
+        </ul>
+      </div>
+    </div>
+  </div>
+
+<!-- King George VI Period -->
+<div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
+        5. King George VI Reign
+      </a>
+    </div>
+    <div id="collapseThree" class="accordion-body collapse in">
+      <div class="accordion-inner">
+          <ul class="nav" style="margin-left:0px;width:inherit">
+          <li><a href="../gambia/1938-46_set">1938-46 Definitives</a></li>
+          <li><a href="../gambia/1948_Silver_Wedding">1948 Silver Wedding</a></li>
+          </ul>
+      </div>
+    </div>
+  </div>
+
+
+<!-- Queen Elizabeth Period -->
+<div class="accordion-group">
+    <div class="accordion-heading ">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFour">
+        6. Queen Elizabeth II Reign
+      </a>
+    </div>
+    <div id="collapseFour" class="accordion-body collapse">
+      <div class="accordion-inner">
+           <ul class="nav" style="margin-left:0px;width:inherit">
+          <li><a href="../gambia/1953_Queen_Elizabeth">1953 Queen Elizabeth</a></li>
+          <li><a href="../gambia/1963_birds">1963 birds</a></li>
+          </ul>
+      </div>
+    </div>
+  </div>
+
+\begin{category}{Bibliography and References}
+ \mitem{Bibliography}{Bibliography_and_References}
+\end{category}
+
+</div>                                                                     

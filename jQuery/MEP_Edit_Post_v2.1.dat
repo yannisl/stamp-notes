@@ -1,0 +1,155 @@
+###Developing The Main Editing Form of the AMS.
+
+We got a new acronym. The CMS is morphing into an Application Management System. Since every page of content has specific code, we are only one step away to develop this into a universal application management system. 
+
+<div id="#maindraggable" style="width:618px;float:left">
+<div id="maintabs" style="font-size:10px">
+	<ul>
+		<li><a href="#tabs-1" >Version</a></li>
+		<li><a href="#tabs-2">Issues</a></li>
+                <li><a href="#tabs-3">Conventions</a></li>
+                <li><a href="#tabs-4">General Notes</a></li>
+                <li><a href="#tabs-5">Targets</a></li>
+                <li><a href="#tabs-6">Bugs</a></li>
+       </ul>
+<div id="tabs-1" class="tabp">
+  <p>
+     In this version, some more work was done to integrate the CSS save button
+     with the Server API. CSS Sheet is saved properly in the directory
+      <code>
+         /CodeIgniter/CSS/filename_bak.css
+      </code>
+
+    Local CSS is saved in the same directory.
+
+    The controller is _admin_. This will have to be named at a later stage to API.
+  </p>
+
+  <p>
+   Wired the tabs to the Object Inspector. Object Inspector currently is a bit
+   dump. On the next version, as we understand the Object we want to save better
+   we will introduce better interactivity. Took me quite a while to debug the
+   tabs on show even. ui.panel.id == tabs-1. The tabs-1 is not a literal string but a  variable! Now I must remember that.
+  </p>
+
+  <h3>Version 2.1</h3>
+
+  <p>Almost automated the toolbar. It still needs a lot of work, until such time as we
+  can morph it into other shapes etc.</p>
+
+<p>
+How do we add a few toolbars and with buttons that are menus? This is what I will focus on version 2.02. I will detour to see, how other MVC Systems work.
+</p>
+
+</div>
+
+<div id="tabs-2">
+<p>
+During Development, there are possibly tens of CSS files being used, some in themes,
+other within js directories and the like. How do we organize and retrieve these. How many do we pick up on the tabs. How not to confuse the user? How do we version all these, if we keep up back-ups.</p>
+
+<p>Another question to be answered, is where do we keep any local CSS. That is a CSS file that is only used for this particular post. For the time being it has been set to be saved under:
+
+    <code>
+    /CodeIgniter/CSS/localCSS_bak.css
+    </code>
+ 
+</p>
+
+<p>
+    Local CSS, is defined as CSS that is injected at the head of the post page only for this particular post. Any CSS within the POST itself can be entered via the normal editor.
+</p>
+</div>
+
+<div id="tabs-3">
+<p>
+I must continue giving careful thought to naming conventions. A lot of work can be saved, if a consistent naming convention is used.
+</p>
+</div>
+
+<div id="tabs-4">
+<p>
+Designing and programming is a style akin to oil painting. A bit of sketch planning is necessary, but the artist changes and paints as he goes along. At least that is my own perception of things. Now watercolor painting is a bit different!
+
+</p>
+</div>
+
+<div id="tabs-5">
+<h4>Literate Programming with HTML</h4>
+<p>
+This type of usage is akin to literate programming. As you develop you keep
+notes about what you are doing.
+</p>
+
+<p>
+As things  progress a clearer picture emerges. For CMS type of work the system must be very flexible. A post to the CMS or a page, they are really not very much different and in our case they are just a Page Type. 
+</p>
+
+<p>
+User must be able to add:
+
+<ul>
+   <li>Global and local CSS</li>
+   <li>Global and local Javascript</li>
+   <li>Change a template</li>
+   <li>Add or edit a controller</li>
+   <li>Add or edit a view</li>
+   <li>Add or edit a model</li>
+</ul> 
+
+
+</p>
+</div>
+
+<div id="tabs-6">
+ <p>
+  Current persistent issues.
+</p>
+
+<ul>
+  <li>CodeMirror: increase textarea. This is currently too small.</li>
+  <li>Open panels in a better way.</li>
+  <li>Refactor code in a more general way.</li>
+  <li>Add tabs automatically</li>
+</ul>
+</div>
+<!-- end tabs-->
+</div>
+</div>
+
+
+
+
+<script>
+$(function() {
+  $( "#maintabs" ).tabs().draggable({ opacity: 0.35 });
+});
+</script>
+
+
+<hr/>
+
+<span id="chapter" class="hidden">13</span>
+##Further Reading
+
+
+
+  
+<!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class,tabs, jquery}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, jQuery tabs}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+--> 
+
+
+
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  

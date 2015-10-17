@@ -1,0 +1,196 @@
+
+<h2>Bouncing Numbers</h2>
+
+{{wi:Bouncing_Numbers}}.
+
+This problem is from [Project Euler](http://projecteuler.net/index.php?section=problems&id=112)
+
+The problem is stated as follows:
+
+Working from left-to-right if no digit is exceeded by the digit to its left it is called an increasing number; for example, 134468.
+
+Similarly if no digit is exceeded by the digit to its right it is called a decreasing number; for example, 66420.
+
+We shall call a positive integer that is neither increasing nor decreasing a "bouncy" number; for example, 155349.
+
+Clearly there cannot be any bouncy numbers below one-hundred, but just over half of the numbers below one-thousand (525) are bouncy. In fact, the least number for which the proportion of bouncy numbers first reaches 50% is 538.
+
+Surprisingly, bouncy numbers become more and more common and by the time we reach 21780 the proportion of bouncy numbers is equal to 90%.
+
+Find the least number for which the proportion of bouncy numbers is exactly 99%.
+
+The answer is 1575699. Computation time about 20 seconds.
+
+Javascript is not ideal for this type of problems, however I have included a number of them in order to polish my skills in JavaScript programming and hoping that you can do the same and send me a better and more efficient solution.
+
+## Writing a function to get each digit of a number in an Array 
+
+Clearly in order for us to find a solution to such a problem, we will need a helper function to examine each digit of the numbers we will be iterating over. 
+
+The easiest method is to to split the number into an array of digits.
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+// digits will return an array of digits for each number
+
+function digits(n){
+    n=n+''; // force to string hack
+    numberArray = [];
+    for (var i=0;i&lt;n.length;i++){
+         numberArray[i]=parseInt(n.charAt(i));
+    }
+  return numberArray;
+}
+
+log('digits array : ',digits(120909));
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<h3>Detecting the bounciness</h3>
+Detecting the "bounciness" is done efficiently in the function by moving to each digit (but the first) and comparing it to the previous. Moves up and down are recorded and if at any point we have seen both, we need not check any further.
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+// @n is an array
+function digits(n){
+    n=n+''; // force to string hack
+    numberArray = [];
+    for (var i=0;i&lt;n.length;i++){
+         numberArray[i]=parseInt(n.charAt(i));
+    }
+  return numberArray;
+}
+
+function isBounce(n){
+      n = digits(n);
+      var goes_up = goes_down = false;
+      for (var i=1;i&lt;n.length;i++){
+         
+           if (n[i-1] &lt; n[i]){
+                  goes_up = true;
+                  //alert(n[i] + ' goes_up');
+                }
+                else{
+                  if (n[i-1] &gt; n[i]){goes_down = true;
+                      //    alert(n[i]+ ' goes_down ')
+                  }
+                  }
+              if (goes_up && goes_down)  return true;
+          
+        }
+           return false
+ }
+
+log(' isBounce :', isBounce(12345));
+log('isBounce : ', isBounce(1575699));
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<h3>Getting the sums of bouncing vs other numbers</h3>
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+// @n is an array
+function digits(n){
+    n=n+''; // force to string hack
+    numberArray = [];
+    for (var i=0;i&lt;n.length;i++){
+         numberArray[i]=parseInt(n.charAt(i));
+    }
+  return numberArray;
+}
+
+function isBounce(n){
+      n = digits(n);
+      var goes_up = goes_down = false;
+      for (var i=1;i&lt;n.length;i++){
+         
+           if (n[i-1] &lt; n[i]){
+                  goes_up = true;
+                 }
+                else{
+                  if (n[i-1] &gt; n[i]){goes_down = true;
+                     }
+               }
+              if (goes_up && goes_down)  return true;
+          
+        }
+           return false
+ }
+
+var   sumBounce=0, sumOthers=0;var proportion;
+// start from a larger number since we know that this is 
+// still at 90%
+
+profiler.start();
+for (k=100 ;k&lt;1600000;k++){  //must be 2000000
+    if (isBounce(k)){
+       sumBounce  = sumBounce +1;
+   
+       proportion = (sumBounce/k)*100;
+       if (proportion>99.0000000) break;
+    } 
+   else
+    {
+      // log('',k);
+       sumOthers = sumOthers + 1;
+     }
+ }
+profiler.stop();
+profiler.timeDiff();
+log('bouncing , others, proportion', sumBounce, sumOthers,proportion);
+log(' isBounce :', isBounce(12345));
+log('isBounce : ', isBounce(1575699));
+</code>
+</div>
+<div id="box"  style="position:relative; color:blue;width:50px">
+<img src="http://localhost/codeigniter/images/redball.gif" style="width:30px"/>
+</div>
+<div  id ="msg5" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+The computation time is about 17 seconds. This surprisingly compares well with what has been reported at http://www.agapow.net/programming/python/euler/112 using python! If you consider that the calculations here were done all through eval() and within a jQuery closure, it compares well. Another interesting aspect is that I get a number that is slightly less than the number reported in the above site. If there is some rounding error somewhere that is causing it, I don't know, but my suspicion is on the python program than here. Nevertheless I do trust Google's Chrome JavaScript engine.
+
+For all you beautiful minds, I haven't done maths for over 20 years, so be kind on me with your comments.
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+ 
+
+
+
+  
+  
+
+
+
+
+
+
+
+    

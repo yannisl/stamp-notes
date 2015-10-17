@@ -1,0 +1,128 @@
+
+<style type="text/css">
+p#msg6 > li { list-style-type: decimal;line-height:1.5; margin:5px }
+.shade{background:#ececec}
+</style>
+
+<h2>Regular Expressions: Some useful examples</h2>
+
+All regex repetition operators are {{wi:greedy}}. They try to match as much as possible in a string. Unfortunately, this might not always be a desired effect. Thus, lazy operators are used to solve this problem. They only match the smallest possible pattern and are used by adding a '?' after the respective greedy operator. In some implementations such as those for PHP , the 'U' modifier may be used to make all repetiton operators lazy. 
+
+
+
+{{bulb:<strong>Differentiating between greediness and laziness is key to fully understanding  regular expressions.</strong>}}
+
+
+
+In this article we will start developing a regular expression that will read the contents of this article - they reside in a <tt>&lt;div&gt;</tt> with an id main-content and count the number of words. We will start with a common example that will read everything including the code. This will give us an idea of the length of the article in word tokens.
+
+<h3>Matching with the 'g' flag</h3>
+Another confusing aspect of regular expressions is the flag <tt>g</tt>. If used with the above code, it will return an array of <strong>all matches</strong>.
+
+<div class="code-block console-wrap">
+<div class="code-block code">
+<code>
+
+ var re = /\w+?\b/gi;
+ var   s = $('#main-content').text();
+          s =s.match(re); 
+ log('number of word tokens in this article', s.length);
+ for (var i=15;i<40;i++){
+   log('token '+  i  +'  :  ', s[i]);
+}
+
+</code>
+</div>
+<p class= "msg" id="msg" style="white-space:pre"></p>
+<p class="console"></p>
+  <button class="eval">Run</button>
+<ol class="results"></ol>
+</div>
+
+I have used <strong>\w</strong> and <strong>\b</strong>. The <strong>\w </strong>matches any alphanumeric character including the underscore. Equivalent to <dfn>[A-Za-z0-9_]</dfn>. It is actually much better to use the square bracket notation, especially if you are going to have Unicode characters. The <strong>\b</strong> matches a word boundary. It will understand newlines, spaces and normal punctuation marks.
+
+It takes approximately 2ms to process the instructions for the regex and capture the result array (probably less - since we are outputting the time on the browser log as well) and 10 ms to output partially the array. Any text output takes long as it means the browser will have to reflow the contents. 
+
+<h3>Word Counting, articles and CMS</h3>
+
+I wanted to have a word-counter in this CMS. So where would the best place be to have it. Certainly not within the Server Code (I wouldn't like to add another filter to the text). On the visitor side like here it is actually meaningless - why would a visitor want to know the length of this article? In the end I decided the best place to have it would be in the admin area, where the article is captured. This way the CMS user can check the length of the article if she wishes. 
+
+I have seen too many Wordpress installations where the length of the article is shown. These installations use a plugin which parses the text and counts the words. It adds unnecessary parsing delays on the server side.
+
+<h3>parsing of Texts</h3>
+Although the example above is simple, it is not ideal. For text-analysis one has to design parsers that are reliable and can handle all the possible exception cases. See [tokenization](http://127.0.0.1/CodeIgniter/index.php/Blogs/post/blog/tokenization) for some of the difficulties in capturing sentences and abbreviations. Sounds simple? Please send me your solution.
+
+<div class="code-block console-wrap">
+<div class="code-block code">
+<code>
+profiler.start();
+ var re = /\w+?\b/gi;
+ var   s = $('#aPI').text();
+          s =s.match(re); 
+ var   pi='';  
+ for (var i=0;i &lt; s.length;i++){
+     if (i===0){
+     pi += s[i].length+'.';
+     }else {
+      pi += s[i].length+'';
+    };
+     log('token '+  i  +'  :  ', s[i], s[i].length);
+}
+log('pi :', pi);
+log('PI :', Math.PI);
+profiler.stop();
+profiler.timeDiff();
+</code>
+
+</div>
+<div class="sandbox-console">
+<p id="aPI" class="shaded"> How I need a drink, alcoholic in nature, after the heavy lectures involving quantum mechanics! </p>
+</div>
+<p class= "msg" id="msg" style="white-space:pre"></p>
+<p class="console"></p>
+  <button class="eval">Run</button>
+<ol class="results"></ol>
+</div>
+
+ 
+Although, the operation might appear slow the match operation is fairly fast. The profiler is also logging the time required to execute the log operation. Since the browser is manipulating the DOM this is rather slow. Profiling only the match operation:
+
+<div class="code-block console-wrap">
+<div class="code-block code">
+<code>
+
+ var re = /\w+?\b/gi;
+ var   s = $('#aPI1').text();
+profiler.start();
+          s =s.match(re); 
+profiler.stop();
+profiler.timeDiff();
+ var   pi='';  
+ for (var i=0;i &lt; s.length;i++){
+     if (i===0){
+     pi += s[i].length+'.';
+     }else {
+      pi += s[i].length+'';
+    };
+     log('token '+  i  +'  :  ', s[i], s[i].length);
+}
+log('pi :', pi);
+log('PI :', Math.PI);
+
+</code>
+
+</div>
+<div class="sandbox-console">
+<p id="aPI1" class="shaded"> How I need a drink, alcoholic in nature, after the heavy lectures involving quantum mechanics! Pls</p>
+</div>
+<p class= "msg" id="msg" style="white-space:pre"></p>
+<p class="console"></p>
+  <button class="eval">Run</button>
+<ol class="results"></ol>
+</div>
+
+
+<span class="chapter">13</span>
+
+
+                              

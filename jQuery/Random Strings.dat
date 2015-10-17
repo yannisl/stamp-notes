@@ -1,0 +1,138 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<script>goog.require('goog.string')</script>
+
+
+<h2>Bitwise Operators</h2>
+
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+var z1=(100).toString(2);
+
+log(U.boxString(z1));
+
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<h3>Adding time to randomize further</h3>
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+function getRandomString() {
+  return Math.floor(Math.random() * 3147483648).toString(36) + (Math.floor(Math.random() * 9147483648) ^ (new Date).getTime()).toString(36);
+};
+
+var z = getRandomString();
+
+log(getRandomString());
+
+$that.siblings('.msg').html((U.boxString(z)));
+filesLoaded();
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+Now our example before the last:
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+ // annotate strings
+ // a function to match a non-empty string
+function matcher(regExpr, aString) {
+  if (aString !== null && aString !== undefined) {
+    return aString.match(regExpr);
+  } else {
+    return null
+  }
+}
+
+
+var s=' &lt;string&gt; ';
+ var s1='this is a second string';
+
+  var _string = /(?:\'[^\'\\\n]*(?:\\.[^\'\\\n]*)*\')|(?:\"[^\"\\\n]*(?:\\.[^\"\\\n]*)*\")/g;
+  html = matcher(_string, $code);
+
+  for (var i = 0; i < html.length; i++) {
+    if (html !== null) {
+    
+    // var str= html[i].entityify();
+    // log(str);
+  }
+}
+
+var txt=$('#msg3').html();
+log(txt.entityify());
+
+log(goog.string.htmlEscape(txt), 'from goog');
+
+</code>
+</div>
+<div  id ="msg3">
+<p><b class="this is an attribute's" >
+This is a Test from the DOM
+<code><p>&amp;lt;I am code&gt;</p></code>
+</b></p>
+</div>
+<div   class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+One interesting aspect of the above algorithm is the use of the bitwise operator XOR (^), in order to scrable the strings further.
+
+
+
+
+
+
+
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+ 
+
+
+
+  
+  
+
+
+
+
+
+
+
+                                  

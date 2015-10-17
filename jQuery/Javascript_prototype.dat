@@ -1,0 +1,292 @@
+
+<h2>The prototype constructor</h2>
+
+All functions have a <strong>prototype</strong> property which, by default
+contains an empty object. This property does not serve a purpose until the function is instantiated. In order to understand what it does it is important to remember the simple fact about JavaScript: Functions can behave both as regular functions as well a classes (where the can be instantiated).
+
+You can think of prototype as extending the {{wi: constructor}}.
+
+A good exposition by [Yehuda Katz](http://yehudakatz.com/2011/08/12/understanding-prototypes-in-javascript/). have also another look at [phrogz](http://phrogz.net/js/classes/OOPinJS.html)
+
+
+You can define <dfn>constructors</dfn> for your Objects, by the <df>Constructor Pattern</dfn> as follows:
+
+<div  class="code-block console-wrap">
+<div class="code code-block"><code>
+<span class="green">// define the class</span>
+function Person(){
+    }
+
+<span class="green">// Assign some properties to the  prototype object.  </span>
+
+Person.prototype.name="Wei";
+Person.prototype.age= 29;
+Person.prototype.job="Architect";
+Person.prototype.sayName=function(){
+   alert(this.name);
+};
+
+var  boy =new Person();
+var  girl =new Person();
+
+boy.name="Yannis";
+
+log(boy.name);
+log(girl.name);
+
+</code>
+</div>
+<p id="msg1" class="msg">
+</p>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol>
+</div>
+</code>
+
+In some respects the base function (in this case, Person) could be considered a "constructor" (since it's
+called whenever the new operator is used upon it). This also means that when the function is called with the new operator in this context is equal to the instance of the object itself. 
+
+{{bulb: You want to build 300 dolls. A doll is your object. You first build a
+ prototype. Does this make sense. Yes! }}
+
+<div  class="code-block console-wrap">
+<div class="code code-block"><code>
+<span class="green">// define the class</span>
+function Person(){
+    }
+
+<span class="green">// Assign some properties to the  prototype object.  </span>
+
+Person.prototype.name="Wei";
+Person.prototype.age= 29;
+Person.prototype.job="Architect";
+Person.prototype.sayName=function(){
+   alert(this.name);
+};
+
+var  boy =new Person();
+var  girl =new Person();
+
+for(var prop in Person){
+      log('property : ', prop);
+}
+for(var prop in girl){
+      log('property : ', prop);
+}
+for(var prop in Person.prototype){
+      log('property : ', prop);
+}
+</code>
+</div>
+<p id="msg1" class="msg">
+</p>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol>
+</div>
+</code>
+
+
+
+Although it i spossible to read values on the prototype from object instances,
+it is not possible to override them. If you add a property to an instance that has the same property on the prototype, you create the properrty on the instance then
+you mask the property of the prototype.
+
+Once a property is added to the object instance, it <em>shadows</em> any properties of the same name on the prototype. Simply it means that it blocks access to the property on the prototype without altering it.  The <em>delete</em> operator, completely removes the instance properety and allows the <em>prototype</em> to be accessed again.
+
+
+<div  class="code-block">
+<div class="code code-block">
+<code>
+function Person(){
+    }
+  
+Person.prototype.name="Wei";
+Person.prototype.age= 29;
+Person.prototype.job="Architect";
+Person.prototype.sayName=function(){
+   alert(this.name);
+};
+
+var person1=new Person();
+var person2 =new Person();
+
+person1.name="Yannis";
+alert(person1.name);
+alert(person2.name);
+<span class="highlight">delete</span> person1.name;
+alert(person1.name);
+$('#msg1').text(s);
+</code>
+</div>
+<p id="msg1" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+<button class="eval">Run Code!</button>
+</div>
+</code>
+
+You can check if a property exists on the instance or on the prototype using the
+<em>hasOwnProperty()</em> method.
+
+<div  class="code-block">
+<div class="code code-block">
+<code>
+function Person(){
+    }
+  
+Person.prototype.name="Wei";
+Person.prototype.age= 29;
+Person.prototype.job="Architect";
+Person.prototype.sayName=function(){
+   alert(this.name);
+};
+
+var person1=new Person();
+var person2 =new Person();
+
+alert(person1.hasOwnProperty("name"));
+
+person1.name="Yannis";
+
+alert(person1.hasOwnProperty("name"));
+$('#msg1').text(s);
+</code>
+</div>
+<p id="msg1" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+<button class="eval">Run Code!</button>
+</div>
+</code>
+
+<hr/>
+<h3>Native Object Prototypes</h3>
+The prototype pattern is important not just for defining custom types but also
+because it is a pattern used to implement all of the native reference types. each of these (including Object, Array, String, math and so on) has its methods defined on the constructor's prototype. For instance the sort() method can b found on Array.prototype, and substring() can be found on String.prototype, as shown below:
+
+<div  class="code-block">
+<div class="code code-block">
+<code>
+alert(typeof Array.prototype.sort);
+var sourceString = Math.pow.toString();
+alert(sourceString);
+$('#msg1').text(s);
+
+
+out(Array.prototype.sort.toString() );
+
+</code>
+</div>
+<p  class="msg pre" style="width:98%;white-space:pre ">
+
+
+</p>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol>
+</div>
+</code>
+
+Through native object prototypes, it's possible to get references to all the default methods as well as to define new methods. Native object prototypes can be modified just like custom object prototypes, so methods can be added at any time. For example, the following code adds a method calls startsWith() to the
+String primitive wrapper;
+
+<div  class="code-block">
+<div class="code code-block">
+<code>
+String.prototype.startsWith = function(text){
+   return this.indexOf[text] == 0;
+};
+var message = "Hello Scotty";
+alert(message.startsWith("H"));  //true
+
+$('#msg1').text(s);
+</code>
+</div>
+<p id="msg1" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+<button class="eval">Run Code!</button>
+</div>
+
+<h3>Hybrid Combination Constructor/Prototype</h3>
+The most widely accepted way of defining custom types is to combine the constructor and prototype patterns. The constructor pattern deines instance of properties, whereas the prototype pattern defines methods and shared properties but the all share references to methods, conserving memory. This pattern allows arguments to be passed into the constructor as well, efficiently combining the best parts of each pattern.
+
+</code>
+<div  class="code-block">
+<div class="code code-block">
+<code>
+function Person(name, age, job){
+    this.name = name;
+    this.age = age;
+    this.job = job;
+    this.friends = ["Mary","John"];
+}
+Person.prototype = {
+      constructor:Person,
+      sayName : function(){
+            alert(this.name);
+     }
+}
+
+var person1 = new Person("Nikolas","13","Student");
+alert(person1.friends);
+$('#msg1').text(s);
+</code>
+</div>
+<p id="msg1" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+<button class="eval">Run Code!</button>
+</div>
+</code>
+
+
+As you can observe the instance properties are now defined solely in the constructor, and the shared property constructor and method sayName() are defined on the prototype. 
+
+This hybrid constructor/prototype pattern is the most widely used and accepted practice for defining custom reference types in ECMAScript. Generally speaking, this is the default pattern to use for defining reference types.
+
+<h3>Dynamic Prototype Pattern</h3>
+
+Developers coming from other OO languages may find the visual separation between the constructor and prototype confusing. The dynamic prototype pattern seeks to solve this problem by encapsulating all of the information within the constructor while maintaining the benefits of using both a constructor and a prototype by initializing the prototype inside the constructor, but only if needed. You can determine if the prototype needs to be initialized by checking for the existence of a method that should be available. Consider this example:
+
+<div  class="code-block">
+<div class="code code-block">
+<code>
+<span class="green">// Constructor for Object Box</span>
+function Box(float,width,height){
+    this.float=float;
+    this.width=width;
+    this.height=height; 
+   if (typeof this.html != "function"){
+    Box.prototype.html = function(element){
+       return this.style='&lt;'+element+'  style="float:left;width:100px;height:100px;border:1px solid red;" &gt;' +' &lt;\/'+element+'&gt;';
+    };
+   }
+}
+
+var box = new Box("left","100px","200px");
+//adiv.toHtml();
+alert(box.width);alert(box.html("div"));
+var s=box.style;alert(s);
+$('#msg8').html(s);
+</code>
+</div>
+<p id="msg7" style="width:400px;background:#fff"></p>
+<div id="msg8" class="clearfix" style="width:98%;border:1px solid green">
+</div>
+<button class="eval">Run Code!</button>
+</div>
+</code>
+
+
+
+##Further Reading
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+      

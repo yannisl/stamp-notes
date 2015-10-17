@@ -1,0 +1,150 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+{{feature-image: http://localhost/egypt/elliott-erwitt/EE-1150.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<style type="text/css">
+textarea#lucky, .lucky{
+width:95%;
+border:none;
+font-size:16px;
+font-family:georgia;
+line-height:1.5
+</style>
+<h2>Event Handling</h2>
+<p class="editable">We can use JavaScript to bind event handlers as follows:</p>
+<p>
+<textarea id="lucky">
+Regardless of how the function used is defined, you must make sure, to register the event handler after the HTML element has been added to the DOM.
+</textarea>
+</p>
+
+
+
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+document.myForm.myButton.onclick=function(){
+alert('Hello');
+}
+</code>
+
+</div>
+<form id="myForm" name="myForm">
+<button id="myButton">alert</button>
+</form>
+<div  class="msg" class="msg" style="white-space:pre;font-family:monospace;line-height:1.3">
+</div>
+<div class="console"> </div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+Regardless of how the function used is defined, you must make sure, to register the event handler after the HTML element has been added to the DOM. Otherwise you will cause a runtime error by trying to set a property (an even handler) of a non-existent object. One way to ensure this is to assign handler's after the document's __onload__ handler fires. Another way to ensure this condition is to place the script that assigns the handler after the element in question.
+
+<h3>Event Handler Scope</h3>
+
+<h3>Return Values</h3>
+A very useful feature of event handlers is that their return values can effect the default behaviour of the event . The <strong>default behaviour</strong> is what would normally happen when the event occurs if it is left unhandled. For example, the default behavior of links is to load the link target into the browser window.
+
+To cancel the default behavior of an event, you can simply return false from its event handler. 
+
+|Event Handler| Effect of Returning false|
+| ----------------|-----------------------------|
+|click|Radio buttons and checkboxes are not set. For submit buttons, form submission is cancelled. For reset buttons, the form is not reset. For links, the link is not followed|
+|dragdrop|Drag and drop is cancelled|
+|keydown|Cancels the keypress events that follow(while the user holds the keydown)|
+|keypress|Cancels the keypress event.|
+|mousedown|Cancels the default action (beginning of a drag, beginning selection mode, or arming a link).|
+|mouseover|Causes any changes made to the window's status or defaultStatus properties to be ignored, by the browser. (Conversely, returning true causes any change in the window's status to be reflected by the browser|
+|submit|Cancels form submission|
+
+<h3>Cancelling the submit button event</h3>
+One of the most common web development tasks is to validate user input beofre submitting a form's values to the server. Consider the following example that validates a single field.
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+function validateField(){
+ if (field.value=''){
+  alert('you must enter a user name');
+  field.focus();
+  return  false;
+}
+return true;
+}
+
+document.myForm1.onsubmit=validateField;
+</code>
+
+</div>
+
+<form action="" id="myForm1" name="myForm1" onsubmit="validateField(this.username)">
+
+<input type="text" name="username" id="username"/>
+
+<button type="submit" name="submit" id="submit">submit</button>
+
+</form>
+
+<div  class="msg" class="msg" style="white-space:pre;font-family:monospace;line-height:1.3">
+</div>
+<div class="console"> </div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<h3>Discussion</h3>
+The Event model of the DOM is the one with the most differences between browsers and the most difficult to learn. Here, libraries such as jQuery come to the rescue. I have only showed you here the tip of the iceberg. 
+
+
+
+
+##Further Reading
+
+<script type="text/javascript">
+ 
+$(document).ready(function(){
+   $('p').click( function(){
+        var $this=$(this);
+      var text=$this.text();
+      var height=$this.css('height');
+     var s='<textarea class="lucky"'+'style="height: '+height+'"'+'>' +
+     text+'</textarea>';
+      $this.html(s);
+      
+   });
+  $('textarea').live('click', function(){
+      //  $('p').unbind('click');
+        
+ });
+
+$('textarea').live('blur', function(){
+       
+        $('p').bind('click', function(){
+        var $this=$(this);
+      var text=$this.text();
+      var height=$this.css('height');
+     var s='<textarea class="lucky"'+'style="height: '+height+'"'+'>edit  :' +
+     text+'</textarea>';
+      $this.html(s);
+      
+   });
+        
+ });
+  
+});
+</script>
+  
+  
+
+
+
+
+
+
+

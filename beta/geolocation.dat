@@ -1,0 +1,75 @@
+\chapter{Geolocation API}
+
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    <article>
+      <p>Finding your location: <span id="status">checking...</span></p>
+    </article>
+<script>
+
+function success(position) {
+  var s = document.querySelector('#status');
+  
+  if (s.className == 'success') {
+    // not sure why we're hitting this twice in FF, I think it's to do with a cached result coming back    
+    return;
+  }
+  
+  s.innerHTML = "found you!";
+  s.className = 'success';
+  
+  var mapcanvas = document.createElement('div');
+  mapcanvas.id = 'mapcanvas';
+  mapcanvas.style.height = '400px';
+  mapcanvas.style.width = '560px';
+    
+  document.querySelector('article').appendChild(mapcanvas);
+  
+  var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+  var myOptions = {
+    zoom: 15,
+    center: latlng,
+    mapTypeControl: false,
+    navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+  var map = new google.maps.Map(document.getElementById("mapcanvas"), myOptions);
+  
+  var marker = new google.maps.Marker({
+      position: latlng, 
+      map: map, 
+      title:"You are here! (at least within a "+position.coords.accuracy+" meter radius)"
+  });
+}
+
+function error(msg) {
+  var s = document.querySelector('#status');
+  s.innerHTML = typeof msg == 'string' ? msg : "failed";
+  s.className = 'fail';
+  
+  // console.log(arguments);
+}
+
+if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(success, error);
+} else {
+  error('not supported');
+}
+
+</script>
+
+
+<style>
+.fail { background: #c00; padding: 2px; color: #fff; }
+</style>
+<article>
+  <p>Welcome dear HTML5-er. You will be able to read this paragraph, but not the next. The next paragraph has the hidden property set on it. It's a boolean that uses the browsers own stylesheet to hide the element, which is nicer than having to dip in to the <code>style</code> properties in JavaScript.</p>
+  <p id="test" class="fail">Sadly, your browser doesn't support the hidden property. Useful when you want to quickly do <code>element.hidden</code>. Ah well, back to CSS.</p>
+</article>
+\begin{codeblock}
+document.getElementById('test').hidden = true;
+\end{codeblock}
+
+
+
+
+

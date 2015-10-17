@@ -1,0 +1,123 @@
+
+<style type="text/css" media="screen">
+    #editor, #synthesizer-editor  { 
+        position: relative;
+        top: 0;
+        right: -50px;
+        bottom: 0;
+        left: 0;
+        width:90%;
+        height:300px;
+        margin-bottom:20px;
+    }
+</style>
+
+
+
+\chapter{Code Editors}
+
+There are currently two code editors that have reached maturity, and choosing one over the other is a difficult choice, as they are both feature rich and well thought after. the first one we will examine is the [Ace](http://ace.c9.io/) code editor, which is currently used by a few organizations including cloud 9. The second one, and which was a pioneer when it came out is codemirror. 
+
+<div id="editor" class="editor" style="height:150px">function foo(items) {
+   var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/monokai");
+    editor.getSession().setMode("ace/mode/javascript");
+    }
+&lt;html&gt;&lt;/html&gt;
+</div>
+
+
+Before we can use Ace, we need to embed in the html an element, either programmatically or preferably using html. It does not matter if we use classes or ids, as Ace allows either to send a string or a DOMElement el. Of course it is easier to provide it using an id, if you only having one or two editors. Will try experimenting with both.
+
+
+<pre><code>
+ace.edit(String | DOMElement el)
+</code></pre>
+
+
+So the first thing we need to do, is to capture all the elements with the specified class name. In our case the first editor on top has a class name of `editor` and is the first in the HTMLcollection. Once we capture it we will set it to another theme. The above one is `monokai` which is used as the default in Sublime. 
+
+\begin{codeblock}
+editors = document.getElementsByClassName('editor');
+el = ace.edit(editors[0]);
+el.setTheme("ace/theme/github");
+log(editor);
+\end{codeblock}
+
+Setting up the editor is not so hard, but it gets a bit more involved if it going to be part of a more complex User Interface. Before looking at that let us have another peek at some of the other methods and properties of the editor that we can use. We will change the language, in order to remove the error shown in the first block.
+
+\begin{codeblock}
+editors = document.getElementsByClassName('editor');
+el = ace.edit(editors[0]);
+el.setTheme("ace/theme/monokai");
+el.getSession().setMode('ace/mode/html');
+val = el.getSession().getValue();
+log(editor);
+log(eval(val));
+\end{codeblock}
+
+
+\begin{codeblock}
+;(function(UI, window, undefined) {
+// Settings
+    var bufferSize = 512;
+    var waveSize = 100;
+    var lineWidth = 5;
+    var lineColor = "#0F9";
+    var sampleRate;
+    var increase;
+    var scroll = 0;
+
+    var Console = UI.Console = {
+        time : 0,
+        init : function () {},
+        theme: 'monokai',
+        process : function () {},
+        setupEditor: function() {
+           Options = {editorid:'synthesizer-editor'};
+
+            Console.Editor = ace.edit(Options.editorid);
+            Console.Editor.setTheme("ace/theme/"+this.theme);
+            Console.Editor.getSession().setMode("ace/mode/javascript");
+            Console.Editor.setShowPrintMargin(false);
+            Console.Editor.getSession().setUseWrapMode(true);
+
+            Console.Editor.commands.addCommand({
+                name: 'compile',
+                bindKey: {win: 'Ctrl-Enter',  mac: 'Command-Enter'},
+                //exec: Synth.parseCode
+            });
+
+
+        }       
+
+    }
+}(window.UI || (window.UI = {}), window));
+UI.Console.setupEditor();
+                logPRE("   |\\      _,,,---,,_\n" +
+                       "   /,`.-'`'    -.  ;-;;,_\n" +
+                       "   |,4-  ) )-,_..;\\ (  `'-'\n" +
+                       "   '---''(_/--'  `-'\\_)  Felix Lee");
+\end{codeblock}
+
+The second Code Editor is not ready yet, we will go step by step in the notes that follow.
+
+<div id="synthesizer-editor">function foo(items) {
+    var x = "All this is syntax highlighted";
+    return x;
+}</div>
+
+
+<script src="http://localhost/application-latest/js/ace/ace-builds-master/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+
+<script>
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/monokai");
+    editor.getSession().setMode("ace/mode/javascript");
+    editor.setOptions({
+        enableBasicAutocompletion: true
+    })
+</script>
+
+
+[image-credit] The Clay Pit by {{wi:Harold Harvey}} http://www.westernmorningnews.co.uk/Famous-Cornish-paintings-reveal-secrets/story-20935418-detail/story.html

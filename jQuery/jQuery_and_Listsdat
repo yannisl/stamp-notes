@@ -1,0 +1,151 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+	
+##jQuery, CSS and Lists
+
+Lists are one of the most commonly found elements in web pages. In many instances used to create buttons and menus. There are a lot of properties that designers do not normally encounter and this is one of the aims of this tutorial, to familiarize developers with the more esoteric parts of CSS.
+
+
+
+The __list-style-type__ property, changes the type of list. A number of properties are defined by the standards such as disc, square, alpha, decimal etc. By specifying decimal, you actually turn a __ul__ into an ordinary numbered list. A few caveats becareful with the jQuery selectors.
+
+{{example:
+<strong>Example</strong>: Capturing the value of a &lt;select&gt;
+Click on the selection to change the bullet type.
+<ul id="msg3" style="width:40%;float:left;margin-top:10px;padding-left:25px">
+   <li>one</li>
+   <li>two</li>
+   <li>three</li>
+        <ul id="#msg4">
+              <li>Line one</li>
+             <li>Line two</li>
+             <li>Line three</li>
+       </ul>
+   <li>four</li>
+   <li>five</li>
+   <li>six</li>
+   <li>seven</li>
+   <li>eight</li>
+   <li>nine</li>
+   <li>ten</li>
+   <li>eleven</li>
+   <li>twelve</li>
+   <li>thirteen</li>
+   <li>fourteen</li>
+   <li>fifteen</li>
+   <li>sixteen</li>
+   <li>seventeen</li>
+   <li>eighteen</li>
+   <li>nineteen</li>
+   <li>twenty</li>
+   <li>twenty-one</li>
+   <li>twenty-two</li>
+   <li>twenty-three</li>
+   <li>twenty-four</li>
+   <li>twenty-five</li>
+   <li>twenty-six</li>
+   <li>twenty-seven</li>
+
+</ul>
+
+
+
+<form style="width:40%;float:left">
+<select id="aselect" name="style-properties" multiple="multiple">
+    <option>disc</option>
+    <option selected="selected">circle</option>
+    <option>square</option>
+    <option>decimal</option>
+    <option>decimal-leading-zero</option>
+    <option>lower-roman</option>
+    <option>upper-roman</option>
+    <option>lower-alpha</option>
+    <option>upper-alpha</option>
+    <option>lower-greek</option>
+     <option>upper-greek</option>
+    <option>georgian</option>
+   <option>armenian</option>
+   <option>hebrew</option>
+   <option>cjk-ideographic</option>
+    <option>katakana</option>
+    <option>katakana-iroha</option>
+    <option>none</option>
+ </select>
+</form>
+
+}}
+
+<script>
+$("select").change(function () {
+          var str = "";
+          $("select option:selected").each(function () {
+                str += $(this).val() + " ";
+                z=$(this).val();
+                z1=z;
+              });
+          //$("#msg3 li").text(str);
+          $("#msg3").css('list-style-type', z);
+          $("#msg3 ul").css('list-style-type', z);
+        })
+        .change();
+</script>
+
+<hr/>
+
+To capture the value we use the change() method.
+
+{{plain:
+
+$("select").change(function () &#123;
+          var str = "";
+          $("select option:selected").each(function () &#123;
+                str += $(this).val() + " ";
+              &#125;);
+          $("#msg3, #msg4").text(str);
+        &#125;)
+        .change();
+
+}}
+
+
+<hr/>
+
+
+##Notes
+
+- Some list-style-types require a suitable font installed to display as expected. I use code 2001, which has one of the largest unicode ranges available and is free to download.
+
+- The CSS specification does not define how alphabetic systems wrap at the end of the alphabet. For instance, after 26 list items, upper-alpha rendering is undefined. Firefox and other browsers will continue as AA, AB, AC,... For long lists, it is recommended that authors specify true numbers.
+
+- The list styles hebrew, cjk-ideographs, hiragana, katakana, hiragana-iroha and katakana-iroha are specified in CSS2 and removed from CSS 2.1 due to lack of implementation experience. They are expected to return in the CSS3 Lists module.
+
+See the [CSS3 Draft Specification ]( http://www.w3.org/TR/css3-lists/#list-style-type) for a number of additional properties still to come
+
+##Summary
+
+Although the use of different __list-style-type__ properties can be quite useful
+the reality is that most lists get heavily styled and they are normally associated with links. In the next part we will see how we can style them using images etc. I do not know about some of the languages used but for certain the lower-greek is wrong for number six where a sigma is normally used. Combined with some other selectors and properties they can be quite useful in web publishing of books etc. (i.e combined with generated content). We will explore this in one of the future lessons.
+
+
+##Exercise
+
+- Write a list that can display a tree made of 'chapters' in Latin and sections in 'numbers'.
+
+
+
+
+
+
+
+
+
+
+

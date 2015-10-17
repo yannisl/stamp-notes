@@ -1,0 +1,65 @@
+\chapter{Typography}
+
+
+\section{Fonts}
+
+The `html` rendering fonts are handled purely by the CSS. For TeX they are handled via the `preable.tex` file or your own version. \verb+\test+
+
+\section{Highlighting, Bold, Italic and Underlining}
+
+You can \textit{this is in italics} and you can have \textsc{smallcaps.} and \lorem. You can also have \textbf{bold.} and proper ellipses \ldots.
+
+\begin{verbatim}
+\lettrine{T}{his is the typography} class. 
+You can \textit{this is in italics} and you can 
+have \textsc{smallcaps.} and \lorem. You can also 
+have \textbf{bold.}
+\end{verbatim}
+
+
+\lettrine{T}{his is the typography} class. You can \textit{this is in italics} and you can have \textsc{smallcaps.} and \lorem. You can also have \textbf{bold.} and proper ellipses \ldots.
+
+
+\begin{verbatim}
+----
+
+Dashes Example
+-------  
+
+We provide emdashes (---) endashes (--) and dashes (-). 
+
+----
+
+\end{verbatim}
+
+This renders as follows:
+
+\begin{blockquote}
+<hr/>
+\section{Dashes Example}
+ 
+
+We provide emdashes (---) endashes (--) and dashes (-). 
+\medskip 
+<hr/>
+\end{blockquote}
+
+For LaTeX we leave as is, as the TeX engine can handle the dashes on its own quite well. The sectioning command i.e, 5-dashes or more is translated automatically by the application to a section. Note if you want the optional part of a `section` then rather use, \verb+\section[]{..}+.
+
+The em dash, m dash, m-rule, or "mutton" (—) often demarcates a break of thought or some similar interpolation stronger than the interpolation demarcated by parentheses, such as the following from Nicholson Baker's The Mezzanine:
+
+\begin{blockquote}
+At that age I once stabbed my best friend, Fred, with a pair of pinking shears in the base of the neck, enraged because he had been given the comprehensive sixty-four-crayon Crayola box—including the gold and silver crayons—and would not let me look closely at the box to see how Crayola had stabilized the built-in crayon sharpener under the tiers of crayons.
+\end{blockquote}
+
+It is also used to indicate that a sentence is unfinished because the speaker has been interrupted. 
+
+For example, the em dash is used in the following way in Joseph Heller's Catch-22:
+
+He was Cain, Ulysses, the Flying Dutchman; he was Lot in Sodom, Deirdre of the Sorrows, Sweeney in the nightingales among trees. He was the miracle ingredient Z-147. He was—
+"Crazy!" Clevinger interrupted, shrieking. "That's what you are! Crazy!"
+"—immense. I'm a real, slam-bang, honest-to-goodness, three-fisted humdinger. I'm a bona fide supraman."
+
+Similarly, it can be used instead of an ellipsis to indicate aposiopesis, the rhetorical device by which a sentence is stopped short not because of interruption but because the speaker is too emotional to continue, such as Darth Vader's line "I sense something; a presence I've not felt since—" in Star Wars Episode IV: A New Hope.[23]
+
+

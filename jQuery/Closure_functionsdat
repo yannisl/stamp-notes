@@ -1,0 +1,126 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<style type="text/css">
+button#cbutton{color:blue}
+div#ex1{}
+span.purple{color: purple}
+span.echo{color: #f60}
+
+</style>
+
+
+<h2>Clojure Functions</h2>
+
+I personally found the enclosing of everything in brackets at first a bit of a difficult syntax, however, using Emacs you never have to worry about keeping track of open parentheses it will tell you immediately. By the end of the first day, I was quite comfortable with them and did not want to see a curly bracket again!
+
+In the first chapter we have seen how to write a very simple function to print "hello" and a name. Which simply concatenated a string.
+
+<h3>Defining functions</h3>
+
+
+<pre style="background:url(http://localhost/codeigniter/images/code-bg.gif)">
+<div id="clojure2">
+<span class="purple">user></span>; Clojure
+(defn hello [name]
+  (println "Hello," name))
+(hello "Yannis")
+</div>
+<button id="run2">Run</button>
+</pre>
+
+Comparing this to JavaScript:
+
+<pre style="background:url(http://localhost/codeigniter/images/code-bg.gif)">
+<div id="clojure3">
+hello=(function (msg){
+   alert("Hello, "+msg);
+});//("Yiannis");
+hello("Wei");
+</div>
+<button id="run3">Run</button>
+</pre>
+
+<h3>Clojure Syntax, sugar, macros and forms</h3>
+
+{{wi:Lisp}} dialects have a very simple, <a href="http://java.ociweb.com/mark/clojure/article.html#Intro">some</a> would say beautiful, syntax. Data and code have the same representation, lists of lists that can be represented in memory quite naturally as a tree. (a b c) is a call to a function named a with arguments b and c. To make this data instead of code, the list needs to be quoted. '(a b c) or (quote (a b c)) is a list of the values a, b and c. That's it except for some special cases. The number of special cases there are depends on the dialect.
+
+The special cases are seen by some as {{wi:syntactic_sugar}}. The more of them there are, the shorter certain kinds of code become and the more readers of the code have to learn and remember. It's a tricky balance. Many of them have an equivalent function name that can be used instead. I'll leave it to you to decide if Clojure has too much or too little syntactic sugar.
+
+
+<h3>Basic function syntax</h3>
+
+A Clojure function call looks like this:
+
+{{plain:
+(function-name arg1 arg2 arg3)
+}}
+
+This syntax is referred to as a <dfn>"form"</dfn>. There is simple beauty in the fact that everything in Lisp has this form. Note that the naming convention in Clojure is to use all lowercase with hyphens separating words in multi-word names, unlike the Java convention of using camelCase.
+
+Clojure makes heavy use of {{wi:lazy_evaluation}}. This allows functions to be invoked only when their result is needed. "Lazy sequences" are collections of results that are not computed until needed. <b>This supports the efficient creation of infinite collections</b>.
+
+Clojure code is processed in three phases: read-time, compile-time and run-time. At read-time the Reader reads source code and converts it to a data structure, mostly a list of lists of lists .... At compile-time this data structure is converted to Java bytecode. At run-time the bytecode is executed. Functions are only invoked at run-time. Macros are special constructs that look similar to functions, but are expanded into new Clojure code at compile-time.
+
+Is Clojure code hard to understand? Imagine if every time you read Java source code and encountered syntax elements like if statements, for loops, and anonymous classes, you had to pause and puzzle over what they mean. There are certain things that must be obvious to a person who wants to be a productive Java developer. Likewise there are parts of Clojure syntax that must be obvious for one to efficiently read and understand code. Examples include being comfortable with the use of <b>let</b>, <b>apply</b>, <b>map</b>, <b>reduce</b> and <b>anonymous functions</b> ... all of which we will visit later.
+
+
+
+<script>
+$(document).ready(function(){
+ 
+$("#run").click(function(){
+    $("#clojure").append('<span class="echo">hello</span>');
+ });
+
+
+$("#run1").click(function(){
+   var z = $("#clojure1").append('<span>nil</span>');
+ });
+
+$("#run2").click(function(){
+   var z = $("#clojure2").append('<span class="echo">hello, Yiannis</span>');
+ });
+
+$("#run3").click(function(){
+  var z = $("#clojure3").text();
+  eval(z);
+ });
+
+});
+
+</script>
+
+
+
+
+##Further Reading
+
+- http://stackoverflow.com/questions/760868/in-a-emacs-slime-clojure-windows-setup-failure-to-load-clojure-auto
+
+- http://tommih.blogspot.com/2009/08/emacs-clojure-and-windows.html
+
+- http://clojure.bighugh.com/
+
+- http://clojure.org/
+
+- http://writingcoding.blogspot.com/2008/06/clojure-series-table-of-contents.html
+
+- A library for <a href="http://osteele.com/sources/javascript/functional/">functional javascript</a> has been developed by Oliver Steel. You can view some [slides](http://www.slideshare.net/osteele/oliver-steele-functional-javascript-presentation) on the concept.
+
+- [An Introduction to Clojure ]([pdf]http://scorciapino.com/pub/txt/Pragmatic.Programming.Clojure.May.2009.pdf)
+
+- [An annotated list of Clojure lists](http://blog.higher-order.net/2008/11/17/annotated-clojure-links-1/)
+
+- If you prefer lectures on <a href ="http://clojure.blip.tv/file/707974/"> videos</a>.
+
+
+

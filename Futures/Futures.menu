@@ -1,0 +1,12 @@
+\begin{accordion}
+\begin{category}{Market Delta Charts}
+\mitem{Introduction}{Introduction}
+\mitem{Infrastructure}{Infrastructure}
+
+\end{category} 
+
+
+\begin{category}{Trading Platforms}   
+\mitem{Hardware Considerations}{Hardware}
+\end{category}
+\end{accordion}        

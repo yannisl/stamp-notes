@@ -1,0 +1,366 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<style type="text/css">
+.code{margin:0;padding-top:0}
+.code-block{                        background:url(http://localhost/codeigniter/images/code-bg.gif);
+margin:0;padding:0}
+.code-block .code{white-space:pre;font-family:inherit;padding:0;margin:0}
+.highlight{background:yellow}
+.green{color:green}
+p, .greek  { font-family: Aristarcoj, Cardo, "ALPHABETUM Unicode", "Arev Sans", AttikaU, BosporosU, "CMU Serif",
+	 CODE2000, "DejaVu Serif", Dioxipe, "Galilee Unicode Gk", "Gandhari Unicode",
+	"Hindsight Unicode", KadmosU, "New Athena Unicode"; font-size: 100% }
+
+</style>
+
+
+
+<h2>Excursions into Numbers, the Greek Numbering System</h2>
+
+I have developed this assignment as a boost to both algorithmic design and also to cover some Unicode issues with Javascript.
+
+The Greek Numbering system, like its counterpart - the Roman Numeral - was a decimal system, but using letters. For example, the letter alpha (&alpha;) represented the number one, beta (&beta;) the number 2 and so on. The Greeks had no symbol for zero and did not use a positional system like the one we are using to-day.
+
+
+<div  class="code-block"><div class="code code-block"><code>
+<span class="green">//Greek Numbers Converter! </span></code>
+</div>
+<p class="msg" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+
+<form id="calc" name="calc"> 
+<table border=1 cellspacing=0 bordercolor=darkblue frame=border rules=rows> 
+<tr><td>number
+    <td><input size=24 maxLength=24 name="" class="input" /> 
+    <td>enter a number
+<tr><td>N = 
+   
+</table> 
+</form> 
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+<hr/>
+
+<h4>Displaying Unicode Characters Correctly</h4> 
+
+If you cannot see the Unicode Numbers correctly, it is quite possible that your system has not got the correct font installed. Firstly we set the font information correctly as follows:
+
+{{plain:
+.greek  &#123; font-family: Aristarcoj, Cardo, "ALPHABETUM Unicode", "Arev Sans", AttikaU, BosporosU, "CMU Serif",
+	 CODE2000, "DejaVu Serif", Dioxipe, "Galilee Unicode Gk", "Gandhari Unicode",
+	"Hindsight Unicode", KadmosU, "New Athena Unicode"; font-size: 125% &#125;
+}}
+
+<h3>Number System</h3>
+<p class="greek">
+Like the Roman Numerals, which were derived from the Greek Numeral System, each unit (1, 2, ..., 9) was assigned a separate letter, each tens (10, 20, ..., 90) a separate letter, and each hundreds (100, 200, ..., 900) a separate letter. 
+</p>
+
+<p class="greek">
+This requires 27 letters, so the 24-letter Greek alphabet was extended by using three obsolete letters: <a href="/wiki/Digamma" title="Digamma">digamma</a> &#989;,(also used are <a href="/wiki/Stigma_%28letter%29" title="Stigma (letter)">stigma</a> &#987; or, in modern Greek, &#963;&#964;) for 6, <a href="/wiki/Qoppa" title="Qoppa">qoppa</a> &#991; for 90, and <a href="/wiki/Sampi" title="Sampi">sampi</a> &#993; for 900.<sup id="cite_ref-1" class="reference"><a href="#cite_note-1"><span>[</span>2<span>]</span></a></sup>. </p>
+
+<p class="greek">
+To distinguish numerals from letters they are followed by the <i>keraia</i> (Greek <span xml:lang="grc" lang="grc">&#954;&#949;&#961;&#945;&#943;&#945;</span>, "hornlike projection"), a symbol ( &#697; ) similar to an <a href="/wiki/Acute_accent" title="Acute accent">acute</a> sign ( &#180; ) but with its own <a href="/wiki/Unicode" title="Unicode">Unicode</a> character (U+0374).
+</p>
+
+<p>
+There were other methods also such as using the perisp&#333;mén&#275; (&#960;&#949;&#961;&#953;&#963;&#960;&#969;&#956;&#941;&#957;&#951;), sometimes printed in the form of a tilde, macron, or inverted breve: &#8118;. I will come back to this an show you how to define this as an option in the second part of this article.
+</p>
+
+<p>This alphabetic system operates on the additive principle in which the numeric values of the letters are added together to form the total. For example:
+</p>
+
+{{plain:
+<p> 241 is represented as &#963;&#956;&#945;&#697; (200 + 40 + 1).</p>
+}}
+
+<p class="greek">To represent numbers from 1,000 to 999,999 the same letters are reused to serve as thousands, tens of thousands, and hundreds of thousands. A "left keraia" (Unicode U+0375, ‘Greek Lower Numeral Sign’) is put in front of thousands to distinguish them from the standard use. For example, 2008 is represented as &#885;&#946;&#951;&#697; (2000 + 8).
+</p>
+
+
+
+<table class="wikitable greek" >
+<tbody><tr>
+<th align="left">Letter</th>
+<th>Value</th>
+<th></th>
+<th>Letter</th>
+<th>Value</th>
+<th></th>
+<th>Letter</th>
+
+<th>Value</th>
+</tr>
+<tr>
+<td>&#945;&#697;</td>
+<td><a href="/wiki/1_%28number%29" title="1 (number)">1</a></td>
+<td></td>
+<td>&#953;&#697;</td>
+<td><a href="/wiki/10_%28number%29" title="10 (number)">10</a></td>
+<td></td>
+<td>&#961;&#697;</td>
+<td><a href="/wiki/100_%28number%29" title="100 (number)">100</a></td>
+
+</tr>
+<tr>
+<td>&#946;&#697;</td>
+<td><a href="/wiki/2_%28number%29" title="2 (number)">2</a></td>
+<td></td>
+<td>&#954;&#697;</td>
+<td><a href="/wiki/20_%28number%29" title="20 (number)">20</a></td>
+<td></td>
+<td>&#963;&#697;</td>
+<td><a href="/wiki/200_%28number%29" title="200 (number)">200</a></td>
+</tr>
+
+<tr>
+<td>&#947;&#697;</td>
+<td><a href="/wiki/3_%28number%29" title="3 (number)">3</a></td>
+<td></td>
+<td>&#955;&#697;</td>
+<td><a href="/wiki/30_%28number%29" title="30 (number)">30</a></td>
+<td></td>
+<td>&#964;&#697;</td>
+<td><a href="/wiki/300_%28number%29" title="300 (number)">300</a></td>
+</tr>
+<tr>
+
+<td>&#948;&#697;</td>
+<td><a href="/wiki/4_%28number%29" title="4 (number)">4</a></td>
+<td></td>
+<td>&#956;&#697;</td>
+<td><a href="/wiki/40_%28number%29" title="40 (number)">40</a></td>
+<td></td>
+<td>&#965;&#697;</td>
+<td><a href="/wiki/400_%28number%29" title="400 (number)">400</a></td>
+</tr>
+<tr>
+<td>&#949;&#697;</td>
+
+<td><a href="/wiki/5_%28number%29" title="5 (number)">5</a></td>
+<td></td>
+<td>&#957;&#697;</td>
+<td><a href="/wiki/50_%28number%29" title="50 (number)">50</a></td>
+<td></td>
+<td>&#966;&#697;</td>
+<td><a href="/wiki/500_%28number%29" title="500 (number)">500</a></td>
+</tr>
+<tr>
+<td><span class="Unicode">&#989;</span>&#697; or <span class="Unicode">&#987;</span>&#697; or &#963;&#964;&#697;</td>
+
+<td><a href="/wiki/6_%28number%29" title="6 (number)">6</a></td>
+<td></td>
+<td>&#958;&#697;</td>
+<td><a href="/wiki/60_%28number%29" title="60 (number)">60</a></td>
+<td></td>
+<td>&#967;&#697;</td>
+<td><a href="/wiki/600_%28number%29" title="600 (number)">600</a></td>
+</tr>
+<tr>
+<td>&#950;&#697;</td>
+<td><a href="/wiki/7_%28number%29" title="7 (number)">7</a></td>
+
+<td></td>
+<td>&#959;&#697;</td>
+<td><a href="/wiki/70_%28number%29" title="70 (number)">70</a></td>
+<td></td>
+<td>&#968;&#697;</td>
+<td><a href="/wiki/700_%28number%29" title="700 (number)">700</a></td>
+</tr>
+<tr>
+<td>&#951;&#697;</td>
+<td><a href="/wiki/8_%28number%29" title="8 (number)">8</a></td>
+<td></td>
+
+<td>&#960;&#697;</td>
+<td><a href="/wiki/80_%28number%29" title="80 (number)">80</a></td>
+<td></td>
+<td>&#969;&#697;</td>
+<td><a href="/wiki/800_%28number%29" title="800 (number)">800</a></td>
+</tr>
+<tr>
+<td>&#952;&#697;</td>
+<td><a href="/wiki/9_%28number%29" title="9 (number)">9</a></td>
+<td></td>
+<td>&#991;&#697;</td>
+
+<td><a href="/wiki/90_%28number%29" title="90 (number)">90</a></td>
+<td></td>
+<td>&#993;&#697;</td>
+<td><a href="/wiki/900_%28number%29" title="900 (number)">900</a></td>
+</tr>
+</tbody></table>
+
+<p>
+So in plain computer language to display the HTML, we need to specify the Unicode numbers
+
+{{plain:
+                  &amp;#945;&amp;#697; = &#945;&#697;
+}}
+
+</p>
+
+The earliest use of the alphabetic numerals seems to be in a Halicarnasus inscription of date not much later than 450 BC. 
+Two caskets from the famous mausoleum at Halicarnassus which are attributed to the time of Mausolus, about 350 B.C., are inscribed with the letters = 754 and 293. Another stone inscription found at Athens and perhaps belonging to the middle of the fourth century B.C. has, in five fragments of columns, numbers in tens and units expressed on the same system, the tens on the right and the units on the left.
+
+
+
+##Further Reading
+
+Some additional information can be found at http://www.russellcottrell.com/greek/utilities/GreekNumberConverter.htm, where there is also a javascript converter.
+
+http://books.google.com/books?id=_HZNr_mGFzQC&printsec=frontcover#v=onepage&q=&f=false
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+  $('button.eval').click(function(){
+   var code=$(this).siblings('.code').text();
+    
+   $that=$(this);
+    //clear logger before output
+   $that.siblings(".results").text('');
+   //eval(code);
+   //var txt = getGreekNumber(str); 
+     
+  function assert(pass, msg){
+     var type = pass ? "PASS" : "FAIL";
+     var result='<li class=" ' + type + ' "><b>' + type + "</b> " 
+         + msg + "</li>";
+     $that.siblings(".results").append(result).fadeTo('fast','0.35').fadeTo('fast','1.0');
+     return result;
+   }
+ function log(){
+  var msg = "";
+  for ( var i = 0; i < arguments.length; i++ ) {
+    msg += " " + arguments[i];
+  }
+  $that.siblings(".results").append("<li class='LOG'><b>LOG</b> " + msg + "</li>");
+}
+
+function htmlString(unicodeDigit, diagritic){
+  var s='&#697;'  ; var s1='';
+   if (diagritic==1)  {
+      s1 ='&#885;' ;
+      s='';
+  }
+   return   s1+ '&#' + unicodeDigit + ';' + s ;
+}
+
+// d1  = divisor
+// m1 = x/d1  number/divisor  
+ 
+function getNumberString(m1, d1){
+var digitsArray = new Array(
+    new Array( 945, 946, 947, 948, 949, 987, 950, 951, 952),
+    new Array( 953, 954, 955, 956, 957, 958, 959, 960, 985),
+    new Array( 961, 963, 964, 965, 966, 967, 968, 969, 993)
+);
+
+digitsArray[3]=digitsArray[0];
+var m=0;var diagritic=0;
+var codeString='';
+var s='';
+if (d1 == 1000){
+   m = 3;
+   diagritic = 1;
+}
+if (d1 == 100){
+    m = 2;
+}
+if (d1==10) {
+  m = 1 ;
+}
+if (d1==1) {
+  m=0;
+}
+  log('in getNumberString  d1   m1  : ', d1, '  ', diagritic);
+ if ((m1<10) && (d1<10000)) {
+      if ((m1-1<0)) {
+        codeString='';
+       }
+       else {
+         codeString = htmlString(digitsArray[m][m1-1], diagritic);
+      };
+ }
+  // log('html : ', codeString);
+return codeString;
+}
+
+
+
+
+function getGreekNumber( x )
+{
+
+    var divisor = 10000; var s=' '; var  s1=''; var i=0;
+    var remainder=0; var i=0;
+    log('In function getGreekNumber : ', x );
+    for (i=0;i<5;i++) {
+       var m = Math.floor(x/divisor);
+       if (m>=0) {
+             s = getNumberString(m,divisor);
+       }; 
+      remainder = x  %  divisor;
+    
+      x = remainder;
+       s1 = s1 + s;
+           
+      log('loop :  m,   remainder,  divisor,   html  ' , m ,'   ', remainder, '  ', i, '   ', divisor, '   ', s);
+
+      divisor = divisor/10;
+    } 
+return s1;
+
+}
+
+$(".input").blur(function(){
+      var str=$(this).val();
+      var str=parseFloat(str);
+      var txt = getGreekNumber(str); 
+     $that.siblings('.msg').html(' out   ' + txt);
+ });
+
+//end on document ready
+});
+
+
+
+
+
+
+
+
+function error(msg){
+  $(this).siblings("#results").append("<li class='error'><b>ERROR</b> " + msg + "</li>");
+}
+
+});
+
+
+
+
+ </script>
+
+
+
+  
+  
+
+
+
+
+
+
+

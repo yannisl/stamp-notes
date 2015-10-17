@@ -1,0 +1,421 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<style type="text/css">
+.code{margin:0;padding-top:0}
+.code-block{                        background:url(http://localhost/codeigniter/images/code-bg.gif);
+margin:0;padding:0}
+.code-block .code{white-space:pre;font-family:inherit;padding:0;margin:0}
+.highlight{background:yellow}
+.green{color:green}
+.hidden{display:none}
+.maya{display:block;float:left;border:1px solid #ececec;padding:0;margin:0;
+margin-bottom:2px;}
+
+.rod{float:left;width:32px;height:48px;border:1px solid #bebebe;color:#fff}
+.rod img{display:block;margin:0 auto;float:none}
+.rod span{display:block;width:99%}
+.rod1{float:right;width:32px;height:48px;border:1px solid #fff}
+</style>
+
+
+
+
+
+
+
+<h2>Chinese Counting Rods</h2>
+
+Counting rods (traditional Chinese: &#31820; simplified Chinese: &#31609;; pinyin: chóu; Japanese: &#31639;&#26408;, sangi) are small bars, typically 3-14 cm long, used by mathematicians for calculation in China, Japan, Korea, and Vietnam. They are placed either horizontally or vertically to represent any number and any fraction.
+The written forms based on them are called rod numerals. They are a true positional numeral system with digits for 1-9 and later also for 0.
+
+
+
+<div style="background:url(http://localhost/codeigniter/images/culture.gif);height:230px;padding:15px" class="clearfix">
+
+<div  style="width:370px">
+<div class="rod" style="border:none">
+<div class="rod" >
+<img  src="http://localhost/codeigniter/images/rods/h1.png" />
+  </div>
+One
+</div>
+<div  class="rod" >
+<img  src="http://localhost/codeigniter/images/rods/h2.png" />
+</div>
+<div   class="rod">
+<img class="maya" src="http://localhost/codeigniter/images/rods/h3.png" />
+</div>
+<div   class="rod" >
+<img class="maya" src="http://localhost/codeigniter/images/rods/h4.png" />
+</div>
+<div  class="rod">
+<img class="maya" src="http://localhost/codeigniter/images/rods/h5.png" />
+</div>
+<div  class="rod">
+<img class="maya" src="http://localhost/codeigniter/images/rods/h6.png" />
+</div>
+<div  class="rod">
+<img  src="http://localhost/codeigniter/images/rods/h7.png" />
+</div>
+<div class="rod">
+<img class="maya" src="http://localhost/codeigniter/images/rods/h8.png" />
+</div>
+
+<div  class="rod">
+    <img  src="http://localhost/codeigniter/images/rods/h9.png" />
+</div>
+
+</div>
+<div style="width:48%;float:left">
+<p style="font-family:Georgia;font-size:28px;color:#fff;width:45%;float:left;margin-left:15px">Chinese Counting Rods</p>
+<p style="color:#fff;width:45%;float:left;margin-left:15px">The system employed two different symbols for each digit for clarity. A vertical version and a horizontal version. These were alternated to avoid confusion.</p>
+</div>
+</div>
+
+The system employed two different symbols for each digit for clarity. A vertical version and a horizontal version. These were alternated to avoid confusion.
+
+
+
+{{example:
+
+<div>
+
+<div  class="rod" >
+  <span>2</span>
+   <img  src="http://localhost/codeigniter/images/rods/v2.png" />
+   
+</div>
+
+<div  class="rod" >
+   <span>2</span>
+   <img  src="http://localhost/codeigniter/images/rods/h2.png" />
+  
+</div>
+
+
+  <div  class="rod" >
+  <span>2</span>
+  <img  src="http://localhost/codeigniter/images/rods/v2.png" />
+  
+   </div>
+
+</div>
+
+}}
+
+
+
+<hr/>
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+<span class="hidden"> log( "Click #", 'button' ); </span>
+<span class="green">// Convert a decimal number to chinese rods </span>
+function chineseRods(decimal){
+<span class=green> // if no new used create instance and return</span>
+<span class="green"> // see factory pattern article</span>
+ if ( !(this instanceof arguments.callee) ) 
+    return new chineseRods(decimal);
+
+    this.drawNumber = function (n) {
+       var image='&lt;img src="http://localhost/codeigniter/images/rods/'+
+                                  "v"+ n +'.png"   /&gt;';
+       var s='&lt;div style="width:130px" &gt;' + image + "&lt;/div&gt;";
+       return s;
+      }
+
+ }
+var number =  chineseRods(13);
+var s=number.drawNumber(5);
+$("#msg2").html('test'); 
+alert(this);
+$("#msg2").append(number.drawNumber(8));
+</code>
+</div>
+<hr/>
+<div id="msg2" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</div>
+<hr/>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+<h4>Datastructure for representing the number</h4>
+
+Since the Chinese used a positional system with a base of ten, it is simple to design an algorithm to convert decimal numbers to chinese counting rods.
+
+{{plain:
+        var rodsNumber= new String('803');                 
+}}
+
+All we have to do is to parse the decimal number string and replace each digit with its own chinese rod image. During the replacement process we will keep track of alternate digits in order to place the correct image.
+
+<div  class="code-block console-wrap"><div class="code"><code>
+<span class="hidden"> log( "Click #", 'button' ); </span>
+<span class="green">// Convert a decimal number to chinese rods </span>
+function chineseRods(decimal){
+<span class=green> // if no new used create instance and return</span>
+<span class="green"> // see factory pattern article</span>
+ if ( !(this instanceof arguments.callee) ) 
+    return new chineseRods(decimal);
+
+    this.drawNumber = function (n) {
+       var image='&lt;img src="http://localhost/codeigniter/images/rods/'+ n +'.png"   /&gt;';
+       var s='&lt;div class="rod1" &gt;' + image + "&lt;/div&gt;";
+       return s;
+      }
+
+    this.parseNumber = function(n){
+       var i = 0;
+       var type = true;
+       var a = new Array();
+       var z = 't';
+       n = n+'';   //making sure is a string
+       for (i=0;i&lt;n.length;i++){
+         if (type == true) {z = 'v'}
+              else {
+         z = 'h';}
+          a[i] = z+n[i];
+          a[i]  = this.drawNumber(a[i]);
+          type = !type;
+       }
+       return a;   
+    }
+
+ }
+var number =  chineseRods();
+var s = number.parseNumber(88);
+       s = s.join(" ");
+alert(s);
+$("#msg3").html(s);
+
+</code>
+</div>
+<hr/>
+<div id="msg3" style="width:400px;height:130px;font-size:24px;font-weight:bold;background:#fff">
+</div>
+<hr/>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+##Refactoring and clean-up and testing!
+
+At this stage, where we have our first working version, we should start thinking about refactoring the code, abstracting it a bit more. We should also start thinking as to how to modify the code to cater for the Mayan calendar, which did not work in 400's but in 360's.
+
+###Adding some more properties
+
+It would be informative instead of just returning the values of the array to also add some more properties to the Object.
+
+-  length of array (i.e, how many glyphs)
+-  options (options to use the more complex pictogaphic system, just a different set of glyphs)
+- extend the system for numbers greater 20<sup>2<sup>.
+- returning all glyphs rather than just running the system
+- removing some of the unnecessary routines.
+
+<div  class="code-block console-wrap"><div class="code code-block"><code>
+<span class="green">//Maya Numbers </span>
+<span class="hidden"> log( "Click #", 'button' ); </span>
+DEBUG = true;
+<span class="green">//only the number in function arguments</span>
+function MayaNumber(decimal){
+<span class=green> // if no new used create instance and return</span>
+<span class="green"> // see factory pattern article</span>
+ if ( !(this instanceof arguments.callee) ) 
+    return new MayaNumber(decimal);
+     this.base = 20;   <span class="green">//radix</span>
+     this.decimal = decimal;
+     this.mayaGlyphsArray=new Array(99,99,99);
+
+     this.divisor = function (){
+           var i=1;var s='';
+           var number =  this.decimal;
+           var z=0;
+           while (number>z){
+ 
+               z=i*(Math.pow(20,i));
+               number=number-z;
+               i=i+1;
+          } 
+       return Math.pow(20,i-1);
+
+    };
+    <span class="green" // draws on glyph</span>
+    this.drawNumber = function (n) {
+       var image='&lt;img src="http://localhost/codeigniter/images/maya/'+n +'.gif"   class="maya" /&gt;';
+       var s='&lt;div style="width:40px" &gt;' + image + "&lt;/div&gt;";
+       return s;
+      }
+    this.convertNumber = function (decimal,   step, mayaGlyphs){
+    log('step :', step);
+    log('mayaGlyphs Array :', this.mayaGlyphsArray);
+  
+    var  glyph = Math.floor(decimal/this.divisor());
+    var remainder = decimal -(glyph*this.divisor());
+    log('divisor :', this.divisor());
+    
+     mayaGlyphs[step] = glyph;
+     this.mayaGlyphsArray[step] = glyph;
+     log('glyph : ', glyph);
+     log('mayaGlyph : ', mayaGlyphs);
+      step=step+1; 
+     log('this divisor', this.divisor);
+      if (this.divisor()==1){
+         // this.mayaGlyphsArray = new Array(9,9,9);
+           assert(true, "Function Returning");
+          }
+      else { 
+          var z = this.divisor();
+                 z = z/20;
+          this.divisor = function(){return z} ;
+          this.convertNumber(remainder, step, mayaGlyphs);
+      }
+      return mayaGlyphs;
+    }
+
+ }
+
+var number =  MayaNumber(309000);
+var s1 = number.convertNumber(309000,  0, []);
+alert(s1.length);
+alert('Base : '+number.base);
+alert(number.divisor());
+//var s3=mayaGlyphsArray.toString;
+alert('Array '+number.mayaGlyphsArray);
+$("#msg9").append(number.drawNumber(s1[0]));
+$("#msg9").append(number.drawNumber(s1[1]));
+$("#msg9").append(number.drawNumber(s1[2]));
+$("#msg9").append(number.drawNumber(s1[3]));
+
+$('#msg9').append('Maya Number :  ['+s1[0]+','+s1[1]+','+s1[2]+','+s1[3]+']');
+</code>
+</div>
+<hr/>
+<div id="msg9" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</div>
+<hr/>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+There is still work to be done! For example how about adding a method to draw the number, using the Canvas element? We will leave this for a future article. We can also turn this into a jQuery plugin or function, where we could call it like this:
+
+{{plain:
+   $("#out").convertNumber(3090);
+}}
+
+To be able to do this our convert method should be turned into a self-running function (See Self-running functions).
+
+
+##Further Reading
+
+http://home.att.net/~srschmitt/script_number_bases.html
+
+
+<script type="text/javascript">
+
+
+
+
+$(document).ready(function(){
+    var DEBUG=false;
+
+  $('button.eval').click(function(){
+   
+   var code=$(this).siblings('.code').text();
+    
+   $that=$(this);
+    //clear logger before output
+   $that.siblings(".results").text('');
+   eval(code);
+ 
+  function assert(pass, msg){
+     var type = pass ? "PASS" : "FAIL";
+     var result='<li class=" ' + type + ' "><b>' + type + "</b> " 
+         + msg + "</li>";
+     $that.siblings(".results").append(result).fadeTo('fast','0.35').fadeTo('fast','1.0');
+     return result;
+   }
+ function log(){
+  var msg = "";
+   
+  for ( var i = 0; i < arguments.length; i++ ) {
+    msg += " " + arguments[i];
+  }
+ if (DEBUG==true){
+  $that.siblings(".results").append("<li class='LOG'><b>LOG</b> " + msg + "</li>").fadeTo('slow','1.0');
+}
+}
+
+$('#compute').click(function(){
+  alert('compute button clicked');
+  compute();
+}); 
+
+//end on document ready
+
+ 
+});
+
+
+
+$(".input").keyup(function(){
+    var pattern=$(this).siblings('.regex').val(); 
+    var str=$(this).val();
+     s=isValid(str,pattern);
+    //alert(str);
+     $(this).siblings('.msg').text(s);
+});
+
+$(".regex").keyup(function(){
+    var str=$(this).siblings('.input').val();
+    var pattern=$(this).val();
+     s=isValid(str,pattern);
+     $(this).siblings('.msg').text(s);
+    // alert(pattern);
+});
+
+
+
+function error(msg){
+  $(this).siblings("#results").append("<li class='error'><b>ERROR</b> " + msg + "</li>");
+}
+
+
+
+});
+
+function isValid(str,pattern){
+    s=pattern;//alert(s);
+   var dateformat =new RegExp(pattern,'msi');
+    //alert(dateformat);
+   return dateformat.test(str);
+}
+
+//change to pass regex
+//must do to make more general solution
+
+
+ </script>
+
+
+
+  
+  
+
+
+
+
+
+
+

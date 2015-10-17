@@ -1,0 +1,58 @@
+## Dojo
+
+<script src="//ajax.googleapis.com/ajax/libs/dojo/1.10.0/dojo/dojo.js">
+
+dojo.require("dojo.string");
+</script>
+ 
+ <div id="greeting">nnnnnn</div> 
+\begin{codeblock}
+
+ 
+var x = dojo.string.trim("I Like Trim Strings ");
+log(x);
+
+dojo.require("dojo.string");
+
+var x = dojo.string.trim("I Like Trim Strings       ");
+log(x+'.');
+require([
+    'dojo/dom',
+    'dojo/fx',
+    'dojo/domReady!'
+], function (dom, fx) {
+    // The piece we had before...
+    var greeting = dom.byId('greeting');
+    greeting.innerHTML += ' from Dojo!';
+ 
+    // ...but now, with an animation!
+    fx.slideTo({
+        node: greeting,
+        bottom: 100,
+        left: 200
+    }).play();
+});
+\end{codeblock}
+ 
+
+ 
+ 
+ 
+ 
+<script>
+  
+alert("Dojo version " + dojo.version + " is loaded");
+  
+
+
+ 
+
+
+</script>
+
+
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                     

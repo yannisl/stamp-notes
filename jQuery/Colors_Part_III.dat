@@ -1,0 +1,57 @@
+
+<style type="text/css">
+.box{width:130px;height:30px;font-size:10px}
+</style>
+
+<script>goog.require('goog.color.names');</script>
+
+## Colors Part III the goog.color.name
+
+ This utility class, provides an object that holds information on all HTML defined color names, such as blue etc. Note that this will not be the same across all browsers.
+
+\begin{codeblock}
+var obj = goog.color.names;
+for (var prop in obj) {
+  //logPRE(prop + ' : ' + obj[prop]);
+}
+
+log(obj['aliceblue']);
+
+\end{codeblock}
+
+
+<h3>Validation</h3>
+
+
+\begin{codeblock}
+var obj = goog.color.names;
+for (var prop in obj) {
+  log('&lt;div style="background:'+ obj[prop]+';" class="box" &gt;'+prop+'  : '+obj[prop]+'&lt;/div&gt;');
+}
+\end{codeblock}
+
+
+Of course designers and web developers sparingly use color names anymore! Nevertheless, I presented the class here because it has potential, especially if you would like to extend the class with your favourite colors and give them names.
+
+
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+[Web Colors](http://en.wikipedia.org/wiki/Web_colors)
+
+ 
+
+
+
+  
+  
+
+
+
+
+
+
+
+                                                                                                                                

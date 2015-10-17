@@ -1,0 +1,95 @@
+<style type="text/css">
+
+.sales1{color:red}
+ul.ex {font-size:13px;display:block}
+ul.ex {list-type:none;list-style-type:none}
+ul.ex li, ul.ex1 li{display:block;width:90%;border:1px solid #ececec;margin-bottom:1px}
+ul.ex li span{cursor:pointer}
+div#load{width:30%;float:none;background:#dd0000;color:#fff}
+</style>
+
+
+
+<h3>Monitoring the requests</h3>
+
+It is important that we keep users aware of the status of a request. jQuery offers a set of callbacks that are used to register when various AJAX related events occur.
+
+The .ajaxStart(0 and .ajaxStop() methods are two examples of these observer functions, and can be attached to a jQuery object. All of the observers are global, in that they are called when an AJAX communication occurs, regardless of what code initiates it.
+
+We use these methods to provide some feedback to the user in the case
+of a slow network connection. The HTML for the page can have a suitable loading message appended.
+
+In keeping with the spirit of <strong>progressive enhancement</strong>, however we won't put this HTML mark-up directly on the page. It is only relevant when JavaScript is available.
+
+<h3>Executing a script using $.getScript()</h3>
+
+
+<div  class="code-block console-wrap">
+<div class="code code-block">
+
+<code>
+$('#ajax-button').click(function(){
+   $('&lt;div id="load"&gt; loading ....&lt;/div&gt;').prependTo('#msg1')
+       .ajaxStart(function(){
+         $(this).show();
+       }).ajaxStop(function(){
+           // $(this).hide();
+        });
+     $('#msg1').load('/CodeIgniter/js/jquery_menu.html');
+     return false;
+});
+
+</code>
+
+</div>
+
+<div  id="msg1" class="msg">
+ </div>
+<div class="console"></div>
+<hr/>
+<button class="eval">Run Code!</button>
+<button id="ajax-button">Load Data!</button>
+
+<ol class="results"></ol> 
+</div>
+
+<hr/>
+
+<h3>Small Enhancements, fading in the new content</h3>
+
+We can create a small enhancement here by making the loaded content fade into view rather than appear suddenly. The .load() can take a callback to be fired
+on completion:
+
+<div  class="code-block console-wrap">
+<div class="code">
+
+<code>
+$('#ajax-button-01').click(function(){
+   $('&lt;div id="load"&gt; loading ....&lt;/div&gt;').prependTo('#msg2')
+       .ajaxStart(function(){
+         $(this).show();
+       }).ajaxStop(function(){
+           // $(this).hide();
+        });
+     $('#msg2').load('/CodeIgniter/js/a.html', function(){
+            $(this).fadeOut('slow').fadeIn('slow');
+      });
+     return false;
+});
+
+</code>
+
+</div>
+
+<div  id="msg2" class="msg">
+ </div>
+<div class="console"></div>
+<hr/>
+<button class="eval">Run Code!</button>
+<button id="ajax-button-01">Load Data!</button>
+
+<ol class="results"></ol> 
+</div>
+
+
+  

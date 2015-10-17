@@ -1,0 +1,158 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+{{feature-image:http://localhost/CodeIgniter/images/christophe_gilbert_02.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: UI, jQuery, Visibility Filters, CSS Visibility }}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+<style>
+ .col1{width:22.3%;height:350px;float:left;
+border-right:1px solid #bebebe}
+.table1{width:60%;border:1px solid #bebebe;float:left}
+.c1{}
+.r1{}
+.table1 tr td{border:1px solid #bebebe;margin:1px} 
+.table1 td{padding:1px;margin-bottom:3px}
+</style>
+
+
+<h2>How to add a Table Row with jQuery and Javascript</h2>
+
+While working with input screens developers need to dynamically add a new table row to the bottom of their tables. I wrote a little javascript function that takes your jQuery selection of tables and dynamically adds a table row at the bottom of them.
+
+{{example:
+<table border="1" class="table1">
+<tbody>
+<tr>
+<td>row 1, cell 1</td>
+<td>row 1, cell 2</td>
+</tr>
+<tr>
+<td>row 2, cell 1</td>
+<td>row 2, cell 2</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<p><a class="c1">click to add row</a></p>
+<p><a class="r1">click to remove last row</a></p>
+
+(Double click cell to insert a row)
+}}
+
+<script type="text/javascript">
+/*
+    Add a new table row to the bottom of the table
+*/
+
+function addTableRow(jQtable){
+    jQtable.each(function(){
+        var $table = $(this);
+        // Number of td's in the last table row
+        var n = $('tr:last td', this).length;
+        var r  =  $('tr', this).length;
+        var tds = '<tr>';
+        for(var i = 0; i < n; i++){
+            tds += '<td>row '+ r +' cell '+(i+1)+' </td>';
+        }
+        tds += '</tr>';
+        if($('tbody', this).length > 0){
+            $('tbody', this).append(tds);
+        }else {
+            $(this).append(tds);
+        }
+    });
+}
+
+/*
+    Remove the last/bottom table row
+*/
+function removeTableRow(jQtable){
+    jQtable.each(function(){
+        if($('tbody', this).length > 0){
+            $('tbody tr:last', this).remove();
+        }else {
+            $('tr:last', this).remove();
+        }
+    });
+}
+
+
+
+
+$('.c1').click(function(){
+$('.table1').css('background','#bebebe');
+addTableRow($('.table1'));
+$('.table1').css('background','#ffffff');
+});
+
+$('.r1').click(function(){
+$('.table1').css('background','#bebebe');
+removeTableRow($('.table1'));
+$('.table1').css('background','#ffffff');
+});
+
+$('td').live('dblclick',function(){
+addTableRow($('.table1'));
+$('.table1').css('background','#ffffff');
+});
+
+</script>
+
+We can now look at the code:
+
+<pre style="background:url(http://localhost/CodeIgniter/images/code-bg.gif);font-size:12px;padding:5px">
+<code class="js">
+//
+//  Add a new table row to the bottom of the table
+//
+
+function addTableRow(jQtable)&#123;
+    jQtable.each(function()&#123;
+        var $table = $(this);
+        // Number of td's in the last table row
+        var n = $('tr:last td', this).length;
+        var tds = '&lt;tr>';
+        for(var i = 0; i < n; i++)&#123;
+            tds += '&lt;td>'+(n+1)+' &lt;/td&gt;';
+        }
+        tds += '&lt;/tr&gt;';
+        if($('tbody', this).length > 0)&#123;
+            $('tbody', this).append(tds);
+        &#125;else &#125;
+            $(this).append(tds);
+        &#125;
+    &#125);
+&#125;
+</code>
+</pre>
+
+Similarly we can write a small function to remove the last row of the Table, in real life though we will need to both be able to add or delete a Table row based on either a context menu or some form of button on the row. We will explore this in the next article.
+
+
+<pre style="background:url(http://localhost/CodeIgniter/images/code-bg.gif);font-size:12px;padding:5px" >
+<pre class="js">
+/*
+    Remove the last/bottom table row
+*/
+function removeTableRow(jQtable){
+    jQtable.each(function(){
+        if($('tbody', this).length > 0){
+            $('tbody tr:last', this).remove();
+        }else {
+            $('tr:last', this).remove();
+        }
+    });
+}</pre>
+</pre>
+
+
+The function uses the <em>remove()</em>  jQuery method.
+
+
+  

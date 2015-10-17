@@ -1,0 +1,30 @@
+\begin{accordion}
+\begin{category}{Early Letters}
+\mitem{Early Mail}{Early_Mail}
+\end{category}
+\begin{category}{Lady McLeod}
+\mitem{Lady McLeod}{Lady_McLeod}
+\end{category}   
+
+\begin{category}{De La Rue Printings}
+\mitem{De La Rue Contract}{1863_Issue}
+\mitem{Shipping Dates}{De_La_Rue_Shipping_Dates}
+\end{category}
+
+\begin{category}{1884-94 Typographed Issue}
+\mitem{Printers Records}{1884-94_Typographed_Issue}
+\end{category}
+\begin{category}{1896-1900 Britannia}
+\mitem{1896-1900 Britannia}{1896-1900_Britannia_Issues}
+\end{category}
+\begin{category}{1898 Centenary}          
+\mitem{1898 Landing on Trinidad}{1898_Landing_on_Trinidad}
+\end{category}    
+\begin{category}{1899 Unissued}
+\mitem{1899 Unissued}{1899_Unissued}  
+\end{category}  
+\begin{category}{Back of the Book}
+\mitem{Officials}{Officials}
+\mitem{Postage Dues}{Postage_Dues}
+\end{category}    
+\end{accordion}      

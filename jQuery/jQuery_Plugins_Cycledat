@@ -1,0 +1,172 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<style type="text/css">
+.yellow{background:yellow}
+</style>
+<script type="text/javascript" src="http://localhost/CodeIgniter/js/cycle.js"></script>	
+<script type="text/javascript" src="http://localhost/CodeIgniter/js/context_menu.js"></script>	
+<h2 id="firstHeading" class="firstHeading">The Cycle Plugin</h2>
+
+The jQuery Cycle Plugin is a  slideshow plugin developed by M. Alsup{{sup:1}}. Its implementation is based on the InnerFade Plugin by Torsten Baldes, the Slideshow Plugin by Matt Oakes, and the jqShuffle Plugin by Benjamin Sterling. It supports pause-on-hover, auto-stop, auto-fit, before/after callbacks, click triggers and many transition effects. It also supports, but does not require, the Metadata Plugin and the Easing Plugin.
+
+The plugin provides a method called cycle which is invoked on a container element. Each child element of the container becomes a "slide". Options control how and when the slides are transitioned.
+
+More at [malsup]( http://malsup.com/jquery/cycle/)
+
+One of the interesting aspects of this plugin, is that one can actually mix any type of content, not just images.
+
+<script type="text/javascript"> 
+$(document).ready(function() {
+$('.slideshow').cycle({
+		fx: 'fadeZoom' 
+  });
+  $('.slideshow1').cycle({
+		fx: 'scrollUp' 
+  });
+});
+</script> 
+
+
+{{example: 
+<div class="clearfix" style="height:300px">
+<h4>Demo Cycle Plugin</h4>
+<div class="slideshow" style="width:40%;float:left;margin-left:30px">
+<p> 
+<img src="http://localhost/CodeIgniter/images/angela.jpg" width="60%"  /> 
+test
+</p>
+<img src="http://localhost/CodeIgniter/images/Atomic_by_miss_mosh.jpg" width="60%"  /> 		
+<img src="http://localhost/CodeIgniter/images/champagne_ulorinvex.jpg" width="60%"  />
+</div>
+
+<div class="slideshow1" style="width:40%;float:left"> 
+<img src="http://localhost/CodeIgniter/images/angela.jpg" width="98%"  /> 
+<img src="http://localhost/CodeIgniter/images/Atomic_by_miss_mosh.jpg" width="98%"  /> 		
+<img src="http://localhost/CodeIgniter/images/champagne_ulorinvex.jpg" width="98%"  />
+
+</div>
+
+- blindX
+- blindY,
+- blindZ
+- cover
+- curtainX
+- curtainY
+fade
+fadeZoom
+growX
+growY
+scrollUp
+scrollDown
+scrollLeft
+scrollRight
+scrollHorz
+scrollVert
+shuffle
+slideX
+slideY
+toss
+turnUp
+turnDown
+turnLeft
+turnRight
+uncover
+wipe
+zoom
+
+</div>
+
+<p><span class="demo1">Right Click me!</span></p>
+
+}}
+
+To characterize this clever piece of code as 'feature-rich', would be an understatement as I can not really think of any transition that has not been provided for.
+
+To use it, the only thing you need to do is to write some short jQuery snippets. For example to create the animations shown in the example above the code is:
+
+{{plain:
+$(document).ready(function() &#123;
+$('.slideshow').cycle(&#123;
+		fx: 'uncover' 
+  &#125;);
+  $('.slideshow1').cycle(&#123;
+		fx: 'scrollUp' 
+  &#125;);
+&#125);
+}}
+
+
+
+
+<div class="contextMenu" id="myMenu1">
+
+      <ul>
+
+        <li id="open"><img src="http://localhost/CodeIgniter/images/folder.png" /> Open</li>
+
+        <li id="email"><img src="http://localhost/CodeIgniter/images/email_01.png" /> Email</li>
+
+        <li id="save"><img src="http://localhost/CodeIgniter/images/disk.png" /> Save</li>
+
+<li id="close"><img src="http://localhost/CodeIgniter/images/cross.png" /> Close</li>
+
+      </ul>
+
+</div>
+
+
+<script type="text/javascript">
+$('span.demo1').contextMenu('myMenu1', {
+
+      bindings: {
+
+        'open': function(t) {
+        $('.slideshow1').cycle({
+           fx: 'fadeZoom' 
+        });
+          alert('Trigger was '+t.id+'\nAction was Open');
+
+        },
+
+        'email': function(t) {
+     $('.slideshow1').cycle({
+           fx: 'cover' 
+        }); $('.slideshow').cycle({
+           fx: 'cover' 
+        });
+          alert('Trigger was '+t.id+'\nAction was Email');
+
+        },
+
+        'save': function(t) {
+
+          alert('Trigger was '+t.id+'\nAction was Save');
+
+        },
+
+        'delete': function(t) {
+
+          alert('Trigger was '+t.id+'\nAction was Delete');
+
+        }
+
+  }
+
+});
+</script>
+
+
+For the next tutorial we will investigate the mother of all plugins. The recently released [jqgrid](http://trirand.com/jqgrid/jqgrid.html). This plugin is the ultimate grid plugin, that has the potential to change your browser into your desktop! Although available for some time, it has now integrated with the UI library. Just to warn you a bit, you will need to spend quite a bit of time with it to be in a position to effectively use it.
+
+
+
+
+<hr/>

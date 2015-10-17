@@ -1,0 +1,131 @@
+ <!--
+{{feature-image:/codeigniter/images/underground_thumb.jpg}}
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+<h2>Creating a Simple PHP sandbox</h2>
+
+The aim of these notes is to document the development of a PHP sandbox in similar lines to the JavaScript sandbox developed and use in this website.
+
+The aim is to capture the code from a code area (area to be editable), then send it to the server via  AJAX and output the results in a logger.
+
+The AJAX part actually is not very difficult, however on the Server side we need to take some pre-cautions as to the actual commands we should allow to pass through to limit any possible attacks from malicious users. In such a case their IP will be logged and an 11000kV volt flashback will be sent back to fry their computer!
+
+Here is our first simple example. We send some code on the press of the 'run' button and the response will come back after a while and logged.
+
+<div  class="code-block console-wrap" title="PHP sandbox example"><div class="code code-block">
+<code style="display:none">
+var options = {
+  width: "70%",
+  opacity: 0.4,
+  marginLeft: "0.6in",
+  fontSize: "2.5em",
+  borderWidth: "10px"
+};
+$('#start').bind("ajaxStart", function () {
+  $(this).show().animate(options, 1500);
+});
+
+$('#send').bind("ajaxStart", function () {
+  $(this).show().animate(options, 1500);
+});
+
+$('#sandbox').bind("ajaxSuccess", function () {
+  $(this).show().animate(options, 1500);
+});
+
+$('#complete').bind("ajaxComplete", function () {
+  $(this).show().animate(options, 1500);
+});
+
+$.ajax({
+  type: "GET",
+  url: "/CodeIgniter/upload/sandbox/test",
+  success: callback,
+  error: err
+});
+
+function callback(data, status) {
+  $that.siblings('.fullresponse').html(data);
+}
+
+function err(xhr, reason, ex) {
+  reason = '<div class="error">' + reason + '</div>';
+  $that.siblings('.fullresponse').html(reason);
+}
+
+
+
+</code>
+<pre id="PHP">
+
+$x=20;
+switch ($x)
+{
+case 1:
+  echo "Number 1";
+  break;
+case 2:
+  echo "Number 2";
+  break;
+case 3:
+  echo "Number 3";
+  break;
+default:
+  echo "No number between 1 and 3";
+}
+
+</pre>
+</div>
+<div class="sandbox curvy fullresponse" >
+</div>
+<p id="msg1" class="msg">
+</p>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+
+<ol class="results"></ol> 
+</div>
+
+<hr/>
+
+<p class="code">
+In the above statement we used a small script using the switch statement, based on the  value $x that we pass through it echoes back a message. We use eval() - yes like JavaScript, to evaluate the result and pass it back via AJAX onto our console!
+</p>
+
+<p>Well this might or might not be useful in the long-run, but can be a nice tutoring tool, although all the kids now are into Python, Haskell and the like. </p>
+
+<p>I think I will close with a quote from someone else's notes:</p>
+
+<blockquote>
+... And I shall remember the regret with which I saw so much perfect chicken meat being returned to the kitchen: in those days I was not only poor, I was hungry. But, somehow, we did not seem to mind: we worked like mad, we were never in doubt about the usefulness of our 
+work lives in a state of continuous excitement and had a tremendous amount of fun.
+</blockquote>
+
+
+PHP reminded me of that it simply produced too much meat, there is just too much code around to just throw it out. Maybe its expiry date is still not due!
+
+
+http://www.cs.utexas.edu/users/EWD/ewd05xx/EWD568.PDF
+
+
+<span class="chapter hidden">5</span>
+
+  
+
+
+
+
+
+
+
+
+                                                                

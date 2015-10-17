@@ -1,0 +1,72 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<script src="http://localhost/codeigniter/js/prototype_part2.js" />
+
+
+<h2>Dissecting the Prototype Library Part II </h2>
+In the first part of this series of tutorials we discussed and examined in detail the Prototype's JavaScript language extensions.  
+
+In this second part we will discuss the AJAX section of the library and in the third part we will discuss DOM manipulation routines.
+
+Prototype provides a serious number of AJAX routines (although they appear a bit more complicated than jQuery's equivalent syntax).
+
+<h3>The Ajax object</h3>
+
+The utility functions mentioned above are nice but, let's face it, they are not the most advanced type of thing, now are they? You could probably have done it yourself and you may even have similar functions in your own scripts. But those functions are just the tip of the iceberg.
+I'm sure that your interest in prototype.js is driven mostly by its AJAX capabilities. So let's explain how the library makes your life easier when you need to perform AJAX logic.
+The Ajax object is a pre-defined object, created by the library to wrap and simplify the tricky code that is involved when writing AJAX functionality. This object contains a number of classes that provide encapsulated AJAX logic. Let's take a look at some of them.
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+
+function getHTML()
+	{
+		var url = '/CodeIgniter/js/a.html ';
+		var pars = 'someParameter=ABC';
+		
+		var myAjax = new Ajax.Updater(
+					{success: 'placeholder'}, 
+					url, 
+					{
+						method: 'get', 
+						//parameters: pars, 
+						onFailure: reportError
+					});
+		
+	}
+
+	function reportError(request)
+	{
+		alert('Sorry. There was an error.');
+	}
+
+  
+  
+
+
+</code>
+</div>
+
+<div   class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+Before we continue with the rest of the library, let us take a look  as how to use the AJAX object. Click the next button to navigate to Part 3 and let us explore the library a bit more.
+
+<span id="chapter" class="hidden">11</span>
+
+##Further Reading
+

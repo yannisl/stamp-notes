@@ -1,0 +1,103 @@
+
+<script>
+goog.require('goog.dom');
+goog.require('goog.dom.selection');
+</script>
+
+<h2>Setting Element Attributes with Closure's Dom Methods</h2>
+To set an elements attributes, we use the __setProperties()__ method. In the example below we just set the name attribute, the title and a rel.
+
+
+\begin{codeblock}
+(function testSetProperties() {
+  var attrs = {
+    'name': 'myName',
+    'title': 'myTitle',
+    'rel': 'myRel'
+  };
+  var el = goog.dom.$('testEl');
+  var res = goog.dom.setProperties(el, attrs);
+  assertEquals(el.name, 'myName');
+  assertEquals(el.title, 'myTitle');
+  assertEquals(el.rel, 'myRel');
+})();
+\end{codeblock}
+<div  id ="testEl" class="msg">
+</div>
+
+
+
+The method takes two arguments
+
+{{plain:
+  goog.dom.setProperties = function(element, properties) ;
+}}
+
+The properties can be any valid string for element properties
+
+\begin{codeblock}
+(function testSetProperties() {
+  var attrs = {
+    'style': 'padding-left:15px;color: #fff;background:#dd0000;width:40%;line-height:1.5'
+  };
+  var el = goog.dom.$('testEl2');
+  var res = goog.dom.setProperties(el, attrs);
+  log(el.style.color);
+  log(el.style.backgroundColor);
+})();
+\end{codeblock}
+
+<p id ="testEl2"  >Test Area for id=testEl2</p>
+
+
+Comparing this with jQuery
+
+<div  class="code-block console-wrap" title="Setting the CSS style attribute">
+<div class="code-block code">
+<code>
+(function testSetProperties() {
+  var attrs = {
+    'style': 'padding-left:15px;color: #fff;background:#dd0000;width:40%;line-height:1.5',
+    'color': 'purple'
+  };
+  $('#testEl2').css(attrs);
+  var result = $('#testEl2').css("style");
+  log(result);
+  // you can mix if you want
+  with(goog.dom) {
+    el = $('testEl2');
+    log(el.style.color);
+  }
+})();
+</code>
+</div>
+<div class="sandbox"  ><p id ="testEl2"  >Test Area for id=testEl2</p>
+</div>
+<div   class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+You can mix the two if you want, as I have shown in the example above. It is clear that jQuery provides much more flexibility and minimizes memory consumption -that is your own memory! The jQuery style is to provide flexibility. Both the .css() method  can be used to set or get a property. Closure is closer to the original Browser DOM methods which the wrap. 
+
+
+<span id="chapter" class="hidden">11</span>
+###Further Reading
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+                                                                                                                                                              

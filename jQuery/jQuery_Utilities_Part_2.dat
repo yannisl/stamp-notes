@@ -1,0 +1,193 @@
+ <!--
+
+{{feature-image:/codeigniter/images/china/beauty_02.jpg}}
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<script src="/codeigniter/js/prototype_part2.js" />
+
+
+
+<h2>A jQuery grep </h2>
+Traversing an array to find elements that match certain criteria is a frequent need
+of applications that handle lots of data. We might wish to filter through the data
+looking for items that fall above or below a particular threshold or, perhaps, that
+match a certain pattern. 
+
+{{bulb: For any filtering operation of this type, jQuery provides
+the <strong>$.grep()</strong>  utility function.}}
+
+The name of the $.grep() function might lead us to believe that the function
+employs the use of regular expressions like its namesake, the UNIX grep command.
+
+But the filtering criteria used by the $.grep() utility function isn't a regular
+expression; it's a callback function provided by the caller that defines the criteria
+to determine if a data value should be included or excluded from the resulting set
+of values. 
+
+Nothing prevents that callback from using regular expressions to
+accomplish its task, but the use of regular expressions is not automatic.
+
+The syntax of the function is as follows:
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+var obj = [5, 6, 8, 234, 566, 78, 123, 4, 6, 112];
+log(obj.length);
+var z = $.grep(obj, function (v) {
+  return v < 100;
+});
+var z1 = $.grep(obj, function (v) {
+  return v < 100;
+},
+true);
+
+log(z);
+assertEquals(z.length, 6, 'Array length is 6');
+assertEquals(z1.length, 4, 'Array length is 4');
+</code>
+</div>
+
+<div   class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<h3>How the code works</h3>
+
+{{plain:
+function( elems, callback, inv ) &#123;
+		var ret = [];
+
+		// Go through the array, only saving the items
+		// that pass the validator function
+		for ( var i = 0, length = elems.length; i < length; i++ )
+			if ( !inv != !callback( elems[ i ], i ) )
+				ret.push( elems[ i ] );
+
+		return ret;
+	&#125;
+
+}}
+
+Earlier versions allowed for a string to be passed. If we notice the only value being used is the return argument.
+
+{{plain: v<100}}
+
+Based on this we can construct a function on the fly. This feature was depreciated for compatibility with other libraries.
+
+One confusing element is the if statement:
+
+{{plain:
+        if ( !inv != !callback( elems[ i ], i ) )
+}}
+
+
+Better revise the Boolean operators a bit if you wish to understand it a bit better.
+Consider that no invert is provided i.e. (false) and the callback is true. The operations will be as follows:
+
+{{plain: !false != !true
+                 true  != false
+                 true }}
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+  var inv=false;
+  var b=true;
+  log(  !inv != !b)
+</code>
+</div>
+
+<div   class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+This provides a handy shorthand, but as Crockfords's jslint croaks it can be confusing. 
+
+<h3>Discussion</h3>
+
+It took me quite a while to both understand what is happening here as well as to realize that the 'string' portion of the grep was depreciated, as I was consulting jQuery in Action while typing these notes. Changes in the API are always problematic. 
+
+The name <em>grep</em> through me out a bit when I was introduced to the method as it confused me with the Unix grep and I could see no immediate connection with regular expressions.
+
+jQuery's development team are always focused on simplifying the API and the fact that they included the invert, has saved a method. Every bit counts and every line counts for performance on the web. This is a positive step.
+
+I have aliased the grep in my own library to select.
+
+As a matter of interest Prototype.js provides a grep method as a method to Enumerable, which is then used to extend methods to other Classes, such as string and array. An upvote for Prototype here and a downvote for jQuery.
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+
+var obj = [5, 6, 8, 234, 566, 78, 123, 4, 6, 112];
+log(obj.length);
+var z = $.grep(obj, function (v) {
+  return v < 100;
+});
+log(z);
+
+// prototypes grep
+var obj = ['Anne', 'george', 'anne', 'other'];
+var z1 = obj.grep(/Anne/gi);
+
+log(z1);
+
+
+</code>
+</div>
+
+<div   class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+The Prototype grep definition is shown below:
+
+{{plain:
+function grep(filter, iterator, context) &#123;
+    iterator = iterator || Prototype.K;
+    var results = [];
+
+    if (Object.isString(filter))
+      filter = new RegExp(RegExp.escape(filter));
+
+    this.each(function(value, index) &#123;
+      if (filter.match(value))
+        results.push(iterator.call(context, value, index));
+    &#125;);
+    return results;
+  &#125;
+}}
+
+
+<h3>Notes</h3>
+
+
+ The name grep is an acronym for global regular expressions print. In December 2003, the Oxford English Dictionary Online added draft entries for "grep"  as both a noun and a verb.
+
+A common verb usage is the phrase "You can't grep dead trees" - meaning one can more easily search through digital media, using tools such as grep, than one could with a hard copy (i.e., one made from dead trees). Compare with google. 
+
+Visual grep is used as a term meaning to look through text searching for something, in the manner of the grep program.
+
+
+<span id="chapter" class="hidden">11</span>
+
+##Further Reading
+
+        

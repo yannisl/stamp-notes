@@ -1,0 +1,255 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+
+<h2>jQuery extend() the Details</h2>
+This is taken directly from the jQuery code. If you look at the <tt>jQuery.extend()</tt> method. It can combine two or more objects into a target and if necessary carry out deep regression in doing so. If no target is specified it will extend jQuery itself.
+
+{{plain:
+jQuery.extend( [deep], target, object1, [objectN] )
+}}
+
+The code is shown below, take a look at it and we will discuss it a bit further down the line.
+
+<div  class="code-block console-wrap"><div class="code code-block"><code>
+jQuery.extend = jQuery.fn.extend = function() {
+	// copy reference to target object
+	var target = arguments[0] || {}, 
+                               i = 1, 
+                               length = arguments.length, 
+                               deep = false, options;
+
+	// Handle a deep copy situation
+	if ( typeof target === "boolean" ) {
+		deep = target;
+		target = arguments[1] || {};
+		// skip the boolean and the target
+		i = 2;
+	}
+
+	// Handle case when target is a string or something (possible in deep copy)
+	if ( typeof target !== "object" && !jQuery.isFunction(target) )
+		target = {};
+
+	// extend jQuery itself if only one argument is passed
+	if ( length == i ) {
+		target = this;
+		--i;
+	}
+
+	for ( ; i < length; i++ )
+		// Only deal with non-null/undefined values
+		if ( (options = arguments[ i ]) != null )
+			// Extend the base object
+			for ( var name in options ) {
+				var src = target[ name ], copy = options[ name ];
+
+				// Prevent never-ending loop
+				if ( target === copy )
+					continue;
+
+				// Recurse if we're merging object values
+				if ( deep && copy && typeof copy === "object" && !copy.nodeType )
+					target[ name ] = jQuery.extend( deep, 
+						// Never move original objects, clone them
+						src || ( copy.length != null ? [ ] : { } )
+					, copy );
+
+				// Don't bring in undefined values
+				else if ( copy !== undefined )
+					target[ name ] = copy;
+
+			}
+
+	// Return the modified object
+	return target;
+};
+
+
+</code>
+</div>
+
+<div  id="msg" class="msg">
+</div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+<h3>Common Pattern for Plugins</h3>
+
+If you are going to develop anything of value, you should wrap-it up into a jQuery function. 
+
+Most plugins will have some sort of defaults that can be modified by user options.
+
+A good pattern to use is to provide a third object called <dfn>settings</dfn>.
+
+Settings can then hold the merged object, without the defaultshaving been modified.
+
+<div  class="code-block clearfix"><div class="code code-block"><code>
+
+//Merge defaults and options, without modifying the defaults
+var empty = {}
+var defaults = { validate: false, limit: 5, name: "foo" };
+var options = { validate: true, name: "bar" };
+var settings = $.fn.extend(empty, defaults, options);
+
+log("settings.validate : ", settings.validate);
+log("settings.limit : ", settings.limit);
+log("settings.name : ", settings.name);
+
+//settings == { validate: true, limit: 5, name: "bar" }
+//empty == { validate: true, limit: 5, name: "bar" 
+</code>
+</div>
+
+   <div  id="msg" class="msg">
+   </div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+<img src="http://localhost/codeigniter/images/download_01.png" style="float:right"/>
+</div>
+
+If you notice, I have used 
+{{plain:
+var settings = $.fn.extend(empty, defaults, options);
+}}
+
+We could have used a shorter version with the same results:
+
+{{plain:
+var settings = $.extend(empty, defaults, options);
+}}
+
+The <tt>.fn</tt> is just an alias for <tt>prototype</tt>, just have another look at the definition above is as follows:
+
+{{plain:
+jQuery.extend = jQuery.fn.extend
+}}
+
+
+We could have used <tt>prototype with the same effect?</tt>
+<div  class="code-block clearfix"><div class="code code-block"><code>
+
+//Merge defaults and options, without modifying the defaults
+var empty = {}
+var defaults = { validate: false, limit: 5, name: "foo" };
+var options = { validate: true, name: "bar" };
+var settings = $.prototype.extend(empty, defaults, options);
+
+log("settings.validate : ", settings.validate);
+log("settings.limit : ", settings.limit);
+log("settings.name : ", settings.name);
+
+//settings == { validate: true, limit: 5, name: "bar" }
+//empty == { validate: true, limit: 5, name: "bar" 
+</code>
+</div>
+
+   <div  id="msg" class="msg">
+   </div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+<img src="http://localhost/codeigniter/images/download_01.png" style="float:right"/>
+</div>
+
+
+
+
+
+
+
+<h3>Add new methods to jQuery  using extend()</h3>
+
+
+<div  class="code-block clearfix"><div class="code code-block"><code>
+
+//Merge defaults and options, without modifying the defaults
+ (function($){
+     
+jQuery.extend({
+            base64Encode: function(input) {alert('In base64Encode')},
+            alert2: function(x){return x+'something'}
+      });
+//return this; 
+ })(jQuery);
+
+
+$.base64Encode('test');
+var s =$.alert2('test');
+$("#msg1").text(s);
+</code>
+</div>
+
+   <div  id="msg1" class="msg">
+   </div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+<img src="http://localhost/codeigniter/images/download_01.png" style="float:right"/>
+</div>
+
+<h3>Chainable plugin </h3>
+<div  class="code-block clearfix"><div class="code code-block"><code>
+
+(function($){
+    myplugin = function(msg){
+    {
+     
+        $.fn.extend({
+            base64Encode: function(msg) {
+                alert('In base64Encode')
+                },
+            alert2: function(msg){
+                return msg+'something'
+                }
+        });
+       
+    }
+     return $(this); 
+    }
+})(jQuery);
+
+
+$.myplugin.base64Encode('test');
+
+
+$.myplugin("test").base64Encode('test');
+
+</code>
+</div>
+
+   <div  id="msg1" class="msg">
+   </div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+<img src="http://localhost/codeigniter/images/download_01.png" style="float:right"/>
+</div>
+
+
+
+##Further Reading
+
+
+
+ 
+
+
+
+  
+  
+
+
+
+
+
+
+

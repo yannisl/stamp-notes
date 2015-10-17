@@ -1,0 +1,8 @@
+\chapter{sample}
+\lorem
+\begin{figure*}
+\includegraphics[width=1.0\textwidth]{../gold-coast/sample.jpg}
+\end{figure*}
+
+\lorem
+\lorem\lorem

@@ -1,0 +1,115 @@
+\chapter{Using jQuery to Post Json Data to CouchDB}
+
+The jQuery `ajax` methods can be used to post directly to `couchdb`. Consider a simple \textit{document}, that has a representation as shown in the codeblock below. This will post and save the document with the specified `_id`. Trying to save it again it will result in a conflict error.
+
+\begin{codeblock}
+
+(function SaveBook() {
+             var bookData = {
+                 "_id": "aaa",
+                 "_rev" : "3-ddd6d6d3a413a278eeabfd078f6d0098",
+                 "ISBN": "32334833425543",
+                 "Title": "WCF RESTful Service by Example"
+             };
+             $.ajax({
+                 type: "POST",
+                 url: "http://yannisl:PUREFAJO@yannisl.cloudant.com/materialsdb/",
+                 data: JSON.stringify(bookData),
+                 contentType: "application/json; charset=utf-8",
+                 dataType: "json",
+                 processData: true,
+                 success: function (data, status, jqXHR) {
+                     alert("success..." + data);
+                 },
+                 error: function (xhr) {
+                     alert(xhr.responseText);
+                 }
+             });
+         })()
+
+\end{codeblock}
+
+So in order to update the document, first we need to retrieve it, store the json and then save it again with its revision number. So since we need to merge the save operation with a get first. Let us try again. if our screen is fully populated, then we are only interested in getting the revision number. 
+
+
+
+\begin{codeblock}
+var bookData = {
+                  "ISBN": "32334833425543",
+                 "Title": "WCF RESTful Service by Example"
+             };
+
+var bookData2 = {
+                "_id" : "131313131313",
+                "_rev" : "3-ddd6d6d3a413a278eeabfd078f6d0098",
+
+} 
+
+bookData._id = bookData2._id;
+bookData._rev = bookData2._rev;
+
+assert(bookData._id=="131313131313","copied id");
+assert(bookData._rev=="3-ddd6d6d3a413a278eeabfd078f6d0098","original rev");
+
+// Setting up a loading indicator using Ajax Events
+$( "#loading_indicator" ).ajaxStart(function() {
+    $( this ).show();
+}).ajaxStop(function() {
+    $( this ).hide();
+});
+\end{codeblock}
+
+
+We need to keep in mind that json in Javascript are just objects and properties can be added easily. So our approach is to first fetch the record with a 'GET' and then if successful pass the revision so we can update it.
+
+
+<div id="loading_indicator">loading ...</div>
+\begin{codeblock}
+var dbname = 'texigniter',
+    dns = 'https://yannisl.iriscouch.com/';
+
+ var bookData = {
+                 "_id": "111",
+                 "ISBN": "32334833425543",
+                 "Title": "WCF RESTful Service by Example"
+             };
+
+$.ajax({
+    type: "GET",
+    url: dns+dbname +'/111/',
+    xhrFields: {withCredentials:true},
+    cache: false,
+    success: function(data) {
+        result = jQuery.parseJSON(data);
+        log(result.ISBN);
+        log(result._rev);
+        log(data);
+    },
+    error: function(XMLHttpRequest, textStatus, errorThrown) { 
+        alert("Error: " + errorThrown + ' ' + textStatus);
+        result = {};
+    },
+    async: false
+});
+
+log(result.ISBN,'ISBN');
+
+bookData._rev=result._rev;
+
+$.ajax({
+     type: "POST",
+     url: "http://yannisl.iriscouch.com/texigniter/",
+     data: JSON.stringify(bookData),
+     contentType: "application/json; charset=utf-8",
+     dataType: "json",
+     processData: true,
+     success: function (data, status, jqXHR) {
+         alert("success..." + data);
+     },
+     error: function (xhr) {
+        alert(xhr.responseText);
+                 },
+ async:false
+});
+
+\end{codeblock}

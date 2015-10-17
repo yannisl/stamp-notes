@@ -1,0 +1,260 @@
+   
+
+<!--
+
+{{feature-image:/CodeIgniter/images/china/beauty_12.jpg}}
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+<h2>Abstracting Timers, the Closure way</h2>
+
+Closure has a class for Timers that implement __setInterval()__ and __setTimeout()__, operations. I will be discussing this in a bit more detail, as timers is a subject close to my heart. Why abstract? You will find out if you are using timers that you always have a need for a queue of events and start and stop operations and in order to simplify this most libraries provide timer classes.
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code class="code-id-0006789">
+googInfo();
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<h3>the Timer class</h3>
+The __Timer__ is a  class to which other classes and objects can
+ listen on.  This is only an abstraction above setInterval and setTimeout.
+
+Before we begin discussing the abstractions we will create a quick example to get our think 'the Closure long arduous way'. 
+
+Our example is very simple. We want to trigger an event  __once__ after a certain time has elapsed (in the example is 2000 ms). When the time is triggered we want to output to a div a message. 
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+var seconds = 2;
+var inMs = 2000;
+
+var doOnceTimer = null;
+var doOnceStatus = goog.dom.getElement('doOnceStatus');
+var msg2 = goog.dom.getElement('msg2');
+/*
+     * Do some action once, optional delay.  Can not be restarted, like Delay,
+     * only cleared.
+     */
+var doOnce = (function () {
+  if (doOnceTimer) {
+    // Timer already set, do not reset it.
+    return;
+  }
+
+  goog.dom.setTextContent(doOnceStatus, 'Will call action in ' + seconds + ' seconds.');
+  doOnceTimer = goog.Timer.callOnce(function () {
+    goog.dom.setTextContent(msg2, 'Action called.' + inMs + 'ms');
+    doOnceTimer = null;
+  },
+  inMs);
+})();
+
+</code>
+</div>
+<div id="doOnceStatus" >2</div>
+
+<div  id ="msg2" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+Please do not freak out or go eek...! as yet. I know the example looks long, but as I said at the beginning, we are trying to be objective with our comments on the library.
+
+The main point of interest in the above code is:
+
+{{plain:
+
+doOnceTimer = goog.Timer.callOnce(function () &#123;
+    goog.dom.setTextContent(msg2, 'Action called.' + inMs + 'ms');
+    doOnceTimer = null;
+  &#125;,inMs);
+
+}}
+
+This was the simpler example I could think of to start with. 
+
+For the rest of the examples, I will be jQuerying the DOM actions in order to avoid catching any horrible disease on my fingers!
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+var seconds = 2;
+var inMs = 2000;
+
+var doOnceTimer = null;
+$('#doOnceStatus1').text('Will call action in ' + seconds + ' seconds.');
+
+var doOnce = function () {
+  if (doOnceTimer !== null) {
+    log('Timer already set, do not reset it');
+    return;
+  }
+  doOnceTimer = goog.Timer.callOnce(function () {
+    log('Action called.' + inMs + 'ms');
+    doOnceTimer = null;
+  },
+  inMs);
+};
+
+doOnce();
+doOnce();
+
+</code>
+</div>
+
+
+<div id="doOnceStatus1" >2</div>
+
+<div  id ="msg2" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+So far I have a negative comment - mixing css id names and classes written in the same style as javaScript variables is a bad idea. It is also a bad idea, when the web world is trying to move to standards to present examples in Closure with tag names capitalized and using onclick(). I know the latter is debatable in many circles, but the whole idea of libraries is to separate the javaScript from the HTML.
+
+Anyway, back to timers. There is value somewhere.
+
+<h3>goog.Timer</h3>
+
+One of the commonest of programming problems is to generate an action every n seconds and to be able to start and stop the timer. Like a timer clock, you need to start it and you need to stop it. Here we go for our next example. Will now add two buttons to the console.
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+
+var timer = null;
+
+var tickCount = 0;
+
+var tickAction = function () {
+  tickCount++;
+  $('#status').text( tickCount);
+};
+
+var doTimerStart = function () {
+  var seconds = 2;
+  if (!goog.isNumber(seconds)) {
+    return;
+  }
+  if (timer) {
+    timer.dispose();
+    tickCount = 0;
+  }
+
+  // A timer can be created with no callback object,
+  // listen for the TICK event.
+  timer = new goog.Timer(300);
+  timer.start();
+  goog.events.listen(timer, goog.Timer.TICK, tickAction);
+};
+
+/**
+     * Stop the Timer.
+     */
+var doTimerStop = function () {
+  if (timer) {
+    timer.stop();
+  }
+};
+
+/**
+     * Reset the Timer.
+     */
+var doTimerRestart = function () {
+  if (timer) {
+    timer.start();
+  }
+};
+
+$('#timer-start').click(function () {
+  doTimerStart();
+});
+$('#timer-stop').click(function () {
+  doTimerStop();
+});
+$('#timer-restart').click(function () {
+  doTimerRestart();
+});
+log('Click start to start timer ');
+</code>
+</div>
+
+
+<div id="status" style="width:80px;background:#000;color:#fff;font-size:28px;line-height:3;text-align:center"></div>
+<div  id ="msg3" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<button id="timer-start" name="timer-start" >Start Timer</button>
+<button id="timer-stop" name="timer-stop" >Stop Timer</button>
+<button id="timer-restart" name="timer-restart" >Restart Timer</button>
+<ol class="results"></ol> 
+</div>
+
+
+ As a sideline most people have a reaction time between 200-400 ms, trying stopping the timer on a 9 and see if your reaction time is less than 300 ms.    
+  
+ 
+  
+<h3>The Timer Object</h3>
+The __Timer__ constructor would normally take one value which is the
+interval number between ticks.
+
+<div class="code-block code">
+<code>
+/**
+ * Class for handling timing events.
+ *
+ * @param {number} opt_interval Number of ms between ticks (Default: 1ms).
+ * @param {Object} opt_timerObject  An object that has setTimeout, setInterval,
+ *     clearTimeout and clearInterval (eg Window).
+ * @constructor
+ * @extends {goog.events.EventTarget}
+ */
+
+goog.Timer = function(opt_interval, opt_timerObject)
+
+</code>
+</div>
+
+The opt_timerObject, will default to the windows object and you should not normally worry about it.
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+

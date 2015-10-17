@@ -1,0 +1,85 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+{{feature-image:http://localhost/CodeIgniter/images/run_time_error.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: UI, jQuery, Visibility Filters, CSS Visibility }}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+<style>
+blue{color:blue} 
+ p.ex1 {font-weight:bold; cursor:pointer; 
+      padding:5px; width:50%;color:blue}
+ 
+</style>
+
+ 
+
+
+
+
+<h2 id="firstHeading" class="firstHeading" style="background-color: rgb(239, 239, 239)">
+jQuery Core each()
+</h2>
+
+Reduce the set of matched elements to a single element.
+The position of the element in the set of matched elements starts at 0 and goes to length - 1; passing an out-of-range index returns an empty jQuery object.
+
+<div  class="code-block console-wrap">
+<img src="http://localhost/codeigniter/images/wave.gif" style="width:160px" />
+<div class="code-block code">
+<code>
+function function1()
+{
+    event.srcElement.blur();
+    window.showModalDialog("http://www.sex.com", "", 
+        "dialogWidth:5cm; dialogHeight:10cm")
+}
+
+function1();
+ $("p.ex1").each(function(){
+         $(this).css('color', ' red ');
+      });                     
+
+  $("p.ex1").eq(1).css("color", "green");      
+  log('object type : ', $para=$("p.ex1").get(0) )
+
+
+// Loop through the properties/functions
+var properties = '';
+for (var propertyName in $para.attributes) {
+  log(propertyName, '  ', $para[propertyName]);
+}
+
+$para.draggable = true;
+$para.fontsize(7);
+ alert($para.baseURI);
+
+  
+
+</code>
+</div>
+<p class="ex1 blue">This is just a test.</p><p class="ex1 blue">So is this</p>
+<p class="ex1 blue" style="width:300px" length="80" >This not selected</p>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+
+
+
+
+
+
+
+
+

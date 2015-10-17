@@ -1,0 +1,66 @@
+
+
+### The array slice() and splice() methods
+
+The slice() method is used when you want to slice an array and return the sliced portion. The splice() method on the contrary splices the array into sections. It returns the portion of the array that was spliced, but also affects the original array which is now shorter.
+
+
+{{bulb: slice()  does not change  the original array, whereas splice() does}}
+
+The following example reverses an array, using the built-in reverse() method.
+
+\begin{js}
+var a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// slice
+b = a.slice(0, 3);
+log('return result from slice () = ', b);
+log('array after slice() = ', a);
+
+// splice
+c = a.splice(0, 3);
+log('return result from splice () = ', c);
+log('array after splice() = ', a);
+\end{js}
+
+The splice() method takes the following arguments:
+
+{{plain:
+Array.prototype.splice (start, deleteCount [item , item1 [ , item2 [ , item ] ] ] )
+}}
+
+When the splice method is called with two or more arguments start, deleteCount and (optionally) item1, item2, etc., the deleteCount elements of the array starting at array index start are replaced by the arguments item1, item2, etc.
+
+
+\begin{codeblock}
+var a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+// splice
+c = a.splice(0, 3,'a','b','c');
+log('return result from splice () = ', c);
+log('array after splice() = ', a);
+
+\end{codeblock}
+
+
+
+
+
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+    

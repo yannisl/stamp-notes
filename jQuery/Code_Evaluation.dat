@@ -1,0 +1,155 @@
+ <!--
+{{feature-image:http://localhost/egypt/aneta-kowalczyk-02/m5.jpg}}
+{{feature: .. You got to be careful if you don't know where you're going, because
+you might not get there...<a href="http://en.wikipedia.org/wiki/Yogi_Berra">Yogi Berra</a> }}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<h2>Code Evaluation</h2>
+
+Most people  warn  against the use of <tt>eval</tt> and they are right that in many cases using <tt>eval</tt> is evil. However using it with some care can be a great tool.
+
+JavaScript provides a number of different ways to evaluate code. Each method has its advantages and disadvantages and should be chosen carefully based upon the context in which they are to be used.
+
+<h3>What is Code evaluation?</h3>
+Code evaluation is the ability to dynamically execute pieces of code at runtime. It is one of the most frequently misused feature of JavaScript. Understanding the situations in which it can be used and learning the best techniques for using it can give you a definite advantage when creating advanced applications.
+
+In this website I have used Code evaluation extensively to give you the ability to interact with the code.
+
+<h3>eval()</h3>
+
+The <tt>eval ()</tt> function is the most widely used means of evaluating code. 
+The most consistent means of accessing it, is as a global function. The eval function executes all code passed into it, within the current contenxt, returning the result of the last eval function executing and retuning a result.
+
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+(function () {
+      eval ("var t = 6;");
+      assert( t === 6, "eval is executed within the current scope." );
+}) ();
+</code>
+</div>
+
+<div  class="msg min-height">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+Let us carry out a bit more testing on the above code:
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+(function () {
+      $.globalEval ("var t = 6;");
+      assert( t === 6, "eval is executed within the current scope." );
+}) ();
+assert ( t === 5, "Verify that the scope execution was done correctly");
+</code>
+</div>
+<div  class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+The above returned an error as the variable <tt>t</tt> was only local to the closure.
+
+Trying an example straight out of John Resig's book:
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+var obj = eval ( " ( { name: 'Yannis' } ) " );
+assert ( obj.name === "Yannis" , "Objects require the extra parentheses.");
+
+var obj2 = eval ( " { name: 'Yannis' }  " );
+assert ( obj2.name === "Yannis" , "Objects require the extra parentheses.");
+
+
+</code>
+</div>
+<div  class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+Can we return values from a  function?
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+var fn = eval (" (function() {return 'test';}) ");
+assert ( fn() === "test" , "As functions do!");
+</code>
+</div>
+<div  class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+This last one seems to have some problems in Internet Explorer. It gives us an error of 'Object expected undefined'.  jQuery library uses some clever trickery to by-pass this problem.
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+var fn = eval (" false || function () {return true;} ");
+assert ( fn() === true , "Verify that the function was created correctly");
+</code>
+</div>
+<div  class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+If you are wondering why you should be creating a function on the fly in this way you should bear in mind that all code executed by eval is done so within the current scope and, thus, it has all the properties of it as well - including any enclosed variables within the current scope and all the externally enclosed variables as well.
+
+Of course, if we don't need that additional closure, there's a proper alternative that we can make use of.
+
+<h3>Safe Code Evaluation</h3>
+
+One question that frequently arrives is how to safely execute untrusted JavaScript on your page without compromising the site security.
+There are simply too many ways to skirt around any barriers put forth that can result in code getting acess to information that it's not supposed to.
+
+There is an atempt by Google to create a translator for JavaScript that converts Javascript into a safer form (and immune to malicious attacks).
+
+See also the tutorial <a href="http://127.0.0.1/CodeIgniter/index.php/Blogs/tutorials/jQuery/Closures_Part_I"> Closures Part I</a> for some interesting side-effects of eval() and accidental closures creating loops that can spin your head around!
+
+
+- Google Caja: http://code.google.com/p/google-caja/
+
+##Further Reading
+<span id="chapter" class="hidden">5</span>
+
+
+ 
+
+
+
+  
+  
+
+
+
+
+
+
+
+                          

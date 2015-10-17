@@ -1,0 +1,33 @@
+##Load another image, if image not found
+
+
+We can use the onerror event to capture problems in loading an image file and load an alternative. An onError Event Handler executes JavaScript code when an error occurs while loading a document or an image. With onError event now you can turn off the standard JavaScript error messages and have your own function that will trace all the errors in the script. To disable all the standard JavaScript error messages, all you need to do is set window.onerror = null. To call a function when an error occurs all you need to do is this: onError = "myerrorfunction()".
+
+
+
+<div style="background:url('http://localhost/CodeIgniter/images/angela.jpg');width:400px;height:600px" class="bordered clearfix">
+<img style="display:none" src="providerSrc" onerror="this.parentNode.style.backgroundImage='url(http://localhost/codeigniter/images/china/beauty_01.jpg)'"  />       
+</div>  
+
+###Using jQuery
+
+An alternative method is to use jQuery's _.error()_ method.
+
+
+
+Further Reading
+
+http://www.daveoncode.com/2010/08/20/image-background-fallback-img-tag-error-handlers/   
+
+<script>
+$(document).ready(function(){
+$('img')
+  .error(function() {
+    alert('Handler for .error() called.')
+  });
+});
+</script>
+
+{{bulb:
+The event handler must be attached before the browser fires the error event, which is why the example sets the src attribute after attaching the handler. Also, the error event may not be correctly fired when the page is served locally; error relies on HTTP status codes and will generally not be triggered if the URL uses the file: protocol.
+}}                  

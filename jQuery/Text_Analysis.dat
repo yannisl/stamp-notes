@@ -1,0 +1,189 @@
+<style type="text/css">
+
+.sales1{color:red}
+ul.ex {font-size:13px;display:block}
+ul.ex {list-type:none;list-style-type:none}
+ul.ex li, ul.ex1 li{display:block;width:90%;border:1px solid #ececec;margin-bottom:1px}
+ul.ex li span{cursor:pointer}
+div#load{width:30%;float:none;background:#dd0000;color:#fff}
+</style>
+
+<h3>Loading an English dictionary</h3>
+
+In order for us to be able to explore some topics in Text Analysis as well as do a bit of rudimentary Linguistics, we must first develop some routines for loading texts from the server - corpora - directory, which holds a number of texts, as well as dictionaries etc.  Since some of these texts are long we will only display portions of them using Prototype's <strong>truncate()</strong> method.
+
+Let us now  load an English dictionary (about 400Kb) into the page using the Ajax, techniques we have been discussing so far..
+
+We will then display it in our console below the 'run' button.
+
+\begin{codeblock}
+$('#msg1').load('/application-latest/js/corpora/en.txt', function(){
+var z=$('#msg1').text().split('\n').join(', ');
+//var z1= z.truncate(50);
+$('#msg1').text(z);
+});
+\end{codeblock}
+<div  id="msg1" class="msg">
+ </div>
+
+
+<h3>Doing something with our dictionary</h3>
+
+Since probably all the words in the dictionary ending up with -ed are verbs let us, see if we can actually captured them using regular expressions. Don't worry about reloading the dictionary again, if you have run the above example, your browser has already it cached it. Let us first catch some verbs. We know anything ending in ed is a verb. We will first catch only 5 letter words only.
+
+<div  class="code-block console-wrap">
+<div class="code code-block">
+
+<code>
+profiler.start('start');
+$('#msg2').load('/CodeIgniter/js/corpora/en.txt', function () {
+
+  var z = $('#msg2').text().split('\n');
+  $('#msg2').text('');
+  log('number of words in dictionary : ', z.length);
+  z = z.join(' ');
+
+  var z1 = z.truncate(500);
+  var z2 = z.match(/\b...ed\b/gi);
+  log('number of possible verbs matched: ', z2.length);
+  z2 = z2.join(' ');
+  log(z.length);
+  log(z2);
+});
+profiler.stop('stop');
+profiler.timeDiff();
+
+</code>
+
+</div>
+
+<div  id="msg2" class="msg">
+ </div>
+<div class="console"></div>
+<hr/>
+<button class="eval">Run Code!</button>
+<button id="ajax-button-01">Load Data!</button>
+<ol class="results"></ol> 
+</div>
+
+As you can see our assumption that all words ending with the suffix  __ed__ are
+verbs was wrong. Our net has managed to pick up some words that are obviously not verbs.
+
+<h3>Natural Language Processing is Hard</h3>
+The one obvious observation that anyone makes immediately he is faced with analysing natural language words, is that this problem is hard. Sometime back I have written a post on this you can read it, [here](http://127.0.0.1/CodeIgniter/index.php/Blogs/post/blog/tokenization).
+
+For example take the situation of word boundaries. The immediate reaction is to use the space or newline as a word boundary. However, not all words are enclosed between spaces. Some of them will be in single or double quotes, or will be at the end of sentences and will be followed by some punctuation marks.
+
+First let us load a new file from the server, this time the famous _Alice in Wonderland_, that I have downloaded from Project Gutenberg.
+
+I will first run the same routine as above, in order to verify that everything is ok.
+
+<div  class="code-block console-wrap">
+<div class="code code-block">
+
+<code>
+profiler.start('start');
+$('#msg2').load('/CodeIgniter/js/corpora/alice.txt', function () {
+  z = $('#msg2').text();
+  // preprocessing replace white spaces
+  var z = z.replace(/\s*/, ' ');
+  // replace new words
+  var z = z.replace(/\n/, ' ');
+  var z = z.split(' ');
+  $('#msg2').text('');
+  log('number of words in dictionary : ', z.length);
+  z = z.join(' ');
+  var z1 = z.truncate(100);
+  log('extract from Alice in Wonderland', z1);
+  var pattern = /\b.....ed\b/gmi;
+  var z2 = z.match(pattern);
+  log('number of possible verbs matched: ', z2.length);
+  z2 = z2.join(' ');
+  log(z.length);
+  log(z2);
+});
+profiler.stop('stop');
+profiler.timeDiff();
+
+</code>
+
+</div>
+
+<div  id="msg2" class="msg">
+ </div>
+<div class="console"></div>
+<hr/>
+<button class="eval">Run Code!</button>
+<button id="ajax-button-01">Load Data!</button>
+<ol class="results"></ol> 
+</div>
+
+JavaScripts Regular Expression engine is not one of the best, but can still be used to do a bit of a rudimentary analysis. Perhaps if we are going to do more, it is actually better to build a tokenizer and a parser ourselves. We will investigate this a bit later when we study parsing. In the meantime, let us think of a strategy to capture all words.
+
+The first obvious strategy is to look for words between spaces.
+
+<div  class="code-block console-wrap">
+<div class="code code-block">
+
+<code>
+profiler.start('start');
+$('#msg2').load('/CodeIgniter/js/corpora/alice.txt', function () {
+  z = $('#msg2').text();
+  // preprocessing replace white spaces
+  var z = z.replace(/\s*/, ' ');
+  // replace new words
+  var z = z.replace(/\n/, ' ');
+  var z = z.split(' ');
+  $('#msg2').text('');
+  log('number of words in dictionary : ', z.length);
+  z = z.join(' ');
+  var z1 = z.truncate(100);
+  log('extract from Alice in Wonderland', z1);
+  var pattern = /[A-Za-z]+?\b/gi;
+  var z2 = $A();
+  z2 = z.match(pattern);
+  z2 = U.unique(z2);
+  log('number of possible words matched: ', z2.length);
+  z2 = z2.join(', ').truncate(2000);
+  log(z.length);
+  log(z2);
+});
+profiler.stop('stop');
+profiler.timeDiff();
+
+</code>
+
+</div>
+
+<div  id="msg2" class="msg">
+ </div>
+<div class="console"></div>
+<hr/>
+<button class="eval">Run Code!</button>
+<button id="ajax-button-01">Load Data!</button>
+<ol class="results"></ol> 
+</div>
+
+As you can observe the time to process the text and the regex is quite fast. Of course, we are not outputting the full length of the text or the results and thus saving quite a bit of response time.
+
+One observation that I have made is that using JavaScript through Chrome is almost comparable to python on the desktop and much faster than processing the same text through php.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    

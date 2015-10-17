@@ -1,0 +1,14 @@
+\begin{thebibliography}{1}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Benny(2011)]{options}
+Jordan Benny.
+\newblock \emph{Options, The Plain and Simple Guide to Succesful Strategies},
+  volume~85.
+\newblock Prentice Hall, London, 2011.
+
+\end{thebibliography}

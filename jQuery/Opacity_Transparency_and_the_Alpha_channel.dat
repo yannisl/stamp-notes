@@ -1,0 +1,221 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+{{feature-image:http://localhost/CodeIgniter/images/christophe_gilbert_02.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: UI, jQuery, Visibility Filters, CSS Visibility }}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+<style>
+  .ex1 { background:yellow; font-weight:bold; cursor:pointer; 
+      padding:5px; }
+  .ex2{ background:#bebebe; font-weight:bold; cursor:pointer; 
+      padding:5px; }
+ .over { background: #ccc; }
+.color1{background-color:green}
+#cbutton{color:blue}
+ </style>
+
+
+<h2>Opacity, Transparency and the Alpha Channel</h2>
+
+Some things in nature are solid and do not let any light through them. They are {{wi:opaque}}. Others do and they are called transparent. {{wi:Opacity}} is a scale for measuring this. How much an image will obscure the background when painted, usually is defined by its {{wi:alpha channel}}.
+
+Now let us explore these properties:
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+$('#apply').click(function(){
+     var r = $("#R").val();
+     var g = $("#G").val();
+     var b = $("#B").val();
+     var a = $("#A").val();
+     var rgba = ' rgba('+ r + ',' + g + ',' + b + ',' + a +')';
+    $('.color1').css("background", rgba);
+     log('color : ', rgba);
+});
+</code>
+</div>
+<div class="clearfix">
+<div class="color1" style="background-color: rgba(0,0,250,1.0);height:50px;width:50px;float:left">Rgba</div>
+</div>
+<form>
+<input type="text" name="R" value="255" id="R" />
+<input type="text" name="G" value="0" id="G"/>
+<input type="text" name="B" value="0" id="B"/>
+<input type="text" name="A" value="1.0" id="A"/>
+</form>
+<div  class="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<button id="apply">Apply Values!</button>
+<ol class="results"></ol> 
+</div>
+
+<h3>How is transparency achieved in a browser</h3>
+Actually there is no such thing as transparency. The browser just adds more white to the values.
+
+Let us see the full spectrum of transparency first:
+<div  class="code-block console-wrap">
+
+<div class="code-block code">
+
+<code>
+ 
+generateGradient = function() {
+    
+    $('#msg1').html('');
+    say('started color gradient : ');
+    var segments = 15;
+    var r = $("#R1").val();
+     var g = $("#G1").val();
+     var b = $("#B1").val();
+     var a = $("#A1").val();
+     var rgba;
+    for(var i = 0; i < segments; i++){
+          a = a - (a/segments);
+        rgba = ' rgba('+ r + ',' + g + ',' + b + ',' + a +')';
+         $("&lt;div &gt;&lt;/div&gt;").css({
+            'background-color' : rgba,
+            'height' : '20px',
+            'width' : ($("#msg1").width()/segments)+'px',
+            'float' : 'left'
+           }).appendTo("#msg1");
+    }
+}
+$("#apply1").click(function(){
+  generateGradient();
+});
+
+</code>
+
+</div>
+<form>
+<input type="text" name="R" value="255" id="R1" />
+<input type="text" name="G" value="0" id="G1"/>
+<input type="text" name="B" value="0" id="B1"/>
+<input type="text" name="A" value="1.0" id="A1"/>
+</form>
+<div  id="msg1" class="msg clearfix" style="width:400px;height:100px;background:#fff">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<button id="apply1">Apply Values!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+
+
+
+##Blending Two Colors
+
+Well life is not very straight forward, how about if we want to blend two colors together? What do we mean by blending in any case. There are plenty of libraries out there for  Javascript to tween or fade between colors, but when building our own applications I have always come across use cases for having the ability to generate the hex value that is at a certain percentage or ratio between two hex values (fade between hex values). A simple implementation of this is generating a gradient between two colors. A similar solution to this one was posted at [elteck](http://www.elctech.com/snippets/javascript-color-fade-function-find-the-hex-value-between-two-hex-values)
+
+<p>
+<script type="text/javascript">
+    colorFade = function(h1, h2, p) { return ((h1>>16)+((h2>>16)-(h1>>16))*p)<<16|(h1>>8&0xFF)+((h2>>8&0xFF)-(h1>>8&0xFF))*p<<8|(h1&0xFF)+((h2&0xFF)-(h1&0xFF))*p; }
+
+    generateGradient = function() {
+        var segments = $("#segments").val();
+        var hex1 = $("#hex1").val();
+        var hex2 = $("#hex2").val();
+        
+        $("#gradient_holder").html("");
+
+        for(var i = 0; i < segments; i++){
+            $("<div>").css({
+                'background-color' : '#'+colorFade(hex1,hex2,i/segments).toString(16)+'',
+                'height' : '20px',
+                'width' : ($("#gradient_holder").width()/segments)+'px',
+                'float' : 'left'
+            }).appendTo("#gradient_holder");
+        }
+    }
+
+    $(document).ready(function(){
+        generateGradient();
+    });
+</script>
+</p>
+<hr/>
+
+{{example:
+<div id="gradient_holder" style="width:590px"> 
+</div> 
+
+<div style="clear:both;width:98%;margin-top:10px"> 
+<label>Hex1</label> 
+<input size="10" type="text" id="hex1" value="0xFFC02B" /> 
+<br /> 
+<label>Hex2</label> 
+<input size="10" type="text" id="hex2" value="0xFF00FF" /> 
+<br /> 
+<label>Segments</label> 
+<input size="5" type="text" id="segments" value="15" /> 
+<br /> 
+<input type="button" value="Generate" onclick="generateGradient();" /> 
+ </div>
+}}
+
+
+A more sophisticated blending tool was published by [Eric Meyer](http://meyerweb.com/eric/tools/color-blend/), yes the CSS guy!
+
+
+##Testing Blending with Transparency
+
+{{example:
+<div style="width:98%">
+<div style="width:100px;height:100px;
+  background-color:rgba(255,0,0,1.0)">
+</div>
+<div style="width:100px;height:100px;margin-top:-30px;margin-left:50px;
+  background-color:rgba(0,0,255,0.5)">
+</div>
+
+<div style="width:100px;height:100px;
+  background-color:rgba(127,0,127,1.0)"></div>
+</div>
+}}
+
+In most graphic software, colors are represented as more than a RGB triple. we are fortunate enough that modern browsers also allow us to now include a blending level (sometimes thought of as a transparency level) so that anything with this color will have a color blending property. Color is represented by a {{wi: quadruple}} (r,g,b,a) and the color model that includes blending is called the RGBA model. 
+
+The blending level _a_ for a color is called the _alpha value_, and its value is a number between 0.0 and 1.0, ususally representing <strong>opacity</strong> instead of transparency.
+
+The model can be extended for more than one image.
+
+
+##CSS and Opacity
+
+CSS3 provides new color spaces that we can use to achieve blending.
+
+{{plain:
+<code class="css">
+#c1 &#123;rgba(255,0,0,0.5)&#125
+</code>
+}}
+
+Some great effects, especially for selecting or hover can be achieved using a combination of the above.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,167 @@
+
+<script type="text/javascript">
+goog.require('goog.color');
+goog.require('goog.color.alpha')
+</script>
+
+<h2>Colors Part I</h2>
+ 
+One useful utility of the <tt>color.js</tt> library is its parser routine. It takes as input any of the standard __color strings__ used for setting css colors and returns an object with a 'type' and a 'hex' property. Beware though as browsers now can return additional string such as __hsla__ or __rgba__. If you are using color manipulation in an application you may wish to extend the parser routine and make it more general. (We will investigate this in part 3 of this article series).
+{{bulb: Note parse.color() input must be a string}}
+
+We can check some strings in the following example and assert that everything is working as it should.
+
+\begin{codeblock}
+// Utility Example for colors
+(function testParse() {
+  var colors = ['rgb(15, 250, 77)','(127, 127, 127)', '#ffeedd', '123456', 'magenta'];
+
+  var parsed = goog.array.map(colors, goog.color.parse);
+
+  assert('rgb' == parsed[0].type, 'test 1');
+  assert(goog.color.rgbToHex(15, 250, 77) == parsed[0].hex, 'test 2');
+
+  assert('rgb' == parsed[1].type, ' test 3');
+  assert(goog.color.rgbToHex(127, 127, 127) == parsed[1].hex, 'test 4');
+
+  assert('hex' == parsed[2].type, ' test 5');
+  assert('#ffeedd' == parsed[2].hex, 'test 6');
+
+  assert('hex' == parsed[3].type, 'test 7');
+  assert('#123456' == parsed[3].hex, 'test 8');
+
+  assert('named' == parsed[4].type, 'test 9');
+  assert('#ff00ff' == parsed[4].hex, ' test 10');
+
+})();
+
+log (typeof z);
+\end{codeblock}
+
+
+<h3>Validation</h3>
+
+The library has a number of useful methods for validating if a string is a valid color.
+
+
+\begin{codeblock}
+(function testIsValidRgbColor() {
+  var goodRgbColors = ['(255, 26, 75)', 'RGB(2, 3, 4)', '(0,0,0)', 'rgb(255,255,255)'];
+  var badRgbColors = ['(2555,0,0)', '(1,2,3,4)', 'rgb(1,20,)', 'RGB(20,20,20,)'];
+  for (var i = 0; i < goodRgbColors.length; i++) {
+    log(goodRgbColors[i], goog.color.isValidRgbColor_(goodRgbColors[i]).length, 3);
+  }
+  for (var i = 0; i < badRgbColors.length; i++) {
+    log(badRgbColors[i], goog.color.isValidRgbColor_(badRgbColors[i]).length, 0);
+  }
+})();
+\end{codeblock}
+
+
+
+
+
+<h3>Conversion of Colors from one type to anoher</h3>
+
+
+\begin{codeblock}
+for (var prop in goog.color){
+     log(prop);
+}
+log(typeof prop);
+\end{codeblock}
+
+
+<h3>Color Manipulations</h3>
+The only color manipulation methods available and of interest are __blend()__, __darken()__ and __highContrast__. The latter is interesting as it offers a way to determine if a color scheme would pass W3C guidelines for accessibility.
+
+The routine finds the "best" (highest-contrast) of the suggested colors for the prime
+ color. Uses W3C formula for judging readability and visual accessibility:
+(see [color-contrast](http://www.w3.org/TR/AERT#color-contrast).
+
+It takes a prime Color represented by a 3-element array with
+red, green, and blue values respectively, in the range [0, 255], and a suggestions array
+suggestions Array of colors, each a 3-element array
+ with red, green, and blue values respectively, in the range [0, 255].
+
+It returns the Highest-contrast color represented by a 3-element
+ array with red, green and blue values respectively, in the range
+ [0, 255].
+
+
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+/**
+ * This method runs unit tests against goog.color.highContrast().
+ */
+(function testHighContrast() {
+  white = [255, 255, 255];
+  black = [0, 0, 0];
+  lemonchiffron = [255, 250, 205];
+  sienna = [160, 82, 45];
+  grey = [100, 100, 100];
+
+  var suggestion = goog.color.highContrast(
+  black, [white, black, sienna, lemonchiffron]);
+
+  // should return an array of three numbers
+  assert('Return value is an array.', typeof suggestion == 'object');
+  assert('Return value is 3 long.', suggestion.length == 3);
+
+  // known color combos should return a known (i.e. human-verified) suggestion
+  assert('White is best on sienna.', goog.color.highContrast(
+  sienna, [white, black, sienna, lemonchiffron]), white);
+
+  assert('Black is best on lemonchiffron.', goog.color.highContrast(
+  white, [white, black, sienna, lemonchiffron]), black);
+})();
+
+var prime = [255, 122, 55];
+var suggestion = goog.color.highContrast(prime, [sienna, lemonchiffron, black, white]);
+log('suggestion ', suggestion.toString());
+
+var s = 'rgb(' + suggestion.toString() + ')';
+log(s);
+$('#msg6').css('color', s);
+
+var prime = 'rgb(' + prime.toString() + ')';
+$('#msg6').css('backgroundColor', prime);
+
+</code>
+</div>
+
+<div  id ="msg6" class="msg">Test
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+<h3>The colors unit so far</h3>
+
+The color unit like its many other counterparts, strives to be comprehensive, however the parser needs to be strengthened. Some difficult to dvelop routines can be found in the library. At the end of this article we are going to try and devlop a colr scheme album, which you can flip and choose a color scheme for a webpage. Will see what we need by the time we get there.
+
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+ 
+
+
+
+  
+  
+
+
+
+
+
+
+
+                                                                                                                                                                                                                  

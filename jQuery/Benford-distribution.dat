@@ -1,0 +1,158 @@
+##Benford Distribution
+
+From the study of leading digits in data
+sets, it turns out that many data sets that occur \textit{in real life} have the property that the first digits of the data are not uniformly distributed over the set {1, 2, . . . , 9}.
+Rather, it appears that the digit 1 is most likely to occur, and that the distribution
+is monotonically decreasing on the set of possible digits. The {{wi:Benford distribution}}
+appears, in many cases, to t such data. Many explanations have been given for the
+occurrence of this distribution. Possibly the most convincing explanation is that
+this distribution is the only one that is invariant under a change of scale.  
+
+
+
+
+
+\begin{codeblock}
+var digits = [0,0,0,0,0,0,0,0,0,0];
+function random(x) {
+  return Math.floor(Math.random()*x);
+}
+
+for(var j=0;j<100000;j++){
+x= random(1000000000);
+var X= new String(x);
+//get first digit
+ var firstdigit= parseInt(X[0],10);
+ //log(firstdigit);
+ digits[firstdigit]++; 
+} 
+log(digits);
+\end{codeblock}
+
+The code is fairly intuitive and self-explanatory, the only explanation to refresh memories is the use of `parseInt()`. The format is `parseInt(string, radix);`, just if you wondering what the second term was.
+
+If one
+thinks of certain data sets as somehow _naturally occurring_, then the distribution
+should be unaffected by which units are chosen in which to represent the data, i.e.,
+the distribution should be invariant under change of scale.
+
+First we will consider numbers generated with a random generator. In the example below, we generate 1,000,000,000 random numbers and we then count the distribution of the first digit. As we expect this produces an event chance for any of the digits to appear.
+
+
+Let us now examine some real data and since I am involved with high rise buildings I got the [list of tallest buildings](http://en.wikipedia.org/wiki/List_of_tallest_buildings_and_structures_in_the_world#Tallest_structure_by_category). This data set as you can observe approaches the Benford distribution. It is very evident when one considers the first digit.
+      
+\begin{codeblock}
+var data = [827,628.8,601,634,462,458,452,419.7,400,385,
+                366.8,354,346.5,342,300,285,257,
+                229,210,205,200,192,178.3,175,173.7,
+                167,165,162,160,158,152.4,138.8,132.2,128,
+                120,120,118,113.6,111,106,85,77,72.5,55];
+var digits = [0,0,0,0,0,0,0,0,0,0];
+function random(x) {
+  return Math.floor(Math.random()*x);
+}
+
+for(var j=0;j< data.length;j++){
+x= data[j];
+var X= new String(x);
+//get first digit
+ var firstdigit= parseInt(X[0],10);
+ //log(firstdigit);
+ digits[firstdigit]++; 
+} 
+log(digits);
+\end{codeblock}
+
+
+
+\begin{codeblock}
+var data = [240,000,7800000, 1700000,1300000,500000, 50000, 40000, 1500000, 40000, 1600000, 590000, 500000, 600000, 80000, 20000, 1000000, 80000, 500000, 4600000, 24000000, 120000, 16000, 500000, 104000, 108000, 300000, 2100000, 10000000, 31000000, 440000, 360000, 8000000, 690000, 330000, 12000000, 130000, 220000, 1400000, 1400000, 10000000, 2500000, 200000];
+var digits = [0,0,0,0,0,0,0,0,0,0];
+function random(x) {
+  return Math.floor(Math.random()*x);
+}
+
+for(var j=0;j< data.length;j++){
+x= data[j];
+var X= new String(x);
+//get first digit
+ var firstdigit= parseInt(X[0],10);
+ //log(firstdigit);
+ digits[firstdigit]++; 
+} 
+log(digits);
+\end{codeblock}
+
+
+\section{South African Cost of Living Index}
+
+\begin{codeblock}
+var data = [10.62, 9.93, 15.15, 19.17, 67.75, 51.82, 15.96, 14.28, 15.09, 12.28, 9.69, 12.12, 50, 12.91, 16.31, 33];
+var digits = [0,0,0,0,0,0,0,0,0,0];
+function random(x) {
+  return Math.floor(Math.random()*x);
+}
+
+for(var j=0;j< data.length;j++){
+x= data[j];
+var X= new String(x);
+//get first digit
+ var firstdigit= parseInt(X[0],10);
+ //log(firstdigit);
+ digits[firstdigit]++; 
+} 
+log(digits);
+\end{codeblock}
+
+
+\section{US Cosnumer Index}
+
+[census.gov consumer index total](http://www.census.gov/compendia/statab/2012/tables/12s0725.xls)
+
+\begin{codeblock}
+var data = [13.9, 14.0, 14.7, 16.3,
+17.3, 17.6, 18.0, 19.5, 22.3, 24.1,
+23.8, 24.1, 26.0, 26.5, 26.7, 26.9,
+26.8, 27.2, 28.1, 28.9, 29.1, 29.6,
+29.9, 30.2, 30.6, 31.0, 31.5, 32.4,
+33.4, 34.8, 36.7, 38.8, 40.5, 41.8, 
+44.4, 49.3, 53.8, 56.9, 60.6, 65.2,
+72.6, 82.4, 90.9, 96.5, 99.6, 103.9,
+107.6, 109.6, 113.6, 118.3, 124.0,
+130.7, 136.2, 140.3, 144.5, 148.2,
+152.4, 156.9, 160.5, 163.0, 166.6,
+172.2, 177.1, 179.9, 184.0, 188.9,
+195.3, 201.6, 207.3, 215.3, 214.5,
+218.1];
+var digits = [0,0,0,0,0,0,0,0,0,0];
+
+for(var j=0;j< data.length;j++){
+x= data[j];
+var X= new String(x);
+//get first digit
+ var firstdigit= parseInt(X[0],10);
+ //log(firstdigit);
+ digits[firstdigit]++; 
+} 
+log(digits);
+\end{codeblock}
+
+
+
+
+If you struggling like me to decide if this is some sort of hidden nature law or there is a mathematical explanation read [Fewster's](http://www.stat.auckland.ac.nz/~fewster/RFewster_Benford.pdf)  paper and then google for the original Benford paper.  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                               

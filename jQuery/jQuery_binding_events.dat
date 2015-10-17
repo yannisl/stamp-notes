@@ -1,0 +1,145 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<h2>Binding Events with jQuery</h2>
+<img src="http://localhost/codeigniter/images/ad_01.jpg" style="display:block;float:right;margin-left:15px">
+Although it's true that the creation of Rich Internet Applications requires a hefty reliance on event
+handling, the thought of writing event-handling code on a large scale while dealing with the browser
+differences is enough to daunt even the most intrepid of page authors.
+We could hide the differences behind an API that abstracts the differences away from our page code,
+but why bother when jQuery has already done it for us?
+jQuery's event implementation, which we'll refer to informally as the jQuery Event Model, exhibits the
+following features:
+
+- Provides a unified method for establishing event handlers
+- Allows multiple handlers for each event type on each element
+- Uses standard event-type names: for example, click or mouseover
+- Makes the Event instance available as a parameter to the handlers
+- Normalizes the Event instance for the most often used properties
+- Provides unified methods for event canceling and default action blocking
+
+With the notable exception of support for a capture phase, the feature set of the jQuery Event Model
+closely resembles that of the Level 2 Model while supporting both standards-compliant browsers and
+Internet Explorer with a single API. The omission of capture phase should not be an issue for the vast
+majority of page authors who never use it (or even know it exists) due to its lack of support in IE.
+
+Is it really that simple? Let's find out.
+<hr />
+<div  class="code-block clearfix console-wrap"><div class="code code-block"><span class="hidden"> log( "Click #", 'button' ); </span>
+<code>
+// run and click on image
+$(function(){
+$('#vstar').bind('click',function(event) {
+say('Whee once!');
+})
+.bind('click',function(event) {
+say('Whee twice!');
+})
+.bind('dblclick',function(event) {
+say('Whee three times!');
+});
+});
+</code>
+</div>
+<div id="msg1" class="msg" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</div>
+<div id="vstar" style="width:400px;background:#fff">
+<img src="http://localhost/codeigniter/images/angela.jpg" style="width:15%" />
+</div>
+<div class="console" style="width:400px;background:#fff">
+</div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<h3>Grouping Events</h3>
+
+Another nifty little event handling extra that jQuery provides for us is the ability to group event handlers by assigning them to a {{wi:namespace}}. Unlike conventional name-spacing (which assigns
+namespaces via a prefix), the event names are name-spaced by adding a suffix to the event name separated by a period character. In fact, if you’d like, you can use multiple suffixes to place the event into multiple namespaces.
+
+By grouping event bindings in this way, we can easily act upon them later as a unit.
+
+Take, for example, a page that has two modes: a display mode and an edit mode. 
+When in edit mode,
+event listeners are placed on many of the page elements, but these listeners are not appropriate for display mode and need to be removed when the page transitions out of edit mode. We could namespace
+the edit mode events with code such as
+
+{{plain:
+$('#thing1').bind('click.editMode',someListener);
+$('#thing2').bind('click.editMode',someOtherListener);
+...
+$('#thingN').bind('click.editMode',stillAnotherListener);
+}}
+
+By grouping all these bindings into a namespace named editMode, we can later operate upon them as
+a whole. For example, when the page leaves edit mode and it comes time to remove all the bindings we
+could do this easily with
+
+{{plain:
+$('*').unbind('click.editMode');
+}}
+
+This will remove all click bindings (the explanation of the unbind() method is coming up in the next
+section) in the namespace editMode for all elements on the page.
+
+<div  class="code-block clearfix console-wrap"><div class="code code-block"><code><span class="hidden"> log( "Click #", 'button' ); </span>
+// run and click on image
+$(function(){
+       $('#vstar1').bind('click.Mode1',function(event) {
+          say('Whee once!');
+         })
+       .bind('click.Mode1',function(event) {
+           say('Whee twice!');
+        })
+});
+
+$("#unbind").click(function(){
+     $('*').unbind('click.Mode1');
+     return false;
+});
+</code>
+<a href="#" id="unbind">unbind</a>
+</div>
+<p id="msg1" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+<div id="vstar1" style="width:400px;background:#fff">
+<img src="http://localhost/codeigniter/images/angela.jpg" style="width:15%" />
+</div>
+<div class="console" style="width:400px;background:#fff">
+</div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+
+
+
+
+In addition to the bind()method, jQuery provides a handful of shortcut methods to establish specific
+event handlers. Because the syntax of each of these methodsis identical except for the method name of
+the method, we’ll save some space and present them all in the following single syntax descriptor:
+
+jQuery also provides a specialized version of the bind()method, named <strong>one()</strong>, that establishes an
+event handler as a one-shot deal. Once the event handler executes the first time, it’s automatically
+removed as an event handler. Its syntax is similar to the bind()method and is as follows:
+
+
+<hr/>
+
+
+
+##Further Reading
+
+http://home.att.net/~srschmitt/script_number_bases.html
+
+

@@ -1,0 +1,104 @@
+<h2>Number Object</h2>
+
+The Number object has some predefined constants.
+
+\begin{codeblock}
+  var biggestNum = Number.MAX_VALUE;
+  var smallestNum = Number.MIN_VALUE;
+  var infiniteNum = Number.POSITIVE_INFINITY;
+  var negInfiniteNum = Number.NEGATIVE_INFINITY;
+  var notANum = Number.NaN;
+  
+  log('biggest number = ',biggestNum.toFixed());
+  log('smallest number = ',smallestNum);
+  log('infinity positive = ',infiniteNum);
+  log('negInfinity = ',negInfiniteNum);
+  log(parseInt('134mary'));
+\end{codeblock}
+
+The [ECMA, page 110](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-262.pdf) specification has some nice surprises.
+The output of toFixed may be more precise than toString for some values because toString only
+prints enough significant digits to distinguish the number from adjacent number values. For example,
+(1000000000000000128).toString() returns "1000000000000000100", while
+(1000000000000000128).toFixed(0) returns "1000000000000000128".
+
+For alerts and screen prints the less accurate number is shown.
+
+
+\begin{codeblock}
+log(' case 1: ',1000000000000000128);
+log(' case 2: ',(1000000000000000128).toString());
+log(' case 3:',(1000000000000000128).toFixed(0));
+var aDate= new Date(2009, 6, 28, 14, 39, 7);
+  var humanDate=aDate.toDateString()
+  alert(humanDate+'    '+aDate.toString()+'     '
+               +aDate.toLocaleDateString()+'   '+aDate.toLocaleTimeString());
+  
+  var biggestNum = Number.MAX_VALUE;
+  var smallestNum = Number.MIN_VALUE;
+  var infiniteNum = Number.POSITIVE_INFINITY;
+  var negInfiniteNum = Number.NEGATIVE_INFINITY;
+  var notANum = Number.NaN;
+
+  alert(biggestNum.toFixed());
+  alert(smallestNum);
+  alert(infiniteNum)
+\end{codeblock}
+
+
+<h3>A bit more on toString()</h3>
+
+The toString() takes a parameter named radix, that is useful to change a number into another base.
+
+\begin{codeblock}
+var z = (1000000000000000128).toString(2);
+
+log(' case 1: ',(1000000000000000128).toString(2));
+log ('z         : ', (z-0).toString(10));
+log('typeof 123.00', typeof 123.00);
+\end{codeblock}
+
+
+## Number.prototype.toString (radix)
+
+If radix is the number 10 or undefined, then this number value is given as an argument to the `ToString operator`; the resulting string value is returned.
+If radix is an integer from 2 to 36, but not 10, the result is a string, the choice of which is implementation-dependent.
+
+The `toString` function is not generic; it throws a TypeError exception if its this value is not a Number object. Therefore, it cannot be transferred to other kinds of objects for use as a method.
+
+\section{Extending the Number Object}
+
+\begin{codeblock}
+Number.prototype.isInteger = function () {
+  // if this == NaN ...
+  if (this.isNaN) return false;
+  if (this.valueOf() && this.isNull) return false;
+
+  return (this - this.floor()) ? false : true;
+}
+
+Number.prototype.isNatural = function () {
+  if (this.isInteger() && this.valueOf() >= 0) {
+    return true;
+  }
+  else {
+    return false;
+  }
+};
+log((789).isNatural());
+log((789.88).isInteger());
+\end{codeblock}
+
+ 
+
+
+
+  
+  
+
+
+
+
+
+
+

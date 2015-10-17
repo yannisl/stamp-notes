@@ -1,0 +1,120 @@
+
+
+<h3>Standard Library method: trim(), trimRight(), trimLeft()</h3>
+<script type="text/javascript">
+        width=600;          //the width of the embedded map in pixels or percentage
+        height=400;         //the height of the embedded map in pixels or percentage
+        border=1;           //the width of border around the map. Zero means no border
+        notation=false;     //true or false to display or not the vessel icons and options at the left
+        latitude=34.9;   //the latitude of the center of the map in decimal degrees
+        longitude=33.5;  //the longitude of the center of the map in decimal degrees
+        zoom=9;             //the zoom level of the map. Use values between 2 and 17
+        maptype=3;          //use 0 for Normal map, 1 for Satellite, 2 for Hybrid, 3 for Terrain
+        trackvessel=0;      //the MMSI of the vessel to track, if within the range of the system
+        fleet='';           //the registered email address of a user-defined fleet to display
+        remember=false;     //true or false to remember or not the last position of the map
+</script>
+<script type="text/javascript" src="http://www.marinetraffic.com/ais/embed.js"></script>
+The trim() method trims whitespaces from both sides of a string, where, the trimLeft() and tripRight() methods trim whitespaces from the left or right side of the string respectively.
+
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+/**
+ * Makes whitespace visible by replacing it with printable characters.
+ * This is useful in finding differences between the expected and the actual
+ * output strings of a testcase.
+ * @param {string} string whose whitespace needs to be made visible.
+ * @return {string} string whose whitespace is made visible.
+ */
+
+U.string.makeWhitespaceVisible = function (str) {
+  return str.replace(/ /g, '[ ]').replace(/\f/g, '[f]').replace(/\n/g, '[n]\n').replace(/\r/g, '[r]').replace(/\t/g, '[t]');
+};
+
+/**
+ * Trims white spaces to the left and right of a string.
+ * @param {string} str The string to trim.
+ * @return {string} A trimmed copy of {@code str}.
+ */
+U.string.trim = function (str) {
+  // Since IE doesn't include non-breaking-space (0xa0) in their \s character
+  // class (as required by section 7.2 of the ECMAScript spec), we explicitly
+  // include it in the regexp to enforce consistent cross-browser behavior.
+  return str.replace(/^[\s\xa0]+|[\s\xa0]+$/g, '');
+};
+
+/**
+ * Trims whitespaces at the left end of a string.
+ * @param {string} str The string to left trim.
+ * @return {string} A trimmed copy of {@code str}.
+ */
+U.string.trimLeft = function (str) {
+  // Since IE doesn't include non-breaking-space (0xa0) in their \s character
+  // class (as required by section 7.2 of the ECMAScript spec), we explicitly
+  // include it in the regexp to enforce consistent cross-browser behavior.
+  return str.replace(/^[\s\xa0]+/, '');
+};
+
+/**
+ * Trims whitespaces at the right end of a string.
+ * @param {string} str The string to right trim.
+ * @return {string} A trimmed copy of {@code str}.
+ */
+U.string.trimRight = function (str) {
+  // Since IE doesn't include non-breaking-space (0xa0) in their \s character
+  // class (as required by section 7.2 of the ECMAScript spec), we explicitly
+  // include it in the regexp to enforce consistent cross-browser behavior.
+  return str.replace(/[\s\xa0]+$/, '');
+};
+
+// namespace to dollar factory
+
+$S = U.string;
+var s = '             Test               ';
+var s1 = $S.makeWhitespaceVisible(s);
+var s2 = $S.trim(s);
+var s3 = $S.trimLeft(s);
+var s3 = $S.makeWhitespaceVisible(s3);
+
+var s4 = $S.trimRight(s);
+var s4 = $S.makeWhitespaceVisible(s4);
+
+log(s1);
+log(s2);
+log(s3);
+log(s4);
+
+
+
+</code>
+</div>
+
+<div  id ="msg" class="msg" style="white-space:pre">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+                                                            

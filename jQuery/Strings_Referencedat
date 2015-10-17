@@ -1,0 +1,82 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<style type="text/css">
+table{width:550px;font-size:14px;float:left;
+          margin:0 auto}
+</style>
+
+<h2>Strings Reference</h2>
+This page lists all the built-in and other functions available for strings, either from public libraries or through articles mentioned here.
+
+<h3>JavaScript Methods</h3>
+|Method| Description|Remarks|
+|---------|--------------|----------|
+|prototype| ||
+|[fromCharCode()](/CodeIgniter/index.php/Blogs/tutorials/jQuery/String_fromCharCode   )|Returns a string value containing as many characters as the number of arguments. Each argument specifies one character of the resulting string, with the first argument specifying the first character, and so on, from left to right. |See also related article for [unicode](/CodeIgniter/index.php/Blogs/tutorials/jQuery/Javascript_Strings-Part_IV )|
+|[charAt(pos)](/CodeIgniter/index.php/Blogs/tutorials/jQuery/String_charAt  )|Returns a string containing the character at position pos in the string resulting from converting this object to a string. If there is no character at that position, the result is the empty string. The result is a string value, not a String object.  ||
+|[charCodeAt(pos)](/CodeIgniter/index.php/Blogs/tutorials/jQuery/String_charCodeAt )   |Returns a number (a nonnegative integer less than 216) representing the code point value of the character at position pos in the string resulting from converting this object to a string. If there is no character at that position, the result is NaN.  ||
+|[concat()](/CodeIgniter/Blogs/tutorials/jQuery/String_concat )|When the concat method is called with zero or more arguments string1, string2, etc., it returns a string consisting of the characters of this object (converted to a string) followed by the characters of each of string1, string2, etc. (where each argument is converted to a string). The result is a string value, not a String object. |Use + instead it is easier |
+|[indexOf(searchString, position)](/CodeIgniter/index.php/Blogs/tutorials/jQuery/String_indexOf ) |If searchString appears as a substring of the result of converting this object to a string, at one or more positions that are greater than or equal to position, then the index of the smallest such position is returned; otherwise, -1 is returned. If position is undefined, 0 is assumed, so as to search all of the string.||
+|lastIndexOf|If searchString appears as a substring of the result of converting this object to a string at one or more positions that are smaller than or equal to position, then the index of the greatest such position is returned; otherwise, -1 is returned. If position is undefined, the length of the string value is assumed, so as to search all of the string.  ||
+|[localeCompare]()|||
+|match(regex)|||
+|replace(searchValue,replaceValue)|||
+|search(regexp)|||
+|slice(start,end)|||
+|split(separator, limit)|||
+|substring(start,end)|||
+|[toLowerCase()](/CodeIgniter/Blogs/tutorials/jQuery/Strings_toUppercase_and_toLowerCase ) |The characters in the string are converted one by one to lower case. The result is a string value, not a String object. ||
+|[toLocaleLowercase()](/CodeIgniter/index.php/Blogs/tutorials/jQuery/Strings_toLocaleUppercase_and_toLocaleLowerCase )|||
+|[toUpperCase()](http://127.0.0.1/CodeIgniter/Blogs/tutorials/jQuery/Strings_toUppercase_and_toLowerCase )|This function behaves in exactly the same way as String.prototype.toLowerCase, except that characters are mapped to their uppercase equivalents as specified in the Unicode Character Database. ||
+|[toLocaleUpperCase()](/CodeIgniter/index.php/Blogs/tutorials/jQuery/Strings_toLocaleUppercase_and_toLocaleLowerCase )|||
+|length|Property of String instance.  The number of characters in the String value represented by this String object. Once a String object is created, this property is unchanging. It has the attributes { DontEnum, DontDelete, ReadOnly }. |||
+|See ECMA section 15.5 for more details|
+
+<hr/>
+<h3>Standard Library Methods</h3>
+|Method| Description|Remarks|
+|---------|--------------|----------|
+
+<hr/>
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+

@@ -1,0 +1,431 @@
+ <!--
+{{feature-image:/codeigniter/images/china/beauty_04.jpg}}
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+<h2>Closure base</h2>
+This article discusses some of the features of Google's closure library base.js file. This file is included with all scripts and helps initializes what is required. We can view some of them below, in order for us to see first that __Closure__ has loaded properly and everything is ok.
+
+<h3>Initialization</h3>
+When  base is loaded first time into the document it initializes a number of variables to keep track, of packages loaded and the environment.
+
+It also initializes the global namespace __goog__ as follows:
+
+{{plain:
+var goog = goog || &#123;&#125;; // Check to see if already defined in current scope
+}}
+
+This is a common way for checking if we need to create a new object or use the same. It is just a safety feature.
+
+<div class="code-block console-wrap">
+<div class="code code-block">
+<code>
+log(goog.DEBUG );
+log(goog.LOCALE );
+log(goog.evalWorksForGlobals_ );
+</code>
+</div>
+<p class="msg">
+</p>
+<button class="eval">Run Code!</button>
+<ol class="results" ></ol> 
+</div>
+
+<h3>goog.provide() and goog.require</h3>
+
+Two methods that are very important and used throughout the library are the goog.provide() and goog.require() methods. The first one provides namespaces for objects, but also ensures tracking of all the objects that have been loaded through a file deps.
+
+These methods are defined early in the script. The first one we will examine is the one used for namespacing, __goog.provide()__. By using namespacing in your larger projects you can ensure that you or another member of your team do not overwrite any objects accidentally.
+
+To create a namespace you simpley write at the top of your file class:
+
+{{plain: provide(object.method.method .. )}}
+
+Closure, will check if the namespace has been allocated and if it did it will throw an error. Run the code below twice and you will observe the error. Modify it and create a new namespace! We have also discussed namespacing in another article which you can read here.
+
+
+<div class="code-block console-wrap">
+<div class="code code-block">
+<code>
+goog.provide = function (name) {
+  if (!COMPILED) {
+    if (goog.getObjectByName(name) && !goog.implicitNamespaces_[name]) {
+      throw Error('Namespace "' + name + '" already declared.');
+    }
+    var namespace = name;
+    while ((namespace = namespace.substring(0, namespace.lastIndexOf('.')))) {
+      goog.implicitNamespaces_[namespace] = true;
+    }
+  }
+  goog.exportPath_(name);
+};
+
+if (!COMPILED) {
+  goog.implicitNamespaces_ = {};
+}
+
+/**
+ * Builds an object structure for the provided namespace path,
+ * ensuring that names that already exist are not overwritten. For
+ * example:
+ * "a.b.c" -> a = {};a.b={};a.b.c={};
+ * Used by goog.provide and goog.exportSymbol.
+ * @param {string} name name of the object that this file defines.
+ * @param {Object} opt_object the object to expose at the end of the path.
+ * @param {Object} opt_objectToExportTo The object to add the path to; default
+ *     is |goog.global|.
+ * @private
+ */
+
+goog.exportPath_ = function (name, opt_object, opt_objectToExportTo) {
+  var parts = name.split('.');
+  var cur = opt_objectToExportTo || goog.global;
+
+  // Internet Explorer exhibits strange behavior when throwing errors from
+  // methods externed in this manner.  See the testExportSymbolExceptions in
+  // base_test.html for an example.
+  /*
+  if (! (parts[0] in cur) && cur.execScript) {
+   cur.execScript('var ' + parts[0]);
+  }*/
+
+  log(parts);
+
+  // Certain browsers cannot parse code in the form for((a in b); c;);
+  // This pattern is produced by the JSCompiler when it collapses the
+  // statement above into the conditional loop below. To prevent this from
+  // happening, use a for-loop and reserve the init logic as below.
+  // Parentheses added to eliminate strict JS warning in Firefox.
+  for (var part; parts.length && (part = parts.shift());) {
+    if (!parts.length && goog.isDef(opt_object)) {
+      // last part and we have an object; use it
+      cur[part] = opt_object;
+    } else if (cur[part]) {
+      cur = cur[part];
+    } else {
+      cur = cur[part] = {};
+    }
+  }
+};
+
+/**
+ * Returns an object based on its fully qualified external name.  If you are
+ */
+
+goog.getObjectByName = function (name, opt_obj) {
+  var parts = name.split('.');
+  var cur = opt_obj || goog.global;
+  for (var part; part = parts.shift();) {
+    if (cur[part]) {
+      cur = cur[part];
+    } else {
+      return null;
+    }
+  }
+  return cur;
+};
+
+goog.provide('goog.test2.testing');
+log(typeof goog.test1);
+</code>
+</div>
+<p class="msg">
+</p>
+<button class="eval">Run Code!</button>
+<ol class="results" ></ol> 
+</div>
+
+<h3>The globalizer() function</h3>
+
+Next follows a globalizer function, which is used  to globalize a namespace, if required, it takes two parameters   __obj__  the namespace to globalize.
+and __opt_global__  the object to add the properties to.
+
+{{plain:
+goog.globalize = function(obj, opt_global) &#123;
+  var global = opt_global || goog.global;
+  for (var x in obj) &#123;
+    global[x] = obj[x];
+  &#125;
+&#125;;
+}}
+
+<h3>Keeping tack of all the objects the goog.dependencies()</h3>
+
+Closure keeps track of all dependencies in an object:
+
+{{plain:
+  goog.dependencies_ = &#123;
+    pathToNames: &#123;&#125;,  //1 to many
+    nameToPath: &#123;&#125;,   //1 to 1
+    requires: &#123;&#125;,  //1 to many
+    visited: &#123;&#125;,   //used when resolving dependencies to prevent us from
+                 // visiting the file twice
+    written: &#123;&#125; // used to keep track of script files we have written
+  &#125;;
+}}
+
+The object is populated by a calls to a method __addDependenciy()__, which takes a typical form as follows:
+
+{{plain:
+    goog.addDependency('array/array.js', ['goog.array'], []);
+}}
+
+The addDependency()  code is shown below, we will not test it as is all doen automatically by the system for us.
+
+
+<div class="code-block console-wrap">
+<div class="code code-block" style="white-space:pre">
+<code>
+/**
+ * Adds a dependency from a file to the files it requires.
+ * @param {string} relPath The path to the js file.
+ * @param {Array} provides An array of strings with the names of the objects
+ *                         this file provides.
+ * @param {Array} requires An array of strings with the names of the objects
+ *                         this file requires.
+ */
+
+
+goog.addDependency = function(relPath, provides, requires) {
+  if (!COMPILED) {
+    var provide, require;
+    var path = relPath.replace(/\\/g, '/');
+    var deps = goog.dependencies_;
+    for (var i = 0; provide = provides[i]; i++) {
+      deps.nameToPath[provide] = path;
+      if (!(path in deps.pathToNames)) {
+        deps.pathToNames[path] = {};
+      }
+      deps.pathToNames[path][provide] = true;
+    }
+    for (var j = 0; require = requires[j]; j++) {
+      if (!(path in deps.requires)) {
+        deps.requires[path] = {};
+      }
+      deps.requires[path][require] = true;
+    }
+  }
+};
+
+</code>
+</div>
+<p class="msg">
+</p>
+
+<button class="eval">Run Code!</button>
+<ol class="results" ></ol> 
+</div>
+
+In an ideal world, where all your code is tested and works perfectly and you or anyone will touch it again all the above are unnecessary. 
+
+{{bulb: It is impressive though the way that Closure tightens the possibilities for bugs and ensures that all dependencies are catered for.}}
+
+<h3>Am I in HTML</h3>
+There also a helper function that checks if the script is in HTML
+
+{{plain:
+ /**
+   * Tries to detect whether is in the context of an HTML document.
+   * @return {boolean} True if it looks like HTML document.
+   * @private
+   */
+  goog.inHtmlDocument_ = function() &#123;
+    var doc = goog.global.document;
+    return typeof doc != 'undefined' &&
+           'write' in doc;  // XULDocument misses write.
+  &#125;;
+}}
+
+If you are wandering what is XUL, XUL is Mozilla's XML User Interface Language that is used for scripting the browser chrome. Closure cannot only be used by web pages, but can also be used in different applications.
+
+<h3>goog.require()</h3>
+
+This method is used to load the scripts required, automatically. It uses an ingenious way of doing so and you can find more details in another article.
+
+Simply, it queries the DOM for all script tags in the head element. It then looks for the script with base.js. Once it finds it it extracts the base path and loads all the scripts in the head element. 
+
+jQuery has a very similar method for loading scripts through AJAX. (See this article).
+
+However, loading these scripts through the console here, by invoking the __require()__, method gave me a lot of trouble, it kept redirecting to a blank page, which is probably a CodeIgniter problem or a context problem with  Closure and the jQuery globalEval, that I  am using here.
+
+<h3>The Language Hacks</h3>
+
+What we have discussed so far takes up about half the text of the base.js file. The balance deals with language enhancements. They are run-of-the-mill routines, pretty much on line in what we were discussing in other sections of this website.
+
+An interesting one and one that is bound to get the js bloggers going is how Closure handles inheritance.
+
+
+<h3>Handling Inheritance</h3>
+Closure provides a simple method for inheritance. Click on the run button below to use it.
+
+<div class="code-block console-wrap">
+<div class="code code-block">
+<code>
+goog.inherits = function(childCtor, parentCtor) {
+  function tempCtor() {};
+  tempCtor.prototype = parentCtor.prototype;
+  childCtor.superClass_ = parentCtor.prototype;
+  childCtor.prototype = new tempCtor();
+  childCtor.prototype.constructor = childCtor;
+};
+
+</code>
+</div>
+<p class="msg">
+</p>
+
+<button class="eval">Run Code!</button>
+<ol class="results" ></ol> 
+</div>
+
+
+
+As you can observe the Closure Library makes use of the pseudoclassical inheritance pattern. 
+
+
+
+This article discusses the advantages of the pseudoclassical pattern over the functional pattern. I argue that the pattern used by the Closure Library paired with the Closure Compiler removes existing hazards while I also examine the hazards introduced by the functional pattern (as defined in The Good Parts). First let me demonstrate what I mean by the functional pattern.
+
+
+
+<div  class="code-block console-wrap">
+<div class="code code-block">
+<code>
+/**
+ * @param {string} phoneNumber
+ * @constructor
+ */
+Phone = function (phoneNumber) {
+
+  /**
+   * @type {string}
+   * @private
+   */
+  this.phoneNumber_ = phoneNumber;
+};
+
+/** @return {string} */
+Phone.prototype.getPhoneNumber = function () {
+  return this.phoneNumber_;
+};
+
+/** @return {string} */
+Phone.prototype.getDescription = function () {
+  return 'This is a plain phone. ';
+};
+
+/**
+ * @param {string} phoneNumber
+ * @param {string=} signature
+ * @constructor
+ * @extends {Phone}
+ */
+SmartPhone = function (phoneNumber, signature) {
+  Phone.call(this, phoneNumber);
+
+  /**
+   * @type {string}
+   * @private
+   */
+  this.signature_ = signature || 'sent from ' + this.getPhoneNumber();
+};
+goog.inherits(SmartPhone, Phone);
+
+/**
+ * @param {string} emailAddress
+ * @param {string} message
+ */
+SmartPhone.prototype.log = function (emailAddress, message) {
+  // Assume sendMessage() is globally available.
+  log(emailAddress, message + '\n' + this.signature_);
+};
+
+/** @override */
+SmartPhone.prototype.getDescription = function () {
+  var temp=SmartPhone.superClass_.getDescription.call(this)
+  return  temp+ ' It can also send email messages.';
+};
+
+var phone = new Phone('8675309');
+var smartPhone = new SmartPhone('5555555', 'Adios');
+
+smartPhone.log('noone@example.com', 'I can send email from my phone!');
+
+
+</code>
+</div>
+<p class="msg">
+</p>
+
+<button class="eval">Run Code!</button>
+<ol class="results" ></ol> 
+</div>
+</code>
+</div>
+
+<hr/>
+
+Those of you who have read JavaScript: The Good Parts by Douglas Crockford may use the functional pattern for inheritance that he espouses.
+
+{{bulb: Crockford appears to object to the pseudoclassical pattern because: "There is no privacy; all properties are public. There is no access to super methods...Even worse, there is a serious hazard with the use of constructor functions. If you forget to use the new prefix when calling a constructor function, then this will not be bound to a new object...There is no compile warning, and there is no runtime warning."
+}}
+
+
+<h3>Final Words</h3>
+
+So far my view of the Closure base.js  script is a positive one. Besides the Compiler, which I have not discussed and is impressive on its own, two aspects of base.js have impressed me:
+
+- The discipline that is instilled by namespacing your application
+
+and 
+
+- The provision of lazy loading of files via the __goog.required()__ method. This is not a Google innovation Dojo and YUI have been doing it for a long time, however, it was nice to see it in Closure.
+
+The overall look of the code (so far) is that is well written and although it is obvious that it has been influenced by Java, I found that it is very clearly written and is easy to get into it.
+
+Anyway, who wants to complain after receiving such an impressive gift?
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+##Further Reading
+
+http://xregexp.com/syntax/
+
+
+        

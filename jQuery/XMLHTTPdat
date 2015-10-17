@@ -1,0 +1,141 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+{{feature-image: http://localhost/egypt/elliott-erwitt/EE-1150.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+<h2>XMLHTTP</h2>
+In IE 5 and later support the __XMLHTTP__ object and Mozilla-based browsers provide an XMLHTTPRequest Object. These objects allow you to create arbitrary HTTP requests  to the server (including POSTs) and read the full response, incluidng headers. Table 19-1 shows the methods and properties of the XMLHTTP object.
+
+{{bulb: We will refer to the interfaces of XMLHTTP and XMLHTTPRequest objects simply as XMLHTTP}}
+
+Some of the properties and methods of the XMLHTTP object are only available once a response has been received from the server. If you try to access them earlier you will receive an error.
+
+<h3>Creating and sending Requests</h3>
+
+XMLHTTP requests can be either synchronous or asynchronous, as specified by the third parameter __open()__.
+
+To create an XMLHTTP object in Mozilla-based browsers, you use the XMLHttpRequest constructor.
+
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+var xmlhttp = new XMLHttpRequest();
+
+//view properties
+log('---- XMLHttpRequest Properties ----');
+for (var prop in xmlhttp) {
+  log(prop, ': ' + typeof prop);
+}
+log('---- End XMLHttpRequest Properties ----');
+
+
+var Ajax = {
+  getTransport: function () {
+    return Try.these(
+    function () {
+      return new XMLHttpRequest();
+    },
+    function () {
+      return new ActiveXObject('Msxml2.XMLHTTP');
+    },
+    function () {
+      return new ActiveXObject('Microsoft.XMLHTTP');
+    }) || false;
+  },
+
+  activeRequestCount: 0
+};
+
+var z = Ajax.getTransport();
+
+</code>
+
+</div>
+<div  class="msg" class="msg" >
+</div>
+<div class="console"> </div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+<h4>Sending and Receiving the Request</h4>
+
+
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+var xmlhttp = new XMLHttpRequest();
+var url = '/codeigniter/blogs/ajax_post/4';
+xmlhttp.open('GET', url, false);
+xmlhttp.send('');
+log('response code : ' + xmlhttp.status);
+log(xmlhttp.responseText);
+log(xmlhttp.getAllResponseHeaders());
+</code>
+
+</div>
+<div  class="msg" class="msg" style="white-space:pre;font-family:monospace;line-height:1.3">
+</div>
+<div class="console"> </div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+As you can see, despite all the hype its not that difficult. The difficulty lies in making these requests bulletproof! Care must be taken to ensure that remote Web Applications are programmed in an extremely defensive manner and do not block waiting for content or fail due to unforeseen network issues.
+
+<h3>Some Useful Properties and Methods</h3>
+
+Table 7-1. XMLHttpRequest Object Properties and Methods Method/Property
+
+| |Description|
+|---|-----------|
+ |abort()| Terminates the previous outstanding request.|
+ |getAllResponseHeaders()| Returns all response headers, labels, and values, as a string.|
+ |getresponseHeader("label")| Returns the value for the provided label.|
+ |open("method","url", asynchronous,"username","password")| Opens/assigns a method: GET or POST and, optionally, an asynchronous indicator.|
+ |send(content)| Sends the request with optional content. This content can be either a string or DOM data.|
+ |setRequestHeader ("label","value")| Sets a request header label/value pair.|
+ |onreadystatechange| Event handler for asynchronous requests; fires on each change to the readyState property.|
+ |readyState| Status of the request as an integer. 0 = uninitialize,  1 = loading, 2 = loaded, 3 = interactive, 4 = complete|
+ |responseText| String returned from the server.|
+ |responseXML| XML document returned from the server.|
+ |status| HTTP response code returned from the server.|
+ |statusText| String message associated with the HTTP a.|
+ 
+
+
+
+<h3>Usability problems with Inner Browsing</h3>
+
+The capability of updating a page without a visible refresh is called _inner browsing_. The user is presented with an interface that is seamless and snappy, but it also has significant usability problems. 
+
+One major problem is that the state of the page can easily be lost.
+
+Yet despite these and other challenges Ajax is on the rise. Implemented properly it provides a desktop software type of experience which can be highly usable and satisfactory to users.
+
+
+
+##Further Reading
+
+
+ <span class="chapter hidden">19</span>
+
+
+
+  
+  
+
+
+
+
+
+
+

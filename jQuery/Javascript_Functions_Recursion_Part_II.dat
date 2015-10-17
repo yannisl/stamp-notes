@@ -1,0 +1,155 @@
+ <!--
+{{feature-image:/codeigniter/images/underground_thumb.jpg}}
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+{{previous: http://127.0.0.1/CodeIgniter/index.php/Blogs/tutorials/jQuery/Javascript_Functions_Recursion}}
+-->
+
+<style type="text/css">
+button#cbutton{color:blue}
+div#ex1{};
+
+</style>
+
+
+<h2>Recursion Part II</h2>
+In this part on our article on recursion, we will continue with some more examples with recursive algorithms, so that you will get a bit more comfortable with them. One common application of recursion is to navigate the structure of deep arrays or objects and expose their properties. Another commonly example is to use a recursive function to carry out multiplication using only addition. 
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+function x(a, b) {
+  if (a == 0) {
+    return 0;
+  }
+  else {
+    return b + x(a - 1, b);
+  }
+}
+log(x(13, 13));
+
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+
+/**
+ * Recursively outputs a nested array as a string.
+ * param Array arr The array.
+ * return string String representing nested array.
+ */
+
+function exposeArray(arr) {
+  var str = [];
+  for (var i = 0; i < arr.length; i++) {
+    if (Object.isArray(arr[i])) {
+      str.push(exposeArray(arr[i]));
+    } else {
+      str.push(arr[i]);
+    }
+  }
+  return '[ ' + str.join(', ') + ' ]';
+};
+
+var a = [1, 2, 3, 4, 5, 6, 7, 8, ['a', 'b', ['y', 'c']]];
+
+log(exposeArray(a));
+
+
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+<h3>Eerie Scheme </h3>
+
+In this part I will give you some more recursion examples. This is from a book by Marijn Haverbeke, _Eloquent JavaScript_.
+
+Consider this puzzle: By starting from the number 1 and repeatedly either adding 5 or multiplying by 3, an infinite amount of new numbers can be produced. How would you write a function that, given a number, tries to find a sequence of additions and multiplications that produce that number?
+
+For example, the number 13 could be reached by first multiplying 1 by 3, and then adding 5 twice. The number 15 can not be reached at all.
+
+<div class="code-block console-wrap">
+<div class="code code-block">
+<code>
+
+function findSequence(goal) {
+  function find(start, history) {
+    if (start == goal){
+      return history;}
+    else if (start > goal)
+      {return null;}
+    else
+      {return find(start + 5, "(" + history + " + 5)") || find(start * 3, "(" + history + " * 3)");}
+  }
+
+  return find(1, "1");
+
+}
+for (var i=10;i<100;i++){
+     log('sequence :  '+i+'  ' + findSequence(i));
+}
+</code>
+
+<p class="msg"></p>
+</div>
+
+<div class="console"></div>
+<button class="eval">Run</button>
+<ol class="results"></ol>
+
+</div>
+
+
+The answers have an eerie Scheme look! 
+
+Note that it doesn't necessarily find the shortest sequence of operations, it is satisfied when it finds any sequence at all.
+
+The inner find function, by calling itself in two different ways, explores both the possibility of adding 5 to the current number and of multiplying it by 3. When it finds the number, it returns the history string, which is used to record all the operators that were performed to get to this number. It also checks whether the current number is bigger than goal, because if it is, we should stop exploring this branch, it is not going to give us our number.
+
+The use of the || operator in the example can be read as 'return the solution found by adding 5 to start, and if that fails, return the solution found by multiplying start by 3'. It could also have been written in a more wordy way like this:
+
+{{plain:
+
+else &#123;
+  var found = find(start + 5, "(" + history + " + 5)");
+  if (found == null)
+    found = find(start * 3, history + " * 3");
+  return found;
+&#125;
+
+}}
+
+This is a beautiful example for both readability as well as concise coding. Saying enough to understand how it works but no more.
+
+##Further Reading
+http://www.comp.nus.edu.sg/~fstephan/ackermann.html
+
+
+
+
+
+
+          

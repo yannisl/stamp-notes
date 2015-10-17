@@ -1,0 +1,59 @@
+<style>
+  .ex1 { background:yellow; font-weight:bold; cursor:pointer; 
+      padding:5px; width:50%}
+ 
+
+<div.red { color:red; text-align:center; cursor:pointer; 
+        font-weight:bolder; width:300px; }
+  </style>
+
+</style>
+
+
+
+
+<h2 id="firstHeading" class="firstHeading" style="background-color: rgb(239, 239, 239)">
+jQuery Core each()
+</h2>
+
+Execute a function within the context of every matched element.
+
+This means that every time the passed-in function is executed (which is once for every element matched) the 'this' keyword points to the specific DOM element. 
+
+Note that 'this' does not point to a jQuery object.
+Additionally, the function, when executed, is passed a single argument representing the position of the element in the matched set (integer, zero-index).
+
+Returning 'false' from within the each function completely stops the loop through all of the elements (this is like using a 'break' with a normal loop). Returning 'true' from within the loop skips to the next iteration (this is like using a 'continue' with a normal loop).
+
+
+
+\begin{codeblock}
+ $(document.body).click(function () {
+      $("div").each(function (i) {
+        if (this.style.color != "blue") {
+          this.style.color = "blue";
+        } else {
+          this.style.color = "red";
+        }
+      });
+    });
+\end{codeblock}
+
+
+You should spend a good amount of time with this method. It is a widely used iterator especially for plugins.
+
+{{example:
+<div class="ex1">Click here</div>
+<div class="ex1">to iterate through</div>
+<div class="ex1">these divs.</div>
+}}
+
+
+
+
+
+
+
+
+
+                    

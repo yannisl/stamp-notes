@@ -1,0 +1,152 @@
+
+
+
+
+
+
+
+
+
+
+
+
+<!--{{feature-image:http://localhost/CodeIgniter/images/my_woman.jpg }}
+{{categories:jQuery}}
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <style>
+ div.ex1 , div.ex3{ width:10px; background:#fff; 
+ border:1px solid #bebebe; margin:2px; float:left;cursor:hand;overflow:hidden;
+ height:230px;      
+ }
+div.ex4 { width:70px; height:70px; background:#abc; 
+        border:2px solid black; margin:10px; float:left; cursor:hand}
+  div.before { width:10px; }
+p.selected1{color:blue;margin:0;padding:0} 
+#cbutton{}
+ </style>
+
+
+
+##Siblings
+jQQuery has quite a few methods for traversing the DOM.
+ The siblings selector will get a set of elements containing all of the unique siblings of each of the matched set of elements.
+
+Can be filtered with an optional expression.
+
+<script>
+  $(document).ready(function(){
+  $("#cbutton").toggle(
+      function () {
+        $('#tst>p').siblings("p.selected1").css({"background":"yellow", "color":"blue"});
+      },
+      function () {
+        $('#tst >p').siblings("p.selected1").css({"background":"none", "color":"red"});
+      });
+ $("#cbutton1").toggle(
+      function () {
+        $('#tst>p').siblings().css({"background":"yellow", "color":"blue"});
+      },
+      function () {
+        $('#tst >p').siblings().css({"background":"none", "color":"red"});
+      });
+
+
+
+  });
+
+  </script>
+  
+ 
+
+
+
+{{plain:
+<div id="tst" style="width:50%">
+ <p class="selected1">&lt;p class="selected"&gt;With class selected&lt;/p&gt;</p>
+<p>Only p (no class)</p>
+<p class="selected1">&lt;p class="selected"&gt;With class selected&lt;/p&gt;</p>
+<p>Only p (no class)</p>
+<p class="selected1">&lt;p class="selected"&gt;With class selected&lt;/p&gt;</p>
+ </div>
+<div><p>I am in other div</p></div>
+<button id="cbutton" style="clear:both">$('Toggle siblings of p with class selected1') </button>
+<button id="cbutton1" style="clear:both">$('Toggle siblings of p') </button>
+  $(document).ready(function()&#123;
+  $("p").siblings("p.selected").css("background", "yellow");
+  &#125;);
+
+}}
+
+
+
+<script>
+  $(document).ready(function(){
+    $("div.ex3").click(function(){
+      //   var $kids = $(e.target).children();
+         $(this).css('oveflow','visible');
+         $this=$(this);
+    $this.animate({"width":"500px",
+                                        "background-color":"#ececec"},"slow");
+
+    $this.nextAll().css("width","5px");
+   $this.prevAll().css("width","5px");
+//needs a forloop
+    $kid=$(this).nextAll().children;
+    $kid.html('test');
+   
+   });
+  });
+  </script>
+ 
+
+##prevAll() and nextAll()
+
+These two seemingly unimportant methods to traverse through siblings of an element can be used to create a horizontal accordion, fairly easily.
+
+I have used divs for the example, but nothing stops you from using any other type of element, depending as to how you want the page to look, in case javascript is switched off.
+
+<div>
+  <div class="ex3"></div>
+  <div class="ex3"></div>
+  <div class="ex3">{{example:
+        jQuery Rocks
+}}
+</div>
+  <div class="ex3"></div>
+  <div class="ex3"></div>
+  <div class="ex3">{{example: This is the second example}}
+</div>
+  <div class="ex3"><img src="http://localhost/CodeIgniter/images/angela.jpg" style="height:98%;padding-left:7px"/>
+</div>
+</div>
+
+<hr/>
+First let us view the way the html is structured. Simply is a set of styled divs.
+
+{{plain:
+<code class="html">
+&lt;div>
+  &lt;div class="ex3">&lt;/div>
+  &lt;div class="ex3">&lt;/div>
+  &lt;div class="ex3">&lt;/div>
+  &lt;div class="ex3">&lt;/div>
+  &lt;div class="ex3">&lt;/div>
+  &lt;div class="ex3">&lt;/div>
+&lt;/div>
+</code>
+
+}}

@@ -1,0 +1,84 @@
+See (http://css-tricks.com/examples/ButtonMaker/)
+
+     
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/colorpicker.css">
+<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/themes/base/jquery-ui.css">
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>    
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/colorpicker.js"></script>
+    <script type="text/javascript" src="js/buttonmaker.js"></script>
+
+
+       
+<style type="text/css" style="display: none;">.bsa_it_ad{border:0 !important;padding:6px !important;overflow:hidden !important;background:#eae3c0 !important;-moz-box-shadow:0 0 48px black;-webkit-box-shadow:0 0 48px black;box-shadow:0 0 48px black;}.bsa_it_ad a{margin:0 !important;padding:0 !important}.bsa_it_ad a img{border:0 !important;position:static !important}.bsa_it_ad a:hover img{margin:0 !important}.bsa_it_ad a:hover{background:none !important}.bsa_it_i{margin:0 15px 0 0 !important}.bsa_it_t{margin:12px 0 0 0 !important;font:16px Georgia,Serif !important}.bsa_it_d{font:11px Verdana,Helvetica,Arial,Sans-Serif;padding-right:10px}.bsa_it_p{display:none !important;}#bsap_aplink{position: absolute; color: #999; text-decoration: none; bottom:5px !important;right:5px !important;padding:0 !important}.bsa_it_p a:hover{background:none !important}</style><div id="hook-just-in-case" style="height: 77px; background: black url(/examples/images/examples-header-bg.png) repeat-x; color: white !important; font: 14px Georgia, Serif !important; position: relative; zoom: 1; width: 100% !important; z-index: 6000;"><div style="width: 960px; height: 77px; margin: 0 auto; position: relative;"><img src="/examples/images/example-logo.png" alt="Demo Page" style="position: absolute; top: 0; left: 0;"><div style="position: absolute; left: 140px; top: 52px; width: 400px; text-align: left;"><a class="header-button" href="/css3-button-maker/">Back to Article</a>   <a class="header-button" href="/examples/">More Demos </a></div><div style="width: 420px; position: absolute; right: 0; top: 0;"><div id="bsap_1255488" class="bsarocks bsap_3469a2a501a9e18091036aa0c89f9dcb"></div><a href="http://adpacks.com" id="bsap_aplink">via Ad Packs</a></div></div></div>
+
+    <div id="page-wrap">
+  
+        <div id="button-box">
+    
+                <a href="#" class="button">View the CSS</a>
+                        
+        </div>
+        
+        <div id="controls">
+        
+            <h1>Button Maker</h1>
+
+            <div class="sliderBar" id="sizer"></div>
+            <div class="sliderBar" id="font-sizer"></div>
+            <div class="sliderBar" id="border-rounder"></div>
+            
+            <div id="colors">
+            
+                <div>
+                    <label for="topGradientValue">Top Gradient Color</label>
+                    <input type="text" maxlength="6" size="6" id="topGradientValue" class="pickable" rel="backgroundTop" value="3e779d" style="background: #3e779d;">
+                </div>
+                
+                <div>
+                    <label for="bottomGradientValue">Bottom Gradient Color</label>
+                    <input type="text" maxlength="6" size="6" id="bottomGradientValue" class="pickable" rel="backgroundBottom" value="65a9d7" style="background: #65a9d7;">
+                </div>
+                
+                <div>
+                    <label for="borderTopColorValue">Top Border Color</label>
+                    <input type="text" maxlength="6" size="6" id="borderTopColorValue" class="pickable" rel="borderTopColor" value="96d1f8" style="background: #96d1f8;">
+                </div>
+                
+                <div>
+                    <label for="hoverBackgroundColorValue">Hover Background Color</label>
+                    <input type="text" maxlength="6" size="6" id="hoverBackgroundColorValue" class="pickable" rel="hoverBackground" value="28597a" style="background: #28597a;">
+                </div>
+                
+                <div>
+                    <label for="textColor">Text Color</label>
+                    <input type="text" maxlength="6" size="6" id="textColor" class="pickable" rel="textColor" value="white" style="background: white;">
+                </div>
+                
+                <div>
+                    <label for="hoverTextColorValue">Hover Text Color</label>
+                    <input type="text" maxlength="6" size="6" id="hoverTextColorValue" class="pickable" rel="hoverColor" value="cccccc" style="background: #cccccc;">
+                </div>
+                
+                <div>
+                    <label for="activeBackgroundColor">Active Background Color</label>
+                    <input type="text" maxlength="6" size="6" id="activeBackgroundColor" class="pickable" rel="activeBackground" value="1b435e" style="background: #1b435e;">
+                </div>
+            
+            </div>
+            
+            <select id="fontSelector">
+                <option value="Helvetica, Arial, Sans-Serif">Helvetica</option>
+                <option selected="seleted" value="Georgia, Serif">Georgia</option>
+                <option value="'Lucida Grande', Helvetica, Arial, Sans-Serif">Lucida Grande</option>
+            </select>
+                
+        </div>
+        
+        </div>
+        
+    <div id="the-css"></div>
+        
+                                                                       

@@ -1,0 +1,301 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+<h2>The call() and apply() methods Part I</h2>
+
+Calls a function with a given this value and arguments provided individually.
+
+{{plain:
+     var result = fun.call(thisArg[, arg1[, arg2[, ...]]]);
+}}
+
+
+You can assign a different this object when calling an existing function. this refers to the current object, the calling object.
+
+With call, you can write a method once and then inherit it in another object, without having to rewrite the method for the new object.
+
+<div  class="code-block console-wrap"><div class="code code-block"><code>
+ var math = {
+  start: 0,
+  inc: function (a) {
+    return a + 1;
+  },
+  addHundred: function () {
+    return this.start + 100;
+  }
+
+};
+
+var test = {
+  inc: function (b) {
+    return add.inc.call(this, b);
+  },
+  addHundred: function (a) {
+    this.start = a;
+    var z = math.addHundred.call(this, this.start);
+    return z;
+
+  }
+};
+
+log(math.addHundred());
+log(test.addHundred(1500));
+
+</code>
+</div>
+<p id="msg1" class="msg" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<hr/>
+
+The  __call()__ method is commonly found in iterators, i.e, when we need to iterate over all the members of an object, like for example iterating over all the values of an array.
+
+<div  class="code-block console-wrap"><div class="code code-block"><code>
+ /**
+ * Call f for each element of an array. If all calls return true, every()
+ * returns true. If any call returns false, every() returns false and
+ * does not continue to check the remaining elements.
+ *
+ * See {@link http://tinyurl.com/rx3mg}
+ *
+ * @param {goog.array.ArrayLike} arr The array to check.
+ * @param {Function} f The function to call for every element. This function
+ *     takes 3 arguments (the element, the index and the array) and must
+ *     return a Boolean.
+ * @param {Object} opt_obj The object to be used as the value of 'this'
+ *     within f.
+ * @return {boolean} false if any element fails the test.
+ */
+
+$A.every = function (arr, f, opt_obj) {
+  if (arr.every) {
+    return arr.every(f, opt_obj);
+  }
+  if (Array.every) {
+    return Array.every(arr, f, opt_obj);
+  }
+
+  var l = arr.length; // must be fixed during loop... see docs
+  var arr2 = isString(arr) ? arr.split('') : arr;
+  for (var i = 0; i < l; i++) {
+    if (i in arr2 && !f.call(opt_obj, arr2[i], i, arr)) {
+      return false;
+    }
+  }
+  return true;
+};
+
+function callback(el, index, array) {
+  return (el < 0 ? true : false);
+}
+var test = [-100, -345, -234, -567, -890, -123];
+test2 = [100, 345, 234, 567, 890, 123];
+
+var z1 = $A.every(test, callback, this);
+var z2 = $A.every(test2, callback, this);
+
+log(z1, z2);
+
+
+</code>
+</div>
+<p id="msg1" class="msg" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<hr/>
+
+
+<h2>apply()</h2>
+But, what if we did not know how many arguments we were expected from the call t the method. We can use the __apply()__ method to solve this. In this case, either calling math.sum(), or test.sum(), we can get the total of the arguments.  The __apply()__ method, is similar to the __call()__, with the exception that the arguments are supplied as an array.
+
+
+<div  class="code-block console-wrap"><div class="code code-block"><code>
+var math = {
+  start: 0,
+  inc: function (a) {
+    return a + 1;
+  },
+  sum: function () {
+    var total = 0;
+    for (var i = 0; i < arguments.length; i++) {
+      total = total + arguments[i];
+    }
+    return total;
+  }
+};
+
+var test = {
+  inc: function (b) {
+    return add.inc.call(this, b);
+  },
+  sum: function () {
+    var z = math.sum.apply(this, arguments);
+    return z;
+
+  }
+};
+
+log(math.sum(10, 10));
+log(test.sum(15, 10, 20));
+
+</code>
+</div>
+<p id="msg1" class="msg" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<hr/>
+
+The apply method is quite a convenient trick to use, especially when manipulating the DOM, where we are normally dealing with an unpredictable stream of arguments.
+
+{{bulb: apply() calls a function with a given __this__ value and the arguments provided as an array.}}
+
+
+
+
+One advantage that the constructor stealing offers over prototype chaining is the ability to pass argumnts into the supertype constructor from within the subtype constructor. Consider the following:
+
+<div  class="code-block console-wrap"><div class="code code-block"><code><span class="green">// Constructor Stealing </span>
+<span class="hidden"> log( "Click #", 'button' ); </span>
+one = {
+  a: 10,
+  b: 2,
+  d: 3
+
+}
+two = {
+  c: 1,
+  a: 100,
+  toString: function () {
+    return '5';
+  }
+}
+
+function is_own(object, name) {
+  return Object.prototype.hasOwnProperty.call(object, name);
+
+}
+
+function combine(t, o) {
+  var n;
+  for (n in o) {
+    if (is_own(o, n)) {
+      t[n] = o[n];
+    }
+  }
+}
+
+combine(one, two);
+for (var prop in one) {
+
+  log(prop, one[prop]);
+}
+
+log(one.toString());
+
+</code>
+</div>
+<p id="msg1" class="msg" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+In this code, the SuperType constructor accepts a single argument, name, which is simply assigned to a property. A value can be passed into the SuperType constructor when called from the SubType constructor, effectively
+seting the name property for the SubType instance. To ensure thatthe SuperType constructor doesn't overwrite these properties, additional propeeties
+may be defined on the subtype after the call to the supertype constructor.
+
+<h3>Problems with Constructor Stealing</h3>
+The downside to using costructor stealing exclusively is that it introduces
+the same problems as the constructor pattern for custom types methods must be defined inside the constructor, so there is no function re-use.
+
+Further methods defined on the supertype's prototype are not accessible on the subtype, so all types can use only the constructor pattern.
+
+<strong>Due to these issues, constructor stealing is rarely used on its own.</strong>
+
+<div  class="code-block"><div class="code code-block"><code><span class="green">// Using Prototype </span>
+<span class="hidden"> log( "Click #", 'button' ); </span>
+function product(name, value){
+   this.name = name;
+   if(value >= 1000)
+      this.value = 999;
+   else
+      this.value = value;
+}
+
+function prod_dept(name, value, dept){
+   this.dept = dept;
+   product.apply(this, arguments);
+  <span class="green">// or use  product.call(this, name, value);</span>
+}
+<span class= "green">// instantiate pro_dept </span>
+prod_dept.prototype = new product();
+
+<span class="green">// since 5 is less than 1000, value is set </span>
+cheese = new prod_dept("feta", 5, "food");
+alert(cheese.value);
+
+<span class = "green">// since 5000 is above 1000, value will be 999 </span>
+car = new prod_dept("honda", 5000, "auto");
+
+alert(car.value);
+</code>
+</div>
+<p id="msg1" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+Javascript is a different language consider Croford's words:
+
+
+I have been writing JavaScript for 8 years now, and I have never once found need to use an uber function. The super idea is fairly important in the classical pattern, but it appears to be unnecessary in the prototypal and functional patterns. I now see my early attempts to support the classical model in JavaScript as a mistake.
+
+There also does not appear at this point in time to be any sort of standard way of doing things.
+
+http://javascript.crockford.com/inheritance.html#sugar
+
+
+##Further Reading
+
+
+
+http://ejohn.org/blog/simple-javascript-inheritance/#postcomment
+
+
+http://javascript.crockford.com/inheritance.html#sugar
+
+
+
+
+  
+  
+
+
+
+
+
+
+

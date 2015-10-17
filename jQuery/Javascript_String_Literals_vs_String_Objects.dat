@@ -1,0 +1,151 @@
+
+\section{The difference between JavaScript string literals and string objects}
+
+To recall earlier discussions, JavaScript offers both a _string literal_ and a string object and there are subtle differences between the two. First let us review again how strings are used in Javascript. Besides normal characters that include the full spectrum of UTF-8 JavaScript also accepts  printable characters, special characters can be encoded using escape notation:
+
+
+\begin{codeblock}
+var a = 'a string of character';
+var b = '中文 español';
+var c = '\\\\\\\\ '
+log(b.length);
+log(typeof a);
+log(c);
+
+
+js = js.replace(/\/\*!?((?:[^*]|\*+[^*/])*)\*+\//g, function(match, comment){
+        comment = comment.replace(/^ *[\r\n]+/g, '')
+                         .replace(/^ *[*]+/gm, '')
+                         .replace(/[ *]+$/mg, '')
+                         .replace(/^ +(?=[=])/igm, '')
+                         .replace(/^/mg, '//');
+        return comment;
+    });
+    
+    
+a = "/*       */";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{codeblock}
+
+
+String literals inherit methods from the String object and return a `typeof` of `string`. This is the major difference between string literals and strings created with the expression `new String()`.
+
+\subsection{Good Practices for String Literals}
+
+Since JavaScript accepts single or double quotes a frequent question is what should one use. The consensus is to use single quotes `''`.
+
+\begin{codeblock}
+// bad
+var name = "Bob Parr";
+
+// good
+var name = 'Bob Parr';
+
+// bad
+var fullName = "Bob " + this.lastName;
+
+// good
+var fullName = 'Bob ' + this.lastName;
+\end{codeblock}
+
+
+Another common practice is to that strings longer than 80 characters should be written across multiple lines using string concatenation.
+
+Note: If overused, long strings with concatenation could impact performance. [jsPerf](http://jsperf.com/ya-string-concat). This though is highly unlikely to affect anyone's performance, since you should [uglify]{http://lisperator.net/uglifyjs/} your code. Now when you do most scripts will handle the concatenation and will return a string, in double quotes. For example `var c = 'a' + 'b'`, will be transformed by uglify to  `var c="ab";`, including adding the semi-colon, if you missed it.  
+
+
+
+\begin{codeblock}
+// bad
+var errorMessage = 'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
+
+// bad
+var errorMessage = 'This is a super long error that was thrown because \
+of Batman. When you stop to think about how Batman had anything to do \
+with this, you would get nowhere \
+fast.';
+
+// good
+var errorMessage = 'This is a super long error that was thrown because ' +
+  'of Batman. When you stop to think about how Batman had anything to do ' +
+  'with this, you would get nowhere fast.';
+\end{codeblock}
+
+
+As always a relevant question at stackoverflow can be entertaining as well as snooping at other people's conventions.
+
+\subsection{String Objects}
+
+We first recall that String objects may be created by calling the constructor 
+
+{{plain:
+  new String(). 
+}}
+
+
+\begin{codeblock}
+var a = new String("a string of character");
+var b = new String("中文 español");
+var c = new String("\\\\\\\\ ");
+
+assert(typeof a==="object", 'a is typeof object');
+assert(typeof b==="object", 'b is typeof object');
+assert(typeof c==="object", 'c is typeof object');
+\end{codeblock}
+
+
+The String object wraps JavaScript's string primitive data type with the methods described below. The global function String() can also be called without _new_ in front to create a _primitive string_. String literals in JavaScript are \textit{primitive strings}.
+
+Because JavaScript automatically converts between string primitives and String objects, you can call any of the methods of the String object on a string primitive. JavaScript automatically converts the string primitive to a temporary String object, calls the method, then discards the temporary String object. 
+
+\subsection{The Bad Parts}
+
+JavaScript has some bad parts and this is one of them. String primitives and String objects give different results when evaluated as JavaScript. Primitives are treated as source code; String objects are treated as a character sequence object. 
+
+Consider the following example:
+
+\begin{codeblock}
+s1 = "2 + 2"; // creates a string primitive
+s2 =  new String("2 + 2"); // creates a String object
+log(eval(s1)); // returns the number 4
+log(eval(s2)); // returns the string "2 + 2"
+log(eval(s2.valueOf())); // returns the number 4
+\end{codeblock}
+
+Crockford recommends that you never use \textit{new String()} to create a string object and he is right. If you do be extremely careful. He also recommends against using `eval`, as you can observe in the jslint report of the example above.  
+
+{{bulb: Do not use new String() as a constructor. }}
+
+My own recommendation is that you should also programmatically limit the situations where you need to convert between strings to numbers and when you do, use trusted build-in methods or your own tested routines (i.e, don't convert on the fly). 
+
+{{nutshell: Do not use new to create strings. Rather start with a string literal. Be carefull in evaluating numeric string literals.}}
+
+<h3>See Also</h3>
+
+[Code Evaluation and Beyond](http://127.0.0.1/CodeIgniter/index.php/Blogs/tutorials/jQuery/Code_Evaluation). In this article we discuss, the advantages and disadvantages of using eval(). In certain cases it is safe to use, but precautions are necessary. Try it out yourself.
+
+
+
+
+  
+
+
+
+
+
+
+

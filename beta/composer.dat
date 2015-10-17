@@ -1,0 +1,26 @@
+<!-- test -->
+
+\chapter{Composer}
+
+The problem with open source is too much glue and high rates of change. A PHP package manager called [Composer](https://getcomposer.org/) can assist with the handling of all dependencies. This is not a new concept and the TeX distributions have been doing this for years, but is fairly new to php unless you consider the aging PEAR as a contender.
+
+\ph[30%]{../beta/PHP-Composer.jpg}{}
+
+As I am working on a windows machine, I had the normal run of installation problems. I had to ensure I had open_ssl extension. The WAMP server uses two different `php.ini` files. You will need to modify the one in the directory that has the `php.exe`. [composer warning openssl extension is missing, how to enable it in wamp](http://stackoverflow.com/questions/14062055/composer-warning-openssl-extension-is-missing-how-to-enable-in-wamp)  thanks to [Valery I](http://stackoverflow.com/a/14265815/150305).
+
+It is better to have both `php.ini` identical, otherwise you might pick-up errors with Guzzle when you start using it.
+
+
+
+\section{Using Composer with CodeIgniter}
+
+One of the headaches I had with CodeIgniter is managing all the paths to classes, libraries and additional code. [Phil Sturgeon](http://philsturgeon.co.uk/blog/2012/05/composer-with-codeigniter) had a good blog post as to how to use Composer with CodeIgniter and his ideas were easy to migrate to a Windows machine. I have included a Test routine here using Buzz in order to be able to use it easily with TeXIgniter.
+
+\totop
+
+\section{Pear Repositories}
+
+One of the beauties of composer is that it can autoload classes and dependencies for PEAR libraries. I have replaced a long lasting markdown class from the PEAR2 Class. This also works in terms of plugins which is a much better and easier way of handling what we are trying to achieve.
+
+
+\totop

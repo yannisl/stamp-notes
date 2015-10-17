@@ -1,0 +1,79 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+<script src="http://localhost/codeigniter/js/print.js" />
+
+<h2>Windows and Frames : A Printing Problem</h2>
+
+As a programmer I am sure that you will agree with me that 60% of your time you will spend in developing your application's UI 20% on the actual application and probably 20 % in preparing print reports and the like. This website is primarily focusing on JavaScript for serious applications. If you are only using JavaScript to have a rotating image then obviously the above do not apply to you.
+
+So how can we send content from a browser to a printer?
+
+There are primarily three methods, each one with its pluses and minuses. I will list them in more or less the order of difficulty.
+
+<ol>
+<li> Sending the contents to the server, having a pdf file send to the browser and print from there.</li>
+
+<li>Send the content ont on iframe or window and print from there.</li>
+
+<li>Use the default browser print button (easiest), however all content will be send based on your CSS print.css file.</li>
+
+</ol>
+
+In this tutorial I will show you how to use method 2.
+
+To get the print dialog directly from JavaScript you can use the <tt>window.print()</tt> method. This is bound to work well in almost all browsers. If your style sheet is set properly to hide all navigation and other elements you do not want to print that's it you do not need to do anything more.
+
+However, what we want to do here is actually print only a section of a page. In this case I want to introduce a print button on the code listings. 
+
+<div  class="code-block console-wrap">
+<div class="code code-block">
+<code>
+var  z =$that.siblings('.code').html();
+// sends the code to a print area
+
+// captures the print button
+$('button#print').click(function(){
+      $("div.PrintArea").printArea( );
+    });
+</code>
+</div>
+<div  class="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<button id="print">Print!</button>
+<ol class="results"></ol> 
+<img src="http://localhost/codeigniter/images/jquery.png" style="float:right;width:60px"/>
+</div>
+
+<div id="print_button">Print</div>
+<div class="PrintArea" style="background:#fff; color:#000"></div>
+
+
+##Further Reading
+
+See also [The Print Eliminator ](http://css-tricks.com/examples/ThePrintliminator/js/printliminator.js), for ideas how one can enhance print
+
+ 
+
+
+
+  
+  
+
+
+
+
+
+
+

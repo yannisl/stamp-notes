@@ -1,0 +1,382 @@
+<!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<script type="text/javascript">
+$(document).ready(function(){
+ $('#saveasform').submit(function(){
+    alert('succesful');
+    return false;
+ });
+)};
+</script>
+
+<style id="firststyle"> 
+    .goog-tabpane {
+      background: threedface;
+      padding: 5px;
+      position: relative;
+      width:95%;
+      margin:0 auto;
+    }
+ 
+    .goog-tabpane-tabs {
+      list-style: none;
+      margin: 0px;
+      padding: 0px;
+      height: 1ex;
+      position: relative;
+    }
+ 
+    .goog-tabpane-left .goog-tabpane-tabs {
+      float: left;
+    }
+ 
+    .goog-tabpane-right .goog-tabpane-tabs {
+      float: right;
+    }
+ 
+    .goog-tabpane-cont {
+      overflow: auto;
+      background: threedface;
+      border: 1px solid;
+      border-color: threedhighlight threedshadow threedshadow threedhighlight;
+      padding: 2px;
+      height: 1300px;
+    }
+ 
+    .goog-tabpane-tab, .goog-tabpane-tab-selected {
+      display: block;
+      padding: 0px 3ex;
+      background: threedface;
+      border: 1px solid;
+      margin: 0px;
+    }
+ 
+    .goog-tabpane-top .goog-tabpane-tab,
+    .goog-tabpane-top .goog-tabpane-tab-selected,
+    .goog-tabpane-bottom .goog-tabpane-tab,
+    .goog-tabpane-bottom .goog-tabpane-tab-selected {
+      float: left;
+    }
+ 
+    .goog-tabpane-top .goog-tabpane-tab,
+    .goog-tabpane-top .goog-tabpane-tab-selected {
+      border-color: threedhighlight threedshadow threedface threedhighlight;
+    }
+ 
+    .goog-tabpane-bottom .goog-tabpane-tab,
+    .goog-tabpane-bottom .goog-tabpane-tab-selected {
+    border-color: threedface threedshadow threedshadow threedhighlight;
+    }
+ 
+    .goog-tabpane-left .goog-tabpane-tab,
+    .goog-tabpane-left .goog-tabpane-tab-selected {
+      border-color: threedhighlight threedface threedshadow threedhighlight;
+    }
+ 
+    .goog-tabpane-right .goog-tabpane-tab,
+    .goog-tabpane-right .goog-tabpane-tab-selected {
+      border-color: threedhighlight threedshadow threedshadow threedface;
+    }
+ 
+    .goog-tabpane-top .goog-tabpane-tab {
+      margin-top: 3px;
+    }
+ 
+    .goog-tabpane-tab-selected {
+      font-weight: bold;
+    }
+ 
+    .goog-tabpane-tab-selected,
+    .goog-tabpane-tab-selected {
+      padding-bottom: 2px;
+      padding-top: 2px;
+    }
+ 
+    .goog-tabpane-top .goog-tabpane-tab-selected {
+      position: relative;
+      top: 1px;
+    }
+ 
+    .goog-tabpane-bottom .goog-tabpane-tab-selected {
+      position: relative;
+      top: -1px;
+    }
+ 
+    .goog-tabpane-left .goog-tabpane-tab-selected {
+      position: relative;
+      left: 1px;
+    }
+ 
+    .goog-tabpane-right .goog-tabpane-tab-selected {
+      position: relative;
+      left: -1px;
+    }
+ 
+    #tabpane2 .goog-tabpane-tab {
+      margin-top: 0px;
+    }
+ 
+    p {
+      margin-top: 0px;
+    }
+ 
+</style> 
+
+
+<script type="text/javascript">
+goog.require('goog.string');
+goog.require('goog.ui.TabPane');
+</script>
+
+##Document component
+The document components is a set of components used to deal with the document management application. Primary user is the project Document Controller.
+
+<div id="test1"></div>
+<div id="test" style="width:100%;padding:0;margin:0;height:auto" class="clearfix">
+
+</div>
+
+<hr/>
+
+<div  class="code-block console-wrap"><div class="code-block code"><code>
+// Every document has a number of objects
+// The date object deals with the day the doucument was created
+// received or issued
+
+
+// simple object to manipulate dates for documents
+function DocDate(obj){
+  // current date stamp, good for new documents
+  // and for logging when a document was entered
+  // into the system
+  this.timestamp = function () {
+       return Date.now();
+      };
+  this.received = '';
+  this.sent = '';
+
+}
+
+//types = ['letter', 'memo', 'material submittal'];
+function Doc(obj) {
+var that = this;
+this.fields = ['category', 'subject', 'owner', 
+     'tags', 'dates', 'actionBy', 'actionDueDate'];
+
+// getter and setter ala jQuery
+// utility function
+
+function magicKey(x, scope){
+   scope[x] =  function (val){
+   if (arguments[0]) {
+       scope[x].value = val;
+     } else { 
+        return scope[x].value;
+   }
+  }
+ };
+
+for (var prop in this.fields){
+  if (this.fields.hasOwnProperty(prop)) magicKey(this.fields[prop], this);
+}
+
+this.fields.add = function(val) {
+   that.fields.push(val);
+   magicKey(val,that);
+}
+
+this.controller = {
+  apiBase : 'docs/',
+  dbActions : ['create', 'delete', 'add', 'get', 'getall',
+              'filter', 'search', 'update',
+              'createTable','dropTable']
+};
+
+this.controller.init = function (){
+  // initial system state
+  // 
+}
+
+this.controller.create = function (){
+  // call view
+  // call model controller on server
+  // server controller calls model
+  // server response
+  // view state update 
+  // 
+}
+
+// builds initial scaffolding
+function scaffolding () {
+   var frm = {};
+   
+  // calls template form builder
+  // builds controller/model for server
+}
+
+function buildSrc (action){
+  return that.controller + action;
+}
+
+function callServer(){
+  //ajax routines
+}
+
+this.views = [ 'tabs', 'new', 'settings'
+  ]; //list of available views
+
+
+this.views.register = function (){};
+
+this.view = {};
+
+this.view.render = function (){};
+
+this.wire = {};
+
+this.wire.ui = function() {};
+
+function build (){
+  // save js
+  // save jQuery
+  // create minimal server controller
+  // call scaffolding/builds crud
+  // add themes etc
+}
+
+};//end object
+
+
+var letter = new Doc();
+
+    
+    letter.category ('letter');
+    letter.subject ('test');
+    letter.owner('Yiannis');
+    
+    assert(letter.category.value=='letter');
+    assert(letter.subject.value == 'test');
+    var z = letter.subject();
+    letter.tags(['contract', 'podia', 'important']);
+    z=letter.tags();
+    letter.fields.add('akey');
+    letter.akey('any key');
+    z = letter.akey();
+    log(z);
+    
+
+
+
+
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+
+<form id="saveasform1" name='saveasform1' style="display:block;float:right" >
+<input type="text" id="filename" name="filename" value='Person.js'/>
+<input type="button"  class="small_button" id="saveAsJS" value="Save As JS"/>
+<textarea id="code1" name='code1' hidden>testing</textarea>
+</form>
+
+<ol class="results"></ol> 
+</div>
+
+
+<hr/>
+<div id="pane" class="clearfix"></div>     
+
+
+###Notes
+
+This is possibly the most extensive and complicated Class of the Project. Automation benefits will be added later on.
+
+
+<div  class="code-block console-wrap"><div class="code-block code"><code>
+$(document).ready(function(){
+     $('#saveAsJS').click(function(){
+       $(this).css({'color':'blue'});
+       $(this).val('Saved as JS');
+       var thefilename=$('#filename').val();
+       var apiUrl="/CodeIgniter/admin/api/save/js/"+thefilename;
+       log('sending request ...'+apiUrl);
+       var dataString = "code1="+encodeURIComponent($('#code1').val())+' ';
+       $.ajax({
+          type: "POST",
+          url: apiUrl,
+          data: dataString,
+         success: function(msg) {
+           log('server says ... ok');
+          }
+      });
+      return false;
+   });
+
+
+});
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+### Notes on Classes
+
+It took a while to figure out a way to use Classes within Classes and I experimented with a number of library methods. The best conclusion I came so far, is to use standard JavaScript. It makes the code more readable and you can build a hierarchy of Classes, which you can improve on as you go along. For example the CV part of the form will be developed later on to use on its own as well as be used within the Person class.
+
+I am going to stick to this pattern for the mep application. It creates very long variable names, but is the logical method to avoid spaghetti code. It also helps to develop a quick prototype, which can then be developed at a later stage. Code can also be spread around to more than one developer without much difficulty in version control.
+
+###Rendering values workflow
+
+For each component the following workflow is envisaged:
+
+   - load the Class and dependencies using script tags
+   - load the template
+   - get values from database or server
+   - populate with the values
+   - wait for actions
+   - fetch values from server
+   - populate again
+   - repeat  
+ 
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span id="chapter" class="hidden">3</span>
+##Further Reading
+                                                                                                                                                                                                                                                                                                                                                                                                        

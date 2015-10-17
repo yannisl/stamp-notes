@@ -1,0 +1,84 @@
+
+<h2>Enumerating properties</h2>
+JavaScript (ECMA Edition 5.0) offers three methods to enumerate properties.
+
+__for...in loops__ 
+This method traverses all enumerable properties of an object and its prototype chain
+
+__Object.keys(o)__  
+This method returns an array with all the own (not in the prototype chain) enumerable properties names ("keys") of an object o.
+
+__Object.getOwnPropertyNames(o)__
+This method returns an array containing all own properties names (enumerable or not) of an object o.
+
+\begin{codeblock}
+var myString= new String('test');
+myString.aboutMe=true;
+log(myString);
+for (var prop in myString){
+     logPRE(prop+': '+ myString[prop]);
+}
+\end{codeblock}
+
+
+As you can see, the results of the above code, include the properties of the __String__ object, which our own variable __myString__ inherits when we constructed it. If you also check the results of the jslint program, we get a warning. To avoid listing all the properties we use the
+__hasOwnProperty__, method.
+
+
+\begin{codeblock}
+var myString= new String('test');
+myString.aboutMe=true;
+log(myString);
+for (var prop in myString){
+     if(myString.hasOwnProperty(prop)){logPRE(prop+': '+ myString[prop]);}
+}
+\end{codeblock}
+
+
+Running the above we now only see the properties of myString. Before we close the article there is one more example that I would like you to see:
+
+\begin{codeblock}
+var myString= 'test';
+myString.aboutMe=true;
+log(myString);
+for (var prop in myString){
+     if(myString.hasOwnProperty(prop)){logPRE(prop+': '+ myString[prop]);}
+}
+log(myString.aboutMe);
+\end{codeblock}
+
+
+
+
+Can you see the difference? In the last listing, we assigned 'test' to myString,
+ and being a string literal, the interpreter did not accept the <em>myString.aboutMe</em> assignment - it silently failed!. When we log the result we get undefined. In listing 2, however, because we have used new String (), we had the method listed.
+
+
+##The hasOwnPropertyNames method
+
+
+\begin{codeblock}
+var myString= 'test';
+myString.aboutMe=true;
+log(myString);
+for (var prop in myString){
+     if(myString.hasOwnProperty(prop)){logPRE(prop+': '+ myString[prop]);}
+}
+log(myString.aboutMe);
+\end{codeblock}
+
+<p class="code">Can you see the difference? In the last listing, we assigned 'test' to myString,
+ and being a string literal, the interpreter did not accept the <em>myString.aboutMe</em> assignment - it silently failed!. When we log the result we get undefined. In listing 2, however, because we have used new String (), we had the method listed.
+</p>
+
+
+<hr/>
+
+
+
+##Further Reading
+
+
+
+
+                                                            

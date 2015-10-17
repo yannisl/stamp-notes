@@ -1,0 +1,85 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+<h2>PHP to JavaScript</h2>
+A lot of web developers grew up with PHP. PHP gets a lot of criticism and some [people](http://firsttube.com/read/An-Argument-for-PHP/)   provide some valid counter arguments.  I will be dead neutral on this issue until my first RoR application is up and running. I was wondering, if one could create a small CASE tool that could convert PHP into JavaScript and here is what I came up with.
+
+<div  class="code-block console-wrap"><div class="code code-block">
+
+class SimpleClass
+{
+    // property declaration
+    public $var = 'a default value';
+
+    // method declaration
+    public function displayVar() {
+        echo $this->var;
+    }
+}
+</div>
+
+<div  class="msg" class="msg">
+</div>
+<div class="console"></div>
+
+<ol class="results"></ol> 
+
+</div>
+
+
+This can be written in Javascript in various ways one way is:
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+function SimpleClass()
+{
+    // property declaration
+   var $var = 'a default value';
+
+    // method declaration
+   this.displayVar = function () {
+        alert($var);
+    }
+}
+
+n= new SimpleClass();
+n.displayVar();
+
+</code>
+</div>
+
+<div  class="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+<img src="http://localhost/codeigniter/images/jquery.png" style="float:right; width:85px"/>
+</div>
+
+
+##Further Reading
+
+
+
+ 
+
+
+
+  
+  
+
+
+
+
+
+
+

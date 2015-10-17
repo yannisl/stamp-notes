@@ -1,0 +1,85 @@
+ <!--
+{{feature-image:/codeigniter/images/china/beauty_02.jpg}}
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<style>
+.beauty{float:left;width:120px;border:1px solid #fff}
+</style>
+
+<h2>Article ratings</h2>
+<div>
+<img src="/CodeIgniter/images/china/beauty_01.jpg" class="beauty">
+<img src="/CodeIgniter/images/china/beauty_02.jpg" class="beauty">
+<img src="/CodeIgniter/images/china/beauty_03.jpg" class="beauty">
+<img src="/CodeIgniter/images/china/beauty_04.jpg" class="beauty">
+<img src="/CodeIgniter/images/china/beauty_05.jpg" class="beauty">
+<img src="/CodeIgniter/images/china/beauty_06.jpg" class="beauty">
+<img src="/CodeIgniter/images/china/beauty_07.jpg" class="beauty">
+<img src="/CodeIgniter/images/china/beauty_08.jpg" class="beauty">
+<img src="/CodeIgniter/images/china/beauty_09.jpg" class="beauty">
+<img src="/CodeIgniter/images/china/beauty_10.jpg" class="beauty">
+<img src="/CodeIgniter/images/china/beauty_11.jpg" class="beauty">
+<img src="/CodeIgniter/images/china/beauty_12.jpg" class="beauty">
+<img src="/CodeIgniter/images/china/beauty_13.jpg" class="beauty">
+<img src="/CodeIgniter/images/china/beauty_14.jpg" class="beauty">
+<img src="/CodeIgniter/images/china/beauty_15.jpg" class="beauty">
+</div>
+
+<hr/>
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+profiler.start();
+arr = [];
+for (var i = 0; i < 500000; i++) {
+  arr[i] = i;
+}
+profiler.stop();
+profiler.timeDiff();
+
+profiler.start();
+for (var i = 0, length = arr.length; i < length; i++) {
+  arr[i] = i;
+}
+profiler.stop();
+profiler.timeDiff();
+var z = goog.array.peek(arr);
+log(z);
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+

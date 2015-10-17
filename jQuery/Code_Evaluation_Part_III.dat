@@ -1,0 +1,163 @@
+
+<h2>Code Evaluation in Global Context</h2>
+
+
+
+\begin{codeblock}
+/**
+ * Evals javascript in the global scope.  In IE this uses execScript, other
+ * browsers use goog.global.eval. If goog.global.eval does not evaluate in the
+ * global scope (for example, in Safari), appends a script tag instead.
+ * Throws an exception if neither execScript or eval is defined.
+ * @param {string} script JavaScript string.
+ */
+
+
+goog.globalEval = function(script) {
+  if (goog.global.execScript) {
+    goog.global.execScript(script, 'JavaScript');
+  } else if (goog.global.eval) {
+    // Test to see if eval works
+    if (goog.evalWorksForGlobals_ == null) {
+      goog.global.eval('var _et_ = 1;');
+      if (typeof goog.global['_et_'] != 'undefined') {
+        delete goog.global['_et_'];
+        goog.evalWorksForGlobals_ = true;
+      } else {
+        goog.evalWorksForGlobals_ = false;
+      }
+    }
+
+    if (goog.evalWorksForGlobals_) {
+      goog.global.eval(script);
+    } else {
+      var doc = goog.global.document;
+      var scriptElt = doc.createElement('script');
+      scriptElt.type = 'text/javascript';
+      scriptElt.defer = false;
+      // NOTE: can't use .innerHTML since "t('<test>')" will fail and
+      // .text doesn't work in Safari 2.  Therefore we append a text node.
+      scriptElt.appendChild(doc.createTextNode(script));
+      doc.body.appendChild(scriptElt);
+      doc.body.removeChild(scriptElt);
+    }
+  } else {
+    throw Error('goog.globalEval not available');
+  }
+};
+
+var s="log('hello')";
+
+goog.globalEval(s);
+
+\end{codeblock}
+
+
+Let us carry out a bit more testing on the above code:
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+(function () {
+      $.globalEval ("var t = 6;");
+      assert( t === 6, "eval is executed within the current scope." );
+}) ();
+assert ( t === 5, "Verify that the scope execution was done correctly");
+</code>
+</div>
+<div  class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+The above returned an error as the variable <tt>t</tt> was only local to the closure.
+
+Trying an example straight out of John Resig's book:
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+var obj = eval ( " ( { name: 'Yannis' } ) " );
+assert ( obj.name === "Yannis" , "Objects require the extra parentheses.");
+
+var obj2 = eval ( " { name: 'Yannis' }  " );
+assert ( obj2.name === "Yannis" , "Objects require the extra parentheses.");
+
+
+</code>
+</div>
+<div  class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+Can we return values from a  function?
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+var fn = eval (" (function() {return 'test';}) ");
+assert ( fn() === "test" , "As functions do!");
+</code>
+</div>
+<div  class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+This last one seems to have some problems in Internet Explorer. It gives us an error of 'Object expected undefined'.  jQuery library uses some clever trickery to by-pass this problem.
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+var fn = eval (" false || function () {return true;} ");
+assert ( fn() === true , "Verify that the function was created correctly");
+</code>
+</div>
+<div  class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+If you are wondering why you should be creating a function on the fly in this way you should bear in mind that all code executed by eval is done so within the current scope and, thus, it has all the properties of it as well - including any enclosed variables within the current scope and all the externally enclosed variables as well.
+
+Of course, if we don't need that additional closure, there's a proper alternative that we can make use of.
+
+<h3>Safe Code Evaluation</h3>
+
+One question that frequently arrives is how to safely execute untrusted JavaScript on your page without compromising the site security.
+There are simply too many ways to skirt around any barriers put forth that can result in code getting acess to information that it's not supposed to.
+
+There is an atempt by Google to create a translator for JavaScript that converts Javascript into a safer form (and immune to malicious attacks).
+
+See also the tutorial <a href="http://127.0.0.1/CodeIgniter/index.php/Blogs/tutorials/jQuery/Closures_Part_I"> Closures Part I</a> for some interesting side-effects of eval() and accidental closures creating loops that can spin your head around!
+
+
+- Google Caja: http://code.google.com/p/google-caja/
+
+##Further Reading
+<span id="chapter" class="hidden">5</span>
+
+
+ 
+
+
+
+  
+  
+
+
+
+
+
+
+
+    

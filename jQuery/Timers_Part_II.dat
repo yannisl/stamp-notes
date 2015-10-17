@@ -1,0 +1,163 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<h2>Timers Part II</h2>
+
+Some facts about JavaScript timers:
+
+- JavaScript engines only have a single thread, forcing asynchronoue events to queue for execution.
+
+- <tt>setTimeout </tt> and <tt>setInterval</tt> are fundamentally different in how they execute asynchronous code.
+
+- if a timer is blocked from immediately executing it will be delayed until the next possible time of execution (whic be longer than the desired delay).
+
+- Intervals may execute back-to-back with no delay if they take long enough to execute (longer than the specified delay).
+
+Since timers are capable of, effectively, suspending execution of a piece of JavaScript until a later time it also prevents browsers from hanging. taking this into account it is possible to convert an intensive computation into non-blocking operations.
+
+Let us first look at a normal intensive computation:
+
+<table id="example" style="width:200px;font-size:3px;float:left">
+<tbody id="#tbody">
+</tbody>
+</table>
+
+In this example we're creating a total of 26,000 DOM nodes, populating a table with numbers. This
+is incredibly expensive and will likely hang the browser preventing the user from performing normal
+interactions. We can introduce timers into this situation to achieve a different, and perhaps better, result,
+as shown in Listing 5-3
+
+
+<hr/>
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+say("");
+var table = document.getElementById("#tbody");
+for ( var i = 0; i < 10; i++ ) {
+    var tr = document.createElement("tr");
+  for ( var t = 0; t < 20; t++ ){
+    var td = document.createElement("td");
+     td.appendChild( document.createTextNode("" + t) );
+     tr.appendChild( td );
+    }
+   table.appendChild( tr );
+}
+say('');
+</code>
+</div>
+<div style="height:200px;width:400px">
+<div id="box1"  style="position:relative; color:blue;width:50px">
+<img src="http://localhost/codeigniter/images/redball.gif" style="width:30px"/>
+</div>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<h3>Splitting the Operation</h3>
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code class="js">
+say("");
+var table = document.getElementById("#tbody");
+var i = 0, max = 1999;
+setTimeout(function(){
+    for ( var step = i + 500; i < step; i++ ) {
+        var tr = document.createElement("tr");
+        for ( var t = 0; t < 6; t++ ){
+            var td = document.createElement("td");
+            td.appendChild( document.createTextNode("" + t) );
+            tr.appendChild( td );
+        }
+        table.appendChild( tr );
+    }
+    if ( i < max ) {
+        setTimeout( arguments.callee, 0 );
+    }
+}, 0);
+
+say("");
+</code>
+</div>
+<div style="height:200px;width:400px">
+<div id="box1"  style="position:relative; color:blue;width:50px">
+<img src="http://localhost/codeigniter/images/redball.gif" style="width:30px"/>
+</div>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+6,500 DOM nodes. These operations are much less likely to interrupt the flow of the browser. Worst case
+these numbers can always be tweaked (changing 500 to 250, for example, would give us 8 steps of 3,500
+DOM nodes each). What's most impressive, however, is just how little our code has to change in order to
+accommodate this new, asynchronous, system. We have to do a little more work in order to make sure that
+the correct number of elements are being constructed (and that the looping doesn't continue on forever)
+but beyond that the code looks very similar to what we started with. 
+
+Note that we make use of a closure
+to maintain the iterator state from code segment to code segment undoubtedly without the use of closures
+this code would be much more complicated.
+
+There's one perceptible change when using this technique, in relation to the original technique, namely that
+a long browser hang is now replaced with 4 visual updates of the page. While the browser will attempt to
+do these segments as quickly as possible it will also render the DOM changes after each step of the timer
+(just as it would after one large bulk update). Most of the time it's imperceptible to the user to see these
+types of updates occur but it's important to remember that they occur.
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+<style type="text/css">
+#example {
+  width:40px;
+  border: 1px solid #bebebe
+}
+
+td {height: 4px;font-size:3px;background:#bebebe}
+table#tbody{}
+</style>
+
+
+ 
+
+
+
+  
+  
+
+
+
+
+
+
+

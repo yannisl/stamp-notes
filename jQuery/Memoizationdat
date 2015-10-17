@@ -1,0 +1,148 @@
+
+  
+    
+<!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+{{next:/CodeIgniter/Blogs/tutorials/jQuery/memoization_Part_II}}
+
+-->
+
+<script>
+ goog.require('goog.json');
+</script>
+
+<h2>Memoization</h2>
+
+Memoization is the process of building a function which is capable of remembering its previously
+computed answers. As a basic example, let's look at a simplistic algorithm for computing prime numbers.
+
+A memoized function "remembers" the results corresponding to some set of specific inputs. 
+
+Subsequent calls with remembered inputs return the remembered result rather than recalculating it, thus moving the primary cost of a call with given parameters to the first call made to the function with those parameters. 
+
+The set of remembered associations may be a fixed-size set controlled by a replacement algorithm or a fixed set, depending on the nature of the function and its use. A function can only be memoized if it is referentially transparent; that is, only if calling the function has the exact same effect as replacing that function call with its return value. (Special case exceptions to this restriction exist, however.) 
+
+While related to lookup tables, since memoization often uses such tables in its implementation, memoization differs from pure table lookup in that the tables which memoization might use are populated transparently on an as-needed basis.
+
+{{bulb:Memoization is a means of lowering a function's __time cost__ in exchange for __space cost__; that is, memoized functions become optimized for speed in exchange for a higher use of computer memory space. }}
+
+
+
+Although a trade-off occurs (i.e., space used is speed gained), this differs from some other optimizations that involve time-space trade-off, such as strength reduction, in that memoization is a runtime rather than compile time optimization. Moreover, strength reduction potentially replaces an expensive operation such as multiplication with a less expensive operation such as addition, and the results in savings can be highly non-portable across machines, whereas memoization is a machine-independent strategy.
+Consider the following pseudocode function to calculate the factorial of n:
+
+
+
+
+
+
+
+Note how the function appears just like a normal function but has the addition of an answer cache to which it saves, and retrieves, solved numbers, like in the Listing shown below.
+
+<div class="code-block console-wrap"><div class="code-block code">
+<code>
+function isPrime(num) {
+  if (isPrime.answers[num] != null) {
+    return isPrime.answers[num];
+  }
+  var prime = num != 1; // Everything but 1 can be prime
+  for (var i = 2; i < num; i++) {
+    if (num % i === 0) {
+      prime = false;
+      break;
+    }
+  }
+  return isPrime.answers[num] = prime;
+}
+var n = 29;
+isPrime.answers = {}
+log(isPrime(n), "Make sure the function works,  is prime.");
+log(isPrime.answers[n], "Make sure the answer is cached.");
+
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+
+{{bulb: The time/space "cost" of algorithms has a specific name in computing: computational complexity. All functions have a computational complexity in time (i.e. they take time to execute) and in space.}}
+
+Let's take a look at a modern example, like in Listing 2-15. Querying for a set of DOM elements, by name,
+is an incredibly common operation. We can take advantage of our new-found function property power by
+building a cache that we can store the matched element sets in.
+
+The code ends up being quite simple and doesn't add that much extra complexity to the overall querying process. However, if were to do some performance analysis (the results shown in Table 2-1) upon it we would find that this simple layer of caching yields us a 7x performance increase.
+
+<div class="code-block console-wrap"><div class="code-block code">
+<code>
+function getElements(name) {
+  return getElements.cache[name] = getElements.cache[name] || document.getElementsByTagName(name);
+}
+getElements.cache = {};
+
+var el1 = getElements('*');
+var n = 20000;
+profiler.start();
+for (var i = 1; i < n; i++) {
+  getElements.cache['*'].length;
+}
+profiler.stop();
+profiler.timeDiff();
+
+profiler.start();
+for (var i = 1; i < n; i++) {
+  document.getElementsByTagName('*');
+}
+profiler.stop();
+profiler.timeDiff();
+
+log(el1.length);
+
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+There are two advantages to writing a function in this manner: First, that the user gets the improved speed (although as you can observe from the above the time in a modern Browser like Chrome is really imperceptible), we have all of
+the state and caching information stored in a single location, gaining all the benefits of performance without any extra storage or caching objects polluting the scope. (I got similar results in FF but have not bothered trying them in other browsers).
+
+{{bulb: Thought! Given the fact that we can now obtain such great speeds, would it be simpler to actually parse the whole DOM tree and cache its important properties, rather than using selector engines like Sizzle? }}
+
+In the next article we will explore Google's Closure memoization method as well as look at some other issues such as using variatic functions and making the memoization function more general, i.e we can perhaps execute any function through it.
+
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+

@@ -1,0 +1,13 @@
+\chapter{Write your title here}
+
+\\[\color{black}{
+\begin{bmatrix}
+\begin{pmatrix}
+\frac{x}{y}
+\end{pmatrix}+
+\begin{pmatrix}
+\frac{y}{x}
+\end{pmatrix}
+\end{bmatrix}}\\]
+
+is equal to $\color{black}{2.\bar{6}}$

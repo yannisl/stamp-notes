@@ -1,0 +1,41 @@
+<script>goog.require('goog.math.Long');</script>
+<h2>The Long Class</h2>
+
+This Google class simulates the behavior of a Java "long" integer, by
+ representing a 64-bit two's-complement
+ integer value.
+
+Remember this is for integer manipulation for the 
+Number Type the values  provided by JavaScript represent
+the double-precision 64-bit format IEEE 754 values including the special Not-a-Number (NaN) values,
+positive infinity, and negative infinity.
+<hr />
+
+
+\begin{codeblock}
+googInfo();
+//var d = new goog.window.open('#');
+var n = new goog.math.Long.fromString('23456677990090909090990');
+log(n);
+\end{codeblock}
+
+
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+                                                  

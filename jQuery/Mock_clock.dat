@@ -1,0 +1,110 @@
+<script> 
+  goog.require('goog.testing.MockClock');
+  goog.require('goog.testing.jsunit'); 
+</script> 
+
+
+<h2>A Mock Clock</h2>
+
+This Class found under the testing directory arose my curiosity, especially after having written quite a bit on both testing as well as timers.
+
+The Mock Clock implementation for working with setTimeout,
+ setInterval, clearTimeout and clearInterval within unit tests.
+ Derrived from jsUnitMockTimeout.js, contributed to JsUnit by
+ [Pivotal Computer Systems](http://www.pivotalsf.com)
+
+\begin{codeblock}
+ function testMockClockWasInstalled() {
+    var clock = new goog.testing.MockClock();
+    var originalTimeout = window.setTimeout;
+    clock.install();
+  //  assertNotEquals(window.setTimeout, originalTimeout);
+    setTimeout(function() {}, 100);
+    log(1==clock.getTimeoutsMade());
+    setInterval(function() {}, 200);
+    assertEquals(2==clock.getTimeoutsMade());
+    clock.uninstall();
+    assert(window.setTimeout==originalTimeout);
+    assert(clock.installed_);
+   log('test');
+  };
+
+testMockClockWasInstalled();
+ 
+ 
+ (function testSetTimeoutAndTick() {
+    var clock = new goog.testing.MockClock(true);
+    var m5 = false, m10 = false, m15 = false, m20 = false;
+    setTimeout(function() { m5 = true; }, 5);
+    setTimeout(function() { m10 = true; }, 10);
+    setTimeout(function() { m15 = true; }, 15);
+    setTimeout(function() { m20 = true; }, 20);
+    assert(4== clock.getTimeoutsMade());
+ 
+    assert(4== clock.tick(4));
+    assert(4==clock.getCurrentTime());
+ 
+    assertFalse(m5);
+    assertFalse(m10);
+    assertFalse(m15);
+    assertFalse(m20);
+ 
+    assertEquals(5, clock.tick(1));
+    assertEquals(5, clock.getCurrentTime());
+ 
+    assertTrue('m5 should now be true', m5);
+    assertFalse(m10);
+    assertFalse(m15);
+    assertFalse(m20);
+ 
+    assertEquals(10, clock.tick(5));
+    assertEquals(10, clock.getCurrentTime());
+ 
+    assertTrue('m5 should be true', m5);
+    assertTrue('m10 should now be true', m10);
+    assertFalse(m15);
+    assertFalse(m20);
+ 
+    assertEquals(15, clock.tick(5));
+    assertEquals(15, clock.getCurrentTime());
+ 
+    assertTrue('m5 should be true', m5);
+    assertTrue('m10 should be true', m10);
+    assertTrue('m15 should now be true', m15);
+    assertFalse(m20);
+ 
+    assertEquals(20, clock.tick(5));
+    assertEquals(20, clock.getCurrentTime());
+    log(clock.getCurrentTime());
+ 
+    assertTrue('m5 should be true', m5);
+    assertTrue('m10 should be true', m10);
+    assertTrue('m15 should be true', m15);
+    assertTrue('m20 should now be true', m20);
+ 
+    clock.uninstall();
+  })();
+\end{codeblock} 
+ 
+
+
+
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+                                    

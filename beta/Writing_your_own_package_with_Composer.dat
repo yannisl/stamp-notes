@@ -1,0 +1,88 @@
+\chapter{Writing your Own Package with Composer}
+ 
+A great way to add your own packages via composer---while developing---is to use Composer to load them. Firstly, you ensure that  your classes are accessible and follow the PSR-0 standards and second once you feel you ready to install them at the "Packagist" you do not have to do any additional work, other than filling a few forms.
+
+There is a great write-up on how to create and install your own package by Marcin Grochulski at [knpununiversity](https://knpuniversity.com/screencast/question-answer-day/create-composer-package). 
+
+### Step 1: Put your Library on GitHub
+
+The first thing you need to do is to upload any such classes to github.
+
+In fact, I’ve just created a wonderful new library that does... well, nothing honestly - but it’ll serve as our example: [composer package](https://github.com/weaverryan/derp-dangerzone).
+
+The library is up on GitHub, and in real life would actually have some useful things. You’ll also see a composer.json file. ignore it and pretend it isn’t there for now.
+
+Now suppose that we want to include that library in one of our projects. If the new library were registered with Packagist (we’ll add it eventually), then it would be as simple as adding one line to our require key in composer.json.
+
+But since it’s not, we have to do the work ourself using a custom repositories key in the composer.json or our project:
+
+\begin{verbatim}
+
+"repositories": [
+    {
+        "type": "package",
+        "package": {
+            "name": "weaverryan/derp-dangerzone",
+            "version": "dev-master",
+            "source": {
+                "url": "git://github.com/weaverryan/derp-dangerzone.git",
+                "type": "git",
+                "reference": "master"
+            },
+            "autoload": {
+                "psr-0" : {
+                    "Weaverryan\\DangerZone" : "src"
+                }
+            }
+        }
+    }
+],
+
+\end{verbatim}
+
+
+### Step 2: Give your Library a composer.json File
+
+If everyone that uses your library needs to do all that work, you can bet that you won’t be very popular. To fix this, we’ll need to put a composer.json file in the library itself. Fortunately, this is really easy, and we can basically move the package we already created into a new composer.json file at the root of our library. To make it easier, you can remove the version and source keys - Composer will look at your branches and tags to get all of this.
+
+In other words, create a `composer.json` file in your library:
+
+\begin{verbatim}
+{
+    "name": "weaverryan/derp-dangerzone",
+    "autoload": {
+        "psr-0" : {
+            "Weaverryan\\DangerZone" : "src"
+        }
+    }
+}
+\end{verbatim}
+
+And this is exactly what you see right now at `weaverryan/derp-dangerzone`. At this point, the Packagist repository doesn’t know about our library, but our library does have a composer.json file. This is a huge step forward, because it lets us simplify our project’s composer.json quite a bit. We still need a custom repositories key, but now it’s much simpler.
+
+Update your projects’s composer.json to have the following:
+
+\begin{verbatim}
+"repositories": [
+    {
+        "type": "vcs",
+        "url": "https://github.com/weaverryan/derp-dangerzone"
+    }
+],
+\end{verbatim}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

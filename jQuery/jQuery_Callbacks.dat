@@ -1,0 +1,53 @@
+
+<h1 id="firstHeading" class="firstHeading">Callback and Functions</h1>
+
+
+A {{wi:callback}} is a function that is passed as an argument to another function and is executed after its parent function has completed. The special thing about a callback is that functions that appear after the "parent" can execute before the callback executes.
+
+Another important thing to know is how to properly pass the callback. This is where I have often forgotten the proper syntax.
+
+
+##Callback without arguments
+
+For a callback with no arguments you pass it like this:
+
+{{plain:  <code class="js"> 
+$.get('myhtmlpage.html', myCallBack); 
+</code>  }}
+
+Note that the second parameter here is simply the function name (but not as a string and without parentheses). Functions in Javascript are 'First class citizens' and so can be passed around like variable references and executed at a later time. jquery
+
+
+##Callback with arguments
+
+"What do you do if you have arguments that you want to pass?", you might ask yourself.
+
+
+###Wrong
+
+The Wrong Way (will not work!)
+
+ {{plain:  $.get('myhtmlpage.html', myCallBack(param1, param2));}}
+
+This will not work because it calls
+
+myCallBack(param1, param2)
+and then passes the return value as the second parameter to $.get().
+
+
+###Right
+
+The problem with the above example is that myCallBack(param1, param2) is evaluated before being passed as a function. Javascript and by extension jQuery expects a function pointer in cases like these. I.E. setTimeout function.
+
+In the below usage, an anonymous function is created (just a block of statements) and is registered as the callback function. Note the use of 'function(){'. The anonymous function does exactly one thing: calls myCallBack, with the values of param1 and param2 in the outer scope.
+
+{{plain:
+$.get('myhtmlpage.html', function()&#123;
+  myCallBack(param1, param2);
+&#125;);
+}}
+
+param1 and param2 are evaluated as a callback when the '$.get' is done getting the page.
+
+
+  

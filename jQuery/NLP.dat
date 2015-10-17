@@ -1,0 +1,89 @@
+<!--{{feature-image:/egypt/amato-01/aa_151.jpg}}
+{{credit-source: Allan Amato}}
+{{credit: /codeigniter/blogs/gallery/amato-01/50}}
+{{keywords: CodeIgniter,NLP, natural language processing}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}-->
+
+
+<script type="text/javascript" src="/CodeIgniter/js/jspos/lexer.js"></script> 
+<script type="text/javascript" src="/CodeIgniter/js/jspos/lexicon.js_"></script> 
+<script type="text/javascript" src="/CodeIgniter/js/jspos/POSTagger.js"></script> 
+
+
+
+##NLP   
+
+This is based on [Mark Watson's](http://www.markwatson.com/) pos tagger and using JavaScript. The JavaScript library can be downloaded at [jspos](http://code.google.com/p/jspos/). This includes a compressed lexicon provided by  Toby Rahilly.
+
+<div  class="code-block console-wrap">
+<div class="code">
+<code>
+$('#ajax-button-01').click(function(){
+     $.getScript('/CodeIgniter/js/jspos/lexer.js', function(){
+       log('script lexer.js loaded and executed');});
+
+     $.getScript('/CodeIgniter/js/jspos/lexicon.js_', function(){
+       log('script lexicon loaded and executed');});
+     
+     $.getScript('/CodeIgniter/js/jspos/POSTagger.js', function(){
+       log('script POSTagger loaded and executed');});
+  return false;
+});
+
+$(document).ready(function(){
+var z  = $("#input_text").text();
+var words = new Lexer().lex(z);
+var taggedWords = new POSTagger().tag(words);
+var result = "";
+for (var i in taggedWords) {
+  var taggedWord = taggedWords[i];
+  var word = taggedWord[0];
+  var tag = taggedWord[1];
+  // Note the use of document.writeln instead of print
+  result += (word + ' /' + tag +', ');
+}
+$("#tagged_text").text(result).show();
+});
+</code>
+</div>
+<div   class="msg">
+</div>
+<div class="console"></div>
+<hr/>
+<button class="eval">Run Code!</button>
+<button id="ajax-button-01">Load Data!</button>
+<ol class="results"></ol> 
+<div id="tagged_text" style="font-size:10px;" class="hidden"></div>
+</div>
+
+
+
+<div id="input_text"> 
+<p>
+Bonaparte has been as profuse in his disposal of the Imperial
+diadem of Germany, as in his promises of the papal tiara of Rome.  The
+Houses of Austria and Brandenburgh, the Electors of Bavaria and Baden,
+have by turns been cajoled into a belief of his exclusive support towards
+obtaining it at the first vacancy.  Those, however, who have paid
+attention to his machinations, and studied his actions; who remember his
+pedantic affectation of being considered a modern, or rather a second
+Charlemagne; and who have traced his steps through the labyrinth of folly
+and wickedness, of meanness and greatness, of art, corruption, and
+policy, which have seated him on the present throne, can entertain little
+doubt but that he is seriously bent on seizing and adding the sceptre of
+Germany to the crowns of France and Italy.
+
+By assigning this function to a variable, we effectively name-space our module, limiting the name to only one Object. this pattern is used extensively by all the JavaScript Libraries.
+
+We can use two different methods to assign the properties to the Object and they both result to almost identical results:
+
+The information shown in the box below maybe able to kill you. I believe that down the line the web will morph into an automated talking web, where distributed computing will become a reality by just pointing your browser to a URL. Is it possible with Javascript to perform genomics?
+</p>
+</div> 
+
+ 
+
+                                                        

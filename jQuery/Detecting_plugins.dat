@@ -1,0 +1,39 @@
+
+<style type="text/css">
+div.exercise{ white-space:pre;line-height:1.3;
+                         color:grey;
+                         float:left;padding-top:0}
+div.collapser{
+     margin:0;padding:0;
+     width:20px;
+     height:50px;
+     float:left;line-height:1;
+   
+}
+span#plus{cursor:pointer;line-height:1;width:18px
+                      height:60px;border:1px solid #bebebe;
+                      background:#fff}
+.lines{ background:url(http://localhost/codeigniter/images/vline.png) repeat-y 3px;
+width:12px}
+</style>
+
+<h2>Geolocation</h2>
+
+Most browsers other than Internet Explorer support a special array called _navigator.plugins_, which contains a list of installed plugins, making it easy to check for a given plugin name. In  Internet Explorer it' s surprisingly difficult to do the same. IE has the same array, but it's empty, making it useless for detecting plugins. Instead, you need to do something quite unbelievable: use VBScript. This is a book about JavaScript, not VBScript, but to get past this difficult problem there really is no alternative but to include VBScript in the detection script.
+
+\begin{codeblock}
+if (navigator.geolocation) {
+  log('geolocation available');
+} else {
+  log('No geolocation');
+}
+\end{codeblock}
+
+
+
+<span id="chapter" class="hidden">11</span>
+
+
+
+
+                                                                                                                                                                                                                                          

@@ -1,0 +1,68 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+<h2>The difference between JavaScript string literals and string objects</h2>
+
+
+We first recall that String objects may be created by calling the constructor 
+{{plain:
+  new String(). 
+}}
+The String object wraps JavaScript's string primitive data type with the methods described below. The global function String() can also be called without new in front to create a <strong>primitive string</strong>. String literals in JavaScript are primitive strings.
+
+Because JavaScript automatically converts between string primitives and String objects, you can call any of the methods of the String object on a string primitive. JavaScript automatically converts the string primitive to a temporary String object, calls the method, then discards the temporary String object. 
+
+JavaScript has some bad parts and this is one of them. String primitives and String objects give different results when evaluated as JavaScript. Primitives are treated as source code; String objects are treated as a character sequence object. 
+
+Consider the following example:
+
+<div  class="code-block console-wrap" title="String functions">
+<div class="code code-block">
+<code>
+s1 = "2 + 2"; // creates a string primitive
+s2 =  new String("2 + 2"); // creates a String object
+log(eval(s1)); // returns the number 4
+log(eval(s2)); // returns the string "2 + 2"
+log(eval(s2.valueOf())); // returns the number 4
+
+</code>
+
+</div>
+<p id="msg1" class="msg"  style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+Crockford recommends that you never use new String() to create a string object and he is right. If you do be extremely careful. He also recommends against using eval, as you can observe in the jslint report of the example above.  
+
+{{bulb: Do not use new String() as a constructor. }}
+
+My own recommendation is that you should also programmatically limit the situations where you need to convert between strings to numbers and when you do, use trusted build-in methods or your own tested routines (i.e, don't convert on the fly). 
+
+{{nutshell: Do not use new to create strings. Rather start with a string literal. Be carefull in evaluating numeric string literals.}}
+
+<h3>See Also</h3>
+
+[Code Evaluation and Beyond](http://127.0.0.1/CodeIgniter/index.php/Blogs/tutorials/jQuery/Code_Evaluation). In this article we discuss, the advantages and disadvantages of using eval(). In certain cases it is safe to use, but precautions are necessary. Try it out yourself.
+
+
+
+
+  
+
+
+
+
+
+
+

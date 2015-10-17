@@ -1,0 +1,235 @@
+
+<style>
+ .hidden{display:none;}
+.ex1,.ex2,.ex3{width:100px;height:180px;border:1px solid red;float:left;margin-right:1px}
+a#cbutton, a#cbutton1{color:blue}
+p#out{font-size:30px;font-weight:bold}
+div#poem{}
+</style>
+
+
+
+<h2>Cadaeic Cadenza, Javascript Regular Expressions and &pi;!</h2>
+I have explored previously in this article how to find the value of &pi; by throwing needles on a floor! In this article I will show you how to determine &pi; to 3835 digits by parsing a poem!
+
+<h2>Cadaeic Cadenza</h2>
+The idea of writing a sentence (or longer piece of poetry or prose) in which the lengths of successive words represent the digits of the number &#960; (=3.14159265358979...) has been around since the early 1900's.  
+
+One of the earliest and most well-known examples is the following sentence, believed to have been composed by the English physicist {{wi:Sir_James_Jeans}}:
+
+{{example:
+How I need a drink, alcoholic in nature, after the heavy lectures involving quantum mechanics!
+}}
+
+The first word in this sentence has 3 letters, the next word 1 letter, the next word 4 letters, and so on, following the first fifteen digits of the number &#960;. 
+
+You can check it by running the program below:
+
+\begin{codeblock}
+var re = /\w+?\b/gi;
+var s = $('#aPI').text();
+s = s.match(re); 
+var   pi = '';  
+      
+for (var i = 0; i < s.length; i++) {
+    if (i === 0) {
+        pi += s[i].length + '.';
+    } else {
+        pi += s[i].length + '';
+    }
+    log('', s[i], s[i].length);
+}
+log('pi :', pi);
+log('PI :', Math.PI);
+log('end');
+\end{codeblock}
+
+<p id="aPI" class="sandbox-console curvy"> How I need a drink, alcoholic in nature, after the heavy lectures involving quantum mechanics! </p>
+
+
+
+
+ A longer example is this poem with ABAB rhyme scheme from Joseph Shipley's 1960 book Playing With Words:
+{{plain:
+But a time I spent wandering in gloomy1 night;
+Yon tower, tinkling chimewise, loftily opportune.
+Out, up, and together came sudden to Sunday rite,
+The one solemnly off to correct plenilune.
+}}
+
+http://www.cadaeic.net/comments.htm
+
+<h3>Cadaeic Cadenza</h3>
+
+A longer poem written by A. Poe {{wi: Cadaeic_Cadenza}}, calculates pi to 1000 decimal places!
+
+
+<div id="poem" style="white-space:pre;font-size:smaller;line-height:1.3">
+One
+   A Poem 
+        A Raven 
+
+Midnights so dreary, tired and weary, 
+    Silently pondering volumes extolling all by-now obsolete lore. 
+During my rather long nap - the weirdest tap! 
+    An ominous vibrating sound disturbing my chamber's antedoor. 
+        "This", I whispered quietly, "I ignore".
+Perfectly, the intellect remembers: the ghostly fires, a glittering ember. 
+    Inflamed by lightning's outbursts, windows cast penumbras upon this floor. 
+Sorrowful, as one mistreated, unhappy thoughts I heeded: 
+    That inimitable lesson in elegance - Lenore - 
+        Is delighting, exciting...nevermore.
+
+Ominously, curtains parted (my serenity outsmarted), 
+    And fear overcame my being - the fear of "forevermore". 
+Fearful foreboding abided, selfish sentiment confided, 
+    As I said, "Methinks mysterious traveler knocks afore. 
+        A man is visiting, of age threescore."
+
+Taking little time, briskly addressing something: "Sir," (robustly) 
+    "Tell what source originates clamorous noise afore? 
+Disturbing sleep unkindly, is it you a-tapping, so slyly? 
+    Why, devil incarnate!--" Here completely unveiled I my antedoor-- 
+        Just darkness, I ascertained - nothing more.
+
+While surrounded by darkness then, I persevered to clearly comprehend. 
+    I perceived the weirdest dream...of everlasting "nevermores". 
+Quite, quite, quick nocturnal doubts fled - such relief! - as my intellect said, 
+    (Desiring, imagining still) that perchance the apparition was uttering a whispered "Lenore". 
+        This only, as evermore.
+
+Silently, I reinforced, remaining anxious, quite scared, afraid, 
+    While intrusive tap did then come thrice - O, so stronger than sounded afore. 
+"Surely" (said silently) "it was the banging, clanging window lattice." 
+    Glancing out, I quaked, upset by horrors hereinbefore, 
+        Perceiving: a "nevermore".
+
+Completely disturbed, I said, "Utter, please, what prevails ahead. 
+    Repose, relief, cessation, or but more dreary 'nevermores'?" 
+The bird intruded thence - O, irritation ever since! - 
+    Then sat on Pallas' pallid bust, watching me (I sat not, therefore), 
+        And stated "nevermores".
+
+Bemused by raven's dissonance, my soul exclaimed, "I seek intelligence; 
+    Explain thy purpose, or soon cease intoning forlorn 'nevermores'!" 
+"Nevermores", winged corvus proclaimed - thusly was a raven named? 
+    Actually maintain a surname, upon Pluvious seashore? 
+        I heard an oppressive "nevermore".
+
+My sentiments extremely pained, to perceive an utterance so plain, 
+    Most interested, mystified, a meaning I hoped for. 
+"Surely," said the raven's watcher, "separate discourse is wiser. 
+    Therefore, liberation I'll obtain, retreating heretofore - 
+        Eliminating all the 'nevermores' ".
+
+Still, the detestable raven just remained, unmoving, on sculptured bust. 
+    Always saying "never" (by a red chamber's door). 
+A poor, tender heartache maven - a sorrowful bird - a raven! 
+    O, I wished thoroughly, forthwith, that he'd fly heretofore. 
+        Still sitting, he recited "nevermores".
+
+The raven's dirge induced alarm - "nevermore" quite wearisome. 
+    I meditated: "Might its utterances summarize of a calamity before?" 
+O, a sadness was manifest - a sorrowful cry of unrest; 
+    "O," I thought sincerely, "it's a melancholy great - furthermore, 
+        Removing doubt, this explains 'nevermores' ".
+
+Seizing just that moment to sit - closely, carefully, advancing beside it, 
+    Sinking down, intrigued, where velvet cushion lay afore. 
+A creature, midnight-black, watched there - it studied my soul, unawares. 
+    Wherefore, explanations my insight entreated for. 
+        Silently, I pondered the "nevermores".
+
+"Disentangle, nefarious bird! Disengage - I am disturbed!" 
+    Intently its eye burned, raising the cry within my core. 
+"That delectable Lenore - whose velvet pillow this was, heretofore, 
+    Departed thence, unsettling my consciousness therefore. 
+        She's returning - that maiden - aye, nevermore."
+
+Since, to me, that thought was madness, I renounced continuing sadness. 
+    Continuing on, I soundly, adamantly forswore: 
+"Wretch," (addressing blackbird only) "fly swiftly - emancipate me!" 
+    "Respite, respite, detestable raven - and discharge me, I implore!" 
+        A ghostly answer of: "nevermore".
+
+" 'Tis a prophet? Wraith? Strange devil? Or the ultimate evil?" 
+    "Answer, tempter-sent creature!", I inquired, like before. 
+"Forlorn, though firmly undaunted, with 'nevermores' quite indoctrinated, 
+    Is everything depressing, generating great sorrow evermore? 
+        I am subdued!", I then swore.
+
+In answer, the raven turned - relentless distress it spurned. 
+    "Comfort, surcease, quiet, silence!" - pleaded I for. 
+"Will my (abusive raven!) sorrows persist unabated? 
+    Nevermore Lenore respondeth?", adamantly I encored. 
+        The appeal was ignored.
+
+"O, satanic inferno's denizen -- go!", I said boldly, standing then. 
+    "Take henceforth loathsome "nevermores" - O, to an ugly Plutonian shore! 
+Let nary one expression, O bird, remain still here, replacing mirth. 
+    Promptly leave and retreat!", I resolutely swore. 
+        Blackbird's riposte: "nevermore".
+
+So he sitteth, observing always, perching ominously on these doorways. 
+    Squatting on the stony bust so untroubled, O therefore. 
+Suffering stark raven's conversings, so I am condemned, subserving, 
+    To a nightmare cursed, containing miseries galore. 
+        Thus henceforth, I'll rise (from a darkness, a grave) -- nevermore!
+
+                        -- Allanpoe, E. 
+</div> 
+
+
+
+<hr/>
+
+You can try this too!
+
+\begin{codeblock}
+log('start');
+ var re = /\w+?\b/gi;
+ var   s = $('#poem').text();
+           s =s.match(re); 
+  var   pi='';  var count =0;
+ for (var i=0;i < s.length;i++){
+     if (i==0){
+     pi += s[i].length+'.';
+     }else {
+      pi += s[i].length+'';
+      log('',s[i],s[i].length);
+    };
+   }
+// format the digits
+var prettyPi ='';
+for (var k=0;k < pi.length;k++){
+    if (count === 5) {
+      prettyPi=prettyPi+' ';
+     count=0;
+   }else{prettyPi += pi[k]; }
+   count++;
+
+}
+$('#pi').text( prettyPi);
+log('PI :', Math.PI);
+log('end');
+\end{codeblock}
+
+This is not exactly right as we Poe had considered some punctuation symbols as 'counting', whereas our regex did not.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    

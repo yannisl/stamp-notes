@@ -1,0 +1,31 @@
+\chapter{Objects - Different Techniques}
+
+Interesting test at [jsperf](http://jsperf.com/new-with-prototype-vs-return-object), showing the different types of object creation.
+
+\begin{codeblock}
+   // with prototype
+    function Foobar() {}
+    Foobar.prototype.foo = function() { return "foo"; };
+    Foobar.prototype.bar = function() { return "bar"; };
+    Foobar.prototype.baz = function() { return "baz"; };
+
+    //with object return
+    function Bazbar() {
+        return {
+            foo: function() { return "foo"; },
+            bar: function() { return "bar"; },
+            baz: function() { return "baz"; }
+        };
+    }
+
+    //with this assignment
+    function Barfoo() {
+        this.foo = function() { return "foo"; };
+        this.bar = function() { return "bar"; };
+        this.baz = function() { return "baz"; };
+    }
+
+
+   var foobar = new Foobar();
+   log(foobar.foo());
+\end{codeblock}

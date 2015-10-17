@@ -1,0 +1,127 @@
+ <!--
+{{feature-image:/codeigniter/images/china/beauty_07.jpg}}
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<h2>Code Evaluation Part II</h2>
+<h3>Global evaluation</h3>
+One problem that is frequently encountered, when working with eval is that to evaluate a piece of code as a global.
+
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+(function () {
+      eval ("var test = 5;");
+      }) ();
+assert(typeof  test==='undefined', 'variable is confined to temporary enclosure')
+</code>
+</div>
+
+<div  class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results  min-height"></ol> 
+</div>
+
+<h3>Andrea Giammarchi Method</h3>
+However there is one trick that we can use in modern browsers to achieve an acceptable result: Injecting
+a dynamic &lt;script/&gt; tag into the document with the script contents that we need to execute.
+Andrea Giammarchi developed the specific technique for making this work properly cross-platform. An
+adaptation of his work can be found below (as modified by John Resig).
+
+ Original Example: http://webreflection.blogspot.com/2007/08/global-scope-evaluation-and-dom.html
+
+This technique is also used by Google's closure to manage the loading of scripts, using : 
+{{plain:
+       goog.require();
+}}
+
+Google's technique, is quite good, it that it also checks if the script is being executed within the HTML scope or not. It also parses all the scripts, attempting to find the base path, so that you do not need to specify it, in a set-up operation. From a usability point of view this is an excellent idea.
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+function globalEval(data){
+  data = data.replace(/^\s*|\s*$/g,'');
+  if (data){
+    var head = document.getElementsByTagName("head")[0] || document.documentElement;
+    script = document.createElement("script");
+    script.type = "text/javascript";
+    script.text = data;
+    head.appendChild(script);
+    head.removeChild(script);
+  }
+
+};
+
+(function(){
+    globalEval("var test = 5;");
+   })();
+assert(test === 5, "The code is evaluated globally") ;
+
+</code>
+</div>
+<div  class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+The most common place for using this code is in dynamically executing code returned from a server. It's,
+almost always, a requirement that code of that nature be executed within the global scope (making the
+above a necessity).
+
+<h3>jQuery</h3>
+jQuery provides a globalEval() method based on a slight modification of the above code. Trying a similar example as above, using jQuery:
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+
+
+(function(){
+    $.globalEval("var test2 = 15;");
+   })();
+assert(test2 === 15, "The code is evaluated globally") ;
+
+</code>
+</div>
+<div  class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+
+
+
+
+##Further Reading
+<span id="chapter" class="hidden">5</span>
+
+
+ 
+
+
+
+  
+  
+
+
+
+
+
+
+

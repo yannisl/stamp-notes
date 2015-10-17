@@ -1,0 +1,108 @@
+\lorem
+
+\break;
+
+\end{document}
+
+
+<script type="text/javascript">goog.require('goog.math.Box');</script>
+
+
+\subsection{Math box.js}
+
+<img src="/codeigniter/images/metrics.jpg" style="float:right;display:block;margin-left:20px" />
+
+I have a very strong suspicion that these routines were used by Google's engineers in their Chrome browser developers console. Have a look at the image below which is a snap of the console metrics tab.
+
+As is noted on the top of the file, these routines are quite useful for representing margins and padding! Voila! It is very re-assuring!
+
+Even the arguments used in the methods are from css terminology rather than mathematical terms, top, right,  bottom, left!
+
+\end{document}
+
+
+
+<hr/>
+
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+//A box is specified as a top, right, bottom,
+// and left. A box is useful for representing margins and padding.
+
+
+var top, right, bottom, left;
+top = 100;
+right = 100;
+bottom = 10;
+left = 10;
+
+var w = right - left;
+var h = top - bottom;
+log(w, h);
+var p1 = new goog.math.Box(top, right, bottom, left);
+var p2 = p1.clone();
+// second box
+log('box 1', p1.top, p1.right, p1.bottom, p1.left);
+p2 = p2.expand(-25, 25, -25, 25);
+
+log('box 2', p2.top, p2.right, p2.bottom, p2.left);
+
+var w1 = p2.right - p2.left;
+var h1 = p2.top - p2.bottom;
+log(w1, h1);
+
+// this is box p2
+$('#box-wrapper').css({
+  'width': w1 + 'px',
+  'height': h1 + 'px',
+  'border': '1px solid red'
+});
+$('#box').css({
+  position: 'relative',
+  top: '25px',
+  left: '25px'
+});
+
+$('#box').css({
+  'width': w + 'px',
+  'height': h + 'px',
+  'border': '1px solid blue'
+});
+</code>
+</div>
+<div id="box-wrapper" class="clearfix">
+   <div id="box" style="border:1px solid #bebebe;">
+
+</div>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+The example I have used could also be developed (perhaps in combination with the class __Size__, which simply has a width and a height. I will be discussing this in the next article.
+
+I would certainly not overload a site with this function.
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+                  

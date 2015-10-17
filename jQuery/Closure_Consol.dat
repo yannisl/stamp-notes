@@ -1,0 +1,192 @@
+      
+<!--
+ directives
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{feature-image:/codeigniter/images/china/beauty_10.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<script type="text/javascript"> 
+goog.require('goog.debug.DivConsole');
+goog.require('goog.events');
+goog.require('goog.events.KeyCodes');
+goog.require('goog.events.KeyHandler');
+</script>
+
+<style type="text/css"> 
+#console {
+  position: fixed; 
+  right: 0;
+  top: 0;
+  left: 400px;
+  bottom: 0;
+  height:200px;
+  overflow: hidden; 
+  border:1 px solid red;
+}
+ 
+#no-tab {
+  border: 1px solid red;
+  background: pink;
+  float: left;
+  padding: 1em;
+}
+
+.dbg-sev{color:#F00}.dbg-w{color:#C40}
+.dbg-sh{font-weight:bold;color:#000}
+.dbg-i{color:#444}
+.dbg-f{color:#999}
+.dbg-ev{color:#0A0}.dbg-m{color:#990}.logmsg{border-bottom:1px solid #CCC;padding:2px}
+.logsep{background-color: #8C8;}
+.logdiv{border:1px solid #CCC;background-color:#FCFCFC;
+font:small monospace}
+
+</style>
+
+ 
+<h2>Closure's DivConsole</h2>
+ 
+Closure's DivConsole provides a simple class, for logging events and other information into a div area. (It will not work if you use a textarea). It follows similar patterns to other libraries, where you provide a div with a specific id and then the program takes over from there.
+
+I took an interest in it, in that is very similar to what I have done in this website with the note-book areas. 
+
+{{plain:
+var console = new goog.debug.DivConsole(document.getElementById('console'));
+console.setCapturing(true);
+logger.info('Started Log');
+}}
+
+I have integrated it with the rest of the code in this website in order to be able to use code from the library without too many modifications.
+
+
+<h3>Closure Console</h3>
+
+  
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+
+var console = new goog.debug.DivConsole(document.getElementById('console'));
+console.setCapturing(true);
+var logger = new goog.debug.Logger.getLogger('demo');
+ 
+logger.info('started');
+var docKh = new goog.events.KeyHandler(document);
+goog.events.listen(docKh, 'key', function(e) {
+  logger.info('keyCode: ' + e.keyCode +
+              ', charCode: ' + e.charCode +
+              ', repeat: ' + e.repeat +
+              ', target: ' + e.target);
+});
+ 
+var noTabKh =
+    new goog.events.KeyHandler(document.getElementById('no-tab'));
+goog.events.listen(noTabKh, 'key', function(e) {
+  if (e.keyCode == goog.events.KeyCodes.TAB) {
+    e.preventDefault();
+  }
+});
+ 
+function numberInputKeyHandler(e) {
+  logger.info('isTextModifyingKeyEvent: ' +
+              goog.events.KeyCodes.isTextModifyingKeyEvent(e));
+  if (e.target.className != 'number-input' ||
+      e.ctrlKey ||
+      !e.shiftKey && e.keyCode >= goog.events.KeyCodes.ZERO &&
+      e.keyCode <= goog.events.KeyCodes.NINE ||
+      e.keyCode == goog.events.KeyCodes.TAB ||
+      !goog.events.KeyCodes.isTextModifyingKeyEvent(e)) {
+    return;
+  }
+ 
+  switch (e.keyCode) {
+    // Allow these
+    case goog.events.KeyCodes.DELETE:
+    case goog.events.KeyCodes.BACKSPACE:
+    case goog.events.KeyCodes.TAB:
+      return;
+  }
+ 
+  // prevent default for the rest
+  e.preventDefault();
+}
+ 
+ 
+goog.events.listen(docKh, 'key', numberInputKeyHandler);
+ 
+ 
+
+logger.info('Ended Log');
+
+$('#console-toggle').click(function () {
+  $('#console').toggle();
+});
+ 
+
+
+</code>
+</div>
+<!-- The Console -->
+<div id="console-container" class="draggable clearfix" style="background:#000;padding:15px">
+<div id="console" style="height:200px;width:98%;overflow:scroll" >
+</div>
+</div>
+<LABEL>Plain input <INPUT></LABEL><BR> 
+  <LABEL>Number input <INPUT class="number-input"></LABEL><BR> 
+  <TEXTAREA></TEXTAREA> 
+<div  id ="msg" class="msg">
+</div>
+<div id="log" class="console" style="white-space:pre"></div>
+<button class="eval">Run Code!</button>
+<P>
+<button id="console-toggle">Toggle Console</button>
+<BUTTON onclick="console.clear()">Clear Console</BUTTON>
+<ol class="results"></ol> 
+</div>
+
+
+A better idea might have been to run the logger in a full tab or only provide it in the final console that we are interesting in developing.
+
+Google also provides a debug window and a fancywindow for debugging purposes that are very similar I presume to what they provide in their own console.
+  
+
+ 
+ 
+<DIV id="no-tab"> 
+  <P>No Tab inside this
+ 
+  </P><P><LABEL>Plain input <INPUT></LABEL><BR> 
+  <LABEL>Number input <INPUT class="number-input"></LABEL><BR> 
+  <TEXTAREA></TEXTAREA> 
+ 
+</P></DIV> 
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+<script>
+$(document).ready(function(){
+
+  $('#console-container').draggable();
+
+
+});
+</script>
+
+
+  
+  
+
+
+
+
+
+
+
+                                                                                                        

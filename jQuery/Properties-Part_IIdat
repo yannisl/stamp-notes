@@ -1,0 +1,961 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+{{feature-image: http://localhost/egypt/elliott-erwitt/EE-1150.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<style type="text/css">
+label{font-weight:bold;
+            width:25%}
+</style>
+<h3>Developing an Engineering Calculation Library Part II</h3>
+
+In the first part of this tutorial we have developed a short library that consists of various functions that return properties for a number of fluids.
+
+This will enable he use of these quantities as shown below, which is intuitive and provides a consistent API, that is easy to remember.
+
+{{plain:
+    aCalculation = nitrogen.rho * x1 * x2;
+}}
+
+In the second part, we will concentrate on developing a User Interface, which hopefully will be as intuitive, in order to provide these calculations interactively.
+
+
+
+<h3>Fluid Properties Calculator</h3> 
+ 
+
+
+ <form style="padding:15px;border:1px solid #bebebe;background:#ececec"  >
+<div><strong>INPUT </strong></div>
+    <label>Fluid:</label>
+   <select name="Fluid" id="Fluid"> 
+      <option value="Air" selected=""> Air</option>
+      <option value="Water"> Water</option>
+      <option value="CO2"> Carbon Dioxide </option>
+      <option value="AR"> Argon</option>
+      <option value="HE"> Helium</option>
+      <option value="N2"> Nitrogen</option>
+     <option value="Glycol"> Ethylene Glycol</option>
+     <option value="Glycol30p"> Ethylene Glycol 30%</option>
+      <option value="Glycol50p"> Ethylene Glycol 50%</option>
+   </select> 
+  <hr/>
+<label>Temperature:  </label>
+<input  type="text" name="T" size="5" id="T" value="30"/> 
+<select id="units" name="units"  /> 
+<option value="C" selected="" > (degrees C)
+</option>
+<option value="F"> (degrees F)
+</option>
+</select> 
+<hr/>
+<label>Digits:</label>
+ <select name="acc" single="" onchange="Calculate();"> 
+<option>5</option>
+<option>4</option>
+<option>3</option>
+<option>2</option>
+<option>1</option>
+</select> 
+<hr/>
+<div><strong>OUTPUT </strong></div>
+<label>Density: </label>
+<input type="text" name="rho" id="rho" size="10"> 
+<select name="Rho_units" > 
+<option value="C" selected=""> (kg/m^3)</option>
+<option value="F"> (lbm/ft^3)</option>
+</select> 
+<hr/>
+ <label>Dynamic Viscosity: </label>
+<input type="text" name="mu" id="mu" size="10"> 
+<select name="mu_units" onchange="Viscosity();"> 
+<option value="C" selected=""> (kg/m.s)
+</option>
+<option value="F"> (lbm/ft.h)
+</option>
+<option value="D"> (lbf.h/ft^2)
+</option>
+</select> 
+<hr/>
+<label>Kinematic Viscosity: </label>
+<input type="text" name="nu" id="nu" size="10"> 
+<select name="nu_units" onchange="KineVis();"> 
+<option value="C" selected=""> (m^2/s)</option>
+<option value="F"> (ft^2/hr)
+</option><option value="S"> (stokes)
+</option>
+<option value="F2"> (ft^2/s)
+</option>
+</select>
+ <hr/>
+<label>Specific Heat: c<SUB>p</SUB> </label>
+<input type="text" name="cp" id ="cp" size="10"> 
+<select name="cp_units" onchange="Specific();"> 
+<option value="C" selected=""> (J/kg.K)</option>
+<option value="F"> (BTU/lbm.F)</option>
+<option value="D"> (cal/g.C)</option>
+</select>
+<hr/>
+<label>Conductivity: k </label>
+<input type="text" name="kf" id="kf" size="10"> 
+ <select name="kf_units" onchange="Conduct();"> 
+<option value="C" selected=""> (W/m.K)
+</option>
+<option value="F"> (BTU/h.ft.F)
+</option>
+</select> 
+ <hr/>
+<label>Prandtl number: </label>
+<input type="text" name="Pr" id="Pr" size="10"> 
+<hr/>
+<label>Thermal Diffusivity: </label>
+ <input type="text" name="alpha" id="alpha" size="10"> 
+<select name="alpha_units" onchange="diffu();"> 
+<option value="C" selected=""> (m^2/s)
+</option>
+<option value="F"> (ft^2/hr)
+</option>
+</select> 
+ <hr/>
+<label>Thermal Expansion Coefficient: </label>
+<input type="text" name="beta" id="beta" size="10"> 
+<select name="beta_units" onchange="expans();"> 
+<option value="C" selected=""> (1/K)
+</option>
+<option value="F"> (1/R)</option>
+</select>
+ 
+</form>
+ 
+
+<h2>Library Development</h2>
+
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+function Range(lower, upper, T)
+{
+  var Unit;
+  var UnitVal;
+  var string;
+  var lowc,upc,lowf,upf;
+  lowc=Math.round(lower-273.15);
+  upc=Math.round(upper-273.15);
+  lowf=Math.round(lowc/5*9+32);
+  upf=Math.round(upc/5*9+32);
+  if (T > upper || T < lower)
+  {
+   string="Temperature Range is\n "+
+           lower+" .. "+upper+" K\n" +
+           lowc+" .. "+upc+" C\n"+
+           lowf+" .. "+upf+" F\n \n" +
+		  "Resetting input temperature...\n";
+  window.alert(string);
+  Unit=document.air.units.selectedIndex;
+  UnitVal=document.air.units.options[Unit].value
+  if (UnitVal == "C") 
+	document.air.T.value = 20;
+  else 
+    document.air.T.value = 68;
+  return false; 
+  }
+  return true;
+}
+
+
+function Water(temperature,units) {
+  var test;
+  var TK=0;
+  var rho=0;
+  var mu=0;
+  var nu=0;
+  var cp=0;
+  var kf=0;
+  var Pr=0;
+  var alpha=0;
+  var beta=0;
+  var Temp=0;
+  var TK25=0;
+  var TK20=0;
+  var TK15=0;
+  var TK05=0;
+  Temp=temperature;
+  //Unit=document.air.units.selectedIndex;
+  UnitVal= 'C';   
+  // If Farenheit, convert to SI
+  if (UnitVal=="F") {
+     Temp=(Temp-32)*5/9;
+  }
+  else {
+     Temp=(Temp)*1.0;
+  }
+  // Calculate all values in SI 
+  TK=Temp+273.15;
+  test=Range(273.2,393.2,TK);
+  if (test == false)
+	TK = 20+273.15;
+ 
+  TK05=Math.pow(TK,0.5);
+  TK15=TK05*TK;
+  TK20=TK*TK;
+  TK25=TK15*TK;
+  rho=-342.584+164.103*TK05-5.01225*TK;
+  mu=31.6371-6.37804*TK05+0.485827*TK-0.016519*TK15+2.11278e4*TK20;
+  mu=Math.pow(mu,3);
+  nu=mu/rho;
+  cp=3.805070e6-1.028080e6*TK05+1.1116e5*TK-6.00526e3*TK15+162.081*TK20-1.7482*TK25;
+  kf=-2.76131+0.340118*TK05-0.00838245*TK;
+// Do not change stuff below
+  Pr=cp*mu/kf;
+  alpha=nu/Pr;
+  beta=1/TK;
+  // Convert results back to Brit ? 
+  if (UnitVal=="F") {
+     rho*=0.06243;
+     mu*=2419.1;
+     nu=mu/rho;
+     cp*=0.2388/1000;
+     kf*=0.5782;
+     alpha=nu/Pr;
+     beta=1/((Temp-32)*5/9+459.67);
+  }
+ 
+  var results={};
+  return results={
+    rho:rho,
+    mu:mu,
+    nu:nu,
+    cp:cp,
+    kf:kf,
+    Pr:Pr,
+    alpha:alpha,
+    beta:beta
+  }
+    
+}
+
+
+function Air(temperature,units) {
+log('In Function Air');
+  var test;
+  var TK=0;
+  var rho=0;
+  var mu=0;
+  var nu=0;
+  var cp=0;
+  var kf=0;
+  var Pr=0;
+  var alpha=0;
+  var beta=0;
+  var Temp=0;
+  var TK15=0;
+  var MIN=200;
+  var MAX=400;
+  Temp=temperature;  //document.air.T.value;
+  log('',Temp);
+  Unit= 'C'; //document.air.units.selectedIndex;
+  UnitVal= temperature; 
+//document.air.units.options[Unit].value;
+  // If Farenheit, convert to SI
+  if (UnitVal=="F") {
+     Temp=(Temp-32)*5/9;
+  }
+  else {
+     Temp=(Temp)*1.0;
+     }
+  // Calculate all values in SI 
+  TK=Temp+273.15;
+  log('Temperature ',TK);
+  test = Range(MIN,MAX,TK);
+  if (test == false)
+	TK = 20+273.15;
+ 
+  TK15=Math.pow(TK,1.5);
+  rho=351.99/TK+344.84/(TK*TK);
+   
+  log('Rho = ',rho);
+  mu=(1.459e-6)*(TK15)/(TK+109.1);
+  log('mu = ',mu);
+  nu=mu/rho;
+  log('nu = ',nu);
+  cp=1030.5-0.19975*TK+3.9734e-4*TK*TK;
+  log('cp =',cp);
+  $('#cp').val(cp); 
+  kf=(2.334e-3*TK15)/(TK+164.54);
+  log('kf = ',kf);
+  Pr=cp*mu/kf;
+  log('Pr = ',Pr);
+  alpha=nu/Pr;
+  log('alpha = ',alpha); 
+  beta=1/TK;
+  log('beta = ', beta);
+ 
+  // Convert results back to Brit 
+  if (UnitVal=="F") {
+     rho*=0.06243;
+     mu*=2419.1;
+     nu=mu/rho;
+     cp*=0.2388/1000;
+     kf*=0.5782;
+     alpha=nu/Pr;
+     beta=1/((Temp-32)*5/9+459.67);
+  }
+
+  var results ={};
+  results= {rho: rho,
+                  mu: mu,
+                  nu:nu,
+                  cp:cp,
+                  kf :kf ,
+                  Pr:Pr,
+                  alpha:alpha,
+                  beta:beta};
+  return results; 
+  
+};
+
+
+function HE(temperature,units) {
+  var TK=0;
+  var rho=0;
+  var mu=0;
+  var nu=0;
+  var cp=0;
+  var kf=0;
+  var Pr=0;
+  var test;
+  var alpha=0;
+  var beta=0;
+  var Temp=0;
+  var TK25=0;
+  var TK20=0;
+  var TK15=0;
+  var TK05=0;
+  Temp=temperature;
+  //Unit=document.air.units.selectedIndex;
+  UnitVal= 'C';//document.air.units.options[Unit].value;
+  // If Farenheit, convert to SI
+  if (UnitVal=="F") {
+     Temp=(Temp-32)*5/9;
+  }
+  else {
+     Temp=Temp*1.0;
+  }
+  // Calculate all values in SI 
+  TK=Temp+273.15;
+  test = Range(200,400,TK);
+  if (test == false)
+	TK = 20+273.15;
+ 
+// ***************************************
+// Correlation here!
+// ***************************************
+  TK05=Math.pow(TK,0.5);
+  TK15=TK05*TK;
+  TK20=TK*TK;
+  TK25=TK15*TK;
+  rho=48.814/TK+19.533/TK20;
+  mu=0.36932*Math.pow(TK,0.69879)*1e-6;
+  nu=mu/rho;
+// Cp=5/2 R/M (monatomic gas, translational energy only)
+  cp=5193.1; 
+  kf=-7.78e-3+8.8343e-4*TK-1.6552e-6*TK20+1.5443e-9*TK20*TK;
+ 
+ 
+// Do not change stuff below
+  Pr=cp*mu/kf;
+  alpha=nu/Pr;
+// Slightly better accuracy by using below:
+  alpha=-2.6439e-5+4.0054e-7*TK+9.3348e-10*TK20;
+  beta=1/TK;
+ 
+ 
+  // Convert results back to Brit ? 
+  if (UnitVal=="F") {
+     rho*=0.06243;
+     mu*=2419.1;
+     nu=mu/Rho;
+     cp*=0.2388/1000;
+     kf*=0.5782;
+     alpha=nu/Pr;
+     beta=1/((Temp-32)*5/9+459.67);
+  }
+ var results ={};
+  results= {rho: rho,
+                  mu: mu,
+                  nu:nu,
+                  cp:cp,
+                  kf :kf ,
+                  Pr:Pr,
+                  alpha:alpha,
+                  beta:beta};
+  return results; 
+   
+}
+
+function N2(temperature,units) {
+  var TK=0;
+  var rho=0;
+  var mu=0;
+  var nu=0;
+  var cp=0;
+  var kf=0;
+  var test;
+  var Pr=0;
+  var alpha=0;
+  var beta=0;
+  var Temp=0;
+  var TK25=0;
+  var TK20=0;
+  var TK15=0;
+  var TK05=0;
+  Temp=temperature;
+  UnitVal= 'C';
+  // If Farenheit, convert to SI
+  if (UnitVal=="F") {
+     Temp=(Temp-32)*5/9;
+  }
+  else {
+     Temp=Temp*1.0;
+  }
+  // Calculate all values in SI 
+  TK=Temp+273.15;
+  test = Range(200,400,TK);
+  if (test == false)
+	TK = 20+273.15;
+ 
+// ***************************************
+// Correlation here!
+// ***************************************
+  TK05=Math.pow(TK,0.5);
+  TK15=TK05*TK;
+  TK20=TK*TK;
+  TK25=TK15*TK;
+  rho=340.47/TK+314.25/TK20;
+  mu=(1.4153*TK15)/(111.61+TK)*1e-6;
+  nu=mu/rho;
+  cp=1063.6-0.15783*TK+2.7622e-4*TK20;
+  kf=-6.5326e-4+1.0606e-4*TK-5.7830e-8*TK20;
+ 
+ 
+// Do not change stuff below
+  Pr=cp*mu/kf;
+  alpha=nu/Pr;
+// Slightly better accuracy by using below:
+  alpha=2.0410e-6-2.5939e-8*TK+3.8951e-10*TK20-2.7423e-13*TK20*TK;
+  beta=1/TK;
+ 
+    // Convert results back to Brit ? 
+  if (UnitVal=="F") {
+     rho*=0.06243;
+     mu*=2419.1;
+     nu=mu/rho;
+     cp*=0.2388/1000;
+     kf*=0.5782;
+     alpha=nu/Pr;
+     beta=1/((Temp-32)*5/9+459.67);
+  }
+  
+  var results = {};
+  results = {
+    rho: rho,
+    mu: mu,
+    nu: nu,
+    cp: cp,
+    kf: kf,
+    Pr: Pr,
+    alpha: alpha,
+    beta: beta
+  };
+  return results;
+}
+
+function Glycol(temperature, value) {
+  var TK=0;
+  var rho=0;
+  var mu=0;
+  var nu=0;
+  var cp=0;
+  var kf=0;
+  var Pr=0;
+  var test;
+  var alpha=0;
+  var beta=0;
+  var Temp=0;
+  var TK25=0;
+  var TK20=0;
+  var TK15=0;
+  var TK05=0;
+  Temp=temperature;
+  //Unit=document.air.units.selectedIndex;
+  UnitVal='C';
+  // If Farenheit, convert to SI
+  if (UnitVal=="F") {
+     Temp=(Temp-32)*5/9;
+  }
+  else {
+     Temp=Temp*1.0;
+  }
+  // Calculate all values in SI 
+  TK=Temp+273.15;
+  test = Range(273.2,423.2,TK);
+  if (test == false)
+	TK = 20+273.15;
+ 
+// ***************************************
+// Correlation here!
+// ***************************************
+  TK05=Math.pow(TK,0.5);
+  TK15=TK05*TK;
+  TK20=TK*TK;
+  TK25=TK15*TK;
+  rho=1457.87-15.91*TK05-0.23822*TK;
+  mu=716.119-154.425*TK05+12.5104*TK-.451017*TK15+0.00610317*TK20;
+  mu=Math.pow(mu,3);
+  nu=mu/rho;
+  cp=1159.23-8.2399*TK05+4.66769*TK;
+  kf=-0.797513+.110425*TK05-0.00287622*TK;
+  
+// Do not change stuff below
+  Pr=cp*mu/kf;
+  alpha=nu/Pr;
+  beta=1/TK;
+ 
+   
+  // Convert results back to Brit ? 
+  if (UnitVal=="F") {
+     rho*=0.06243;
+     mu*=2419.1;
+     nu=mu/Rho;
+     cp*=0.2388/1000;
+     kf*=0.5782;
+     alpha=nu/Pr;
+     beta=1/((Temp-32)*5/9+459.67);
+  }
+ 
+  // Output
+  var results = {};
+  results = {
+    rho: rho,
+    mu: mu,
+    nu: nu,
+    cp: cp,
+    kf: kf,
+    Pr: Pr,
+    alpha: alpha,
+    beta: beta
+  };
+  return results;
+ 
+}
+
+
+// glycol50p.js
+function Glycol50p(temperature,units) {
+  var TK=0;
+  var rho=0;
+  var mu=0;
+  var nu=0;
+  var cp=0;
+  var kf=0;
+  var Pr=0;
+  var alpha=0;
+  var beta=0;
+  var test;
+  var Temp=0;
+  var TK25=0;
+  var TK20=0;
+  var TK15=0;
+  var TK05=0;
+  Temp=temperature;
+  //Unit=document.air.units.selectedIndex;
+  UnitVal='C';
+  // If Farenheit, convert to SI
+  if (UnitVal=="F") {
+     Temp=(Temp-32)*5/9;
+  }
+  else {
+     Temp=Temp*1.0;
+  }
+  // Calculate all values in SI 
+  TK=Temp+273.15;
+  test = Range(273.2,423.2,TK);
+  if (test == false)
+	TK = 20+273.15;
+ 
+// ***************************************
+// Correlation here!
+// ***************************************
+  TK05=Math.pow(TK,0.5);
+  TK15=TK05*TK;
+  TK20=TK*TK;
+  TK25=TK15*TK;
+  rho=1416.3-22.2397*TK05+0.0703129*TK;
+  mu=3.23858-0.310287*TK05+0.00761038*TK;
+  mu=Math.pow(mu,3);
+  nu=mu/rho;
+  cp=4302.06-186.873*TK05+7.45361*TK;
+  kf=-1.12878+0.151667*TK05-0.0035556*TK;
+ 
+ 
+// Do not change stuff below
+  Pr=cp*mu/kf;
+  alpha=nu/Pr;
+  beta=1/TK;
+ 
+   
+  // Convert results back to Brit ? 
+  if (UnitVal=="F") {
+     rho*=0.06243;
+     mu*=2419.1;
+     nu=mu/rho;
+     cp*=0.2388/1000;
+     kf*=0.5782;
+     alpha=nu/Pr;
+     beta=1/((Temp-32)*5/9+459.67);
+  }
+  var results = {};
+  results = {
+    rho: rho,
+    mu: mu,
+    nu: nu,
+    cp: cp,
+    kf: kf,
+    Pr: Pr,
+    alpha: alpha,
+    beta: beta
+  };
+  return results;  
+}
+// glycol30p.js
+ 
+function Glycol30p(temperature,units) {
+  var TK=0;
+  var rho=0;
+  var mu=0;
+  var nu=0;
+  var cp=0;
+  var kf=0;
+  var Pr=0;
+  var alpha=0;
+  var beta=0;
+  var Temp=0;
+  var test;
+  var TK25=0;
+  var TK20=0;
+  var TK15=0;
+  var TK05=0;
+  Temp=temperature;
+  //Unit=document.air.units.selectedIndex;
+  UnitVal='C';
+  // If Farenheit, convert to SI
+  if (UnitVal=="F") {
+     Temp=(Temp-32)*5/9;
+  }
+  else {
+     Temp=Temp*1.0;
+  }
+  // Calculate all values in SI 
+  TK=Temp+273.15;
+  test = Range(273.2,423.2,TK);
+  if (test == false)
+	TK = 20+273.15;
+ 
+// ***************************************
+// Correlation here!
+// ***************************************
+  TK05=Math.pow(TK,0.5);
+  TK15=TK05*TK;
+  TK20=TK*TK;
+  TK25=TK15*TK;
+  rho=600.115+68.6483*TK05-2.51702*TK;
+  mu=107.562-22.4664*TK05+1.76552*TK-0.0617784*TK15+8.11582e-4*TK20;
+  mu=Math.pow(mu,3);
+  nu=mu/rho;
+  cp=1047.43+202.095*TK05-2.7069*TK;
+  kf=-1.56126+0.216377*TK05-0.0056602*TK;
+ 
+ 
+// Do not change stuff below
+  Pr=cp*mu/kf;
+  alpha=nu/Pr;
+  beta=1/TK;
+ 
+   
+  // Convert results back to Brit ? 
+  if (UnitVal=="F") {
+     rho*=0.06243;
+     mu*=2419.1;
+     nu=mu/rho;
+     cp*=0.2388/1000;
+     kf*=0.5782;
+     alpha=nu/Pr;
+     beta=1/((Temp-32)*5/9+459.67);
+  }
+ 
+  // Output
+  var results = {};
+  results = {
+    rho: rho,
+    mu: mu,
+    nu: nu,
+    cp: cp,
+    kf: kf,
+    Pr: Pr,
+    alpha: alpha,
+    beta: beta
+  };
+  return results;
+  
+}
+
+ 
+function CO2(temperature,units) {
+  var TK=0;
+  var rho=0;
+  var mu=0;
+  var nu=0;
+  var cp=0;
+  var test;
+  var kf=0;
+  var Pr=0;
+  var alpha=0;
+  var beta=0;
+  var Temp=0;
+  var TK25=0;
+  var TK20=0;
+  var TK15=0;
+  var TK05=0;
+  Temp= temperature;
+  //Unit=document.air.units.selectedIndex;
+  UnitVal='C';
+  // If Farenheit, convert to SI
+  if (UnitVal=="F") {
+     Temp=(Temp-32)*5/9;
+  }
+  else {
+     Temp=Temp*1.0;
+  }
+  // Calculate all values in SI 
+  TK=Temp+273.15;
+  test = Range(273.2,573.2,TK);
+  if (test == false)
+	TK = 20+273.15;
+ 
+// ***************************************
+// Correlation here!
+// ***************************************
+  TK05=Math.pow(TK,0.5);
+  TK15=TK05*TK;
+  TK20=TK*TK;
+  TK25=TK15*TK;
+  rho=9.08765-0.638091*TK05+0.0124355*TK;
+  mu=8.18801e-3+1.09054e-3*TK05-8.21403e-6*TK;
+  mu=Math.pow(mu,3);
+  nu=mu/rho;
+  cp=22.0999+59.6828*TK05-0.678364*TK;
+  kf=-2.02535e-3-4.85225e-4*TK05+9.05949e-5*TK;
+ 
+ 
+// Do not change stuff below
+  Pr=cp*mu/kf;
+  alpha=nu/Pr;
+  beta=1/TK;
+ 
+  // Convert results back to Brit ? 
+  if (UnitVal=="F") {
+     rho*=0.06243;
+     mu*=2419.1;
+     nu=mu/rho;
+     cp*=0.2388/1000;
+     kf*=0.5782;
+     alpha=nu/Pr;
+     beta=1/((Temp-32)*5/9+459.67);
+  }
+  var results = {};
+  results = {
+    rho: rho,
+    mu: mu,
+    nu: nu,
+    cp: cp,
+    kf: kf,
+    Pr: Pr,
+    alpha: alpha,
+    beta: beta
+  };
+  return results;
+   
+}
+
+ 
+function AR(temperature,units) {
+  var TK=0;
+  var rho=0;
+  var mu=0;
+  var nu=0;
+  var cp=0;
+  var kf=0;
+  var test;
+  var Pr=0;
+  var alpha=0;
+  var beta=0;
+  var Temp=0;
+  var TK25=0;
+  var TK20=0;
+  var TK15=0;
+  var TK05=0;
+  Temp=temperature;
+  //Unit=document.air.units.selectedIndex;
+  UnitVal='C';
+  // If Farenheit, convert to SI
+  if (UnitVal=="F") {
+     Temp=(Temp-32)*5/9;
+  }
+  else {
+     Temp=Temp*1.0;
+  }
+  // Calculate all values in SI 
+  TK=Temp+273.15;
+  test = Range(200,400,TK);
+  if (test == false)
+	TK = 20+273.15;
+ 
+// ***************************************
+// Correlation here!
+// ***************************************
+  TK05=Math.pow(TK,0.5);
+  TK15=TK05*TK;
+  TK20=TK*TK;
+  TK25=TK15*TK;
+  rho=485.33/TK+525.52/TK20;
+  mu=(1.9263*TK15)/(140.54+TK)*1e-6;
+  nu=mu/rho;
+  cp=531.63-5.5815e-2*TK+7.3878e-5*TK20;
+  kf=(1.5359e-3*TK15)/(150.12+TK);
+ 
+ 
+// Do not change stuff below
+  Pr=cp*mu/kf;
+  alpha=nu/Pr;
+// Slightly better accuracy by using below:
+  alpha=1.2280e-6-1.5062e-8*TK+3.2629e-10*TK20-1.9055e-13*TK20*TK;
+  beta=1/TK;
+ 
+  
+  // Convert results back to Brit ? 
+  if (UnitVal=="F") {
+     rho*=0.06243;
+     mu*=2419.1;
+     nu=mu/rho;
+     cp*=0.2388/1000;
+     kf*=0.5782;
+     alpha=nu/Pr;
+     beta=1/((Temp-32)*5/9+459.67);
+  }
+ var results = {};
+  results = {
+    rho: rho,
+    mu: mu,
+    nu: nu,
+    cp: cp,
+    kf: kf,
+    Pr: Pr,
+    alpha: alpha,
+    beta: beta
+  };
+  return results;
+   
+}
+
+
+// outputs results to screen
+function output(f){
+   $('#rho').val(f.rho);
+   $('#mu').val(f.mu);
+   $('#nu').val(f.nu);
+   $('#cp').val(f.cp);
+   $('#kf').val(f.kf);
+   $('#alpha').val(f.alpha);
+   $('#beta').val(f.beta);
+   $('#Pr').val(f.Pr);
+}
+
+var temperature = $('#T').val();
+var air = Air(temperature,'C');
+     log ('', air.kf, ' from object');
+var water=Water(23,'C');
+      log('', water.rho, 'water density');
+
+// sends the output to the view
+  output(air);
+
+// Handling Selects
+function calculateProperties(){
+    var z = $('#Fluid').val();
+    var t1=$('#T').val();
+    if (z=='Air'){
+    var fluid= Air(t1,'C');}
+    else if (z=="Water"){ fluid=Water(t1,'C');}
+    else if(z=="HE"){fluid=HE(t1,'C');}
+    else if(z=="N2"){fluid=N2(t1,'C');}
+    else if(z=="AR"){fluid=AR(t1,'C');}
+    else if(z=="CO2"){fluid=CO2(t1,'C');}
+    else if(z=="Glycol"){fluid=Glycol(t1,'C');}
+    else if(z=="Glycol30p"){fluid=Glycol30p(t1,'C');}
+    else if(z=="Glycol50p"){fluid=Glycol50p(t1,'C');}
+    else {fluid=Air(t1,'C');}
+    output(fluid);
+   log('Fluid', z);
+}
+
+$("#Fluid").change(function () {
+      calculateProperties();   
+  });
+
+$("#T").keyup(function(){
+   calculateProperties();
+});
+
+</code>
+</div>
+<div  class="msg" class="msg" style="white-space:pre;font-family:monospace;line-height:1.3">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+<img src="http://localhost/codeigniter/images/jquery.png" style="float:right; width:85px"/>
+</div>
+
+<h3>Making it easy for users</h3>
+
+I am not very fond of giving users too many options. For example do we really need the calculate button on the form? With a bit of jQuery, we can capture the changes on any of the input fields and carry out the calculations immediately. Since the user can make a mistake that will results in errors we need to validate the input for non-valid characters.
+
+<h3>Still to do</h3>
+
+Our library so far does not handle the conversion from SI to Imperial units, the UI needs a bit of polishing and we need to think of a way to be able to extend the Library by the addition of new fluids.
+
+We will do a bit more re-factoring and testing at Part III that follows. 
+
+
+##Further Reading
+
+
+
+ 
+
+
+
+  
+  
+
+
+
+
+
+
+

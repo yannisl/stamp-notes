@@ -1,0 +1,125 @@
+      
+<!--
+ directives
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{feature-image:/codeigniter/images/china/beauty_02.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<script>
+goog.require('goog.ds.JsDataSource');
+</script>
+
+<h2>Datastore</h2>
+
+The Datastore and related methods can help you make powerful applications - like Gmail, where a lot of the processing is done at the Client site. It creates and manipulates elements of an object in a very similar manner to a DOM tree, except the nodes have values. Almost any data can be represented by a Json object. Let us examine a very simple Json object used to carry contacts information and a total for emails received, as shown below:
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+var jsDs;
+  var jsObj = {
+    Success: true,
+    Errors: [],
+    Body: {
+      Contacts: [
+        {
+          Name: 'John Doe',
+          Email: 'john@gmail.com',
+          EmailCount: 300
+        },
+        {
+          Name: 'Jane Doh',
+          Email: 'jane@gmail.com'
+        },
+        {
+          Name: 'Steve Smith',
+          Email: 'steve@gmail.com',
+          EmailCount: 305
+        },
+        {
+          Name: 'John Smith',
+          Email: 'smith@gmail.com'
+        },
+        {
+          Name: 'Homer Simpson',
+          Email: 'homer@gmail.com'
+        },
+        {
+          Name: 'Bart Simpson',
+          Email: 'bart@gmail.com'
+        }
+      ]
+    }
+	};
+ 
+ (function setUp() {
+    jsDs = new goog.ds.JsDataSource(jsObj, 'JS', null);
+    var dm = goog.ds.DataManager.getInstance();
+    dm.addDataSource(jsDs, true);
+  })();
+ 
+  (function testBasicStuff() {
+    log('Get Body', goog.ds.Expr.create('$JS/Body').getNode());
+  })();
+  
+  (function testArrayExpressions() {
+    log(6, goog.ds.Expr.create('$JS/Body/Contacts/*').getNodes().getCount());
+   log('John Doe', goog.ds.Expr.create('$JS/Body/Contacts/[0]/Name').getValue());
+    log(305, goog.ds.Expr.create('$JS/Body/Contacts/[2]/EmailCount').getValue());
+    log(6, goog.ds.Expr.create('$JS/Body/Contacts/*/count()').getValue());
+    log(0, goog.ds.Expr.create('$JS/Errors/*/count()').getValue());
+  })();
+  
+  (function testCommonExpressions() {
+   log(goog.ds.Expr.create('.').isCurrent_);
+    log(goog.ds.Expr.create('Bob').isCurrent_);
+    log(goog.ds.Expr.create('*|text()').isAllChildNodes_);
+    log(goog.ds.Expr.create('Bob').isAllChildNodes_);
+    log(goog.ds.Expr.create('@*').isAllAttributes_);
+    log(goog.ds.Expr.create('Bob').isAllAttributes_);
+    log(goog.ds.Expr.create('*').isAllElements_);
+    log(goog.ds.Expr.create('Bob').isAllElements_);
+  })();
+  
+  (function testIndexExpressions() {
+   assertEquals(goog.ds.Expr.create('node/[5]').getNext().size_, 1);
+    assertEquals(goog.ds.Expr.create('node/[5]').getNext().parts_[0], '[5]');
+  })();
+ 
+ 
+
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+Personally I find it easier to visualize data, if written in Json form. Another advantage is ORM, your data is already mapped and if you have counterpart routines on the server side, to manipulate data becomes much easier if not a breeze. 
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+                          

@@ -1,0 +1,26 @@
+\chapter{iframes and frames}
+
+One of the most strange aspects of  `window.frames` returns the `window` itself.  It's just that most 
+developers don't realize that `Window` is an array-like object 
+(`window.length` is the number of subframes, etc).
+
+\begin{codeblock}
+ var frames = window.frames; // or // var frames = window.parent.frames;
+for (var i = 0; i < frames.length; i++) { 
+  // do something with each subframe as frames[i]
+  frames[i].document.body.style.background = "red";
+ log(window.frames.length);
+}
+
+assert(window.frames=== window, 'they are equal');
+\end{codeblock}
+
+
+<iframe src="http://localhost/application-latest/index.php/Blogs/stamps/stamp-notes/beta/" style="width:99%;height:500px;margin:0 auto">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+
+
+<iframe src="http://localhost/application-latest/index.php/Blogs/stamps/stamp-notes/cyprus/introduction" style="width:99%;height:500px;margin:0 auto">
+  <p>Your browser does not support iframes.</p>
+</iframe>

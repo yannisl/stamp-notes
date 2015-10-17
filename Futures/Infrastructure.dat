@@ -1,0 +1,11 @@
+\chapter{Infrastructure}
+
+\lorem
+
+
+\ph[50%]{../beta/che.jpg}{\captionlorem }
+
+Leon says \ref{options} that the options packages ...
+
+\bibliography{references}
+

@@ -1,0 +1,27 @@
+\chapter{1935 Silver Jubilee}    
+
+\ph[90%]{../solomon-islands/13027_349_1.jpg}{ }  
+
+<ul class="thumbnails">
+  <li class="span2">
+    <div class="thumbnail">
+      <img src="/application-latest/stamp-images/solomon-islands/1997-wildlife.jpg" style="width:50%">
+      <h3>Thumbnail label</h3>
+      <p>Thumbnail caption...</p>
+    </div>
+  </li>
+  <li class="span2">
+    <div class="thumbnail">
+      <img src="/application-latest/stamp-images/solomon-islands/1997-wildlife.jpg" style="width:50%">
+      <h3>Thumbnail label</h3>
+      <p>Thumbnail caption...</p>
+    </div>
+  </li>
+  <li class="span2">
+    <div class="thumbnail">
+      <img src="/application-latest/stamp-images/solomon-islands/1997-wildlife.jpg" style="width:50%">
+      <h3>Thumbnail label</h3>
+      <p>Thumbnail caption...</p>
+    </div>
+  </li>
+</ul>            

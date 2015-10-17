@@ -1,0 +1,100 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+{{next:http://127.0.0.1/CodeIgniter/index.php/Blogs/tutorials/jQuery/The_Sixty_One_Form}}
+-->
+ <style type="text/css"> 
+.cover {float: left; margin-right: 10px; }
+#book {border: 1px solid #bebebe; font-family: Verdana; width: 400px; margin:10% 30% 0 30%; 
+background-image: url(http://localhost/codeigniter/images/player_loader.gif);   background-repeat: repeat-y;
+}
+#go {margin-top: 7px;}
+</style> 
+
+<h2>The SixtyOne progress bar</h2>
+This absolutely delicious site is not only famous by now for its music, but also for its well designed UI. This progress bar is lifted from them and dedicated to Kate!
+<div  class="code-block console-wrap">
+<div class="code code-block">
+<code>
+var loading = {
+     inc: 10,
+    book: null,
+    go: function() {
+     var pos = 1 * loading.book.style.backgroundPosition.split("px")[0];
+ 
+        if (pos === 0) {
+            loading.done();
+        } else {
+            loading.book.style.backgroundPosition = (pos + loading.inc) + 'px';
+        }
+ 
+    },
+ 
+    init: function() {
+        loading.book = document.getElementById('book');
+        loading.book.style.backgroundPosition = '-500px';
+        var gogo = document.getElementById('go');
+        gogo.firstChild.nodeValue = 'Loading...';
+        gogo.disabled = true;
+        $('#go').toggle();
+        loading.interval = setInterval(loading.go, 75);
+    },
+ 
+    done: function() {
+        var gogo = document.getElementById('go');
+        gogo.firstChild.nodeValue = 'Click me!';
+        gogo.disabled = false;
+        $('#go').toggle();
+        $('#msg1').html(z);
+        clearInterval(loading.interval);
+    }
+}
+//document.getElementById('go').onclick = loading.init;
+loading.init();
+
+var z='&lt;video id="my-video" src="/CodeIgniter/js/Selena.mpg" type="video/mpg" autoplay="true" controls="true"  height="300" width="250" poster="/CodeIgniter/images/angela.jpg"&gt; Sorry, your browser does not support the ability to play video files natively. &lt;/video&gt;';
+
+
+</code>
+</div>
+
+
+<div style="height:40px">
+<button id="go" class="hidden" style="background:#dd0000;color:#fff;border:0;margin-left:60%">Click Me</button>
+</div>
+<div id="book" style="background-position: -500px; padding:1px;width: 400px;border;solid #ececec;background-image: url(http://localhost/codeigniter/images/player_loader.gif); " class="clearfix"> 
+<img src="http://localhost/codeigniter/images/kate_small.jpg"  class="cover" />  www.thesixtyone.com
+<br/>
+<br/> 
+</div> 
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+<div  id="msg1" class="msg" >
+</div>
+
+
+
+##Further Reading
+
+
+
+ 
+
+
+
+  
+  
+
+
+
+
+
+
+

@@ -1,0 +1,69 @@
+
+
+
+
+<h2>Standard Library array fill() method</h2>
+
+This is an alias for __fill()__.
+This method returns an array of value repeated n times. Useful when you want to prefill an array.
+
+
+\begin{codeblock}
+
+var $A = function(){};
+
+
+
+$A.fill = function (value, n) {
+   var array = [];
+   for (var i = 0; i < n; i++) {
+     array[i] = value;
+   }
+   return array;
+};
+b = $A();
+log($A.fill('test ', 12));
+
+\end{codeblock}
+
+
+<h3>fill numeric</h3>
+The fillNumeric() method returns an array filled with numbers in ascending order.
+
+\begin{codeblock}
+
+
+function fillNumeric(start, n) {
+  var array = [];
+  if (arguments.length < 2) {
+    var n = start;
+    var start = 0;
+  }
+  for (var i = start; i < n - start; i++) {
+    array[i] = i;
+  }
+  return array;
+};
+
+log(fillNumeric(4, 12));
+log(fillNumeric(13));
+\end{codeblock}
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+      

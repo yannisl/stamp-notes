@@ -1,0 +1,46 @@
+<h3>String.prototype.indexOf()  method</h3>
+
+If searchString appears as a substring of the result of converting this object to a string, at one or more positions that are greater than or equal to position, then the index of the smallest such position is returned; otherwise, -1 is returned. If position is undefined, 0 is assumed, so as to search all of the string.
+
+{{bulb:This is a method of the String.prototype. If you need to transfer the property to another object you need to transfer  from String.prototype}}
+
+See both the examples below for further information.
+
+\begin{codeblock}
+var s = 'testing';
+var index = s.indexOf('inge');
+(index>-1)?log("index of 'ing' = ", index): log('not found');
+\end{codeblock}
+
+The ECMA specification (15.5.3.2) does not specify that the fromCharAt() function is  generic; However, you can test it in your browser with the example below. As you  can observe it can be transferred to other kinds of objects to use as you may wish.
+
+\begin{codeblock}
+var text = {
+  name: 'text'
+};
+text.fromCharCode = function () {
+  return String.fromCharCode.apply(this.name, arguments);
+};
+
+log(text.fromCharCode(112, 113));
+\end{codeblock}
+
+
+
+##Further Reading
+
+
+
+ 
+
+
+
+  
+  
+
+
+
+
+
+
+

@@ -1,0 +1,37 @@
+This is BibTeX, Version 0.99dThe top-level auxiliary file: Revenues.aux
+The style file: plainnat.bst
+Illegal, another \bibdata command---line 45 of file Revenues.aux
+ : \bibdata
+ :         {ceylon}
+I'm skipping whatever remains of this command
+Database file #1: ceylon.bib
+Warning--string name "may-june" is undefined
+--line 876 of file ceylon.bib
+Warning--string name "may-june" is undefined
+--line 888 of file ceylon.bib
+Warning--string name "october" is undefined
+--line 904 of file ceylon.bib
+Repeated entry---line 912 of file ceylon.bib
+ : @article{COR186
+ :                ,
+I'm skipping whatever remains of this entry
+Warning--I didn't find a database entry for "hackmey1"
+Warning--I didn't find a database entry for "bayardo98"
+Warning--to sort, need author or key in singer-portion-chapter
+Warning--to sort, need author or key in singer-portion-volume
+Warning--to sort, need author or key in agabeg01
+Warning--empty author in singer-portion-chapter
+Warning--empty author in singer-portion-volume
+Warning--empty author in agabeg01
+Warning--empty publisher in BCM-59
+Warning--can't use both volume and number fields in options
+Warning--empty journal in cor186
+Warning--empty publisher in hanson-67
+Warning--can't use both volume and number fields in kendeigh-52
+Warning--empty year in mccolvin-nodate
+Warning--empty year in mccolvin-nodate
+Warning--empty publisher in ranganathan-51
+Warning--empty institution in winget-67
+Warning--can't use both author and editor fields in wright-63
+Warning--empty publisher in wright-63
+(There were 2 error messages)

@@ -1,0 +1,173 @@
+      
+<!--
+ directives
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{feature-image:/codeigniter/images/china/beauty_07.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<script type="text/javascript"> 
+goog.require('goog.debug');
+goog.require('goog.debug.FancyWindow');
+goog.require('goog.debug.Logger');
+ 
+</script>
+ 
+ 
+<h3>Closure Debugging Fancy Window</h3>
+The Fancy Window can be a handy Class, if you want to provide some debugging for your applications via your own Class.
+
+{{bulb: Running the code below will open a new window, if you do not see it you need to configure your browser to allow pop-ups from this website.}}
+
+  
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+  
+  /**
+   * Person - a sample person object.
+   * @param {string} name The name
+   * @param {number} age The age
+   */
+  var Person = function(name, age) {
+    this.name_ = name;
+    this.age_ = age;
+    this.address_ = null;
+    this.kids_ = [];
+ 
+    /**
+     * Set the address.
+     * @param {string} address The address to set
+     */
+    this.setAddress = function(address) {
+      this.address_ = address;
+    }
+ 
+    /**
+     * Add a child.
+     * @param {Object} child The child to add
+     */
+    this.addChild = function(child) {
+      this.kids_.push(child);
+    }
+ 
+    /**
+     * Create a string representation of the object.
+     * @return {string} The object as a string
+     */
+    this.toString = function() {
+      return 'Person name: ' + this.name_ + ' Age: ' + this.age_;
+    }
+  }
+ 
+  /**
+   * Demonstrate the debug options.
+   */
+  var demoDebug = function() {
+    // Create the debug window.
+    var debugWindow = new goog.debug.FancyWindow('main');
+    debugWindow.setEnabled(true);
+    debugWindow.init();
+ 
+    // Create a logger.
+    var theLogger = goog.debug.Logger.getLogger('demo');
+    theLogger.info('Logging examples');
+ 
+    // Create a simple object.
+    var someone = {'name': 'joe',
+        'age': 33,
+        'gender': 'm',
+        'kids': ['jen', 'sam', 'oliver'],
+        'address': '233 Great Road, Axtonhammer, MD'};
+ 
+    // Show the object, note that it will output '[object Object]'.
+    theLogger.info(someone);
+    // Use expose to walk through the object and show all data.
+    theLogger.info('Person: '+ goog.debug.expose(someone));
+ 
+    // Now create a Person object to demonstrate expose w/functions.
+    var pObj = new Person('fred', 2);
+    // Add a child, and an address.
+    pObj.addChild(someone);
+    pObj.setAddress('1 broadway, ny, ny');
+ 
+    // The toString will be called.
+    theLogger.info('toString: '+ pObj);
+    // Does not show the functions by default.
+    theLogger.info('expose (no functions): ' + goog.debug.expose(pObj));
+    // You can specify false if you really want to.
+    theLogger.info('expose (no functions): ' + goog.debug.expose(pObj, false));
+    // Shows the functions as well.
+    theLogger.info('expose (w/functions): ' + goog.debug.expose(pObj, true));
+ 
+    // Show deepExpose, which walks recursively through data.
+    theLogger.info('deepExpose (no functions): '+ goog.debug.deepExpose(pObj));
+    // You can specify false if you really want to.
+    theLogger.info('deepExpose (no functions): '+
+        goog.debug.deepExpose(pObj, false));
+    theLogger.info('deepExpose (w/functions): '+
+        goog.debug.deepExpose(pObj, true));
+ 
+    theLogger.shout('shout');
+    theLogger.severe('severe');
+    theLogger.warning('warning');
+    theLogger.info('info');
+    theLogger.fine('fine');
+  }
+// Call the demo method.
+  demoDebug();
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div id="log" class="console" style="white-space:pre"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+This Example went very smoothly, it took about twenty minutes and that included for peeking into the code of the Class.
+
+If you need to apply your own styling you need to delve into the code so that  you can
+overwrite the Class. 
+
+<div class="code-block code">
+<code>
+goog.debug.FancyWindow.prototype.getStyleRules = function() {
+  return ...
+};
+</code>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+                                                                      

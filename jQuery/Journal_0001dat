@@ -1,0 +1,86 @@
+ <!--
+{{feature: .. Sometimes, when one person is missing, the whole world seems depopulated.  Lamartine}}
+{{feature-image: http://localhost/egypt/elliott-erwitt/EE-1150.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+<h2>JavasScript Windows and Frames</h2>
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+
+Array.prototype['size'] =Array.prototype.length;
+
+a = new Array();
+
+a = ['1', '2','3','4','5'];
+
+for (var prop in Array.prototype){
+   log(Array.prototype[prop])
+}
+alert(a.length);
+alert(a.size);
+
+</code>
+
+</div>
+
+<div  class="msg" class="msg" style="white-space:pre;font-family:monospace;line-height:1.3">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+<img src="http://localhost/codeigniter/images/jquery.png" style="float:right; width:85px"/>
+</div>
+
+
+
+There are days that I itch to write, to express myself to tell the world my story, and yet I have never put this compulsion into action.
+
+I am leaving Qatar and indirectly the protected security that it has provided me. The Company is gone bust. No other words for it. It is a miracle we managed to sustain it for three years and after pumping all these money the end of the end is here.
+
+What's up next? No-one knows for sure, probably a job somewhere. No-one has guessed the graveness of the situation. They say people with a higher IQ get depressed more easily because they can grasp the gravity of the situation. I am depressed.
+
+The first indications appeared in may, when Dr. Vasiliou was visiting Qatar. He made it very clear that he has no further money to invest.  True of false is immaterial.
+
+Now, when the end comes people do look for scapegoats and I think I will be the one. Never mind, I will take what it takes, I feel strong and my children are made of the same genes am made and they should be strong too.
+
+I have made arrangements to get a business visa to enter Qatar again.
+
+
+Busy packing my goods, while Obama won his Nobel Prize! The man has done nothing yet, although I think he is a very good man, but he will end up pulling America down from a super-power to something like France or Germany. The real remaining super-power in the world now is China and truly intends to stay so.
+
+Why Yiannis and Akis want me out of Qatar is a mystery yet to be unvailed. Surely is not their love for me. If I will be leaving on Tuesday it remains to be see.!
+
+There is actually very little to pack in our home. My stamps or what remains, they can be sold in an emergency - and possibly lose a lot of money on the way for sustenance. Truly I have become a minimalist!
+
+
+
+
+
+
+
+
+##Further Reading
+
+
+
+ 
+
+
+
+  
+  
+
+
+
+
+
+
+

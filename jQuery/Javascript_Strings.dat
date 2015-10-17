@@ -1,0 +1,104 @@
+<h2>Chapter 2,  Lexical Structure Topics</h2>
+
+<h3>String Literals</h3>
+
+
+\begin{codeblock}
+var s = "I am a string";
+log( "value of s: ", s.length );
+\end{codeblock}
+
+
+<strong>Omitting semicolons is not a good programming practice. Consider the following code</strong>
+
+
+\begin{codeblock}
+function a(){
+  return
+  true;
+}
+
+function b(){
+  return true;
+}
+log (a());
+log (b());
+\end{codeblock}
+
+<h2>Literals</h2>
+
+A <strong>literal</strong> is a data value that appears directly in a program. The following are all literals:
+
+{{plain:
+- 12
+- 1.2
+- "hello world"
+- 'Hi Scotty'
+-  true
+- false
+- /javascript/gi 
+-  null
+}}
+
+In ECMAScript, expressions that serve as array and object literals are also
+supported. For example:
+
+{{plain:
+[2,3,6,7,89]          // An array initializer
+&#123; x:1, y:2 &#125;     
+}}
+
+Literals are an important part of any programming language, since it is impossible to describe a program without them.
+
+
+<h2>Identifiers</h2>
+
+An identifier is simply a name. The first letter can be an underscore (_), or a dollar sign ($). Subsequent characters maybe any letter or digit or an underscore or dollar sign. Numbers are not allowed as a first character.
+
+From ECMAScript v3, identifiers can contain letters and digits from the complete Unicode character set. It also allows Unicode escape characters
+to appear in identifiers. A Unicode escape is the character \u followed by 4 hexadecimal digits that specify a 16-bit character encoding. For example the identifier &#pi; could be written as \u03c0. 
+
+\begin{codeblock}
+function a(){
+ var π = 3.1413;     
+  return  π;
+ }
+log (a());
+\end{codeblock}
+
+Since a function name is simply a variable name, this can also be written with any valid Unicode character.
+
+\begin{codeblock}
+function unicode_\u03c0(){
+ var pi=3.1413;     <span class="green">//  pi in hex</span>
+ &Theta;=72;
+ return  pi+&Theta;   
+ }
+log(unicode_\u03c0());
+\end[codeblock}
+
+\section{Long Strings}
+
+\begin{codeblock}
+s = ['This is the first line ',
+     'This is the second line',
+     'This is the third line',
+
+     ]
+log(s.join('</br> '))    
+\end{codeblock}
+
+##Further Reading
+
+
+
+
+  
+  
+
+
+
+
+
+
+

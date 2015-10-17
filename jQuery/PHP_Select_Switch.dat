@@ -1,0 +1,104 @@
+ <!--
+{{feature-image:/codeigniter/images/beauty.jpeg}}
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+<h2>PHP Switch</h2>
+Use the switch statement to select a block of code to be executed from a number of different options:
+
+<div  class="code-block console-wrap" title="A down-count timer using a recursive function and arguments.callee"><div class="code code-block">
+<code>
+var options = {
+  width: "70%",
+  opacity: 0.4,
+  marginLeft: "0.6in",
+  fontSize: "2.5em",
+  borderWidth: "10px"
+};
+$('#start').bind("ajaxStart", function () {
+  $(this).show().animate(options, 1500);
+});
+
+$('#send').bind("ajaxStart", function () {
+  $(this).show().animate(options, 1500);
+});
+
+$('#sandbox').bind("ajaxSuccess", function () {
+  $(this).show().animate(options, 1500);
+});
+
+$('#complete').bind("ajaxComplete", function () {
+  $(this).show().animate(options, 1500);
+});
+
+$.ajax({
+  type: "GET",
+  url: "/CodeIgniter/upload/ajax_thumbs/test",
+  success: callback,
+  error: err
+});
+
+function callback(data, status) {
+  $that.siblings('.fullresponse').html(data);
+}
+
+function err(xhr, reason, ex) {
+  reason = '<div class="error">' + reason + '</div>';
+  $that.siblings('.fullresponse').html(reason);
+}
+
+
+
+</code>
+<pre id="PHP">
+
+switch ($x)
+{
+case 1:
+  echo "Number 1";
+  break;
+case 2:
+  echo "Number 2";
+  break;
+case 3:
+  echo "Number 3";
+  break;
+default:
+  echo "No number between 1 and 3";
+}
+
+</pre>
+</div>
+<p id="msg1" class="msg">
+</p>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<div class="fullresponse" ></div>
+<ol class="results"></ol> 
+</div>
+
+<hr/>
+
+For simple cases like the above, my own recommendation is to actually __name__ the function, while debugging it makes it easier to trace and is debatable if typing __arguments.callee__ is less cumbersome than typing the function name twice. However, there are a number of useful instances where, such a call is necessary. For a more involved example see this [article](/CodeIgniter/index.php/Blogs/tutorials/jQuery/Javascript_the_new_operator ).
+
+
+<span class="chapter">5</span>
+
+  
+  
+
+
+
+
+
+
+
+                              

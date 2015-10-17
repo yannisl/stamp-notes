@@ -1,0 +1,85 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+<h2>Closure's Dom Manipulation</h2>
+Closure's Dom manipulation methods, appear at first glance to be fairly comprehensive and to have given extensive thought to browser differences.
+
+As noted in the file comments they took heavy inspiration from
+[mochikit] (http://mochikit.com/).
+ 
+Although as mentioned in the documentation you can always create your own aliases, what is obviousy missing is 
+
+- Simplicity in the API
+- A good Selector Engine and API
+
+In my opinion here is an area, where jQuery excels. I will be highlighting differences as we go along
+
+First let us see how we can fetch an element from the Dom, the hello world of all Dom manipulation libraries.
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+
+googInfo();
+var z = goog.dom.$('msg1');
+assert(z instanceof HTMLElement, 'is instance of HTMLElement');
+
+// with jQuery
+var z1 = $('#msg');
+assert(z1 instanceof HTMLElement, 'is instance of HTMLElement');
+
+var z2 = goog.dom.$$('div', 'msg');
+
+log(typeof z2, z2.length);
+
+
+var el = $('msg');
+log('Should be able to get id', el.id, 'testEl');
+log(goog.dom.$, goog.dom.getElement);
+
+
+
+
+</code>
+</div>
+
+<div  id ="msg1" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<h3>Conclusion</h3>
+
+So far the dom library routines have failed to impress me. You are probably better off using dom native browser routines with limited wrapping. However, in the next articly when we examine the dom.query things might get a bit better.
+
+
+
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+

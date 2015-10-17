@@ -1,0 +1,97 @@
+ <!--
+
+{{feature-image:/codeigniter/images/china/beauty_15.jpg}}
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<script type="text/javascript">
+ goog.provide('goog.locale');
+goog.provide('goog.locale.nativeNameConstants');
+</script>
+
+<h2>Country and Language Mappings</h2>
+In order to present the User an opportunity for example to change a page's language to his own language we should be able to at least display his language and country name in his native language (as they might not be able to understand the page's language). For example, Google thinks that if I am in Cyprus, my locale is:
+
+{{plain:
+    &#922;&#973;&#960;&#961;&#959;&#962;
+}}
+
+.. and serves me advertisements in Greek.
+
+It is normal for country and language information to be provided in a Json format and once a User's preferences are known a lot of the Internationalization and localization issues are dealt with at the server.
+
+Google's Closure here, gets a top rating, that if you are in need for this type of manipulation at the Client side, they have written very comprehensive routines to handle this. My own guess that if you had to reproduce this on your own from scratch you will spend a good six months on it. Most of these routines are dated 2006 and although there is no version information, one would also assume that they have been tested in the field for a good number of years.
+
+We will first have a quick look at the __locale.js__ file which provides the __locale__ object. 
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+var s = '';
+log(goog.locale.nativeNameConstants.COUNTRY.CY);
+var country = goog.locale.nativeNameConstants.COUNTRY;
+for (var prop in country) {
+  s += prop + ' : ' + country[prop] + ', ';
+}
+log(s);
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+<h3>The <strong>locale</strong> object</h3>
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+var s = '';
+var locale = goog.locale;
+
+for (var prop in locale) {
+  if (locale.hasOwnProperty(prop)) {
+    log(prop);
+  }
+}
+
+log('Your locale is :', locale.getLocale());
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<h3>So far</h3>
+
+These routines are not for the faint-hearted. If you need to Internationalize, you will find them extremely useful, although I assume that most of you might end up editing these files a bit to reduce size and boost execution speed, after all you might not want to support the Central African republic in your application or Marion Island.
+
+
+
+<span id="chapter" class="hidden">13</span>
+##Further Reading
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+

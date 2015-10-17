@@ -1,0 +1,33 @@
+\chapter{REST}
+
+{{wi: REST}} stands for REpresentational State Transfer, and in contrast to protocols such as
+SOAP or XML-RPC, it is more a philosophy or a set of principles than a protocol in its
+own right. REST is a set of ideas about how data can be transferred elegantly, and although
+it’s not tied to HTTP, it is discussed here in the context of HTTP. REST takes
+great advantage of the features of HTTP, so the earlier chapters covering this and the
+more detailed topics of headers and verbs can all come together to support a good
+knowledge of REST.
+
+In a RESTful service, four HTTP verbs are used to provide a basic set of CRUD (Create,
+Read, Update, Delete) functionality: `POST`, `GET`, `PUT` and `DELETE`. It is also possible
+to see implementations of other verbs in RESTful services, such as `PATCH` to allow
+partial update of a record, but the basic four provide the platform of a RESTful service.
+The operations are applied to resources in a system. The “Representational State Transfer”
+name is accurate; RESTful services deal in transferring representations of resources.
+A representation might be JSON or XML, or indeed anything else. So what is a resource?
+Well, everything is. Each individual data record in a system is a resource. At the first
+stage of API design, a starting point could be to consider each database row as an individual
+resource. Think of an imaginary blogging system as an example: resources
+might be posts, categories, and authors. Every resource has a URI, which is the unique
+identifier for the record.
+
+A collection contains multiple resources (of the same type); usually this is a list of resources
+or the result of a search operation. A blog example might have a collection of
+posts, and another collection of posts limited to a particular category.
+
+The World Wide Web represents the largest implementation of a system conforming to the REST architectural style.
+
+\section{RESTful URLs}
+
+RESTful services are often thought of as “pretty URL” services, but there’s more than
+prettiness to the structures used here. In Chapter 5, the GitHub API was used as an

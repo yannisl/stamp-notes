@@ -1,0 +1,106 @@
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch is ahead of 'origin/master' by 1 commit.
+#
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#	deleted:    JAMA/JAMA/CholeskyDecomposition.php
+#	deleted:    JAMA/JAMA/EigenvalueDecomposition.php
+#	deleted:    JAMA/JAMA/LUDecomposition.php
+#	deleted:    JAMA/JAMA/Matrix.php
+#	deleted:    JAMA/JAMA/QRDecomposition.php
+#	deleted:    JAMA/JAMA/SingularValueDecomposition.php
+#	deleted:    JAMA/JAMA/docs/docs.php
+#	deleted:    JAMA/JAMA/docs/download.php
+#	deleted:    JAMA/JAMA/docs/example.php
+#	deleted:    JAMA/JAMA/docs/includes/credits.php
+#	deleted:    JAMA/JAMA/docs/includes/footer.php
+#	deleted:    JAMA/JAMA/docs/includes/header.php
+#	deleted:    JAMA/JAMA/docs/includes/navbar.php
+#	deleted:    JAMA/JAMA/docs/index.php
+#	deleted:    JAMA/JAMA/docs/package.php
+#	deleted:    JAMA/JAMA/docs/test.php
+#	deleted:    JAMA/JAMA/examples/LMQuadTest.php
+#	deleted:    JAMA/JAMA/examples/LagrangeInterpolation.php
+#	deleted:    JAMA/JAMA/examples/LagrangeInterpolation2.php
+#	deleted:    JAMA/JAMA/examples/LevenbergMarquardt.php
+#	deleted:    JAMA/JAMA/examples/MagicSquareExample.php
+#	deleted:    JAMA/JAMA/examples/Stats.php
+#	deleted:    JAMA/JAMA/examples/benchmark.php
+#	deleted:    JAMA/JAMA/examples/polyfit.php
+#	deleted:    JAMA/JAMA/examples/tile.php
+#	deleted:    JAMA/JAMA/tests/TestMatrix.php
+#	deleted:    JAMA/JAMA/utils/Error.php
+#	deleted:    JAMA/JAMA/utils/Maths.php
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	KUT/
+#	Kiauchau/
+#	Libya/
+#	jubaland/
+#	karelia/
+#	kastellorizo/
+#	katanga/
+#	kavalla/
+#	kazakhstan/
+#	kenya/
+#	kiaochow/
+#	kionga/
+#	korea/
+#	kuwait/
+#	kyrgzstan/
+#	labuan/
+#	lagos/
+#	latvia/
+#	lebanon/
+#	leeward-islands/
+#	lesotho/
+#	levant-foreign-pos/
+#	levant/
+#	liberia/
+#	liechtenstein/
+#	lithuania/
+#	lombardy-venetia/
+#	long-island/
+#	lourenco-marques/
+#	luxembourg/
+#	macau/
+#	macedonia/
+#	madagascar/
+#	madeira/
+#	mafeking/
+#	mafia-island/
+#	magdalena/
+#	malawi/
+#	malaya-japan-occupation/
+#	malaya-states/
+#	malaysia/
+#	mali/
+#	malta/
+#	mariana-islands/
+#	marion-island/
+#	marshalls/
+#	martinique/
+#	mauritania/
+#	mauritius/
+#	mayotte/
+#	mexico/
+#	micronesia/
+#	moheli/
+#	moldova/
+#	monaco/
+#	mongolia/
+#	montenegro/
+#	montserrat/
+#	mosul/
+#	mozambique-company/
+#	mozambique/
+#	muscat/
+#	myanmar/
+#	namimbia/
+

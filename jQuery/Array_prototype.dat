@@ -1,0 +1,122 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+{{feature-image: http://localhost/egypt/elliott-erwitt/EE-1150.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<h3>Array prototype</h3>
+15.4.2.2 new Array (len)
+
+The [[Prototype]] property of the newly constructed object is set to the original Array prototype
+object, the one that is the initial value of Array.prototype (15.4.3.1). The [[Class]] property of
+the newly constructed object is set to "Array".
+If the argument len is a Number and ToUint32(len) is equal to len, then the length property of the
+newly constructed object is set to ToUint32(len). If the argument len is a Number and ToUint32(len)
+is not equal to len, a RangeError exception is thrown.
+If the argument len is not a Number, then the length property of the newly constructed object is set
+to 1 and the 0 property of the newly constructed object is set to len.
+
+15.4.3 Properties of the Array Constructor
+The value of the internal [[Prototype]] property of the Array constructor is the Function prototype object (15.3.4).
+Besides the internal properties and the length property (whose value is 1), the Array constructor has the following properties:
+
+15.4.3.1 Array.prototype
+The initial value of Array.prototype is the Array prototype object (15.4.4).
+This property has the attributes { DontEnum, DontDelete, ReadOnly }.
+
+
+15.4.4 Properties of the Array Prototype Object
+The value of the internal [[Prototype]] property of the Array prototype object is the Object prototype
+object (15.2.3.1).
+
+The Array prototype object is itself an array; its [[Class]] is "Array", and it has a length property
+(whose initial value is +0) and the special internal [[Put]] method described in 
+15.2.3.1.
+In following descriptions of functions that are properties of the Array prototype object, the phrase “this
+object” refers to the object that is the this value for the invocation of the function. It is permitted for the
+this to be an object for which the value of the internal [[Class]] property is not "Array".
+
+NOTE
+
+The Array prototype object does not have a valueOf property of its own; however, it inherits the
+valueOf property from the Object prototype Object.
+
+15.4.4.1 __Array.prototype.constructor__
+The initial value of Array.prototype.constructor is the built-in Array constructor
+
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+var oneArray=['blue','red'];
+var twoArray=['yellow','orange'];
+var threeArray=['green','purple'];
+oneArray=oneArray.concat(twoArray,threeArray);
+log('',oneArray);
+</code>
+
+</div>
+
+<div  class="msg" class="msg" style="white-space:pre;font-family:monospace;line-height:1.3">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+Arrays joined through the concat( ) method are not altered. Instead, the concat( ) method returns the combined array
+as a new value, which you can preserve in a separate variable. The base array (the one used to invoke the concat( )
+method) comes first in the combined array.
+
+The concat( ) method is not limited to tacking one array onto another. Comma-delimited parameters to the method
+can be any data type. A value of any data type other than an array becomes another entry in the main array - in the
+same sequence as the parameters. You can even combine arrays and other data types in the group of parameters
+passed to the method.
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+var oneArray = ['blue', 'red'];
+var twoArray = ['yellow', 'orange'];
+var threeArray = ['green', 'purple'];
+var oArray = {
+  one: 'test',
+  two: 'test2'
+};
+var mixedArray = oneArray.concat(twoArray, threeArray, oArray);
+log('', mixedArray);
+log(mixedArray[6].one);
+</code>
+
+</div>
+
+<div  class="msg" class="msg" style="white-space:pre;font-family:monospace;line-height:1.3">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+##Further Reading
+
+
+
+ 
+
+
+
+  
+  
+
+
+
+
+
+
+

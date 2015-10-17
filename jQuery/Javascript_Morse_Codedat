@@ -1,0 +1,117 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<style type="text/css">
+.code{margin:0;padding-top:0}
+.code-block{                        background:url(http://localhost/codeigniter/images/code-bg.gif);
+margin:0;padding:0}
+.code-block .code{white-space:pre;padding:0;margin:0}
+</style>
+
+<h2>Javascript Morse Code!</h2>
+I was looking or a good example from traditional programming exercises to
+continue the exercises on forms and I thought of morse codes.
+http://programmingpraxis.com/2009/04/28/morse-code/
+If you get excited with scheme you can see a solution at 
+<div class="code-block">
+<div class="code">
+</code>
+</div>
+
+<form>
+<label>Please type your phrase in plain English</label>
+<textarea name="input" id="input"></textarea>
+</form>
+
+<p id="msg" style="width:400px;font-size:24px;font-weight:bold;background:#fff">Test Area</p>
+  <button class="eval">Button</button>
+</div>
+
+Now that we have seen what we are after let us develop the program code:
+
+Just to conclude some trivia about Morse Code and why most programmers have produced one! 
+
+Morse code has been employed as an assistive technology, helping people with a variety of disabilities to communicate. Morse can be sent by persons with severe motion disabilities, as long as they have some minimal motor control. In some cases this means alternately blowing into and sucking on a plastic tube ("puff and sip" interface). People with severe motion disabilities in addition to sensory disabilities (e.g. people who are also deaf or blind) can receive Morse through a skin buzzer.
+
+In one case reported in the radio amateur magazine QST, an old shipboard radio operator who had a stroke and lost the ability to speak or write was able to communicate with his physician (a radio amateur) by blinking his eyes in Morse. Another example occurred in 1966 when prisoner of war {{wi:Jeremiah_Denton}}, brought on television by his North Vietnamese captors, Morse-blinked the word TORTURE.
+
+##Further Reading
+
+http://en.wikipedia.org/wiki/Morse_code
+
+##Assignment
+Modify the program to produce words rather than dashes and dots, like 
+Dah-dah dah-dah-dah di-dah-dit di-di-dit dit, Dah-di-dah-dit dah-dah-dah dah-di-dit dit.
+
+Can you create a sound file for a message?
+
+##Further Reading
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+$('button.eval').click(function(){
+   var code=$(this).siblings('.code').text();
+   eval(code);
+});
+
+function translateMorse(message) {
+//return message.length;
+var letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ .,?:-! ";
+var morse = new Array(
+".-","-...","-.-.","-..",".","..-.",
+"--.","....","..",".---","-.-",".-..",
+"--","-.","---",".--.","--.-",".-.",
+"...","-","..-","...-",".--","-..-",
+"-.--","--..",".-","-...","-.-.","-..",
+".","..-.","--.","....","..",".---",
+"-.-",".-..","--","-.","---",".--.",
+"--.-",".-.","...","-","..-","...-",
+".--","-..-","-.--","--.."," ",".-.-.-",
+"--..--","..--..","---...","-....-","!"," ");
+var count=0;var daChar='';var out='';
+for(count = 0; count < message.length; count++) {
+daChar = message.charAt(count);
+for (i = 0; i < letters.length; i++) {
+if (daChar == letters.charAt(i)) {
+out += morse[i];
+break;
+    }
+   }
+}
+//alert(out);
+return out;
+}
+
+
+
+$("#input").keyup(function(){
+  var s=$(this).val();
+  s=translateMorse(s);
+ 
+   $('p#msg').text(s);
+});
+
+
+
+});
+
+
+</script>
+
+
+
+
+
+
+
+
+

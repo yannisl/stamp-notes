@@ -1,0 +1,182 @@
+ <!--
+{{feature-image:http://localhost/codeigniter/images/china/beauty_08.jpg}}
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+
+
+<h3>Standard Library method: isEmpty()</h3>
+
+
+
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+U.string.Unicode = {
+  NBSP: '\xa0'
+};
+
+/**
+ * Checks if a string is empty or contains only whitespaces.
+ * @param {string} str The string to check.
+ * @return {boolean} True if {@code str} is empty or whitespace only.
+ */
+U.string.isEmpty = function (str) {
+  // testing length == 0 first is actually slower in all browsers (about the
+  // same in Opera).
+  // Since IE doesn't include non-breaking-space (0xa0) in their \s character
+  // class (as required by section 7.2 of the ECMAScript spec), we explicitly
+  // include it in the regexp to enforce consistent cross-browser behavior.
+  return (/^[\s\xa0]*$/).test(str);
+};
+
+/**
+ * Checks if a string is null, empty or contains only whitespaces.
+ * @param {*} str The string to check.
+ * @return {boolean} True if{@code str} is null, empty, or whitespace only.
+ */
+U.string.isEmptySafe = function (str) {
+  return U.string.isEmpty(U.string.makeSafe(str));
+};
+
+/**
+ * Checks if a string is all breaking whitespace.
+ * @param {string} str The string to check.
+ * @return {boolean} Whether the string is all breaking whitespace.
+ */
+U.string.isBreakingWhitespace = function (str) {
+  return !/[^\t\n\r ]/.test(str);
+};
+
+/**
+ * Checks if a string contains all letters.
+ * @param {string} str string to check.
+ * @return {boolean} True if {@code str} consists entirely of letters.
+ */
+U.string.isAlpha = function (str) {
+  return !/[^a-zA-Z]/.test(str);
+};
+
+/**
+ * Checks if a string contains only numbers.
+ * @param {*} str string to check. If not a string, it will be
+ *     casted to one.
+ * @return {boolean} True if {@code str} is numeric.
+ */
+U.string.isNumeric = function (str) {
+  return !/[^0-9]/.test(str);
+};
+
+/**
+ * Checks if a string contains only numbers or letters.
+ * @param {string} str string to check.
+ * @return {boolean} True if {@code str} is alphanumeric.
+ */
+U.string.isAlphaNumeric = function (str) {
+  return !/[^a-zA-Z0-9]/.test(str);
+};
+
+/**
+ * Checks if a character is a space character.
+ * @param {string} ch Character to check.
+ * @return {boolean} True if {code ch} is a space.
+ */
+U.string.isSpace = function (ch) {
+  return ch === ' ';
+};
+
+/**
+ * Checks if a character is a valid unicode character.
+ * @param {string} ch Character to check.
+ * @return {boolean} True if {code ch} is a valid unicode character.
+ */
+U.string.isUnicodeChar = function (ch) {
+  return ch.length == 1 && ch >= ' ' && ch <= '~' || ch >= '\u0080' && ch <= '\uFFFD';
+};
+
+/**
+ * Takes a string and replaces newlines with a space. Multiple lines are
+ * replaced with a single space.
+ * @param {string} str The string from which to strip newlines.
+ * @return {string} A copy of {@code str} stripped of newlines.
+ */
+U.string.stripNewlines = function (str) {
+  return str.replace(/(\r\n|\r|\n)+/g, ' ');
+};
+
+/**
+ * Replaces Windows and Mac new lines with unix style: \r or \r\n with \n.
+ * @param {string} str The string to in which to canonicalize newlines.
+ * @return {string} {@code str} A copy of {@code} with canonicalized newlines.
+ */
+U.string.canonicalizeNewlines = function (str) {
+  return str.replace(/(\r\n|\r|\n)/g, '\n');
+};
+
+/**
+ * Normalizes whitespace in a string, replacing all whitespace chars with
+ * a space.
+ * @param {string} str The string in which to normalize whitespace.
+ * @return {string} A copy of {@code str} with all whitespace normalized.
+ */
+U.string.normalizeWhitespace = function (str) {
+  return str.replace(/\xa0|\s/g, ' ');
+};
+
+/**
+ * Normalizes spaces in a string, replacing all consecutive spaces and tabs
+ * with a single space. Replaces non-breaking space with a space.
+ * @param {string} str The string in which to normalize spaces.
+ * @return {string} A copy of {@code str} with all consecutive spaces and tabs
+ *    replaced with a single space.
+ */
+U.string.normalizeSpaces = function (str) {
+  return str.replace(/\xa0|[ \t]+/g, ' ');
+};
+
+var s = '';
+var s1 = ' ';
+log(U.string.isEmpty(s));
+log(U.string.isSpace(s1));
+
+
+
+
+</code>
+</div>
+
+<div  id ="msg" class="msg" style="white-space:pre">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+

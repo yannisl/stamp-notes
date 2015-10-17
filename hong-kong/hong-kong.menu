@@ -1,0 +1,23 @@
+<div style="width:230px">
+<ul id="LHnav" style="margin-left:0px;width:210px">
+<li><a href="../hong-kong/introduction">Historical Background.</a></li>
+<li><a href="../hong-kong/introduction">Postal History Introduction</a></li>
+</ul>
+
+<h4 class="country" style="background:#000040">1850-1899</h4>
+<ul id="LHnav" style="margin-left:0px;width:210px">
+<li><a href="../hong-kong/1876_77_Surcharges">1876-77 Surcharges</a></li>
+<li><a href="../hong-kong/1891_Jubilee">1891 Jubilee Issue</a></li>
+</ul>
+</div> 
+
+\begin{accordion}
+\begin{category}{Treaty Ports}
+\mitem{Amoy}{../hong-kong/Amoy}
+\mitem{Canton}{../hong-kong/Canton}
+\mitem{Yokohama}{../hong-kong/yokohama}
+\mitem{Foochow}{../hong-kong/Foochow}
+\mitem{Ningpo}{../hong-kong/Ningpo}
+\mitem{Swatow}{../hong-kong/Swatow}
+\end{category}
+\end{accordion}                     

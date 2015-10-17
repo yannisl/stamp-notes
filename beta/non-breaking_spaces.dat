@@ -1,0 +1,74 @@
+\chapter{Non-breaking spaces}
+
+
+
+Donald E. Knuth gained a reputation of painting\footnote{in roman numerals} red the draft dissertations of his students, taking particular note of incidents when they omitted a non-breaking space that should have been included.\footnote{See \link{http://tex.stackexchange.com/questions/15547/when-should-i-use-non-breaking-space/15549#15549} for a good discussion of the issue.}
+
+Most users will only go back and add non-breaking spaces, here and there, once a document has been completed as a final varnish. TeXifier attempts to add a tilde in places where it is normally advisable to do so. It is not always very succesful as there are no fixed rules and some are based on opinions. The following is a test showing where they are normally being picked-up by the parser. 
+
+
+###Between math symbols in apposition with nouns:
+
+\begin{example}
+dimension \\(d\\) width \\(w\\) function \\(f(x)\\), string \\((s)\\), 
+but compare with string \\(s\\) of length l or more. Jane and I.
+\end{example}
+
+
+
+\subsection{In references to named parts of a document}
+
+\begin{example}
+Chapter 12   Theorem 1.2
+Appendix A   Table~\hbox{B-8}
+Figure 3   Lemmas 5 and 6
+\end{example}
+
+Between a person's forenames and between multiple surnames:
+Donald E. Knuth   Luis I. Trabb Pardo
+Bartel Leendert van der Waerden   Charles XII
+but be careful of names like Charles Louis Xavier Joseph de la Vall\'ee Poussin.
+
+When a symbol is a tightly bound object of a preposition:
+of $x$
+from 0 to 1
+increase $z$ by 1
+in common with $m$. but compare
+of $u$ and $v$.
+
+\textbf{When mathematical phrases are rendered in words:}
+equals $n$ less than $\epsilon$ (given~$X$)
+mod 2 modulo $p^e$ for all large $n$
+Compare is 15 with is 15 times the height.
+When cases are being enumerated within a paragraph:
+(b) Show that $f(x)$ is (1) continuous; (2) bounded.
+
+When mathematical phrases are rendered in words:
+equals~$n$ less than~$\epsilon$ (given~$X$)
+mod~2 modulo~$p^e$ for all large~$n$
+Compare is~15 with is 15~times the height.
+When cases are being enumerated within a paragraph:
+(b)~Show that $f(x)$ is (1)~continuous; (2)~bounded.
+
+
+
+\subsection{The System of Real Numbers.}
+
+Suppose, now, that there is a \emph{least} number \\(a\\) greater than
+every \\(a_n\\). We easily see that if the ordinary laws of arithmetic as
+to equality and inequality and addition, subtraction, and
+multiplication hold for \\(a\\) and \\(a^2\\), then \\(a^2\\) is the rational
+number 2. For if \\(a^2<2\\), let \\(2-a^2 = \varepsilon\\), whence \\(2=a^2 +
+\varepsilon\\). If \\(n\\) were so taken that \\(\frac{1}{10^n} <
+\frac\varepsilon5\\), we should have from the last inequality
+\\[
+  2< \left(a_n + \frac{1}{10^n}\right)^2 = a_n^2 +
+  2a_n\cdot\frac{1}{10^n}+
+  \left(\frac{1}{10^n}\right)^2 < a_n^2 + 4\frac\varepsilon5 +
+  \frac\varepsilon5 < a^2 + \varepsilon,
+\\]
+
+
+
+
+

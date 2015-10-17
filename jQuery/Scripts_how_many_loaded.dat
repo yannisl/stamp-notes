@@ -1,0 +1,94 @@
+      
+<!--
+ directives
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{feature-image:/codeigniter/images/china/beauty_06.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+<h2>Finding out how many scripts a page has loaded</h2>
+
+Now and then you may need to find out how many scripts, your page has loaded. This is important especially when you dynamically add scripts onto a page. You can do this by capturing all the elements on a page that have the tag name __script__. You must then iterate through the array and capture only the scripts that have an src attribute (otherwise you will also capture nodes that are in-line scripts). However, before doing that let us explore the properties of a __script__ tag. To do that you simply capture the elements using __getElementsByTagName('scripts')__ and then iterate through the properties. Run this first in Chrome or FF before doing so in IE, as IE will also return a bunch of other non-standard properties.
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<pre style="background-image:none;border:none">
+var scripts = document.getElementsByTagName('scripts');
+for (var prop in document.scripts[0]) {
+  log(prop + ': ' + document.scripts[0][prop]);
+}
+</pre>
+
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+Now that we have seen the properties available at the instance of a script tag, we can now go back to our original aim and find out how many script tags we have loaded. We could if we wanted check if a particular script has loaded by checking through the return array of elements and splitting the __src__ string.
+
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<pre>
+countNumFilesLoaded = function() {
+  var scripts = document.getElementsByTagName('script');
+  var count = 0;
+  for (var i = 0, n = scripts.length; i < n; i++) {
+    if (scripts[i].src) {
+      count++;
+    }
+  }
+  return count;
+};
+
+log('number of files loaded :  ' + countNumFilesLoaded());
+</pre>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+                                                                

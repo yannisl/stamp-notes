@@ -1,0 +1,43 @@
+\chapter{Typesetting Images}    
+
+Setting out images is one of the hardest tasks in typesetting. Numerous styles exist and there are a lot of opinions as to the best approach.
+
+\begin{figure}
+\phc[70%]{../beta/stamps_40_41.jpg}{Page spread from a philatelic book, showing normal figures, margin figures and fullwidth figures.}
+\end{figure}
+
+Our aim is to provide the tools for typesetting, create classes that make some good decisions, but the ultimate choice is left to the book designer. It is also likely that your final LaTeX layout might need a bit of manual twicking.
+
+\begin{figure}
+\phc[17%]{../beta/2.jpg}{}\hfill 
+\phc[17%]{../beta/3.jpg}{}\hfill
+\phc[17%]{../beta/2.jpg}{}\hfill
+\phc[17%]{../beta/3.jpg}{}\hfill
+\phc[17%]{../beta/2.jpg}{}\hfill
+\clear
+\phc[17%]{../beta/2.jpg}{}\hfill
+\phc[17%]{../beta/3.jpg}{}\hfill
+\end{figure}
+\lorem
+\begin{marginfigure}
+\includegraphics[width=1.0\textwidth]{../beta/2.jpg}
+\end{marginfigure}
+\lorem\lorem
+
+
+\begin{verbatim}
+\begin{figure*}
+  \phl[17%]{../beta/2.jpg}{}\hfill 
+  \phl[17%]{../beta/3.jpg}{}\hfill
+  \phl[17%]{../beta/2.jpg}{}\hfill
+  \phl[17%]{../beta/3.jpg}{}\hfill
+  \phl[17%]{../beta/2.jpg}{}\hfill
+\end{figure*}
+\lorem
+\begin{marginfigure}
+  \includegraphics[width=1.0\textwidth]{../beta/2.jpg}
+ \end{marginfigure}
+\lorem
+\end{verbatim}
+
+\phc[17%]{../beta/3.jpg}{}\hfill

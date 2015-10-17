@@ -1,0 +1,134 @@
+<!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+{{feature-image:/codeigniter/images/underground_thumb.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<script src="/codeigniter/js/jquery.form.js" />
+
+<h2>The Form Plugin</h2>
+<!-- Begin TranslateThis Widget -->
+
+<div id="translate-this"><a href="http://translateth.is/" class="translate-this-button">Translate</a></div>
+
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<script type="text/javascript" src="http://x.translateth.is/translate-this.js"></script>
+<script type="text/javascript">
+TranslateThis();
+</script>
+
+<!-- End TranslateThis Widget -->
+
+Perhaps the most mandate work of a web developer is to create and handle the code for form generation.  To ease the development of forms you can use the <dfn>jQuery plugin Form</dfn>.
+
+The jQuery [Form](http://jquery.malsup.com/form/#getting-started) Plugin allows you to easily and unobtrusively upgrade HTML forms to use AJAX. The main methods, __ajaxForm__ and __ajaxSubmit__, gather information from the form element to determine how to manage the submit process. Both of these methods support numerous options which allows you to have full control over how the data is submitted. Submitting a form with AJAX doesn't get any easier than this!
+
+
+
+
+<h3>A few more options</h3>
+
+<div class="code-block console-wrap">
+<div class="code-block code">
+<code style="display:none">
+ // prepare the form when the DOM is ready 
+$(document).ready(function() { 
+   $('#image-submit').enable();
+    var options = { 
+        target:        '#sandbox',   // target element(s) to be updated with server response 
+        beforeSubmit:  showRequest,  // pre-submit callback 
+        success:       showResponse,  // post-submit callback 
+             url: '/codeigniter/sandbox/PHP/',
+             type:'POST'
+ 
+        // other available options: 
+        //url:       url         // override for form's 'action' attribute 
+        //type:      type        // 'get' or 'post', override for form's 'method' attribute 
+        //dataType:  null        // 'xml', 'script', or 'json' (expected server response type) 
+        //clearForm: true        // clear all form fields after successful submit 
+        //resetForm: true        // reset the form after successful submit 
+ 
+        // $.ajax options can be used here too, for example: 
+        //timeout:   3000 
+    }; 
+ 
+    // bind form using 'ajaxForm' 
+    $('#myForm1').ajaxForm(options); 
+}); 
+ 
+// pre-submit callback 
+function showRequest(formData, jqForm, options) { 
+    // formData is an array; here we use $.param to convert it to a string to display it 
+    // but the form plugin does this for you automatically when it submits the data 
+    var queryString = $.param(formData); 
+ 
+    // jqForm is a jQuery object encapsulating the form element.  To access the 
+    // DOM element for the form do this: 
+    // var formElement = jqForm[0]; 
+ 
+    //log('About to submit: \n\n' + queryString); 
+ 
+    // here we could return false to prevent the form from being submitted; 
+    // returning anything other than false will allow the form submit to continue 
+    return true; 
+} 
+ 
+// post-submit callback 
+function showResponse(responseText, statusText)  { 
+    // for normal html responses, the first argument to the success callback 
+    // is the XMLHttpRequest object's responseText property 
+ 
+    // if the ajaxForm method was passed an Options Object with the dataType 
+    // property set to 'xml' then the first argument to the success callback 
+    // is the XMLHttpRequest object's responseXML property 
+ 
+    // if the ajaxForm method was passed an Options Object with the dataType 
+    // property set to 'json' then the first argument to the success callback 
+    // is the json data object returned by the server 
+ 
+//log( ('status: ' + statusText + '\n\nresponseText: \n' + responseText + 
+  //      '\n\nThe output div should have already been updated with the //responseText.').entityify()); 
+} 
+</code>
+</div>
+<div class="sandbox curvy" style="white-space:pre">
+<form id="myForm1" action="" method="post"> 
+ <textarea name="ascript" value="test" > 
+ echo 'another test';
+ </textarea>
+<br/>
+         
+ <input type="submit" id="image-submit" value="Submit data" disabled /> 
+</form>
+</div>
+<div  id ="sandbox" class="sandbox curvy">
+</div>
+<div  id ="msg1" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+                                                                                                                

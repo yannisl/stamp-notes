@@ -1,0 +1,113 @@
+            
+
+<!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+<h2>Closure Assessment</h2>
+
+I waited to write this article until after I was finished with most of the tutorials and articles on Closure that you can find in this website. I wanted to be as objective as possible and to have a good overview of what one can do and not do with the library and you will struggle to find what you can not do with it. My first impression like those of some other people was, that the library had a strong bias from Java and that it was probably mostly written by Java programmers. However, as I peeked through the library the python Google culture kept propping up.
+
+Each and every Library - irrespective -  of the language it is written in has the style of its author and it shows. Google's style came out as a style in a Culture where code is disciplined and goes through code review and quality assurance. Since the library can be compacted or using Google's phraseology can be compiled it is verbose. This verbosity makes it difficult to work with it quickly without having to delve into the code a lot. The exposed API, is for seasoned programmers and lucks the <em>usability</em>, elements found in libraries such as jQuery, where you will write:
+
+{{plain: $('.class').css(arguments)}}
+
+and use only this method as an interface to both getting or setting css parameters. Not so in Google. To Google's defense a lot of OOP programming gurus have been preaching for years that you should always access properties via getters and setters and Google's engineers have been listening. However, irrespective of the discipline you impose behind a code's library in my opinion, a library's API has to be as simple as possible.
+
+
+The same is true of all the Closure classes. Take for example Internationalization and localization of code. Whatever one needs is here and I can hardly thing of something you may need and not find it in Closure. However, I would have loved an API with one or two methods exposed and something of the like's of to set all common items one would need based on a user's locale:
+
+{{plain: goog.locale(<i>optionsObject</i>) }}
+
+and ... heretically in similar lines to jQuery, get an option setting by using the same API interface, using goog.locale with no arguments to return the full options object:
+
+{{plain: goog.locale() }}
+
+and to retrieve a settings option, one could dream of doing this.
+
+{{plain: goog.locale(<i>location</i>) }}
+
+But of course you can develop these abstractions  in-house or perhaps develop them and offer them to the open source community. Talking about the Open Source community, it i snot clear to me as to what Google intends to do with Closure, will they have a method for the community to offer suggestions and report bugs? Who will curate after the library, these are questions that one needs to ask.
+
+Coming back on code style, one aspect of the code that stands out it is that is very readable. You can read it like  a book. Some of the verbosity could have been minimized, if one used Prototype's style of object method creations, which I will summarize in a example below:
+
+<div class="code-block console-wrap">
+<div code-block code>
+<code>
+goog.string= function extend(obj,
+
+   function append (){};
+   function delete (){};
+   function map (){}
+
+   return {
+     append : append,
+     delete  : delete,
+     map  : map,
+}
+);
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+What I like about this style, is that it provides at a glance a summary of all the methods available as public and leaves all the private methods unexposed. It also provides at the return option a nice summary of all the object properties, which is quite handy especially when documentation is rather sparse.
+
+
+
+My own conclusions is that I will be using the library progressively, especially on larger web applications, but I will be avoiding using its DOM features until the API improves. It is unfair to both jQuery and Closure to compare them as each serves a different function, but jQuery's laconic syntax and easy to remember API is way ahead and simple enough for maintenance. jQuery's  'plugins' arsenal is also strong. The two libraries or more if you wish can happily co-exist together and you can check this out on each and every tutorial on Closure that you can find here. If you need i18n, Unicode support, structs and complicated graphics and you need all these to play nicely together, Google's Closure is as comprehensive as it gets. 
+
+As a last word the only thing remaining to be said is for the web development community to thank Google for such a gift. The first time I downloaded the code, I was like a kid that was given a Christmas gift. Closure has a little bit of everything and it shows.
+
+
+
+
+
+
+
+<div class="code-block console-wrap">
+<div code-block code>
+<code>
+
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+

@@ -1,0 +1,47 @@
+
+
+\section{Getting rid of local variables}
+
+In many cases using local variables within functions maybe unnecessary. One can easily use self-executing functions to replace such variables.
+
+\begin{codeblock}
+// with local vars
+function withvars(y){
+     var x = 12;
+     return x + y;
+}
+
+log(withvars(12));
+
+// can be written as 
+function novars(y){
+     //var x = 12;
+     return (function(){return 12 + y;})();
+}
+
+log(novars(12));
+\end{codeblock}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+##Further Reading
+
+
+
+
+
+
+
+                

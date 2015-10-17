@@ -1,0 +1,159 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+
+
+<h2>Private Members in JavaScript </h2>
+
+[See also Functions]( http://localhost/CodeIgniter/admin/post/edit/jQuery/Functions_and_JQuery)
+
+JavaScript is fundamentally about objects. Arrays are objects. Functions are objects. Objects are objects. So what are objects? Objects are collections of name-value pairs. The names are strings, and the values are strings, numbers, booleans, and objects (including arrays and functions). Objects are usually implemented as hashtables so values can be retrieved quickly.
+
+If a value is a function, we can consider it a method. When a method of an object is invoked, the this variable is set to the object. The method can then access the instance variables through the this variable.
+
+Objects can be produced by constructors, which are functions which initialize objects. Constructors provide the features that classes provide in other languages, including static variables and methods.
+
+
+<h3>Public Methods</h3>
+Let us  review the creation of a simple object with some Public Methods
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+function fn(x){
+  this.add3 = function(x){
+         return x+3;
+      }
+}
+var z =  new fn;
+       z.add3();
+log ('value of z.add3(3) : ', z.add3(3));
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+<h3>Private</h3>
+
+ Ordinary vars and parameters of the constructor are private members.
+
+{{plain:
+function Container(param) &#123;
+    this.member = param;
+    var secret = 3;
+    var that = this;
+&#125;
+}}
+
+This constructor makes three private instance variables: param, secret, and that. 
+
+They are attached to the object, but they are not accessible to the outside. They are accessible to private methods. 
+
+Private methods are inner functions of the constructor.
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+function fn(x){
+  var y = 2;
+  this.add3 = function(x){
+         return y + x + 3;
+      }
+}
+var z =  new fn;
+       z.add3();
+log ('value of z.add3(3) : ', z.add3(3));
+
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+<h3> Privileged Methods</h3>
+
+Privileged methods are methods that are using private members.  The term was coined by Douglas Crockford to refer to methods that are able to view and manipulate private variables (within an object) while still being accessible to users as a public method. The listing below shows an example.
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+<span class="green">// JSLint Checked</span>
+function Fn(x) {
+        var y = 2;
+        var z = 3;
+        var add3 = function (x) {
+            return  x + 3;
+        };
+        this.sum = function (k) {
+            // note the context of this
+            if (k == 3) {
+                return add3(k) + y + z; 
+            } else {
+                return 0;  //11 
+            }
+        };
+    }
+
+var z =  new Fn();
+ 
+log('value of z.sum(2), z.sum(13) : ', z.sum(3), z.sum(13));
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+<h3>Summary</h3>
+
+A JavaScript Object can have variables that are public or private, a Privileged Method can be used to export values to the outside world as a Closure. (See more on Closures)
+
+
+<h3>Further Reading</h3>
+ http://www.crockford.com/javascript/private.html
+
+
+
+
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+ 
+
+
+
+  
+  
+
+
+
+
+
+
+

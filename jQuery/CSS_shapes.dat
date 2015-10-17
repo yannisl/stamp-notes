@@ -1,0 +1,104 @@
+\chapter{CSS Shapes}
+
+CSS Shapes will be available in almost all browsers, very soon. One has to be careful when to use them as it means that experimental features of browsers are necessary.
+
+<div id="oval" style="width: 300px;
+	height: 200px;
+	background: #ececec;
+	-moz-border-radius: 100px/50px;
+	-webkit-border-radius: 100px/50px;
+	-webkit-radius: 100px/50px;">\lorem
+</div>
+
+
+<div class='container'>
+    <header>
+        <h1>The Lake Isle of Innisfree</h1>
+    </header>
+
+    <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/28727/bee-hive-v2.png'/>
+
+    <p>I will arise and go now, and go to Innisfree,<br/>
+    And a small cabin build there, of clay and wattles made;<br/>
+    Nine bean-rows will I have there, a hive for the honey-bee,<br/>
+    And live alone in the bee-loud glade.</p>
+
+    <p>And I shall have some peace there, for peace comes dropping slow,<br/>
+    Dropping from the veils of the morning to where the cricket sings;<br/>
+    There midnight’s all a glimmer, and noon a purple glow,<br/>
+    And evening full of the linnet’s wings.</p>
+
+    <p>I will arise and go now, for always night and day<br/>
+    I hear lake water lapping with low sounds by the shore;<br/>
+    While I stand on the roadway, or on the pavements grey,<br/>
+    I hear it in the deep heart’s core.</p>
+    <h3>- William Bultler Yeats</h3>
+    <h4>- Poet</h3>
+</div>
+
+<script type="text/javascript">
+function submitTryit()
+{
+var t=document.getElementById("textareaCode").value;
+t=t.replace(/=/gi,"w3equalsign");
+var pos=t.search(/script/i)
+while (pos>0)
+	{
+	t=t.substring(0,pos) + "w3" + t.substr(pos,3) + "w3" + t.substr(pos+3,3) + "tag" + t.substr(pos+6);
+	pos=t.search(/script/i);
+	}
+
+t=escape(t);document.getElementById("bt").value="1";
+	
+document.getElementById("code").value=t;
+document.getElementById("tryitform").action="tryit_view.asp?x=" + Math.random();
+validateForm();
+document.getElementById("tryitform").submit();
+}
+function validateForm()
+{
+var code=document.getElementById("code").value;
+if (code.length>5000)
+	{
+	document.getElementById("code").value="<h1>Error</h1>";
+	}
+}
+</script>
+
+<div id="sourcecode">
+		<div class="headerText">Source Code:</div>
+			<input id="submitBTN" type="button" value="Submit Code &raquo;" onclick="submitTryit()">
+			<form style="margin:0px" action="tryit_view.asp" method="post" target="view" id="tryitform" name="tryitform" onsubmit="validateForm();">
+				
+				<textarea class="code_input" id="textareaCode" wrap="logical" rows="10" cols="50"><!DOCTYPE html>
+<html>
+<body>
+
+<form>
+ <fieldset>
+  <legend>Personalia:</legend>
+  Name: <input type="text"><br>
+  Email: <input type="text"><br>
+  Date of birth: <input type="text">
+ </fieldset>
+</form>
+
+</body>
+</html>
+</textarea>
+				<input type="hidden" name="code" id="code" />
+				<input type="hidden" id="bt" name="bt" />
+			</form>
+	</div>
+	<div id="result">
+		<div class="headerText">Result:</div>
+		<div class="headerText" style="right:10px;"><a style="color:#617f10" href="http://www.w3schools.com">W3Schools.com</a> - Try it yourself&nbsp;</div>	
+		<iframe id="iframeResult" class="result_output" frameborder="0" name="view" src="" width="400"></iframe></div>	
+	<div style="clear:both;"></div>
+	<div id="footer">
+		Edit the code above and click "Submit Code" to see the result.
+	</div>
+</div>
+<script>submitTryit();</script>
+
+

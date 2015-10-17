@@ -1,0 +1,113 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+{{feature-image: http://localhost/egypt/elliott-erwitt/EE-1150.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+<h2>Converting Between Arrays and Strings</h2>
+Array objects and string values have methods that facilitate conversion between these data types, thus allowing arrays
+to be conveyed to other pages via URL search strings or cookies.
+To convert a simple (one-dimensional) array to a string, first select a character that can act as a unique delimiter
+character between the array values when they become embedded in a string. The character cannot appear in any of
+the data entries. Specify that character as the sole parameter to the join( ) method of the array. The following
+statement uses a comma as a delimiter between entries after the conversion to string form:
+
+{{plain:
+var arrayAsString = myArray.join(",");
+}}
+
+The original array is not disturbed in the course of this transformation.
+If you have a string with a delimiter character separating individual points of data that you want to convert to an array,
+specify that character as the parameter of the split( ) method of your string value or object:
+
+{{plain:
+var restoredArray = myRegularString.split(",");
+}}
+
+The split( ) method performs the task of an array constructor, automatically passing the values between delimiters as
+items of the new array.
+
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+myArray=[10,20,30,40,50,60,70,80];
+var arrayAsString = myArray.join(" ; ");
+log('',arrayAsString);
+assert(typeof arrayAsString=='string', typeof arrayAsString);
+</code>
+</div>
+<div  class="msg" class="msg" style="white-space:pre;font-family:monospace;line-height:1.3">
+</div>
+<div class="console"></div>
+<div class="jslint"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+<img src="http://localhost/codeigniter/images/jquery.png" style="float:right; width:85px"/>
+</div>
+
+<h3>toString()</h3>
+The toString() method is similar to a join() call but without any arguments.
+
+<div  class="code-block console-wrap"><div class="code code-block">
+<code>
+myArray=[10,20,30,40,50,60,70,80];
+var arrayAsString = myArray.toString();
+log(arrayAsString);
+
+</code>
+</div>
+<div  class="msg" class="msg" style="white-space:pre;font-family:monospace;line-height:1.3">
+</div>
+<div class="console"></div>
+<div class="jslint"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+
+<h3>Discussion</h3>
+Although the preceding examples show only single characters used as the so-called separators for the string versions,
+you can use any string. For example, if you intended to display the array entries as a vertical list in a textarea element,
+you could use the \n special character to force carriage returns between the items. Similarly, if the data was to be
+formatted as an XHTML list, you could use the string <br /> as the separator of the join( ) method. Then use the
+resulting string as a value to assign to an element's innerHTML property for display in the body text of a page.
+Use the join( ) method only on simple arrays. For a multidimensional array, the method is safe to use on any of the
+most deeply nested arrays, which are, themselves, simple arrays.
+Even more powerful is the split( ) method of a string value or object. You can use regular expressions as the
+separator parameter. For example, consider the string of comma-delimited dollar values:
+var amounts = "30.25,120.00,45.09,200.10";
+If you want to create an array of just the integer portions of those values, you could create a regular expression
+whose pattern looks for a period, followed by two numerals and an optional comma (to accommodate the final
+entry):
+var amtArray = amounts.split(/\.\d{2},?/);
+One by product of the use of the split( ) method on a string when the separator is at the end of the string is that the
+method creates an array entry for the nonexistent item following the end separator. Most typically, the separator does
+not come at the end of the string, but if it does, watch out for this extra
+
+{{nutshell: Use split() or join() to split a string into an array or to concatenated an array into a string}}
+
+##Further Reading
+
+
+
+ 
+
+
+
+  
+  
+
+
+
+
+
+
+

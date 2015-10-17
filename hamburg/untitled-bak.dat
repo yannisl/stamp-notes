@@ -1,0 +1,15 @@
+\chapter{Testing something}
+
+
+\begin{codeblock}
+
+var j ='[{"id":"1","name":"test1"},{"id":"2","name":"test2"},{"id":"3","name":"test3"},{"id":"4","name":"test4"},{"id":"5","name":"test5"}]';
+
+var json = $.parseJSON(j);
+$(json).each(function(i,val){
+    $.each(val,function(k,v){
+        console.log(k+" : "+ v);       
+});
+});
+
+\end{codeblock}

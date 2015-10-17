@@ -1,0 +1,229 @@
+\begin{css}
+
+.hor-minimalist-a
+{
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+	font-size: 12px;
+	background: #fff;
+	margin: 45px;
+	width: 480px;
+        border:none;
+        background:none;
+	border-collapse: collapse;
+	text-align: left;
+}
+.hor-minimalist-a th
+{
+	font-size: 14px;
+	font-weight: normal;
+	color: #039;
+	padding: 10px 8px;
+        background:none;
+        border:none;
+        border-top: 2px solid #6678b1;
+	border-bottom: 2px solid #6678b1;
+}
+.hor-minimalist-a td
+{
+	
+	padding: 9px 8px 0px 8px;
+}
+
+.hor-minimalist-a tbody tr:hover td
+{
+       color: #019;
+       border-bottom: 2px solid #6678b1;
+}
+
+
+\end{css}
+
+
+
+What are your views? Is TeX-like mark-up a good way of structuring documents?I personally think the answer is yes with the exception of tables. What would be a suitable mark-up for tables? 
+
+
+\begin{table}
+\tablecaption{\captionlorem}
+\begin{tabular}{lllp{2.5cm} };
+ \tr
+   \th heading 1
+   \th heading 2
+   \th heading 3
+   \th heading 3
+\tr
+   \td test
+   \td test
+   \td test
+   \td test
+\tr
+   \td test
+   \td test
+   \td test
+   \td test
+\end{tabular}
+\end{table}
+
+
+
+\hr
+
+
+
+
+\tablecaption{\captionlorem}
+\begin{table}
+\begin{tabular}{llllp{2.5cm} };
+\tr
+   \th Name
+   \th Cups
+   \th Type of Coffee
+   \th Sugar?
+   \th Yes/No
+\tr
+   \td  D.Carlisle
+   \td T.Sexton 
+   \td 10
+   \td Espresso
+   \td No
+\tr
+   \td J. Dinnen
+   \td 5
+   \td Decaf
+   \td Yes
+   \td Something
+\end{tabular}
+\end{table}
+
+\hr
+\end{document}
+\lorem
+
+
+
+
+<hr style="border-bottom:2px solid #6678b1;" />
+\tablecaption{\lorem}
+
+<table class="hor-minimalist-a" summary="Description" style="margin:0 auto">
+<thead>
+<tr>
+<th scope="col">Period</th>
+<th scope="col">Date</th>
+<th scope="col">Printed</th>
+<th scope="col">Postcard</th>
+<th scope="col">Letter</th>
+<th scope="col">Reg</th>
+<th scope="col">A.R.</th>
+<th scope="col">Express</th>
+<th scope="col">Reg Expr.</th>
+</tr>
+</thead>
+
+
+<tbody>
+<tr>
+<td>DS1</td>
+<td>1 Jan 45</td>
+<td>6</td>
+<td>10</td>
+<td>20</td>
+<td>30</td>
+<td>30</td>
+<td>20</td>
+<td>50</td>
+</tr>
+<tr>
+
+
+
+
+<td>DS2</td>
+<td>1 Nov 46</td>
+<td>30</td>
+<td>50</td>
+<td>100</td>
+<td>150</td>
+<td>150</td>
+<td>100</td>
+<td>250</td>
+</tr>
+<tr>
+<td>DS3</td>
+<td>1 Jul 47</td>
+<td>150</td>
+<td>250</td>
+<td>500</td>
+<td>750</td>
+<td>750</td>
+<td>500</td>
+<td>1,300</td>
+</tr>
+
+
+
+
+<tr>
+<td>DS4</td>
+<td>11 Dec 47</td>
+<td>1000</td>
+<td>1000</td>
+<td>2,000</td>
+<td>3,000</td>
+<td>3,000</td>
+<td>2,000</td>
+<td>5,000</td>
+</tr>
+
+
+
+
+<tr>
+<td>DS5</td>
+<td>5 Apr 48</td>
+<td>3000</td>
+<td>2,500</td>
+<td>5,000</td>
+<td>10,000</td>
+<td>10,000</td>
+<td>5,000</td>
+<td>15,000</td>
+</tr>
+
+
+
+
+<tr>
+<td>DS6</td>
+<td>21 Jul 48</td>
+<td>10,000</td>
+<td>10,000</td>
+<td>15,000</td>
+<td>30,000</td>
+<td>35,000</td>
+<td>15,000</td>
+<td>45,000</td>
+</tr>
+
+
+
+
+<tr>
+<td>DS7</td>
+<td>19 Nov 48</td>
+<td>150,000</td>
+<td>150,000</td>
+<td>300,000</td>
+<td>900,000</td>
+<td>900,000</td>
+<td>300,000</td>
+<td>1,200,000</td>
+</tr>
+
+</tbody>
+</table>
+
+
+
+\hr
+                                                                                                                                                                                                                                                                                                                                                                                 

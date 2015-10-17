@@ -1,0 +1,52 @@
+<style>
+
+</style>
+
+\section{Checking if an element has a class}
+
+
+\begin{codeblock}
+hasClass = function (selector) {
+    var className = " " + selector + " ";
+    for (var i = 0, l = this.length; i < l; i++) {
+        if ((" " + this[i].className + " ").replace(rclass, " ").indexOf(className) > -1) {
+            return true;
+        }
+    }
+
+    return false;
+}
+\end{codeblock}
+
+
+<div id="foo" class="foo">Foo div</div>
+
+\begin{codeblock}
+// div is an object reference to a <div> element with class="foo bar"
+
+var el = document.getElementById("foo");
+    if (el.matches("div")) {
+      log("Match!");
+    }
+
+el.classList.remove("foo");
+el.classList.add("anotherclass");
+
+// if visible is set remove it, otherwise add it
+el.classList.toggle("visible");
+
+log(el.classList.contains("foo"));
+
+el.classList.add("foo","bar"); //add multiple classes
+\end{codeblock}
+
+\begin{codeblock}
+var sheets = document.styleSheetSets;
+
+
+for (var i = 0; i < sheets.length; i++) {
+  log[sheets[i]];
+}
+\end{codeblock}
+
+[photo](http://www.rebeccamcdonald.eu/)

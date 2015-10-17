@@ -1,0 +1,21 @@
+\chapter{Write your title here}
+
+
+<div id="#new-projects"></div>
+ 
+<script>
+$.getJSON("https://yannisl.cloudant.com/postmarks/cape_of_good_hope_postmarks", function( data ) {
+  var items = [];
+  $.each( data, function( key, val ) {
+    items.push( "<li id='" + key + "'>" + val + "</li>" );
+  });
+ 
+  $( "<ul/>", {
+    "class": "my-new-list",
+    html: items.join( "" )
+  }).appendTo( "body" );
+});
+</script>
+<script>
+$( "#new-projects" ).load( "https://yannisl.cloudant.com/postmarks/cape_of_good_hope_postmarks" );
+</script>

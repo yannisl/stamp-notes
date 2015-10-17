@@ -1,0 +1,28 @@
+\chapter{Letter Plugin}
+
+In one of my wn developments, I quote a lot of letters
+from various authors.
+
+\begin{verbatim}
+\begin{blockquote}[shadow]
+\refnumber{CO-521}
+\salutation{Dear Sir}
+\refdate{12th August 2013}
+
+\lorem
+
+\closing{Yours faithfully}
+\signature{Lazarides}
+\end{blockquote}
+\end{verbatim}
+
+\begin{blockquote}[shadow]
+\refnumber{CO-521}
+\salutation{Dear Sir}
+\refdate{12th August 2013}
+
+\lorem
+
+\closing{Yours faithfully}
+\signature{Lazarides}
+\end{blockquote}

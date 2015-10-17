@@ -1,0 +1,53 @@
+
+
+	
+##Handling Elements
+
+Access to specific elements is accomplished by using one of the standard `DOM` methods such as `document.getElementById()`. This returns an `HTMLElement` object. We can then manipulate this object as we like.
+
+\\[a+b/c\\]
+
+This page includes a `<div>` with the `id` `msg`. 
+First let us access the `div msg` on this page. We will then access its parent and list the HTML, effectively listing the html of the console.
+
+\begin{codeblock}
+// access div element id="msg"
+var el = document.getElementById('msg');
+// access its parent node
+var el = el.parentNode;
+// access outer HTML - includes itself
+var z = el.outerHTML;
+var zin = el.innerHTML;
+
+// escape HTML and output to logger
+log(z.entityify());
+log(zin.entityify());
+\end{codeblock}
+
+<div id="test">
+<div id="msg"></div>
+</div>
+
+### Basic Document Methods
+
+Historically, the Document object supported five methods for controlling output to the document: `clear()`, `close()`, `open()`, `write()` and `writeln()`. You shouldn't need to use any of them, but rather use a library's methods to write to elements. I mentioned them here, in the unlike event you may want to use them when opening a new window (but remeber, pop-ups are not a good idea, they were left behind about 10 years ago!
+
+<h3>Traditional HTML Element Access within Document</h3>
+
+\begin{codeblock}
+function showAllLinks() {
+  return document.links;
+}
+
+var z = showAllLinks();
+log(z);
+assert(z == '[object HTMLCollection]', 'object is HTMLCollection');
+assertEquals (z , '[object HTMLCollection]');
+log(z[100])
+\end{codeblock}
+
+
+
+
+
+

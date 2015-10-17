@@ -1,0 +1,213 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<SCRIPT>
+ goog.require('goog.locale.TimeZoneList');
+ goog.require('goog.locale');
+</SCRIPT>
+
+
+<h2>Time Zone Constants</h2>
+Russia has eleven time zones, including Kaliningrad on the Baltic Sea. France also has eleven time zones including those of France, French Guiana and numerous islands, inhabited and uninhabited. The United States has ten time zones (nine official plus that for Wake Island and its Antarctic stations). 
+
+Australia has nine time zones (one unofficial and three official on the mainland plus four for its territories and one more for an Antarctic station not included in other time zones). The United Kingdom has eight time zones for itself and its overseas territories. Canada has six official time zones.
+
+In terms of area, China is the largest country with only one time zone (UTC+8). China also has the widest spanning time zone. Before 1949, China was separated into five time zones.
+
+If your application is dealing with International Times you will not avoid Time zone calculations. Most backend languages are rich in libraries that can assist you with such tasks, however, what do you do at the front end? For example you captured a message from a User and logged it based on the server time. You know that the user's locale is US. The message is to be forwarded to John in China. How to you handle the feedback to both user's?
+
+{{plain:
+To Mary you may want to say ... message sent at time... local
+To John you may want to say ... Mary send you a message on ....
+}}
+
+Google's i18n routines and locale provide quite a number of Classes for dealing with date and Time for International applications, including displaying such information in foreign languages. Really a treasure trove of information.
+
+
+The __timeZoneConstants__  provides methods for  listing timezone names at the __user's locale language__.
+
+
+{{plain:
+goog.locale.getTimeZoneSelectedShortNames = function(opt_regionOrLang) &#123;
+  return goog.locale.getTimeZoneNameList_('TimeZoneSelectedShortNames',
+      opt_regionOrLang);
+&#125;
+}}
+
+The short name for this Class is called LongAPI!!
+
+Returns the displayable list of short timezone names paired with its __id__  for
+ the current locale, selected based on the region or language provided.
+ 
+ This method depends on goog.locale.TimeZone*__<locale> available
+ from http://go/js_locale_data. User of this method
+ has to add dependacy to this.
+
+ @param {string} opt_regionOrLang If region tag is provided, timezone ids
+  specific this region are considered. If language is provided, all regions
+  for which this language is defacto official is considered. If
+  this parameter is not speficied, current locale is used to
+   extract this information.
+
+ @return {Array.<Object>} Localized and relevant list of timezone names
+    and ids.
+
+
+goog.locale.getTimeZoneSelectedShortNames = function(opt_regionOrLang) {
+  return goog.locale.getTimeZoneNameList_('TimeZoneSelectedShortNames',
+      opt_regionOrLang);
+};
+
+
+
+
+
+<div class="code-block console-wrap">
+<div class="code-block code">
+<code>
+  // Test data from TimeZoneSelectedIds__FR.js
+
+  var TimeZoneSelectedIds__FR = [
+    'Etc/GMT+12',
+    'Pacific/Midway',
+    'America/Adak',
+    'Pacific/Honolulu'
+  ];
+
+// register ids for France
+
+  goog.locale.registerTimeZoneSelectedIds(TimeZoneSelectedIds__FR, 'FR');
+
+  // Test data from TimeZoneSelectedShortNames__de_DE.js
+
+  var TimeZoneSelectedShortNames__de_DE = {
+    'Etc/GMT+12': 'GMT-12:00',
+    'Etc/GMT+11': 'GMT-11:00',
+    'Pacific/Pago_Pago': 'Amerikanisch-Samoa',
+    'Pacific/Midway': 'Midway (Amerikanisch-Ozeanien)',
+    'Pacific/Honolulu': 'Honolulu (Vereinigte Staaten)',
+    'Etc/GMT+10': 'GMT-10:00',
+    'America/Adak': 'Adak (Vereinigte Staaten)'
+  };
+  goog.locale.registerTimeZoneSelectedShortNames(
+      TimeZoneSelectedShortNames__de_DE, 'de_DE');
+
+  // Test data from TimeZoneSelectedLongNames__de_DE.js
+
+  var TimeZoneSelectedLongNames__de_DE = {
+    'Etc/GMT+12': 'GMT-12:00',
+    'Etc/GMT+11': 'GMT-11:00',
+    'Pacific/Pago_Pago': 'GMT-11:00 Amerikanisch-Samoa',
+    'Pacific/Midway': 'GMT-11:00 Midway (Amerikanisch-Ozeanien)',
+    'Pacific/Honolulu': 'GMT-10:00 Honolulu (Vereinigte Staaten)',
+    'Etc/GMT+10': 'GMT-10:00',
+    'America/Adak': 'GMT-10:00 Adak (Vereinigte Staaten)'
+   };
+   goog.locale.registerTimeZoneSelectedLongNames(
+       TimeZoneSelectedLongNames__de_DE, 'de_DE');
+
+  // Test data from TimeZoneSelectedIds__en.js
+
+  var TimeZoneSelectedIds__en = [
+    'Etc/GMT+12',
+    'Pacific/Midway',
+    'America/Adak',
+    'Pacific/Honolulu',
+  ];
+
+// register english
+  goog.locale.registerTimeZoneSelectedIds(TimeZoneSelectedIds__en, 'en');
+
+  // Test data from TimeZoneSelectedIds__DE.js
+
+  var TimeZoneSelectedIds__DE = [
+    'Etc/GMT+12',
+    'Pacific/Midway',
+    'America/Adak',
+    'Pacific/Honolulu',
+  ];
+
+
+  goog.locale.registerTimeZoneSelectedIds(TimeZoneSelectedIds__DE, 'DE');
+
+  // Test data from TimeZoneAllLongNames__de_DE.js
+
+  var TimeZoneAllLongNames__de_DE = [
+    {id: 'Etc/GMT+12', name: 'GMT-12:00'},
+    {id: 'Pacific/Apia', name: 'GMT-11:00 Samoa'},
+    {id: 'Pacific/Midway', name: 'GMT-11:00 Midway (Amerikanisch-Ozeanien)'},
+    {id: 'Pacific/Niue', name: 'GMT-11:00 Niue'},
+    {id: 'Pacific/Pago_Pago', name: 'GMT-11:00 Amerikanisch-Samoa'},
+    {id: 'Etc/GMT+11', name: 'GMT-11:00'},
+    {id: 'America/Adak', name: 'GMT-10:00 Adak (Vereinigte Staaten)'},
+    {id: 'Pacific/Fakaofo', name: 'GMT-10:00 Tokelau'}
+  ];
+  goog.locale.registerTimeZoneAllLongNames(TimeZoneAllLongNames__de_DE,
+      'de_DE');
+
+
+// We set the locale at 'de_DE'
+  goog.locale.setLocale('de_DE');
+
+ // Create a short test case
+
+(  function testTimeZoneSelectedShortNames() {
+    // Shortnames in German for France.
+    var result = goog.locale.getTimeZoneSelectedShortNames('FR');
+    log('Honolulu (Vereinigte Staaten)', result[3].name);
+  })();
+
+</code>
+
+</div>
+
+<div  id ="msg" class="msg"></div>
+
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+<h3>Notes on Time zone conversions</h3>
+
+Conversion between time zones obeys the relationship:
+
+"time in zone A" &#8722; "UTC offset for zone A" = "time in zone B" &#8722; "UTC offset for zone B", in which each side of the equation is equivalent to UTC. (The more familiar term "UTC offset" is used here rather than the term "zone designator" used by the standard.)
+
+The conversion equation can be rearranged to
+"time in zone B" = "time in zone A" &#8722; "UTC offset for zone A" + "UTC offset for zone B".
+
+<strong>For example, what time is it in Los Angeles (UTC offset= &#8722;08) when the New York Stock Exchange opens at 09:30 (&#8722;05)?</strong>
+
+time in Los Angeles = 09:30 &#8722; (&#8722;05:00) + (&#8722;08:00) = 06:30
+
+In Delhi (UTC offset= +5:30), the New York Stock Exchange opens at
+time in Delhi = 09:30 &#8722; (&#8722;05:00) + (+5:30) = 20:00
+
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+

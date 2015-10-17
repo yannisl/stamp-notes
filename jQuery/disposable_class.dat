@@ -1,0 +1,106 @@
+<!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<SCRIPT>
+goog.require('goog.Disposable');
+ goog.require('goog.json');
+</SCRIPT>
+<h2>Disposable</h2>
+
+
+
+
+
+
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+var d1, d2;
+
+// Sample subclass of goog.Disposable.
+function DisposableTest() {
+  goog.Disposable.call(this);
+  this.element = document.getElementById('someElement');
+}
+goog.inherits(DisposableTest, goog.Disposable);
+
+DisposableTest.prototype.disposeInternal = function () {
+  delete this.element;
+};
+// Class that doesn't inherit from goog.Disposable, but implements the
+// disposable interface via duck typing.
+function DisposableDuck() {
+  this.element = document.getElementById('someElement');
+}
+
+DisposableDuck.prototype.dispose = function () {
+  delete this.element;
+};
+
+// Class which calls dispose recursively.
+function RecursiveDisposable() {
+  this.disposedCount = 0;
+}
+goog.inherits(RecursiveDisposable, goog.Disposable);
+
+RecursiveDisposable.prototype.disposeInternal = function () {
+  ++this.disposedCount;
+  assertEquals('Disposed too many times', 1, this.disposedCount);
+  this.dispose();
+};
+
+// Test methods.
+(function setUp() {
+  d1 = new goog.Disposable();
+  d2 = new DisposableTest();
+})();
+
+(function tearDown() {
+  d1.dispose();
+  d2.dispose();
+})();
+
+// assert false
+(function testConstructor() {
+  assert(d1.isDisposed());
+  assertFails(d2.isDisposed());
+  assertEquals(document.getElementById('someElement'), d2.element);
+})();
+
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+                          

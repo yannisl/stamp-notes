@@ -1,0 +1,84 @@
+      
+<!--
+ directives
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{feature-image:/codeigniter/images/china/beauty_07.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<script type="text/javascript"> 
+   goog.require('goog.ui.Dialog');
+   goog.require('goog.ui.Prompt');
+</script>
+ 
+
+<h3>jQuery UI Dialogs</h3>
+<object width="640" height="390"><param name="movie" value="http://www.youtube.com/v/nnR8fDW3Ilo&hl=en_US&feature=player_embedded&version=3"></param><param name="allowFullScreen" value="true"></param><param name="allowScriptAccess" value="always"></param><embed src="http://www.youtube.com/v/nnR8fDW3Ilo&hl=en_US&feature=player_embedded&version=3" type="application/x-shockwave-flash" allowfullscreen="true" allowScriptAccess="always" width="640" height="390"></embed></object>
+
+
+<div class="demo">
+<div id="dialog"  style="padding:20px;">
+
+<p>Sed vel diam id libero <a href="http://example.com/">rutrum convallis</a>. Donec aliquet leo vel magna. Phasellus rhoncus faucibus ante. Etiam bibendum, enim faucibus aliquet rhoncus, arcu felis ultricies neque, sit amet auctor elit eros a lectus.</p>
+<form>
+<input value="text input"><br/>
+<input type="checkbox">checkbox<br/>
+<input type="radio">radio<br>
+<select>
+<option>select</option>
+</select><br><br>
+<textarea>textarea</textarea><br>
+</form>
+</div>
+</div>
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+log('started');
+$('#dlg').click(function(){
+	$.ui.dialog.defaults.bgiframe = true;
+	$(function() {
+		$("#dialog").dialog();
+	});
+});
+</code>
+</div>
+<div  id ="msg" class="msg">
+</div>
+<div class="sandbox-console">
+</div>
+
+<div id="log" class="console" style="white-space:pre"></div>
+<button class="eval">Run Code!</button>
+<button id="dlg">Show Dialog</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+                                                                                                                                                                                                                                                          

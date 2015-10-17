@@ -1,0 +1,82 @@
+
+
+<script>
+goog.require('goog.structs.Heap');
+</script>
+
+\chapter{Heap}
+
+In computer science, a data structure is a particular way of storing and organizing data in a computer so that it can be used efficiently.[1][2]
+
+Different kinds of data structures are suited to different kinds of applications, and some are highly specialized to specific tasks. For example, B-trees are particularly well-suited for implementation of databases, while compiler implementations usually use hash tables to look up identifiers.
+
+Data structures are used in almost every program or software system. Specific data structures are essential ingredients of many efficient algorithms, and make possible the management of huge amounts of data, such as large databases and internet indexing services. Some formal design methods and programming languages emphasize data structures, rather than algorithms, as the key organizing factor in software design.
+
+This file provides the implementation of a Heap datastructure. Smaller keys
+ rise to the top.
+
+ The big-O notation for all operations are below:
+
+\begin{verbatim}
+ *  Method        big-O
+* - insert           O(logn)
+ * - remove      O(logn)
+ * - peek            O(1)
+ * - contains    O(n)</code>
+\end{verbatim}
+
+
+
+// TODO: Should this rely on natural ordering via some Comparable
+//     interface?
+
+\begin{codeblock}
+var arr = {
+  'Yiannis': 8,
+  'Anne': 2,
+  'Mary': 3,
+  'John': 5
+};
+var b = new goog.structs.Heap(arr);
+b.insert('Helen', 1);
+
+log(b.peekKey());
+log(b.getKeys());
+\end{codeblock}
+
+\section{heap}
+
+<img src="/application-latest/images/heap.png" style="display:block;float:left;margin-left:15px" />
+
+A heap is a specialized tree-based data structure that satisfies the heap property: if B is a child node of A, then key(A) &#8805; key(B). This implies that an element with the greatest key is always in the root node, and so such a heap is sometimes called a max-heap. (Alternatively, if the comparison is reversed, the smallest element is always in the root node, which results in a min-heap.) 
+
+The several variants of heaps are the prototypical most efficient implementations of the abstract data type priority queues. Priority queues are useful in many applications. In particular, heaps are crucial in several efficient graph algorithms.
+
+The operations commonly performed with a heap are
+delete-max or delete-min: removing the root node of a max- or min-heap, respectively
+increase-key or decrease-key: updating a key within a max- or min-heap, respectively
+
+insert: adding a new key to the heap
+
+merge: joining two heaps to form a valid new heap containing all the elements of both.
+
+Heaps are used in the sorting algorithm heapsort.
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+              

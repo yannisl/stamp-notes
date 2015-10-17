@@ -1,0 +1,46 @@
+
+<script>
+goog.require('goog.format.HtmlPrettyPrinter');
+goog.require('goog.format');
+</script>
+
+
+<h2>Closure format.js</h2>
+This is one of two rather more specialized helper objects for formatting strings and converting them to numbers of one  form or another. The second file is htmlprettyprinter and will be discussing it here.
+
+\begin{codeblock}
+var d = goog.format.fileSize(1200, 2);
+log(d);
+// get html so that we can format it
+var f = $('#test').html();
+var f1 = goog.format.HtmlPrettyPrinter.format(f);
+log(f1);
+
+//$('#code').html(f1);
+//var f2 = $('#code').html();
+//log(f2);
+//var c = f2.entityify();
+//log(c);
+
+\end{codeblock}
+
+
+
+<div id="test">
+<span id="chapter" class="hidden">11</span></div>
+##Further Reading
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+          

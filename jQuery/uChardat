@@ -1,0 +1,98 @@
+ <!--
+
+{{feature-image:/CodeIgniter/images/china/beauty_08.jpg}}
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+
+
+<h2>Unicode and More Unicode</h2>
+Unicode will give you sleepless nights. Closure amongst others provides for a set of unicode character routines. The format of this tutorial is in the form of tests, emulating jsunit. Instead of jsunit auto-finding your assertios I did something very simple I autorun the functions!
+
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+(function testToHexString() {
+  var result = goog.i18n.uChar.toHexString('\uD869\uDED6');
+  assert('U+2A6D6'.toString() == result.toString(), 'U+2A6D6');
+})();
+
+(function testPadString() {
+  var result = goog.i18n.uChar.padString_('abc', 4, '0');
+  assert('0abc'.toString() == result.toString(), result);
+})();
+
+(function testToCharCode() {
+  var result = goog.i18n.uChar.toCharCode('\uD869\uDED6');
+  assert(0x2A6D6, result);
+})();
+
+(function testFromCharCode() {
+  var result = goog.i18n.uChar.fromCharCode(0x2A6D6);
+  assert('\uD869\uDED6', result);
+})();
+
+(testToName = function testToName() {
+  var result = goog.i18n.uChar.toName(' ');
+  assert('Space', result);
+})();
+
+(function testToNameForNumberKey() {
+  var result = goog.i18n.uChar.toName('\u2028');
+  assert('Line Separator', result);
+})();
+
+(function testToNameForVariationSelector() {
+  var result = goog.i18n.uChar.toName('\ufe00');
+  assert('Variation Selector - 1' == result);
+})();
+
+(function testToNameForVariationSelectorSupp() {
+  var result = goog.i18n.uChar.toName('\uDB40\uDD00');
+  assert(arguments.callee.name, 'Variation Selector - 17' == result);
+})();
+
+(function testToNameForNull() {
+  var result = goog.i18n.uChar.toName('a');
+  assert(result === null, Date().toString() + arguments.callee.name + ' ' + result);
+})();
+
+</code>
+</div>
+
+<div  id ="msg" class="msg">
+</div>
+<div class="console"></div>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+<SCRIPT>
+ goog.require('goog.i18n.uChar');
+ </SCRIPT>
+
+
+  
+  
+
+
+
+
+
+
+

@@ -1,0 +1,14 @@
+\chapter{Sandboxed Code}
+
+Sandboxed code, is code that you can run in your browser, pretty much a convenience tool for writing tutorials for students or for yourself, when your older self does not remember what your younger self wrote. Security might be an issue for some of the languages, unless you are using TeXIgniter on your localhost\footnote{I expect most users to prefer this} or on a hosted platform.
+
+\begin{coffeescript}
+ 
+ var z = 1+1;
+ var b = 2+2;
+ var sum = z+b; 
+ log ('Testing the sum:', sum);
+ 
+\end{coffeescript}
+
+Note that the work {{wi:sandbox}} has many meanings. Of course nothing can protect your system fully ever, but we tried to  make it as robust as possible. 

@@ -1,0 +1,126 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+{{feature-image:http://localhost/CodeIgniter/images/christophe_gilbert_02.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: UI, jQuery, Visibility Filters, CSS Visibility }}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+<style>
+  .ex1 { background:yellow; font-weight:bold; cursor:pointer; 
+      padding:5px; }
+  .ex2{ background:#bebebe; font-weight:bold; cursor:pointer; 
+      padding:5px; }
+ .over { background: #ccc; }
+#cbutton{color:blue}
+ </style>
+
+
+
+
+<h2>jQuery  Events the live() method</h2>
+
+The live() method has been added in jQuery 1.3. It binds a handler to an event (like click) for all current - and future - matched element. It can also bind custom defined events.
+
+The possible event values are: <span class="highlight"> click, dblclick, mousedown, mouseup, mousemove, mouseover, mouseout, keydown, keypress, keyup</span>. 
+
+Currently not supported: blur, focus, mouseenter, mouseleave, change, submit
+
+{{bulb: Unlike .bind(), only a single event can be bound in each call to the .live() method.}}
+
+In order to understand it better let us build an example. We will define a paragraph, which when clicked will add another paragraph:
+
+{{plain:
+<code class="html">
+&lt;div&gt;
+  &lt;p class="ex1">Click me!&lt;/p&gt;
+&lt;/div&gt;
+</code>
+<div>
+<h4>The Demo</h4>
+When you click, a new paragraph is added. The new paragraph inherits
+the click event.
+  <p class="ex1">Click me!</p>
+</div>
+<input type="button" id="cbutton" name="cbutton" value="click"/>
+}}
+
+
+The jQuery code used is shown below:
+{{plain:
+<code class="js">
+  $(document).ready(function()&#123;
+      $("p.ex1").live("click", function()&#123;
+      $(this).after('&lt;p class="ex1">Another paragraph!&lt;/p>');
+     &#125;);
+  &#125;);</code>
+}}
+
+
+This method works and behaves very similarly to jQuery's bind method but with a few important distinctions:
+
+
+When you bind a "live" event it will bind to all current and future elements on the page (using event delegation). For example if you bound a live click to all "li" elements on the page then added another li at a later time - that click event would continue to work for the new element (this is not the case with bind which must be re-bound on all new elements).
+
+
+<h2 class="section">
+Common    uses</h2>
+
+
+Live events do not bubble in the traditional manner and cannot be stopped using stopPropagation or stopImmediatePropagation. For example, take the case of two click events - one bound to "li" and another "li a". Should a click occur on the inner anchor BOTH events will be triggered. This is because when a $("li").bind("click", fn); is bound you're actually saying "Whenever a click event occurs on an LI element - or inside an LI element - trigger this click event." To stop further processing for a live event, fn must return false.
+Live events currently only work when used against a selector. For example, this would work: $("li a").live(...) but this would not: $("a", someElement).live(...) and neither would this: $("a").parent().live(...).
+
+.live() behaves similarly to the popular liveQuery plugin but with a few major differences:
+
+- .live (currently) supports a subset of all events. Note the full list of supported/not-supported events above.
+
+- .live doesn't support the no-event style callback that liveQuery provides. Only event handlers can be bound with .live.
+
+- .live doesn't have a "setup" or "cleanup" step, since all events are delegated rather than bound directly to an element.
+
+To remove a live event you should use the die method.
+
+<script>
+  $(document).ready(function(){
+    
+    $("p.ex1").live("click", function(){
+      $(this).after('<p class="ex1">Another paragraph!</p>');
+        });
+  $("p.ex2:last").live("click", function(){
+      $(this).after('<p class="ex2">Another paragraph!</p>');
+        });
+  });
+
+$("#cbutton").click(function(){
+alert('clicked');
+$("p.ex1").clone()
+                            .insertAfter("p.ex1")
+                            .fadeTo('slow','0.33')
+                            .fadeTo('1000','1');
+     
+   });
+
+  </script>
+  
+{{example:
+<h4>Example 2</h4>
+<p>Will add a new paragraph only if last paragraph is clicked. This is more
+practical.</p>
+<div>
+<p class="ex2">First Line</p>
+<p class="ex2">Second Line</p>
+<p class="ex2">Third Line</p>
+<p class="ex2">Last Line</p>
+</div>
+}}
+
+
+
+
+
+
+

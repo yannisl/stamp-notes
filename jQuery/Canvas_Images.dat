@@ -1,0 +1,169 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<style type="text/css">
+.code{margin:0;padding-top:0}
+.code-block{                        background:url(http://localhost/codeigniter/images/code-bg.gif);
+margin:0;padding:0}
+.code-block .code{white-space:pre;font-family:inherit;padding:0;margin:0}
+.highlight{background:yellow}
+.green{color:green}
+.hidden{display:none}
+canvas{border:1px solid #bebebe;
+ }
+</style>
+
+
+
+
+
+
+
+<h2>Canvas Images</h2>
+There are five things you should know for using images as a backdrop to the canvas element.
+
+- Images should be preloaded (otherwise they will not show up).
+- Other canvas elements on the same page can be used as source!
+- You can use a base 64 encoded url as a datasource
+- You can cheat by preloading images in 1px sizes! 
+- You can use jQuery to make life easier for cross browser support
+- You can scale the images
+- You can draw over them and do other wonderful stuff!
+- Your images will not be stolen easily
+- Currently I do not know of a way to save them, other than to encode them (http://www.nihilogic.dk/labs/canvas2image/canvas2image.js)
+
+One of the more fun features of the canvas is the abillity to use images. These can be used to do dynamic photo compositing or used as backdrops of graphs etc. It's currently also the only way to add text to them (The specification does not contain any functions to draw text). External images can be used in any format supported by Gecko (e.g. PNG, GIF or JPEG format). Other canvas elements on the same page can also be used as the source.
+
+<div  class="code-block"><div class="code code-block"><span class="hidden"> log( "Click #", 'button' ); </span>
+<span class="green">//
+//  Check for browser support
+//  based on a method at
+// http://diveintohtml5.org/detect.html
+// <img id="test" src="http://localhost/codeigniter/images/Eating_after_midnight_by_vivavanstory.jpg" style="width:50px" />
+// </span>
+
+<code>
+function supports_canvas() {
+  return !!document.createElement('canvas').getContext;
+}
+
+
+    function draw(element) {
+     // var canvas = document.getElementById("canvas2");
+      if (supports_canvas()){
+        var ctx = $(element).get(0).getContext("2d");
+       var img = new Image();
+     //  img.src = '/codeigniter/images/angela.jpg';
+     img.src = jQuery('#test').attr('src');
+   // //img.src='data:image/gif;base64,R0lGODlhCwALAIAAAAAA3pn/ZiH5BAEAAA//EALAAAAAALAAsAAAIUhA+hkcuO4lmNVindo7qyrIXiGBYAOw==';
+
+    //  img.onload = function(){
+       ctx.drawImage(img,0,0,150,200);
+       ctx.beginPath();
+       ctx.moveTo(30,96);
+       ctx.lineTo(70,66);
+       ctx.lineTo(103,76);
+       ctx.lineTo(170,15);
+      ctx.stroke();
+     
+     // }
+    return ctx.toDataURL();  
+    }
+  }
+  draw('#canvas2');
+ 
+<canvas id="canvas2" width="150" height="250"></canvas>
+assert(supports_canvas(), 'browser supports canvas element');
+</code>
+</div>
+<p id="msg1" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+<hr/>
+
+
+<div  class="code-block"><div class="code code-block"><code><span class="hidden"> log( "Click #", 'button' ); </span>
+<span class="green">//
+//  Check for browser support
+//  based on a method at
+// http://diveintohtml5.org/detect.html
+// </span>
+
+function supports_canvas() {
+  return !!document.createElement('canvas').getContext;
+}
+
+
+    function draw(element) {
+       if (supports_canvas()){
+        var ctx = $(element).get(0).getContext("2d");
+       var img = new Image();
+     //  img.src = '/codeigniter/images/angela.jpg';
+     img.src = jQuery('#angela').attr('src');
+   // //img.src='data:image/gif;base64,R0lGODlhCwALAIAAAAAA3pn/ZiH5BAEAAA//EALAAAAAALAAsAAAIUhA+hkcuO4lmNVindo7qyrIXiGBYAOw==';
+
+    //  img.onload = function(){
+       ctx.drawImage(img,0,0,150,200);
+       ctx.beginPath();
+       ctx.moveTo(30,96);
+       ctx.lineTo(70,66);
+       ctx.lineTo(103,76);
+       ctx.lineTo(170,15);
+      ctx.stroke();
+     
+     // }
+   
+    }
+  }
+  var s = draw('#canvas4');
+  alert(s);
+<canvas id="canvas4" width="150" height="250"></canvas>
+assert(supports_canvas(), 'browser supports canvas element');
+</code>
+</div>
+<p id="msg1" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
+</p>
+<button class="eval">Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+<h3>The Grid</h3>
+Before we can start drawing, we need to talk about the canvas grid or coordinate space. The HTML template on the previous page had a canvas element 150 pixels wide and 150 pixels high. I've drawn this image with the default grid overlayed. Normally 1 unit in the grid corresponds to 1 pixel on the canvas. The origin of this grid is positioned in the top left corner (coordinate (0,0)). All elements are placed relative to this origin. So the position of the top left corner of the blue square becomes x pixels from the left and y pixels from the top (coordinate (x,y)). Later in this tutorial we'll see how we can translate the origin to a different position, rotate the grid and even scale it. For now we'll stick to the default.
+
+{{example:
+<img id="angela" src="http://localhost/codeigniter/images/angela.jpg" style="width:2px" />
+}}
+
+
+
+
+##Further Reading
+
+http://diveintohtml5.org/detect.html
+An <a href="http://billmill.org/static/canvastutorial/index.html">interactive tutorial</a> by Bill Mill, who is perhaps better than me in explaining things.
+
+
+
+  
+  
+
+
+
+
+
+
+

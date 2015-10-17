@@ -1,0 +1,119 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<style type="text/css">
+form legend {
+	color: #333;
+	padding: 0 0 20px 0;
+	text-transform: uppercase;
+}
+
+form {
+	padding: 0 20px 20px 20px;
+}
+
+form, form fieldset input, form fieldset textarea, form label {
+	font-family: Helvetica, Arial;
+	font-size: 12pt;
+}
+form p { position: relative; margin: 10px 0;}
+form p label { position: absolute; top: 0; left: 0;}
+form p br {display: none;}
+
+
+form fieldset p input,
+form fieldset p textarea {
+	display: block;
+	padding: 4px;
+	width: 400px;
+	margin: 0;
+}
+
+form fieldset p label {
+	width: 380px;
+	display: block;
+	margin: 5px 5px 5px 6px;
+	padding: 0;
+}
+
+form fieldset p textarea {
+	padding: 2px;
+	width: 404px;
+}
+
+form fieldset p textarea,
+form fieldset p input {
+	border: solid 1px #ccc;
+}
+form fieldset p label {
+	color: #777;
+}
+</style>
+
+
+<script type="text/javascript" src="http://localhost/CodeIgniter/js/infield.js"></script>	
+<script type="text/javascript" src="http://localhost/CodeIgniter/js/context_menu.js"></script>	
+<h2 id="firstHeading" class="firstHeading">The infield Labels Plugin</h2>
+
+
+<form>
+<fieldset>
+	<legend>Comment Form</legend>
+	<p>
+	<label for="name">Name</label><br />
+
+				<input type="text" name="name" value="" id="name">
+			</p>
+			<p>
+				<label for="email">Email</label><br />
+				<input type="text" name="email" value="" id="email">
+			</p>
+			<p>
+				<label for="website">Website</label><br />
+
+				<input type="text" name="website" value="" id="website">
+			</p>
+			<p>
+				<label for="comment">Comment</label><br />
+				<textarea cols="30" rows="10" name="comment" id="comment"></textarea>
+			</p>
+		</fieldset>
+		<p><input type="submit" value="Continue &rarr;"></p>
+
+	</form>
+	
+<form action="index.html" method="get" accept-charset="utf-8">
+		<fieldset>
+			<legend>Login Form</legend>
+			<p>
+				<label for="username">Username</label><br />
+				<input type="text" name="username" value="Yannis" id="username">
+			</p>
+
+			<p>
+				<label for="password">Password</label><br />
+				<input type="password" name="password" value="" id="password">
+			</p>
+		</fieldset>
+		<p><input type="submit" value="Continue &rarr;"></p>
+</form>
+
+
+<script type="text/javascript"> 
+
+$(document).ready(function(){
+  $("label").inFieldLabels({fadeDuration:100});
+});
+</script> 
+
+
+
+
+<hr/>

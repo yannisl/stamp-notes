@@ -1,0 +1,65 @@
+\chapter{Couchdb Views}
+
+In the previous articles we have seen, how to create a new database and insert a few documents using `couchdb`. I have used the jQuery `$.ajax`  library to programmatically insert these documents via a webpage.
+
+Once we created all these documents, we may now want to selct documents based on a set of criteria. This is done using \textit{views}.
+
+Couchdb provides two type of views for querying the database, temporary views and permanent views.
+
+Permanent views are stored inside special documents called \textit{design documents}, and can be accessed via an `HTTP GET` request to the `URI` `/{dbname}/{docid}/{viewname}`, where `{docid}` has the prefix `_design/` so that CouchDB recognizes the document as a design document, and `{viewname}` has the prefix `_view/` so that CouchDB recognizes it as a view.
+
+\textit{Temporary views} are not stored in the database, but rather executed on demand. To execute a temporary view, you make an HTTP POST request to the URI /{dbname}/_temp_view, where the body of the request contains the code of the view function and the Content-Type header is set to application/json.
+
+Temporary views are only good during development. Final code should not rely on them as they are very expensive to compute each time they get called and they get increasingly slower the more data you have in a database. If you think you can't solve something in a permanent view that you can solve in an ad-hoc view, you might want to reconsider. (TODO: add typical examples and solutions).
+
+For both kinds of views, the view is defined by a JavaScript function that maps view keys to values (although it is possible to use other languages than JavaScript by plugging in third-party view servers).
+
+Note that by default views are not created and updated when a document is saved, but rather, when they are accessed. As a result, the first access might take some time depending on the size of your data while CouchDB creates the view. If preferable the views can also be updated when a document is saved using an external script that calls the views when updates have been made. An example can be found here: RegeneratingViewsOnUpdate
+
+Note that all views in a single design document get updated when one of the views in that design document gets queried.
+
+In our countries example, we create a new view as follows:
+
+\begin{codeblock}
+{
+   "_id": "_design/countries",
+   "_rev": "1-3eea0a0e8e39ac62072c038e844862df",
+   "language": "javascript",
+   "views": {
+       "splash": {
+           "map": "function(doc) {\n  if (doc.splash){\n  emit(null, doc._id+'  '+doc.splash)};\n}"
+       }
+   }
+}
+\end{codeblock}
+
+To access the view, we can just enter the URL in the browser, which will return the jSON string or we can access it programmatically via JavaScript, preferably using jQuery that can handle the browser incompatibility issues. jQuery has a method `$.getJSON` that can be used to develop a Client and subsequently a model for the data. We could of course use the `$.ajax` methods that we have used in the previous examples.
+
+\begin{codeblock}
+var uri = 'http://yannisl.iriscouch.com/texigniter/_design/countries/_view/splash';
+
+// Assign handlers immediately after making the request,
+// and remember the jqxhr object for this request
+var jqxhr = $.getJSON( uri, function(data) {
+  log( "success" );
+  obj = data;
+  log(data._id);
+})
+ .done(function() {
+   log( "second success" );
+  })
+  .fail(function() {
+    log( "error" );
+  })
+  .always(function() {
+    log( "complete" );
+  });
+ 
+// Perform other work here ...
+ 
+// Set another completion function for the request above
+jqxhr.complete(function() {
+  log( "second complete" );
+  log(jqxhr.responseText);
+});
+\end{codeblock}

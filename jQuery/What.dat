@@ -1,0 +1,66 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: UI, jQuery, Visibility Filters, CSS Visibility }}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<link type="text/css" media="screen" rel="stylesheet" href="http://localhost/CodeIgniter/colorbox/example1/colorbox.css" />
+
+
+
+
+
+<style>
+ .hidden{display:none;}
+.ex1,.ex2,.ex3{width:100px;height:180px;border:1px solid red;float:left;margin-right:1px}
+a#cbutton2{color:blue}
+
+p#old{}
+</style>
+
+
+
+<h2>Moving to Cyprus</h2>
+
+<p style="font-family:'Essays 1743 Italic'; 
+  font-size:20px;color:#555;">
+I have been gripped in fear over the last few weeks. fear of being without an income. Fear of having no money and no job. The Company is seriously into trouble waters and I very much doubt it, if I will be able to lift it up without adequate capitalization and adequate back-up from the people around me. 
+
+What is the solution? Maybe moving to Cyprus for a while, looking for something to give me minimum income there and a trust in God to continue looking after all of us.
+
+I have updated my computing quite a bit and I am almost to the level where I can call myself almost an expert in web development. Certainly I can produce quite a bit of better functioning websites and to a proper standard.
+</p>
+
+<p style="font-family:'Essays 1743 Italic'; 
+  font-size:20px;color:#555;">
+So far so good. JavaScript skills are on par with almost the best. Even ready to write a standard library and merge the best. JavaScript misses one and with a bit of effort can accelerate development.
+</p>
+
+<hr/>
+
+http://dev.opera.com/articles/view/timing-and-synchronization-in-javascript/
+
+http://ejohn.org/blog/how-javascript-timers-work/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        

@@ -1,0 +1,82 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+
+
+<script type="text/javascript" src="http://live.simplepie.org/app/0.5/base.js"></script>
+
+
+
+
+<h2>brainfuck Interpreter</h2>
+
+Ok! This is not my code, I got it from here. If you don't know about {{wi:brainfuck}} you should! One of its characteristics is that althoug a proper noun it i never capitalized, except on the URL here!
+
+Urban Muller created brainfuck in 1993 with the intention of designing a language which could be implemented with the smallest possible compiler,2 inspired by the 1024-byte compiler for the FALSE programming language.3 Several brainfuck compilers have been made smaller than 200 bytes. The classic distribution is Muller's version 2, containing a compiler for the Amiga, an interpreter, example programs, and a readme document.
+
+
+
+<div  class="code-block console-warp"><div class="code code-block"><code>
+var code = '++++++++++[&gt;+++++++>++++++++++>+++>+&lt;&lt;&lt;&lt;-]&gt;++.&gt;+.+++++++..+++.&gt;++.&lt;&lt;+++++++++++++++.&gt;.+++.------.--------.&gt;+.&gt;.';
+var inp = '23\n';
+var out = '';
+
+var codeSize = code.length;
+var i = 0, ip = 0, cp = 0, dp = 0, m = {};
+
+var loopIn = {}, loopOut = {};
+var tmp = [];
+for ( var cp = 0; cp &lt; codeSize ; cp++ )
+    if ( code[cp] == '[' )
+        tmp.push(cp);
+    else
+        if ( code[cp] == ']' ){
+            loopOut[loopIn[cp] = tmp.pop()] = cp;}
+
+for (var cp = 0; cp < codeSize && i < 100000; cp++, i++) {
+
+    switch(code[cp]) {
+
+        case '>': dp++; break;
+        case '<': dp--; break;
+        case '+': m[dp] = ((m[dp]||0)+1)&255; break;
+        case '-': m[dp] = ((m[dp]||0)-1)&255; break;
+        case '.': out += String.fromCharCode(m[dp]); break;
+        case ',': m[dp] = inp.charCodeAt(ip++)||0; break;
+        case '[': m[dp]||(cp=loopOut[cp]); break;
+        case ']': cp = loopIn[cp]-1; break;
+    }
+}
+log(out);
+
+</code>
+</div>
+<p class="msg">
+</p>
+
+<button class="eval">Run Code!</button>
+<ol class="results" style="white-space:pre"></ol> 
+</div>
+
+
+The language consists of eight commands. A brainfuck program is a sequence of these commands, possibly interspersed with other characters (which are ignored). The commands are executed sequentially, except as noted below; an instruction pointer begins at the first command, and each command it points to is executed, after which it normally moves forward to the next command. The program terminates when the instruction pointer moves past the last command.
+
+The brainfuck language uses a simple machine model consisting of the program and instruction pointer, as well as an array of at least 30,000 byte cells initialized to zero; a movable data pointer (initialized to point to the leftmost byte of the array); and two streams of bytes for input and output (most often connected to a keyboard and a monitor respectively, and using the ASCII character encoding).
+
+<hr/>
+Read the [epistle](http://www.hevanet.com/cristofd/brainfuck/epistle.html) if you thinking of an implementation.
+
+##Further Reading
+
+http://xregexp.com/syntax/
+
+
+              

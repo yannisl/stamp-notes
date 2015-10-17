@@ -1,0 +1,88 @@
+ <!--
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+<style>
+pre{white-space: pre}
+
+</style>
+
+
+<h2>Sub-classing Native Objects: DOM</h2>
+In some browsers Native Objects like those provided by the DOM can be extended using <tt>prototype</tt>.
+When fully implemented in all browsers it has the potential to ease the development of Javascript libraries tremendously.
+
+In the example below I will use <tt>prototype</tt> to add a method <tt>remove</tt>, in order to allow the removal of an HTMLElement Object.
+
+
+<div  class="code-block console-wrap">
+
+<div class="code code-block"><code>
+
+HTMLElement.prototype.remove = function(){
+      if (this.parentNode)
+          this.parentNode.removeChild(this);
+};
+
+if (document.getElementById('a')) {document.getElementById('a').remove();
+}else{
+log('','element does not exist');
+}
+
+</code>
+</div>
+<p id="msg1" class="msg">
+</p>
+<div class="sandbox-console"><p id="a" class="highlight">
+Im am going to be removed
+</p>
+</div>
+
+<button class="eval">Run Code!</button>
+<ol class="results"></ol>
+</div>
+</code>
+
+More information about this particular feature can be found in the HTML 5 specification:
+
+<a href=" http://www.whatwg.org/specs/web-apps/current-work/multipage/section-elements.html">ww3 elements</a>
+
+One library that makes heavy use of this feature is the Prototype library, adding all forms of functionality
+onto existing DOM elements (including the ability to inject HTML, manipulate CSS, amongst other
+features).
+
+{{warning:  These prototypes,  dont exist in older versions of Internet Explorer.
+If that isnt a target platform for you, then these features should serve you
+well.}}
+
+Another point that often comes in contention is the question of if HTML elements can be instantiated
+directly from their constructor function, perhaps something like this:
+var elem = new HTMLElement();
+However, that does not work, at all. Even though browsers expose the root function and prototype they
+selectively disable the ability to actually call the root function (presumably to limit element creation to
+internal functionality, only).
+
+Save for the overwhelming difficulty that this feature presents, in platform compatibility, the benefits of
+clean code can be quite dramatic and should be strongly investigated in applicable situations.
+
+##Further Reading
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+    

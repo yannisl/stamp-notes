@@ -1,0 +1,139 @@
+      
+<!--
+ directives
+{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
+
+{{feature-image:/codeigniter/images/china/beauty_07.jpg}}
+{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
+{{author:Dr Y Lazarides}}
+{{date:8 September 2008}}
+{{category: PHP, MVC, Parsers}}
+{{snippet:using CodeIgniter's file_helper class}}
+
+-->
+
+<script type="text/javascript"> 
+    goog.require('goog.dom');
+    goog.require('goog.ui.Component');
+    goog.require('goog.ui.Slider');
+</script>
+
+<style> 
+.goog-slider-vertical,
+  .goog-slider-horizontal {
+   background-color: ThreeDFace;
+  position: relative;
+  overflow: hidden;
+}
+.goog-slider-thumb {
+ position: relative;
+ background-color: ThreeDShadow;
+ overflow: hidden;
+}
+.goog-slider-vertical .goog-slider-thumb {
+      left: 0;
+      height: 20px;
+      width: 100%;
+    }
+.goog-slider-horizontal .goog-slider-thumb {
+    top: 0;
+    width: 22px;
+    height:10px;
+}
+#s-h {
+      margin-bottom: 2em;
+}
+
+#out1, #out2 {
+      color: #999;
+      margin-left: 1em;
+}
+</style> 
+ 
+<h3>Closure Sliders goog.uiSlider</h3>
+ 
+The goog.ui.Slider Calss implements a slider by inheriting from baseslider,
+.Baseslider  allows to select sub-ranges within a range using two thumbs. All Google's Engineers did was to co-locate the two thumbs into one.
+
+The Slider can have a listener, which fires an onchange event. You can use this event to capture any values you may require.
+
+<hr/>
+  
+<div  class="code-block console-wrap">
+<div class="code-block code">
+<code>
+//var el = document.getElementById('s1');
+// try combine jQuery and Closure
+// capture element
+var el = $('#s1').get(0);
+var s = new goog.ui.Slider;
+s.decorate(el);
+var d = s.addEventListener(goog.ui.Component.EventType.CHANGE, function () {
+  // out to span with jQeury text 
+  $('#out1').text(s.getValue());
+  var w = s.getValue() + '%';
+  $('#feature-image1').width(w);
+});
+
+</code>
+</div>
+<div  id ="msg" class="msg">
+
+
+</div>
+<div class="sandbox" style="padding:15px;border:1px solid #bebebe;background:#fff">
+ 
+<div style="width:50%">
+<img src="/CodeIgniter/images/china/beauty_07.jpg" id="feature-image1" style="width:30%" margin:0 auto/>
+</div>
+<DIV id="s-h"> 
+ <h4>Horizontal Slider</h4> 
+ <DIV id="s1" class="goog-slider goog-slider-horizontal" style="width: 200px; height: 20px" tabindex="0"> 
+ <!-- this line is here just to show that custom content can be added --> 
+    <DIV style="position:absolute;width:100%;top:9px;border:1px inset white;
+                 overflow:hidden;height:0"></DIV> 
+<DIV class="goog-slider-thumb" style="left: 0px;width:15px;height:20px"></DIV> 
+</DIV> 
+<LABEL> 
+<INPUT type="checkbox" onclick="s.setMoveToPointEnabled(this.checked)"> 
+ MoveToPointEnabled
+  <SPAN id="out1"></SPAN> 
+ </LABEL> 
+ </DIV> 
+ 
+
+
+
+
+</div>
+
+<hr/>
+
+
+
+
+<div id="log" class="console" style="white-space:pre"></div>
+<button class="eval" style="background:ThreeDShadow" >Run Code!</button>
+<ol class="results"></ol> 
+</div>
+
+
+
+
+<span id="chapter" class="hidden">11</span>
+##Further Reading
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+                                                                                                                
