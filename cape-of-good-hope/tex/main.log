@@ -1,0 +1,4533 @@
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2011.12.17)  23 MAR 2014 22:10
+entering extended mode
+**C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/tex/main.tex
+(C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/tex/main.tex
+LaTeX2e <2011/06/27>
+Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
+abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
+croatian, czech, danish, dutch, esperanto, estonian, farsi, finnish, french, ga
+lician, german, german-x-2009-06-19, greek, gujarati, hindi, hungarian, iceland
+ic, indonesian, interlingua, irish, italian, kannada, kurmanji, lao, latin, lat
+vian, lithuanian, malayalam, marathi, mongolian, mongolianlmc, monogreek, ngerm
+an, ngerman-x-2009-06-19, nynorsk, oriya, panjabi, pinyin, polish, portuguese, 
+romanian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swis
+sgerman, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, u
+senglishmax, welsh, loaded.
+("C:\Program Files\MiKTeX 2.9\tex\latex\tufte-latex\tufte-book.cls"
+Document Class: tufte-book 2009/12/11 v3.5.0 Tufte-book class
+("C:\Program Files\MiKTeX 2.9\tex\latex\tufte-latex\tufte-common.def"
+File: tufte-common.def 2009/12/11 v3.5.0 Common code for the Tufte-LaTeX styles
+
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\xkeyval\xkeyval.sty"
+Package: xkeyval 2008/08/13 v2.6a package option processing (HA)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\xkeyval\xkeyval.tex"
+\XKV@toks=\toks14
+\XKV@tempa@toks=\toks15
+\XKV@depth=\count79
+File: xkeyval.tex 2008/08/13 v2.6a key=value parser (HA)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\xkeyval\keyval.tex")))
+("C:\Program Files\MiKTeX 2.9\tex\latex\xifthen\xifthen.sty"
+Package: xifthen 2009/04/17 v1.3 Extended ifthen features
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\misc\etex.sty"
+Package: etex 1998/03/26 v2.0 eTeX basic definition package (PEB)
+\et@xins=\count80
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\calc.sty"
+Package: calc 2007/08/22 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count81
+\calc@Bcount=\count82
+\calc@Adimen=\dimen102
+\calc@Bdimen=\dimen103
+\calc@Askip=\skip41
+\calc@Bskip=\skip42
+LaTeX Info: Redefining \setlength on input line 76.
+LaTeX Info: Redefining \addtolength on input line 77.
+\calc@Ccount=\count83
+\calc@Cskip=\skip43
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\ifthen.sty"
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\ifmtarg\ifmtarg.sty"
+Package: ifmtarg 2009/09/02 v1.2a check for an empty argument
+))
+
+Class tufte-book Warning: Option `10pt' is not supported -- 
+(tufte-book)              ignoring option.
+
+Class tufte-book Info: Passing oneside to the `book' class..
+Class tufte-book Info: Loading the base class `book'.
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\book.cls"
+Document Class: book 2007/10/19 v1.4h Standard LaTeX document class
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\bk10.clo"
+File: bk10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count84
+\c@chapter=\count85
+\c@section=\count86
+\c@subsection=\count87
+\c@subsubsection=\count88
+\c@paragraph=\count89
+\c@subparagraph=\count90
+\c@figure=\count91
+\c@table=\count92
+\abovecaptionskip=\skip44
+\belowcaptionskip=\skip45
+\bibindent=\dimen104
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.sty"
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\ifxetex\ifxetex.sty"
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\titlesec\titlesec.sty"
+Package: titlesec 2011/08/28 v2.9.1 Sectioning titles
+\ttl@box=\box26
+\beforetitleunit=\skip46
+\aftertitleunit=\skip47
+\ttl@plus=\dimen105
+\ttl@minus=\dimen106
+\ttl@toksa=\toks16
+\titlewidth=\dimen107
+\titlewidthlast=\dimen108
+\titlewidthfirst=\dimen109
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\titlesec\titletoc.sty"
+Package: titletoc 2011/08/28 v1.6 TOC entries
+\ttl@leftsep=\dimen110
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\hyperref.sty"
+Package: hyperref 2012/02/06 v6.82o Hypertext links for LaTeX
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\hobsub-hyperref.sty"
+Package: hobsub-hyperref 2011/04/23 v1.4 Bundle oberdiek, subset hyperref (HO)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\hobsub-generic.sty"
+Package: hobsub-generic 2011/04/23 v1.4 Bundle oberdiek, subset generic (HO)
+Package: hobsub 2011/04/23 v1.4 Subsetting bundle oberdiek (HO)
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/message (HO)
+Package: ltxcmds 2011/04/18 v1.20 LaTeX kernel commands for general use (HO)
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+Package: ifvtex 2010/03/01 v1.5 Switches for detecting VTeX and its modes (HO)
+Package ifvtex Info: VTeX not detected.
+Package: intcalc 2007/09/27 v1.1 Expandable integer calculations (HO)
+Package hobsub Info: Skipping package `ifpdf' (already loaded).
+Package: etexcmds 2011/02/16 v1.5 Prefix for e-TeX command names (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+Package: kvsetkeys 2011/04/07 v1.13 Key value parser (HO)
+Package: kvdefinekeys 2011/04/07 v1.3 Defining keys (HO)
+Package: pdftexcmds 2011/04/22 v0.16 Utilities of pdfTeX for LuaTeX (HO)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+Package: pdfescape 2011/04/04 v1.12 Provides string conversions (HO)
+Package: bigintcalc 2011/01/30 v1.2 Expandable big integer calculations (HO)
+Package: bitset 2011/01/30 v1.1 Data type bit set (HO)
+Package: uniquecounter 2011/01/30 v1.2 Provides unlimited unique counter (HO)
+)
+Package hobsub Info: Skipping package `hobsub' (already loaded).
+Package: letltxmacro 2010/09/02 v1.4 Let assignment for LaTeX macros (HO)
+Package: hopatch 2011/01/30 v1.0 Wrapper for package hooks (HO)
+Package: xcolor-patch 2011/01/30 xcolor patch
+Package: atveryend 2011/04/23 v1.7 Hooks at very end of document (HO)
+Package: atbegshi 2011/01/30 v1.15 At begin shipout hook (HO)
+Package: refcount 2010/12/01 v3.2 Data extraction from references (HO)
+Package: hycolor 2011/01/30 v1.7 Color options of hyperref/bookmark (HO)
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\kvoptions.sty"
+Package: kvoptions 2010/12/23 v3.10 Keyval support for LaTeX options (HO)
+)
+\@linkdim=\dimen111
+\Hy@linkcounter=\count93
+\Hy@pagecounter=\count94
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\pd1enc.def"
+File: pd1enc.def 2012/02/06 v6.82o Hyperref: PDFDocEncoding definition (HO)
+)
+\Hy@SavedSpaceFactor=\count95
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\hyperref.cfg"
+File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
+)
+Package hyperref Info: Option `unicode' set `true' on input line 3925.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\puenc.def"
+File: puenc.def 2012/02/06 v6.82o Hyperref: PDF Unicode definition (HO)
+)
+Package hyperref Info: Option `hyperfootnotes' set `false' on input line 3925.
+Package hyperref Info: Hyper figures OFF on input line 4046.
+Package hyperref Info: Link nesting OFF on input line 4051.
+Package hyperref Info: Hyper index ON on input line 4054.
+Package hyperref Info: Plain pages OFF on input line 4061.
+Package hyperref Info: Backreferencing OFF on input line 4066.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4284.
+\c@Hy@tempcnt=\count96
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\ltxmisc\url.sty"
+\Urlmuskip=\muskip10
+Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 4637.
+\Fld@menulength=\count97
+\Field@Width=\dimen112
+\Fld@charsize=\dimen113
+Package hyperref Info: Hyper figures OFF on input line 5757.
+Package hyperref Info: Link nesting OFF on input line 5762.
+Package hyperref Info: Hyper index ON on input line 5765.
+Package hyperref Info: backreferencing OFF on input line 5772.
+Package hyperref Info: Link coloring OFF on input line 5777.
+Package hyperref Info: Link coloring with OCG OFF on input line 5782.
+Package hyperref Info: PDF/A mode OFF on input line 5787.
+LaTeX Info: Redefining \ref on input line 5827.
+LaTeX Info: Redefining \pageref on input line 5831.
+\Hy@abspage=\count98
+\c@Item=\count99
+)
+
+Package hyperref Message: Driver (autodetected): hpdftex.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\hpdftex.def"
+File: hpdftex.def 2012/02/06 v6.82o Hyperref driver for pdfTeX
+\Fld@listcount=\count100
+\c@bookmark@seq@number=\count101
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\rerunfilecheck.sty"
+Package: rerunfilecheck 2011/04/15 v1.7 Rerun checks for auxiliary files (HO)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+82.
+)
+\Hy@SectionHShift=\skip48
+)
+
+Package hyperref Warning: Option `pagecolor' is not available anymore.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\ms\ragged2e.sty"
+Package: ragged2e 2009/05/21 v2.1 ragged2e Package (MS)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\ms\everysel.sty"
+Package: everysel 2009/05/30 v1.1 EverySelectfont Package (MS)
+)
+\CenteringLeftskip=\skip49
+\RaggedLeftLeftskip=\skip50
+\RaggedRightLeftskip=\skip51
+\CenteringRightskip=\skip52
+\RaggedLeftRightskip=\skip53
+\RaggedRightRightskip=\skip54
+\CenteringParfillskip=\skip55
+\RaggedLeftParfillskip=\skip56
+\RaggedRightParfillskip=\skip57
+\JustifyingParfillskip=\skip58
+\CenteringParindent=\skip59
+\RaggedLeftParindent=\skip60
+\RaggedRightParindent=\skip61
+\JustifyingParindent=\skip62
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.sty"
+Package: geometry 2010/09/12 v5.6 Page Geometry
+\Gm@cnth=\count102
+\Gm@cntv=\count103
+\c@Gm@tempcnt=\count104
+\Gm@bindingoffset=\dimen114
+\Gm@wd@mp=\dimen115
+\Gm@odd@mp=\dimen116
+\Gm@even@mp=\dimen117
+\Gm@layoutwidth=\dimen118
+\Gm@layoutheight=\dimen119
+\Gm@layouthoffset=\dimen120
+\Gm@layoutvoffset=\dimen121
+\Gm@dimlist=\toks17
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.cfg"))
+("C:\Program Files\MiKTeX 2.9\tex\latex\changepage\changepage.sty"
+Package: changepage 2009/10/20 v1.0c check page and change page layout
+\c@cp@cntr=\count105
+\cp@tempcnt=\count106
+)
+\@tufte@overhang=\skip63
+\@tufte@fullwidth=\skip64
+\@tufte@caption@fill=\skip65
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\paralist\paralist.sty"
+Package: paralist 2002/03/18 v2.3b Extended list environments (BS)
+\pltopsep=\skip66
+\plpartopsep=\skip67
+\plitemsep=\skip68
+\plparsep=\skip69
+\pl@lab=\toks18
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\textcase\textcase.sty"
+Package: textcase 2004/10/07 v0.07 Text only upper/lower case changing (DPC)
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\microtype\letterspace.sty"
+Package: letterspace 2010/01/10 v2.4 Robust letterspacing (RS)
+LaTeX Info: Redefining \lsstyle on input line 277.
+LaTeX Info: Redefining \lslig on input line 278.
+LaTeX Info: Redefining \textls on input line 303.
+\MT@outer@kern=\dimen122
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\setspace\setspace.sty"
+Package: setspace 2000/12/01 6.7 Contributed and Supported LaTeX2e package
+
+Package: `setspace' 6.7 <2000/12/01>
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\natbib\natbib.sty"
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip70
+\bibsep=\skip71
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count107
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\natbib\bibentry.sty"
+Package: bibentry 2007/10/30 1.5 (PWD)
+)
+No file main.bbl.
+\c@@tufte@num@bibkeys=\count108
+("C:\Program Files\MiKTeX 2.9\tex\latex\sauerj\optparams.sty"
+Package: optparams 2004/08/14 v0.9 multiple optional parameters in macros
+)
+\@tufte@sidenote@vertical@offset=\skip72
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\placeins\placeins.sty"
+Package: placeins 2005/04/18  v 2.2
+)
+\@tufte@margin@floatbox=\box27
+\@tufte@figure@box=\box28
+\@tufte@caption@box=\box29
+\@tufte@caption@vertical@offset=\skip73
+\@tufte@float@contents@width=\skip74
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\mathpazo.sty"
+Package: mathpazo 2005/04/12 PSNFSS-v9.2a Palatino w/ Pazo Math (D.Puga, WaS) 
+\symupright=\mathgroup4
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\helvet.sty"
+Package: helvet 2005/04/12 PSNFSS-v9.2a (WaS) 
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\bera\beramono.sty"
+Package: beramono 2004/01/31 (WaS)
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\fontenc.sty"
+Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\t1enc.def"
+File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
+))
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\textcomp.sty"
+Package: textcomp 2005/09/27 v1.99g Standard LaTeX package
+Package textcomp Info: Sub-encoding information:
+(textcomp)               5 = only ISO-Adobe without \textcurrency
+(textcomp)               4 = 5 + \texteuro
+(textcomp)               3 = 4 + \textohm
+(textcomp)               2 = 3 + \textestimated + \textcurrency
+(textcomp)               1 = TS1 - \textcircled - \t
+(textcomp)               0 = TS1 (full)
+(textcomp)             Font families with sub-encoding setting implement
+(textcomp)             only a restricted character set as indicated.
+(textcomp)             Family '?' is the default used for unknown fonts.
+(textcomp)             See the documentation for details.
+Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 71.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\ts1enc.def"
+File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
+)
+LaTeX Info: Redefining \oldstylenums on input line 266.
+Package textcomp Info: Setting cmr sub-encoding to TS1/0 on input line 281.
+Package textcomp Info: Setting cmss sub-encoding to TS1/0 on input line 282.
+Package textcomp Info: Setting cmtt sub-encoding to TS1/0 on input line 283.
+Package textcomp Info: Setting cmvtt sub-encoding to TS1/0 on input line 284.
+Package textcomp Info: Setting cmbr sub-encoding to TS1/0 on input line 285.
+Package textcomp Info: Setting cmtl sub-encoding to TS1/0 on input line 286.
+Package textcomp Info: Setting ccr sub-encoding to TS1/0 on input line 287.
+Package textcomp Info: Setting ptm sub-encoding to TS1/4 on input line 288.
+Package textcomp Info: Setting pcr sub-encoding to TS1/4 on input line 289.
+Package textcomp Info: Setting phv sub-encoding to TS1/4 on input line 290.
+Package textcomp Info: Setting ppl sub-encoding to TS1/3 on input line 291.
+Package textcomp Info: Setting pag sub-encoding to TS1/4 on input line 292.
+Package textcomp Info: Setting pbk sub-encoding to TS1/4 on input line 293.
+Package textcomp Info: Setting pnc sub-encoding to TS1/4 on input line 294.
+Package textcomp Info: Setting pzc sub-encoding to TS1/4 on input line 295.
+Package textcomp Info: Setting bch sub-encoding to TS1/4 on input line 296.
+Package textcomp Info: Setting put sub-encoding to TS1/5 on input line 297.
+Package textcomp Info: Setting uag sub-encoding to TS1/5 on input line 298.
+Package textcomp Info: Setting ugq sub-encoding to TS1/5 on input line 299.
+Package textcomp Info: Setting ul8 sub-encoding to TS1/4 on input line 300.
+Package textcomp Info: Setting ul9 sub-encoding to TS1/4 on input line 301.
+Package textcomp Info: Setting augie sub-encoding to TS1/5 on input line 302.
+Package textcomp Info: Setting dayrom sub-encoding to TS1/3 on input line 303.
+Package textcomp Info: Setting dayroms sub-encoding to TS1/3 on input line 304.
+
+Package textcomp Info: Setting pxr sub-encoding to TS1/0 on input line 305.
+Package textcomp Info: Setting pxss sub-encoding to TS1/0 on input line 306.
+Package textcomp Info: Setting pxtt sub-encoding to TS1/0 on input line 307.
+Package textcomp Info: Setting txr sub-encoding to TS1/0 on input line 308.
+Package textcomp Info: Setting txss sub-encoding to TS1/0 on input line 309.
+Package textcomp Info: Setting txtt sub-encoding to TS1/0 on input line 310.
+Package textcomp Info: Setting lmr sub-encoding to TS1/0 on input line 311.
+Package textcomp Info: Setting lmdh sub-encoding to TS1/0 on input line 312.
+Package textcomp Info: Setting lmss sub-encoding to TS1/0 on input line 313.
+Package textcomp Info: Setting lmssq sub-encoding to TS1/0 on input line 314.
+Package textcomp Info: Setting lmvtt sub-encoding to TS1/0 on input line 315.
+Package textcomp Info: Setting qhv sub-encoding to TS1/0 on input line 316.
+Package textcomp Info: Setting qag sub-encoding to TS1/0 on input line 317.
+Package textcomp Info: Setting qbk sub-encoding to TS1/0 on input line 318.
+Package textcomp Info: Setting qcr sub-encoding to TS1/0 on input line 319.
+Package textcomp Info: Setting qcs sub-encoding to TS1/0 on input line 320.
+Package textcomp Info: Setting qpl sub-encoding to TS1/0 on input line 321.
+Package textcomp Info: Setting qtm sub-encoding to TS1/0 on input line 322.
+Package textcomp Info: Setting qzc sub-encoding to TS1/0 on input line 323.
+Package textcomp Info: Setting qhvc sub-encoding to TS1/0 on input line 324.
+Package textcomp Info: Setting futs sub-encoding to TS1/4 on input line 325.
+Package textcomp Info: Setting futx sub-encoding to TS1/4 on input line 326.
+Package textcomp Info: Setting futj sub-encoding to TS1/4 on input line 327.
+Package textcomp Info: Setting hlh sub-encoding to TS1/3 on input line 328.
+Package textcomp Info: Setting hls sub-encoding to TS1/3 on input line 329.
+Package textcomp Info: Setting hlst sub-encoding to TS1/3 on input line 330.
+Package textcomp Info: Setting hlct sub-encoding to TS1/5 on input line 331.
+Package textcomp Info: Setting hlx sub-encoding to TS1/5 on input line 332.
+Package textcomp Info: Setting hlce sub-encoding to TS1/5 on input line 333.
+Package textcomp Info: Setting hlcn sub-encoding to TS1/5 on input line 334.
+Package textcomp Info: Setting hlcw sub-encoding to TS1/5 on input line 335.
+Package textcomp Info: Setting hlcf sub-encoding to TS1/5 on input line 336.
+Package textcomp Info: Setting pplx sub-encoding to TS1/3 on input line 337.
+Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 338.
+Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 339.
+Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 340.
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\fancyhdr\fancyhdr.sty"
+\fancy@headwidth=\skip75
+\f@ncyO@elh=\skip76
+\f@ncyO@erh=\skip77
+\f@ncyO@olh=\skip78
+\f@ncyO@orh=\skip79
+\f@ncyO@elf=\skip80
+\f@ncyO@erf=\skip81
+\f@ncyO@olf=\skip82
+\f@ncyO@orf=\skip83
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\xcolor\xcolor.sty"
+Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\color.cfg"
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package xcolor Info: Package option `usenames' ignored on input line 216.
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+\Gread@gobject=\count109
+)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1341.
+Package xcolor Info: Model `RGB' extended on input line 1353.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1357.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\dvipsnam.def"
+File: dvipsnam.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\xcolor\svgnam.def"
+File: svgnam.def 2007/01/21 v2.11 Predefined colors according to SVG 1.1 (UK)
+))
+\langwohyphens=\language70
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\multicol.sty"
+Package: multicol 2011/06/27 v1.7a multicolumn formatting (FMi)
+\c@tracingmulticols=\count110
+\mult@box=\box30
+\multicol@leftmargin=\dimen123
+\c@unbalance=\count111
+\c@collectmore=\count112
+\doublecol@number=\count113
+\multicoltolerance=\count114
+\multicolpretolerance=\count115
+\full@width=\dimen124
+\page@free=\dimen125
+\premulticols=\dimen126
+\postmulticols=\dimen127
+\multicolsep=\skip84
+\multicolbaselineskip=\skip85
+\partial@page=\box31
+\last@line=\box32
+\mult@rightbox=\box33
+\mult@grightbox=\box34
+\mult@gfirstbox=\box35
+\mult@firstbox=\box36
+\@tempa=\box37
+\@tempa=\box38
+\@tempa=\box39
+\@tempa=\box40
+\@tempa=\box41
+\@tempa=\box42
+\@tempa=\box43
+\@tempa=\box44
+\@tempa=\box45
+\@tempa=\box46
+\@tempa=\box47
+\@tempa=\box48
+\@tempa=\box49
+\@tempa=\box50
+\@tempa=\box51
+\@tempa=\box52
+\@tempa=\box53
+\c@columnbadness=\count116
+\c@finalcolumnbadness=\count117
+\last@try=\dimen128
+\multicolovershoot=\dimen129
+\multicolundershoot=\dimen130
+\mult@nat@firstbox=\box54
+\colbreak@box=\box55
+\multicol@sort@counter=\count118
+)))
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\inputenc.sty"
+Package: inputenc 2008/03/30 v1.1d Input encoding file
+\inpenc@prehook=\toks19
+\inpenc@posthook=\toks20
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\utf8.def"
+File: utf8.def 2008/04/05 v1.1m UTF-8 support for inputenc
+Now handling font encoding OML ...
+... no UTF-8 mapping file for font encoding OML
+Now handling font encoding T1 ...
+... processing UTF-8 mapping file for font encoding T1
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\t1enc.dfu"
+File: t1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
+   defining Unicode char U+00A1 (decimal 161)
+   defining Unicode char U+00A3 (decimal 163)
+   defining Unicode char U+00AB (decimal 171)
+   defining Unicode char U+00BB (decimal 187)
+   defining Unicode char U+00BF (decimal 191)
+   defining Unicode char U+00C0 (decimal 192)
+   defining Unicode char U+00C1 (decimal 193)
+   defining Unicode char U+00C2 (decimal 194)
+   defining Unicode char U+00C3 (decimal 195)
+   defining Unicode char U+00C4 (decimal 196)
+   defining Unicode char U+00C5 (decimal 197)
+   defining Unicode char U+00C6 (decimal 198)
+   defining Unicode char U+00C7 (decimal 199)
+   defining Unicode char U+00C8 (decimal 200)
+   defining Unicode char U+00C9 (decimal 201)
+   defining Unicode char U+00CA (decimal 202)
+   defining Unicode char U+00CB (decimal 203)
+   defining Unicode char U+00CC (decimal 204)
+   defining Unicode char U+00CD (decimal 205)
+   defining Unicode char U+00CE (decimal 206)
+   defining Unicode char U+00CF (decimal 207)
+   defining Unicode char U+00D0 (decimal 208)
+   defining Unicode char U+00D1 (decimal 209)
+   defining Unicode char U+00D2 (decimal 210)
+   defining Unicode char U+00D3 (decimal 211)
+   defining Unicode char U+00D4 (decimal 212)
+   defining Unicode char U+00D5 (decimal 213)
+   defining Unicode char U+00D6 (decimal 214)
+   defining Unicode char U+00D8 (decimal 216)
+   defining Unicode char U+00D9 (decimal 217)
+   defining Unicode char U+00DA (decimal 218)
+   defining Unicode char U+00DB (decimal 219)
+   defining Unicode char U+00DC (decimal 220)
+   defining Unicode char U+00DD (decimal 221)
+   defining Unicode char U+00DE (decimal 222)
+   defining Unicode char U+00DF (decimal 223)
+   defining Unicode char U+00E0 (decimal 224)
+   defining Unicode char U+00E1 (decimal 225)
+   defining Unicode char U+00E2 (decimal 226)
+   defining Unicode char U+00E3 (decimal 227)
+   defining Unicode char U+00E4 (decimal 228)
+   defining Unicode char U+00E5 (decimal 229)
+   defining Unicode char U+00E6 (decimal 230)
+   defining Unicode char U+00E7 (decimal 231)
+   defining Unicode char U+00E8 (decimal 232)
+   defining Unicode char U+00E9 (decimal 233)
+   defining Unicode char U+00EA (decimal 234)
+   defining Unicode char U+00EB (decimal 235)
+   defining Unicode char U+00EC (decimal 236)
+   defining Unicode char U+00ED (decimal 237)
+   defining Unicode char U+00EE (decimal 238)
+   defining Unicode char U+00EF (decimal 239)
+   defining Unicode char U+00F0 (decimal 240)
+   defining Unicode char U+00F1 (decimal 241)
+   defining Unicode char U+00F2 (decimal 242)
+   defining Unicode char U+00F3 (decimal 243)
+   defining Unicode char U+00F4 (decimal 244)
+   defining Unicode char U+00F5 (decimal 245)
+   defining Unicode char U+00F6 (decimal 246)
+   defining Unicode char U+00F8 (decimal 248)
+   defining Unicode char U+00F9 (decimal 249)
+   defining Unicode char U+00FA (decimal 250)
+   defining Unicode char U+00FB (decimal 251)
+   defining Unicode char U+00FC (decimal 252)
+   defining Unicode char U+00FD (decimal 253)
+   defining Unicode char U+00FE (decimal 254)
+   defining Unicode char U+00FF (decimal 255)
+   defining Unicode char U+0102 (decimal 258)
+   defining Unicode char U+0103 (decimal 259)
+   defining Unicode char U+0104 (decimal 260)
+   defining Unicode char U+0105 (decimal 261)
+   defining Unicode char U+0106 (decimal 262)
+   defining Unicode char U+0107 (decimal 263)
+   defining Unicode char U+010C (decimal 268)
+   defining Unicode char U+010D (decimal 269)
+   defining Unicode char U+010E (decimal 270)
+   defining Unicode char U+010F (decimal 271)
+   defining Unicode char U+0110 (decimal 272)
+   defining Unicode char U+0111 (decimal 273)
+   defining Unicode char U+0118 (decimal 280)
+   defining Unicode char U+0119 (decimal 281)
+   defining Unicode char U+011A (decimal 282)
+   defining Unicode char U+011B (decimal 283)
+   defining Unicode char U+011E (decimal 286)
+   defining Unicode char U+011F (decimal 287)
+   defining Unicode char U+0130 (decimal 304)
+   defining Unicode char U+0131 (decimal 305)
+   defining Unicode char U+0132 (decimal 306)
+   defining Unicode char U+0133 (decimal 307)
+   defining Unicode char U+0139 (decimal 313)
+   defining Unicode char U+013A (decimal 314)
+   defining Unicode char U+013D (decimal 317)
+   defining Unicode char U+013E (decimal 318)
+   defining Unicode char U+0141 (decimal 321)
+   defining Unicode char U+0142 (decimal 322)
+   defining Unicode char U+0143 (decimal 323)
+   defining Unicode char U+0144 (decimal 324)
+   defining Unicode char U+0147 (decimal 327)
+   defining Unicode char U+0148 (decimal 328)
+   defining Unicode char U+014A (decimal 330)
+   defining Unicode char U+014B (decimal 331)
+   defining Unicode char U+0150 (decimal 336)
+   defining Unicode char U+0151 (decimal 337)
+   defining Unicode char U+0152 (decimal 338)
+   defining Unicode char U+0153 (decimal 339)
+   defining Unicode char U+0154 (decimal 340)
+   defining Unicode char U+0155 (decimal 341)
+   defining Unicode char U+0158 (decimal 344)
+   defining Unicode char U+0159 (decimal 345)
+   defining Unicode char U+015A (decimal 346)
+   defining Unicode char U+015B (decimal 347)
+   defining Unicode char U+015E (decimal 350)
+   defining Unicode char U+015F (decimal 351)
+   defining Unicode char U+0160 (decimal 352)
+   defining Unicode char U+0161 (decimal 353)
+   defining Unicode char U+0162 (decimal 354)
+   defining Unicode char U+0163 (decimal 355)
+   defining Unicode char U+0164 (decimal 356)
+   defining Unicode char U+0165 (decimal 357)
+   defining Unicode char U+016E (decimal 366)
+   defining Unicode char U+016F (decimal 367)
+   defining Unicode char U+0170 (decimal 368)
+   defining Unicode char U+0171 (decimal 369)
+   defining Unicode char U+0178 (decimal 376)
+   defining Unicode char U+0179 (decimal 377)
+   defining Unicode char U+017A (decimal 378)
+   defining Unicode char U+017B (decimal 379)
+   defining Unicode char U+017C (decimal 380)
+   defining Unicode char U+017D (decimal 381)
+   defining Unicode char U+017E (decimal 382)
+   defining Unicode char U+200C (decimal 8204)
+   defining Unicode char U+2013 (decimal 8211)
+   defining Unicode char U+2014 (decimal 8212)
+   defining Unicode char U+2018 (decimal 8216)
+   defining Unicode char U+2019 (decimal 8217)
+   defining Unicode char U+201A (decimal 8218)
+   defining Unicode char U+201C (decimal 8220)
+   defining Unicode char U+201D (decimal 8221)
+   defining Unicode char U+201E (decimal 8222)
+   defining Unicode char U+2030 (decimal 8240)
+   defining Unicode char U+2031 (decimal 8241)
+   defining Unicode char U+2039 (decimal 8249)
+   defining Unicode char U+203A (decimal 8250)
+   defining Unicode char U+2423 (decimal 9251)
+)
+Now handling font encoding OT1 ...
+... processing UTF-8 mapping file for font encoding OT1
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\ot1enc.dfu"
+File: ot1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
+   defining Unicode char U+00A1 (decimal 161)
+   defining Unicode char U+00A3 (decimal 163)
+   defining Unicode char U+00B8 (decimal 184)
+   defining Unicode char U+00BF (decimal 191)
+   defining Unicode char U+00C5 (decimal 197)
+   defining Unicode char U+00C6 (decimal 198)
+   defining Unicode char U+00D8 (decimal 216)
+   defining Unicode char U+00DF (decimal 223)
+   defining Unicode char U+00E6 (decimal 230)
+   defining Unicode char U+00EC (decimal 236)
+   defining Unicode char U+00ED (decimal 237)
+   defining Unicode char U+00EE (decimal 238)
+   defining Unicode char U+00EF (decimal 239)
+   defining Unicode char U+00F8 (decimal 248)
+   defining Unicode char U+0131 (decimal 305)
+   defining Unicode char U+0141 (decimal 321)
+   defining Unicode char U+0142 (decimal 322)
+   defining Unicode char U+0152 (decimal 338)
+   defining Unicode char U+0153 (decimal 339)
+   defining Unicode char U+2013 (decimal 8211)
+   defining Unicode char U+2014 (decimal 8212)
+   defining Unicode char U+2018 (decimal 8216)
+   defining Unicode char U+2019 (decimal 8217)
+   defining Unicode char U+201C (decimal 8220)
+   defining Unicode char U+201D (decimal 8221)
+)
+Now handling font encoding OMS ...
+... processing UTF-8 mapping file for font encoding OMS
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\omsenc.dfu"
+File: omsenc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
+   defining Unicode char U+00A7 (decimal 167)
+   defining Unicode char U+00B6 (decimal 182)
+   defining Unicode char U+00B7 (decimal 183)
+   defining Unicode char U+2020 (decimal 8224)
+   defining Unicode char U+2021 (decimal 8225)
+   defining Unicode char U+2022 (decimal 8226)
+)
+Now handling font encoding OMX ...
+... no UTF-8 mapping file for font encoding OMX
+Now handling font encoding U ...
+... no UTF-8 mapping file for font encoding U
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+Now handling font encoding PU ...
+... no UTF-8 mapping file for font encoding PU
+Now handling font encoding TS1 ...
+... processing UTF-8 mapping file for font encoding TS1
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\ts1enc.dfu"
+File: ts1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
+   defining Unicode char U+00A2 (decimal 162)
+   defining Unicode char U+00A3 (decimal 163)
+   defining Unicode char U+00A4 (decimal 164)
+   defining Unicode char U+00A5 (decimal 165)
+   defining Unicode char U+00A6 (decimal 166)
+   defining Unicode char U+00A7 (decimal 167)
+   defining Unicode char U+00A8 (decimal 168)
+   defining Unicode char U+00A9 (decimal 169)
+   defining Unicode char U+00AA (decimal 170)
+   defining Unicode char U+00AC (decimal 172)
+   defining Unicode char U+00AE (decimal 174)
+   defining Unicode char U+00AF (decimal 175)
+   defining Unicode char U+00B0 (decimal 176)
+   defining Unicode char U+00B1 (decimal 177)
+   defining Unicode char U+00B2 (decimal 178)
+   defining Unicode char U+00B3 (decimal 179)
+   defining Unicode char U+00B4 (decimal 180)
+   defining Unicode char U+00B5 (decimal 181)
+   defining Unicode char U+00B6 (decimal 182)
+   defining Unicode char U+00B7 (decimal 183)
+   defining Unicode char U+00B9 (decimal 185)
+   defining Unicode char U+00BA (decimal 186)
+   defining Unicode char U+00BC (decimal 188)
+   defining Unicode char U+00BD (decimal 189)
+   defining Unicode char U+00BE (decimal 190)
+   defining Unicode char U+00D7 (decimal 215)
+   defining Unicode char U+00F7 (decimal 247)
+   defining Unicode char U+0192 (decimal 402)
+   defining Unicode char U+02C7 (decimal 711)
+   defining Unicode char U+02D8 (decimal 728)
+   defining Unicode char U+02DD (decimal 733)
+   defining Unicode char U+0E3F (decimal 3647)
+   defining Unicode char U+2016 (decimal 8214)
+   defining Unicode char U+2020 (decimal 8224)
+   defining Unicode char U+2021 (decimal 8225)
+   defining Unicode char U+2022 (decimal 8226)
+   defining Unicode char U+2030 (decimal 8240)
+   defining Unicode char U+2031 (decimal 8241)
+   defining Unicode char U+203B (decimal 8251)
+   defining Unicode char U+203D (decimal 8253)
+   defining Unicode char U+2044 (decimal 8260)
+   defining Unicode char U+204E (decimal 8270)
+   defining Unicode char U+2052 (decimal 8274)
+   defining Unicode char U+20A1 (decimal 8353)
+   defining Unicode char U+20A4 (decimal 8356)
+   defining Unicode char U+20A6 (decimal 8358)
+   defining Unicode char U+20A9 (decimal 8361)
+   defining Unicode char U+20AB (decimal 8363)
+   defining Unicode char U+20AC (decimal 8364)
+   defining Unicode char U+20B1 (decimal 8369)
+   defining Unicode char U+2103 (decimal 8451)
+   defining Unicode char U+2116 (decimal 8470)
+   defining Unicode char U+2117 (decimal 8471)
+   defining Unicode char U+211E (decimal 8478)
+   defining Unicode char U+2120 (decimal 8480)
+   defining Unicode char U+2122 (decimal 8482)
+   defining Unicode char U+2126 (decimal 8486)
+   defining Unicode char U+2127 (decimal 8487)
+   defining Unicode char U+212E (decimal 8494)
+   defining Unicode char U+2190 (decimal 8592)
+   defining Unicode char U+2191 (decimal 8593)
+   defining Unicode char U+2192 (decimal 8594)
+   defining Unicode char U+2193 (decimal 8595)
+   defining Unicode char U+2329 (decimal 9001)
+   defining Unicode char U+232A (decimal 9002)
+   defining Unicode char U+2422 (decimal 9250)
+   defining Unicode char U+25E6 (decimal 9702)
+   defining Unicode char U+25EF (decimal 9711)
+   defining Unicode char U+266A (decimal 9834)
+)
+   defining Unicode char U+00A9 (decimal 169)
+   defining Unicode char U+00AA (decimal 170)
+   defining Unicode char U+00AE (decimal 174)
+   defining Unicode char U+00BA (decimal 186)
+   defining Unicode char U+02C6 (decimal 710)
+   defining Unicode char U+02DC (decimal 732)
+   defining Unicode char U+200C (decimal 8204)
+   defining Unicode char U+2026 (decimal 8230)
+   defining Unicode char U+2122 (decimal 8482)
+   defining Unicode char U+2423 (decimal 9251)
+))
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\fontenc.sty"
+Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\t1enc.def"
+File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
+)) ("C:\Program Files\MiKTeX 2.9\tex\latex\tools\xspace.sty"
+Package: xspace 2009/10/20 v1.13 Space after command names (DPC,MH)
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\booktabs\booktabs.sty"
+Package: booktabs 2005/04/14 v1.61803 publication quality tables
+\heavyrulewidth=\dimen131
+\lightrulewidth=\dimen132
+\cmidrulewidth=\dimen133
+\belowrulesep=\dimen134
+\belowbottomsep=\dimen135
+\aboverulesep=\dimen136
+\abovetopsep=\dimen137
+\cmidrulesep=\dimen138
+\cmidrulekern=\dimen139
+\defaultaddspace=\dimen140
+\@cmidla=\count119
+\@cmidlb=\count120
+\@aboverulesep=\dimen141
+\@belowrulesep=\dimen142
+\@thisruleclass=\count121
+\@lastruleclass=\count122
+\@thisrulewidth=\dimen143
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\numprint\numprint.sty"
+Package: numprint 2008/02/17 v1.38 Print numbers (HH)
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\array.sty"
+Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
+\col@sep=\dimen144
+\extrarowheight=\dimen145
+\NC@list=\toks21
+\extratabsurround=\skip86
+\backup@length=\skip87
+)
+\c@nprt@mantissa@digitsbefore=\count123
+\c@nprt@mantissa@digitsafter=\count124
+\c@nprt@exponent@digitsbefore=\count125
+\c@nprt@exponent@digitsafter=\count126
+\nprt@digitwidth=\skip88
+\nprt@sepwidth=\skip89
+\nprt@decimalwidth=\skip90
+\nprt@blockwidth=\skip91
+\nprt@digittoks=\toks22
+\nprt@pretoks=\toks23
+\nprt@posttoks=\toks24
+\nprt@thisdigit=\count127
+\nprt@curpos=\count128
+\nprt@rndpos=\count129
+\c@nprt@digitsfirstblock=\count130
+\c@nprt@blockcnt=\count131
+\c@nprt@cntprint=\count132
+No configuration file `numprint.cfg' found.) ("C:\Program Files\MiKTeX 2.9\tex\
+latex\tools\verbatim.sty"
+Package: verbatim 2003/08/22 v1.5q LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks25
+\verbatim@line=\toks26
+\verbatim@in@stream=\read1
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\marvosym\marvosym.sty"
+Package: marvosym 2011/07/20 v2.2 Martin Vogel's Symbols font definitions
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
+File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+)
+\Gin@req@height=\dimen146
+\Gin@req@width=\dimen147
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\base\makeidx.sty"
+Package: makeidx 2000/03/29 v1.0m Standard LaTeX package
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption.sty"
+Package: caption 2013/05/02 v3.3-89 Customizing captions (AR)
+("C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption3.sty"
+Package: caption3 2013/05/02 v1.6-88 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 57.
+\captionmargin=\dimen148
+\captionmargin@=\dimen149
+\captionwidth=\dimen150
+\caption@tempdima=\dimen151
+\caption@indent=\dimen152
+\caption@parindent=\dimen153
+\caption@hangindent=\dimen154
+)
+\c@ContinuedFloat=\count133
+Package caption Info: hyperref package is loaded.
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\lettrine\lettrine.sty"
+File: lettrine.sty 2007/08/08 v1.62 (Daniel Flipo)
+\c@DefaultLines=\count134
+\DefaultFindent=\dimen155
+\DefaultNindent=\dimen156
+\DefaultSlope=\dimen157
+\L@lbox=\box56
+\L@tbox=\box57
+\c@L@lines=\count135
+\L@Pindent=\dimen158
+\L@Findent=\dimen159
+\L@Nindent=\dimen160
+\L@lraise=\dimen161
+\L@first=\dimen162
+\L@next=\dimen163
+\L@slope=\dimen164
+\L@height=\dimen165
+\LettrineWidth=\dimen166
+Loading lettrine.cfg
+("C:\Program Files\MiKTeX 2.9\tex\latex\lettrine\lettrine.cfg")) ("C:\Program F
+iles\MiKTeX 2.9\tex\latex\comment\comment.sty"
+\CommentStream=\write3
+Excluding comment 'comment') ("C:\Program Files\MiKTeX 2.9\tex\latex\lipsum\lip
+sum.sty"
+Package: lipsum 2011/04/14 v1.2 150 paragraphs of Lorem Ipsum dummy text
+\c@lips@count=\count136
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\ams\math\amsmath.sty"
+Package: amsmath 2000/07/18 v2.13 AMS math features
+\@mathmargin=\skip92
+For additional information on amsmath, use the `?' option.
+("C:\Program Files\MiKTeX 2.9\tex\latex\ams\math\amstext.sty"
+Package: amstext 2000/06/29 v2.01
+("C:\Program Files\MiKTeX 2.9\tex\latex\ams\math\amsgen.sty"
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks27
+\ex@=\dimen167
+)) ("C:\Program Files\MiKTeX 2.9\tex\latex\ams\math\amsbsy.sty"
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen168
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\ams\math\amsopn.sty"
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count137
+LaTeX Info: Redefining \frac on input line 211.
+\uproot@=\count138
+\leftroot@=\count139
+LaTeX Info: Redefining \overline on input line 307.
+\classnum@=\count140
+\DOTSCASE@=\count141
+LaTeX Info: Redefining \ldots on input line 379.
+LaTeX Info: Redefining \dots on input line 382.
+LaTeX Info: Redefining \cdots on input line 467.
+\Mathstrutbox@=\box58
+\strutbox@=\box59
+\big@size=\dimen169
+LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
+\macc@depth=\count142
+\c@MaxMatrixCols=\count143
+\dotsspace@=\muskip11
+\c@parentequation=\count144
+\dspbrk@lvl=\count145
+\tag@help=\toks28
+\row@=\count146
+\column@=\count147
+\maxfields@=\count148
+\andhelp@=\toks29
+\eqnshift@=\dimen170
+\alignsep@=\dimen171
+\tagshift@=\dimen172
+\tagwidth@=\dimen173
+\totwidth@=\dimen174
+\lineht@=\dimen175
+\@envbody=\toks30
+\multlinegap=\skip93
+\multlinetaggap=\skip94
+\mathdisplay@stack=\toks31
+LaTeX Info: Redefining \[ on input line 2666.
+LaTeX Info: Redefining \] on input line 2667.
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amssymb.sty"
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amsfonts.sty"
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup5
+\symAMSb=\mathgroup6
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)) ("C:\Program Files\MiKTeX 2.9\tex\latex\wasysym\wasysym.sty"
+Package: wasysym 2003/10/30 v2.0 Wasy-2 symbol support package
+\symwasy=\mathgroup7
+LaTeX Font Info:    Overwriting symbol font `wasy' in version `bold'
+(Font)                  U/wasy/m/n --> U/wasy/b/n on input line 90.
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\base\alltt.sty"
+Package: alltt 1997/06/16 v2.0g defines alltt environment
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\verbatimbox\verbatimbox.sty"
+Package: verbatimbox 2007/03/16 v1.0
+\savedverbbox=\box60
+\boxtopsep=\dimen176
+\boxbottomsep=\dimen177
+\ps@tempdima=\dimen178
+\ps@tempboxa=\box61
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\listings\listings.sty"
+\lst@mode=\count149
+\lst@gtempboxa=\box62
+\lst@token=\toks32
+\lst@length=\count150
+\lst@currlwidth=\dimen179
+\lst@column=\count151
+\lst@pos=\count152
+\lst@lostspace=\dimen180
+\lst@width=\dimen181
+\lst@newlines=\count153
+\lst@lineno=\count154
+\lst@maxwidth=\dimen182
+("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstmisc.sty"
+File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
+\c@lstnumber=\count155
+\lst@skipnumbers=\count156
+\lst@framebox=\box63
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\listings\listings.cfg"
+File: listings.cfg 2007/02/22 1.4 listings configuration
+))
+Package: listings 2007/02/22 1.4 (Carsten Heinz)
+("C:\Program Files\MiKTeX 2.9\tex\latex\pgf\frontendlayer\tikz.sty" ("C:\Progra
+m Files\MiKTeX 2.9\tex\latex\pgf\basiclayer\pgf.sty" ("C:\Program Files\MiKTeX 
+2.9\tex\latex\pgf\utilities\pgfrcs.sty" ("C:\Program Files\MiKTeX 2.9\tex\gener
+ic\pgf\utilities\pgfutil-common.tex"
+\pgfutil@everybye=\toks33
+) ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\utilities\pgfutil-latex.def"
+\pgfutil@abb=\box64
+("C:\Program Files\MiKTeX 2.9\tex\latex\ms\everyshi.sty"
+Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
+)) ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\utilities\pgfrcs.code.tex"
+Package: pgfrcs 2010/10/25 v2.10 (rcs-revision 1.24)
+))
+Package: pgf 2008/01/15 v2.10 (rcs-revision 1.12)
+("C:\Program Files\MiKTeX 2.9\tex\latex\pgf\basiclayer\pgfcore.sty" ("C:\Progra
+m Files\MiKTeX 2.9\tex\latex\pgf\systemlayer\pgfsys.sty" ("C:\Program Files\MiK
+TeX 2.9\tex\generic\pgf\systemlayer\pgfsys.code.tex"
+Package: pgfsys 2010/06/30 v2.10 (rcs-revision 1.37)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\utilities\pgfkeys.code.tex"
+\pgfkeys@pathtoks=\toks34
+\pgfkeys@temptoks=\toks35
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\utilities\pgfkeysfiltered.code.te
+x"
+\pgfkeys@tmptoks=\toks36
+))
+\pgf@x=\dimen183
+\pgf@y=\dimen184
+\pgf@xa=\dimen185
+\pgf@ya=\dimen186
+\pgf@xb=\dimen187
+\pgf@yb=\dimen188
+\pgf@xc=\dimen189
+\pgf@yc=\dimen190
+\w@pgf@writea=\write4
+\r@pgf@reada=\read2
+\c@pgf@counta=\count157
+\c@pgf@countb=\count158
+\c@pgf@countc=\count159
+\c@pgf@countd=\count160
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgf.cfg"
+File: pgf.cfg 2008/05/14  (rcs-revision 1.7)
+)
+Package pgfsys Info: Driver file for pgf: pgfsys-pdftex.def on input line 900.
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsys-pdftex.def"
+File: pgfsys-pdftex.def 2009/05/22  (rcs-revision 1.26)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsys-common-pdf.def
+"
+File: pgfsys-common-pdf.def 2008/05/19  (rcs-revision 1.10)
+)))
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsyssoftpath.code.t
+ex"
+File: pgfsyssoftpath.code.tex 2008/07/18  (rcs-revision 1.7)
+\pgfsyssoftpath@smallbuffer@items=\count161
+\pgfsyssoftpath@bigbuffer@items=\count162
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsysprotocol.code.t
+ex"
+File: pgfsysprotocol.code.tex 2006/10/16  (rcs-revision 1.4)
+)) ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcore.code.tex"
+Package: pgfcore 2010/04/11 v2.10 (rcs-revision 1.7)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmath.code.tex" ("C:\Progr
+am Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathcalc.code.tex" ("C:\Program Fil
+es\MiKTeX 2.9\tex\generic\pgf\math\pgfmathutil.code.tex") ("C:\Program Files\Mi
+KTeX 2.9\tex\generic\pgf\math\pgfmathparser.code.tex"
+\pgfmath@dimen=\dimen191
+\pgfmath@count=\count163
+\pgfmath@box=\box65
+\pgfmath@toks=\toks37
+\pgfmath@stack@operand=\toks38
+\pgfmath@stack@operation=\toks39
+) ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.code.tex"
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.basic.code.
+tex")
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.trigonometr
+ic.code.tex")
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.random.code
+.tex")
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.comparison.
+code.tex")
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.base.code.t
+ex")
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.round.code.
+tex")
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.misc.code.t
+ex"))) ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfloat.code.tex
+"
+\c@pgfmathroundto@lastzeros=\count164
+)) ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorepoints.code.
+tex"
+File: pgfcorepoints.code.tex 2010/04/09  (rcs-revision 1.20)
+\pgf@picminx=\dimen192
+\pgf@picmaxx=\dimen193
+\pgf@picminy=\dimen194
+\pgf@picmaxy=\dimen195
+\pgf@pathminx=\dimen196
+\pgf@pathmaxx=\dimen197
+\pgf@pathminy=\dimen198
+\pgf@pathmaxy=\dimen199
+\pgf@xx=\dimen200
+\pgf@xy=\dimen201
+\pgf@yx=\dimen202
+\pgf@yy=\dimen203
+\pgf@zx=\dimen204
+\pgf@zy=\dimen205
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorepathconstruct.c
+ode.tex"
+File: pgfcorepathconstruct.code.tex 2010/08/03  (rcs-revision 1.24)
+\pgf@path@lastx=\dimen206
+\pgf@path@lasty=\dimen207
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorepathusage.code.
+tex"
+File: pgfcorepathusage.code.tex 2008/04/22  (rcs-revision 1.12)
+\pgf@shorten@end@additional=\dimen208
+\pgf@shorten@start@additional=\dimen209
+) ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorescopes.code.t
+ex"
+File: pgfcorescopes.code.tex 2010/09/08  (rcs-revision 1.34)
+\pgfpic=\box66
+\pgf@hbox=\box67
+\pgf@layerbox@main=\box68
+\pgf@picture@serial@count=\count165
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoregraphicstate.co
+de.tex"
+File: pgfcoregraphicstate.code.tex 2008/04/22  (rcs-revision 1.9)
+\pgflinewidth=\dimen210
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoretransformations
+.code.tex"
+File: pgfcoretransformations.code.tex 2009/06/10  (rcs-revision 1.11)
+\pgf@pt@x=\dimen211
+\pgf@pt@y=\dimen212
+\pgf@pt@temp=\dimen213
+) ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorequick.code.te
+x"
+File: pgfcorequick.code.tex 2008/10/09  (rcs-revision 1.3)
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoreobjects.code.te
+x"
+File: pgfcoreobjects.code.tex 2006/10/11  (rcs-revision 1.2)
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorepathprocessing.
+code.tex"
+File: pgfcorepathprocessing.code.tex 2008/10/09  (rcs-revision 1.8)
+) ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorearrows.code.t
+ex"
+File: pgfcorearrows.code.tex 2008/04/23  (rcs-revision 1.11)
+) ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoreshade.code.te
+x"
+File: pgfcoreshade.code.tex 2008/11/23  (rcs-revision 1.13)
+\pgf@max=\dimen214
+\pgf@sys@shading@range@num=\count166
+) ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoreimage.code.te
+x"
+File: pgfcoreimage.code.tex 2010/03/25  (rcs-revision 1.16)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoreexternal.code.t
+ex"
+File: pgfcoreexternal.code.tex 2010/09/01  (rcs-revision 1.17)
+\pgfexternal@startupbox=\box69
+)) ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorelayers.code.
+tex"
+File: pgfcorelayers.code.tex 2010/08/27  (rcs-revision 1.2)
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoretransparency.co
+de.tex"
+File: pgfcoretransparency.code.tex 2008/01/17  (rcs-revision 1.2)
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorepatterns.code.t
+ex"
+File: pgfcorepatterns.code.tex 2009/07/02  (rcs-revision 1.3)
+))) ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\modules\pgfmoduleshapes.code.
+tex"
+File: pgfmoduleshapes.code.tex 2010/09/09  (rcs-revision 1.13)
+\pgfnodeparttextbox=\box70
+) ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\modules\pgfmoduleplot.code.tex"
+File: pgfmoduleplot.code.tex 2010/10/22  (rcs-revision 1.8)
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\pgf\compatibility\pgfcomp-version-0-65.
+sty"
+Package: pgfcomp-version-0-65 2007/07/03 v2.10 (rcs-revision 1.7)
+\pgf@nodesepstart=\dimen215
+\pgf@nodesepend=\dimen216
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\pgf\compatibility\pgfcomp-version-1-18.
+sty"
+Package: pgfcomp-version-1-18 2007/07/23 v2.10 (rcs-revision 1.1)
+)) ("C:\Program Files\MiKTeX 2.9\tex\latex\pgf\utilities\pgffor.sty" ("C:\Progr
+am Files\MiKTeX 2.9\tex\latex\pgf\utilities\pgfkeys.sty" ("C:\Program Files\MiK
+TeX 2.9\tex\generic\pgf\utilities\pgfkeys.code.tex")) ("C:\Program Files\MiKTeX
+ 2.9\tex\generic\pgf\utilities\pgffor.code.tex"
+Package: pgffor 2010/03/23 v2.10 (rcs-revision 1.18)
+\pgffor@iter=\dimen217
+\pgffor@skip=\dimen218
+\pgffor@stack=\toks40
+\pgffor@toks=\toks41
+)) ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\frontendlayer\tikz\tikz.code.t
+ex"
+Package: tikz 2010/10/13 v2.10 (rcs-revision 1.76)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\libraries\pgflibraryplothandlers.
+code.tex"
+File: pgflibraryplothandlers.code.tex 2010/05/31 v2.10 (rcs-revision 1.15)
+\pgf@plot@mark@count=\count167
+\pgfplotmarksize=\dimen219
+)
+\tikz@lastx=\dimen220
+\tikz@lasty=\dimen221
+\tikz@lastxsaved=\dimen222
+\tikz@lastysaved=\dimen223
+\tikzleveldistance=\dimen224
+\tikzsiblingdistance=\dimen225
+\tikz@figbox=\box71
+\tikz@tempbox=\box72
+\tikztreelevel=\count168
+\tikznumberofchildren=\count169
+\tikznumberofcurrentchild=\count170
+\tikz@fig@count=\count171
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\modules\pgfmodulematrix.code.tex"
+File: pgfmodulematrix.code.tex 2010/08/24  (rcs-revision 1.4)
+\pgfmatrixcurrentrow=\count172
+\pgfmatrixcurrentcolumn=\count173
+\pgf@matrix@numberofcolumns=\count174
+)
+\tikz@expandcount=\count175
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\frontendlayer\tikz\libraries\tikz
+librarytopaths.code.tex"
+File: tikzlibrarytopaths.code.tex 2008/06/17 v2.10 (rcs-revision 1.2)
+))) ("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstlang1.sty"
+File: lstlang1.sty 2004/09/05 1.3 listings language file
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstlang2.sty"
+File: lstlang2.sty 2004/09/05 1.3 listings language file
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstlang3.sty"
+File: lstlang3.sty 2004/09/05 1.3 listings language file
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstmisc.sty"
+File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 220.
+
+Package hyperref Warning: Option `bookmarks' has already been used,
+(hyperref)                setting the option has no effect on input line 220.
+
+Package hyperref Info: Option `bookmarksopen' set `false' on input line 220.
+Package hyperref Info: Option `bookmarksnumbered' set `false' on input line 220
+.
+
+Package hyperref Warning: Option `hyperfootnotes' has already been used,
+(hyperref)                setting the option has no effect on input line 220.
+
+Package hyperref Info: Option `plainpages' set `false' on input line 220.
+
+Package hyperref Warning: Option `pdfpagelabels' has already been used,
+(hyperref)                setting the option has no effect on input line 220.
+
+\@indexfile=\write5
+Writing index file main.idx
+
+LaTeX Warning: Unused global option(s):
+    [10pt].
+
+(C:\wamp\www\application-latest\stamp-notes\cape-of-good-hope\tex\main.aux)
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 573.
+LaTeX Font Info:    ... okay on input line 573.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 573.
+LaTeX Font Info:    ... okay on input line 573.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 573.
+LaTeX Font Info:    ... okay on input line 573.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 573.
+LaTeX Font Info:    ... okay on input line 573.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 573.
+LaTeX Font Info:    ... okay on input line 573.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 573.
+LaTeX Font Info:    ... okay on input line 573.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 573.
+LaTeX Font Info:    ... okay on input line 573.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 573.
+LaTeX Font Info:    ... okay on input line 573.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 573.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 573.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\ts1cmr.fd"
+File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    ... okay on input line 573.
+LaTeX Font Info:    Try loading font information for T1+pplj on input line 573.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\t1pplj.fd"
+File: t1pplj.fd 2004/09/06 font definitions for T1/pplj.
+)
+\AtBeginShipoutBox=\box73
+Package hyperref Info: Link coloring ON on input line 573.
+("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
+Package: nameref 2010/04/30 v2.40 Cross-referencing by name of section
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
+Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
+)
+\c@section@level=\count176
+)
+LaTeX Info: Redefining \ref on input line 573.
+LaTeX Info: Redefining \pageref on input line 573.
+LaTeX Info: Redefining \nameref on input line 573.
+(C:\wamp\www\application-latest\stamp-notes\cape-of-good-hope\tex\main.out) (C:
+\wamp\www\application-latest\stamp-notes\cape-of-good-hope\tex\main.out)
+\@outlinefile=\write6
+LaTeX Info: Redefining \selectfont on input line 573.
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: twoside asymmetric 
+* h-part:(L,W,R)=(70.56284pt, 304.44447pt, 222.50056pt)
+* v-part:(T,H,B)=(77.96053pt, 686.0pt, 81.08632pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=304.44447pt
+* \textheight=686.0pt
+* \oddsidemargin=-1.70715pt
+* \evensidemargin=-1.70715pt
+* \topmargin=-36.30946pt
+* \headheight=14.0pt
+* \headsep=28.0pt
+* \topskip=10.0pt
+* \footskip=25.29494pt
+* \marginparwidth=140.5566pt
+* \marginparsep=23.33124pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidetrue
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count177
+\scratchdimen=\dimen226
+\scratchbox=\box74
+\nofMPsegments=\count178
+\nofMParguments=\count179
+\everyMPshowfont=\toks42
+\MPscratchCnt=\count180
+\MPscratchDim=\dimen227
+\MPnumerator=\count181
+\makeMPintoPDFobject=\count182
+\everyMPtoPDFconversion=\toks43
+)
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: Incompatible package detected (regarding \@caption).
+(caption)             \@caption = \long macro:#1[#2]#3->\par \addcontentsline {
+\csname ext@#1\endcsname }{#1}{\protect \numberline {\csname the#1\endcsname }{
+\ignorespaces #2}}\begingroup \@parboxrestore \if@minipage \@setminipage \fi \@
+tufte@caption@font \@tufte@caption@justification \noindent \csname fnum@#1\endc
+sname : \ignorespaces #3\par \endgroup .
+
+Package caption Warning: \caption will not be redefined since it's already
+(caption)                redefined by a document class or package which is
+(caption)                unknown to the caption package.
+See the caption package documentation for explanation.
+
+Package caption Info: listings package is loaded.
+Package caption Info: End \AtBeginDocument code.
+\c@lstlisting=\count183
+ABD: EveryShipout initializing macros <../cape-of-good-hope/cover-image.jpg, id
+=114, 402.5439pt x 257.2812pt>
+File: ../cape-of-good-hope/cover-image.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/cover-image.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/cover-image.jpg used on input lin
+e 580.
+(pdftex.def)             Requested size: 298.75394pt x 190.95042pt.
+
+Overfull \hbox (9.30946pt too wide) in paragraph at lines 580--580
+[][] 
+ []
+
+LaTeX Font Info:    Font shape `T1/pplj/bx/n' in size <24> not available
+(Font)              Font shape `T1/pplj/b/n' tried instead on input line 580.
+LaTeX Font Info:    Try loading font information for T1+phv on input line 580.
+("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\t1phv.fd"
+File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
+)
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <24> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 580.
+LaTeX Font Info:    Font shape `T1/phv/b/n' will be
+(Font)              scaled to size 21.59985pt on input line 580.
+
+Overfull \hbox (27.00104pt too wide) detected at line 580
+  \T1/phv/b/n/24 CAPE-OF-GOOD-HOPE STAMPS
+ []
+
+LaTeX Font Info:    Font shape `T1/phv/m/n' will be
+(Font)              scaled to size 18.66588pt on input line 580.
+
+Overfull \hbox (15.0pt too wide) in paragraph at lines 580--581
+[]  []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 580--581
+
+ []
+
+[1
+
+
+{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map} <C:/wamp/www/application-l
+atest/stamp-notes/cape-of-good-hope/cape-of-good-hope/cover-image.jpg>]
+File: ../cape-of-good-hope/cover-image.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/cover-image.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/cover-image.jpg used on input lin
+e 582.
+(pdftex.def)             Requested size: 85.35826pt x 54.55276pt.
+LaTeX Font Info:    Try loading font information for TS1+pplj on input line 582
+.
+("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ts1pplj.fd"
+File: ts1pplj.fd 2004/09/06 font definitions for TS1/pplj.
+) [2
+
+]
+LaTeX Font Info:    Font shape `T1/phv/m/n' will be
+(Font)              scaled to size 8.99994pt on input line 583.
+LaTeX Font Info:    Font shape `T1/phv/m/n' will be
+(Font)              scaled to size 16.19989pt on input line 583.
+LaTeX Font Info:    Font shape `T1/phv/m/n' will be
+(Font)              scaled to size 32.39978pt on input line 583.
+LaTeX Font Info:    Font shape `T1/phv/m/n' will be
+(Font)              scaled to size 12.59991pt on input line 583.
+[3
+
+
+] [4
+
+
+] (C:\wamp\www\application-latest\stamp-notes\cape-of-good-hope\tex\main.toc)
+\tf@toc=\write7
+[5] [6
+
+]
+(C:\wamp\www\application-latest\stamp-notes\cape-of-good-hope\tex\Dutch_India_C
+ompany.tex
+<../cape-of-good-hope/history/smallpox_cape_files/khoisan1706.jpeg, id=146, 652
+.4375pt x 335.2525pt>
+File: ../cape-of-good-hope/history/smallpox_cape_files/khoisan1706.jpeg Graphic
+ file (type jpg)
+<use ../cape-of-good-hope/history/smallpox_cape_files/khoisan1706.jpeg>
+Package pdftex.def Info: ../cape-of-good-hope/history/smallpox_cape_files/khois
+an1706.jpeg used on input line 10.
+(pdftex.def)             Requested size: 289.22131pt x 148.62163pt.
+[7
+
+ <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-good-hop
+e/history/smallpox_cape_files/khoisan1706.jpeg>])
+(C:\wamp\www\application-latest\stamp-notes\cape-of-good-hope\tex\Briefstock_Le
+tters.tex <../cape-of-good-hope/geo1113shd18p5.png, id=152, 336.9207pt x 241.23
+929pt>
+File: ../cape-of-good-hope/geo1113shd18p5.png Graphic file (type png)
+<use ../cape-of-good-hope/geo1113shd18p5.png>
+Package pdftex.def Info: ../cape-of-good-hope/geo1113shd18p5.png used on input 
+line 16.
+(pdftex.def)             Requested size: 182.66853pt x 130.79733pt.
+[8 <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-good-h
+ope/geo1113shd18p5.png>])
+(C:\wamp\www\application-latest\stamp-notes\cape-of-good-hope\tex\Batavian_Repu
+blic.tex [9] [10
+
+]
+<../cape-of-good-hope/personalities/images/De_Mist_img.jpg, id=167, 63.5976pt x
+ 77.088pt>
+File: ../cape-of-good-hope/personalities/images/De_Mist_img.jpg Graphic file (t
+ype jpg)
+<use ../cape-of-good-hope/personalities/images/De_Mist_img.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/personalities/images/De_Mist_img.
+jpg used on input line 7.
+(pdftex.def)             Requested size: 136.99907pt x 166.06882pt.
+<../cape-of-good-hope/336-00915.jpg, id=168, 377.41pt x 569.12625pt>
+File: ../cape-of-good-hope/336-00915.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/336-00915.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/336-00915.jpg used on input line 
+46.
+(pdftex.def)             Requested size: 182.66853pt x 275.46143pt.
+
+Underfull \hbox (badness 2512) in paragraph at lines 46--46
+\T1/pplj/m/n/8 fice, 7 Febr. 1804. Single-sheet
+ []
+
+
+Underfull \hbox (badness 1253) in paragraph at lines 46--46
+\T1/pplj/m/n/8 broad-side (41,5 x 33 cm). Printed
+ []
+
+
+Underfull \hbox (badness 1242) in paragraph at lines 46--46
+\T1/pplj/m/n/8 small inkspot and pen stripe, cont.
+ []
+
+
+<../cape-of-good-hope/governors-english/Jansens.jpg, id=169, 60.9477pt x 65.283
+9pt>
+File: ../cape-of-good-hope/governors-english/Jansens.jpg Graphic file (type jpg
+)
+<use ../cape-of-good-hope/governors-english/Jansens.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/governors-english/Jansens.jpg use
+d on input line 55.
+(pdftex.def)             Requested size: 152.22223pt x 163.07884pt.
+[11 <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-good-
+hope/personalities/images/De_Mist_img.jpg>] [12 <C:/wamp/www/application-latest
+/stamp-notes/cape-of-good-hope/cape-of-good-hope/336-00915.jpg> <C:/wamp/www/ap
+plication-latest/stamp-notes/cape-of-good-hope/cape-of-good-hope/governors-engl
+ish/Jansens.jpg>]
+Overfull \hbox (0.53531pt too wide) in paragraph at lines 65--67
+\T1/pplj/m/n/10 Gov-ern-ment Gaza-ettes, of-fi-cial cor-re-spon-dence and despa
+tches,while
+ []
+
+
+Overfull \hbox (6.19531pt too wide) in paragraph at lines 75--76
+[]\T1/pplj/m/n/10 The Cape Town Stel-len-bosch Post came into op-er-a-tion on 2
+ Novem-
+ []
+
+[13])
+(C:\wamp\www\application-latest\stamp-notes\cape-of-good-hope\tex\Packet_Letter
+s.tex
+<../cape-of-good-hope/Packet/PacketLetter.jpg, id=184, 1085.05376pt x 1049.9225
+pt>
+File: ../cape-of-good-hope/Packet/PacketLetter.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/Packet/PacketLetter.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/Packet/PacketLetter.jpg used on i
+nput line 5.
+(pdftex.def)             Requested size: 289.22131pt x 279.8462pt.
+
+<../cape-of-good-hope/Packet/PacketLetterBackstamp.jpg, id=185, 1064.97874pt x 
+714.67pt>
+File: ../cape-of-good-hope/Packet/PacketLetterBackstamp.jpg Graphic file (type 
+jpg)
+<use ../cape-of-good-hope/Packet/PacketLetterBackstamp.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/Packet/PacketLetterBackstamp.jpg 
+used on input line 6.
+(pdftex.def)             Requested size: 289.22131pt x 194.08669pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 5--10
+[][]
+ []
+
+[14 <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-good-
+hope/Packet/PacketLetter.jpg> <C:/wamp/www/application-latest/stamp-notes/cape-
+of-good-hope/cape-of-good-hope/Packet/PacketLetterBackstamp.jpg>])
+(C:\wamp\www\application-latest\stamp-notes\cape-of-good-hope\tex\Forwarding_Ag
+ents.tex [15] [16
+
+]
+<../cape-of-good-hope/forwarding-agents/forwarding-agents.jpg, id=198, 424.2249
+pt x 256.19714pt>
+File: ../cape-of-good-hope/forwarding-agents/forwarding-agents.jpg Graphic file
+ (type jpg)
+<use ../cape-of-good-hope/forwarding-agents/forwarding-agents.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/forwarding-agents/forwarding-agen
+ts.jpg used on input line 7.
+(pdftex.def)             Requested size: 273.99815pt x 165.47066pt.
+
+<../cape-of-good-hope/forwarding-agents/Suffert.jpg, id=199, 40.953pt x 42.7597
+5pt>
+File: ../cape-of-good-hope/forwarding-agents/Suffert.jpg Graphic file (type jpg
+)
+<use ../cape-of-good-hope/forwarding-agents/Suffert.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/forwarding-agents/Suffert.jpg use
+d on input line 16.
+(pdftex.def)             Requested size: 273.99815pt x 286.19316pt.
+
+! LaTeX Error: Environment longtable undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.39 \begin{longtable}
+                      {lll}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Misplaced alignment tab character &.
+l.40 1 &
+         List of Forwarding Agents & \\
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+l.40 1 & List of Forwarding Agents &
+                                     \\
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+l.41 2 &
+         Thomson and Watson & Cape of Good Hope\\
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+l.41 2 & Thomson and Watson &
+                              Cape of Good Hope\\
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+
+! LaTeX Error: \begin{document} ended by \end{longtable}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.42 \end{longtable}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 39--43
+
+ []
+
+[17 <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-good-
+hope/forwarding-agents/forwarding-agents.jpg>]
+! Misplaced alignment tab character &.
+l.51 ...ns-serif;" align="center">Thomson Watson &
+                                                   Co. </p></td>
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+
+Overfull \hbox (42.15524pt too wide) in paragraph at lines 44--53
+\T1/pplj/m/n/10 colspan="3" class="style18" height="42"> <strong style="text-al
+ign:center">List
+ []
+
+
+Overfull \hbox (0.58533pt too wide) in paragraph at lines 44--53
+\T1/pplj/m/n/10 of For-ward-ing Agents</strong></td> </tr> <tr> <td class="styl
+e18"
+ []
+
+
+Overfull \hbox (40.52533pt too wide) in paragraph at lines 44--53
+\T1/pplj/m/n/10 width="39"><p>1</p></td> <td class="style18" width="252"><p sty
+le="font-
+ []
+
+
+Overfull \hbox (17.12201pt too wide) in paragraph at lines 44--53
+\T1/pplj/m/n/10 Wat-son  Co. </p></td> <td class="style18" width="242"><p style
+="font-
+ []
+
+! Misplaced alignment tab character &.
+l.57 ...ca,sans-serif;" align="center">W.Dickson &
+                                                   Co. </p></td>
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+
+Overfull \hbox (79.74536pt too wide) in paragraph at lines 54--60
+[]\T1/pplj/m/n/10 </tr> <tr> <td class="style18"><p style="font-family: Verdana
+,Arial,Helvetica,sans-
+ []
+
+
+Overfull \hbox (5.71533pt too wide) in paragraph at lines 54--60
+\T1/pplj/m/n/10 serif;" align="center">2</p></td> <td class="style18"><p style=
+"font-
+ []
+
+
+Overfull \hbox (5.00537pt too wide) in paragraph at lines 54--60
+\T1/pplj/m/n/10 family: Verdana,Arial,Helvetica,sans-serif;" align="center">W.D
+ickson
+ []
+
+
+Overfull \hbox (87.98203pt too wide) in paragraph at lines 54--60
+\T1/pplj/m/n/10 Co. </p></td> <td class="style18"><p style="font-family: Verdan
+a,Arial,Helvetica,sans-
+ []
+
+! Misplaced alignment tab character &.
+l.63 ...ca,sans-serif;" align="center">J.Searight&
+                                                  Co.</p></td>
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+
+Overfull \hbox (52.14537pt too wide) in paragraph at lines 61--68
+[]\T1/pplj/m/n/10 <tr> <td class="style18"><p style="font-family: Verdana,Arial
+,Helvetica,sans-
+ []
+
+
+Overfull \hbox (5.71533pt too wide) in paragraph at lines 61--68
+\T1/pplj/m/n/10 serif;" align="center">3</p></td> <td class="style18"><p style=
+"font-
+ []
+
+
+Overfull \hbox (66.66533pt too wide) in paragraph at lines 61--68
+\T1/pplj/m/n/10 family: Verdana,Arial,Helvetica,sans-serif;" align="center">J.S
+earightCo.</p></td>
+ []
+
+
+Overfull \hbox (15.60538pt too wide) in paragraph at lines 61--68
+\T1/pplj/m/n/10 <td class="style18"><p style="font-family: Verdana,Arial,Helvet
+ica,sans-
+ []
+
+
+Overfull \hbox (15.60538pt too wide) in paragraph at lines 61--68
+\T1/pplj/m/n/10 <td class="style18"><p style="font-family: Verdana,Arial,Helvet
+ica,sans-
+ []
+
+! Misplaced alignment tab character &.
+l.69 ...ans-serif;" align="center">Hamilton Ross &
+                                                   Co. </p></td>
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+l.74 ...ica,sans-serif;" align="center">Jamieson &
+                                                   Co. </p></td>
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+
+Overfull \hbox (30.60538pt too wide) in paragraph at lines 69--75
+[]\T1/pplj/m/n/10 <td class="style18"><p style="font-family: Verdana,Arial,Helv
+etica,sans-
+ []
+
+
+Overfull \hbox (34.962pt too wide) in paragraph at lines 69--75
+\T1/pplj/m/n/10 serif;" align="center">Hamilton Ross  Co. </p></td> <td class="
+style18"><p
+ []
+
+
+Overfull \hbox (31.87535pt too wide) in paragraph at lines 69--75
+\T1/pplj/m/n/10 style="font-family: Verdana,Arial,Helvetica,sans-serif;" align=
+"center">Cape
+ []
+
+
+Overfull \hbox (18.08534pt too wide) in paragraph at lines 69--75
+\T1/pplj/m/n/10 of Good Hope </p></td> </tr> <tr> <td class="style18"><p style=
+"font-
+ []
+
+
+Overfull \hbox (13.99539pt too wide) in paragraph at lines 69--75
+\T1/pplj/m/n/10 family: Verdana,Arial,Helvetica,sans-serif;" align="center">5</
+p></td>
+ []
+
+
+Overfull \hbox (15.60538pt too wide) in paragraph at lines 69--75
+\T1/pplj/m/n/10 <td class="style18"><p style="font-family: Verdana,Arial,Helvet
+ica,sans-
+ []
+
+[18 <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-good-
+hope/forwarding-agents/Suffert.jpg>]
+! Misplaced alignment tab character &.
+l.80 ...rif;" align="center">Borradailes Thomson &
+                                                   Pillans </p></td>
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+
+Overfull \hbox (30.60538pt too wide) in paragraph at lines 76--82
+[]\T1/pplj/m/n/10 <td class="style18"><p style="font-family: Verdana,Arial,Helv
+etica,sans-
+ []
+
+
+Overfull \hbox (15.60538pt too wide) in paragraph at lines 76--82
+\T1/pplj/m/n/10 <td class="style18"><p style="font-family: Verdana,Arial,Helvet
+ica,sans-
+ []
+
+
+Overfull \hbox (5.71533pt too wide) in paragraph at lines 76--82
+\T1/pplj/m/n/10 serif;" align="center">6</p></td> <td class="style18"><p style=
+"font-
+ []
+
+
+Overfull \hbox (7.6854pt too wide) in paragraph at lines 76--82
+\T1/pplj/m/n/10 family: Verdana,Arial,Helvetica,sans-serif;" align="center">Bor
+radailes
+ []
+
+
+Overfull \hbox (13.54536pt too wide) in paragraph at lines 76--82
+\T1/pplj/m/n/10 Thom-son  Pil-lans </p></td> <td class="style18"><p style="font
+-family:
+ []
+
+
+Overfull \hbox (10.50534pt too wide) in paragraph at lines 76--82
+\T1/pplj/m/n/10 Verdana,Arial,Helvetica,sans-serif;" align="center">Cape of Goo
+d Hope
+ []
+
+
+Overfull \hbox (79.74536pt too wide) in paragraph at lines 83--90
+[]\T1/pplj/m/n/10 </tr> <tr> <td class="style18"><p style="font-family: Verdana
+,Arial,Helvetica,sans-
+ []
+
+
+Overfull \hbox (5.71533pt too wide) in paragraph at lines 83--90
+\T1/pplj/m/n/10 serif;" align="center">7</p></td> <td class="style18"><p style=
+"font-
+ []
+
+
+Overfull \hbox (8.45538pt too wide) in paragraph at lines 83--90
+\T1/pplj/m/n/10 family: Verdana,Arial,Helvetica,sans-serif;" align="center">Isa
+ac Chase
+ []
+
+
+Overfull \hbox (92.57466pt too wide) in paragraph at lines 83--90
+\T1/pplj/m/n/10 USA </p></td> <td class="style18"><p style="font-family: Verdan
+a,Arial,Helvetica,sans-
+ []
+
+! Misplaced alignment tab character &.
+l.92 ...tica,sans-serif;" align="center">Dickson &
+                                                   Beyly- Lloyds Agents </p>...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+
+Overfull \hbox (30.60538pt too wide) in paragraph at lines 91--97
+[]\T1/pplj/m/n/10 <td class="style18"><p style="font-family: Verdana,Arial,Helv
+etica,sans-
+ []
+
+
+Overfull \hbox (5.71533pt too wide) in paragraph at lines 91--97
+\T1/pplj/m/n/10 serif;" align="center">8</p></td> <td class="style18"><p style=
+"font-
+ []
+
+
+Overfull \hbox (0.20534pt too wide) in paragraph at lines 91--97
+\T1/pplj/m/n/10 Beyly- Lloyds Agents </p></td> <td class="style18"><p style="fo
+nt-
+ []
+
+
+Overfull \hbox (7.08534pt too wide) in paragraph at lines 91--97
+\T1/pplj/m/n/10 Good Hope </p></td> </tr> <tr> <td class="style18"><p style="fo
+nt-
+ []
+
+
+Overfull \hbox (13.99539pt too wide) in paragraph at lines 91--97
+\T1/pplj/m/n/10 family: Verdana,Arial,Helvetica,sans-serif;" align="center">9</
+p></td> 
+ []
+
+! Misplaced alignment tab character &.
+l.98 ...,sans-serif;" align="center">Mackie Dunn &
+                                                   Co </p></td>
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+
+Overfull \hbox (30.60538pt too wide) in paragraph at lines 98--104
+[]\T1/pplj/m/n/10 <td class="style18"><p style="font-family: Verdana,Arial,Helv
+etica,sans-
+ []
+
+
+Overfull \hbox (25.73534pt too wide) in paragraph at lines 98--104
+\T1/pplj/m/n/10 serif;" align="center">Mackie Dunn  Co </p></td> <td class="sty
+le18"><p
+ []
+
+
+Overfull \hbox (27.69534pt too wide) in paragraph at lines 98--104
+\T1/pplj/m/n/10 style="font-family: Verdana,Arial,Helvetica,sans-serif;" align=
+"center">Port
+ []
+
+
+Overfull \hbox (18.99539pt too wide) in paragraph at lines 98--104
+\T1/pplj/m/n/10 family: Verdana,Arial,Helvetica,sans-serif;" align="center">10<
+/p></td>
+ []
+
+
+Overfull \hbox (15.60538pt too wide) in paragraph at lines 98--104
+\T1/pplj/m/n/10 <td class="style18"><p style="font-family: Verdana,Arial,Helvet
+ica,sans-
+ []
+
+
+Overfull \hbox (30.60538pt too wide) in paragraph at lines 105--108
+[]\T1/pplj/m/n/10 <td class="style18"><p style="font-family: Verdana,Arial,Helv
+etica,sans-
+ []
+
+)
+(C:\wamp\www\application-latest\stamp-notes\cape-of-good-hope\tex\Palimpsest_Le
+tters.tex
+<../cape-of-good-hope/palimsest/palimsest-1.jpg, id=209, 61.1886pt x 63.95895pt
+>
+File: ../cape-of-good-hope/palimsest/palimsest-1.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/palimsest/palimsest-1.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/palimsest/palimsest-1.jpg used on
+ input line 12.
+(pdftex.def)             Requested size: 301.40169pt x 315.05186pt.
+[19] [20 <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-
+good-hope/palimsest/palimsest-1.jpg>])
+(C:\wamp\www\application-latest\stamp-notes\cape-of-good-hope\tex\Unstamped_let
+ters.tex <../cape-of-good-hope/unstamped-cover.jpg, id=220, 418.2024pt x 233.67
+3pt>
+File: ../cape-of-good-hope/unstamped-cover.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/unstamped-cover.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/unstamped-cover.jpg used on input
+ line 14.
+(pdftex.def)             Requested size: 243.5565pt x 136.09023pt.
+! Argument of \@iiminipage has an extra }.
+<inserted text> 
+                \par 
+l.14 }
+      
+I've run across a `}' that doesn't seem to match anything.
+For example, `\def\a#1{...}' and `\a}' would produce
+this error. If you simply proceed now, the `\par' that
+I've just inserted will cause me to report a runaway
+argument that might be the root of the problem. But if
+your `}' was spurious, just type `2' and it will go away.
+
+Runaway argument?
+{\floatalignment }{\def \reserved@a *{\def \caption@tempa {*}\caption@@withopta
+rgs \ETC.
+! Paragraph ended before \@iiminipage was complete.
+<to be read again> 
+                   \par 
+l.14 }
+      
+I suspect you've forgotten a `}', causing me to apply this
+control sequence to too much text. How can we recover?
+My plan is to forget the whole thing and hope for the best.
+
+
+Underfull \hbox (badness 1675) in paragraph at lines 14--14
+\T1/pplj/m/n/8 Welling-ton, with oval dat-es-tamp in
+ []
+
+
+Underfull \hbox (badness 1789) in paragraph at lines 14--14
+\T1/pplj/m/n/8 black, ad-dressed to Som-er-set West,
+ []
+
+[21 <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-good-
+hope/unstamped-cover.jpg>])
+(C:\wamp\www\application-latest\stamp-notes\cape-of-good-hope\tex\Octagonal_re-
+issued.tex <../cape-of-good-hope/re-issued-octagonal.jpg, id=225, 163.812pt x 9
+9.7326pt>
+File: ../cape-of-good-hope/re-issued-octagonal.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/re-issued-octagonal.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/re-issued-octagonal.jpg used on i
+nput line 8.
+(pdftex.def)             Requested size: 243.5565pt x 148.29585pt.
+
+Underfull \hbox (badness 1264) in paragraph at lines 8--8
+\T1/pplj/m/n/8 Figure 11: 1879 SWELLEN-DAM to
+ []
+
+<../cape-of-good-hope/octagonal-reissued.jpg, id=226, 539.01375pt x 642.4pt>
+File: ../cape-of-good-hope/octagonal-reissued.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/octagonal-reissued.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/octagonal-reissued.jpg used on in
+put line 12.
+(pdftex.def)             Requested size: 243.5565pt x 290.2732pt.
+)
+(C:\wamp\www\application-latest\stamp-notes\cape-of-good-hope\tex\Experimental_
+handstamps_introduction.tex [22 <C:/wamp/www/application-latest/stamp-notes/cap
+e-of-good-hope/cape-of-good-hope/re-issued-octagonal.jpg>] [23 <C:/wamp/www/app
+lication-latest/stamp-notes/cape-of-good-hope/cape-of-good-hope/octagonal-reiss
+ued.jpg>] [24
+
+] <../cape-of-good-hope/experimental.jpg, id=239, 149.55875pt x 711.65875pt>
+File: ../cape-of-good-hope/experimental.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/experimental.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/experimental.jpg used on input li
+ne 3.
+(pdftex.def)             Requested size: 119.47395pt x 568.51335pt.
+LaTeX Font Info:    Try loading font information for OT1+pplx on input line 5.
+("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1pplx.fd"
+File: ot1pplx.fd 2004/09/06 font definitions for OT1/pplx.
+)
+LaTeX Font Info:    Try loading font information for OML+zplm on input line 5.
+("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omlzplm.fd"
+File: omlzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OML/zplm.
+)
+LaTeX Font Info:    Try loading font information for OMS+zplm on input line 5.
+("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omszplm.fd"
+File: omszplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMS/zplm.
+)
+LaTeX Font Info:    Try loading font information for OMX+zplm on input line 5.
+("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omxzplm.fd"
+File: omxzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMX/zplm.
+)
+LaTeX Font Info:    Try loading font information for OT1+zplm on input line 5.
+("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1zplm.fd"
+File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
+)
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 10.42007pt on input line 5.
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 7.91925pt on input line 5.
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 6.25204pt on input line 5.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 10.42007pt on input line 5.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 7.91925pt on input line 5.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 6.25204pt on input line 5.
+LaTeX Font Info:    Try loading font information for U+wasy on input line 5.
+("C:\Program Files\MiKTeX 2.9\tex\latex\wasysym\uwasy.fd"
+File: uwasy.fd 2003/10/30 v2.0 Wasy-2 symbol font definitions
+)
+
+LaTeX Warning: Marginpar on page 25 moved.
+
+[25 <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-good-
+hope/experimental.jpg>])
+(C:\wamp\www\application-latest\stamp-notes\cape-of-good-hope\tex\Experimental_
+handstamps_truncated_double_circle.tex
+<../cape-of-good-hope/SQUARE-CIRCLE/TRUNCATED/TDC16dec.JPG, id=258, 58.17735pt 
+x 32.5215pt>
+File: ../cape-of-good-hope/SQUARE-CIRCLE/TRUNCATED/TDC16dec.JPG Graphic file (t
+ype jpg)
+<use ../cape-of-good-hope/SQUARE-CIRCLE/TRUNCATED/TDC16dec.JPG>
+Package pdftex.def Info: ../cape-of-good-hope/SQUARE-CIRCLE/TRUNCATED/TDC16dec.
+JPG used on input line 8.
+(pdftex.def)             Requested size: 273.99815pt x 153.2217pt.
+
+Underfull \hbox (badness 1596) in paragraph at lines 8--8
+\T1/pplj/m/n/8 Cover from Cape Town to Worces-
+ []
+
+
+<../cape-of-good-hope/SQUARE-CIRCLE/TRUNCATED/TDC.jpg, id=259, 61.1886pt x 31.0
+761pt>
+File: ../cape-of-good-hope/SQUARE-CIRCLE/TRUNCATED/TDC.jpg Graphic file (type j
+pg)
+<use ../cape-of-good-hope/SQUARE-CIRCLE/TRUNCATED/TDC.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/SQUARE-CIRCLE/TRUNCATED/TDC.jpg u
+sed on input line 25.
+(pdftex.def)             Requested size: 182.66853pt x 92.77374pt.
+<../cape-of-good-hope/truncated.jpg, id=260, 1123.19624pt x 710.655pt>
+File: ../cape-of-good-hope/truncated.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/truncated.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/truncated.jpg used on input line 
+35.
+(pdftex.def)             Requested size: 243.5565pt x 154.09993pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 35--35
+\T1/pplj/m/n/8 SOUTH AFRICA 1891 POSTAL
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 35--35
+\T1/pplj/m/n/8 STA-TIONERY CARD CAPETOWN-
+ []
+
+<../cape-of-good-hope/truncated-01.jpg, id=261, 1118.1775pt x 745.78625pt>
+File: ../cape-of-good-hope/truncated-01.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/truncated-01.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/truncated-01.jpg used on input li
+ne 37.
+(pdftex.def)             Requested size: 182.66853pt x 121.83179pt.
+
+Overfull \hbox (1.70467pt too wide) in paragraph at lines 39--40
+[]\T1/pplj/m/n/10 I have not seen the dat-es-tamp be-ing used for back-stamp-in
+g, which
+ []
+
+)
+(C:\wamp\www\application-latest\stamp-notes\cape-of-good-hope\tex\Experimental_
+handstamps_hooded_circle.tex
+<../cape-of-good-hope/SQUARE-CIRCLE/HCDS/HoodedPortElizabeth.jpg, id=262, 54.56
+384pt x 32.64195pt>
+File: ../cape-of-good-hope/SQUARE-CIRCLE/HCDS/HoodedPortElizabeth.jpg Graphic f
+ile (type jpg)
+<use ../cape-of-good-hope/SQUARE-CIRCLE/HCDS/HoodedPortElizabeth.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/SQUARE-CIRCLE/HCDS/HoodedPortEliz
+abeth.jpg used on input line 3.
+(pdftex.def)             Requested size: 273.99815pt x 163.91856pt.
+[26 <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-good-
+hope/SQUARE-CIRCLE/TRUNCATED/TDC16dec.JPG> <C:/wamp/www/application-latest/stam
+p-notes/cape-of-good-hope/cape-of-good-hope/SQUARE-CIRCLE/TRUNCATED/TDC.jpg>] [
+27 <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-good-h
+ope/truncated.jpg> <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hop
+e/cape-of-good-hope/truncated-01.jpg> <C:/wamp/www/application-latest/stamp-not
+es/cape-of-good-hope/cape-of-good-hope/SQUARE-CIRCLE/HCDS/HoodedPortElizabeth.j
+pg>])
+(C:\wamp\www\application-latest\stamp-notes\cape-of-good-hope\tex\Experimental_
+handstamps_divided_inner_circle.tex
+<../cape-of-good-hope/Divided-Inner-Circle/Postmarks.jpg, id=271, 138.7584pt x 
+443.4969pt>
+File: ../cape-of-good-hope/Divided-Inner-Circle/Postmarks.jpg Graphic file (typ
+e jpg)
+<use ../cape-of-good-hope/Divided-Inner-Circle/Postmarks.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/Divided-Inner-Circle/Postmarks.jp
+g used on input line 5.
+(pdftex.def)             Requested size: 112.4457pt x 359.39293pt.
+
+LaTeX Warning: Marginpar on page 28 moved.
+
+
+<../cape-of-good-hope/Divided-Inner-Circle/EARLIEST-COVER-AUGUST-1898.jpg, id=2
+72, 413.6253pt x 237.7683pt>
+File: ../cape-of-good-hope/Divided-Inner-Circle/EARLIEST-COVER-AUGUST-1898.jpg 
+Graphic file (type jpg)
+
+<use ../cape-of-good-hope/Divided-Inner-Circle/EARLIEST-COVER-AUGUST-1898.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/Divided-Inner-Circle/EARLIEST-COV
+ER-AUGUST-1898.jpg used on input line 47.
+(pdftex.def)             Requested size: 213.1102pt x 122.50826pt.
+
+<../cape-of-good-hope/Divided-Inner-Circle/Earliest-Cover.jpg, id=273, 441.3288
+pt x 247.1634pt>
+File: ../cape-of-good-hope/Divided-Inner-Circle/Earliest-Cover.jpg Graphic file
+ (type jpg)
+<use ../cape-of-good-hope/Divided-Inner-Circle/Earliest-Cover.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/Divided-Inner-Circle/Earliest-Cov
+er.jpg used on input line 54.
+(pdftex.def)             Requested size: 213.1102pt x 119.35364pt.
+[28 <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-good-
+hope/Divided-Inner-Circle/Postmarks.jpg> <C:/wamp/www/application-latest/stamp-
+notes/cape-of-good-hope/cape-of-good-hope/Divided-Inner-Circle/EARLIEST-COVER-A
+UGUST-1898.jpg>] <../cape-of-good-hope/tochina.jpg, id=278, 216.81pt x 138.2766
+pt>
+File: ../cape-of-good-hope/tochina.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/tochina.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/tochina.jpg used on input line 91
+.
+(pdftex.def)             Requested size: 273.99815pt x 174.77167pt.
+
+Underfull \hbox (badness 4072) in paragraph at lines 91--91
+\T1/pplj/m/n/8 Figure 22: CAPE COLONY 5/12
+ []
+
+
+Underfull \hbox (badness 2134) in paragraph at lines 91--91
+\T1/pplj/m/n/8 98 Ganzsachenkarte 1 p dt to the
+ []
+
+
+Underfull \hbox (badness 1062) in paragraph at lines 91--91
+\T1/pplj/m/n/8 with zahlr. other stamps to Hong
+ []
+
+
+Underfull \hbox (badness 6775) in paragraph at lines 91--91
+\T1/pplj/m/n/8 Kong and Manila con-tin-ues sent.
+ []
+
+
+Underfull \hbox (badness 5331) in paragraph at lines 91--91
+\T1/pplj/m/n/8 18/2 99th Au-to-mat-i-cally gen-er-ated
+ []
+
+
+Underfull \hbox (badness 4108) in paragraph at lines 91--91
+\T1/pplj/m/n/8 trans-la-tion: CAPE COLONY 5/12
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 91--91
+\T1/pplj/m/n/8 Bid: 650.00\TS1/pplj/m/n/8 ¿\T1/pplj/m/n/8 WuttenburgspaceSept
+ []
+
+)
+(C:\wamp\www\application-latest\stamp-notes\cape-of-good-hope\tex\Experimental_
+handstamps_square_octagon.tex
+<../cape-of-good-hope/square-circle/square-octagon/square-octagon-cover.jpg, id
+=279, 394.1124pt x 228.3732pt>
+File: ../cape-of-good-hope/square-circle/square-octagon/square-octagon-cover.jp
+g Graphic file (type jpg)
+
+<use ../cape-of-good-hope/square-circle/square-octagon/square-octagon-cover.jpg
+>
+Package pdftex.def Info: ../cape-of-good-hope/square-circle/square-octagon/squa
+re-octagon-cover.jpg used on input line 10.
+(pdftex.def)             Requested size: 273.99815pt x 158.7764pt.
+[29 <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-good-
+hope/Divided-Inner-Circle/Earliest-Cover.jpg> <C:/wamp/www/application-latest/s
+tamp-notes/cape-of-good-hope/cape-of-good-hope/tochina.jpg>])
+(C:\wamp\www\application-latest\stamp-notes\cape-of-good-hope\tex\Experimental_
+handstamps_compass_wheel.tex
+<../cape-of-good-hope/square-circle/compass-wheel/cover-cw-01.jpg, id=285, 389.
+41486pt x 227.1687pt>
+File: ../cape-of-good-hope/square-circle/compass-wheel/cover-cw-01.jpg Graphic 
+file (type jpg)
+<use ../cape-of-good-hope/square-circle/compass-wheel/cover-cw-01.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/square-circle/compass-wheel/cover
+-cw-01.jpg used on input line 7.
+(pdftex.def)             Requested size: 273.99815pt x 159.84198pt.
+
+<../cape-of-good-hope/square-circle/compass-wheel/cw-1.jpg, id=286, 118.16145pt
+ x 116.1138pt>
+File: ../cape-of-good-hope/square-circle/compass-wheel/cw-1.jpg Graphic file (t
+ype jpg)
+<use ../cape-of-good-hope/square-circle/compass-wheel/cw-1.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/square-circle/compass-wheel/cw-1.
+jpg used on input line 18.
+(pdftex.def)             Requested size: 106.55742pt x 104.71405pt.
+File: ../cape-of-good-hope/square-circle/compass-wheel/cw-1.jpg Graphic file (t
+ype jpg)
+<use ../cape-of-good-hope/square-circle/compass-wheel/cw-1.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/square-circle/compass-wheel/cw-1.
+jpg used on input line 20.
+(pdftex.def)             Requested size: 106.55742pt x 104.71405pt.
+)
+(C:\wamp\www\application-latest\stamp-notes\cape-of-good-hope\tex\Circular_Date
+stamps_Introduction.tex [30 <C:/wamp/www/application-latest/stamp-notes/cape-of
+-good-hope/cape-of-good-hope/square-circle/square-octagon/square-octagon-cover.
+jpg> <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-good
+-hope/square-circle/compass-wheel/cover-cw-01.jpg>] [31 <C:/wamp/www/applicatio
+n-latest/stamp-notes/cape-of-good-hope/cape-of-good-hope/square-circle/compass-
+wheel/cw-1.jpg>] [32
+
+]
+
+LaTeX Warning: File `../cape-of-good-hope/circular-dot-at-bottom/P_O_ MOSHESFOR
+D.jpg' not found on input line 4.
+
+
+<../cape-of-good-hope/circular-dot-at-bottom/P_O_ MOSHESFORD.jpg, id=300, 343.7
+643pt x 207.174pt>
+File: ../cape-of-good-hope/circular-dot-at-bottom/P_O_ MOSHESFORD.jpg Graphic f
+ile (type jpg)
+<use ../cape-of-good-hope/circular-dot-at-bottom/P_O_ MOSHESFORD.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/circular-dot-at-bottom/P_O_ MOSHE
+SFORD.jpg used on input line 4.
+(pdftex.def)             Requested size: 298.35428pt x 179.81314pt.
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 8.33606pt on input line 4.
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 5.21004pt on input line 4.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 8.33606pt on input line 4.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 5.21004pt on input line 4.
+[33 <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-good-
+hope/circular-dot-at-bottom/P_O_ MOSHESFORD.jpg>]
+Overfull \hbox (4.52203pt too wide) in paragraph at lines 48--53
+\T1/pplj/m/n/10 can-celling or-di-nary cor-re-spon-dence. The cov-er-age of the
+ ear-lier marks
+ []
+
+)
+(C:\wamp\www\application-latest\stamp-notes\cape-of-good-hope\tex\Circular_Date
+_Stamps_CDS_15.tex
+<../cape-of-good-hope/circular-1869-1882/CDS-15.jpg, id=313, 36.6168pt x 36.616
+8pt>
+File: ../cape-of-good-hope/circular-1869-1882/CDS-15.jpg Graphic file (type jpg
+)
+<use ../cape-of-good-hope/circular-1869-1882/CDS-15.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/circular-1869-1882/CDS-15.jpg use
+d on input line 4.
+(pdftex.def)             Requested size: 112.4457pt x 112.46773pt.
+)
+(C:\wamp\www\application-latest\stamp-notes\cape-of-good-hope\tex\GPO_Postmarks
+.tex [34 <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-
+good-hope/circular-1869-1882/CDS-15.jpg>] <../cape-of-good-hope/GPO/Certificate
+.jpg, id=322, 62.75446pt x 73.65518pt>
+File: ../cape-of-good-hope/GPO/Certificate.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/GPO/Certificate.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/GPO/Certificate.jpg used on input
+ line 12.
+(pdftex.def)             Requested size: 140.5566pt x 164.98306pt.
+
+Overfull \hbox (0.3353pt too wide) in paragraph at lines 24--33
+\T1/pplj/m/n/10 Branch, the Poste Restante, the Cer-tifi-cate de-part-ment and 
+the Money
+ []
+
+<../cape-of-good-hope/GPO/post-restante.jpg, id=323, 344.487pt x 213.6783pt>
+File: ../cape-of-good-hope/GPO/post-restante.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/GPO/post-restante.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/GPO/post-restante.jpg used on inp
+ut line 43.
+(pdftex.def)             Requested size: 243.5565pt x 151.0736pt.
+[35
+
+ <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-good-hop
+e/GPO/Certificate.jpg>]
+<../cape-of-good-hope/GPO/Postmarks-Record-Branch.jpg, id=330, 199.947pt x 219.
+9417pt>
+File: ../cape-of-good-hope/GPO/Postmarks-Record-Branch.jpg Graphic file (type j
+pg)
+<use ../cape-of-good-hope/GPO/Postmarks-Record-Branch.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/GPO/Postmarks-Record-Branch.jpg u
+sed on input line 62.
+(pdftex.def)             Requested size: 243.5565pt x 267.92238pt.
+)
+(C:\wamp\www\application-latest\stamp-notes\cape-of-good-hope\tex\Perkins_Bacon
+_Introduction.tex [36 <C:/wamp/www/application-latest/stamp-notes/cape-of-good-
+hope/cape-of-good-hope/GPO/post-restante.jpg> <C:/wamp/www/application-latest/s
+tamp-notes/cape-of-good-hope/cape-of-good-hope/GPO/Postmarks-Record-Branch.jpg>
+] [37
+
+] [38
+
+] <../cape-of-good-hope/bacon.jpg, id=345, 277.035pt x 614.295pt>
+File: ../cape-of-good-hope/bacon.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/bacon.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/bacon.jpg used on input line 7.
+(pdftex.def)             Requested size: 140.5566pt x 311.6647pt.
+
+LaTeX Warning: Marginpar on page 39 moved.
+
+! Misplaced alignment tab character &.
+l.10 ...ed and printed by Messrs. Perkins, Bacon &
+                                                   Co.
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+l.29 ...in most issues printed by Perkins, Bacon &
+                                                   Co. at the time for Great...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+[39 <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-good-
+hope/bacon.jpg>])
+(C:\wamp\www\application-latest\stamp-notes\cape-of-good-hope\tex\1853_Perkins_
+Bacon_Stamps.tex [40] <../cape-of-good-hope/SG5a.jpg, id=355, 426.59375pt x 280
+.04625pt>
+File: ../cape-of-good-hope/SG5a.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/SG5a.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/SG5a.jpg used on input line 5.
+(pdftex.def)             Requested size: 243.5565pt x 159.89294pt.
+<../cape-of-good-hope/SG7.jpg, id=356, 326.21875pt x 181.67876pt>
+File: ../cape-of-good-hope/SG7.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/SG7.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/SG7.jpg used on input line 13.
+(pdftex.def)             Requested size: 121.77592pt x 67.81886pt.
+<../cape-of-good-hope/SG7b.jpg, id=357, 326.21875pt x 265.99374pt>
+File: ../cape-of-good-hope/SG7b.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/SG7b.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/SG7b.jpg used on input line 21.
+(pdftex.def)             Requested size: 152.22223pt x 124.12415pt.
+
+Underfull \hbox (badness 1424) in paragraph at lines 24--24
+\T1/pplj/m/n/8 mar-gins all around and lovely rich
+ []
+
+
+Underfull \hbox (badness 1231) in paragraph at lines 24--24
+\T1/pplj/m/n/8 and In-d-hu-sophon (Scott #5a). Est.
+ []
+
+)
+(C:\wamp\www\application-latest\stamp-notes\cape-of-good-hope\tex\Perkins_Bacon
+_Covers.tex [41
+
+ <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-good-hop
+e/SG5a.jpg> <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-
+of-good-hope/SG7.jpg> <C:/wamp/www/application-latest/stamp-notes/cape-of-good-
+hope/cape-of-good-hope/SG7b.jpg>] [42
+
+]
+<../cape-of-good-hope/perkins-bacon-cover-01.jpg, id=367, 426.59375pt x 461.725
+pt>
+File: ../cape-of-good-hope/perkins-bacon-cover-01.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/perkins-bacon-cover-01.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/perkins-bacon-cover-01.jpg used o
+n input line 6.
+(pdftex.def)             Requested size: 298.35428pt x 322.94463pt.
+
+Underfull \hbox (badness 1005) in paragraph at lines 10--10
+\T1/pplj/m/n/8 brick red, two blocks of four each,
+ []
+
+)
+(C:\wamp\www\application-latest\stamp-notes\cape-of-good-hope\tex\Earl_of_Crawf
+ord_Trials.tex [43 <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hop
+e/cape-of-good-hope/perkins-bacon-cover-01.jpg>] [44
+
+]
+<../cape-of-good-hope/ADHESIVES/triangulars/earl-of-crawford.jpg, id=377, 109.6
+095pt x 106.9596pt>
+File: ../cape-of-good-hope/ADHESIVES/triangulars/earl-of-crawford.jpg Graphic f
+ile (type jpg)
+<use ../cape-of-good-hope/ADHESIVES/triangulars/earl-of-crawford.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/ADHESIVES/triangulars/earl-of-cra
+wford.jpg used on input line 6.
+(pdftex.def)             Requested size: 146.13203pt x 142.61841pt.
+
+<../cape-of-good-hope/ADHESIVES/triangulars/Earl-of-Crawford-Mauve.jpg, id=378,
+ 96.1191pt x 99.0099pt>
+File: ../cape-of-good-hope/ADHESIVES/triangulars/Earl-of-Crawford-Mauve.jpg Gra
+phic file (type jpg)
+<use ../cape-of-good-hope/ADHESIVES/triangulars/Earl-of-Crawford-Mauve.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/ADHESIVES/triangulars/Earl-of-Cra
+wford-Mauve.jpg used on input line 26.
+(pdftex.def)             Requested size: 146.13203pt x 150.54039pt.
+[45 <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-good-
+hope/ADHESIVES/triangulars/earl-of-crawford.jpg> <C:/wamp/www/application-lates
+t/stamp-notes/cape-of-good-hope/cape-of-good-hope/ADHESIVES/triangulars/Earl-of
+-Crawford-Mauve.jpg>] <../cape-of-good-hope/crawford-01.jpg, id=383, 501.875pt 
+x 503.8825pt>
+File: ../cape-of-good-hope/crawford-01.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/crawford-01.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/crawford-01.jpg used on input lin
+e 33.
+(pdftex.def)             Requested size: 146.13203pt x 146.7142pt.
+<../cape-of-good-hope/crawford-02.jpg, id=384, 501.875pt x 487.8225pt>
+File: ../cape-of-good-hope/crawford-02.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/crawford-02.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/crawford-02.jpg used on input lin
+e 36.
+(pdftex.def)             Requested size: 146.13203pt x 142.03806pt.
+<../cape-of-good-hope/crawford-03.jpg, id=385, 501.875pt x 506.89375pt>
+File: ../cape-of-good-hope/crawford-03.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/crawford-03.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/crawford-03.jpg used on input lin
+e 41.
+(pdftex.def)             Requested size: 146.13203pt x 147.59099pt.
+<../cape-of-good-hope/crawford-04.jpg, id=386, 501.875pt x 502.87875pt>
+File: ../cape-of-good-hope/crawford-04.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/crawford-04.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/crawford-04.jpg used on input lin
+e 44.
+(pdftex.def)             Requested size: 146.13203pt x 146.42194pt.
+<../cape-of-good-hope/crawford-05.jpg, id=387, 501.875pt x 497.86pt>
+File: ../cape-of-good-hope/crawford-05.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/crawford-05.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/crawford-05.jpg used on input lin
+e 49.
+(pdftex.def)             Requested size: 146.13203pt x 144.96065pt.
+
+Underfull \hbox (badness 2073) in paragraph at lines 49--49
+\T1/pplj/m/n/8 nance: "Sal-danha", Novem-ber 1984
+ []
+
+<../cape-of-good-hope/crawford-06.jpg, id=388, 501.875pt x 484.81125pt>
+File: ../cape-of-good-hope/crawford-06.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/crawford-06.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/crawford-06.jpg used on input lin
+e 52.
+(pdftex.def)             Requested size: 146.13203pt x 141.16127pt.
+<../cape-of-good-hope/crawford-07.jpg, id=389, 501.875pt x 491.8375pt>
+File: ../cape-of-good-hope/crawford-07.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/crawford-07.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/crawford-07.jpg used on input lin
+e 56.
+(pdftex.def)             Requested size: 146.13203pt x 143.20709pt.
+<../cape-of-good-hope/crawford-08.jpg, id=390, 501.875pt x 486.81876pt>
+File: ../cape-of-good-hope/crawford-08.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/crawford-08.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/crawford-08.jpg used on input lin
+e 59.
+(pdftex.def)             Requested size: 146.13203pt x 141.74579pt.
+<../cape-of-good-hope/crawford-09.jpg, id=391, 501.875pt x 488.82625pt>
+File: ../cape-of-good-hope/crawford-09.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/crawford-09.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/crawford-09.jpg used on input lin
+e 69.
+(pdftex.def)             Requested size: 146.13203pt x 142.3303pt.
+)
+(C:\wamp\www\application-latest\stamp-notes\cape-of-good-hope\tex\1929_Proofs.t
+ex [46 <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-go
+od-hope/crawford-01.jpg> <C:/wamp/www/application-latest/stamp-notes/cape-of-go
+od-hope/cape-of-good-hope/crawford-02.jpg> <C:/wamp/www/application-latest/stam
+p-notes/cape-of-good-hope/cape-of-good-hope/crawford-03.jpg>] [47 <C:/wamp/www/
+application-latest/stamp-notes/cape-of-good-hope/cape-of-good-hope/crawford-04.
+jpg> <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-good
+-hope/crawford-05.jpg> <C:/wamp/www/application-latest/stamp-notes/cape-of-good
+-hope/cape-of-good-hope/crawford-06.jpg> <C:/wamp/www/application-latest/stamp-
+notes/cape-of-good-hope/cape-of-good-hope/crawford-07.jpg>] [48 <C:/wamp/www/ap
+plication-latest/stamp-notes/cape-of-good-hope/cape-of-good-hope/crawford-08.jp
+g> <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-good-h
+ope/crawford-09.jpg>] <../cape-of-good-hope/760_0017.jpg, id=404, 1083.04625pt 
+x 727.71875pt>
+File: ../cape-of-good-hope/760_0017.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/760_0017.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/760_0017.jpg used on input line 4
+.
+(pdftex.def)             Requested size: 298.35428pt x 200.46194pt.
+) (C:\wamp\www\application-latest\stamp-notes\cape-of-good-hope\tex\bisects.tex
+[49
+
+ <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-good-hop
+e/760_0017.jpg>] [50
+
+]
+! Misplaced alignment tab character &.
+l.2 ...rrect; secondly, the cancels both at left &
+                                                   right are matching and ar...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+l.2 ...y, the cancellations tie all three stamps &
+                                                   the inner part of the bis...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+<../cape-of-good-hope/bisect-cover.jpg, id=414, 803.0pt x 442.65375pt>
+File: ../cape-of-good-hope/bisect-cover.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/bisect-cover.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/bisect-cover.jpg used on input li
+ne 10.
+(pdftex.def)             Requested size: 243.5565pt x 134.25607pt.
+
+Underfull \hbox (badness 1484) in paragraph at lines 10--10
+\T1/pplj/m/n/8 Figure 47: 1858 (Apr 28) Wrap-per
+ []
+
+<../cape-of-good-hope/bisect.jpg, id=415, 84.5559pt x 84.19455pt>
+File: ../cape-of-good-hope/bisect.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/bisect.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/bisect.jpg used on input line 15.
+
+(pdftex.def)             Requested size: 152.22223pt x 151.58731pt.
+) (C:\wamp\www\application-latest\stamp-notes\cape-of-good-hope\tex\SG13.tex [5
+1 <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-good-ho
+pe/bisect-cover.jpg> <C:/wamp/www/application-latest/stamp-notes/cape-of-good-h
+ope/cape-of-good-hope/bisect.jpg>] [52
+
+]
+<../cape-of-good-hope/adhesives/woodblocks/SG13.jpg, id=424, 326.21875pt x 185.
+69376pt>
+File: ../cape-of-good-hope/adhesives/woodblocks/SG13.jpg Graphic file (type jpg
+)
+<use ../cape-of-good-hope/adhesives/woodblocks/SG13.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/adhesives/woodblocks/SG13.jpg use
+d on input line 5.
+(pdftex.def)             Requested size: 167.44539pt x 95.31741pt.
+
+Underfull \hbox (badness 1077) in paragraph at lines 5--5
+\T1/pplj/m/n/8 Figure 49: S.G. #13 S.G. #13, 1861
+ []
+
+
+Underfull \hbox (badness 1776) in paragraph at lines 5--5
+\T1/pplj/m/n/8 mously rare sound and choice un-
+ []
+
+
+Underfull \hbox (badness 1097) in paragraph at lines 5--5
+\T1/pplj/m/n/8 used ex-am-ple of this clas-sic stamp,
+ []
+
+
+Underfull \hbox (badness 2409) in paragraph at lines 5--5
+\T1/pplj/m/n/8 be-ing in a con-di-tion that few are
+ []
+
+
+Underfull \hbox (badness 1454) in paragraph at lines 5--5
+\T1/pplj/m/n/8 der-fully fresh color, very fine; one
+ []
+
+
+<../cape-of-good-hope/adhesives/woodblocks/SG13-block.jpg, id=425, 426.59375pt 
+x 226.8475pt>
+File: ../cape-of-good-hope/adhesives/woodblocks/SG13-block.jpg Graphic file (ty
+pe jpg)
+<use ../cape-of-good-hope/adhesives/woodblocks/SG13-block.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/adhesives/woodblocks/SG13-block.j
+pg used on input line 9.
+(pdftex.def)             Requested size: 258.77965pt x 137.61871pt.
+
+Underfull \hbox (badness 1237) in paragraph at lines 9--9
+\T1/pplj/m/n/8 with one mar-gin just along de-sign,
+ []
+
+
+<../cape-of-good-hope/adhesives/woodblocks/SG13a.jpg, id=426, 326.21875pt x 186
+.6975pt>
+File: ../cape-of-good-hope/adhesives/woodblocks/SG13a.jpg Graphic file (type jp
+g)
+<use ../cape-of-good-hope/adhesives/woodblocks/SG13a.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/adhesives/woodblocks/SG13a.jpg us
+ed on input line 13.
+(pdftex.def)             Requested size: 167.44539pt x 95.83264pt.
+
+Underfull \hbox (badness 1377) in paragraph at lines 13--13
+\T1/pplj/m/n/8 avail-able, pos-sess-ing an out-stand-ing
+ []
+
+
+Underfull \hbox (badness 3417) in paragraph at lines 13--13
+\T1/pplj/m/n/8 ture" and In-d-hu-sophon (Scott #7a;
+ []
+
+
+<../cape-of-good-hope/adhesives/woodblocks/SG13a-on-piece.jpg, id=427, 426.5937
+5pt x 189.70876pt>
+File: ../cape-of-good-hope/adhesives/woodblocks/SG13a-on-piece.jpg Graphic file
+ (type jpg)
+<use ../cape-of-good-hope/adhesives/woodblocks/SG13a-on-piece.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/adhesives/woodblocks/SG13a-on-pie
+ce.jpg used on input line 16.
+(pdftex.def)             Requested size: 258.77965pt x 115.08821pt.
+
+Underfull \hbox (badness 1237) in paragraph at lines 16--16
+\T1/pplj/m/n/8 23/1861" oval post-mark to left, the
+ []
+
+
+Underfull \hbox (badness 3000) in paragraph at lines 16--16
+\T1/pplj/m/n/8 de-sign just barely touched at left,
+ []
+
+
+Underfull \hbox (badness 1521) in paragraph at lines 16--16
+\T1/pplj/m/n/8 1930 RPS cer-tifi-cate (as the nor-mal
+ []
+
+)
+(C:\wamp\www\application-latest\stamp-notes\cape-of-good-hope\tex\De_La_Rue_Cov
+ers.tex <../cape-of-good-hope/19c-cover.jpg, id=428, 828.09375pt x 473.77pt>
+File: ../cape-of-good-hope/19c-cover.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/19c-cover.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/19c-cover.jpg used on input line 
+9.
+(pdftex.def)             Requested size: 273.99815pt x 156.76387pt.
+
+Underfull \hbox (badness 1184) in paragraph at lines 9--9
+\T1/pplj/m/n/8 fine used with small to good mar-
+ []
+
+
+Overfull \hbox (44.18532pt too wide) in paragraph at lines 11--12
+\T1/pplj/m/n/10 <p class="small">Grosvenor Oc-to-ber 2012</p><div style="clear:
+both"></div> 
+ []
+
+)
+(C:\wamp\www\application-latest\stamp-notes\cape-of-good-hope\tex\Triangular_Po
+stmarks_on_Revenue_Stamps.tex [53 <C:/wamp/www/application-latest/stamp-notes/c
+ape-of-good-hope/cape-of-good-hope/adhesives/woodblocks/SG13.jpg> <C:/wamp/www/
+application-latest/stamp-notes/cape-of-good-hope/cape-of-good-hope/adhesives/wo
+odblocks/SG13-block.jpg> <C:/wamp/www/application-latest/stamp-notes/cape-of-go
+od-hope/cape-of-good-hope/adhesives/woodblocks/SG13a.jpg>] [54 <C:/wamp/www/app
+lication-latest/stamp-notes/cape-of-good-hope/cape-of-good-hope/adhesives/woodb
+locks/SG13a-on-piece.jpg> <C:/wamp/www/application-latest/stamp-notes/cape-of-g
+ood-hope/cape-of-good-hope/19c-cover.jpg>] <../cape-of-good-hope/jurgens-01.jpg
+, id=439, 285.82785pt x 422.41815pt>
+File: ../cape-of-good-hope/jurgens-01.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/jurgens-01.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/jurgens-01.jpg used on input line
+ 10.
+(pdftex.def)             Requested size: 243.5565pt x 359.9595pt.
+[55
+
+ <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-good-hop
+e/jurgens-01.jpg>]
+Overfull \hbox (0.93536pt too wide) in paragraph at lines 66--70
+[]\T1/pplj/m/n/10 In 1944 Ju-r-gens won the Craw-ford Medal from the Royal Phil
+atelic
+ []
+
+LaTeX Font Info:    Try loading font information for T1+fvm on input line 73.
+("C:\Program Files\MiKTeX 2.9\tex\latex\bera\t1fvm.fd"
+File: t1fvm.fd 2004/09/07 scalable font definitions for T1/fvm.
+)
+LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
+(Font)              scaled to size 8.50006pt on input line 73.
+
+Overfull \hbox (1.79533pt too wide) in paragraph at lines 77--83
+[]\T1/pplj/m/n/10 Jurgen's main area of in-ter-est was the phi-lately of South-
+ern Africa,
+ []
+
+
+Overfull \hbox (114.80128pt too wide) in paragraph at lines 97--98
+[][][]$\T1/fvm/m/n/10 http : / / www . ebay . com / itm / ws / eBayISAPI . dll 
+? ViewItem&item = 380452270869&ssPageName =
+ []
+
+[56] <../cape-of-good-hope/fakes/revenues.jpg, id=455, 77.088pt x 33.2442pt>
+File: ../cape-of-good-hope/fakes/revenues.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/fakes/revenues.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/fakes/revenues.jpg used on input 
+line 101.
+(pdftex.def)             Requested size: 289.22131pt x 124.76736pt.
+<../cape-of-good-hope/fakes/jurgens-01.jpg, id=456, 896.34875pt x 497.86pt>
+File: ../cape-of-good-hope/fakes/jurgens-01.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/fakes/jurgens-01.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/fakes/jurgens-01.jpg used on inpu
+t line 103.
+(pdftex.def)             Requested size: 289.22131pt x 160.64027pt.
+)
+(C:\wamp\www\application-latest\stamp-notes\cape-of-good-hope\tex\Cape_Triangul
+ars_Spiro_Forgeries.tex [57 <C:/wamp/www/application-latest/stamp-notes/cape-of
+-good-hope/cape-of-good-hope/fakes/revenues.jpg> <C:/wamp/www/application-lates
+t/stamp-notes/cape-of-good-hope/cape-of-good-hope/fakes/jurgens-01.jpg>] [58
+
+]
+<../cape-of-good-hope/ADHESIVES/triangulars/SpiroCapeTriangularForgery.jpg, id=
+466, 958.58125pt x 1475.5125pt>
+File: ../cape-of-good-hope/ADHESIVES/triangulars/SpiroCapeTriangularForgery.jpg
+ Graphic file (type jpg)
+
+<use ../cape-of-good-hope/ADHESIVES/triangulars/SpiroCapeTriangularForgery.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/ADHESIVES/triangulars/SpiroCapeTr
+iangularForgery.jpg used on input line 10.
+(pdftex.def)             Requested size: 213.1102pt x 328.01344pt.
+
+Underfull \hbox (badness 3769) in paragraph at lines 10--10
+\T1/pplj/m/n/8 Figure 57: Spiro Cape Tri-an-gu-lar
+ []
+
+[59 <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-good-
+hope/ADHESIVES/triangulars/SpiroCapeTriangularForgery.jpg>])
+(C:\wamp\www\application-latest\stamp-notes\cape-of-good-hope\tex\Cheap_Rate_Po
+stmarks.tex [60]
+<../cape-of-good-hope/newspaperbranch/wrapper-1_2d-paid.jpg, id=477, 53.9616pt 
+x 32.16016pt>
+File: ../cape-of-good-hope/newspaperbranch/wrapper-1_2d-paid.jpg Graphic file (
+type jpg)
+<use ../cape-of-good-hope/newspaperbranch/wrapper-1_2d-paid.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/newspaperbranch/wrapper-1_2d-paid
+.jpg used on input line 8.
+(pdftex.def)             Requested size: 243.5565pt x 145.17764pt.
+
+Overfull \hbox (3.95534pt too wide) in paragraph at lines 9--10
+[]\T1/pplj/m/n/10 <p style="font-family:arial;font-size:12px;float:left">Proven
+ance: Y
+ []
+
+
+<../cape-of-good-hope/cheap-rate-mail/cape-paid-1_2d.jpg, id=478, 23.00595pt x 
+22.76505pt>
+File: ../cape-of-good-hope/cheap-rate-mail/cape-paid-1_2d.jpg Graphic file (typ
+e jpg)
+<use ../cape-of-good-hope/cheap-rate-mail/cape-paid-1_2d.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/cheap-rate-mail/cape-paid-1_2d.jp
+g used on input line 18.
+(pdftex.def)             Requested size: 63.25003pt x 62.5929pt.
+
+Underfull \hbox (badness 1394) in paragraph at lines 19--19
+\T1/pplj/m/n/8 Figure 59: Cheap Rate Hand-stamp
+ []
+
+
+<../cape-of-good-hope/cheap-rate-mail/paid-stamps.jpg, id=479, 44.0847pt x 21.1
+992pt>
+File: ../cape-of-good-hope/cheap-rate-mail/paid-stamps.jpg Graphic file (type j
+pg)
+<use ../cape-of-good-hope/cheap-rate-mail/paid-stamps.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/cheap-rate-mail/paid-stamps.jpg u
+sed on input line 34.
+(pdftex.def)             Requested size: 133.52834pt x 64.21945pt.
+
+<../cape-of-good-hope/cheap-rate-mail/1d-paid-wrapper.jpg, id=480, 486.1362pt x
+ 266.9172pt>
+File: ../cape-of-good-hope/cheap-rate-mail/1d-paid-wrapper.jpg Graphic file (ty
+pe jpg)
+<use ../cape-of-good-hope/cheap-rate-mail/1d-paid-wrapper.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/cheap-rate-mail/1d-paid-wrapper.j
+pg used on input line 45.
+(pdftex.def)             Requested size: 243.5565pt x 133.72707pt.
+! Argument of \@iiminipage has an extra }.
+<inserted text> 
+                \par 
+l.45 ...oted and a 1d PAID cds.\label{deficiency}}
+                                                  
+I've run across a `}' that doesn't seem to match anything.
+For example, `\def\a#1{...}' and `\a}' would produce
+this error. If you simply proceed now, the `\par' that
+I've just inserted will cause me to report a runaway
+argument that might be the root of the problem. But if
+your `}' was spurious, just type `2' and it will go away.
+
+Runaway argument?
+{\floatalignment }{\def \reserved@a *{\def \caption@tempa {*}\caption@@withopta
+rgs \ETC.
+! Paragraph ended before \@iiminipage was complete.
+<to be read again> 
+                   \par 
+l.45 ...oted and a 1d PAID cds.\label{deficiency}}
+                                                  
+I suspect you've forgotten a `}', causing me to apply this
+control sequence to too much text. How can we recover?
+My plan is to forget the whole thing and hope for the best.
+
+
+Underfull \hbox (badness 1902) in paragraph at lines 45--45
+\T1/pplj/m/n/8 Figure 61: Wrap-per with two un-
+ []
+
+LaTeX Font Info:    Font shape `T1/pplj/bx/n' in size <10> not available
+(Font)              Font shape `T1/pplj/b/n' tried instead on input line 47.
+
+LaTeX Warning: Reference `deficiency' on page 61 undefined on input line 47.
+
+[61
+
+ <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-good-hop
+e/newspaperbranch/wrapper-1_2d-paid.jpg> <C:/wamp/www/application-latest/stamp-
+notes/cape-of-good-hope/cape-of-good-hope/cheap-rate-mail/cape-paid-1_2d.jpg> <
+C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-good-hope/
+cheap-rate-mail/paid-stamps.jpg>]
+! Undefined control sequence.
+l.57 1  \goldblatt
+                  {128}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+)
+(C:\wamp\www\application-latest\stamp-notes\cape-of-good-hope\tex\Exhibition_Ki
+mberley.tex [62 <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/c
+ape-of-good-hope/cheap-rate-mail/1d-paid-wrapper.jpg>]
+<../cape-of-good-hope/Exhibition/Kimberley-Exhibition.jpg, id=493, 501.7947pt x
+ 288.1164pt>
+File: ../cape-of-good-hope/Exhibition/Kimberley-Exhibition.jpg Graphic file (ty
+pe jpg)
+<use ../cape-of-good-hope/Exhibition/Kimberley-Exhibition.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/Exhibition/Kimberley-Exhibition.j
+pg used on input line 12.
+(pdftex.def)             Requested size: 273.99815pt x 157.32146pt.
+
+Underfull \hbox (badness 2772) in paragraph at lines 12--12
+\T1/pplj/m/n/8 Figure 62: Of-fi-cial printed ex-hi-bi-
+ []
+
+
+Underfull \hbox (badness 1286) in paragraph at lines 12--12
+\T1/pplj/m/n/8 Cape Town bear-ing triple oval vi-o-
+ []
+
+
+Underfull \hbox (badness 2197) in paragraph at lines 12--12
+\T1/pplj/m/n/8 let ca-chet SOUTH AFRICAN AND
+ []
+
+
+Underfull \hbox (badness 1635) in paragraph at lines 12--12
+\T1/pplj/m/n/8 "com-pass wheel" dis-patch can-cel of
+ []
+
+
+<../cape-of-good-hope/Exhibition/Exhibition-Postmarks.jpg, id=494, 61.6704pt x 
+159.2349pt>
+File: ../cape-of-good-hope/Exhibition/Exhibition-Postmarks.jpg Graphic file (ty
+pe jpg)
+<use ../cape-of-good-hope/Exhibition/Exhibition-Postmarks.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/Exhibition/Exhibition-Postmarks.j
+pg used on input line 20.
+(pdftex.def)             Requested size: 133.52834pt x 344.85095pt.
+
+Overfull \hbox (1.16536pt too wide) in paragraph at lines 25--33
+[]\T1/pplj/m/n/10 The South African and In-ter-na-tonal Ex-hi-bi-tion was stage
+d in Kim-
+ []
+
+[63
+
+ <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-good-hop
+e/Exhibition/Kimberley-Exhibition.jpg> <C:/wamp/www/application-latest/stamp-no
+tes/cape-of-good-hope/cape-of-good-hope/Exhibition/Exhibition-Postmarks.jpg>] <
+../cape-of-good-hope/Exhibition/card.jpg, id=500, 96.36pt x 159.4758pt>
+File: ../cape-of-good-hope/Exhibition/card.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/Exhibition/card.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/Exhibition/card.jpg used on input
+ line 67.
+(pdftex.def)             Requested size: 152.22223pt x 251.92761pt.
+
+<../cape-of-good-hope/Exhibition/Kimberley-exhibition-front.jpg, id=501, 52.877
+55pt x 28.06485pt>
+File: ../cape-of-good-hope/Exhibition/Kimberley-exhibition-front.jpg Graphic fi
+le (type jpg)
+<use ../cape-of-good-hope/Exhibition/Kimberley-exhibition-front.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/Exhibition/Kimberley-exhibition-f
+ront.jpg used on input line 69.
+(pdftex.def)             Requested size: 289.22131pt x 153.51134pt.
+
+LaTeX Warning: Marginpar on page 64 moved.
+
+[64 <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-good-
+hope/Exhibition/card.jpg> <C:/wamp/www/application-latest/stamp-notes/cape-of-g
+ood-hope/cape-of-good-hope/Exhibition/Kimberley-exhibition-front.jpg>])
+(C:\wamp\www\application-latest\stamp-notes\cape-of-good-hope\tex\Cape_Town_Exh
+ibition.tex [65] [66
+
+]
+<../cape-of-good-hope/cape-town-exhibition.jpg, id=514, 514.92375pt x 337.26pt>
+File: ../cape-of-good-hope/cape-town-exhibition.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/cape-town-exhibition.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/cape-town-exhibition.jpg used on 
+input line 3.
+(pdftex.def)             Requested size: 213.1102pt x 139.57947pt.
+)
+(C:\wamp\www\application-latest\stamp-notes\cape-of-good-hope\tex\Postal_statio
+nery.tex [67 <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape
+-of-good-hope/cape-town-exhibition.jpg>] [68
+
+]
+
+LaTeX Warning: Marginpar on page 69 moved.
+
+<../cape-of-good-hope/postal-card-1878.jpg, id=527, 832.61063pt x 481.8pt>
+File: ../cape-of-good-hope/postal-card-1878.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/postal-card-1878.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/postal-card-1878.jpg used on inpu
+t line 18.
+(pdftex.def)             Requested size: 243.5565pt x 140.9388pt.
+
+Overfull \hbox (6.68532pt too wide) in paragraph at lines 36--41
+[]\T1/pplj/m/n/10 These were for in-ter-colo-nial use---Orange Free State, Brit
+ish Bechua-
+ []
+
+[69 <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-good-
+hope/postal-card-1878.jpg>] [70]
+! Misplaced alignment tab character &.
+l.127 Messrs. Mc Corquodale &
+                              Co. supplied the first lot of registered envel...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+
+Overfull \hbox (6.71469pt too wide) in paragraph at lines 151--156
+\T1/pplj/m/n/10 BECHUA-NA-LAND PRO-TEC-TORATE. These lat-ter are de-cid-edly ra
+re. 
+ []
+
+! Misplaced alignment tab character &.
+l.157 The Mc Corquodale &
+                          Co. registration enveloped used are difficult to f...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+[71]
+<../cape-of-good-hope/british-bechuanaland-wrapper.jpg, id=550, 205.9695pt x 13
+6.51pt>
+File: ../cape-of-good-hope/british-bechuanaland-wrapper.jpg Graphic file (type 
+jpg)
+<use ../cape-of-good-hope/british-bechuanaland-wrapper.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/british-bechuanaland-wrapper.jpg 
+used on input line 181.
+(pdftex.def)             Requested size: 243.5565pt x 161.41992pt.
+)
+(C:\wamp\www\application-latest\stamp-notes\cape-of-good-hope\tex\1893_One_penn
+y_surcharge.tex [72 <C:/wamp/www/application-latest/stamp-notes/cape-of-good-ho
+pe/cape-of-good-hope/british-bechuanaland-wrapper.jpg>]
+<../cape-of-good-hope/ADHESIVES/images/CAPE-One-Penny-Overprint-Brown-B4.jpg, i
+d=556, 16.26076pt x 20.29582pt>
+File: ../cape-of-good-hope/ADHESIVES/images/CAPE-One-Penny-Overprint-Brown-B4.j
+pg Graphic file (type jpg)
+
+<use ../cape-of-good-hope/ADHESIVES/images/CAPE-One-Penny-Overprint-Brown-B4.jp
+g>
+Package pdftex.def Info: ../cape-of-good-hope/ADHESIVES/images/CAPE-One-Penny-O
+verprint-Brown-B4.jpg used on input line 7.
+(pdftex.def)             Requested size: 152.22223pt x 190.1207pt.
+<../cape-of-good-hope/clip_image002.jpg, id=557, 93.34875pt x 108.405pt>
+File: ../cape-of-good-hope/clip_image002.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/clip_image002.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/clip_image002.jpg used on input l
+ine 32.
+(pdftex.def)             Requested size: 106.55742pt x 123.75003pt.
+[73
+
+ <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-good-hop
+e/ADHESIVES/images/CAPE-One-Penny-Overprint-Brown-B4.jpg>]
+<../cape-of-good-hope/clip_image007_0001.jpg, id=565, 97.11281pt x 113.67468pt>
+File: ../cape-of-good-hope/clip_image007_0001.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/clip_image007_0001.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/clip_image007_0001.jpg used on in
+put line 56.
+(pdftex.def)             Requested size: 106.55742pt x 124.73376pt.
+)
+(C:\wamp\www\application-latest\stamp-notes\cape-of-good-hope\tex\Pen_Cancellat
+ions.tex [74 <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape
+-of-good-hope/clip_image002.jpg> <C:/wamp/www/application-latest/stamp-notes/ca
+pe-of-good-hope/cape-of-good-hope/clip_image007_0001.jpg>]
+<../cape-of-good-hope/pen-cancellations/troe-troe.png, id=572, 425.4769pt x 513
+.01521pt>
+File: ../cape-of-good-hope/pen-cancellations/troe-troe.png Graphic file (type p
+ng)
+<use ../cape-of-good-hope/pen-cancellations/troe-troe.png>
+Package pdftex.def Info: ../cape-of-good-hope/pen-cancellations/troe-troe.png u
+sed on input line 18.
+(pdftex.def)             Requested size: 273.99815pt x 330.37172pt.
+[75 <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-good-
+hope/pen-cancellations/troe-troe.png>] <../cape-of-good-hope/14018_420_1.jpg, i
+d=579, 1104.125pt x 643.40375pt>
+File: ../cape-of-good-hope/14018_420_1.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/14018_420_1.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/14018_420_1.jpg used on input lin
+e 51.
+(pdftex.def)             Requested size: 298.35428pt x 173.85878pt.
+
+Underfull \hbox (badness 1377) in paragraph at lines 51--51
+\T1/pplj/m/n/8 The town was oc-cu-pied on 5 June
+ []
+
+
+Underfull \hbox (badness 1694) in paragraph at lines 51--51
+\T1/pplj/m/n/8 on 10 June and Rusten-burg on 14
+ []
+
+
+Underfull \hbox (badness 1005) in paragraph at lines 51--51
+\T1/pplj/m/n/8 Hoop to Lon-don, bear-ing Cape 1d.
+ []
+
+)
+(C:\wamp\www\application-latest\stamp-notes\cape-of-good-hope\tex\Newspaper_Pos
+tmarks.tex
+<../cape-of-good-hope/newspaperbranch/newspaper-postmarks-1.jpg, id=580, 289.08
+pt x 115.8729pt>
+File: ../cape-of-good-hope/newspaperbranch/newspaper-postmarks-1.jpg Graphic fi
+le (type jpg)
+<use ../cape-of-good-hope/newspaperbranch/newspaper-postmarks-1.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/newspaperbranch/newspaper-postmar
+ks-1.jpg used on input line 5.
+(pdftex.def)             Requested size: 273.99815pt x 109.83286pt.
+
+LaTeX Warning: File `../cape-of-good-hope/newspaperbranch/Postmark Cheap Rate.j
+pg' not found on input line 15.
+
+
+<../cape-of-good-hope/newspaperbranch/Postmark Cheap Rate.jpg, id=581, 118.041p
+t x 116.1138pt>
+File: ../cape-of-good-hope/newspaperbranch/Postmark Cheap Rate.jpg Graphic file
+ (type jpg)
+<use ../cape-of-good-hope/newspaperbranch/Postmark Cheap Rate.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/newspaperbranch/Postmark Cheap Ra
+te.jpg used on input line 15.
+(pdftex.def)             Requested size: 91.33426pt x 89.84373pt.
+[76 <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-good-
+hope/14018_420_1.jpg> <C:/wamp/www/application-latest/stamp-notes/cape-of-good-
+hope/cape-of-good-hope/newspaperbranch/newspaper-postmarks-1.jpg>]
+Overfull \hbox (149.5352pt too wide) in paragraph at lines 21--27
+[]\T1/pplj/m/n/10 <div style="width:85<img src="http://localhost/capepostalhist
+ory/newspaperbranch/Envelope<p
+ []
+
+
+Overfull \hbox (1.48541pt too wide) in paragraph at lines 28--30
+\T1/pplj/m/n/10 News-pa-per Branch are sim-i-lar in de-sign to the nor-mal de-f
+ac-ing hand-
+ []
+
+
+Overfull \hbox (142.9252pt too wide) in paragraph at lines 31--37
+[]\T1/pplj/m/n/10 <div style="width:75<img src="http://localhost/capepostalhist
+ory/newspaperbranch/Postmarks
+ []
+
+
+Overfull \hbox (36.7753pt too wide) in paragraph at lines 31--37
+\T1/pplj/m/n/10 NP.jpg" alt="Portrait of De Mist" style="width:90<p style="font
+-size:smaller">
+ []
+
+)
+(C:\wamp\www\application-latest\stamp-notes\cape-of-good-hope\tex\Newspaper_Rat
+es.tex [77 <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-o
+f-good-hope/newspaperbranch/Postmark Cheap Rate.jpg>] [78
+
+]
+! Misplaced alignment tab character &.
+l.4 ...ase of 50 copies of the newspaper for 2nd &
+                                                   6th February (which a man...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+
+<../cape-of-good-hope/newspaper-triangular.jpg, id=597, 163.812pt x 142.8537pt>
+File: ../cape-of-good-hope/newspaper-triangular.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/newspaper-triangular.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/newspaper-triangular.jpg used on 
+input line 9.
+(pdftex.def)             Requested size: 468.3323pt x 408.48868pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 9--12
+
+ []
+
+
+Overfull \hbox (8.19536pt too wide) in paragraph at lines 14--15
+[]\T1/pplj/m/n/10 <p class="small">Johnson 2009</p><div style="clear:both"></di
+v> 
+ []
+
+)
+(C:\wamp\www\application-latest\stamp-notes\cape-of-good-hope\tex\Newspaper_Rev
+enue_Duty.tex [79] [80 <C:/wamp/www/application-latest/stamp-notes/cape-of-good
+-hope/cape-of-good-hope/newspaper-triangular.jpg>] <../cape-of-good-hope/newspa
+per-revenue.jpg, id=608, 436.63126pt x 650.43pt>
+File: ../cape-of-good-hope/newspaper-revenue.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/newspaper-revenue.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/newspaper-revenue.jpg used on inp
+ut line 22.
+(pdftex.def)             Requested size: 273.99815pt x 408.16525pt.
+! Misplaced alignment tab character &.
+\@tufte@stored@caption ...ete Newspaper, Franked &
+                                                   Taxed by Same Stamp \par ...
+l.22 }
+      
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+[]\T1/pplj/m/n/8 1835 Com-plete "Gra-ham-stown
+ []
+
+
+Underfull \hbox (badness 5504) in paragraph at lines 22--22
+\T1/pplj/m/n/8 but un-doubt-edly Sher-wood C282a,
+ []
+
+! Misplaced alignment tab character &.
+\@tufte@stored@caption ...aper fragments (Burrus &
+                                                   Ferrary, 1836 edition of ...
+l.22 }
+      
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+\@tufte@stored@caption ...nal item \par Estimate &
+                                                  euro; 3,000 - &euro;4,000 ...
+l.22 }
+      
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+\@tufte@stored@caption ...stimate &euro; 3,000 - &
+                                                  euro;4,000 \par \par <p cl...
+l.22 }
+      
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+[]\T1/pplj/m/n/8 <p class="small">Feldman
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+\T1/pplj/m/n/8 Oc-to-ber 2007</p><div
+ []
+
+)
+(C:\wamp\www\application-latest\stamp-notes\cape-of-good-hope\tex\Newspaper_Rev
+enue_Duty_1831.tex
+<../cape-of-good-hope/newspaperbranch/newspaper-revenue-01.jpg, id=609, 115.632
+pt x 87.08534pt>
+File: ../cape-of-good-hope/newspaperbranch/newspaper-revenue-01.jpg Graphic fil
+e (type jpg)
+<use ../cape-of-good-hope/newspaperbranch/newspaper-revenue-01.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/newspaperbranch/newspaper-revenue
+-01.jpg used on input line 11.
+(pdftex.def)             Requested size: 289.22131pt x 217.83241pt.
+
+Underfull \hbox (badness 5345) in paragraph at lines 11--11
+\T1/pplj/m/n/8 Figure 77: Com-plete Gov-ern-ment
+ []
+
+
+<../cape-of-good-hope/newspaperbranch/revenue-01.jpg, id=610, 1606.0pt x 945.53
+25pt>
+File: ../cape-of-good-hope/newspaperbranch/revenue-01.jpg Graphic file (type jp
+g)
+<use ../cape-of-good-hope/newspaperbranch/revenue-01.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/newspaperbranch/revenue-01.jpg us
+ed on input line 22.
+(pdftex.def)             Requested size: 289.22131pt x 170.27507pt.
+)
+(C:\wamp\www\application-latest\stamp-notes\cape-of-good-hope\tex\Telegraph_Off
+ice_Introduction.tex [81
+
+ <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-good-hop
+e/newspaper-revenue.jpg>] [82 <C:/wamp/www/application-latest/stamp-notes/cape-
+of-good-hope/cape-of-good-hope/newspaperbranch/newspaper-revenue-01.jpg> <C:/wa
+mp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-good-hope/newsp
+aperbranch/revenue-01.jpg>]
+<../cape-of-good-hope/telegraph-office/Pagoda.jpg, id=621, 169.47314pt x 221.38
+71pt>
+File: ../cape-of-good-hope/telegraph-office/Pagoda.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/telegraph-office/Pagoda.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/telegraph-office/Pagoda.jpg used 
+on input line 19.
+(pdftex.def)             Requested size: 133.52834pt x 174.43446pt.
+
+Underfull \hbox (badness 1584) in paragraph at lines 24--24
+\T1/pplj/m/n/8 Figure 79: The first Tele-graph Of-
+ []
+
+
+Underfull \hbox (badness 1142) in paragraph at lines 24--24
+\T1/pplj/m/n/8 StrandsStreets in Cape Town at the
+ []
+
+
+Overfull \hbox (1.35202pt too wide) in paragraph at lines 41--49
+\T1/pplj/m/n/10 Tele-graph De-part-ment. (Un-til 16 Febru-ary 1885, how-ever, i
+t re-mained
+ []
+
+[83
+
+ <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-good-hop
+e/telegraph-office/Pagoda.jpg>] [84]
+Overfull \hbox (11.08534pt too wide) in paragraph at lines 75--79
+\T1/pplj/m/n/10 In 1899 the tele-graph rates within the Cape Colony and to the 
+Transvaal,
+ []
+
+
+<../cape-of-good-hope/telegraph-office/telegram.png, id=635, 327.52148pt x 379.
+03308pt>
+File: ../cape-of-good-hope/telegraph-office/telegram.png Graphic file (type png
+)
+<use ../cape-of-good-hope/telegraph-office/telegram.png>
+Package pdftex.def Info: ../cape-of-good-hope/telegraph-office/telegram.png use
+d on input line 112.
+(pdftex.def)             Requested size: 182.66853pt x 211.4011pt.
+[85
+
+ <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-good-hop
+e/telegraph-office/telegram.png>] <../cape-of-good-hope/RTO1.jpg, id=643, 308.3
+52pt x 204.5241pt>
+File: ../cape-of-good-hope/RTO1.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/RTO1.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/RTO1.jpg used on input line 141.
+(pdftex.def)             Requested size: 273.99815pt x 181.74185pt.
+)
+(C:\wamp\www\application-latest\stamp-notes\cape-of-good-hope\tex\Private_Box_S
+ection.tex
+<../cape-of-good-hope/private-boxes/PB-Piece.jpg, id=644, 87.6876pt x 80.4606pt
+>
+File: ../cape-of-good-hope/private-boxes/PB-Piece.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/private-boxes/PB-Piece.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/private-boxes/PB-Piece.jpg used o
+n input line 3.
+(pdftex.def)             Requested size: 152.22223pt x 139.70074pt.
+[86 <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-good-
+hope/RTO1.jpg>] <../cape-of-good-hope/private-boxes/PB1.jpg, id=650, 87.4467pt 
+x 107.4414pt>
+File: ../cape-of-good-hope/private-boxes/PB1.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/private-boxes/PB1.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/private-boxes/PB1.jpg used on inp
+ut line 19.
+(pdftex.def)             Requested size: 76.11111pt x 93.51424pt.
+
+<../cape-of-good-hope/private-boxes/RECEIPT.jpg, id=651, 34.99072pt x 18.3084pt
+>
+File: ../cape-of-good-hope/private-boxes/RECEIPT.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/private-boxes/RECEIPT.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/private-boxes/RECEIPT.jpg used on
+ input line 37.
+(pdftex.def)             Requested size: 213.1102pt x 111.52646pt.
+<../cape-of-good-hope/private-boxes/PB2.jpg, id=652, 138.5175pt x 23.6082pt>
+File: ../cape-of-good-hope/private-boxes/PB2.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/private-boxes/PB2.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/private-boxes/PB2.jpg used on inp
+ut line 44.
+(pdftex.def)             Requested size: 213.1102pt x 36.3214pt.
+[87 <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-good-
+hope/private-boxes/PB-Piece.jpg> <C:/wamp/www/application-latest/stamp-notes/ca
+pe-of-good-hope/cape-of-good-hope/private-boxes/PB1.jpg>])
+(C:\wamp\www\application-latest\stamp-notes\cape-of-good-hope\tex\Money_Order_O
+ffice.tex [88 <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cap
+e-of-good-hope/private-boxes/RECEIPT.jpg> <C:/wamp/www/application-latest/stamp
+-notes/cape-of-good-hope/cape-of-good-hope/private-boxes/PB2.jpg>]
+<../cape-of-good-hope/moneyorderbranch/MOO-Stamps.jpg, id=662, 27.4626pt x 53.6
+0025pt>
+File: ../cape-of-good-hope/moneyorderbranch/MOO-Stamps.jpg Graphic file (type j
+pg)
+<use ../cape-of-good-hope/moneyorderbranch/MOO-Stamps.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/moneyorderbranch/MOO-Stamps.jpg u
+sed on input line 5.
+(pdftex.def)             Requested size: 137.74486pt x 268.93613pt.
+
+Underfull \hbox (badness 1057) in paragraph at lines 6--6
+\T1/pplj/m/n/8 Figure 86: Dat-es-tamps used in the
+ []
+
+
+LaTeX Warning: Marginpar on page 89 moved.
+
+
+<../cape-of-good-hope/moneyorderbranch/Money-Order-Advice.jpg, id=663, 100.6962
+pt x 125.0271pt>
+File: ../cape-of-good-hope/moneyorderbranch/Money-Order-Advice.jpg Graphic file
+ (type jpg)
+<use ../cape-of-good-hope/moneyorderbranch/Money-Order-Advice.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/moneyorderbranch/Money-Order-Advi
+ce.jpg used on input line 53.
+(pdftex.def)             Requested size: 213.1102pt x 264.625pt.
+
+Underfull \hbox (badness 1205) in paragraph at lines 53--53
+\T1/pplj/m/n/8 Life As-sur-ance So-ci-ety from Powrie
+ []
+
+
+Underfull \hbox (badness 1205) in paragraph at lines 53--53
+\T1/pplj/m/n/8 and Brother show-ing re-ceiv-ing date
+ []
+
+[89
+
+ <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-good-hop
+e/moneyorderbranch/MOO-Stamps.jpg>])
+(C:\wamp\www\application-latest\stamp-notes\cape-of-good-hope\tex\Post_Office_B
+ank.tex [90 <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-
+of-good-hope/moneyorderbranch/Money-Order-Advice.jpg>]
+<../cape-of-good-hope/moneyorderbranch/Deposit-Books.jpg, id=673, 205.7286pt x 
+172.9662pt>
+File: ../cape-of-good-hope/moneyorderbranch/Deposit-Books.jpg Graphic file (typ
+e jpg)
+<use ../cape-of-good-hope/moneyorderbranch/Deposit-Books.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/moneyorderbranch/Deposit-Books.jp
+g used on input line 3.
+(pdftex.def)             Requested size: 273.99815pt x 230.37206pt.
+)
+(C:\wamp\www\application-latest\stamp-notes\cape-of-good-hope\tex\Advertized_an
+d_Unclaimed.tex
+<../cape-of-good-hope/Advertized-and-Unclaimed/Advertized-and-Unclaimed-postmar
+k.jpg, id=674, 527.9725pt x 354.32375pt>
+File: ../cape-of-good-hope/Advertized-and-Unclaimed/Advertized-and-Unclaimed-po
+stmark.jpg Graphic file (type jpg)
+
+<use ../cape-of-good-hope/Advertized-and-Unclaimed/Advertized-and-Unclaimed-pos
+tmark.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/Advertized-and-Unclaimed/Advertiz
+ed-and-Unclaimed-postmark.jpg used on input line 10.
+(pdftex.def)             Requested size: 273.99815pt x 183.87636pt.
+
+Underfull \hbox (badness 3019) in paragraph at lines 10--10
+\T1/pplj/m/n/8 'Post-Restante' Cape Town, bear-ing
+ []
+
+
+Underfull \hbox (badness 2326) in paragraph at lines 10--10
+\T1/pplj/m/n/8 Re-turn Let-ter Of-fice dated Apr 06
+ []
+
+[91
+
+ <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-good-hop
+e/moneyorderbranch/Deposit-Books.jpg> <C:/wamp/www/application-latest/stamp-not
+es/cape-of-good-hope/cape-of-good-hope/Advertized-and-Unclaimed/Advertized-and-
+Unclaimed-postmark.jpg>]
+<../cape-of-good-hope/Advertized-and-Unclaimed/Unclaimed-postmarks.jpg, id=682,
+ 613.29124pt x 70.2625pt>
+File: ../cape-of-good-hope/Advertized-and-Unclaimed/Unclaimed-postmarks.jpg Gra
+phic file (type jpg)
+<use ../cape-of-good-hope/Advertized-and-Unclaimed/Unclaimed-postmarks.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/Advertized-and-Unclaimed/Unclaime
+d-postmarks.jpg used on input line 24.
+(pdftex.def)             Requested size: 289.22131pt x 33.13487pt.
+
+<../cape-of-good-hope/Advertized-and-Unclaimed/Advertized-and-Unclaimed-Postmar
+ks.jpg, id=683, 1300.86pt x 323.2075pt>
+File: ../cape-of-good-hope/Advertized-and-Unclaimed/Advertized-and-Unclaimed-Po
+stmarks.jpg Graphic file (type jpg)
+
+<use ../cape-of-good-hope/Advertized-and-Unclaimed/Advertized-and-Unclaimed-Pos
+tmarks.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/Advertized-and-Unclaimed/Advertiz
+ed-and-Unclaimed-Postmarks.jpg used on input line 25.
+(pdftex.def)             Requested size: 289.22131pt x 71.85548pt.
+
+<../cape-of-good-hope/Advertized-and-Unclaimed/Advertized-and-Unclaimed-Postmar
+ks-2.jpg, id=684, 865.2325pt x 241.90375pt>
+File: ../cape-of-good-hope/Advertized-and-Unclaimed/Advertized-and-Unclaimed-Po
+stmarks-2.jpg Graphic file (type jpg)
+
+<use ../cape-of-good-hope/Advertized-and-Unclaimed/Advertized-and-Unclaimed-Pos
+tmarks-2.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/Advertized-and-Unclaimed/Advertiz
+ed-and-Unclaimed-Postmarks-2.jpg used on input line 26.
+(pdftex.def)             Requested size: 289.22131pt x 80.862pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 24--28
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 24--28
+[]
+ []
+
+)
+(C:\wamp\www\application-latest\stamp-notes\cape-of-good-hope\tex\Missent_lette
+rs.tex
+<../cape-of-good-hope/missent-letters/Missent-Robben-Island-Front.jpg, id=685, 
+61.4295pt x 39.38715pt>
+File: ../cape-of-good-hope/missent-letters/Missent-Robben-Island-Front.jpg Grap
+hic file (type jpg)
+<use ../cape-of-good-hope/missent-letters/Missent-Robben-Island-Front.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/missent-letters/Missent-Robben-Is
+land-Front.jpg used on input line 7.
+(pdftex.def)             Requested size: 243.5565pt x 156.18147pt.
+<../cape-of-good-hope/missent-letters/1.jpg, id=686, 63.1158pt x 41.79614pt>
+File: ../cape-of-good-hope/missent-letters/1.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/missent-letters/1.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/missent-letters/1.jpg used on inp
+ut line 8.
+(pdftex.def)             Requested size: 243.5565pt x 161.30205pt.
+
+<../cape-of-good-hope/MISSENT-LETTERS/missent-cape-town.jpg, id=687, 398.99063p
+t x 312.41719pt>
+File: ../cape-of-good-hope/MISSENT-LETTERS/missent-cape-town.jpg Graphic file (
+type jpg)
+<use ../cape-of-good-hope/MISSENT-LETTERS/missent-cape-town.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/MISSENT-LETTERS/missent-cape-town
+.jpg used on input line 36.
+(pdftex.def)             Requested size: 289.22131pt x 226.47519pt.
+[92 <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-good-
+hope/Advertized-and-Unclaimed/Unclaimed-postmarks.jpg> <C:/wamp/www/application
+-latest/stamp-notes/cape-of-good-hope/cape-of-good-hope/Advertized-and-Unclaime
+d/Advertized-and-Unclaimed-Postmarks.jpg> <C:/wamp/www/application-latest/stamp
+-notes/cape-of-good-hope/cape-of-good-hope/Advertized-and-Unclaimed/Advertized-
+and-Unclaimed-Postmarks-2.jpg>])
+(C:\wamp\www\application-latest\stamp-notes\cape-of-good-hope\tex\Redirected_Le
+tters.tex [93 <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cap
+e-of-good-hope/missent-letters/Missent-Robben-Island-Front.jpg> <C:/wamp/www/ap
+plication-latest/stamp-notes/cape-of-good-hope/cape-of-good-hope/missent-letter
+s/1.jpg>] [94 <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cap
+e-of-good-hope/MISSENT-LETTERS/missent-cape-town.jpg>]
+<../cape-of-good-hope/redirected/Redirected-Entire.jpg, id=701, 52.5162pt x 58.
+17735pt>
+File: ../cape-of-good-hope/redirected/Redirected-Entire.jpg Graphic file (type 
+jpg)
+<use ../cape-of-good-hope/redirected/Redirected-Entire.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/redirected/Redirected-Entire.jpg 
+used on input line 4.
+(pdftex.def)             Requested size: 213.1102pt x 236.08476pt.
+
+<../cape-of-good-hope/redirected/Kimberley.jpg, id=702, 69.74055pt x 45.771pt>
+File: ../cape-of-good-hope/redirected/Kimberley.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/redirected/Kimberley.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/redirected/Kimberley.jpg used on 
+input line 15.
+(pdftex.def)             Requested size: 213.1102pt x 139.87646pt.
+
+<../cape-of-good-hope/redirected/redirected-president-steyn.jpg, id=703, 450.24
+21pt x 360.6273pt>
+File: ../cape-of-good-hope/redirected/redirected-president-steyn.jpg Graphic fi
+le (type jpg)
+<use ../cape-of-good-hope/redirected/redirected-president-steyn.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/redirected/redirected-president-s
+teyn.jpg used on input line 35.
+(pdftex.def)             Requested size: 213.1102pt x 170.69444pt.
+
+Underfull \hbox (badness 4168) in paragraph at lines 35--35
+\T1/pplj/m/n/8 in Hol-land and ad-dressed to Ex-
+ []
+
+
+Underfull \hbox (badness 1033) in paragraph at lines 35--35
+\T1/pplj/m/n/8 redi-rected to the Onzerust Post Of-
+ []
+
+
+Underfull \hbox (badness 2384) in paragraph at lines 35--35
+\T1/pplj/m/n/8 cover had the "OF-FI-CIALLY REDI-
+ []
+
+[95
+
+ <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-good-hop
+e/redirected/Redirected-Entire.jpg> <C:/wamp/www/application-latest/stamp-notes
+/cape-of-good-hope/cape-of-good-hope/redirected/Kimberley.jpg>]
+Overfull \hbox (21.6817pt too wide) in paragraph at lines 51--59
+\T1/pplj/m/sc/10/50ls REDI-RECTED KIM-BER-LEY (1) \T1/pplj/m/n/10 boxed ca-chet
+ in vi-o-let. With manuscript
+ []
+
+
+Overfull \hbox (1.18536pt too wide) in paragraph at lines 60--63
+[]\T1/pplj/m/n/10 There were also single- and double-lined redi-rec-tional hand
+-stamps
+ []
+
+)
+(C:\wamp\www\application-latest\stamp-notes\cape-of-good-hope\tex\Officially_Se
+aled_Letters.tex
+<../cape-of-good-hope/officially-sealed/capegh04.jpg, id=709, 145.7445pt x 195.
+3699pt>
+File: ../cape-of-good-hope/officially-sealed/capegh04.jpg Graphic file (type jp
+g)
+<use ../cape-of-good-hope/officially-sealed/capegh04.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/officially-sealed/capegh04.jpg us
+ed on input line 16.
+(pdftex.def)             Requested size: 182.66853pt x 244.8825pt.
+
+Underfull \hbox (badness 1168) in paragraph at lines 16--16
+\T1/pplj/m/n/8 Novem-ber 1900 cover from Potchef-
+ []
+
+
+Underfull \hbox (badness 1533) in paragraph at lines 16--16
+\T1/pplj/m/n/8 black Jo-han-nes-burg, Transvaal press
+ []
+
+)
+(C:\wamp\www\application-latest\stamp-notes\cape-of-good-hope\tex\Parcel_Post.t
+ex
+<../cape-of-good-hope/parcel-post/PRO-2-block.jpg, id=710, 45.40965pt x 28.3057
+6pt>
+File: ../cape-of-good-hope/parcel-post/PRO-2-block.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/parcel-post/PRO-2-block.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/parcel-post/PRO-2-block.jpg used 
+on input line 4.
+(pdftex.def)             Requested size: 182.66853pt x 113.87317pt.
+[96 <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-good-
+hope/redirected/redirected-president-steyn.jpg>] <../cape-of-good-hope/parcel-p
+ost/PRO-1.jpg, id=716, 31.0761pt x 9.03375pt>
+File: ../cape-of-good-hope/parcel-post/PRO-1.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/parcel-post/PRO-1.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/parcel-post/PRO-1.jpg used on inp
+ut line 16.
+(pdftex.def)             Requested size: 152.22223pt x 44.26979pt.
+[97 <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-good-
+hope/officially-sealed/capegh04.jpg> <C:/wamp/www/application-latest/stamp-note
+s/cape-of-good-hope/cape-of-good-hope/parcel-post/PRO-2-block.jpg> <C:/wamp/www
+/application-latest/stamp-notes/cape-of-good-hope/cape-of-good-hope/parcel-post
+/PRO-1.jpg>]
+<../cape-of-good-hope/parcel-post/PRO-2-and-3.jpg, id=724, 29.26935pt x 21.681p
+t>
+File: ../cape-of-good-hope/parcel-post/PRO-2-and-3.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/parcel-post/PRO-2-and-3.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/parcel-post/PRO-2-and-3.jpg used 
+on input line 25.
+(pdftex.def)             Requested size: 152.22223pt x 112.77092pt.
+)
+(C:\wamp\www\application-latest\stamp-notes\cape-of-good-hope\tex\Posted_out_of
+_course.tex [98 <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/c
+ape-of-good-hope/parcel-post/PRO-2-and-3.jpg>]
+<../cape-of-good-hope/posted-out-of-course.jpg, id=731, 77.088pt x 46.13235pt>
+File: ../cape-of-good-hope/posted-out-of-course.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/posted-out-of-course.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/posted-out-of-course.jpg used on 
+input line 6.
+(pdftex.def)             Requested size: 289.22131pt x 173.13736pt.
+
+Overfull \hbox (3.47534pt too wide) in paragraph at lines 9--13
+[]\T1/pplj/m/n/10 According to reg-u-la-tions a packet had to be posted over th
+e counter
+ []
+
+)
+(C:\wamp\www\application-latest\stamp-notes\cape-of-good-hope\tex\Parcel_post_k
+imberley.tex <../cape-of-good-hope/griqualand-block.jpg, id=732, 769.87625pt x 
+879.285pt>
+File: ../cape-of-good-hope/griqualand-block.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/griqualand-block.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/griqualand-block.jpg used on inpu
+t line 13.
+(pdftex.def)             Requested size: 213.1102pt x 243.39401pt.
+
+<../cape-of-good-hope/griqualand-block-certificate.jpg, id=733, 1759.57375pt x 
+2486.28876pt>
+File: ../cape-of-good-hope/griqualand-block-certificate.jpg Graphic file (type 
+jpg)
+<use ../cape-of-good-hope/griqualand-block-certificate.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/griqualand-block-certificate.jpg 
+used on input line 21.
+(pdftex.def)             Requested size: 152.22223pt x 215.0686pt.
+[99
+
+ <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-good-hop
+e/posted-out-of-course.jpg>] [100 <C:/wamp/www/application-latest/stamp-notes/c
+ape-of-good-hope/cape-of-good-hope/griqualand-block.jpg> <C:/wamp/www/applicati
+on-latest/stamp-notes/cape-of-good-hope/cape-of-good-hope/griqualand-block-cert
+ificate.jpg>])
+(C:\wamp\www\application-latest\stamp-notes\cape-of-good-hope\tex\Parcel_Post_C
+ork_Cancellations.tex
+<../cape-of-good-hope/cork-kimberley.jpg, id=745, 1727.45375pt x 1062.97125pt>
+File: ../cape-of-good-hope/cork-kimberley.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/cork-kimberley.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/cork-kimberley.jpg used on input 
+line 6.
+(pdftex.def)             Requested size: 468.3323pt x 288.17389pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 6--8
+
+ []
+
+
+Underfull \hbox (badness 2409) in paragraph at lines 8--8
+\T1/pplj/m/n/8 Figure 103: A par-cel post re-ceipt
+ []
+
+
+Overfull \hbox (4.70532pt too wide) in paragraph at lines 13--14
+\T1/pplj/m/n/10 cellers are roughly cru-ci-form, the cross be-ing ei-ther in re
+-lief or sunken.
+ []
+
+[101 <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-good
+-hope/cork-kimberley.jpg>]
+<../cape-of-good-hope/cork-kimberley-01.jpg, id=751, 765.86125pt x 629.35126pt>
+File: ../cape-of-good-hope/cork-kimberley-01.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/cork-kimberley-01.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/cork-kimberley-01.jpg used on inp
+ut line 24.
+(pdftex.def)             Requested size: 304.44447pt x 250.18033pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 24--26
+
+ []
+
+
+LaTeX Warning: Reference `capecork01' on page 102 undefined on input line 28.
+
+
+<../cape-of-good-hope/cork-cape-town-01.jpg, id=752, 185.94469pt x 228.10219pt>
+File: ../cape-of-good-hope/cork-cape-town-01.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/cork-cape-town-01.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/cork-cape-town-01.jpg used on inp
+ut line 31.
+(pdftex.def)             Requested size: 140.5566pt x 172.42665pt.
+<../cape-of-good-hope/cork-cape-town.jpg, id=753, 368.87813pt x 443.40656pt>
+File: ../cape-of-good-hope/cork-cape-town.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/cork-cape-town.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/cork-cape-town.jpg used on input 
+line 38.
+(pdftex.def)             Requested size: 182.66853pt x 219.57149pt.
+
+LaTeX Warning: Reference `swellendam' on page 102 undefined on input line 42.
+
+
+Overfull \hbox (2.95535pt too wide) in paragraph at lines 42--43
+[]\T1/pplj/m/n/10 Another in-ter-est-ing cork oblit-er-a-tor was that of Swelle
+n-dam, which
+ []
+
+<../cape-of-good-hope/cork-swellendam.jpg, id=754, 261.97874pt x 163.3603pt>
+File: ../cape-of-good-hope/cork-swellendam.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/cork-swellendam.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/cork-swellendam.jpg used on input
+ line 45.
+(pdftex.def)             Requested size: 182.66853pt x 113.90773pt.
+
+LaTeX Warning: Reference `blyskraal' on page 102 undefined on input line 50.
+
+[102 <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-good
+-hope/cork-kimberley-01.jpg> <C:/wamp/www/application-latest/stamp-notes/cape-o
+f-good-hope/cape-of-good-hope/cork-cape-town-01.jpg>] [103 <C:/wamp/www/applica
+tion-latest/stamp-notes/cape-of-good-hope/cape-of-good-hope/cork-cape-town.jpg>
+ <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-good-hop
+e/cork-swellendam.jpg>] <../cape-of-good-hope/cork-blys.jpg, id=765, 147.55125p
+t x 148.30406pt>
+File: ../cape-of-good-hope/cork-blys.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/cork-blys.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/cork-blys.jpg used on input line 
+53.
+(pdftex.def)             Requested size: 106.55742pt x 107.10242pt.
+
+<../cape-of-good-hope/cork-diamond-fields.jpg, id=766, 140.02313pt x 169.38281p
+t>
+File: ../cape-of-good-hope/cork-diamond-fields.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/cork-diamond-fields.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/cork-diamond-fields.jpg used on i
+nput line 61.
+(pdftex.def)             Requested size: 106.55742pt x 128.90543pt.
+
+<../cape-of-good-hope/cork-diamond-fields-01.jpg, id=767, 139.27031pt x 167.124
+37pt>
+File: ../cape-of-good-hope/cork-diamond-fields-01.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/cork-diamond-fields-01.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/cork-diamond-fields-01.jpg used o
+n input line 62.
+(pdftex.def)             Requested size: 106.55742pt x 127.87267pt.
+<../cape-of-good-hope/corks.jpg, id=768, 2076.75874pt x 2401.97375pt>
+File: ../cape-of-good-hope/corks.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/corks.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/corks.jpg used on input line 72.
+(pdftex.def)             Requested size: 468.3323pt x 541.66692pt.
+[104 <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-good
+-hope/cork-blys.jpg> <C:/wamp/www/application-latest/stamp-notes/cape-of-good-h
+ope/cape-of-good-hope/cork-diamond-fields.jpg> <C:/wamp/www/application-latest/
+stamp-notes/cape-of-good-hope/cape-of-good-hope/cork-diamond-fields-01.jpg>] [1
+05 <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-good-h
+ope/corks.jpg>]
+<../cape-of-good-hope/parcel-post/cork-on-cover.jpg, id=777, 865.2325pt x 687.5
+6876pt>
+File: ../cape-of-good-hope/parcel-post/cork-on-cover.jpg Graphic file (type jpg
+)
+<use ../cape-of-good-hope/parcel-post/cork-on-cover.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/parcel-post/cork-on-cover.jpg use
+d on input line 90.
+(pdftex.def)             Requested size: 243.5565pt x 193.5461pt.
+
+<../cape-of-good-hope/parcel-post/cork-on-cover-2.jpg, id=778, 163.812pt x 93.7
+101pt>
+File: ../cape-of-good-hope/parcel-post/cork-on-cover-2.jpg Graphic file (type j
+pg)
+<use ../cape-of-good-hope/parcel-post/cork-on-cover-2.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/parcel-post/cork-on-cover-2.jpg u
+sed on input line 100.
+(pdftex.def)             Requested size: 243.5565pt x 139.3408pt.
+
+Underfull \hbox (badness 2538) in paragraph at lines 100--100
+\T1/pplj/m/n/8 Figure 111: 1895 CORK CAN-CEL
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 100--100
+\T1/pplj/m/n/8 PROV-ING COVER: GAR-DENS to
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 100--100
+\T1/pplj/m/n/8 MOS-SEL BAY: Cover franked 1d
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 100--100
+\T1/pplj/m/n/8 Hope Stand-ing su-perbly tied by
+ []
+
+
+Underfull \hbox (badness 3746) in paragraph at lines 100--100
+\T1/pplj/m/n/8 com-plete cork can-cel - shaped as
+ []
+
+
+Underfull \hbox (badness 2103) in paragraph at lines 100--100
+\T1/pplj/m/n/8 multi-segmented retta style form-ing
+ []
+
+
+Underfull \hbox (badness 1024) in paragraph at lines 100--100
+\T1/pplj/m/n/8 a cir-cle. Front shows Gar-dens TO
+ []
+
+) [106
+
+ <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-good-hop
+e/parcel-post/cork-on-cover.jpg> <C:/wamp/www/application-latest/stamp-notes/ca
+pe-of-good-hope/cape-of-good-hope/parcel-post/cork-on-cover-2.jpg>]
+(C:\wamp\www\application-latest\stamp-notes\cape-of-good-hope\tex\Railway_Postc
+ards_Series_1_Large_Logo.tex <../cape-of-good-hope/railway/mail-boat.jpg, id=78
+3, 402.5439pt x 257.2812pt>
+File: ../cape-of-good-hope/railway/mail-boat.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/railway/mail-boat.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/railway/mail-boat.jpg used on inp
+ut line 11.
+(pdftex.def)             Requested size: 182.66853pt x 116.75299pt.
+
+<../cape-of-good-hope/railway/muizenberg.jpg, id=784, 406.1574pt x 255.8358pt>
+File: ../cape-of-good-hope/railway/muizenberg.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/railway/muizenberg.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/railway/muizenberg.jpg used on in
+put line 16.
+(pdftex.def)             Requested size: 301.40169pt x 189.85034pt.
+)
+(C:\wamp\www\application-latest\stamp-notes\cape-of-good-hope\tex\TPO_no-name.t
+ex
+<../cape-of-good-hope/TPO_Images/tpo_up.png, id=785, 146.8465pt x 163.76074pt>
+File: ../cape-of-good-hope/TPO_Images/tpo_up.png Graphic file (type png)
+<use ../cape-of-good-hope/TPO_Images/tpo_up.png>
+Package pdftex.def Info: ../cape-of-good-hope/TPO_Images/tpo_up.png used on inp
+ut line 10.
+(pdftex.def)             Requested size: 106.55742pt x 118.83218pt.
+[107
+
+ <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-good-hop
+e/railway/mail-boat.jpg> <C:/wamp/www/application-latest/stamp-notes/cape-of-go
+od-hope/cape-of-good-hope/railway/muizenberg.jpg>])
+(C:\wamp\www\application-latest\stamp-notes\cape-of-good-hope\tex\TPO_Albany.te
+x
+<../cape-of-good-hope/TPO_Images/Albany-Card-1.jpg, id=794, 54.9252pt x 33.2442
+pt>
+File: ../cape-of-good-hope/TPO_Images/Albany-Card-1.jpg Graphic file (type jpg)
+
+<use ../cape-of-good-hope/TPO_Images/Albany-Card-1.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/TPO_Images/Albany-Card-1.jpg used
+ on input line 10.
+(pdftex.def)             Requested size: 273.99815pt x 165.89742pt.
+
+Underfull \hbox (badness 1264) in paragraph at lines 10--10
+\T1/pplj/m/n/8 Hope Post-card from Kim-ber-ley and
+ []
+
+
+<../cape-of-good-hope/TPO_Images/Albany-card-2.jpg, id=795, 403.62794pt x 261.9
+7874pt>
+File: ../cape-of-good-hope/TPO_Images/Albany-card-2.jpg Graphic file (type jpg)
+
+<use ../cape-of-good-hope/TPO_Images/Albany-card-2.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/TPO_Images/Albany-card-2.jpg used
+ on input line 17.
+(pdftex.def)             Requested size: 273.99815pt x 177.83937pt.
+)
+(C:\wamp\www\application-latest\stamp-notes\cape-of-good-hope\tex\TPO_Zwartkops
+.tex
+<../cape-of-good-hope/TPO_Images/Zwartkops_back.jpg, id=796, 34.56915pt x 53.84
+116pt>
+File: ../cape-of-good-hope/TPO_Images/Zwartkops_back.jpg Graphic file (type jpg
+)
+<use ../cape-of-good-hope/TPO_Images/Zwartkops_back.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/TPO_Images/Zwartkops_back.jpg use
+d on input line 9.
+(pdftex.def)             Requested size: 213.1102pt x 331.97954pt.
+
+Underfull \hbox (badness 2269) in paragraph at lines 9--9
+\T1/pplj/m/n/8 dated Nove-me-ber 28 1894. Back-
+ []
+
+
+Underfull \hbox (badness 4441) in paragraph at lines 9--9
+\T1/pplj/m/n/8 stamped scarce 'Zwartkops Sort-ing
+ []
+
+[108 <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-good
+-hope/TPO_Images/tpo_up.png>] [109 <C:/wamp/www/application-latest/stamp-notes/
+cape-of-good-hope/cape-of-good-hope/TPO_Images/Albany-Card-1.jpg> <C:/wamp/www/
+application-latest/stamp-notes/cape-of-good-hope/cape-of-good-hope/TPO_Images/A
+lbany-card-2.jpg>]
+Overfull \hbox (3.04533pt too wide) in paragraph at lines 19--20
+[]\T1/pplj/m/n/10 Probably be-cause of the short pe-riod of op-er-a-tion Gold-b
+altt records
+ []
+
+
+<../cape-of-good-hope/TPO_Images/Zwartkops_front.jpg, id=810, 30.71475pt x 19.3
+9246pt>
+File: ../cape-of-good-hope/TPO_Images/Zwartkops_front.jpg Graphic file (type jp
+g)
+<use ../cape-of-good-hope/TPO_Images/Zwartkops_front.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/TPO_Images/Zwartkops_front.jpg us
+ed on input line 24.
+(pdftex.def)             Requested size: 182.66853pt x 115.37521pt.
+[110 <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-good
+-hope/TPO_Images/Zwartkops_back.jpg> <C:/wamp/www/application-latest/stamp-note
+s/cape-of-good-hope/cape-of-good-hope/TPO_Images/Zwartkops_front.jpg>])
+(C:\wamp\www\application-latest\stamp-notes\cape-of-good-hope\tex\3_on_Three_Ov
+erprint.tex [111] [112
+
+]
+<../cape-of-good-hope/images/3-Sheet-Reconstruction.jpg, id=823, 27.76372pt x 4
+4.74718pt>
+File: ../cape-of-good-hope/images/3-Sheet-Reconstruction.jpg Graphic file (type
+ jpg)
+<use ../cape-of-good-hope/images/3-Sheet-Reconstruction.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/images/3-Sheet-Reconstruction.jpg
+ used on input line 6.
+(pdftex.def)             Requested size: 152.22223pt x 245.4587pt.
+
+<../cape-of-good-hope/images/3-ON-THREE-IMAGES/narrow-3-block.jpg, id=824, 74.1
+972pt x 83.1105pt>
+File: ../cape-of-good-hope/images/3-ON-THREE-IMAGES/narrow-3-block.jpg Graphic 
+file (type jpg)
+<use ../cape-of-good-hope/images/3-ON-THREE-IMAGES/narrow-3-block.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/images/3-ON-THREE-IMAGES/narrow-3
+-block.jpg used on input line 26.
+(pdftex.def)             Requested size: 182.66853pt x 204.63824pt.
+
+<../cape-of-good-hope/images/3-ON-THREE-IMAGES/3-on-three-omitted.jpg, id=825, 
+37.21906pt x 125.7498pt>
+File: ../cape-of-good-hope/images/3-ON-THREE-IMAGES/3-on-three-omitted.jpg Grap
+hic file (type jpg)
+<use ../cape-of-good-hope/images/3-ON-THREE-IMAGES/3-on-three-omitted.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/images/3-ON-THREE-IMAGES/3-on-thr
+ee-omitted.jpg used on input line 41.
+(pdftex.def)             Requested size: 91.33426pt x 308.58664pt.
+[113 <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-good
+-hope/images/3-Sheet-Reconstruction.jpg>] [114 <C:/wamp/www/application-latest/
+stamp-notes/cape-of-good-hope/cape-of-good-hope/images/3-ON-THREE-IMAGES/narrow
+-3-block.jpg> <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cap
+e-of-good-hope/images/3-ON-THREE-IMAGES/3-on-three-omitted.jpg>]
+<../cape-of-good-hope/images/3-ON-THREE-IMAGES/3-pair-inverted.png, id=835, 115
+.632pt x 70.5837pt>
+File: ../cape-of-good-hope/images/3-ON-THREE-IMAGES/3-pair-inverted.png Graphic
+ file (type png)
+<use ../cape-of-good-hope/images/3-ON-THREE-IMAGES/3-pair-inverted.png>
+Package pdftex.def Info: ../cape-of-good-hope/images/3-ON-THREE-IMAGES/3-pair-i
+nverted.png used on input line 68.
+(pdftex.def)             Requested size: 133.52834pt x 81.512pt.
+)
+(C:\wamp\www\application-latest\stamp-notes\cape-of-good-hope\tex\First_Definit
+ives_with_frame.tex [115 <C:/wamp/www/application-latest/stamp-notes/cape-of-go
+od-hope/cape-of-good-hope/images/3-ON-THREE-IMAGES/3-pair-inverted.png>] [116
+
+]
+<../cape-of-good-hope/ADHESIVES/rectangulars-seated-hope/1d-noframe.jpg, id=847
+, 62.3931pt x 71.36662pt>
+File: ../cape-of-good-hope/ADHESIVES/rectangulars-seated-hope/1d-noframe.jpg Gr
+aphic file (type jpg)
+<use ../cape-of-good-hope/ADHESIVES/rectangulars-seated-hope/1d-noframe.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/ADHESIVES/rectangulars-seated-hop
+e/1d-noframe.jpg used on input line 15.
+(pdftex.def)             Requested size: 91.33426pt x 104.47316pt.
+
+Underfull \hbox (badness 2158) in paragraph at lines 15--15
+\T1/pplj/m/n/8 Figure 122: Spiro Cape Tri-an-gu-lar
+ []
+
+<../cape-of-good-hope/7034_9_1.jpg, id=848, 351.3125pt x 202.7575pt>
+File: ../cape-of-good-hope/7034_9_1.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/7034_9_1.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/7034_9_1.jpg used on input line 2
+3.
+(pdftex.def)             Requested size: 182.66853pt x 105.42831pt.
+
+<../cape-of-good-hope/ADHESIVES/rectangulars-seated-hope/Rectangular-Cancelled-
+One-Shilling.jpg, id=849, 34.74983pt x 21.25943pt>
+File: ../cape-of-good-hope/ADHESIVES/rectangulars-seated-hope/Rectangular-Cance
+lled-One-Shilling.jpg Graphic file (type jpg)
+
+<use ../cape-of-good-hope/ADHESIVES/rectangulars-seated-hope/Rectangular-Cancel
+led-One-Shilling.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/ADHESIVES/rectangulars-seated-hop
+e/Rectangular-Cancelled-One-Shilling.jpg used on input line 39.
+(pdftex.def)             Requested size: 273.99815pt x 167.77727pt.
+
+Overfull \hbox (0.5854pt too wide) in paragraph at lines 44--50
+\T1/pplj/m/n/10 from the 1st April, 1863, in an in-creased rate of postage be-i
+ng charged
+ []
+
+[117 <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-good
+-hope/ADHESIVES/rectangulars-seated-hope/1d-noframe.jpg> <C:/wamp/www/applicati
+on-latest/stamp-notes/cape-of-good-hope/cape-of-good-hope/7034_9_1.jpg>] <../ca
+pe-of-good-hope/7034_6_1.jpg, id=856, 351.3125pt x 318.18875pt>
+File: ../cape-of-good-hope/7034_6_1.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/7034_6_1.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/7034_6_1.jpg used on input line 9
+3.
+(pdftex.def)             Requested size: 182.66853pt x 165.44939pt.
+
+Underfull \hbox (badness 1112) in paragraph at lines 93--93
+\T1/pplj/m/n/8 Is-sues Lot: 6 Cape of Good Hope
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 93--93
+\T1/pplj/m/n/8 Photo Es-ti-mate AAA¿AAAA1,500-
+ []
+
+
+Underfull \hbox (badness 1009) in paragraph at lines 93--93
+\T1/pplj/m/n/8 2,000 prove-nance: Christie's Rob-son
+ []
+
+
+Overfull \hbox (26.66533pt too wide) in paragraph at lines 94--95
+[]\T1/pplj/m/n/10 <p class="small">The Rect-an-gu-lars</p><div style="clear:bot
+h"></div> 
+ []
+
+[118 <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-good
+-hope/ADHESIVES/rectangulars-seated-hope/Rectangular-Cancelled-One-Shilling.jpg
+>] <../cape-of-good-hope/7034_11_1.jpg, id=861, 351.3125pt x 415.5525pt>
+File: ../cape-of-good-hope/7034_11_1.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/7034_11_1.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/7034_11_1.jpg used on input line 
+113.
+(pdftex.def)             Requested size: 182.66853pt x 216.07585pt.
+
+Overfull \hbox (26.66533pt too wide) in paragraph at lines 114--115
+[]\T1/pplj/m/n/10 <p class="small">The Rect-an-gu-lars</p><div style="clear:bot
+h"></div> 
+ []
+
+[119 <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-good
+-hope/7034_6_1.jpg> <C:/wamp/www/application-latest/stamp-notes/cape-of-good-ho
+pe/cape-of-good-hope/7034_11_1.jpg>] <../cape-of-good-hope/7034_5_1.jpg, id=868
+, 351.3125pt x 319.1925pt>
+File: ../cape-of-good-hope/7034_5_1.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/7034_5_1.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/7034_5_1.jpg used on input line 1
+54.
+(pdftex.def)             Requested size: 213.1102pt x 193.63075pt.
+
+Underfull \hbox (badness 2443) in paragraph at lines 154--154
+\T1/pplj/m/n/8 Figure 127: Auc-tion: 7034 - The
+ []
+
+
+Underfull \hbox (badness 1527) in paragraph at lines 154--154
+\T1/pplj/m/n/8 Rect-an-gu-lar Is-sues Lot: 5 Cape of
+ []
+
+
+Underfull \hbox (badness 4846) in paragraph at lines 154--154
+\T1/pplj/m/n/8 fixed to card (65x58mm.). Rare
+ []
+
+
+Underfull \hbox (badness 3746) in paragraph at lines 154--154
+\T1/pplj/m/n/8 and most at-trac-tive. Photo Es-ti-
+ []
+
+
+Underfull \hbox (badness 3815) in paragraph at lines 154--154
+\T1/pplj/m/n/8 mate AAA¿AAAA1,500-2,000 prove-
+ []
+
+
+Overfull \hbox (26.66533pt too wide) in paragraph at lines 155--156
+[]\T1/pplj/m/n/10 <p class="small">The Rect-an-gu-lars</p><div style="clear:bot
+h"></div> 
+ []
+
+<../cape-of-good-hope/7034_7_1.jpg, id=869, 501.875pt x 276.03125pt>
+File: ../cape-of-good-hope/7034_7_1.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/7034_7_1.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/7034_7_1.jpg used on input line 1
+92.
+(pdftex.def)             Requested size: 213.1102pt x 117.21274pt.
+
+Underfull \hbox (badness 1789) in paragraph at lines 192--192
+\T1/pplj/m/n/8 blue, both hand-stamped "spec-i-men"
+ []
+
+
+Overfull \hbox (26.66533pt too wide) in paragraph at lines 193--194
+[]\T1/pplj/m/n/10 <p class="small">The Rect-an-gu-lars</p><div style="clear:bot
+h"></div> 
+ []
+
+<../cape-of-good-hope/7034_8_1.jpg, id=870, 351.3125pt x 104.39pt>
+File: ../cape-of-good-hope/7034_8_1.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/7034_8_1.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/7034_8_1.jpg used on input line 2
+06.
+(pdftex.def)             Requested size: 301.40169pt x 89.56656pt.
+[120 <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-good
+-hope/7034_5_1.jpg>]
+Overfull \hbox (26.66533pt too wide) in paragraph at lines 207--208
+[]\T1/pplj/m/n/10 <p class="small">The Rect-an-gu-lars</p><div style="clear:bot
+h"></div> 
+ []
+
+)
+(C:\wamp\www\application-latest\stamp-notes\cape-of-good-hope\tex\Second_Defini
+tives_with_frame_removed.tex [121 <C:/wamp/www/application-latest/stamp-notes/c
+ape-of-good-hope/cape-of-good-hope/7034_7_1.jpg> <C:/wamp/www/application-lates
+t/stamp-notes/cape-of-good-hope/cape-of-good-hope/7034_8_1.jpg>] [122
+
+]
+<../cape-of-good-hope/clip_image002_0002.jpg, id=886, 152.06813pt x 180.675pt>
+File: ../cape-of-good-hope/clip_image002_0002.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/clip_image002_0002.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/clip_image002_0002.jpg used on in
+put line 17.
+(pdftex.def)             Requested size: 140.5566pt x 167.00319pt.
+
+<../cape-of-good-hope/clip_image002_0001.jpg, id=887, 149.05687pt x 181.42781pt
+>
+File: ../cape-of-good-hope/clip_image002_0001.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/clip_image002_0001.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/clip_image002_0001.jpg used on in
+put line 24.
+(pdftex.def)             Requested size: 140.5566pt x 171.0903pt.
+
+LaTeX Warning: Marginpar on page 123 moved.
+
+[123 <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-good
+-hope/clip_image002_0002.jpg> <C:/wamp/www/application-latest/stamp-notes/cape-
+of-good-hope/cape-of-good-hope/clip_image002_0001.jpg>]
+Overfull \hbox (3.83832pt too wide) in paragraph at lines 84--88
+[]\T1/pplj/m/n/9 The lo-cal Post-mas-ter sug-gests that, if prac-ti-ca-ble, the
+ four penny stamps
+ []
+
+)
+(C:\wamp\www\application-latest\stamp-notes\cape-of-good-hope\tex\Fourth_Defini
+tive_Issue.tex <../cape-of-good-hope/82-83-die-proof.jpg, id=896, 163.812pt x 1
+09.3686pt>
+File: ../cape-of-good-hope/82-83-die-proof.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/82-83-die-proof.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/82-83-die-proof.jpg used on input
+ line 9.
+(pdftex.def)             Requested size: 270.95538pt x 180.936pt.
+[124 <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-good
+-hope/82-83-die-proof.jpg>])
+(C:\wamp\www\application-latest\stamp-notes\cape-of-good-hope\tex\Fourth_Defini
+tive_Issue.tex
+File: ../cape-of-good-hope/82-83-die-proof.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/82-83-die-proof.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/82-83-die-proof.jpg used on input
+ line 9.
+(pdftex.def)             Requested size: 270.95538pt x 180.936pt.
+[125])
+(C:\wamp\www\application-latest\stamp-notes\cape-of-good-hope\tex\Fifth_Definit
+ive_Issue.tex
+<../cape-of-good-hope/ADHESIVES/rectangulars-seated-hope/watermark-Cabled-Ancho
+r.jpg, id=911, 52.5162pt x 65.2839pt>
+File: ../cape-of-good-hope/ADHESIVES/rectangulars-seated-hope/watermark-Cabled-
+Anchor.jpg Graphic file (type jpg)
+
+<use ../cape-of-good-hope/ADHESIVES/rectangulars-seated-hope/watermark-Cabled-A
+nchor.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/ADHESIVES/rectangulars-seated-hop
+e/watermark-Cabled-Anchor.jpg used on input line 20.
+(pdftex.def)             Requested size: 91.33426pt x 113.54027pt.
+[126]
+<../cape-of-good-hope/ADHESIVES/rectangulars-seated-hope/Two-and-Half-Penny.jpg
+, id=920, 60.225pt x 72.5109pt>
+File: ../cape-of-good-hope/ADHESIVES/rectangulars-seated-hope/Two-and-Half-Penn
+y.jpg Graphic file (type jpg)
+
+<use ../cape-of-good-hope/ADHESIVES/rectangulars-seated-hope/Two-and-Half-Penny
+.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/ADHESIVES/rectangulars-seated-hop
+e/Two-and-Half-Penny.jpg used on input line 31.
+(pdftex.def)             Requested size: 91.33426pt x 109.97647pt.
+)
+(C:\wamp\www\application-latest\stamp-notes\cape-of-good-hope\tex\King_Edward.t
+ex [127 <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-g
+ood-hope/ADHESIVES/rectangulars-seated-hope/watermark-Cabled-Anchor.jpg> <C:/wa
+mp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-good-hope/ADHES
+IVES/rectangulars-seated-hope/Two-and-Half-Penny.jpg>] <../cape-of-good-hope/fr
+ank/385.jpg, id=930, 376.40625pt x 228.10219pt>
+File: ../cape-of-good-hope/frank/385.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/frank/385.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/frank/385.jpg used on input line 
+13.
+(pdftex.def)             Requested size: 213.1102pt x 129.14944pt.
+
+<../cape-of-good-hope/ADHESIVES/edward-proofs.jpg, id=931, 501.875pt x 913.4125
+pt>
+File: ../cape-of-good-hope/ADHESIVES/edward-proofs.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/ADHESIVES/edward-proofs.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/ADHESIVES/edward-proofs.jpg used 
+on input line 31.
+(pdftex.def)             Requested size: 152.22223pt x 277.05031pt.
+
+Underfull \hbox (badness 1565) in paragraph at lines 31--31
+\T1/pplj/m/n/8 Ed-ward VII Is-sue Im-per-fo-rate Plate
+ []
+
+<../cape-of-good-hope/frank/384.jpg, id=932, 376.40625pt x 120.45pt>
+File: ../cape-of-good-hope/frank/384.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/frank/384.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/frank/384.jpg used on input line 
+44.
+(pdftex.def)             Requested size: 298.35428pt x 95.47975pt.
+
+Underfull \hbox (badness 1881) in paragraph at lines 44--44
+[]\T1/pplj/m/n/8 1902-04 King Ed-ward VII Is-sue
+ []
+
+
+<../cape-of-good-hope/ADHESIVES/King-Edward.jpg, id=933, 625.33624pt x 86.3225p
+t>
+File: ../cape-of-good-hope/ADHESIVES/King-Edward.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/ADHESIVES/King-Edward.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/ADHESIVES/King-Edward.jpg used on
+ input line 48.
+(pdftex.def)             Requested size: 298.35428pt x 41.18668pt.
+[128 <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-good
+-hope/frank/385.jpg>] [129 <C:/wamp/www/application-latest/stamp-notes/cape-of-
+good-hope/cape-of-good-hope/ADHESIVES/edward-proofs.jpg> <C:/wamp/www/applicati
+on-latest/stamp-notes/cape-of-good-hope/cape-of-good-hope/frank/384.jpg> <C:/wa
+mp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-good-hope/ADHES
+IVES/King-Edward.jpg>]
+Overfull \hbox (4.6854pt too wide) in paragraph at lines 100--102
+[]\T1/pplj/m/n/10 Rectangular de-sign with por-trait of King Ed-ward VII. Wa-te
+r-marked
+ []
+
+[130] <../cape-of-good-hope/protea-sugar-bush.jpg, id=948, 566.115pt x 440.3953
+1pt>
+File: ../cape-of-good-hope/protea-sugar-bush.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/protea-sugar-bush.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/protea-sugar-bush.jpg used on inp
+ut line 131.
+(pdftex.def)             Requested size: 213.1102pt x 165.7795pt.
+[131 <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-good
+-hope/protea-sugar-bush.jpg>]
+! Missing $ inserted.
+<inserted text> 
+                $
+l.137 ...//djvued.libs.uga.edu/QK1xC981/1f/curtis_
+                                                  botanical_mag_vol_09_10.pd...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.138 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+Overfull \hbox (110.89531pt too wide) in paragraph at lines 137--138
+[]\T1/pplj/m/n/10 http://djvued.libs.uga.edu/QK1xC981/1f/curtis$[]\OML/zplm/m/i
+t/10 otanical[]ag[]ol[]\OT1/pplx/m/n/10 9[]0.\OML/zplm/m/it/10 pdf\OT1/zplm/m/n
+/10 (\OML/zplm/m/it/10 Proteafordesign\OT1/zplm/m/n/10 )$ 
+ []
+
+)
+(C:\wamp\www\application-latest\stamp-notes\cape-of-good-hope\tex\King_Edward_O
+fficial.tex
+
+LaTeX Warning: File `../cape-of-good-hope/ADHESIVES/official KE.jpg' not found 
+on input line 6.
+
+
+<../cape-of-good-hope/ADHESIVES/official KE.jpg, id=953, 163.812pt x 105.2733pt
+>
+File: ../cape-of-good-hope/ADHESIVES/official KE.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/ADHESIVES/official KE.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/ADHESIVES/official KE.jpg used on
+ input line 6.
+(pdftex.def)             Requested size: 298.35428pt x 191.77118pt.
+
+Overfull \hbox (6.9353pt too wide) in paragraph at lines 8--9
+[]\T1/pplj/m/n/10 The Cape Gov-ern-ment Print-ing and Sta-tionery De-part-ment 
+adopted
+ []
+
+<../cape-of-good-hope/clip_image007.jpg, id=954, 64.74188pt x 79.79813pt>
+File: ../cape-of-good-hope/clip_image007.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/clip_image007.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/clip_image007.jpg used on input l
+ine 14.
+(pdftex.def)             Requested size: 91.33426pt x 112.58717pt.
+[132 <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-good
+-hope/ADHESIVES/official KE.jpg>]
+
+! Package inputenc Error: Unicode char \u8:Â­ not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.18 ...gh these frequently bear postal obliteraÂ­
+                                                  tions, they were never
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Misplaced alignment tab character &.
+l.26 ...on-Castle Steamship Co. Lt., C E Gardner &
+                                                   Co. Ltd., R Muller
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+
+Overfull \hbox (2.3754pt too wide) in paragraph at lines 25--27
+\T1/pplj/m/n/10 ini-tials to elim-i-nate pil-fer-age of stamps from the Com-pan
+y con-cerned.
+ []
+
+<../cape-of-good-hope/perfin-cover.jpg, id=962, 163.812pt x 103.3461pt>
+File: ../cape-of-good-hope/perfin-cover.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/perfin-cover.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/perfin-cover.jpg used on input li
+ne 39.
+(pdftex.def)             Requested size: 298.35428pt x 188.26048pt.
+! Misplaced alignment tab character &.
+\@tufte@stored@caption ...s) franked PERFINED ("H&
+                                                  S") 2d Hope seated plus 1d...
+l.39 }
+      
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+
+Underfull \hbox (badness 1622) in paragraph at lines 39--39
+\T1/pplj/m/n/8 Figure 143: PERFINS ON COVER:
+ []
+
+
+Underfull \hbox (badness 1248) in paragraph at lines 39--39
+\T1/pplj/m/n/8 franked PERFINED ("HS") 2d Hope
+ []
+
+
+Underfull \hbox (badness 1173) in paragraph at lines 39--39
+\T1/pplj/m/n/8 and two strikes of Reg-is-tered Cape
+ []
+
+)
+(C:\wamp\www\application-latest\stamp-notes\cape-of-good-hope\tex\cigarette_dut
+y.tex [133 <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-o
+f-good-hope/clip_image007.jpg> <C:/wamp/www/application-latest/stamp-notes/cape
+-of-good-hope/cape-of-good-hope/perfin-cover.jpg>] [134
+
+]
+<../cape-of-good-hope/cigarette-duty-used.jpg, id=974, 294.3798pt x 265.4718pt>
+File: ../cape-of-good-hope/cigarette-duty-used.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/cigarette-duty-used.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/cigarette-duty-used.jpg used on i
+nput line 7.
+(pdftex.def)             Requested size: 243.5565pt x 219.64075pt.
+
+<../cape-of-good-hope/cigarette-duty-stamps.jpg, id=975, 190.7928pt x 87.4467pt
+>
+File: ../cape-of-good-hope/cigarette-duty-stamps.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/cigarette-duty-stamps.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/cigarette-duty-stamps.jpg used on
+ input line 9.
+(pdftex.def)             Requested size: 152.22223pt x 69.77197pt.
+
+<../cape-of-good-hope/cigarette-duty-inverted.jpg, id=976, 120.45pt x 139.722pt
+>
+File: ../cape-of-good-hope/cigarette-duty-inverted.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/cigarette-duty-inverted.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/cigarette-duty-inverted.jpg used 
+on input line 13.
+(pdftex.def)             Requested size: 182.66853pt x 211.91486pt.
+
+<../cape-of-good-hope/cigarette-duty-used-02.jpg, id=977, 501.875pt x 311.1625p
+t>
+File: ../cape-of-good-hope/cigarette-duty-used-02.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/cigarette-duty-used-02.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/cigarette-duty-used-02.jpg used o
+n input line 22.
+(pdftex.def)             Requested size: 298.35428pt x 184.98967pt.
+! Misplaced alignment tab character &.
+\@tufte@stored@caption ...tamps - one block mint &
+                                                   one block used in Mossel ...
+l.22 ...mint & one block used in Mossel Bay 200R }
+                                                  
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+)
+(C:\wamp\www\application-latest\stamp-notes\cape-of-good-hope\tex\Patent_and_Pr
+oprietary_stamps.tex [135 <C:/wamp/www/application-latest/stamp-notes/cape-of-g
+ood-hope/cape-of-good-hope/cigarette-duty-used.jpg> <C:/wamp/www/application-la
+test/stamp-notes/cape-of-good-hope/cape-of-good-hope/cigarette-duty-stamps.jpg>
+] [136 <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-go
+od-hope/cigarette-duty-inverted.jpg> <C:/wamp/www/application-latest/stamp-note
+s/cape-of-good-hope/cape-of-good-hope/cigarette-duty-used-02.jpg>]
+Overfull \hbox (4.21532pt too wide) in paragraph at lines 7--8
+[]\T1/pplj/m/n/10 No con-vinc-ing rea-son can be found as why ex-ist-ing rev-en
+ue stamps
+ []
+
+<../cape-of-good-hope/revenue-patent.jpg, id=987, 274.02374pt x 321.2pt>
+File: ../cape-of-good-hope/revenue-patent.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/revenue-patent.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/revenue-patent.jpg used on input 
+line 9.
+(pdftex.def)             Requested size: 91.33426pt x 107.05986pt.
+[137
+
+ <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape-of-good-hop
+e/revenue-patent.jpg>] <../cape-of-good-hope/patent-01.jpg, id=993, 387.69844pt
+ x 307.90031pt>
+File: ../cape-of-good-hope/patent-01.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/patent-01.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/patent-01.jpg used on input line 
+39.
+(pdftex.def)             Requested size: 243.5565pt x 193.42853pt.
+)
+(C:\wamp\www\application-latest\stamp-notes\cape-of-good-hope\tex\Duplex_Cancel
+ler.tex [138 <C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/cape
+-of-good-hope/patent-01.jpg>]
+<../cape-of-good-hope/duplex-cancellation.jpg, id=999, 702.625pt x 408.52625pt>
+File: ../cape-of-good-hope/duplex-cancellation.jpg Graphic file (type jpg)
+<use ../cape-of-good-hope/duplex-cancellation.jpg>
+Package pdftex.def Info: ../cape-of-good-hope/duplex-cancellation.jpg used on i
+nput line 15.
+(pdftex.def)             Requested size: 273.99815pt x 159.31212pt.
+)
+
+! LaTeX Error: File `Mier Camel Post.tex' not found.
+
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: tex)
+
+Enter file name: 
+! Emergency stop.
+<read *> 
+         
+l.736        \input{Mier Camel Post}
+                                    {Mier_Camel_Post}
+*** (cannot \read from terminal in nonstop modes)
+
+ 
+Here is how much of TeX's memory you used:
+ 24194 strings out of 494045
+ 423630 string characters out of 3148386
+ 577980 words of memory out of 3000000
+ 26269 multiletter control sequences out of 15000+200000
+ 95146 words of font info for 135 fonts, out of 3000000 for 9000
+ 715 hyphenation exceptions out of 8191
+ 56i,12n,92p,1507b,460s stack positions out of 5000i,500n,10000p,200000b,50000s
+!  ==> Fatal error occurred, no output PDF file produced!

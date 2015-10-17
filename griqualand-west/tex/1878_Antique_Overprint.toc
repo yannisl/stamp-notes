@@ -1,0 +1,3 @@
+\contentsline {chapter}{1878 Antique Overprint}{7}{chapter*.2}
+\contentsline {subsection}{Double overprints}{7}{subsection*.3}
+\contentsfinish 

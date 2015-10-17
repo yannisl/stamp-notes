@@ -1,0 +1,18 @@
+\begin{thebibliography}{2}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Drystall(1988)]{drystall-01}
+A.R. Drystall.
+\newblock Cape {T}riangulars and the {B}oer {R}epublics.
+\newblock \emph{London Philatelist}, 107:\penalty0 100--101, April 1988.
+
+\bibitem[Gericke(1968)]{gericke-01}
+F.W. Gericke.
+\newblock Die ontwikkeling van pos-en telegraafwese in die oranje-vrystaat
+  1854-1886, 1968.
+
+\end{thebibliography}

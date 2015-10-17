@@ -1,0 +1,132 @@
+<div style="width:230px">
+<h4 class="country" style="background:#000040">Pre-stamp</h4>
+<ul id="LHnav" style="margin-left:0px;width:210px">
+<li><a href="http://localhost/CodeIgniter/blogs/stamps/cape-of-good-hope/introduction">Introduction</a></li>
+<li><a href="../cape-of-good-hope/Briefstock_Letters">Briefstock letters</a></li>
+<li><a href="http://localhost/CodeIgniter/blogs/stamps/cape-of-good-hope/Batavian_Republic">Batavian Republic</a></li>
+<li><a href="http://localhost/CodeIgniter/blogs/stamps/cape-of-good-hope/Burger_Senate_Seal">Burger Senate Seal</a></li>
+<li><a href="http://localhost/CodeIgniter/blogs/stamps/cape-of-good-hope/British_Governors">British Governors</a></li>
+<li><a href="http://localhost/CodeIgniter/blogs/stamps/cape-of-good-hope/Crown_in_Circle">Crown in Circle</a></li>
+</ul>
+
+
+
+
+
+<h4 class="country">Circular Handstamps</h4>
+<ul id="LHnav" style="margin-left:0px;width:210px">
+<li><a href="http://localhost/CodeIgniter/blogs/stamps/British-East-Africa/introduction">British East Africa</a></li>
+<li><a href="http://localhost/CodeIgniter/blogs/stamps/uganda/introduction">Uganda</a></li>
+<li><a href="http://localhost/CodeIgniter/blogs/stamps/east-africa-and-uganda/introduction">East Africa and Uganda Protectorate</a></li>
+<li><a href="http://localhost/CodeIgniter/blogs/stamps/north-african-campaigns/introduction">Kenya and Uganda</a></li>
+<li><a href="http://localhost/CodeIgniter/blogs/stamps/tanganyika/introduction">Tanganyika</a></li>
+<li><a href="http://localhost/CodeIgniter/blogs/stamps/KUT/introduction">Kenya Uganda and Tanganyika</a></li>
+<li><a href="http://localhost/CodeIgniter/blogs/stamps/east-african-campaigns/introduction">East African campaigns</a></li>
+<li><a href="http://localhost/CodeIgniter/blogs/stamps/somaliland/introduction">Somaliland Protectorate</a></li>
+<li><a href="http://localhost/CodeIgniter/blogs/stamps/mafia-island/introduction">Mafia island</a></li>
+<li><a href="http://localhost/CodeIgniter/blogs/stamps/Zanzibar/introduction">Zanzibar</a></li>
+</ul>
+
+
+
+
+
+<h4 class="country">West Africa Settlements</h4>
+<ul id="LHnav" style="margin-left:0px;width:210px">
+
+<li><a href="http://localhost/CodeIgniter/blogs/stamps/fernando-po/introduction">Gambia</a></li>
+<li><a href="http://localhost/CodeIgniter/blogs/stamps/lagos/introduction">Gold Coast</a></li>
+<li><a href="http://localhost/CodeIgniter/blogs/stamps/niger-territories/introduction">Sierra Leone</a></li>
+<li><a href="http://localhost/CodeIgniter/blogs/stamps/oli-rivers/introduction">West African Campaigns</a></li>
+</ul>
+
+
+<h4 class="country"><a href="http://localhost/CodeIgniter/blogs/stamps/general/The_African_Islands">The African Islands</a></h4>
+<ul id="LHnav" style="margin-left:0px;width:210px">
+
+<li><a href="http://localhost/CodeIgniter/blogs/stamps/bouvet-island/introduction">Bouvet Island</a></li>
+<li><a href="http://localhost/CodeIgniter/blogs/stamps/marion-island/introduction">Marion island</a></li>
+<li><a href="http://localhost/CodeIgniter/blogs/stamps/gough-island/introduction">Gough Island</a></li>
+<li><a href="http://localhost/CodeIgniter/blogs/stamps/tristan/introduction">Tristan da Cunha</a></li>
+<li><a href="http://localhost/CodeIgniter/blogs/stamps/madagascar/introduction">Madagascar</a></li>
+<li><a href="http://localhost/CodeIgniter/blogs/stamps/mauritius/introduction">Mauritius</a></li>
+<li><a href="http://localhost/CodeIgniter/blogs/stamps/rodrigues-island/introduction">Rodrigues</a></li>
+<li><a href="http://localhost/CodeIgniter/blogs/stamps/seychelles/introduction">Seychelles</a></li>
+<li><a href="http://localhost/CodeIgniter/blogs/stamps/st-helena/introduction">St Helena</a></li>
+<li><a href="http://localhost/CodeIgniter/blogs/stamps/ascension/introduction">Ascension</a></li>
+<li><a href="http://localhost/CodeIgniter/blogs/stamps/british-postal-agencies/introduction">British Postal Agencies</a></li>
+
+</ul>
+
+<h4 class="country">North America</h4>
+<ul id="LHnav" style="margin-left:0px;width:210px">
+<li><a href="http://localhost/CodeIgniter/blogs/stamps/usa-postal-history/China_Post_office">USA China Post Office</a></li>
+<li><a href="http://localhost/CodeIgniter/blogs/stamps/canada/introduction">Canada</a></li>
+<li><a href="http://localhost/CodeIgniter/blogs/stamps/newfoundland/introduction">Newfoundland</a></li>
+<li><a href="http://localhost/CodeIgniter/blogs/stamps/nova-scotia/introduction">Nova Scotia</a></li>
+<li><a href="http://localhost/CodeIgniter/blogs/stamps/mexico/introduction">Mexico</a></li>
+</ul>
+
+<h4 class="country">Central America</h4>
+<ul id="LHnav" style="margin-left:0px;width:210px">
+<li><a href="http://localhost/CodeIgniter/blogs/stamps/belize/introduction">Belize</a></li>
+<li><a href="http://localhost/CodeIgniter/blogs/stamps/argentina/introduction">Panama</a></li>
+<li><a href="http://localhost/CodeIgniter/blogs/stamps/Brasil/introduction">Costa Rica</a></li>
+<li><a href="http://localhost/CodeIgniter/blogs/stamps/colombia/introduction">Porto Rico</a></li>
+<li><a href="http://localhost/CodeIgniter/blogs/stamps/canal-zone/introduction">Canal Zone</a></li>
+</ul>
+
+<h4 class="country">South America</h4>
+<ul id="LHnav" style="margin-left:0px;width:210px">
+<li><a href="http://localhost/CodeIgniter/blogs/stamps/peru/introduction">Peru</a></li>
+<li><a href="http://localhost/CodeIgniter/blogs/stamps/argentina/introduction">Argentina</a></li>
+<li><a href="http://localhost/CodeIgniter/blogs/stamps/Brasil/introduction">Brasil</a></li>
+<li><a href="http://localhost/CodeIgniter/blogs/stamps/colombia/introduction">Colombia</a></li>
+<li><a href="http://localhost/CodeIgniter/blogs/stamps/chile/introduction">Chile</a></li>
+</ul>
+
+<h4 class="country">Polar Region</h4>
+<ul id="LHnav" style="margin-left:0px;width:210px">
+<li><a href="http://localhost/CodeIgniter/blogs/stamps/artic/introduction">Artic</a></li>
+<li><a href="http://localhost/CodeIgniter/blogs/stamps/antartic/introduction">Antartic</a></li>
+<li><a href="http://localhost/CodeIgniter/blogs/stamps/gough-island/introduction">Gough Island</a></li>
+</ul>
+
+<h4 class="country">German Colonies</h4>
+<ul id="LHnav" style="margin-left:0px;width:210px">
+<li><a href="http://localhost/CodeIgniter/blogs/stamps/caroline-islands/introduction">Caroline Islands</a></li>
+<li><a href="http://localhost/CodeIgniter/blogs/stamps/cameroon/introduction">Cameroon </a></li>
+<li><a href="http://localhost/CodeIgniter/blogs/stamps/south-west-africa/introduction">South West Africa</a></li>
+<li><a href="http://localhost/CodeIgniter/blogs/stamps/togo/introduction">Togo</a></li>
+<li><a href="http://localhost/CodeIgniter/blogs/stamps/marshalls/introduction">Marshall Islands</a></li>
+<li><a href="http://localhost/CodeIgniter/blogs/stamps/german-east-africa/introduction">German East Africa</a></li>
+
+
+</ul>
+
+<h4 class="country">Australasia</h4>
+<ul id="LHnav" style="margin-left:0px;width:210px">
+<li><a href="http://localhost/CodeIgniter/blogs/stamps/australia/introduction">Australia</a></li>
+</ul>
+
+<h4 class="country">Pacific</h4>
+<ul id="LHnav" style="margin-left:0px;width:210px">
+<li><a href="http://localhost/CodeIgniter/blogs/stamps/pitcairn-islands/introduction">Pitcairn Islands</a></li>
+</ul>
+
+<h4 class="country">West Indies</h4>
+<ul id="LHnav" style="margin-left:0px;width:210px">
+<li><a href="http://localhost/CodeIgniter/blogs/stamps/turks-islands/introduction">Turks Islands</a></li>
+<li><a href="http://localhost/CodeIgniter/blogs/stamps/st-vincent/introduction">St Vincent</a></li>
+</ul>
+
+
+<h4 class="country">General</h4>
+<ul id="LHnav" style="margin-left:0px;width:210px">
+<li><a href="http://localhost/CodeIgniter/blogs/stamps/general/exhibiting">Exhibiting</a></li>
+<li><a href="http://localhost/CodeIgniter/blogs/stamps/general/Postal_History">What is Postal History?</a></li>
+<li><a href="http://localhost/CodeIgniter/blogs/stamps/general/The_Future_of_Stamp_Collecting">Is there a Future for stamp-collecting?</a></li>
+</ul>
+</div>
+
+

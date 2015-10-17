@@ -1,0 +1,4 @@
+\contentsline {chapter}{1880 The Remainders}{7}{chapter*.2}
+\contentsline {section}{Griqualand West used in the Transvaal}{7}{section*.3}
+\contentsline {chapter}{Bibliography}{11}{chapter*.4}
+\contentsfinish 

@@ -1,0 +1,5 @@
+\contentsline {chapter}{1893 One Penny Surcharge}{7}{chapter*.2}
+\contentsline {section}{Double Surcharge}{7}{section*.3}
+\contentsline {section}{Other Varieties}{8}{section*.4}
+\contentsline {section}{REFERENCE LIST}{8}{section*.5}
+\contentsfinish 

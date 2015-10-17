@@ -1,0 +1,6 @@
+\contentsline {chapter}{The Perkins Bacon Issue of 1853}{7}{chapter*.2}
+\contentsline {section}{The Design of the Cape Stamps}{7}{section*.3}
+\contentsline {section}{Paper Used in the Production of the Cape Stamps}{7}{section*.4}
+\contentsline {section}{Watermark of the Cape Triangle Stamps}{8}{section*.5}
+\contentsline {section}{Second Order}{9}{section*.6}
+\contentsfinish 

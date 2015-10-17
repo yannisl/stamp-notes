@@ -1,0 +1,3 @@
+\contentsline {chapter}{Triangulars - Forgeries}{7}{chapter*.2}
+\contentsline {subsection}{Spiro Brothers Forgeries}{7}{subsection*.3}
+\contentsfinish 

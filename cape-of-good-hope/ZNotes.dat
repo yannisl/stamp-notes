@@ -1,0 +1,37 @@
+##Where to go from here
+
+Notes:
+
+Most of the content is unique.
+
+Navigation and organization of the content took a long way to be defined and sorted out. 
+
+The navigation buttons PREVIOUS/NEXT were an afterthought once the pages grew to a few hundreds I realized that a user (including me!)
+would prefer to read some of the sections as a book. 
+
+One of the aims of the pages is to attract other writers to contribute material.
+
+Monetization is planned for the future, once traffic is assured by means of a shop as well 
+as selective advertizements from dealers.
+
+The Site also offers itself to tarde via ebay and other ebay 
+like sites (for example the German). 
+
+INTERACTIVITY only comes at this stage via the blog. The blog is a way of providing news to users and feeds.
+
+USERS Possibly 3-4000 people, upper brackets wealthy.
+
+Schoolchildren and teen-agers, newcomers to the hobby.
+
+Keyword Management
+
+Keywords=Tags These are used for searching as well as SEO (yes I know it does not count much!) The advantage though if you write keywords 
+your mind settles better on the content.
+
+Title Management - Most CMS would default this to either the Title of the Post or a General default. I felt that in terms of
+attracting the right it may have to be slightly different. At the time of wrting the post - all in a text file, you can write whatever you wish.
+Transclusion and templating were the last experiments and I left it at that.
+
+{{related:}}
+
+{{keywords: CMS, Notes on CMS Development}}  
