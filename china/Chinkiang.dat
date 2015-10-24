@@ -1,51 +1,16 @@
-<style type="text/css"> 
-
-
-.hor-minimalist-a
-{
-	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-	font-size: 12px;
-	background: #fff;
-	margin: 45px;
-	width: 480px;
-        border:none;
-        background:none;
-	border-collapse: collapse;
-	text-align: left;
-}
-.hor-minimalist-a th
-{
-	font-size: 14px;
-	font-weight: normal;
-	color: #039;
-	padding: 10px 8px;
-        background:none;
-        border:none;
-	border-bottom: 2px solid #6678b1;
-}
-.hor-minimalist-a td
-{
-	
-	padding: 9px 8px 0px 8px;
-}
-.hor-minimalist-a tbody tr:hover td
-{
-	color: #009;
-}
-</style>
 
 ##Local Treaty Ports - Chinkiang
 
 
 
 <div style="width:100%;margin:0 auto;display:block">
+
 <h4>1894, Scott 5</h4>
-<img src="http://localhost/egypt/Hankow/1018.jpg" style="margin:0 auto;display:block" />
-<p style="font-size:smaller">
-1894 (August) Golden Hill  (Chan LCH1 / Scott 1) (Image)	 $ 30
+\ph[30%]{../Hankow/1018.jpg}{
+1894 (August) Golden Hill  (Chan LCH1 / Scott 1) (Image)	 $ 30}
+
 {{auction: Michael Rogers, August 2012}}
-</p>
-</div>
+
 
 
 

@@ -41,12 +41,10 @@
 ##China 1960 China's First Ocean-going Freighter
 
 On November 27, 1958, China's first 10,000-ton ocean-going freighter, "Yuejin," set sail.
-<div style="width:100%;margin:0 auto;display:block">
-<img src="http://localhost/egypt/china-stamps/yuejin.jpg" style="width:50%;margin:0 auto;display:block" />
-<p style="font-size:smaller">
+
+\ph[50%]{../china/yuejin.jpg}{
 From 60 years of progress and science at http://www.china.org.cn/china/60th_science_and_technology/2009-09/11/content_18508236.htm
-</p>
-</div>   
+}   
 
 On May 1st,1963 "Yuejin" (meaning leap forward), China's first ocean-going ship capsized when bounding for Japan.
 
