@@ -42,12 +42,10 @@
 
 <div style="width:90%;margin:0 auto;display:block">
 <h4>1960 Th Great Hall of People</h4>
-<img src="http://localhost/egypt/china-stamps/S41.jpg" style="width:98%;margin:0 auto;display:block" />
-<p style="font-size:smaller">
-	
+
+\ph[98%]{../china/S41.jpg}{
 China Stamps S41 Scott#536-537 The Great Hall of the People, 1960 $95
-</p>
-</div>     
+}     
 
 China Stamps S41 Scott#536-537 The Great Hall of the People, 1960
 Serial Number:	S41

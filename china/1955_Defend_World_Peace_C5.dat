@@ -40,15 +40,14 @@
 
 ##China 1955 Defend World Peace
 
-<div style="width:100%;margin:0 auto;display:block">
-<h4>1955, Defend World Peace</h4>
-<img src="http://localhost/egypt/china-stamps/1955-C5.jpg" style="width:70%;margin:0 auto;display:block" />
-<p style="font-size:smaller">
-China Stamps C5 NE reprint Scott#1l154-1l156 Defend World Peace, 1955 $13.39
-</p>
-</div>     
 
-<code>
+\section{1955, Defend World Peace}
+
+\ph[98%]{../china/1955-C5.jpg}{
+    China Stamps C5 NE reprint Scott#1l154-1l156 Defend World Peace, 1955 $13.39
+}     
+
+\begin{verbatim}
 China Stamps C5 NE reprint Scott#1l154-1l156 Defend World Peace, 1955
 Serial Number:	C5 NE reprint
 Scott No.:	1l154-1l156
@@ -63,4 +62,4 @@ Designer:	Sun Chuanzhe
 Engraver:	Wu Zhizhang
 Printing Process:	Engraving
 Condition:	MNH 
-</code>                                                                                                                                                                                                                                                               
+\end{verbatim}                                                                                                                                                                                                                                                      

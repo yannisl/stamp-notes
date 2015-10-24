@@ -42,12 +42,11 @@
 
 
 
-<div style="width:80%;margin:0 auto;display:block">
-<img src="http://localhost/egypt/china-stamps/S3.jpg" style="width:98%;margin:0 auto;display:block" />
-<p style="font-size:smaller">
+
+
+\ph[98%]{../china/S3.jpg}{
 China Stamps S3 Scott#151-154 Great Motherland: Dunhuang Murals(1st Series),1952 $13
-</p>
-</div>    
+}    
 
 China Stamps S3 Scott#151-154 Great Motherland: Dunhuang Murals 1st Series, 1952
 

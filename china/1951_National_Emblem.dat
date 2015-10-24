@@ -42,15 +42,15 @@
 
 
 
-<div style="width:100%;margin:0 auto;display:block">
-<img src="http://localhost/egypt/china-stamps/S1.jpg" style="width:98%;margin:0 auto;display:block" />
-<img src="http://localhost/egypt/china-stamps/S1-reprint.jpg" style="width:98%;margin:0 auto;display:block" />
-<p style="font-size:smaller">
-China Stamps S1 original Scott#117-121 National Emblem,1951
-    NO.:S1 original
+\begin{figure}
+\includegraphics[width=0.98\textwidth]{../china/S1.jpg}
+\includegraphics[width=0.98\textwidth]{../china/S1-reprint.jpg}
+\caption{ China Stamps S1 original Scott#117-121 National Emblem,1951 NO.:S1 original
 Collection price:	$93.00
-</div>    
+}
+\end{figure}
 
+\begin{verbatim}
 China Stamps S1 original Scott#117-121 National Emblem, 1951
 Serial Number:	S1
 Scott No.:	117-121
@@ -69,4 +69,5 @@ Engraver:	Wu Jingtang
 Printing Process:	Engraving and Offset
 Printing House:	Beijing Chinese People's Printing Works
 Condition:	MNH
+\end{verbatim}
                                                                                                                                                                                                                                                                                      

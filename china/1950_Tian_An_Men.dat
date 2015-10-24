@@ -54,51 +54,51 @@ Collection price:	$199.71
 There is a similar second issue of three values of the stamps. The  $1000 dull violet can be distinguished from the earlier issue by the top line of the shading which extends to the frame line at right.
 
 
-<div style="width:100%;margin:0 auto;display:block">
-<img src="http://localhost/egypt/china-stamps/R2.jpg" style="width:50%;margin:0 auto;display:block" />
-<p style="font-size:smaller">
+
+\ph[50%]{../china/R2.jpg}{
+
 Second issue
-</p>
-</div>    
+}
+ 
 
 
 ### China 1950 Tian An Men - Heavenly gate (R3)
 
-<div style="width:100%;margin:0 auto;display:block">
-<img src="http://localhost/egypt/china-stamps/R3.jpg" style="width:80%;margin:0 auto;display:block" />
-<p style="font-size:smaller">
+
+\ph[80%]{../china/R3.jpg}{
+
 Third Issue $105-$608.16
-</p>
-</div>   
+}
+
 
 ### China 1950 Tian An Men - Heavenly gate (R4)
 
-<div style="width:100%;margin:0 auto;display:block">
-<img src="http://localhost/egypt/china-stamps/R4.jpg" style="width:80%;margin:0 auto;display:block" />
-<p style="font-size:smaller">
+
+\ph[80%]{../china/R4.jpg}{
+
 Fourth Issue: China Stamps R4 Scott#85-94 Design of Tian An Men 4th Print, 1950
     NO.:R4
 price:	$762.21
-</div> 
+}
 
 ### China 1950 Tian An Men - Heavenly gate (R5)
 This set is hard to find in unused condition and this is reflected on its catalogue price.
-<div style="width:100%;margin:0 auto;display:block">
-<img src="http://localhost/egypt/china-stamps/R5.jpg" style="width:80%;margin:0 auto;display:block" />
-<p style="font-size:smaller">
+
+\ph[80%]{../china/R5.jpg}{
+
 China PRC 1951 Gate Heavenly Peace set unused, R5
-</div> 
+}
 
 
 ### China 1950 Tian An Men - Heavenly gate (R7)
 
-<div style="width:100%;margin:0 auto;display:block">
-<img src="http://localhost/egypt/china-stamps/R7.jpg" style="width:80%;margin:0 auto;display:block" />
-<p style="font-size:smaller">
+
+\ph[80%]{../china/R7.jpg}{
+
 China Stamps R7 Scott#206-213 Design of Tian An Men 6th Print, 1954
     NO.:R7
 Collection price:	$14.95
-</div> 
+}
 
 
 ###Reference R1
@@ -185,4 +185,4 @@ Condition:	MNH
 ### Reference R5  
 <div style="white-space:pre;font-size:smaller">
 
-</div>                                                                                                                                                                                                                                                                                                                                   
+                                                                                                                                                                                                                                                                                                                                
