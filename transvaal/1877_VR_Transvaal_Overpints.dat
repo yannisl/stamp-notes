@@ -16,12 +16,8 @@ The red overprints were succeeded by an identical overprint in black, which is b
 June. the black overprints occur on the 1d, 3d, 6d and 1s values.
 
 
-<div style="width:31%;float:left">
-<img src="http://localhost/egypt/transvaal/SG98.jpg" style="width:98%"  />
-<p style="font-size:smaller"> 
-	
-</p>
-</div>
+\ph[30%]{../transvaal/SG98.jpg}{}
+
 
 <div style="width:35%;float:left">
 <img src="http://localhost/egypt/transvaal/SG98-01.jpg" style="width:98%"  />

@@ -153,9 +153,9 @@ The empirical equation below, can be used to estimate the number of files that w
 
 
 
-\[[
+\\[
    N = \frac{p^{0.8}(t + d)}{d} 
-\]]
+\\]
 
 
 where,

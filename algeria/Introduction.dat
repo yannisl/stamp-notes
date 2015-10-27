@@ -2,14 +2,11 @@
 ## Algeria
 ###Introduction
 
-<div style="width:38%;float:left">
-<img src="http://localhost/egypt/algeria/ahmed-bey.jpg" style="width:98%"  />
-
-<p style="font-size:smaller"> 
-ALGERIA - Resistance - Ahmed Bey 
-</p>
-{{auction:Francois Feldman, 2009}}
-</div>
+\begin{marginfigure}
+\includegraphics[width=0.98\textwidth]{../algeria/ahmed-bey.jpg}
+\caption{ALGERIA - Resistance - Ahmed Bey 
+auction:Francois Feldman, 2009}
+\end{marginfigure}
 
 The beginning date for postal history in Algeria is unclear, but letters sent by Europeans in Algiers go back to 1690. {{wi:Oran}} was controlled by Spain during much of the 18th century, and a postal marking is known from 1749.
 

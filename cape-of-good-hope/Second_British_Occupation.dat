@@ -1,12 +1,11 @@
 ##Cape of Good Hope - Postal History 
 ###Second British Occupation of the Cape of Good Hope
 
-<div style="width:25%;float:left;margin-right:10px">
-<img src="http://localhost/capepostalhistory/MLS-1.png" width="119" height="131" alt="Cape of Good Hope MLS-1 Stamp" />
-<p style="font-size:smaller"> 
-The MLS-1 Handstamp
-</p>
-</div>
+\begin{marginfigure}
+\includegraphics[width=0.98\textwidth]{../cape-of-good-hope/MLS-1.png}
+\caption{The MLS-1 Handstamp}
+\end{marginfigure}
+
 
  
 In 1806 England and France were still at war. The Batavian Republic was sympathetic to the French. As the Cape of Good Hope was becoming a major strategic point and its defenses were virtually non-existent the English launched an expedition for its capture.
