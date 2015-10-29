@@ -29,12 +29,10 @@ Unopened mail received only the double ring circular censor's handstamp with the
 </p>
 </div>
 
-<div>
-<img src="http://localhost/egypt/cyprus-stamps/C1-cover-01.jpg" style="width:80%"/>
-<p style="font-size:smaller">
-1939 Cyprus censored cover. The cover was posted from Platres to Surrey in Great Britain. It was posted on the 2 Sept 1939, three days after the implementation of the Censorship regulations.
-</p>
-</div>
+\ph[80%]{../cyprus/C1-cover-01.jpg}{
+1939 Cyprus censored cover. The cover was posted from Platres to Surrey in Great Britain. It was posted on the 2 Sept 1939, three days after the implementation of the Censorship regulations.}
+
+
 ###Opened Mail, the resealing-labels.
 
 Together with the handstamp, three types of resealing labels were used on both outgoing and incoming

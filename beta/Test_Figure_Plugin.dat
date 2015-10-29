@@ -11,7 +11,18 @@ Some other stuff #
 \phr[30%]{../beta/che.jpg}{This is some test.}
 
 
+\clear
+
+\section{Left}
+
+Use `\phl` and `\lorem` to get the following
+
+\phl[30%]{../beta/che.jpg}{This is some test.}
 \clear 
+
+          \lorem\\lorem
+
+
 ## includegraphics command.
 
 \includegraphics[width=40%]{../beta/che.jpg}

@@ -13,10 +13,14 @@ var a = 1, b = 2;
 
 \endcodeblock
 
+\section{Verbatims}
 
 \begin{verbatim}
  This is some test
 \end{verbatim}
+
+
+\section{TeX}
 
 \begin{tex}
   test 

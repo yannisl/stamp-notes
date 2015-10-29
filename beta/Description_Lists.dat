@@ -1,5 +1,7 @@
 \chapter{Description Lists}
 
+The description plugin, works both ways as a {{wi:description list}}.
+
 \begin{tex}
 \begin{description}
 \item [RSS] Feeds

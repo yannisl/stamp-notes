@@ -3,6 +3,17 @@
 Tables in LaTeX are substantially different from the way tables are rendered in html, hence a way to handle them and finding meanigful and user friendly way to handle them both ways, is albeit difficult. We will demonstrate these techniques, from plain vanilla
 tables to more complicated ones.
 
+\section{Introduction}
+
+Our aim is to enhance both the TeX, as well as the HTML experience of the user, so this plugin has numerous utilities.
+
+Firstly in `htlm` all TeX code is ignored and translated to its equivalent mark-up code.
+The markup
+`   \begin { table }[...] ...
+    \end{ table }`
+is just ignored, as there are no need to float any tables typeset in a continuous page. For LaTeX they will have their usual meaning.
+
+
 \section{Simple Tables}
 
 A simple table in LaTeX is marked as per the listing below. A tabular alone can be typeset by omitting the \verb++ \begin{table}...\end{table}++.

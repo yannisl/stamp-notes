@@ -20,13 +20,10 @@
 \mitem{SC2 Overprints}{1950_SC2}
 \end{category}
 
-
-
-
-
-
 \begin{category}{1952 Commemoratives}
 \mitem{1952 Agragarian Reform S2}{1952_Agragarian_Reform}
+\mitem{1952 Great Motherland S3}{1952_Great_Motherland}
+   \mitem{1952 Taiping Revolution}{1952_Taiping_Revolution}
 \end{category}
 
 \begin{category}{1954 Issues}
@@ -37,6 +34,16 @@
 \mitem{S11 Technical Innovation}{1954_Technical_Innovation}
 \end{category}
 
+\begin{category}{1955}
+    \mitem{1955 Lenin (C34)}{1955_Lenin}
+    \mitem{1955 Marx (C35)}{1955_Lenin}
+    \mitem{1955 Electric Lines}{1955_Electric_Lines}
+\end{category}
+
+\begin{category}{1956}
+  \mitem{1956 Han Dynasty}{1956_Han_Dynasty}
+  \mitem{1956 Views of Peking}{1956-views-of-peking}
+\end{category}
 
 \end{accordion}
 
@@ -384,4 +391,4 @@
 
 
 </div>
-                        
+                                            

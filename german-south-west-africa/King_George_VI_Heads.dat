@@ -1,20 +1,12 @@
 ##South West Africa 1906-1919 Yacht Issue (With Watermark)
 
-<div style="width:48%;float:left;margin-right:10px">
-<img src="http://localhost/egypt/south-west-africa/Type-I.jpg" style="float:left;width:98%"/>
-
-<p style="font-size:smaller"> 
+\ph[60%]{../south-west-africa/Type-I.jpg}{
 Type I Overprint
-</p>
-</div>
+}
 
-<div style="width:48%;float:left;margin-right:10px">
-<img src="http://localhost/egypt/south-west-africa/Type-Ia.jpg" style="float:left;width:98%"/>
-
-<p style="font-size:smaller"> 
+\ph[60%]{../south-west-africa/Type-Ia.jpg}{
 Type Ia Overprint
-</p>
-</div>
+}
 
 <div style="width:48%;float:left;margin-right:10px">
 <img src="http://localhost/egypt/south-west-africa/Type-II.jpg" style="float:left;width:98%"/>
@@ -24,13 +16,9 @@ Type II Overprint (10mm spacing)
 </p>
 </div>
 
-<div style="width:48%;float:left;margin-right:10px">
-<img src="http://localhost/egypt/south-west-africa/Type-III.jpg" style="float:left;width:98%"/>
-
-<p style="font-size:smaller"> 
+\ph[60%]{../south-west-africa/Type-III.jpg}{
 Type III Overprint
-</p>
-</div>
+}
 
 <div style="width:48%;float:left;margin-right:10px">
 <img src="http://localhost/egypt/south-west-africa/Type-VI.jpg" style="float:left;width:98%"/>
