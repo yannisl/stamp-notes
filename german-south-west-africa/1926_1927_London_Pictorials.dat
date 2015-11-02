@@ -1,91 +1,76 @@
-<!-- {{ }}
-{{category:Boer War, Mafeking}} -->
-
-##South West Africa 
-<font face="Arial, Helvetica, Geneva"><a href="#Essays">Essays</a> �
-<a href="#SCH">Issue "Mar<b><font color="darkred">sch</font></b>all Inseln"</a> �
-<a href="#SH">Issue "Mar<b><font color="darkred">sh</font></b>all Inseln"</a> �
-<a href="#Sheets">Sheets and Selvedges</a> 
-<a href="#Plate">Plate Faults</a>� 
-<a href="#Covers">Covers</a> �
-<a href="#Bisects">Bisected stamps</a> �
-<a href="#Forgeries">Forgeries</a> </font>
-
-###1926/7 London Pictorials of SA, overprinted South West Africa / Suidwes - Afrika
+### 1926/7 London Pictorials of SA, overprinted South West Africa / Suidwes - Afrika
 
 Setting 1 : English Overprint on English Stamp / Afrikaans Overprint on Afrikaans Stamp
-<div style="width:98%;float:left;">
-<h4>SACC64-66</h4>
-<img src="http://localhost/egypt/south-west-africa/1926-pictorials.jpg" style="float:left;width:98%"/>
 
-<p style="font-size:smaller"> 
+<h4>SACC64-66</h4>
+\ph[98%]{../south-west-africa/1926-pictorials.jpg}{
+
+
 SACC 64/66
-</p>
-</div>
+
+}
 
 Setting 2 : English Overprint on Afrikaans Stamp / Afrikaans Overprint on English Stamp
-<div style="width:98%;float:left;">
+
 <h4>SACC67-69</h4>
-<img src="http://localhost/egypt/south-west-africa/reversed-setting.jpg" style="float:left;width:98%"/>
+\ph[98%]{../south-west-africa/reversed-setting.jpg}{
 
-<p style="font-size:smaller"> 
+
 SACC 67/69
-</p>
-</div>
+
+}
 
 
-<div style="width:48%;float:left;">
+
 <h4>SACC-75</h4>
-<img src="http://localhost/egypt/south-west-africa/SACC-75.jpg" style="float:left;width:98%"/>
+\ph[48%]{../south-west-africa/SACC-75.jpg}{
 
-<p style="font-size:smaller"> 
+
 2d (Union Buildings) grey and purple
-</p>
-</div>
 
-<div style="width:48%;float:left;">
+}
+
+
 <h4>SACC-76</h4>
-<img src="http://localhost/egypt/south-west-africa/SACC-76.jpg" style="float:left;width:98%"/>
+\ph[48%]{../south-west-africa/SACC-76.jpg}{
 
-<p style="font-size:smaller"> 
+
 3d (Farmhouse) black and red
-</p>
-</div>
 
-<div style="clear:both"></div>
+}
 
-<div style="width:48%;float:left;">
+<div style="clear:both">}
+
+
 <h4>SACC-77</h4>
-<img src="http://localhost/egypt/south-west-africa/SACC-77.jpg" style="float:left;width:98%"/>
+\ph[48%]{../south-west-africa/SACC-77.jpg}{
 
-<p style="font-size:smaller"> 
+
 1s ( Blue Wildebeest ) brown and blue
-</p>
-</div>
 
-<div style="width:48%;float:left;">
+}
+
+
 <h4>SACC-78</h4>
-<img src="http://localhost/egypt/south-west-africa/SACC-78.jpg" style="float:left;width:98%"/>
-<p style="font-size:smaller"> 
+\ph[48%]{../south-west-africa/SACC-78.jpg}{
+
 2s6d ( Oxen and Wagon ) green and brown
-</p>
-</div>
 
-<div style="width:48%;float:left;">
+}
+
+
 <h4>SACC-80</h4>
-<img src="http://localhost/egypt/south-west-africa/SACC-80.jpg" style="float:left;width:98%"/>
-<p style="font-size:smaller"> 
-10s ( Table Mountain & Harbour ) blue and brown
-</p>
-</div>
+\ph[48%]{../south-west-africa/SACC-80.jpg}{
 
-<div style="width:48%;float:left;">
+10s ( Table Mountain & Harbour ) blue and brown
+
+}
+
+
 <h4>SACC-80a</h4>
-<img src="http://localhost/egypt/south-west-africa/SACC-80a.jpg" style="float:left;width:98%"/>
-<p style="font-size:smaller"> 
-overprint 16�mm apart
-</p>
-</div>
+
+\ph[48%]{../south-west-africa/SACC-80a.jpg}{
+   overprint 16.5 mm apart}
 
 
 <hr/>

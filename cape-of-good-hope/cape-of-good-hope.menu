@@ -20,7 +20,9 @@
 \end{category}
 
 \begin{category}{Provisionals}
-\mitem{3 on Three overprint}{3_on_Three_Overprint}
+\mitem{Three Pence on Four (1879)}{Three_Pence_On_Four}
+\mitem{3 on Three overprint (1880)}{3_on_Three_Overprint}
+
 \end{category}
 
 \begin{category}{King Edward VII}
@@ -48,8 +50,9 @@
 \mitem{Cork Cancellations}{Parcel_Post_Cork_Cancellations}
 \end{category}
 
-\begin{category}{Telegraph Office}
+\begin{category}{Telegraph and Telephone Office}
 \mitem{The Telegraph Office}{Telegraph_Office_Introduction}
+\mitem{Telephone Exchange}{Telephone_Exchange}
 \end{category}
 
 
@@ -77,6 +80,14 @@
 \end{category}
 \begin{category}{Revenues}
 \mitem{Patent and Proprietary}{Patent_and_Proprietary_stamps}
+\end{category}
+
+\begin{category}{Newspaper Branch}
+\mitem{Newspaper Revenue Duty}{Newspaper_Revenue_Duty}
+\end{category}
+
+\begin{category}{Machine Cancellations}
+  \mitem{Machine Cancellations}{Machine_Cancellations}
 \end{category}
 \end{accordion}
 
@@ -251,4 +262,4 @@
 </div>
 
 
-                                                                                                              
+                                                                                                                            

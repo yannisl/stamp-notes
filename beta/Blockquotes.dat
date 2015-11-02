@@ -7,13 +7,13 @@ For writers and authors, The Chicago Manual of Style recommends using a block qu
 Use of the block quotation for shorter passages is a stylistic choice that may or 
 may not be acceptable depending on the situation.\footnote{The Oxford Style has similar requirements.}
 
-\code
+```
 
   \begin{blockquote}
     Some Text
   \end{blockquote}
 
-\endcode
+```
 
 
 

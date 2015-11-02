@@ -1,12 +1,8 @@
-<div style="width:230px">
-<ul id="LHnav" style="margin-left:0px;width:210px">
-<li><a href="../Fezzan/introduction">Historical Background.</a></li>
-<li><a href="../Fezzan/introduction">Postal History Introduction</a></li>
-</ul>
+\begin{category}{Background}
+  \mitem{Introduction}{Introduction}
+\end{category}  
 
-<h4 class="country" style="background:#000040">...</h4>
-<ul id="LHnav" style="margin-left:0px;width:210px">
-  <li><a href="../Fezzan  ">...</a></li>
-  <li><a href="../Fezzan/ ">...</a></li>
-</ul>
-</div>  
+
+\begin{category}{Postage Due}
+  \mitem{1950 Postage Dues}{1950_Issue}
+\end{category}  

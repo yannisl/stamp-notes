@@ -15,33 +15,38 @@ At first the intention seems to have been to issue only a 3 cent stamp but, alas
 
 It is the intention of the Government to issue a set of Jubilee postage stamps. Such stamps will be put into public use by being delivered to postmasters throughout Canada for sale to the public in the same manner as ordinary postage stamps are sold. There will be a limit to the quantity to be issued. The denominations of Jubilee stamps, and the total number of such Jubilee stamps to be issued, are set forth in the following schedule:
 
-Number to be issued.	Denomination.
-150,000	½c	stamps.
-8,000,000	1c	"
-2,500,000	2c	"
-20,000,000	3c	"
-750,000	5c	"
-75,000	6c	"
-200,000	8c	"
-150,000	10c	"
-100,000	15c	"
-100,000	20c	"
-100,000	50c	"
-25,000	$1	"
-25,000	$2	"
-25,000	$3	"
-25,000	$4	"
-25,000	$5	"
-7,000,000	1c	postcards.
+\begin{tabular}{ll}
+
+Number to be issued.	&Denomination.\\
+150,000	                &½c	stamps.\\
+8,000,000	&1c	"  \\
+2,500,000	&2c	"  \\
+20,000,000	&3c	"  \\
+750,000	5c	&"     \\
+75,000	6c	&"     \\
+200,000	8c	&"     \\
+150,000	10c	&"     \\
+100,000	15c	&"    \\
+100,000	20c	&"    \\
+100,000	50c	&"    \\
+25,000	$1	&"   \\
+25,000	$2	&"   \\
+25,000	$3	&"   \\
+25,000	$4	&"  \\
+25,000	$5	&"  \\
+7,000,000	&1c	postcards.\\
+\end{tabular}
+
 Total value of one stamp of each kind $16.21½.
 
-[Pg 44] As soon as the total number of stamps mentioned in said schedule is issued the plates from which they will have been engraved will be destroyed in the presence of the head and two officers of the department. On the 10th of June the Post Office Department will proceed to supply Jubilee postage stamps to the principal post-offices in Canada, and through them minor post offices will obtain their supply until the issue is exhausted. If this Jubilee issue were to wholly displace the ordinary postage stamps it would supply the ordinary wants of the country for between two and three months, but as the use of the ordinary postage stamps will proceed concurrently with that of the Jubilee stamps, it is expected that the Jubilee stamps will last beyond the three months. Inasmuch as the department is already receiving applications for the purchase of Jubilee stamps, it may be stated that the department will adhere to the established practice of supplying them only to postmasters, and through them to the public, who may purchase them on and after the 19th June, 1897.
+As soon as the total number of stamps mentioned in said schedule is issued the plates from which they will have been engraved will be destroyed in the presence of the head and two officers of the department. On the 10th of June the Post Office Department will proceed to supply Jubilee postage stamps to the principal post-offices in Canada, and through them minor post offices will obtain their supply until the issue is exhausted. If this Jubilee issue were to wholly displace the ordinary postage stamps it would supply the ordinary wants of the country for between two and three months, but as the use of the ordinary postage stamps will proceed concurrently with that of the Jubilee stamps, it is expected that the Jubilee stamps will last beyond the three months. Inasmuch as the department is already receiving applications for the purchase of Jubilee stamps, it may be stated that the department will adhere to the established practice of supplying them only to postmasters, and through them to the public, who may purchase them on and after the 19th June, 1897.
 
 It will be noted that the Post-Office Department made no pretense about the matter but stated quite candidly that the issue would be limited and before very long, by means of different official notices and communications it was made quite plain that the issue was intended to sell and that restrictions would be placed on the scale of the more desirable values, which were issued in but small quantities. With the first supply of these stamps sent to postmasters the following circular was sent:—
 
 N. B.—Requisitions for full sets of the Jubilee stamps will be filled until the issue is exhausted.—E. P. S.
 
 
+\begin{letter}
 Post Office Department, Canada,
 Postage Stamp Branch,
 Ottawa, June, 1897.
@@ -56,9 +61,15 @@ I am, Sir, Your Obedient Servant
 E. P. Stanton, Superintendent.
 
 P. S.—As there appears to be a somewhat general desire on the part of many persons to purchase, for souvenir purposes, complete sets of the Jubilee stamps, it is hoped that you will so manage the sale of such stamps that persons applying to purchase full sets may be able to get them.—E. P. S.
+\end{letter}
 
+\section{Printing}
+
+\phl[32%]{../canada/B-1.jpg}{}
+\phl[32%]{../canada/B-2.jpg}{}
 The stamps were placed on sale throughout the Dominion on the morning of Saturday, the 19th of June the eve of Jubilee day proper. Naturally there was a big rush on the part of the public to obtain specimens of the much heralded stamps and in the larger centres the post offices were literally besieged. Speculators tried to corner the ½c and 6c denominations, which advance particulars had shown to be the most desirable of the lower values, but the stamps were doled out carefully and large orders were promptly and firmly refused. But though care was exercised the department was convinced, from the result of the first day's sale, that steps would have to be taken to further restrict the sale of the desirable denominations. The demand for the stamps at the chief office was so great that a circular letter was prepared to be despatched to applicants, this reading as follows:—
 
+\begin{letter}[shade]
 Post Office Department, Canada,
 Postage Stamp Branch,
 Ottawa, 26th June, 1897.
@@ -71,6 +82,8 @@ I am, Sir, Your Obedient Servant
 E. P. Stanton, Superintendent.
 
 P. S.—Under no circumstances will there be any issue of Jubilee stamps, beyond the limits mentioned in the accompanying extract from Hansard, containing the Postmaster-General's statement on the subject.
+\end{letter}
+
 
 At the same time instructions were issued to postmasters that they were not to sell the ½c, 6c, 8c and dollar denominations except in the complete sets of sixteen values.
 

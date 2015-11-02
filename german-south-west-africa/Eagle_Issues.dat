@@ -13,76 +13,32 @@ on piece, superb , Michel (500.-)
 
 <h4></h4>
 
-\ph[30%]{../south-west-africa/1a.jpg}{
+\phl[30%]{../south-west-africa/1a.jpg}{
 3 Pfennig
 }
-
-
-
-\ph[30%]{../south-west-africa/2.jpg}{
+\phl[30%]{../south-west-africa/2.jpg}{
 5 Pfennig
 }
-
-
-
-
-\ph[30%]{../south-west-africa/3.jpg}{
+\phl[30%]{../south-west-africa/3.jpg}{
 10 Pfennig
 }
-
-<div style="clear:both"></div>
-
-\ph[30%]{../south-west-africa/4.jpg}{
+\phl[30%]{../south-west-africa/4.jpg}{
 20 Pfennig
 }
-
-<div style="width:32.5%;float:left">
-<h4></h4>
-<img src="http://localhost/egypt/south-west-africa/5.jpg" style="width:98%;float:left" />
-
-<p style="font-size:smaller"> 
-25 Pfennig
-</p>
-</div>
-
-<div style="width:32.5%;float:left">
-<h4></h4>
-<img src="http://localhost/egypt/south-west-africa/6.jpg" style="width:98%;float:left" />
-
-<p style="font-size:smaller"> 
-50 Pfennig
-</p>
-</div>
-
-<hr/>
-##1898 Two Word Overpint
-<div style="width:32.5%;float:left">
-<h4></h4>
-<img src="http://localhost/egypt/south-west-africa/5a.jpg" style="width:98%;float:left" />
-
-<p style="font-size:smaller"> 
-
-</p>
-</div>
-
-<div style="width:32.5%;float:left">
-<h4></h4>
-<img src="http://localhost/egypt/south-west-africa/5b.jpg" style="width:98%;float:left" />
-
-<p style="font-size:smaller"> 
-
-</p>
-</div>
+\phl[32%]{../south-west-africa/5.jpg}{25 Pfennig}
 
 
-<div style="width:32.5%;float:left">
-<h4></h4>
-<img src="http://localhost/egypt/south-west-africa/5c.jpg" style="width:98%;float:left" />
+\phl[32%]{../south-west-africa/6.jpg}{50 Pfennig}
 
-<p style="font-size:smaller"> 
+## 1898 Two Word Overpint
 
-</p>
-</div>
+\phl[32%]{../south-west-africa/5a.jpg}{ }
+
+
+\phl[32%]{../south-west-africa/5b.jpg}{}
+
+\phl[32%]{../south-west-africa/5c.jpg}{}
+
 
 <div style="width:32.5%;float:left">
 <h4></h4>

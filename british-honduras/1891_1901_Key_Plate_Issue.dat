@@ -8,8 +8,7 @@ to
 Sold for \pound160
 }
 
-<div style="width:22.5%;float:left">
-<img src="http://localhost/egypt/british-honduras/87.jpg" style="width:98%"  />
+\phl[23%]{../british-honduras/87.jpg}{ }
 
 \ph[23%]{../british-honduras/87.jpg}{
 BRITISH HONDURAS 1891-1901 Watermark Crown CA Imperforate Colour Trials 1c. in green and dull orange, affixed to small piece, fine.  	£150
