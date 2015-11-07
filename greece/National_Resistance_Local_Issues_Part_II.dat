@@ -4,13 +4,11 @@
 
 <div style="width:38%;float:left;margin-right:10px">
 <h4>Hellas R14</h4>
-<img src="http://localhost/egypt/greece/EDES.jpg" style="width:98%"  />
 
-<p style="font-size:smaller"> 
+\ph[98%]{../greece/EDES.jpg}{
 1944 2nd E.D.E.S. set, 1000dr., u/m. There are few known. RR. (Hellas R14). [ **]  	
-	
 &euro;200
-</p>
+}
 
 </div>
 

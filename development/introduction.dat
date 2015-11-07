@@ -2,19 +2,43 @@
 
 \section{Catalogue}
 
+The cataloguetamp  section of the application, will provide a catalogue for the world's stamps. The catalogue should be renumbered, as required.
+
+\section{Improvements}
+
+Functions should include exports to excel sheet, to enable easy updating of the application, especially regarding the renumbering of stamp sets.
+
+
 \subsection{Structure}
 
 
 \subsection{Presentation}
+
+Presentation is flexile enough.
 
 \subsection{Queries}
 
 API needs to provide, querying by Country, year, range, sort by Set ID.
 
 
+<div><pre>
 
-\begin{itemize}
+    \api\ver\country\all
+
+    \api\ver\country\year_start-year_end\
+    
+</pre>
+</div>
+
+
+\begin{itemize }
 
 \item  Query b
 
 \end{itemize}
+
+\section{Image Management}
+
+Cross referencing
+
+Progressive scripts -> and upload ->automate workflow
