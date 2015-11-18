@@ -1,6 +1,5 @@
-##Italy: Stamps and Postal History 
+# Introduction to the  Stamps and Postal History  of Sicily
 
-###Sicily
 
 \ph[80%]{../italy/sicily/cover-01.jpg}{
 4319) 1a - I tav. arancio e 6e - I tav. Cat.E 6.250+
@@ -12,9 +11,8 @@ Zanaria
 }
 
 
-<div style="width:98%;float:left">
-<img src="http://localhost/egypt/italy/sicily/cover-02.jpg" style="display:block;margin:0 auto" />
-<p style="font-size:smaller"> 
+
+\ph[90%]{../italy/sicily/cover-02.jpg}{
 4320) 4 - II tav, 8 - III tav. Cat.E 25.550+
 e 11a - II tav. vermiglio
 vivo, su lettera per
@@ -23,23 +21,19 @@ vivo, su lettera per
 Eccezionale tricolore
 Sicilia
 P.a.R.
-
 Zanaria
-</p>
-</div>
-<div style="width:98%;float:left">
-<img src="http://localhost/egypt/italy/sicily/cover-03.jpg" style="display:block;margin:0 auto" />
-<p style="font-size:smaller"> 
+}
+
+\ph[90%]{../italy/sicily/cover-03.jpg}{
 8 - III tav., e 13c - Cat.E 7.450
 ardesia scuro, su lettera da
 "MESSINA 16-4 60" a
 Genova per i "PIROSCAFI
 POSTALI FRANCESI.
 Splendida e rara E 4.000
-
 Zanaria
-</p>
-</div>
+}
+
 <div style="width:98%;float:left">
 <img src="http://localhost/egypt/italy/sicily/cover-04.jpg" style="display:block;margin:0 auto" />
 <p style="font-size:smaller"> 
