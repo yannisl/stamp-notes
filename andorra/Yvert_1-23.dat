@@ -1,3 +1,12 @@
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
 ##Andorra
 
 The first issue of stamps were contemporary stamps of France overprinted
@@ -55,4 +64,14 @@ Timbre No 22 neuf sans trace de charniere, TTB Cote Yvert et Tellier 630 Euros 1
 neuf sans trace de charniere, TTB
 Cote Yvert et Tellier 830 Euros EU180}   
 
-            
+Spalsh Andorra rppc Consell General Council Prince Costume Claverol 60s   
+
+
+
+<div class="fb-comments" data-href="http://developers.facebook.com/docs/plugins/comments/" data-numposts="5"></div>
+
+
+
+
+
+
