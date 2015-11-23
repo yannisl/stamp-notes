@@ -7,14 +7,18 @@
 \begin{category}{Early Mail}
 \mitem{1726-1839 Early Mail}{../bermuda/1726-1839_Early_Letters}
 \end{category}
-\begin{category}{Dry Docks}
+\begin{category}{Dry Docks & Ship Issue}
 \mitem{1901-3 Dry Docks}{../bermuda/1903_Dry_Docks}
+\mitem{1910-34 Ship Issue, Proofs}{../bermuda/1910_34_Ship_Issue}
+\mitem{1910-34 Ship Issue, Stamps}{../bermuda/1910_34_Ship_Issue_Stamps}
 \end{category}
 
-
+\begin{category}{1921 Tercentenary}
+ \mitem{1921 Tercentenary}{1921-tercentenary}
+\end{category}
 \begin{category}{Queen Elizabeth II}
 \mitem{1953 Definitives}{../bermuda/1953_Queen_Elizabeth}
 \mitem{1962-68 Definitives}{1962-65_Definitives}
 \mitem{1968 Olympics}{1968_Olympics}
 \end{category}
-\end{accordion}                  
+\end{accordion}                          

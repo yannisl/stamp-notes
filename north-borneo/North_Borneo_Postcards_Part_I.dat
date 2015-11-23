@@ -1,10 +1,9 @@
 
 ##North Borneo
 ###North Borneo Postcards Part I
-<div style="width:49%;float:left;margin:right:5px">
-<h4>1845</h4>
-<img src="http://localhost/egypt/north-borneo/40.jpg" style="display:block;width:98%" />
-<p style="font-size:smaller">
+
+
+\ph[45%]{../north-borneo/40.jpg}{
 Sale 8007 Lot 586
 
 North Borneo
@@ -12,8 +11,7 @@ Picture Postcards
 Official card with Arms of the Chartered Company in green
 Nine different, all used within Great Britain and bearing a 1/2d., and all with notation on picture side; also three others (one unused and the others with stamps removed) with coloured tint and marked "north borneo series". A rare group
 Estimate  200-250
-</p>
-</div>
+}
 
 <div style="width:49%;float:left;">
 <h4>1845</h4>
@@ -25,7 +23,7 @@ North Borneo
 Picture Postcards
 Phillippe & Sons
 Eleven unused examples (two with stamp affixed and cancelled but not addressed and three with message) and five used (three with stamp removed and one used within GB), all with different picture, condition mixed
-Estimate � 120-150
+Estimate  120-150
 </div>
 
 <hr/>

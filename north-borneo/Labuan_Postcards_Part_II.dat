@@ -2,10 +2,9 @@
 
 ##North Borneo Postcards Part I
 
-<div style="width:98%;float:left;margin:right:5px">
+
 <h4>1845</h4>
-<img src="http://localhost/egypt/north-borneo/27.jpg" style="display:block;" />
-<p style="font-size:smaller">
+\ph[40%]{../north-borneo/27.jpg}{
 Sale 8007 Lot 27
 Labuan
 Picture Postcards
@@ -13,8 +12,7 @@ Section numbers are those taken from "Labuan Picture Postcards" by J.D.F. Dickso
 J. Kime, Labuan (Section 1)
 "Labuan Coal Mines" (Dickson 1), fine unused and used (stamp removed) to England (27.11.03)
 Estimate £ 50-60
-</p>
-</div>
+}
 
 
 <div style="width:39%;float:left;margin:right:5px">

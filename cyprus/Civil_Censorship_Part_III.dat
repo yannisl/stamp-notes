@@ -1,8 +1,5 @@
-<!--
-{{feature: A collection is like a puzzle if you have one hundred separate pieces they don't mean anything, It is only when they are put into a context that they tell a story.R Beyer}}
--->
 
-## Cyprus Civil Censorship World War II, 1939-1945 - Part III
+# Cyprus Civil Censorship World War II, 1939-1945 - Part III
 
 ###Third Period : February 1942 to August 1945
 
@@ -18,16 +15,14 @@ with the British Empire Censorship system with the letter 'M' allocated to Cypru
 
 
 
-###Unopened Mail
+## Unopened Mail
 Unopened mail received only the double ring circular censor's handstamp with the number in the middle. At times when a letter was returned to the sender it would receive a second censor's handstamp. The censor mark can be found on all types of letters sometimes with publicity handstamps appearing on the same cover. 
 
-<div>
-<img src="http://localhost/egypt/cyprus-stamps/C1-cover.jpg" style="width:80%"/>
-<img src="http://localhost/egypt/cyprus-stamps/C1-cover-back.jpg" style="width:80%"/>
 
-<p>
-</p>
-</div>
+\includegraphics[width=1.0\textwidth]{../cyprus/C1-cover.jpg}
+\includegraphics[width=1.0\textwidth]{../cyprus/C1-cover-back.jpg}
+
+
 
 \ph[80%]{../cyprus/C1-cover-01.jpg}{
 1939 Cyprus censored cover. The cover was posted from Platres to Surrey in Great Britain. It was posted on the 2 Sept 1939, three days after the implementation of the Censorship regulations.}
