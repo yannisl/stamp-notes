@@ -3,5 +3,17 @@
   
  \end{category}
 
+\begin{category}{1960s}
+\mitem{1960 Issue}{1960_Issue}
+\mitem{1964 Issue}{1964_Issue}
+\mitem{1966 Definitives}{1966_Definitives}
+\end{category}
 
-\end{accordion}
+\begin{category}{1970s}
+\mitem{1971 Anniversary}{1971_Anniversary}
+\end{category}
+
+\begin{category}{Revenues}
+\mitem{Revenues}{Revenues}
+\end{category}
+\end{accordion}            
