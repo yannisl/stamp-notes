@@ -4,4 +4,8 @@
 
 \begin{category}{British Post Office}
 \mitem{British Post Office}{British_Post_Office}
-\end{category}  
+\end{category}
+
+\begin{category}{Ottoman Posts}
+\mitem{Ottoman Posts}{Ottoman_Posts}
+\end{category}     
