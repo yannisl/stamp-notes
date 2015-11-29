@@ -1,8 +1,12 @@
 \begin{category}{Background}
 \mitem{Introduction}{Introduction}
-\mitem{1825-1844 Convict Settlement}{1825-1844_Convict_Settlement}
-\end{category}
 
+\mitem{Early letters Part 3}{Early_Mail-Part-3}
+\end{category}
+\begin{category}{1825-1844 Convict Settlement}
+\mitem{1825-1844 Convict Settlement}{1825-1844_Convict_Settlement}
+\mitem{Free Mail Handstamp}{Free_Handstamp}
+\end{category}
 \begin{category}{1844-1856 Van Diemen's Land Administration}
 \mitem{1844-1856 Van Diemen's land Adminisstration}{1844-1856_Van_Diemens_Land_Administration}
 \end{category}
@@ -26,18 +30,67 @@
 \mitem{First Flights}{Aviation}
 \end{category}
 
+\begin{category}{Postal Rates}
+\mitem{Special Delivery}{Special_delivery}
+\end{category}
 \begin{category}{Issued Stamps} 
   \mitem{1947 First Issue}{1947_First_Issue}
   \mitem{1953 Pictorials}{1953_Pictorials}
   \mitem{1956 Landing of Pitcairn Islanders}{1956_Landing_of_Pitcairn_Islanders}
   \mitem{1959 Anniversary of the Australian Post Office}{1959_Anniversary_of_the_Australian_Post_Office}
+\hr
+
 \mitem{1960-62 Pictorials}{1960-62_Pictorials}
+\mitem{1960 Surcharges}{1960_Surcharges}
 \mitem{1962-63 Fish}{1962-63_Fish}
 \mitem{1964 Anniversary}{1964_Anniversary}
 \mitem{1964 Scenes of Norfolk Island}{1964_Scenes_on_Norfolk_Island}
 \mitem{1966 Christmas}{1966_Christmas}
 \mitem{1966 Decimal Surcharges}{1966_Decimal_Surcharge}
+\mitem{1967 Ships}{1967-68_Ships}
+\mitem{1968 Qantas Anniversary}{1968_Qantas_Anniversary}
+\mitem{1969 Captain Cook Bicentennial}{1969_Captain_Cook_Bicentennial}
+\mitem{1969 Annexation of van Diemen's Land}{1969_Annexation_of_van_Diemens_Land}
 \hr
-
+\mitem{1970 Bishop Patteson}{1970_Bishop_Patteson}
+\mitem{1970-71 Birds}{1970-71_Birds}
+\mitem{1970 Christmas}{1970_First_Christmas_on_Norfolk_Island}
 \mitem{1971 Christmas}{1971_Christmas}
-\end{category}                                        
+\mitem{1971 Coil Stamps}{1971_Coil_Stamps}
+\hr
+\mitem{1972 South Pacific Commission}{1972_South_Pacific_Commission}
+\mitem{1972 Christmas}{1972_Christmas}
+\mitem{1972 Pitcairners Church}{1972_Pitcairners_Church}
+\hr
+\mitem{1973-75 Historic Buildings}{1973-75_Historic_Buildings}
+\mitem{1973 Captain Cook Bicentennial}{1973_Captain_Cook_Bicentennial}
+\mitem{1973 Christmas}{1973_Christmas}
+\hr
+\mitem{1974 Captain Cook}{1974_Captain_Cook}
+\mitem{1974 UPU}{1974_UPU}
+\mitem{1974 Chischester}{1974_Chichester}
+\mitem{1974 Royal Visit}{1974_Royal_Visit}
+\mitem{1974 Christmas}{1974_Christmas}
+\hr
+\mitem{1975 St Barnabas}{1975_St_Barnabas}
+\mitem{1975 Launching of Schooner Resolution}{1975_Launching_of_Schooner_Resolution}
+\mitem{1975 Christmas}{1975_Christmas}
+\hr
+\mitem{1976 Bicentenary of the American Revolution}{1976_Bicentenary_of_the_American_Revolution}
+\mitem{1976 Christmas}{1976_Christmas}
+
+\hr
+\mitem{1979 Christmas}{1979_Christmas}
+
+\hr
+\mitem{1980-81 airplanes}{1980-81-airplanes}
+\mitem{1984 Owls}{1984_Owl}
+\mitem{1986 Christmas}{1986_Christmas}
+\mitem{1987 Endangered Species}{1987_Endangered_Species}
+\hr
+\mitem{1993 Nudibranchs}{1993_Nudibranchs}
+\mitem{1995 Whales}{1995_Whales}
+\mitem{1997 Butterflies}{1997_Butterflies}
+\mitem{1999 Sixth South Pacific Games}{1999_Sixth_South_Pacific_Games}
+\mitem{2013 Bell}{2013_Bell}
+\end{category}                                                                                                                              
