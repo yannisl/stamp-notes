@@ -1,15 +1,17 @@
 
 
-\chapter{Introduction to TeXIgniter}
+# Introduction to TeXIgniter
 
+TeXIgniter is an application where a mixture of LaTeX and extendd markdown commands can be used to produce aricles and blog posts directly in a lightweight CMS and to produce pdfs using LaTeX or one of the other engines such as XeLaTeX or LuaLaTeX, all within a browser environment. 
 
+It is ideally suited for the development of notes, books and articles.
 
 
 I have developed this application for my own use, as most existing systems did not offer what I wanted. TeX mark-up has survived over 30 years and is currently the de facto method for preparing scientific papers. Although a browser can be used to render a pdf, web publishing is a different art.
 
-\begin{callout}
+\begin{blockquote}
 To not to have entirely wasted one's life seems to be a worthy accomplishment, if only for my children.
-\end{callout}
+\end{blockquote}
 
 
 Tremendous benefits can accrue, if TeX-like mark-up could be used in lieu of html and its variants, while a requirement exists to have a document both as  (All)TeX mark-up and html format.  

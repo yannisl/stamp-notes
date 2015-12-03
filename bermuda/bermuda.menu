@@ -6,19 +6,72 @@
 
 \begin{category}{Early Mail}
 \mitem{1726-1839 Early Mail}{../bermuda/1726-1839_Early_Letters}
+\mitem{GB Used in Bermuda}{GB_used_in_Bermuda}
 \end{category}
+
+\begin{category}{1848-56 Postmaster's Local Provisionals}
+\mitem{Handstamps}{Postmaster_Provisional}
+\mitem{Perot's Issue}{Postmasters_Local_Provisionals}
+\end{category}
+\begin{category}{1865-73 First issue}
+\mitem{Covers}{First_Government_Issue_Covers}
+\end{category}
+\begin{category}{1874 Three Pence Provisionals}
+\mitem{Three Pence Provisionals}{1874_Surcharges_on_Covers}
+\end{category}
+
+\begin{category}{1875 One-penny Provisionals}
+\mitem{1875 One Penny Provisionals}{1875_Provisionals}
+\end{category}
+\begin{category}{1880 Halfpenny and Four Pence Issue}
+\mitem{1880 Halfpenny and Four Pence Issue}{1880_halfpenny_and_four_pence}
+\end{category}
+
+\begin{category}{1901 One Farthing Provisional}
+\mitem{1901 One Farthing Provisional}{1901_One_Farthing_Provisional}
+\end{category}
+
 \begin{category}{Dry Docks & Ship Issue}
 \mitem{1901-3 Dry Docks}{../bermuda/1903_Dry_Docks}
+\end{category}
+
+\begin{category}{1910-34 Ship Issue}
 \mitem{1910-34 Ship Issue, Proofs}{../bermuda/1910_34_Ship_Issue}
+\mitem{1918-19 Archival Material}{1918-19_Printers_Samples_and_Specimens}
 \mitem{1910-34 Ship Issue, Stamps}{../bermuda/1910_34_Ship_Issue_Stamps}
 \end{category}
 
 \begin{category}{1921 Tercentenary}
  \mitem{1921 Tercentenary}{1921-tercentenary}
 \end{category}
+
+\begin{category}{1924 King George Key Plates}
+\mitem{1924-32 King George V Key Plates}{1924-32_King_George_V_Key_Plates}
+\mitem{1936 King George V Pictorials}{1936_KGV_Pictorial}
+\end{category}
+
+\begin{category}{1937-1953 King George VI}
+\mitem{1937 Coronation}{1937_Coronation}
+\mitem{1938-53 Definitives}{1938-53_Issue}
+\mitem{1944 German Propaganda Forgeries}{1944_GB_German_Propaganda_Forgeries}
+\mitem{1948 Royal Silver Wedding}{1948_Royal_Silver_Wedding}
+\end{category}
 \begin{category}{Queen Elizabeth II}
 \mitem{1953 Definitives}{../bermuda/1953_Queen_Elizabeth}
 \mitem{1962-68 Definitives}{1962-65_Definitives}
+\mitem{1965 ITU}{1965_ITU}
 \mitem{1968 Olympics}{1968_Olympics}
+\hr
+\mitem{1970 Flowers}{1970_Flowers}
+\mitem{1973 Plant a Tree}{1973_Plant_a_Tree}
+\hr
+\mitem{1986 Green Turtle}{1986_Green_Turtle}
 \end{category}
-\end{accordion}                          
+
+\begin{category}{Boer War}
+\mitem{Boer War Internment}{Boer_War_Internment}
+\end{category}
+
+
+
+\end{accordion}                                                                                  
