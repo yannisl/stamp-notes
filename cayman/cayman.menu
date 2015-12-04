@@ -20,22 +20,23 @@
     \mitem{1902-3 First Series }{1902-03_King_Edward_VII}
     \mitem{1902-33 First Series: Specimens}{1902-03_King_Edward_VII_Specimen_Stamps}
     \mitem{1905-6 Second Series }{ }
-    \mitem{1907 Third Series}{}
-    \mitem{1907-9}{Fourth Series}
+    \mitem{1907 Third Series}{1907_King_Edward_VII}
+    \mitem{1907-9 Fourth Series}{King_Edward_Fourth_Series}
  \end{category}
 
 \begin{category}{Provisionals}
 \mitem{1908 Provisionals}{1908_Provisional}
 \end{category}
 \begin{category}{King George V}
-
+\mitem{1912-20 King George}{1912-20_King_George}
 \end{category}
 
 \begin{category}{King George VI}
-\mitem{1912-20 KIng George}{1912-20_King_George}
+\mitem{1938 King George Definitives}{1938_King_George_VI}
 \end{category}
 
 \begin{category}{Queen Elizabeth II}
+\mitem{1975 Birds}{1975_birds}
 \end{category}
 
 \begin{category}{The Commemorative Issues}
@@ -54,12 +55,14 @@
 \mitem{The Manuscript Provisionals}{}
 \end{category}
 
-\begin{category}{The Farthing Stamp}
+\begin{category}{1908 The Farthing Stamp}
+\mitem{1908 Farthing}{1908_Farthing}
 \end{category}
 
 \begin{category}{The Rural Posts}
 \end{category}
 \begin{category}{The War Stamps}
+\mitem{1917-20 War Tax Part II}{1917-20_War_Tax_Part_II}
 \end{category}
 \begin{category}{The Obliterators}
 \end{category}
@@ -78,4 +81,4 @@
 
 
 
-\end{accordion}                              
+\end{accordion}                                              
