@@ -29,6 +29,7 @@
 \end{category}
 \begin{category}{King George V}
 \mitem{1912-20 King George}{1912-20_King_George}
+\mitem{1935 Pictorials}{1935_Pictorials}
 \end{category}
 
 \begin{category}{King George VI}
@@ -60,11 +61,13 @@
 \end{category}
 
 \begin{category}{The Rural Posts}
+\mitem{Rural Posts}{Rural_Post}
 \end{category}
 \begin{category}{The War Stamps}
 \mitem{1917-20 War Tax Part II}{1917-20_War_Tax_Part_II}
 \end{category}
 \begin{category}{The Obliterators}
+
 \end{category}
 \begin{category}{Registered Mail}
 \end{category}
@@ -81,4 +84,4 @@
 
 
 
-\end{accordion}                                              
+\end{accordion}                                                  

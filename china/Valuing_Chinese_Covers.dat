@@ -1,39 +1,3 @@
-<style type="text/css"> 
-
-
-.hor-minimalist-a
-{
-	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-	font-size: 12px;
-	background: #fff;
-	margin: 45px;
-	width: 480px;
-        border:none;
-        background:none;
-	border-collapse: collapse;
-	text-align: left;
-}
-.hor-minimalist-a th
-{
-	font-size: 14px;
-	font-weight: normal;
-	color: #039;
-	padding: 10px 8px;
-        background:none;
-        border:none;
-	border-bottom: 2px solid #6678b1;
-}
-.hor-minimalist-a td
-{
-	
-	padding: 9px 8px 0px 8px;
-}
-.hor-minimalist-a tbody tr:hover td
-{
-	color: #009;
-}
-</style>
-
 
 
 
@@ -53,18 +17,19 @@ amount of wear, the stamp and cancel appear fresh
 \item[Very Fine] choice condition, the envelope shows typical slight soiling or wear from
 usage.
 
-Fine to Very Fine  normal condition, the envelope shows a bit heavier wear or
+\item [Fine to Very Fine]  normal condition, the envelope shows a bit heavier wear or
 soiling
 
 Fine  evident wear, still a presentable example
 \end{description}
-Light edge wear, top backflap faults, slight reductions at one side, and file folds
+Light wear, top backflap faults, slight reductions at one side, and file folds
 are normal for 19th Century covers. Also normal are light cleaning and small
 mends along the edges. They are to be expected and are not always described,
 and are not grounds for claim or return.
 
 In my opinion your starting point will be similar covers that have sold at auction. You can then adjust based on the following parameters:
 
+\begin{verbatim}
     Are the postmarks clear?
     Is the cover free from excessive rust spots and foxing?
     Is the addressee and sender clearly identified? 
@@ -72,6 +37,7 @@ In my opinion your starting point will be similar covers that have sold at aucti
     Are the stamps unique?
     Is the cover, envelope suitable for write-up and display?
     Is the cover visually appealing?
+\end{verbatim}
 
 I think the last two points are the most important. If the cover is to be displayed in an exhibition then it should be able to tell a story. For example any inflation time material
 can be used to tell the "story of postal rates during 1945-1949."  On the other hand cultural revolution covers can be used to weave the social history of the events during the revolution.

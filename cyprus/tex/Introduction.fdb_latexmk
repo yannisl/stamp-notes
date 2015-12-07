@@ -1,0 +1,21 @@
+# Fdb version 3
+["bibtex Introduction"] 1449328229 "Introduction.aux" "Introduction.bbl" "Introduction" 1449328229
+  "C:/Program Files/MiKTeX 2.9/bibtex/bst/natbib/plainnat.bst" 1284455456 26816 ffe5423d2019860bad9f54bc402fac15 ""
+  "Introduction.aux" 1449325674 1480 d034c61d1972e8e39a3757793ec95ad0 ""
+  "Introduction.bcf" 0 -1 0 ""
+  "ceylon.bib" 1445083400 27941 21e3d1f9629604a0459b7ab0c29d95fb ""
+  (generated)
+  "Introduction.blg"
+  "Introduction.bbl"
+["makeindex Introduction.idx"] 1449328229 "Introduction.idx" "Introduction.ind" "Introduction" 1449328229
+  "Introduction.idx" 1449325674 0 d41d8cd98f00b204e9800998ecf8427e ""
+  (generated)
+  "Introduction.ind"
+  "Introduction.ilg"
+["pdflatex"] 1449329185 "Introduction.tex" "Introduction.pdf" "Introduction" 1449329185
+  "C:/Users/Georgio/AppData/Local/MiKTeX/2.9/miktex/data/le/pdftex/pdflatex.fmt" 1437478929 3701249 734b111566e9143d13a3ff8bea834f53 ""
+  "Introduction.aux" 1449325674 1480 d034c61d1972e8e39a3757793ec95ad0 ""
+  "Introduction.tex" 1449325674 6698 3f10c00b8c7d56a62d2196b0c2b3bcbc ""
+  (generated)
+  "Introduction.pdf"
+  "Introduction.log"

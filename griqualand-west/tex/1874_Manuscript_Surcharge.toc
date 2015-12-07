@@ -1,2 +1,4 @@
 \contentsline {chapter}{Griqualand West}{7}{chapter*.2}
+\contentsline {section}{Examples of the Manuscript surcharge }{7}{section*.3}
+\contentsline {chapter}{Bibliography}{11}{chapter*.4}
 \contentsfinish 

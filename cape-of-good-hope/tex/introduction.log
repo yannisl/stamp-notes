@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.10.17)  17 OCT 2015 13:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.10.17)  5 DEC 2015 12:53
 entering extended mode
 **C:/wamp/www/application-latest/stamp-notes/cape-of-good-hope/tex/introduction
 .tex
@@ -1598,7 +1598,7 @@ story\OT1/pplx/m/n/10 .$
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.615 ...ope/TPO}{TravellingPostOffice_Index.html}
+l.615 ...ood-hope/TPO}{TravellingPostOffice_Index}
                                                    of the Cape of Good Hope ...
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1606,7 +1606,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.615 ...ope/TPO}{TravellingPostOffice_Index.html}
+l.615 ...ood-hope/TPO}{TravellingPostOffice_Index}
                                                    of the Cape of Good Hope ...
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1615,9 +1615,15 @@ really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
 
-Overfull \hbox (7.03537pt too wide) in paragraph at lines 615--625
-\T1/pplj/m/n/10 <a href="TPO-Albany.html">Albany T.P.O</a> and the <a href="TPO
--
+Overfull \hbox (8.26527pt too wide) in paragraph at lines 615--625
+\T1/pplj/m/n/10 Western.html">Western T.P.O.</a>, to items such as the <a href=
+"TPO-
+ []
+
+
+Overfull \hbox (72.2253pt too wide) in paragraph at lines 615--625
+\T1/pplj/m/n/10 Albany.html">Albany T.P.O</a> and the <a href="TPO-Zwartkops.ht
+ml">Zwartkops
  []
 
 
@@ -1632,11 +1638,13 @@ Overfull \hbox (44.35207pt too wide) in paragraph at lines 626--635
 liam/Clanwilliam-
  []
 
-[7]
+[7
+
+]
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.646 ...s project, please <a href="mailto:yannis_
+l.650 ...s project, please <a href="mailto:yannis_
                                                   lazarides@yahoo.com">conta...
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1644,17 +1652,217 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.648 
+l.652 
       
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 
-Overfull \hbox (322.84322pt too wide) in paragraph at lines 643--648
+Overfull \hbox (322.84322pt too wide) in paragraph at lines 647--652
 \OML/zplm/m/it/10 andIwilldoso\OT1/pplx/m/n/10 , \OML/zplm/m/it/10 givingyouful
 lcredit\OT1/pplx/m/n/10 .\OML/zplm/m/it/10 Ifyouwanttobecomeaco \OMS/zplm/m/n/1
 0   \OML/zplm/m/it/10 editorforthiscountrypleasecontactusandwewillbemorethanple
 asedtoaccommodateyou\OT1/pplx/m/n/10 .$ 
+ []
+
+! Misplaced alignment tab character &.
+l.655 ...://books.google.ae/books?id=71wqAAAAYAAJ&
+                                                  pg=PA115&dq=mail+steamer+c...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+l.655 ...google.ae/books?id=71wqAAAAYAAJ&pg=PA115&
+                                                  dq=mail+steamer+cape+of+go...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+l.655 ...=PA115&dq=mail+steamer+cape+of+good+hope&
+                                                  hl=en&sa=X&ved=0CDsQ6AEwBT...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+l.655 ...&dq=mail+steamer+cape+of+good+hope&hl=en&
+                                                  sa=X&ved=0CDsQ6AEwBTgKahUK...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+l.655 ...ail+steamer+cape+of+good+hope&hl=en&sa=X&
+                                                  ved=0CDsQ6AEwBTgKahUKEwjDy...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+l.655 ...UKEwjDyq3C1JHJAhWDORoKHdWcA-A\#v=onepage&
+                                                  q=mail%20steamer%20cape%20...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+
+Overfull \hbox (513.39502pt too wide) in paragraph at lines 655--656
+[]\T1/pplj/m/n/10 https://books.google.ae/books?id=71wqAAAAYAAJpg=PA115dq=mail+
+steamer+cape+of+good+hopehl=ensa=Xved=0CDsQ6AEwBTgKahUKEwjDyq3C1JHJAhWDORoKHdWc
+A-
+ []
+
+! Misplaced alignment tab character &.
+l.658 ...://books.google.ae/books?id=NfENAAAAQAAJ&
+                                                  pg=PA536&dq=french+mail+st...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+l.658 ...google.ae/books?id=NfENAAAAQAAJ&pg=PA536&
+                                                  dq=french+mail+steamer+age...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+l.658 ...pg=PA536&dq=french+mail+steamer+agencies&
+                                                  hl=en&sa=X&ved=0CFsQ6AEwCD...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+l.658 ...36&dq=french+mail+steamer+agencies&hl=en&
+                                                  sa=X&ved=0CFsQ6AEwCDgoahUK...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+l.658 ...=french+mail+steamer+agencies&hl=en&sa=X&
+                                                  ved=0CFsQ6AEwCDgoahUKEwj3z...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+l.658 ...UKEwj3z8nI05HJAhUBoxoKHY-2B9E\#v=snippet&
+                                                  q=%20mail&f=false
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+
+Overfull \hbox (462.05507pt too wide) in paragraph at lines 658--659
+[]\T1/pplj/m/n/10 https://books.google.ae/books?id=NfENAAAAQAAJpg=PA536dq=frenc
+h+mail+steamer+agencieshl=ensa=Xved=0CFsQ6AEwCDgoahUKEwj3z8nI05HJAhUBoxoKHY-
+ []
+
+! Misplaced alignment tab character &.
+l.660 ...://books.google.ae/books?id=zs26hd5keYkC&
+                                                  pg=PA90&dq=french+mail+ste...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+l.660 ....google.ae/books?id=zs26hd5keYkC&pg=PA90&
+                                                  dq=french+mail+steamer+age...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+l.660 ...&pg=PA90&dq=french+mail+steamer+agencies&
+                                                  hl=en&sa=X&ved=0CDsQ6AEwAz...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+l.660 ...90&dq=french+mail+steamer+agencies&hl=en&
+                                                  sa=X&ved=0CDsQ6AEwAzgKahUK...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+l.660 ...=french+mail+steamer+agencies&hl=en&sa=X&
+                                                  ved=0CDsQ6AEwAzgKahUKEwj7t...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+l.660 ...UKEwj7tPbZ0ZHJAhXJthoKHeidAK8\#v=onepage&
+                                                  q=french%20postal%20agency...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+
+Overfull \hbox (558.11497pt too wide) in paragraph at lines 660--661
+[]\T1/pplj/m/n/10 https://books.google.ae/books?id=zs26hd5keYkCpg=PA90dq=french
++mail+steamer+agencieshl=ensa=Xved=0CDsQ6AEwAzgKahUKEwj7tPbZ0ZHJAhXJthoKHeidAK8
+#v=onepageq=french 
  []
 
 [8] (introduction.bbl
@@ -1663,7 +1871,7 @@ Package natbib Warning: Empty `thebibliography' environment on input line 8.
 
 )
 ! Undefined control sequence.
-l.656 \printbibliography
+l.673 \printbibliography
                         
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1676,33 +1884,42 @@ No file introduction.ind.
 
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 660.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 660.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 677.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 677.
 (introduction.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 660.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 660.
-Package rerunfilecheck Info: File `introduction.out' has not changed.
-(rerunfilecheck)             Checksum: 63AC486E3D65251DB3DFC557568C197A;236.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 660.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 677.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 677.
+
+Package rerunfilecheck Warning: File `introduction.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `introduction.out':
+(rerunfilecheck)             Before: 63AC486E3D65251DB3DFC557568C197A;236
+(rerunfilecheck)             After:  9C58BEBF64104CB4231F75BF2A306C89;544.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 677.
  ) 
 Here is how much of TeX's memory you used:
- 26769 strings out of 493675
- 447655 string characters out of 3143916
- 643590 words of memory out of 3000000
- 29516 multiletter control sequences out of 15000+200000
+ 26765 strings out of 493675
+ 447597 string characters out of 3143916
+ 642590 words of memory out of 3000000
+ 29511 multiletter control sequences out of 15000+200000
  70160 words of font info for 96 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
  55i,11n,92p,1249b,341s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program File
-s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX
- 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fon
-ts/type1/public/fpl/fplrc8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/he
-lvetic/uhvb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.
-pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/palatino/uplr8a.pfb><C:/Progra
-m Files/MiKTeX 2.9/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on introduction.pdf (9 pages, 1745340 bytes).
+pdfTeX warning (dest): name{section*.2} has been referenced but does not exis
+t, replaced by a fixed one
+
+{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program Files/
+MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2
+.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts
+/type1/public/fpl/fplrc8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helv
+etic/uhvb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pf
+b><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/palatino/uplr8a.pfb><C:/Program 
+Files/MiKTeX 2.9/fonts/type1/urw/palatino/uplri8a.pfb>
+Output written on introduction.pdf (9 pages, 1747568 bytes).
 PDF statistics:
- 97 PDF objects out of 1000 (max. 8388607)
- 13 named destinations out of 1000 (max. 500000)
+ 98 PDF objects out of 1000 (max. 8388607)
+ 14 named destinations out of 1000 (max. 500000)
  2594 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -40,7 +40,7 @@ Estimate £50,000 to £60,000}
 
 ## 3d on 1s, Green in Fancy Capitals (SG13)
 
-\begin{figure}[htbp]
+\begin{figure}
 \phc[30%]{../bermuda/15047_27_1.jpg}{}
 \phc[30%]{../bermuda/15047_28_1.jpg}{}
 \end{figure}
@@ -51,10 +51,7 @@ Estimate £50,000 to £60,000}
 
 3d on 1s, Green in Capitals (SG14)
 
-\begin{figure}[htbp]
-\phc[30%]{../bermuda/15047_29_1.jpg}{}
-\phc[30%]{../bermuda/15047_30_1.jpg}{}
-\end{figure}
+
 
 
 
@@ -79,5 +76,8 @@ A Type [8] on 1d. rose is known as an essay. A lower left pane of sixty was surc
 \section{Forgeries}
 There are many forgeries and some are very dangerous.
 
-
+\begin{figure}
+\phc[30%]{../bermuda/15047_29_1.jpg}{}
+\phc[30%]{../bermuda/15047_30_1.jpg}{}
+\end{figure}
 

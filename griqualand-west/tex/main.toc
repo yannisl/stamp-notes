@@ -1,12 +1,4 @@
 \contentsline {chapter}{Griqualand West History}{7}{chapter*.2}
 \contentsline {chapter}{Griqualand West}{11}{chapter*.3}
-\contentsline {chapter}{The use of Cape Stamps without Overprint, 1871-77}{13}{chapter*.4}
-\contentsline {subsection}{References}{14}{subsection*.5}
-\contentsline {chapter}{Griqualand West}{15}{chapter*.6}
-\contentsline {chapter}{1877 G.W. Overprints}{17}{chapter*.7}
-\contentsline {chapter}{1877 The 'G' Red Overprints}{19}{chapter*.8}
-\contentsline {subsection}{Second Printing}{22}{subsection*.9}
-\contentsline {chapter}{1878 Antique Overprint}{7}{chapter*.11}
-\contentsline {subsection}{Double overprints}{7}{subsection*.12}
-\contentsline {chapter}{Bibliography}{9}{chapter*.13}
+\contentsline {chapter}{Bibliography}{13}{chapter*.4}
 \contentsfinish 

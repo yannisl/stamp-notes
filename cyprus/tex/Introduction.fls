@@ -1,0 +1,4 @@
+PWD C:/wamp/www/application-latest/stamp-notes/cyprus/tex
+INPUT C:/Users/Georgio/AppData/Local/MiKTeX/2.9/miktex/data/le/pdftex/pdflatex.fmt
+INPUT Introduction.tex
+OUTPUT Introduction.log

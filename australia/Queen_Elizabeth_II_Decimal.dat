@@ -30,14 +30,12 @@ background of Sydney Cove, as well as a group of
 people to illustrate the diverse backgrounds from which Australia has evolved over 200 years.
 
 
-<div style="width:32.5%;float:left">
-<h4>SG 383</h4>
-<img src="http://localhost/egypt/australia/SG383.jpg" style="width:98%" />
 
-<p style="font-size:smaller"> 
+<h4>SG 383</h4>
+
+\ph[30%]{../australia/SG383.jpg}{
 Australia SG 383 2 cent, olive-green (14.2.66). Queen Elizabeth II. Perf 15 x 14.
-</p>
-</div>
+}
 
 <div style="width:32.5%;float:left">
 <h4>SG 384</h4>
