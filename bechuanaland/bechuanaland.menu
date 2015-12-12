@@ -53,9 +53,10 @@
 
 \begin{accordiongroup}{Postal Stationery}
    \mitem{Wrappers }{Wrappers}
+  \mitem{Register Envelopes}{Postal_stationery_registered_envelopes}
 \end{accordiongroup}
 
 \begin{accordiongroup}{Bibliography and References}
    \mitem{Bibliography and References}{Bibliography_and_References}
 \end{accordiongroup}
-\end{accordion}                                                                                                            
+\end{accordion}                                                                                                              

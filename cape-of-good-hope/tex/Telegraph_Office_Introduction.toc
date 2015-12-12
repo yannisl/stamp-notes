@@ -1,7 +1,8 @@
-\contentsline {chapter}{An Introduction to the Cape of Good Hope Telegraphs }{7}{chapter*.2}
+\contentsline {chapter}{Cape of Good Hope Telegraphs }{7}{chapter*.2}
 \contentsline {section}{Cape of Good Hope Telegraph Company 1860}{7}{section*.3}
 \contentsline {section}{Cape of Good Hope Telegraphs 1873}{7}{section*.4}
 \contentsline {section}{1873 Government Control}{7}{section*.5}
 \contentsline {section}{1892 Telegraph Service Extended to Basutoland}{8}{section*.6}
 \contentsline {chapter}{1899 }{9}{chapter*.7}
+\contentsline {chapter}{Bibliography}{11}{chapter*.8}
 \contentsfinish 

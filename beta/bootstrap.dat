@@ -1,0 +1,30 @@
+\chapter{Write your title here}
+
+
+\begin{lead}
+\lorem
+
+\end{lead}
+
+\lorem
+
+
+## Alerts
+
+
+
+\begin{info}
+\lorem
+\end{info}
+
+\begin{warning}
+\lorem}
+\end{warning}
+
+\begin{danger}
+\lorem
+\end{danger}
+
+\begin{success}
+Well done! You successfully read this important alert message
+\end{success}

@@ -1,0 +1,10 @@
+# Annotations
+
+## Web annotations
+
+The system allows you to annotate any paragraph, or image using "AnnotateIt". This is to improve on co-operative writing.
+
+## PDF Annotations
+
+The annotations can be configured to be included in the pdf. This is done automatically, in draft mode. For final mode, these are automatically excluded. To set it, use the
+document, settings key. 

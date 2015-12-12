@@ -1,0 +1,10 @@
+# Bibliographies and References
+
+
+One of the core requirements for the TeXIgniter Publishing System, was to ease the generation of Bibliographies and references.
+
+
+\label{test}
+
+
+\ref{test}
