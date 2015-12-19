@@ -1,0 +1,103 @@
+# Introduction to TeXIgniter
+
+TeXIgniter is an application where a mixture of LaTeX and extendd markdown commands can be used to produce aricles and blog posts directly in a lightweight CMS and to produce pdfs using LaTeX or one of the other engines such as XeLaTeX or LuaLaTeX, all within a browser environment. 
+
+It is ideally suited for the development of notes, books and articles.
+
+
+I have developed this application for my own use, as most existing systems did not offer what I wanted. TeX mark-up has survived over 30 years and is currently the de facto method for preparing scientific papers. Although a browser can be used to render a pdf, web publishing is a different art.
+
+\begin{blockquote}
+To not to have entirely wasted one's life seems to be a worthy accomplishment, if only for my children.
+\end{blockquote}
+
+
+Tremendous benefits can accrue, if TeX-like mark-up could be used in lieu of html and its variants, while a requirement exists to have a document both as  (All)TeX mark-up and html format.  
+
+There are benefits both ways. For (All)TeX a  browser interface is unquestionably the best means of providing a flexible and user friendly User Interface and requiring minimal programming. One could program settings to be captured via interactive screens to manage packages and variable settings. 
+
+
+On last count a complicated document might need over 700 variable settings, and although most of us solve the problem with class selection the difficulties remain. Another benefit is the organization of the document data and managing files and directories through a visual interface, rather than a console and lastly and perhaps one of the most important consideration is the possibility of using server and scripting languages for calculations and  access to web documents and databases, where (All)TeX is limited. 
+
+For html a macro language could be used to generate complicated html patterns such as code-blocks, complicated visual displays of images (that require a lot of divs) and similar.  Additionally, if the mark-up was in (All)TeX, documents could be generated on the fly.
+
+What are your views? Is TeX-like mark-up a good way of structuring documents?I personally think the answer is yes with the exception of tables. What would be a suitable mark-up for tables? 
+
+Anoher advantage of using the browser as a front to LaTeX, is it can provide a better interface than most editors and at the same time assist with manuscript development. This application and all its contents are stored in a flat file system and duplicated on a couchdb data store.
+
+If you are typing a long manuscript, you will eventually break it into parts and then combine the parts before rendering the full document. This workflow is captured in the application. 
+
+
+\section{Mark-up}
+
+The strength of the application is its mark-up language. Before embarking on a diatrebe on the goodness or not or the various schemes, I took into account the possible users of this CMS, who I expect to be from the every young student to a retired philatelist. Mark-up is offered in two flavors, in its simplest form is based on Markdown and all markdown mark-up should work. Markdown limits you in what you can typeset in the same way that \latex is limited if you only want to use the base classes such as `book`.
+
+
+\ph[30%]{../beta/che.jpg}{}
+
+
+\section{Math}
+
+When $a \ne 0$, there are two solutions to \\(ax^2 + bx + c = 0\\) and they are
+$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
+
+
+2.14.9.3 LEOs on the front of the controller shall display the following status information : program
+running, watchdog timer timed-out, and power supply on.
+
+
+
+<span style="width:50px;font-weight:bold">2.14.10</span> Common Features
+
+<span style="width:50px;font-weight:bold">2.14.10.1</span>The only difference between the range of fixed inpuUoutput controllers and the modular
+controller is that they provide a controller with fewer hardware inputs and outputs. They
+shall use the same engineering tools and communications software to ensure total
+compatibility with all the other controllers on the system.
+
+{{pinnote: Please ensure that the above is complied with}}
+
+
+2.14.10.2 Both types shall be compatible with the same operator terminal as the modular controller so
+that data may be read from any controller.
+
+2.14.10.3 These small controllers shall also offer the same standard software capabilities as
+described in the Standard Software Functionality section.
+
+2.14.10.4 The CPUs shall have, as a minimum a 16-bit microprocessor with a clock speed of 10 MHz.
+They shall have at least 512 Kbytes of RAM with the application program stored in 128
+Kbytes of flash EEPROM. No battery back-up shall be necessary; instead a maintenancefree
+solution such as a Goldcap capacitor shall provide 72-hour back-up power for the
+RAM.
+
+2.14.10.5 An RS232 port shall provide local and remote access to all data in the controller to which it
+is connected as well as to other controllers on the same communication bus.
+
+2.14.10.6 The internal power supply shall provide all power sources necessary for the complete
+operation of the contro ller. It shall incorporate a watchdog timer with potential-free relay
+contacts to provide remote alarm indication.
+
+2.14.10.7 The combination of analog and digital points as inputs and outputs shall be optimized to suit
+the application for which the controller is being used.
+
+2.14.10.8 While it shall be possible to use supplier-specific analog inputs, the facility shall also exist
+for industry-standard inputs, e.g. 0 to 10 Vdc, 0 to 20mA, 4 to 20 mA, NTC 20K ohm,
+PT100, PT1000, PT3000. Any combination of analog input types must be possible. The
+resolution shall be 12-bil.
+
+2.14.10.9 Analog inputs may be used in place of digital inputs except when a pulsed input from a
+utility meter is connected . In this situation only a pure digital input shall be used.
+
+\section{Why Flat Files}
+
+\url{https://news.ycombinator.com/item?id=5229522}
+
+
+<img src="http://localhost/application-latest/stamp-images/beta/che.jpg" alt="..." class="img-circle" style="height:100px;width:100px"/>
+
+\section{References}
+
+[Tex vs CSS](https://news.ycombinator.com/item?id=7986612)
+
+
+
+
