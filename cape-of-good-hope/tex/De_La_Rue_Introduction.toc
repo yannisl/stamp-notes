@@ -1,3 +1,7 @@
 \contentsline {subsection}{The De La Rue Printing }{7}{subsection*.2}
 \contentsline {subsection}{How to Distinguish Between the Perkins Bacon and the De La Rue Issues }{7}{subsection*.3}
+\contentsline {subsection}{Specimens }{8}{subsection*.4}
+\contentsline {subsection}{SG21}{9}{subsection*.5}
+\contentsline {subsection}{One Shilling Emerald Green}{9}{subsection*.6}
+\contentsline {chapter}{Bibliography}{11}{chapter*.7}
 \contentsfinish 

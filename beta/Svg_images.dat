@@ -1,0 +1,34 @@
+# SVG Images
+
+SVG images are important in both publications as well as LaTeX produced documents. TeX in itself cannot handle SVG and hence they need to be inserted as specials.
+
+For the web, scaling them can present problems. A good reference for scaling them as backgrounds is [Scaling SVG images](https://developer.mozilla.org/en-US/docs/Web/CSS/Scaling_of_SVG_backgrounds) at mozilla. One has still to worry about outdated IE browsers, so be careful. They might also not work well in some mobiles.
+
+
+## Including SVG files in LaTeX runs
+
+These will have first to be converted to pdfs in order to preserve the advantages of scalable vector graphics.
+
+For help for including the images in LaTeX at [TX.SX](http://tex.stackexchange.com/questions/2099/how-to-include-svg-diagrams-in-latex). There is also a [guide](../http://ctan.um.ac.ir/info/svg-inkscape/InkscapePDFLaTeX.pdf) at CTAN.
+
+
+## Examples
+
+The menuing application uses country flags.
+
+\begin{verbatim}
+<ul>
+<li><a href="../abu-dhabi/Introduction"><i class="flag-icon flag-icon-ae"></i> United Arab Emirates</a>
+<li><a href="../abu-dhabi/Introduction"><i class="flag-icon flag-icon-ao"></i> Angola</a>
+</ul>
+\end{verbatim}
+
+This will render as:
+
+
+<ul>
+<li><a href="../abu-dhabi/Introduction"><i class="flag-icon flag-icon-ae"></i> United Arab Emirates</a>
+<li><a href="../abu-dhabi/Introduction"><i class="flag-icon flag-icon-ao"></i> Angola</a>
+</ul>
+
+

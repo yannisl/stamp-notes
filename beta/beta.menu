@@ -20,6 +20,7 @@
 \mitem{Typesetting Images}{Typesetting_Images}
 \mitem{Centering Images}{Centering_Images}
 \mitem{Captions}{Images_Captions}
+\mitem{SVG Images}{Svg_images}
 \end{category}
 
 \begin{category}{TODOs}
@@ -29,4 +30,4 @@
 
 \end{accordion}
 
-                                        
+                                          

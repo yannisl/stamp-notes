@@ -1,0 +1,14 @@
+# Setting Up to send and receive emails.
+
+
+## Set an account with a Mail Provider
+
+This section gave me a lot of headaches, as we need to 
+
+a) cater for local testing and 
+
+b) either setting-up a mail server or 
+
+c) using one of the mail services (preferred such as mailchimp, etc).
+
+An idea is to also think of using Parse that can cater for mobile applications. A lot of work here.

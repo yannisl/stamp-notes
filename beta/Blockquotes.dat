@@ -7,30 +7,29 @@ For writers and authors, The Chicago Manual of Style recommends using a block qu
 Use of the block quotation for shorter passages is a stylistic choice that may or 
 may not be acceptable depending on the situation.\footnote{The Oxford Style has similar requirements.}
 
-```
 
-  \begin{blockquote}
-    Some Text
-  \end{blockquote}
+\begin{verbatim}
+\begin{danger}
+If you omit the optional bracket you need to make sure you terminate the expression
+with a \lorem blank space (although it might work without the space).
+\end{danger}
+\end{verbatim}
 
-```
 
 
 
-\begin{blockquote}[]  Blockquotes tend to appear more in webpages rather than books, where normal
+\begin{blockquote}[shadow]  Blockquotes tend to appear more in webpages rather than books, where normal
 quotations are used. Translating them to TeX normally they will be printed
 in a more plain style, although we provide a number of them with rather more
 fancy typesetting.
 
 \end{blockquote}
 
-
+\begin{danger}
 If you omit the optional bracket you need to make sure you terminate the expression
 with a blank space (although it might work without the space).
+\end{danger}
 
-\begin{blockquote}[shadow]
- \lorem 
-\end{blockquote}
 
 \begin{blockquote}[custom]
  \lorem 

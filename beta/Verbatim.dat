@@ -1,0 +1,59 @@
+# Verbatims
+
+In LaTeX, verbatim code is what you have when you directly type. This is different from what you want to type code. Here we treat code and verbatims different with the code using pygments or Listings to typeset.
+
+In HTML we use a different approach.
+
+
+\begin{verbatim}
+function unprotect_codeblocks ($text, $field='VERBATIM') {
+	$before = 
+	    '<div  class="code-block console-wrap clearfix" style="padding:10pt;margin-bottom:15px">'.
+		  '<a href="#" class="toggleClass"' .
+        			'>-collapse</a>'.
+				  '<div class="code-block code" style="padding:10pt;width:80%">'.
+                  '<pre><code>';
+        $after =  '</pre></code>'.'</div>'.
+				  '<div  class="msg">'.
+                  '</div>'.
+                  '<div class="console"></div>'.
+                  //'<button class="btn btn-inverse eval">Run!</button>'.
+                 // '<button class="btn btn-inverse edit">Edit!</button>'.
+                 // '<ol class="results"></ol> '.
+                  '</div>';
+		if ($field == 'snippet') {
+			$before = '<pre><code>';
+			$after ='</code></pre>';
+		}	
+				  
+		$pattern  = "/".strtoupper($field)."\d*/"; //CODEBLOCK12
+		$patterns = array();
+		$replace = array();
+\end{verbatim}
+
+
+\begin{js}
+function unprotect_codeblocks ($text, $field='VERBATIM') {
+	$before = 
+	    '<div  class="code-block console-wrap clearfix" style="padding:10pt;margin-bottom:15px">'.
+		  '<a href="#" class="toggleClass"' .
+        			'>-collapse</a>'.
+				  '<div class="code-block code" style="padding:10pt;width:80%">'.
+                  '<pre><code>';
+        $after =  '</pre></code>'.'</div>'.
+				  '<div  class="msg">'.
+                  '</div>'.
+                  '<div class="console"></div>'.
+                  //'<button class="btn btn-inverse eval">Run!</button>'.
+                 // '<button class="btn btn-inverse edit">Edit!</button>'.
+                 // '<ol class="results"></ol> '.
+                  '</div>';
+		if ($field == 'snippet') {
+			$before = '<pre><code>';
+			$after ='</code></pre>';
+		}	
+				  
+		$pattern  = "/".strtoupper($field)."\d*/"; //CODEBLOCK12
+		$patterns = array();
+		$replace = array();
+\end{js}

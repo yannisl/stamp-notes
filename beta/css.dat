@@ -1,0 +1,16 @@
+# CSS
+
+TeXIgniter uses numerous files for CSS
+
+\begin{description}
+\item[bootstrap] We start with a basic `bootstrap` css file, which we then overwrite in certain places
+to render the pages. A better theming and workflow will be developed later and its on the cards.
+\item[flag-icons] `flag-icons.css`
+\end{description}
+
+
+All CSS files are located at the `assets` folder. This still needs a lot of clean-up to remove anything we do not use at the moment.
+
+## Flags
+
+We use flags to display country flags. The images are in svg format and located in `assets/flags`.

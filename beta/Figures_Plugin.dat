@@ -10,14 +10,12 @@ With the widespread of handheld devices, most images in browsers are displayed c
 
 \img[37%]{../beta/che.jpg}{Che \label{centerfigure} and more...  }
 
-Use the code below:
-
 
 \begin{verbatim}
 \img[37%]{../beta/che.jpg}{Che \label{centerfigure} and more...  }
 \end{verbatim}
 
-\phl[37%]{../beta/che.jpg}{Che \label{centerfigure} and more...  }
+\img[37%]{../beta/che.jpg}{Che \label{centerfigure} and more...  }
 
 
 \section{Margin Figures}
@@ -72,8 +70,11 @@ You can use any units allowed in browsers and also LaTeX. Currently the most com
 
 
 \begin{figure*}
+
 \phl[30%]{../beta/che.jpg}{Che left aligned.}
+\hfill\hfill\hfill
 \phr[30%]{../beta/che.jpg}{Che right aligned.}
+
 \end{figure*}
 
 \clear 
@@ -81,6 +82,7 @@ You can use any units allowed in browsers and also LaTeX. Currently the most com
 \begin{figure*}
 \centering
 \phl[30%]{../beta/che.jpg}{Che left aligned.}
+\hfill
 \phl[30%]{../beta/che.jpg}{Che right aligned.}
 \end{figure*}
 

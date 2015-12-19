@@ -8,9 +8,11 @@ The problem with open source is too much glue and high rates of change. A PHP pa
 
 As I am working on a windows machine, I had the normal run of installation problems. I had to ensure I had open_ssl extension. The WAMP server uses two different `php.ini` files. You will need to modify the one in the directory that has the `php.exe`. [composer warning openssl extension is missing, how to enable it in wamp](http://stackoverflow.com/questions/14062055/composer-warning-openssl-extension-is-missing-how-to-enable-in-wamp)  thanks to [Valery I](http://stackoverflow.com/a/14265815/150305).
 
-It is better to have both `php.ini` identical, otherwise you might pick-up errors with Guzzle when you start using it.
+It is better to have both `php.ini` files identical, otherwise you might pick-up errors with Guzzle when you start using it.
 
-
+\begin{info}
+WAMP uses different php.ini files in the CLI and for Apache. when you enable `php_openssl` through the WAMP UI, you enable it for Apache, not for the CLI. You need to modify C:\wamp\bin\php\php-5.4.3\php.ini to enable it for the CLI.
+\end{info}
 
 \section{Using Composer with CodeIgniter}
 

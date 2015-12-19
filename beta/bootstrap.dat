@@ -1,17 +1,68 @@
-\chapter{Write your title here}
+<style>
+.carousel-fade .carousel-inner .item {
+  opacity: 0;
+  -webkit-transition-property: opacity;
+  -moz-transition-property: opacity;
+  -o-transition-property: opacity;
+  transition-property: opacity;
+}
+.carousel-fade .carousel-inner .active {
+  opacity: 1;
+}
+.carousel-fade .carousel-inner .active.left,
+.carousel-fade .carousel-inner .active.right {
+  left: 0;
+  opacity: 0;
+  z-index: 1;
+}
+.carousel-fade .carousel-inner .next.left,
+.carousel-fade .carousel-inner .prev.right {
+  opacity: 1;
+}
+.carousel-fade .carousel-control {
+  z-index: 2;
+}
+html,
+body,
+.carousel,
+.carousel-inner,
+.carousel-inner .item {
+  height: 90%;
+}
+.item:nth-child(1) {
+  background: silver;
+}
+.item:nth-child(2) {
+  background: red;
+}
+.item:nth-child(3) {
+  background: orange;
+}
 
+</style>
+
+# Bootstrap
+
+Typing html is to be avoided and some bootstrap components need a lot of htm. This are abbreviated using LaTeX style macros, that also enables them to be typeset in pdfs.
+
+## Lead
+
+This is the first component of bootsrap  \texttt{lead}.
 
 \begin{lead}
-\lorem
-
+This is a leader for some text\ldots
 \end{lead}
 
-\lorem
 
 
-## Alerts
+## Coloured Blocks 
 
 
+\begin{verbatim}
+\begin{info}
+    \lorem
+\end{info}
+\end{verbatim}
 
 \begin{info}
 \lorem
@@ -28,3 +79,65 @@
 \begin{success}
 Well done! You successfully read this important alert message
 \end{success}
+
+
+## Image related
+
+This chapter covers the Bootstrap support for images. Bootstrap provides three classes that can be used to apply some simple styles to images −
+
+`.img-rounded`  adds border-radius:6px to give the image rounded corners.
+
+`.img-circle`  makes the entire image round by adding border-radius:500px.
+
+`.img-thumbnail`  adds a bit of padding and a gray border 
+
+\begin{verbatim}
+<img src = "/application-latest/stamp-images/beta/image-locomotive.jpg" class = "img-rounded">
+<img src = "/application-latest/stamp-images/bavaria/169.jpg" class = "img-circle">
+<img src = "/application-latest/stamp-images/bavaria/169.jpg" class = "img-thumbnail">
+\end{verbatim}
+
+<div style="30%">
+<img src = "/application-latest/stamp-images/beta/locomotive.jpg" class = "img-rounded">
+</div>
+<img src = "/application-latest/stamp-images/beta/mouse.jpg" class = "img-circle">
+<img src = "/application-latest/stamp-images/beta/locomotive.jpg" class = "img-thumbnail">
+
+
+\ph*[50%]{../beta/che.jpg}{}
+
+
+
+<div class="row-fluid">
+	<div class="span13">
+	<div id="myCarousel" class="carousel slide">
+	
+		<div class="carousel-inner">
+			<div class="item active">
+              <img src="/application-latest/stamp-images/levant/splash-levant.jpg" width="100%">
+				<div class="carousel-caption">
+					<h4>Levant</h4>
+					<p>A working Bootstrap carousel example.</p>
+				</div>
+			</div>
+			<div class="item">
+              <img src="/application-latest/stamp-images/egypt/splash-egypt.jpg" width="100%">
+				<div class="carousel-caption">
+					<h4>Second label</h4>
+					<p>This is the second slide text.</p>
+				</div>
+			</div>
+			<div class="item">
+				<img src="/application-latest/stamp-images/bavaria/splash-bavaria.jpg" width="100%">
+				<div class="carousel-caption">
+					<h4>Third label</h4>
+					<p>Take note of the 'active' and 'slide' classes.</p>
+				</div>
+			</div>
+		</div>
+		<a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
+		<a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
+	</div>
+	</div>
+  	
+</div>
