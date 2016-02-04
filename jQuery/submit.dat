@@ -1,26 +1,36 @@
-##Your Title Here
+## Forms and the submit function
 
-  <p>Type 'correct' to validate.</p>
-  <form id="form12" name="form12" action="javascript:alert('success!');">
+The `submit()` method triggers the submit event, or attaches a function to run when a submit event occurs.
+
+
+
+<p>Type 'correct' to validate.</p>
+
+<form id="form12" name="form12" action="javascript:alert('success!');">
     <div>
-      <input type="text" id="firstinput"/>
+    <input type="text" id="firstinput"/>
 
-      <input type="submit" />
+   <button type="submit" class="btn btn-default btn-primary">
+   Submit 
+   </button>
     </div>
-  </form>
-  <span id="span13">Success/failure</span>
+</form>
+  
+<span id="span13">Success/failure</span>
 
-<script>
 
 
-  //$(#form12).html();
 
-  $("#form12").submit(function() {
+\begin{codeblock}
+
+$("#form12").submit(function() {
+      event.preventDefault();
       if ($("#firstinput").val() == "correct") {
         $("#span13").text("Validated...").show();
+        
         return true;
       }
       $("#span13").text("Not valid!").show().fadeOut(1000);
       return false;
     });
-</script>              
+\end{codeblock}             

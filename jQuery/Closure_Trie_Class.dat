@@ -26,10 +26,8 @@
 
 
 
-<div  class="code-block console-wrap">
-<div class="code-block code">
-<code>
- var trie = new goog.structs.Trie();
+\begin{codeblock}
+var trie = new goog.structs.Trie();
 trie.add('hello', 1);
 trie.add('hi', 'howdy');
 trie.add('', 'an empty string key');
@@ -48,15 +46,7 @@ for (var prop in z){
 
 
 assertEquals(898813988, goog.crypt.hash32.encodeInteger(305419896))
-</code>
-</div>
-
-<div  id ="msg" class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
+\end{codeblock}
 
 
 

@@ -1,0 +1,44 @@
+<style type="text/css">
+.full-width{
+  display: block; 
+  background-repeat: no-repeat; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-position: center center;
+</style>
+
+
+# Full width images
+
+
+
+
+\lorem
+
+<div style="height:650px;width:auto;border:1px solid red;
+position:relative;
+margin-left:-700px;padding-left:700px;
+margin-right:-700px;padding-right:700px;
+text-align:center;background: url(http://stamp-images.S3.amazonaws.com/beta/splash-beta.jpg) no-repeat center center;
+background-size: cover;">
+        
+</div>
+
+\lorem
+
+<div style="height:450px;
+position:static;
+width:160%;
+text-align:center;background: url(http://stamp-images.S3.amazonaws.com/beta/splash-beta.jpg) no-repeat center center;
+margin-left: -30%;overflow-x: hidden;">
+        
+</div>
+
+
+<div class="full-width"  style="height:450px;width:180%;
+text-align:center;background: url(http://stamp-images.S3.amazonaws.com/beta/splash-beta.jpg) no-repeat center center;
+margin-left: -30%;overflow-x: hidden;">
+        
+</div>

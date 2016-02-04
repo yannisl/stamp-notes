@@ -1,13 +1,4 @@
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
-{{feature-image:/codeigniter/images/underground_thumb.jpg}}
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
 
--->
 <script src="/codeigniter/js/prototype_part2.js" />
 <script>goog.require('goog.math.Long');</script>
 <h2>Image Re-sizing</h2>

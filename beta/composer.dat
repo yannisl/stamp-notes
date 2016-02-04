@@ -1,10 +1,12 @@
-<!-- test -->
 
 \chapter{Composer}
 
 The problem with open source is too much glue and high rates of change. A PHP package manager called [Composer](https://getcomposer.org/) can assist with the handling of all dependencies. This is not a new concept and the TeX distributions have been doing this for years, but is fairly new to php unless you consider the aging PEAR as a contender.
 
-\ph[30%]{../beta/PHP-Composer.jpg}{ }
+
+
+
+
 
 As I am working on a windows machine, I had the normal run of installation problems. I had to ensure I had open_ssl extension. The WAMP server uses two different `php.ini` files. You will need to modify the one in the directory that has the `php.exe`. [composer warning openssl extension is missing, how to enable it in wamp](http://stackoverflow.com/questions/14062055/composer-warning-openssl-extension-is-missing-how-to-enable-in-wamp)  thanks to [Valery I](http://stackoverflow.com/a/14265815/150305).
 
@@ -26,3 +28,4 @@ One of the beauties of composer is that it can autoload classes and dependencies
 
 
 \totop
+\img[37%]{../beta/che.jpg}{Che \label{centerfigure} and more...  }

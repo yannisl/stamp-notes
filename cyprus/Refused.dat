@@ -1,29 +1,22 @@
 ##Refused Letters
-<div style="width:78%;float:left">
 
-<img src="http://localhost/egypt/cyprus-stamps/668_001.jpg" style="width:98%" />
-
-<p style="font-size:smaller"> 
-<strong>Refused</strong>
+\ph[99%]{../cyprus/668_001.jpg}{
+Refused
 C 1900 Wrapper, canc. "NICOSIA*3.2.1900" to Morphou where it was refused as unacceptable and returned to Nicosia.
 
 EU 200
+}
 
 {{K420}}
-</p>
-</div>
 
 
- <div style="width:78%;float:left">
 
-<img src="http://localhost/egypt/cyprus-stamps/449_001.jpg" style="width:98%" />
+\ph[99%]{../cyprus/449_001.jpg}{
+Refused 
+C Incoming cover for the German Consulate at Larnaca, but "REFUSED" an arrival "LARNACA" due to outbreak of WWII.
 
-<p style="font-size:smaller"> 
-<strong>Refused</strong>
-C Incoming cover for the Ferman Consulate at Larnaca, but "REFUSED" an arrival "LARNACA" due to outbreak of WWII.
-
-EU 100
+EU 100}
 
 {{K420}}
-</p>
-</div>              
+
+              

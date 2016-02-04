@@ -1,0 +1,30 @@
+\chapter{Arrow Functions and the Let Keyword}
+
+Arrow functions and `let` keyword
+
+In JavaScript this will replace anonymous functions. The best way to go about them is to put both implementations side by side.
+
+\begin{codeblock}
+"use strict"
+
+let square = x => x * x;
+let add = (a, b) => a + b;
+let pi = () => 3.1415;
+
+log(square(5)); // 25
+log(add(3, 4)); // 7
+log(pi()); // 3.1415
+\end{codeblock}
+
+\begin{codeblock}
+
+var square = function(x) { return x * x; };
+var add = function(a, b) { return a + b; };
+var pi = function() { return 3.1415; };
+
+log(square(5)); // 25
+log(add(3, 4)); // 7
+log(pi()); // 3.1415
+
+let cubed = 2 ** 3;
+\end{codeblock}

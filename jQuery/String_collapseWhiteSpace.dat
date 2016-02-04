@@ -1,25 +1,15 @@
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
-
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
-
-
+ 
 
 
 <h2>String Collapse White Space</h2>
 
 This function removes extraneous whitespaces from text collapsing them to a single whitespace. It is useful for preprocessing texts before parsing them.
 
-<div  class="code-block console-wrap">
-<div class="code-block code">
-<code>
-U.string = {};
+\begin{codeblock}
+
+var U = U || {};
+    U.string = {};
+
 /**
  * Converts multiple whitespace chars (spaces, non-breaking-spaces, new lines
  * and tabs) to a single space, and strips leading and trailing whitespace.
@@ -34,17 +24,10 @@ U.string.collapseWhitespace = function (str) {
 };
 
 var text = '"     this is some text " \n ';
-log(text);
-log(U.string.collapseWhitespace(text));
-</code>
-</div>
 
-<div  id ="msg" class="msg" style="white-space:pre">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
+logPRE(text);
+log(U.string.collapseWhitespace(text));
+\end{codeblock}
 
 7.2 White Space
 

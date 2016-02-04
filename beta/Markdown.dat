@@ -1,5 +1,7 @@
 \chapter{Markdown}
 
+Mr. Che wrote something back in 1962. Mr. Che wrote something back in 1962.
+
 \ph[30%]{../beta/che.jpg}{}
 
 \begin{figure}
@@ -15,6 +17,19 @@
 
 \lorem
 \end{blockquote}
+
+# Paragraph Tests
+
+\lorem
+
+This is another
+
+And this is another paragraph.
+
+One with unicode characters Áá	Ǽǽ		Ćć		Éé		Ǵǵ		Íí		Ḱḱ	Ĺĺ	Ḿḿ	Ńń	Óó	Ǿǿ	Ṕṕ		Ŕŕ	Śś		Úú		Ẃẃ		Ýý	Ź
+
+
+Ó, ó (o-acute) is a letter in the Faroese, Hungarian, Icelandic, Kashubian, Polish, Czech, Slovak, and Sorbian languages. This letter also appears in the Catalan, Irish, Occitan, Portuguese, Spanish, Italian and Vietnamese languages as a variant of letter “o”. It is also used in English for other purposes. This also appears in {{wi:Pumpokol}}.
 
 ## Abbreviations
 

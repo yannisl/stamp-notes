@@ -5,7 +5,7 @@
 
 Access to specific elements is accomplished by using one of the standard `DOM` methods such as `document.getElementById()`. This returns an `HTMLElement` object. We can then manipulate this object as we like.
 
-\\[a+b/c\\]
+$$ a+b/c $$
 
 This page includes a `<div>` with the `id` `msg`. 
 First let us access the `div msg` on this page. We will then access its parent and list the HTML, effectively listing the html of the console.

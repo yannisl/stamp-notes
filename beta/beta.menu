@@ -7,10 +7,13 @@
 \mitem{Composer Package Manager}{composer}
 <li role="separator" class="divider"></li>
 \mitem{Writing your own package with Composer}{Writing_your_own_package_with_Composer}
+\mitem{Required Libraries}{Required_Libraries}
+\mitem{aws Storage and EC2}{aws}
 \end{category}
 
 \begin{category}{Lists}
 \mitem{Ordered Lists}{Lists_Plugins}
+\mitem{Itemized Lists}{Lists-Itemized}
 \mitem{Description Lists}{Description_Lists}
 \end{category}
 
@@ -28,6 +31,11 @@
 \mitem{George}{georgetodo}
 \end{category}
 
+\begin{category}{LaTeX}
+\mitem{LaTeX CV}{LaTeX_CVs}
+\end{category}
+
+
 \end{accordion}
 
-                                          
+                                                    

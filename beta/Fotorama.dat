@@ -1,0 +1,14 @@
+# The Fotorama Plugin
+
+ <img src="/application-latest/stamp-images/beta/african-american.jpg" />
+
+<div class="fotorama" style="width:100%"   data-fit="cover"  data-allowfullscreen="native" >
+  
+  <img src="/application-latest/stamp-images/afghanistan/splash-afghanistan.jpg" />
+  <img src="/application-latest/stamp-images/beta/splash-beta.jpg" />
+  <img src="/application-latest/stamp-images/beta/african-american.jpg" />
+  <img src="/application-latest/stamp-images/cyprus/splash-cyprus.jpg" />
+   <img src="http://s.fotorama.io/2.jpg" />
+   <img src="http://s.fotorama.io/1.jpg" />
+</div>
+

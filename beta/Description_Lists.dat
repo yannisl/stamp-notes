@@ -2,6 +2,26 @@
 
 The description plugin, works both ways as a {{wi:description list}}.
 
+```
+\begin{tex}
+\begin{description}
+\item [RSS] Feeds
+\item [Lorem] \lorem
+\end{description}
+
+\begin{description}
+\item \lorem 
+\item \lorem 
+\item \lorem 
+\end{description}
+\end{tex}
+
+\begin{description}
+\item [RSS] Feeds
+\item [Lorem] \lorem
+\end{description}
+```
+
 \begin{tex}
 \begin{description}
 \item [RSS] Feeds

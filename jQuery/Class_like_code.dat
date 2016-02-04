@@ -52,8 +52,7 @@ A common criticism made against prototype-based languages is that the community 
 
 You are better off, not to think of Classes and only think of prototypical chains.
 
-<div  class="code-block console-wrap"><div class="code code-block">
-<code>
+\begin{codeblock}
 function Nationality (x){
   this.surnameFirst = (x === 'chinese')? true : false;
 }
@@ -86,16 +85,9 @@ log(another.age);
 log(person.age);
 log(person.nationality.surnameFirst);
 person.render();
-</code>
-</div>
-<p  class="msg" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
-</p>
-<button class="eval">Run Code!</button>
-<ol class="results">
-</ol> 
-</div>
+\end{codeblock}
 
-<hr/>
+
 A good pattern to use in order to avoid the possibility of such error is to use 
 <em>arguments.callee</em>. The function will first check if there is an instance of the object and if not then create one. 
 

@@ -1,0 +1,37 @@
+<script> Prism.highlightAll()</script>
+
+
+# Markdown Parsers
+
+
+There are many markdown parsers out there, and I have tried a few of them. I have settled on [ParseDown](https://github.com/erusev/parsedown) and [ParsedownExtra](https://github.com/erusev/parsedown-extra). This provides some nice features and is extensible, so down the line there are a couple of ideas, I might want to implement.
+
+
+In the words of Abraham Lincoln:
+
+> Pardon my french
+
+
+[^1]: [Parsedown Extra](https://github.com/erusev/parsedown-extra) is an extension of [Parsedown](/) that adds support for [Markdown Extra](https://michelf.ca/projects/php-markdown/extra/).
+
+```
+This is *true* markdown text. 
+```
+
+<div markdown="1">
+This is *true* markdown text. 
+</div>
+
+
+\begin{verbatim}
+body                            { background:#F2F2F2; }
+h1, h2, h3, h4, h5, h6          { font-family:'Raleway'; }
+.container                      { width:90%; }
+\end{verbatim}
+
+
+```
+    look at my html stuff here
+```
+
+<pre><code class="language-css">p { color: red }</code></pre>

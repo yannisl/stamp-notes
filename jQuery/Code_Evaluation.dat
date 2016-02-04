@@ -1,22 +1,13 @@
- <!--
-{{feature-image:http://localhost/egypt/aneta-kowalczyk-02/m5.jpg}}
-{{feature: .. You got to be careful if you don't know where you're going, because
-you might not get there...<a href="http://en.wikipedia.org/wiki/Yogi_Berra">Yogi Berra</a> }}
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
 
--->
 
 <h2>Code Evaluation</h2>
 
-Most people  warn  against the use of <tt>eval</tt> and they are right that in many cases using <tt>eval</tt> is evil. However using it with some care can be a great tool.
+Most people  warn  against the use of `eval` and they are right that in many cases using `eval` is evil. However using it with some care can be a great tool.
 
 JavaScript provides a number of different ways to evaluate code. Each method has its advantages and disadvantages and should be chosen carefully based upon the context in which they are to be used.
 
 <h3>What is Code evaluation?</h3>
+
 Code evaluation is the ability to dynamically execute pieces of code at runtime. It is one of the most frequently misused feature of JavaScript. Understanding the situations in which it can be used and learning the best techniques for using it can give you a definite advantage when creating advanced applications.
 
 In this website I have used Code evaluation extensively to give you the ability to interact with the code.
@@ -27,22 +18,12 @@ The <tt>eval ()</tt> function is the most widely used means of evaluating code.
 The most consistent means of accessing it, is as a global function. The eval function executes all code passed into it, within the current contenxt, returning the result of the last eval function executing and retuning a result.
 
 
-<div  class="code-block console-wrap">
-<div class="code-block code">
-<code>
+\begin{codeblock}
 (function () {
       eval ("var t = 6;");
       assert( t === 6, "eval is executed within the current scope." );
 }) ();
-</code>
-</div>
-
-<div  class="msg min-height">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
+\end{codeblock}
 
 
 Let us carry out a bit more testing on the above code:

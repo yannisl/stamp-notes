@@ -1,0 +1,80 @@
+# Introduction to C++ Programming
+
+There are several C++ compilers that we can choose from the Web. To make it easier for you to follow all the code in these tutorials, I have chosen a compiler that will make the programming process simpler and definitely the easiest one to get started. In this tutorial, you will discover the following topics:
+
+\begin{itemize}
+
+\item Setting up the MinGW compiler
+\item Compiling in C++
+\item Troubleshooting in GCC C++
+
+\end{itemize}
+
+The tutorials are writen from the point of view of developing on a Windows machine. In many respects they are easier to follow if you are developing on a Linux box, however my original aim was to help students that are always struggling to run open source code on Windows.
+
+## Setting up the MinGW compiler and Text Editor
+
+This is the hardest part—where we have to choose one compiler over the others. Even though I realize that every compiler has its own strength and weakness, I want to make it easier for you to go through all the code in this chapter. So, I suggest that you apply the same environment that we have, including the compiler that we use.
+
+I am going to use GCC, the GNU Compiler Collection, because of its widely used open source. Since my environment includes Microsoft Windows as the operating system, I am going to use Minimalistic GCC for Windows (MinGW) as my C++ compiler. For those of you who have not heard about GCC, it is a C/C++ compiler that you can find in a Linux operating system and it is included in a Linux distribution as well. MinGW is a port of GCC to a Windows environment. Therefore, the entire code and examples in this book are applicable to any other GCC flavor.
+
+## Installing MinGW-w64
+
+For your convenience, and since we use a 64-bit Windows operating system, we chose MinGW-w64 because it can be used for Windows 32-bits and 64-bits architecture. To install it, simply open your Internet browser and navigate to http://sourceforge.net/projects/mingw-w64/ to go to the download page, and click on the Download button. Wait for a moment until the mingw-w64-install.exe file is completely downloaded.
+
+## First Program
+
+\begin{verbatim}
+/* rangen.cpp */
+#include <cstdlib>
+#include <iostream>
+#include <ctime>
+int main(void) {
+  int guessNumber;
+  std::cout << "Select number among 0 to 10:";
+  std::cin >> guessNumber;
+  if(guessNumber < 0 || guessNumber > 10) {
+    return 1;
+  }
+  std::srand(std::time(0));
+  int randomNumber = (std::rand() % (10 + 1));
+  if(guessNumber == randomNumber) {
+    std::cout << "Congratulation, " <<guessNumber<<" is your lucky number.\n";
+  }
+  else {
+    std::cout << "Sorry, I'm thinking about number \n" << randomNumber;
+  }
+  return 0;
+}
+\end{verbatim}
+
+In order to be able to use our program, we first need to compile it. In the console type
+
+\begin{verbatim}
+g++ -Wall rangen.cpp -o rangen
+\end{verbatim}
+
+
+I recommend that you use the `-Wall` option and make it a habit since this option will turn on all the most commonly used compiler warnings. If the option is disabled, `GCC` will not give you any warning. Because our Random Number Generator code is completely valid, `GCC` will not give out any warnings while it is compiled. This is why we depend on the compiler warnings to make sure that our code is valid and is compiled cleanly.
+
+## Summary
+
+Make sure you have everything working here properly. You will avoid spending hours and hours of fighting Windows if you don't.
+
+It is important that you:
+
+\begin{itemize}
+\item Set all paths properly.
+\item Have the right versions for your computer.
+\item Get efficient with a text editor. 
+\end{itemize}
+
+
+
+
+
+
+
+
+
+

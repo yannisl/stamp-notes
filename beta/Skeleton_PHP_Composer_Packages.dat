@@ -1,0 +1,118 @@
+# A Skeleton for Composer PHP Packages
+
+>Whenever you are tempted to type something into a print statement or a debugger
+>expression, write it as a test instead.
+>
+>—Martin Fowler
+
+The aim of this tutorial is to reinforce, some of the concepts we have previously covered and to extend our knowledge a bit. We will cover the creation of a library with composer.
+
+- Reinforce git
+- Extend our Composer Knowledge
+- Write sample classes
+- Write sample tests
+- Test our classes
+
+
+## Step 1 Create the Folder Structure
+
+It's easy to think about your classes that way, but there's actually not any inherent connection between your namespaces and your files' structure. Unless you use an autoloader, PHP doesn't have any idea where those classes actually live in your directory structure.
+
+Thankfully, PSR-0 (now deprecated) and [PSR-4](http://www.php-fig.org/psr/psr-4/) are autoloading standards that actually map your namespaces to real folders. So, if you're using PSR-0 or --which is extremely likely if you're using Composer or any modern framework-- and a compatible autoloader, you can assume that the classes actually are in folders.
+
+PSR-4 is more flexible in terms of naming folders. In the example, I have followed common practices by other developers that name the folders "src" and "tests". In reality the names are configurable and can be any other name.
+
+\begin{verbatim}
+
+pkg_name 
+    |- src
+        |- myotherClass
+        |- myotherClass
+        |- another
+    |- tests
+\end{verbatim}
+
+A library rather than just a single class composer file would like like:
+
+\begin{verbatim}
+citations 
+    |- src
+        |- bibtex
+            |- Exceptions
+                BibtexException.php 
+            Bibtex.php
+            
+        |- harvard
+            Harvard.php
+        |- APA
+        |- chicago
+            Chicago.php
+        Cite.php
+    |- tests
+\end{verbatim}
+
+With namespacing it is such a flexible hierarchical system, that properly structuring the classes and namespaces can take a while to sink in.
+
+
+## Step 2 Create a Composer File
+
+
+<code><pre>
+{
+    "name": "yannisl/TeXIgniter",
+    "description": "In-text citations, references and citations",
+    "license": "MIT",
+    "keywords": ["TeXIgniter, citations, references, bibliographies"],
+    "authors": [
+        {
+            "name"     : "Yannis Lazarides",
+            "email"    : "yannislaz@gmail.com",
+            "homepage" : "https://yannisl.github.com",
+            "role"     : "developer"
+        }
+    ],
+    "support" : {
+        "email"  : "support@xxx-php.org",
+        "issues" : "https://github.com/yannisl/texigniter/issues",
+        "source" : "https://github.com/yannisl/texigniter"
+    },
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "4.*",
+        "scrutinizer/ocular": "~1.1",
+        "squizlabs/php_codesniffer": "~2.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "TeXIgniter\\Cite\\": "src"
+           }
+    }
+}
+</pre></code>
+
+
+The composer file, has a very powerful schema. The `type` when `omitted` it defaults to `library`. There are a number of pre-defined 'types' in composer, but you can also use custom made installer 'types'. These are normally used by frameworks or larger projects that require a particular folder structure.
+
+## How to add extra packages
+
+You don't have to keep on editing your `composer.json` file to add extra requirements. This can be achieved using the `require` command:
+
+```
+composer require league/commonmark:^0.13
+```
+
+This will install the package, as well as \textit{update} your json file.
+
+\begin{verbatim}
+"require": {
+        "league/commonmark": "^0.13.0",
+        "league/commonmark-extras": "^0.1.1"
+    },
+\end{verbatim}
+
+
+## Step Test the Package
+
+
+https://vimeo.com/63492364
+

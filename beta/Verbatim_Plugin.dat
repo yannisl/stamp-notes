@@ -5,3 +5,31 @@
   \TeX \LaTeX
   
 \end{verbatim}
+
+
+
+\begin{verbatim}
+
+your-project/
+├─ app/
+|  ├─ AppKernel.php
+│  ├─ cache/
+│  ├─ config/
+│  ├─ logs/
+│  └─ Resources
+|     └─ views
+|        ├─ base.html.twig
+|        └─ micro
+|           └─ random.html.twig
+├─ src/
+│  └─ App
+|     └─ Controller
+|        └─ MicroController.php
+├─ vendor/
+│  └─ ...
+├─ web/
+|  └─ index.php
+├─ composer.json
+└─ composer.lock
+
+\end{verbatim}

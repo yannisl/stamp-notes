@@ -20,29 +20,33 @@ The Math object of {{wi:JavaScript}} allows you to perform certain calculations 
 
 If you want to use a property, which returns a constant value (such as pi), you would write something like this:
 
-{{plain:
+\begin{verbatim}
 var my_car=Math.property;
-}}
+\end{verbatim}
 
 You would replace the word "property" with the property you want to use. So, if you want to use the value of pi in a variable, you would use the PI property of the Math object. You would write:
 
-{{plain:
+\begin{verbatim}
 var my_pie=Math.PI;
-}}
+\end{verbatim}
 
-This returns the pi constant, a number with lots of decimals, or 3.14.....
+This returns the `pi` constant, a number with lots of decimals, or 3.14.....
 
 If you want to use a member function, which performs a calculation, you would write something like this:
 
-{{plain:
+\begin{verbatim}
 var my_house=Math.function(x);
-}}
+\end{verbatim}
 
 Most of the member functions have one or more parameters, which is what the "x" is for. You can replace x with a number or variable. You would replace the word "function" with the function you want to use. For instance, if you want the square root of a number, you can call the square root member function of the Math object with the number as the parameter:
 
-{{plain:
+\begin{verbatim}
+
 var my_money=Math.sqrt(2);
-}}
+log(my_money);
+
+\end{verbatim}
+
 
 This gives back the square root of 2, which is another number with lots of decimals, around 1.41.....
 
@@ -69,8 +73,8 @@ Let us now use our skills with jquery to plot a <em>sin</em> curve. Click on the
 One peculiarity of chrome when you inserting elements dynamically you need to specify height:auto for the enclosing elements. This caught me and I had to spent quite a bit of time to sort it out.
 <hr/>
 
-<p>
-<script type="text/javascript"> 
+
+\begin{codeblock}
 $(document).ready(function(){
 $('a#cbutton').click(function(){
 var i;
@@ -82,10 +86,9 @@ $('div#ex1').append('<div style="background:blue;margin:1px;width:1px;float:left
 return false;
 });
 });
-</script> 
-</p>
+\end{codeblock}
 
-<div class="clearfix"  style="background:url(http://localhost/codeigniter/images/code-bg.gif)">
+<div class="clearfix">
 <table width="80%" border="1"  cellspacing="0" cellpadding="5"> 
 <TR> 
 <TD><B><SPAN class="heading">Method Function</SPAN></B></TD> 

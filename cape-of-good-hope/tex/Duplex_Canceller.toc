@@ -1,2 +1,0 @@
-\contentsline {chapter}{Duplex Cancellation}{7}{chapter*.2}
-\contentsfinish 

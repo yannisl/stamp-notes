@@ -1,14 +1,4 @@
- <!--
-{{feature-image:/CodeIgniter/images/china/beauty_02.jpg}}
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
-{{credit_source: TESTING}}
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
 
--->
 <style type="text/css">
 em{font-style:normal;
       font-family:arial;
@@ -24,6 +14,7 @@ method{font-family:arial;color:black;font-weight:bold;font-size;1.5em}
 
 
 <h2>The Closure object.js methods</h2>
+
 As the name implies, this script provides general routines for the handling of key, value objects and iterating through them. For a general outline of objects see 
 [Eloquent JavaScript](http://eloquentjavascript.net/chapter8.html)
 
@@ -36,27 +27,24 @@ context's it is only returned if there is no such key:
 
 
 
-<div  class="code-block console-wrap"><div class="code-block code"><code>
+\begin{codeblock}
 // A map of first to last names (if available).
 var names = { 'Elton': 'John', 'Madonna': undefined };
+
 // Evaluates to 'John' because that is what 'Elton' maps to in names.
 goog.object.get(names, 'Elton', 'Dwight');
+
 // Evaluates to undefined because that is what 'Madonna' maps to in names.
 goog.object.get(names, 'Madonna', 'Ciccone');
+
 // Evaluates to the optional value 'Bullock' because 'Anna' is not a key
 // in names.
 goog.object.get(names, 'Anna', 'Bullock');
 // Evaluates to the built-in toString function because every object has a
 // property named toString.
-goog.object.get(names, 'toString', 'Who?');</code>
-</div>
-<div  id ="msg" class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
 
+goog.object.get(names, 'toString', 'Who?');
+\end{codeblock}
 
 <method>goog.object.setIfUndefined()</method>
 
@@ -81,23 +69,15 @@ log(chessboard.a3);
 </div>
 
 If you think about it, in this example, we do not want to set the piece on a square that has already some value on it. In this case this value is _undefined_. A better way to handle it would be.
-<div  class="code-block console-wrap">
-<div class="code-block code">
-<code>
+
+\begin{codeblock}
 // Do not add a key for 'a3' because it does not have a piece on it.
 var chessboard = { 'a1': 'white_knight', 'a2': 'white_pawn' };
 // Now this will set 'a3' to 'white_pawn'.
 goog.object.setIfUndefined(chessboard, 'a3', 'white_pawn');
 // This will free up 'a2' so other pieces can move there.
 delete chessboard['a2'];
-</code>
-</div>
-<div  id ="msg" class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
+\end{codeblock}
 
 This example is from Closure the Definite Guide, which is a brilliant book in every respect.
 
@@ -391,22 +371,12 @@ $that.siblings('.msg').properties(obj2);
 
 
 <h3>Run-of-the-mill methods</h3>
+
 The balance of the object library is run-of-the-mill stuff, getters setters, finders and the like, sandly no grep no gsub and no deep extend of objects. I will not go over these methods in detail, but you can list them for your reference and try them out in the console below, create an object and a couple of callbacks and manipulate them as you like.
 
-
-
-<div  class="code-block console-wrap" title="Properties listing of object">
-<div class="code-block code">
-<code>
+\begin{codeblock}
 $that.siblings('.msg').properties(goog.object);
-</code>
-</div>
-<div  id ="msg" class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
+\end{codeblock}]
 
 
 

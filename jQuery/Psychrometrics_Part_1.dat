@@ -1,18 +1,6 @@
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
 
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
+## Standard Air
 
-
--->
-<style>
-.symbol{font-weight:bold;font-style:italic}
-</style>
-<h2>Standard Air</h2>
 The temperature as well as the {{wi:barometric_pressure}} of atmospheric air vary with
 altitude. The standard atmosphere gives a standard of reference for estimating properties at various altitudes.
 
@@ -134,7 +122,8 @@ log(p.Rw.value,p.Rw.units);
 </div>
 <hr />
 
-<h3>Perfect Gas Relationships for Dry and Moist Air</h3>
+## Perfect Gas Relationships for Dry and Moist Air
+
 When moist air is considered a mixture of independent perfect gases (i.e., dry air and water vapour), each is assumed to obey the perfect gas equation of state as follows:
 
 Dry air : <i>p<sub>da</sub>V=n<sub>da</sub>RT</i>
@@ -157,7 +146,8 @@ where
 
 <i>T</i>=absolute temperature, K
 
-<h3>Humidity Parameters Involving Satuartion</h3>
+## Humidity Parameters Involving Satuartion
+
 The following definitions of humidity involve the concept of
 moist air saturation:
 

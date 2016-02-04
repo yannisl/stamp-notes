@@ -8,7 +8,7 @@ The \textit{Currency} plugin provides convenient methods for entering currencies
 
 It also provides commands for fractional \halfd and \halfa currencies.
 
-A\textonehalf   A
+A\halfd   A
 
 This is 50\euro and this is $1.52\cents. This is \half p and this is \half d. You can have \pounds also. 
 

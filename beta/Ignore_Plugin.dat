@@ -1,0 +1,17 @@
+\chapter{The Ignore Plugin}
+
+This plugin,is used to ignore numerous TeX commands and macros that should not have any effect in HTML. These commands are removed from the final rendered HTML.
+
+\begin{verbatim}
+\begin{fullwidth},
+\lorem
+\end{fullwidth}
+\end{verbatim}
+
+This will ignore the `begin{fullwidth}..end{fullwidth}` and will only render the expansion of the `lorem` macro.
+
+\pinnote{
+\begin{fullwidth}
+\lorem
+\end{fullwidth }
+}

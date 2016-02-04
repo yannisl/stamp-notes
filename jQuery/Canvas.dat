@@ -12,7 +12,7 @@ Before we can draw on the canvas we need to hook it on our
 element 
 
 
-<script type="text/javascript">
+\begin{codeblock}
 var points = [];
 alert('test');            
  /* calculate distance between (x1, y1) and (x2, y2) */
@@ -120,8 +120,7 @@ function drawParabolae(dy) {
                 redrawDots();
      });
             
-</script> 
-
+\end{codeblock}
 
 
 

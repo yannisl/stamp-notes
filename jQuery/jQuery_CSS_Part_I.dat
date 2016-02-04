@@ -3,13 +3,8 @@
 {{feature-image: http://localhost/CodeIgniter/images/edsger_dijkstra8.jpg }}
 {{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
 {{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
 
--->
-
-<link rel="stylesheet" media="screen" type="text/css" href="http://localhost/CodeIgniter/css/colorpicker.css" />
+<link rel="stylesheet" media="screen" type="text/css" href="http://localhost/application-latest/css/colorpicker.css" />
 <script type="text/javascript" src="http://localhost/CodeIgniter/js/colorpicker.js"></script>
 
 

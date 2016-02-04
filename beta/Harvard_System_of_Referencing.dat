@@ -1,0 +1,34 @@
+\chapter{Citations Harvard}
+
+
+The full guidelines are at [Harvard Guidelines](http://guides.is.uwa.edu.au/c.php?g=324809&p=2178053). TeXIgniter uses Harvard style references by default, so there is no need to change any settings. Below is a summary of most of the rules. The rules are codified in the Harvard plugin, so if we made any errors or want to do any changes just fork it out and modify it. It handles both the LaTeX as well as the web parsing and decorating.\cite{spinks}
+
+## Book
+
+The book will depend on how many authors it has:
+
+\begin{tabular}{lll}
+\textbf{Book: single author}	& (Holt 1997) or Holt (1997) wrote that...	&Holt, DH 1997, \textit{Management principles and practices}, Prentice-Hall, Sydney\\
+
+\textbf{Book: 2 or 3 authors} & (McCarthy, William and Pascale 1997)	&McCarthey, EJ, William, DP \and Pascale, GQ 1997, \textit{Basic marketing}, Irwin, Sydney.\\
+
+
+\end{tabular}
+
+Full text citations such as McCarthey, EJ, William, DP & Pascale, GQ 1997, \textit{Basic marketing}, Irwin, Sydney.
+
+## Reference List
+
+- The reference list is titled "References"
+
+- Arranged alphabetically by authors's family name
+
+- Is a single list. Books, journal articles and electronic sources are listed together and not arranged in separate lists. 
+
+## Technical
+
+The overall rules for building an entry are codified in the `Harvard` plugin, as mentioned earlier in the introduction.
+
+Each entry's field has also a unique class and id in html. Maybe this is not necessary but if you want to really fiddle with the system, this is the way to do it (maybe through Javascript in a customized theme). The field id's are prefixed like `author` so it is quite easy to capture the element with jQuery or simple Javascript.
+
+The html styling is achieved via css rather than build-in styles and the stylesheet is in  in `harvard.css`. Each field has its own style and each entry type has three classes `entry entry-type entry-type-custom`. If you need to do changes modify the `entry-type-custom` rather the build-in classes. This way of you update the system you preserve your changes.

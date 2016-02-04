@@ -1,0 +1,10 @@
+\chapter{Write your title here}
+"use strict"
+
+\begin{codeblock}
+var text = "𠮷";
+
+log(text.length);           // 2
+log(/^.$/.test(text));      // false
+log(/^.$/u.test(text));     // true
+\end{codeblock}

@@ -1,3 +1,3 @@
-\chapter{Front Pages}
+# Front Pages
 
 TeXIgniter allows for an easy entry point to a `main` page or front page or home. Normally this is index.html or main.html, we will call it `frontpage`. To create a front page, you just use the editor menu as normal. 

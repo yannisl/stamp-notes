@@ -1,3 +1,4 @@
+
 <h2>Javascript Switch</h2>
 
 Sometimes we are faced with a lot of choices. 
@@ -39,9 +40,9 @@ log(z);
 
 
 Well the switch statement is perhaps not the best for this problem. Here is a solution:
-<div class="code-block">
-<div class="code">
-alert('test');
+
+\begin{codeblock}
+
 function formatDegrees(d)
 { var degrees;
     switch(d)
@@ -50,13 +51,10 @@ function formatDegrees(d)
        }
  return(degrees);
 }
-var z=formatDegrees('F');alert(z);
-$('#msg2').html(z);
-</div>
+var z=formatDegrees('F');
+log(z)
 
-<p id="msg2" style="width:400px;font-size:24px;font-weight:bold;background:#fff">Test Area</p>
-<button class="eval">Run Code</button>
-</div>
+\end{codeblock}
 
 Here is a more complicated example of the numbers to words
 <div class="code-block">
@@ -81,9 +79,7 @@ This example is a modification of one presented at http://javascript.about.com/l
 
 
 
-<div  class="code-block console-wrap  ui-corner-all">
-<div class="code-block code">
-<code id="editable">
+\begin{codeblock}
 var th = ['','thousand','million', 'billion','trillion'];
 // uncomment this line for English Number System
 // var th = ['','thousand','million', 'milliard','billion'];
@@ -123,17 +119,8 @@ function toWords(s){
     } return str.replace(/\s+/g,' ');
 }
 log(toWords('1,234,987,899,878'));
-</code>
-</div>
 
-<div  id ="msg" class="msg">
-</div>
-<div class="console"></div>
-<button id="eval" class="eval ui-corner-all">Run Code!</button>
-
-<ol class="results"></ol> 
-<div   class="jslint"></div>
-</div>
+\end{codeblock}
 
 
 

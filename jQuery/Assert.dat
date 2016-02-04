@@ -1,47 +1,25 @@
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
-
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
-
 <script>goog.require('goog.asserts');</script>
 
 
-<h2>Asserts</h2>
+\section{Asserts}
 
-{{wi:Assertion}} are simple routines that carry out tests and output mostly true. They are useful for testing and you must have already seen them in the code here, somewhere. I have been using them for quite a bit of time and it was interesting to see how G's engineers went about them. For my own code I was mostly inspired by Risig's book and took a much simpler approach.
-Utilities to check the preconditions, postconditions and
-  invariants runtime.
+<p>Assertions are simple routines that carry out tests and output mostly true. They are useful for testing and you must have already seen them in the code here, somewhere. I have been using them for quite a bit of time and it was interesting to see how G's engineers went about them. For my own code I was mostly inspired by Risig's book and took a much simpler approach.
+
+Utilities to check the preconditions, postconditions and invariants runtime.
+
 Let's load the class and have a go at it.
 
-The file stands on its own and does not have any dependencies.
+The file stands on its own and does not have any dependencies.</p>
 
-<div  class="code-block console-wrap">
-<div class="code-block code .javascript">
-<code>
+\begin{codeblock}
 var a;
 
 assertFalse(a, ' a is False');
 assertNull(a, 'is Null');
 assert(a, 'a is true');
+\end{codeblock}
 
-
-</code>
-</div>
-
-<div  id ="msg" class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
-
-<h3>Naming conventions</h3>
+\section{Naming conventions}
 
 It is good practice to have a set of naming conventions for tests. Testing units such as jsUnit, reserve prefixes of functions in order to automate tests, by auto-discovering these functions and executing them automatically. These names are:
 
@@ -66,7 +44,9 @@ It is also good practice to prefix all similar functions with a common word, for
 
 
 <span id="chapter" class="hidden">11</span>
+
 ##Further Reading
+
 Excellent article for testing in general at http://www.infoq.com/articles/javascript-tdd
 
 

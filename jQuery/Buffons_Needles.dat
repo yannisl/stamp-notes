@@ -82,27 +82,27 @@ How many needles?
 
 <hr/>
 The script is a slight modification of one presented by in c and is shown below:
-<pre style="background:url(http://localhost/CodeIgniter/images/code-bg.gif)">
 
+\begin{codeblock}
 var hits = 0;
 var darts = 0;
 var i = 0;
-while (i<=200000) {
+while (i <= 200000) {
   x = Math.random();
   y = Math.random();
   t = Math.sqrt(2.0);
   dist = Math.sqrt((x*x)+(y*y));
   if (dist<=1.0) {
-         hits = hits+1;
+        hits = hits + 1;
    }
-  if (dist<=t) {
+  if (dist <= t) {
         darts = darts+1;
   }
   pi = 4*(hits/darts);
   i = i+1;
 }
-document.write(pi);
-</pre>
+log(pi);
+\end{codeblock}
 
 
 
@@ -175,15 +175,17 @@ while (i<=it) {
 
   });
   </script>
+  
 <h2>Ants and Buffon's Needles</h2>
-<div style="width:40%;float:left;margin-right:10px">
-<img src="http://localhost/CodeIgniter/images/leptothorax.jpg" style="margin:0 auto;width:98%" title="Leptothorax albipennis" />
-<p class="credit"><em>Leptothorax albipennis</em><a href="http://eol.org/pages/37745">Encyclopedia of Life</a></p>
-</div>
+
+\ph[45%]{../beta/leptothorax.jpg}{
+<em>Leptothorax albipennis</em><a href="http://eol.org/pages/37745">Encyclopedia of Life</a>}
+
+
 Although you might struggle to find a practical application of Buffon's needles, some biologists think that ants use it!  S. T. Mugford, E. B. Mallon, and N. R. Franks
 of the Centre for Mathematical Biology and Department of Biology and Biochemistry, University of Bath, published a [paper](http://beheco.oxfordjournals.org/cgi/reprint/12/6/655.pdf) [pdf] about how 
 colonies of the ant <em>Leptothorax albipennis</em> naturally inhabit flat rock crevices. Scouts can determine, before initiating an emigration,
-if a nest has sufficient area to house their colony. they think that they achieve this using Buffon's needle's method. So here you go, while you have to program this ants instinctively have it in their genes!
+if a nest has sufficient area to house their colony. They think that they achieve this using Buffon's needle's method. So here you go, while you have to program this ants instinctively have it in their genes!
 
 
 

@@ -1,9 +1,3 @@
-<!--{{ }}
-{{prev:DTO_Part_II}}
-{{next:DTO_Part_IV}}
--->
-
-
 
 ##Cape of Good Hope - Postal History 
 ###DTO
@@ -11,9 +5,8 @@
 
 <span class="header style1">The table below shows all known postmarks, earliest date of use and latest date of use recorded. Where the dates re followed by a B or an R it denotes strikes eithe in Red or Black. The raririty scale is from 1-10 with the 10 being the rarest with only one or two exmples known. The valuation is based on good stikes and represents what a good cover would expect to fetch at an auction (2005). 
             
-table border="1" width="80%"
+<table border="1" width="80%">
 
-\begin{stripedtable}
               <tbody><tr>
                 <td width="51">DTO</td>
                 <td width="176">Postmark</td>
@@ -1015,6 +1008,6 @@ table border="1" width="80%"
                 <td></td>
               </tr>
 </tbody>
-\end{stripedtable}
-/table>
+
+</table>
     

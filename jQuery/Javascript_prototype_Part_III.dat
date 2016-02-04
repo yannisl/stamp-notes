@@ -1,27 +1,14 @@
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
 
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
 
--->
-<style>
-pre{white-space: pre}
-
-</style>
 
 
 <h2>Sub-classing Native Objects</h2>
+
 One tricky point i sthe sub-classing of native objects. The one object that is quite simple to sub-class is Object (since it is the root of all prototype chains to begin with). However once you start wanting to sub-class other native objects the situation becomes less clear-cut. For example, with Array everything works as you might expect it to.
+<p></p>
 
 
-<div  class="code-block console-wrap">
-<div class="code code-block"><code>
-<span class="green">// define the class</span>
-
+\begin{codeblock}
 function Alphabet(){
     }
 
@@ -34,14 +21,7 @@ log(mine.length);
 for (var prop in mine){
  log('prop : ',prop, mine[prop]);
 }
-</code>
-</div>
-<p id="msg1" class="msg">
-</p>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol>
-</div>
-</code>
+\end{codeblock}
 
 The above will work well  until you attempt to perform this functionality in Internet Explorer. For whatever reason the
 native Array object does not allow for it to be inherited from (the length property is immutable - causing

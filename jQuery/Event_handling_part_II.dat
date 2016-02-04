@@ -28,6 +28,7 @@ To do so it is important to understand that event handlers are accessed as metho
 <div id="myForm" name="myForm">
 <button id="myButton">alert</button>
 </div>
+
 \begin{codeblock}
 document.myForm.myButton.onclick=function(){
    alert('Hello');

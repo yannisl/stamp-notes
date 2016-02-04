@@ -108,8 +108,9 @@
     <option value="justify" label="Justify"></option>
   </select>
 </span>
-  </div>
-  <div id="editor">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nibh justo, dictum sed cursus ac, lobortis et lacus. Vestibulum vitae justo enim. Quisque laoreet elementum felis, ut sodales arcu viverra a. Sed molestie odio vulputate sem rutrum a sagittis est rutrum. Morbi dapibus hendrerit magna, sit amet commodo massa posuere sit amet. Duis pharetra quam scelerisque est lobortis fringilla. Maecenas venenatis feugiat lectus, vel facilisis odio pharetra quis. Etiam at nisl eros, sit amet suscipit lorem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed augue nunc, ornare eget congue sit amet, laoreet vel augue. Morbi vel justo quis ipsum adipiscing egestas vitae non est. Vivamus ac quam quam. Nullam pharetrainterdum mauris, rutrum pulvinar ligula condimentum id. Donec et blandit lorem.
+</div>
+
+<div id="editor">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nibh justo, dictum sed cursus ac, lobortis et lacus. Vestibulum vitae justo enim. Quisque laoreet elementum felis, ut sodales arcu viverra a. Sed molestie odio vulputate sem rutrum a sagittis est rutrum. Morbi dapibus hendrerit magna, sit amet commodo massa posuere sit amet. Duis pharetra quam scelerisque est lobortis fringilla. Maecenas venenatis feugiat lectus, vel facilisis odio pharetra quis. Etiam at nisl eros, sit amet suscipit lorem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed augue nunc, ornare eget congue sit amet, laoreet vel augue. Morbi vel justo quis ipsum adipiscing egestas vitae non est. Vivamus ac quam quam. Nullam pharetrainterdum mauris, rutrum pulvinar ligula condimentum id. Donec et blandit lorem.
 
 The first stamps of Bechuanaland were Cape of Good Hope Seated Type, overprinted by W.A. Richards and Sons in CapeTown.
 
@@ -117,7 +118,7 @@ Note!The protectorate was administered from Mafeking, creating a unique situatio
 </div>
 
 <!-- Include the Quill library -->
-<script src="http://quilljs.com/js/quill.js"></script>
+<script src="//cdn.quilljs.com/0.20.1/quill.js"></script>
 
 <!-- Initialize Quill editor -->
 <script>

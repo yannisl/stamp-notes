@@ -1,11 +1,14 @@
 \section{Adding captions to your figures}
 
+
 If you want to add a caption, to a figure that is not in a figure environment use `\captionof` command.
+
 
 \begin{verbatim}
 \includegraphics[width=0.25\textwidth]{../beta/lena-full.jpg}
-\captionof{figure}{\lorem}
+\caption{figure}{\lorem}
 \end{verbatim}
+
 
 \includegraphics[width=0.25\textwidth]{../beta/lena-full.jpg}
 \captionof{figure}{\lorem}
@@ -17,3 +20,11 @@ By default, figures are numbered, both in `html` as well as `LaTeX`. The feature
 \includegraphics[width=0.25\textwidth]{../beta/lena-full.jpg}
 
 \caption*{\lorem}
+
+
+\begin{figure}
+
+\includegraphics[width=1.0\textwidth]{../beta/lena-full.jpg}
+\caption{ some caption
+  }
+\end{figure}

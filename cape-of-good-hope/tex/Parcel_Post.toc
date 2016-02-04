@@ -1,3 +1,0 @@
-\contentsline {chapter}{Parcel Post }{7}{chapter*.2}
-\contentsline {section}{Parcel Post Receipts }{7}{section*.3}
-\contentsfinish 

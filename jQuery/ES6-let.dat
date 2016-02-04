@@ -1,0 +1,26 @@
+\chapter{The let statement in ECMA 6}
+
+The let statement declares a block scope local variable, optionally initializing it to a value. To currently use in in Chrome you need to inclue a `use strict` directive.
+
+\begin{codeblock}
+
+// Example of let scoping rules
+'use strict';
+
+var a = 5;
+var b = 10;
+
+if (a === 5) {
+  let a = 4; // The scope is inside the if-block
+  var b = 1; // The scope is inside the function
+
+  log(a);  // 4
+  log(b);  // 1
+} 
+
+log(a); // 5
+log(b); // 1
+\end{codeblock}
+
+
+See also David Leonard's [cheatsheet](https://github.com/DrkSephy/es6-cheatsheet)

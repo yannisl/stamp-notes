@@ -1,13 +1,4 @@
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
-{{feature-image:http://localhost/egypt/CMS/accordion.jpg}}
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
 
--->
 <style type="text/css">
 p.cstar{display:block;margin:0 auto;width:98%}
 .green{color:green}
@@ -16,24 +7,17 @@ p.cstar{display:block;margin:0 auto;width:98%}
 	
 
 <h2>Repeat Stars</h2>
+
 A loop is a set of commands that executes repeatedly until a specified condition is met. JavaScript supports the <dfn>for</dfn>, <dfn>do while</dfn>, and <dfn>while</dfn> loop statements, as well as label (label is not itself a looping statement, but is frequently used with these statements). In addition, you can use the break and continue statements within loop statements.
 
-<div  class="code-block console-wrap">
-<div class="code code-block"><code><span class="green">//do .. while loops</span>
+\begin{codeblock}
 var i=0;var s='';
-<span class="highlight"> do </span>{
+ do {
   s=s+'*';
   i++;
- } <span class="highlight">while</span> (i<5);
-$('#msg').text(s);
-</code>
-</div>
-<p id="msg" class="msg" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
-</p>
-<button class="eval">Make Stars!</button>
-<ol class="results"></ol>
-</div>
-</code>
+ } (i<5);
+ log.text(s);
+\end{codeblock}
 
  You should be careful when writing do-while loops, as you can crush the browser if a limit is not reached. Also note that the do loop will execute at least once.
 
@@ -68,7 +52,7 @@ Each consecutive block will have one more star and the width will be multiplied 
 function drawRowStars(numStars){
 var stars = '';
 var pixels=5;
-for (var i=0;i&lt;numStars-1;i++){
+for (var i=0;i <numStars-1; i++){
     stars +='*';
     pixels +=5;
 }

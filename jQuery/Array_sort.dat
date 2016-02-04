@@ -3,9 +3,9 @@
 
 The array sort() method is used to sort an array. It takes one argument, which is a function.
 
-{{plain:  
+\begin{verbatim} 
      Array.prototype.sort(compareFunction)
-}}
+\end{verbatim}     
 
 The elements of this array are sorted. The sort is not necessarily stable (that is, elements that compare equal do not necessarily remain in their original order). 
 

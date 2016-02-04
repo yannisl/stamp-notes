@@ -4,13 +4,11 @@
 
 Heapsort (method) is a comparison-based sorting algorithm, and is part of the selection sort family. Although somewhat slower in practice on most machines than a good implementation of quicksort, it has the advantage of a worst-case \\(\Theta(n log n)\\) runtime. Heapsort is an in-place algorithm, but is not a stable sort.
 
-<div  class="code-block console-wrap">
-<div class="code code-block">
-<code>
-
+\begin{codeblock}
 // watch: A,i,left,right
 // Heap Sort
 // helper function for swapping elements
+
 function swap(a, pos1, pos2) {
   var tmp = a[pos1];
   a[pos1] = a[pos2];
@@ -72,14 +70,7 @@ log(list);
 log(d);
 
 
-</code>
-</div>
-<div  id="msg" class="msg" >
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
+\end{codeblock}
 
 The heap sort works as its name suggests. It begins by building a heap out of the data set, and then removing the largest item and placing it at the end of the sorted array. After removing the largest item, it reconstructs the heap, removes the largest remaining item, and places it in the next open position from the end of the sorted array. This is repeated until there are no items left in the heap and the sorted array is full. Elementary implementations require two arrays - one to hold the heap and the other to hold the sorted elements. [2]
 

@@ -1,0 +1,93 @@
+# Installing Apache
+
+To install the `Apache2` web server you first need to connect to the `AWS EC2` instance. You do this by using `PuTTY` as described earlier. Once you are connected type the following commands:
+
+
+\begin{verbatim}
+apt-get install apache2
+sudo service apache2 restart
+\end{verbatim}
+
+If this is successful, you can then navigate to the web address and see if Apache is working. You will get something like:
+
+\ph[90%]{../beta/apache.jpg}{}
+
+This means that we have managed to install Apache2 and run its service. This is installed in port 80, and we communicated with it via our browser.
+
+The next step is to configure it to work with php and upload a test page.
+
+As an exercise, we will unistall Apache and re-install it again. To remove it as well as all its configuration files we will use `apt-get purge`.
+
+\begin{verbatim}
+apt-get purge apache2
+\end{verbatim}
+
+You can also use `apt-get remove`. This removes the binaries but not the configuration files. If you want to start over use `--purge`.
+
+## Enable mod rewite
+
+The mod rewrite is important for many appliactions. You enable it using 
+
+\begin{verbatim}
+sudo a2enmod rewrite
+\end{verbatim}
+
+You need to restart the webserver to apply the changes:
+
+\begin{verbatim}
+sudo service apache2 restart
+\end{verbatim}
+
+At this point is important to know what version of Ubuntu you have:
+
+```
+lsb_release -a
+Ubuntu 14.0.4 LTS etc....
+
+```
+
+In 14.04, the name of the default configuration file is changed to 000-default.conf :
+
+`sudo nano /etc/apache2/sites-available/000-default.conf`
+add the following to the end of the file :
+
+\begin{verbatim}
+<Directory "/var/www/html">
+    AllowOverride All
+</Directory>
+\end{verbatim}
+
+If you get stuck see [askubuntu](http://askubuntu.com/questions/48362/how-to-enable-mod-rewrite-in-apache)
+
+## Using MySQL
+
+1.  Log in to MySQL as the root user:
+        mysql -u root -p
+
+2.  When prompted, enter the root password.
+
+### Create a New MySQL User and Database
+
+1.  In the example below, `testdb` is the name of the database, `testuser` is the user, and `password` is the user’s password.
+
+        create database testdb;
+        grant all on testdb.* to 'testuser' identified by 'password';
+
+2.  Exit MySQL.
+
+        exit
+
+### Create a Sample Table
+
+1.  Log back in as `testuser`:
+
+        mysql -u testuser -p
+
+
+
+
+
+
+
+
+

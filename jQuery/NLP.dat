@@ -1,16 +1,7 @@
-<!--{{feature-image:/egypt/amato-01/aa_151.jpg}}
-{{credit-source: Allan Amato}}
-{{credit: /codeigniter/blogs/gallery/amato-01/50}}
-{{keywords: CodeIgniter,NLP, natural language processing}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}-->
 
-
-<script type="text/javascript" src="/CodeIgniter/js/jspos/lexer.js"></script> 
-<script type="text/javascript" src="/CodeIgniter/js/jspos/lexicon.js_"></script> 
-<script type="text/javascript" src="/CodeIgniter/js/jspos/POSTagger.js"></script> 
+<script type="text/javascript" src="/application-latest/assets/js/jspos/lexer.js"></script> 
+<script type="text/javascript" src="/application-latest/assets/js/jspos/lexicon.js_"></script> 
+<script type="text/javascript" src="/application-latest/js/jspos/POSTagger.js"></script> 
 
 
 

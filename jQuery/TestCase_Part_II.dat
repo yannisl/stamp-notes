@@ -17,16 +17,19 @@ if ((new RegExp('^' + prefix)).test(name) && goog.isFunction(ref)) &#123;
 
 
 \begin{codeblock}
+
 function testSomething(a) {
    return a+4;};
+   
 function testSomethingElse() {};
+
 function test_Other() {};
 
 var prefix = 'test';
 
 autoDiscoverTests = function () {
 
-  var testSource = typeof goog.global['RuntimeObject'] != 'undefined' ? goog.global['RuntimeObject'](prefix + '*') : goog.global;
+var testSource = typeof goog.global['RuntimeObject'] != 'undefined' ? goog.global['RuntimeObject'](prefix + '*') : goog.global;
 
   var foundTests = [];
 
@@ -49,11 +52,14 @@ autoDiscoverTests = function () {
 }
 
 autoDiscoverTests();
+
 \end{codeblock}
 
 
 
 <h3>Running the Tests </h3>
+
+
 Once we have captured all the functions in an array we can now proceed to execute them. while doing so we will take a couple of precautions, one is to ensure that we provide some form of a timeout, in case there is a problem with one of the tests.
 
 \begin{codeblock}

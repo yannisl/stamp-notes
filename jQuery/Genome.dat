@@ -1,5 +1,5 @@
 
-<h2>Bioinformatics</h2>
+## Bioinformatics
 
 The information shown in the box below maybe able to kill you. I believe that down the line the web will morph into an automated talking web, where distributed computing will become a reality by just pointing your browser to a URL. Is it possible with Javascript to perform genomics?
 
@@ -16,15 +16,15 @@ In mammals, most CpG dinucleotides are methylated (specially tagged), so any CpG
 
 Conveniently, the genome of XMRV has been sequenced and can be <a href="http://www.ncbi.nlm.nih.gov/nuccore/NC_007815">downloaded</a>, consisting of 8185 bases:
 
-{{plain:      1 gcgccagtca tccgatagac tgagtcgccc gggtacccgt gttcccaata aagccttttg
-       61 ctgtttgcat ccgaagcgtg gcctcgctgt tccttgggag ggtctcctca gagtgattga
-}}
- 
+   1 gcgccagtca tccgatagac tgagtcgccc gggtacccgt gttcccaata aagccttttg
+   61 ctgtttgcat ccgaagcgtg gcctcgctgt tccttgggag ggtctcctca gagtgattga
+
 A similar analysis using Arch can be fount at http://arcfn.com/
 
 Our results should look like this, pretty much like a frequency analysis of words on a web page.
 
-{{plain:
+
+
 cc: 862 (10.53%)
 gg: 639 (7.81%)
 ag: 616 (7.53%)
@@ -42,7 +42,7 @@ ta: 368 (4.5%)
 at: 344 (4.2%)
 cg: 307 (3.75%)
 
-}}
+
 
 <h3>The genome</h3>
 
@@ -197,9 +197,7 @@ cg: 307 (3.75%)
 <h3>Analysis</h3>
 
 
-<div  class="code-block console-wrap" title="Complete Genome of  Xenotropic MuLV-related virus VP62, complete  ">
-<div class="code code-block">
-<code>
+\begin{codeblock}
 profiler.start();
 var genome = $('#genome').text();
 genome = genome.replace(/\s*/g, '').replace(/\d*/g, '');
@@ -239,15 +237,7 @@ for (var i = 0; i < numberPairs; i++) {
 log('summation', total);
 profiler.stop();
 profiler.timeDiff();
-</code>
-</div>
-<div class="console"></div>
-<p class="msg" >
-</p>
-<button class="eval" >Run Code!</button>
-<ol class="results"></ol> 
-</div>
-
+\end{codeblock}
 
 
 
@@ -258,15 +248,4 @@ profiler.timeDiff();
 ##Further Reading
 
 <span class="chapter">22</span>
-
-
-  
-  
-
-
-
-
-
-
-
-        
+      

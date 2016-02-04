@@ -1,12 +1,3 @@
- <!--
-{{feature: .. The take home message: seek the signal, avoid the noise, and do your own homework .. zerohedge.com}}
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: UI, jQuery, Visibility Filters, CSS Visibility }}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
 
 <style type="text/css">
 
@@ -21,6 +12,7 @@ div#load{width:30%;float:none;background:#dd0000;color:#fff}
 
 
 <h3>Security Limitations</h3>
+
 For all its utility in crafting dynamic web applications, XMLHttpRequest (the
 underlying browser technology behind jQuery's AJAX implementation) is subject to strict boundaries. To prevent various cross-site scripting attacks, it is not generally possible to request a document from a server other than the one that hosts the original page.
 
@@ -49,35 +41,20 @@ need to explicitly provide the data to objects in the parent document.
 <h3>Executing a script using $.getScript()</h3>
 
 
-<div  class="code-block console-wrap">
-<div class="code">
-
-<code>
+\begin{codeblock}
 $('#ajax-button').click(function(){
-   $('&lt;div id="load"&gt; loading ....&lt;/div&gt;').prependTo('#msg1')
+   $('<div id="load"> loading ....</div>').prependTo('#msg1')
        .ajaxStart(function(){
          $(this).show();
        }).ajaxStop(function(){
            // $(this).hide();
         });
-     $('#msg1').load('/CodeIgniter/js/a.html');
+     $('#msg1').load('/application-latest/assets/js/a.html');
      return false;
 });
+\end{codeblock}
 
-</code>
 
-</div>
-
-<div  id="msg1" class="msg">
- </div>
-<div class="console"></div>
-<hr/>
-<button class="eval">Run Code!</button>
-<button id="ajax-button">Load Data!</button>
-<ol class="results"></ol> 
-</div>
-
-<hr/>
 
 <h3>Small Enhancements, fading in the new content</h3>
 

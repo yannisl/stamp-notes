@@ -1,0 +1,21 @@
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" charset="utf-8"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"
+            charset="utf-8"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.4/raphael-min.js" charset="utf-8"></script>
+<script src="/application-latest/assets/js/mapael/master/js/jquery.mapael.js" charset="utf-8"></script>
+<script src="/application-latest/assets//js/mapael/master/js/maps/france_departments.js" charset="utf-8"></script>
+<script src="/application-latest/assets/js/mapael/master/js/maps/world_countries.js" charset="utf-8"></script>
+<script src="/application-latest/assets/js/mapael/master/js/maps/usa_states.js" charset="utf-8"></script>
+
+
+
+\chapter{Maps with mapael}
+
+<div id="here">AAAA</div>
+
+<script type="text/javascript">
+$('#here').load('/application-latest/assets/js/map.html');
+</script>
+
+The \cite{calligra} font
+

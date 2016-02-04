@@ -33,8 +33,11 @@ office was opened at Marakesh; on May
 (Mequinez) ; and on December 19th,
 1906, an office was opened at Tetuan.
 
+\begin{figure}
 
-\ph[90%]{../german-morocco/fes.jpg}{9097-A1212-14	22				
+\includegraphics[width=0.9\textwidth]{../german-morocco/fes.jpg}
+
+\caption{9097-A1212-14	22				
 Description
 'Fes 26.4.11' in ms on 5 Centimes Germania on picture postcard
 to Peine, part of text states 'Noch immer haben wir keine Post
@@ -47,6 +50,8 @@ Berliner Auktionshaus Schlegel
 Auction
 Minimum Bid:
 400.00 EUR}
+\end{figure}
+
 
 The German offices in Morocco were under the direction of the Chief Postal
 Administration (Ober Postdirection) of Hamburg, and they were

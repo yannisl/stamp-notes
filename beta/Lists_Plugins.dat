@@ -1,11 +1,121 @@
+# Ordinary Lists
+
+
+What in `html` are termed ordinary lists, in LaTeX they are called \textit{enumerate} environments.
+
+Available environments, `enumerate`, `loweralpha`, `upperalpha`, `lowerroman`, `decimal`, `leadingzero`.
+
+\begin{verbatim}
+\begin{loweralpha}
+  \item The first line.
+  \item The second line.
+\end{loweralpha}
+\end{verbatim}
+
+\begin{loweralpha}
+  \item The first line.
+  \item The second line.
+\end{loweralpha}
+
+
+\begin{verbatim}
+\begin{upperalpha}
+  \item The first line.
+  \item The second line.
+\end{upperalpha}
+\end{verbatim}
+
+\begin{upperalpha}
+  \item The first line.
+  \item The second line.
+\end{upperalpha}
+
+\begin{decimal}
+  \item The first line.
+  \item The second line.
+\end{decimal}
+
+\begin{upperroman}
+  \item The first line.
+  \item The second line.
+\end{upperroman}
+
+\begin{lowerroman}
+  \item The first line.
+  \item The second line.
+\end{lowerroman}
 
 
 
-\begin{codeblock}
-function f() {
-  return [1, 2, 3];
-}
+## CSS 
 
-var [a, , b] = f();
-console.log("A is " + a + " B is " + b);
-\end{codeblock}
+The cascade Style Sheets are in `application.css`, check it out and experiment with your code. All environments have a respective css class with the name of the environment but hyphenated i.e., `upper-roman`.
+
+
+~~~
+Fenced
+~~~
+
+Code block starting and ending with empty lines:
+~~~
+
+
+Fenced
+
+
+~~~
+
+Indented code block containing fenced code block sample:
+
+	~~~
+	Fenced
+	~~~
+
+Fenced code block with indented code block sample:
+
+~~~
+Some text
+
+	Indented code block sample code
+~~~
+
+Fenced code block with long markers:
+
+~~~~~~~~~~~~~~~~~~
+Fenced
+~~~~~~~~~~~~~~~~~~
+
+Fenced code block with fenced code block markers of different length in it:
+
+~~~~
+In code block
+~~~
+Still in code block
+~~~~~
+Still in code block
+~~~~
+
+Fenced code block with Markdown header and horizontal rule:
+
+~~~
+#test
+---
+~~~
+
+Fenced code block with link definitions, footnote definition and 
+abbreviation definitions:
+
+~~~
+[example]: http://example.com/
+
+[^1]: Footnote def
+
+*[HTML]: HyperText Markup Language
+~~~
+
+
+
+
+
+
+

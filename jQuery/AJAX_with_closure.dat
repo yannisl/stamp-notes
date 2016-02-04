@@ -19,17 +19,9 @@ goog.require('goog.net');
 <h2>Ajax with Closure</h2>
 
 
-{{plain: 
-<script>
-
-</script>
-}}
-</pre>
 
 
-<div  class="code-block console-wrap">
-<div class="code-block code">
-<code>
+\begin{codeblock}
 goog.provide('example.House');
 example.House = function (address, numberOfBathrooms, itemsInTheGarage) {
 
@@ -78,15 +70,7 @@ example.House.prototype.paint = function(color) {
 example.House.prototype.getNumberOfItemsInTheGarage = function() {
 return this.itemsInTheGarage.length;
 };
-</code>
-</div>
-
-<div  id ="msg" class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
+\end{codeblock}
 
 
 <h3>Some Methods Provided by the array class</h3>

@@ -3,12 +3,17 @@
 
 This is the only JavaScript operator that takes three arguments and is used as a shorter form of the if statement.
 
+<script async src="//jsfiddle.net/philfreo/MqM76/embed/"></script>
+
+
 The first argument takes an expression that evaluates to true or false. If the condition is true, the operator returns the value of expr1; otherwise, it returns the value of expr2.
 
 The shorthand form is also popular with most developers
-{{snippet:
-condition ? expr1 : expr2
-}}
+
+    condition ? expr1 : expr2
+
+
+
 
 Some examples:
 Javascript provides a shorthand statement for the "if...else" sequence. This
@@ -48,7 +53,7 @@ var a = (value > 20 && otherValue < 10 && boolFoo === false)
  
 Developers are always trying to abstract programming concepts, in many libraries, you can find short-cut functions that can return consitionals as above. Here is one inspired from cakePHP, a function If() ;
 
-<div  class="code-block console-wrap"><div class="code code-block"><code>
+\begin{codeblock}
 var z = 23;
 
 function iF(cond, expr1, expr2) {
@@ -61,18 +66,10 @@ function logIf(cond, expr1, expr2) {
 
 logIf(z < 20, ' < 20', ' >20');
 
-
-</code>
-</div>
-<p id="msg1" class="msg" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
-</p>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
+\end{codeblock}
 
 
-<div  class="code-block console-wrap"><div class="code code-block"><code>
+\begin{codeblock}
 var d = new Date();
 var time = d.getHours();
 
@@ -81,14 +78,7 @@ if (time < 10) {
 } else {
     log(time, 'Good day!');
 }
-</code>
-</div>
-<p id="msg1" class="msg" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
-</p>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
+\end{codeblock}
 
 
 <h3>Exercises</h3>
@@ -99,7 +89,10 @@ if (time < 10) {
 
 
   
-  
+<iframe
+  style="width: 100%; height: 300px"
+  src="http://jsfiddle.net/zalun/NmudS/embedded/">
+</iframe>  
 
 
 

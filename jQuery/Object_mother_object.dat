@@ -1,41 +1,16 @@
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
-
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
-
-
-
-
-
-
 
 <h2>Object (Built-in-Object)</h2>
-Object is the basic object from which all other objects are descended. It defines methods common to all objects that are often overridden to provide functionality specific to each object type. For example, the Array object provides a toString() method that functions as one would expect an array's toString() method to behave. This object also permits the creation of user-defined objects and instances are quite often used as associative arrays.
 
-<div  class="code-block console-wrap">
-<div class="code code-block">
-<code>
+`Object` is the basic object from which all other objects are descended. It defines methods common to all objects that are often overridden to provide functionality specific to each object type. For example, the Array object provides a toString() method that functions as one would expect an array's toString() method to behave. This object also permits the creation of user-defined objects and instances are quite often used as associative arrays.
+
+\begin{codeblock}
 var myString = new String('test');
 myString.aboutFootball = true;
 
 $that.siblings('.msg').properties(Object);
+\end{codeblock}
 
-</code>
-</div>
-<p class="msg" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
-</p>
 
-<button class="eval">Run Code!</button>
-<ol class="results" ></ol> 
-</div>
-
-<hr/>
 <h2>Prototype-Based Objects</h2>
 
 Programming languages such as Java or C++ are <strong>class based</strong> languages. An object's properties are defined by its <strong>class</strong>. In these languages the class is defined at {{wi:compile-time}}. You cannot add methods and properties at run-time.

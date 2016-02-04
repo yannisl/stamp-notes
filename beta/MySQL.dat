@@ -1,0 +1,9 @@
+# TeXIgniter Databases
+
+
+TeXigniter can use different databases for storage, although its primary store is the AWS S3.
+
+
+## MongoDB
+
+If you want to use MongoDB, you will need to install a number of additional libraries.

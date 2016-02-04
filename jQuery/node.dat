@@ -1,0 +1,8 @@
+\chapter{Write your title here}
+
+## How do I upgrade node and NPM on Windows
+
+https://github.com/felixrieseberg/npm-windows-upgrade
+
+
+https://github.com/Microsoft/nodejs-guidelines/blob/master/windows-environment.md#configuring-your-windows-development-environment

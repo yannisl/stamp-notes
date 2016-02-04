@@ -1,4 +1,0 @@
-\contentsline {chapter}{1882 Twopence Bistre}{7}{chapter*.2}
-\contentsline {subsection}{Issued July 1882}{7}{subsection*.3}
-\contentsline {subsection}{Production Timeline}{8}{subsection*.4}
-\contentsfinish 

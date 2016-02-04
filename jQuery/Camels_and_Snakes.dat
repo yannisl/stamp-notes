@@ -11,11 +11,9 @@ var MOZ_HACK_REGEXP = /^moz([A-Z])/;
  * @param name Name to normalize
  */
 function camelCase(name) {
-  return name.
-    replace(SPECIAL_CHARS_REGEXP, function(_, separator, letter, offset) {
+  return name.replace(SPECIAL_CHARS_REGEXP, function(_, separator, letter, offset) {
       return offset ? letter.toUpperCase() : letter;
-    }).
-    replace(MOZ_HACK_REGEXP, 'Moz$1');
+    }).replace(MOZ_HACK_REGEXP, 'Moz$1');
 }
 
 // asserts

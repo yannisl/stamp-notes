@@ -5,12 +5,9 @@ JavaScript, as a whole, is very flexible in what it can do and much of that flex
 
 Many languages offer variadic function:
 
-\begin{codeblock}
-
-  static function (a, b, c ="something") {
-  
-  }
-\end{codeblock}  
+\begin{verbatim}
+  static function (a, b, c ="something") { }
+\end{verbatim}  
   
 
 In many instances to make a system more flexible we may want to have a variable number of arguments in a function. Such a function is called a <em>{{wi:variadic}} function</em> that is, its <em>{{wi:arity}}</em> is not fixed.

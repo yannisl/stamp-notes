@@ -1,4 +1,0 @@
-\contentsline {subsection}{The Fourth Definitive Issue }{7}{subsection*.2}
-\contentsline {subsection}{The One Penny Stamp}{7}{subsection*.3}
-\contentsline {subsection}{The Six Pence Mauve}{7}{subsection*.4}
-\contentsfinish 

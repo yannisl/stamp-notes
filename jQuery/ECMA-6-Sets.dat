@@ -1,0 +1,37 @@
+\chapter{ES6 Sets}
+
+\begin{codeblock}
+"use strict";
+
+let x = new Set([1, 2, 3, 4, 4, 4, 5]);
+
+x.add(6);
+x.delete(2);
+
+log('The set contains', x.size, 'elements.');
+log('The set has 1:', x.has(1));
+log('The set has 8:', x.has(8));
+
+//values and keys are the same in a set
+x.forEach((value, key, set) =>log(value, key, set));
+
+//iterable
+for (let value of x) {
+  log(value);
+}
+
+//iterable values
+for (let value of x.values()) {
+  log(value);
+}
+
+//iterable keys
+for (let value of x.keys()) {
+  log(value);
+}
+
+//iterable entries (key, value)
+for (let value of x.entries()) {
+  log(value);
+}
+\end{codeblock}

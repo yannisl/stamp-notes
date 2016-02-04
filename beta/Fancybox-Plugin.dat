@@ -1,0 +1,32 @@
+\chapter{Fancy Boxes}
+
+Fancy boxes can be produced using the FancyBox plugin. Simpler boxes can be build with [bootstrap](../beta/bootstrap). For code blocks and interactive codeblocks, see [Verbatim Plugin](../beta/verbatim)
+
+This is a \sandbox{We sandbox something here}
+
+This is a \pinnote{This is a pinnote}
+
+\subsection{The nutshell command}
+
+This is an \nutshell{An example of some sorts\lorem }
+
+\subsection{The `\bulb` command.} 
+
+
+This command produces an information box with a bulb, like here is an illuminating fact. It is styled using the css class `bulb`. 
+
+This is a \bulb{lorem You can use }
+
+
+\section{Sticky note}
+
+\stickynote{\lorem}
+
+\section{Warning}
+
+
+\warning{\lorem}
+
+\section{The `fbox` macro.}
+
+\fbox{\lorem}

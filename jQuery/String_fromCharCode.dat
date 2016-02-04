@@ -34,7 +34,7 @@ log('string from char codes', s);
 
 </div>
 
-<div  class="msg" class="msg" style="white-space:pre;font-family:monospace;line-height:1.3">
+<div  class="msg" class="msg" style="font-family:monospace;line-height:1.3">
 </div>
 <div class="console"></div>
 <button class="eval">Run Code!</button>

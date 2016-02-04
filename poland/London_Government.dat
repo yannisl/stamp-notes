@@ -127,12 +127,9 @@ First Definitive series
 
 ###Battle of Monte Cassino
 
-<div style="width:89%;float:left">
-<img src="http://localhost/egypt/poland/Poland_Monte_Cassino_Set.jpg" class="percent98"/>
-<p style="font-size:smaller"> 
+\ph[90%]{../poland/Poland_Monte_Cassino_Set.jpg}{
 &pound;25
-</p>
-</div>
+}
 
 ###Warsaw Uprising
 The last stamp to be issued was a commemorative for the Warsaw Uprising.

@@ -1,0 +1,126 @@
+\chapter{Citations}
+
+This system allows you to manage your LaTeX citations and bibliography in a saner way. There are so many ways available to do so, and the toolsets have come a long way since the original days of LaTeX.\cite{HLG15}
+
+TeXIgniter acts as a pre-processor to a set of bibliography files with the extension `.bib`. These can be loaded at any place of the document, for example on a page on its own or at the end of a `main.tex` file \cite{naivebayes}, \cite{tatti08pack} \cite{mathdots}\cite{xkeyval}\cite{calligra} \cite{test}
+
+\begin{verbatim}
+\cite{somecitation}
+\end{verbatim}
+
+The Naive-Bayes algorithm \cite{naivebayes}, was developed in \ldots
+
+
+
+To include a bibliography use:
+\begin{verbatim}
+\bibliography{cyprus,fiji,philately}
+\printbibliography
+\end{verbatim}
+
+To print  the bibliography or references use:
+
+\begin{verbatim}
+\printbibliography
+\end{verbatim}
+
+The command `\printbibliography` will insert the references or the full bibliography at the place of insertion.
+
+
+\citeyear{test} and \citeyear{zaki98} give a good description. This is a footnote.\footnote{this is a footnote} and this is another footnote.\footnote{The second footnote}
+\lorem
+
+\citeauthor{zaki98} in \fullcite{zaki98} quotes \ldots.
+
+## Citation Commands
+
+Citation command follow those found in BibLaTeX.
+
+-  `\cite`
+-  `\citeauthor`  
+-  `\citeyear`
+-  `\textcite`
+-  `\parencite`
+-  `\parencites`
+-  `\fullcite`
+-  `\fullcite`
+-  `\footfullcite`
+- `\autocite`
+
+
+More commands can be added in the settings. The citation commands needs to fullfil two roles. One is to define how the reference is to be cited and second to trigger that the reference must be added to the lists of references.
+
+### Many Systems and many rules.
+
+
+
+There are basically three main systems used for referencing numeric, author and code. Many publications and Journals will use one of  [APA Style](https://www.library.cornell.edu/research/citation/apa) and the [Harvard Style]() or Chicago Style. One thing that is common between all these different citation systems is that they have many rules, as to how to display the citations and references.\fullcite{hand02}
+
+
+### Styles
+
+If xml is your cup of tea, you can extend the system to support the [citation-style-language](https://github.com/citation-style-language).
+
+Bibliography styles, can be selected using the Settings under the Bibliography menu. We provide some commonly pre-configured settings. To create a particular style, you need to dig deeper [here](http://guides.is.uwa.edu.au/c.php?g=324809&p=2178053). To understand some of the difficulties we use some examples from the [MLA](https://owl.english.purdue.edu/owl/resource/747/06/) style. One perhaps pedantic rule is differentiating between publishes theses and unpublished work.
+
+\begin{enumerate}
+\item [Dissertations and Master's Theses (Published)] Dissertations and master's theses may be used as sources whether published or not. Cite the work as you would a book, but include the designation Diss. (or MA/MS thesis) followed by the degree-granting school and the year the degree was awarded.
+
+\item[Unpublished] If the dissertation is published, italicize the title and include the publication date. You may also include the University Microfilms International (UMI) order number if you choose:
+
+\begin{quotation}
+Bishop, Karen Lynn. \textit{Documenting Institutional Identity: Strategic Writing in the IUPUI Comprehensive Campaign. Diss. Purdue University, 2002. Ann Arbor: UMI, 2004. Print.
+Bile, Jeffrey. Ecology, Feminism, and a Revised Critical Rhetoric: Toward a Dialectical Partnership.} Diss. Ohio University, 2005. Ann Arbor: UMI, 2006. AAT 3191701. Print.
+\end{quotation}
+
+
+\item[Multivolume Works]
+
+Examples again from MLA quoted earlier.
+
+When citing only one volume of a multivolume work, include the volume number after the work's title, or after the work's editor or translator.
+
+\begin{quotation}
+Quintilian. Institutio Oratoria. Trans. H. E. Butler. Vol. 2. Cambridge: Loeb-Harvard UP, 1980. Print.
+\end{quotation}
+
+When citing more than one volume of a multivolume work, cite the total number of volumes in the work. Also, be sure in your in-text citation to provide both the volume number and page number(s). (See Citing Multivolume Works on the In-Text Citations – The Basics page, which you can access by following the appropriate link at the bottom of this page.)
+
+\begin{quotation}
+Quintilian. Institutio Oratoria. Trans. H. E. Butler. 4 vols. Cambridge: Loeb-Harvard UP, 1980. 
+\end{quotation}
+
+If the volume you are using has its own title, cite the book without referring to the other volumes as if it were an independent publication.
+
+\begin{quotation}
+Churchill, Winston S. The Age of Revolution. New York: Dodd, 1957. Print.
+\end{quotation}
+
+\end{enumerate}
+
+### Workflow
+
+To use the citation system provided by TeXIgniter, you simply have to have (somewhere) a BibTeX file or you can develop it locally by using the BibTeX editor. There are so many good tools around for managing citations and is better maybe, if you use something like JabRef and then upload an export to the server or you library.
+
+## Summary
+
+An advantage of using our approach is that we can also simplify the processing of the LaTeX file in that we can export the reference lists and citations directly and not require a BibTeX run, thus by-passing it completely. This can simplify Proceedings publication workflows. Another advantage by de-coupling LaTeX using TeXIgniter as a pre-processor is that additional entry types can be added easily. However, if you are eventually submitting the article to a Journal, this might not work for you and you would rather stay within the bounds of the Journal limitations. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -7,7 +7,7 @@
 ##Google Visualizations - adding an Editor
 
 \begin{codeblock}
-morph();
+
 var wrapper;
 function init() {
    
@@ -33,6 +33,8 @@ function openEditor() {
 google.setOnLoadCallback(init);
  
 \end{codeblock}
+
+
   <input type="button" onclick="openEditor();" value="Open Editor" > 
   <div id="visualization" style="width:600px;height:400px">
  </div>

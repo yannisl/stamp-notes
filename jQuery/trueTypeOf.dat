@@ -10,11 +10,10 @@
 -->
 
 <h2>How to find the true type of an object</h2>
+
 This continues are examination of __typeof__ and __instanceof__ as tools in determining the type of an object. But, what happens if we want a bit more details? The code below is used to examine and build a case by case output. Check how it compares with instanceOf. The code has been adapted from Closure who 'borrowed it' from jsUnit.
 
-<div  class="code-block console-wrap">
-<div class="code-block code">
-<code>
+\begin{codeblock}
 function Test() {
 
 }
@@ -83,15 +82,7 @@ log(trueTypeOf(test));
 var arr = [12, 32, 45, 67];
 log(trueTypeOf(arr));
 
-</code>
-</div>
-
-<div  id ="msg" class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
+\end{codeblock}
 
 
 

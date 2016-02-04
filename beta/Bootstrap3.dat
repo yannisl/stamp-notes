@@ -1,0 +1,13 @@
+\chapter{Bootstrap 3}
+
+We use Bootstrap v3.3.63 for TeXIgniter (although you can use any other css framework as well). Bootstrap 3 is mobile first, and although doubtful that our intended audience will view large documents on mobiles, I though it was prudent to cover the millions of people who only have access to mobile internet. 
+
+It has given me a bit of a problem in updating from bootstrap 2.5, as it is not backwards compatible.
+
+## Dropdowns
+
+Remove the `.hidden` class.
+
+## Modals
+
+Remove the `.hidden` class. Change the `html` structure.

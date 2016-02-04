@@ -1,0 +1,27 @@
+# Mapping localhost to another domain
+
+
+## Step 1: Set up `etc/hosts/`
+
+etc/hosts is a file present on every operating system. On Windows, it’s in `C:/Windows/System32/drivers/etc/`, on OS X and Linux it’s in `/etc/hosts`. Edit it as an administrator (one easy way to do this is to run a text editor like Sublime Text as Administrator) and add in an entry like this for every application you intend to develop:
+
+\begin{verbatim}
+192.168.10.10 homestead.app
+\end{verbatim}
+
+Replace homestead.app with your desired domain name, or just add in multiple domain names. For example, I have this in my own hosts file:
+
+\begin{verbatim}
+192.168.10.10 stampcircles.com
+192.168.10.10 other.app
+192.168.10.10 stampcircles.application-latest
+\end{verbatim}
+
+This means I can access each of these domains in the browser via http://stampcircles.com, or http://test1.app, etc.
+
+You need to restart the server to see the effect.
+
+Remapping is a good idea, as you may pick up areas where you hardcoded localhost!
+
+
+See also an article at [SitePoint](http://www.sitepoint.com/quick-tip-get-homestead-vagrant-vm-running/).

@@ -2,9 +2,13 @@
 
 One of the characteristics of successful software projects, is their ability to be extended by their users and most importantly, if they are open sourced, the ability of the community to produce "plugins" rather than contributing to the source. Perhaps the first extensible system that had wide adoption was TeX itself. When Lamport extended its usability by providing the LaTeX format, he introduced methods to load \textit{packages}, which are simply collections of "macros".
 
-\section{Creating Plugins}
+## Creating Plugins
 
 You can install plugins that extend the functionality of the parser for your own macros. 
+
+\begin{callout}
+This is a callout plugin.
+\end{callout}
 
 \subsection{Writing your plugin/package}
 

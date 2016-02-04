@@ -1,49 +1,26 @@
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
-
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
-
-
-
 
 <h2>The array reverse() method</h2>
 
 The reverse() method is used to to reverse the array.
 
 
-{{bulb: reverse()   changes  the original array.}}
+\bulb{`reverse(`   changes  the original array.}
 
 The following example reverses an array, using the built-in reverse() method.
 
-<div  class="code-block console-wrap">
-<div class="code-block code">
-<code>
+\begin{codeblock}
+
 var a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 b = a.reverse();
 log('return result from reverse () = ', b);
 log('array after reverse() = ', a);
-
-
-</code>
-</div>
-
-<div  id ="msg" class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
+\end{codeblock}
 
 
 
 
 <span id="chapter" class="hidden">11</span>
+
 ##Further Reading
 
 

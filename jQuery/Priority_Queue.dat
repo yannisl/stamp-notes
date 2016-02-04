@@ -1,24 +1,12 @@
-<script type="text/javascript">
-goog.require('goog.structs.PriorityQueue');
-</script>
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
 
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
 
 
 <h2>Priority Queue</h2>
+
 Closure's PriorityQueue constructor, will construct a priority queue. It also inherits all the methods from Heap, which is quite convenient. If you do not remember what a priority queue is you can have a quick read of some details below the console.
 
-<div  class="code-block console-wrap">
-<div class="code-block code">
-<code>
+\begin{codeblock}
+
 var q = new goog.structs.PriorityQueue();
 
 var priority = 3;
@@ -38,15 +26,8 @@ q.dequeue();
 log(q.getKeys());
 
 //log(q.getValues());
-</code>
-</div>
+\end{codeblock}
 
-<div  id ="msg" class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
 
 
 

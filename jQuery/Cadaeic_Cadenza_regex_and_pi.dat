@@ -50,12 +50,13 @@ log('end');
 
 
  A longer example is this poem with ABAB rhyme scheme from Joseph Shipley's 1960 book Playing With Words:
-{{plain:
+
+\begin{verbatim}
 But a time I spent wandering in gloomy1 night;
 Yon tower, tinkling chimewise, loftily opportune.
 Out, up, and together came sudden to Sunday rite,
 The one solemnly off to correct plenilune.
-}}
+\end{verbatim}
 
 http://www.cadaeic.net/comments.htm
 

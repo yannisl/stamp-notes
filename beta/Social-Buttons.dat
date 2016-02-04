@@ -1,0 +1,8 @@
+\chapter{Write your title here}
+
+<a class="social__action social-icon-wrapper" style="width:30px" data-link-name="social top" href="http://www.pinterest.com/pin/find/?url=http%3A%2F%2Fwww.theguardian.com%2Fnews%2F2015%2Fdec%2F26%2Fstories-behind-pictures-2015-october-to-december" target="_blank" title="Pinterest">
+<span class=' u-h '>Share on Pinterest</span>
+<span style="width:100px;height:100px;contain;border:1px solid red" class="inline-share-pinterest inline-icon rounded-icon social-icon social-icon--pinterest">
+<svg viewBox="0 0 32 32"><path d="M16.363 8C12.133 8 10 11.13 10 13.74c0 1.582.58 2.988 1.823 3.512.204.086.387.003.446-.23.04-.16.136-.568.18-.737.06-.23.036-.312-.128-.513-.36-.436-.588-1-.588-1.802 0-2.322 1.684-4.402 4.384-4.402 2.39 0 3.703 1.508 3.703 3.522 0 2.65-1.135 4.887-2.82 4.887-.93 0-1.63-.795-1.406-1.77.268-1.165.786-2.42.786-3.262 0-.752-.39-1.38-1.2-1.38-.952 0-1.716 1.017-1.716 2.38 0 .867.284 1.454.284 1.454l-1.146 5.005c-.34 1.487-.05 3.31-.026 3.493.014.108.15.134.21.05.09-.117 1.223-1.562 1.61-3.006.108-.41.625-2.526.625-2.526.31.61 1.216 1.145 2.177 1.145C20.06 19.56 22 16.87 22 13.264 22 10.54 19.764 8 16.364 8"/></svg>
+</span>
+</a>

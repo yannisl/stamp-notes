@@ -1,0 +1,18 @@
+# Required Libraries
+
+We require a number of libraries, first those that are loaded by composer:
+
+## Guzzle
+
+Guzzle is the major package for passing messages to and from servers and clients. We use it to communicate with AWS services, using the AWS sdk.
+
+
+## JavaScript
+
+Jquery 2.1.4  Latest version that excludes support for earlier versions of IE, change your template to 1.13.1 if you want to use earlier versions.
+
+## CSS
+
+## AWS CLI
+
+To manipulate from the command file and synchronize folders.

@@ -1,0 +1,30 @@
+\chapter{The Document Object Model}
+
+
+When you open a web page in your browser, the browser retrieves the page’s HTML text and parses it, much like the way our parser from Chapter 11 parsed programs. The browser builds up a model of the document’s structure and then uses this model to draw the page on the screen.
+
+This representation of the document is one of the toys that a JavaScript program has available in its sandbox. You can read from the model and also change it. It acts as a live data structure: when it is modified, the page on the screen is updated to reflect the changes.
+
+
+<img style="margin:auto 0px" src="http://localhost/application-latest/stamp-images/jquery/Simpe_HTML_page_DOM.svg"></img>
+
+In the next example we will iterate through all the nodes of the `<body>` element and search for an element named `container`.
+
+\begin{codeblock}
+
+function findAnElement(node, string) {
+  if (node.nodeType == document.ELEMENT_NODE) {
+    for (var i = 0; i < node.childNodes.length; i++) {
+      if (findAnElement(node.childNodes[i], string))
+        return true;
+    }
+    return false;
+  } else if (node.nodeType == document.TEXT_NODE) {
+    return node.nodeValue.indexOf(string) > -1;
+  }
+}
+
+assert(findAnElement(document.body, "container"),true);
+assert(findAnElement(document.body, "nav-img"),true);
+//  true
+\end{codeblock}

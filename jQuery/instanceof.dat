@@ -11,8 +11,10 @@ var isInstance = objectName instanceof objectType;
 \begin{codeblock}
 var color1 = new String("green");
 color1 instanceof String; // returns true
+assert(color1 instanceof String, 'color1 is instance of String');
 var color2 = "blue";
 log(color2 instanceof String); // returns false (color2 is not a String object)
+assert(!(color2 instanceof String), 'is true');
 \end{codeblock}
 
 

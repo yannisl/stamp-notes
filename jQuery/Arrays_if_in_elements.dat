@@ -1,6 +1,6 @@
 ## Javascript Fundamentals
 
-How do you check if an element exists in an array? Of course you can iterate over it, but an easier solution is with a conditional. I first saw this a [bennadel.com](http://www.bennadel.com/blog/177-Javascript-Short-Hand-IF-Within-Object-Notation.htm)
+How do you check if an element exists in an array? Of course you can iterate over it, but an easier solution is with a conditional. I first saw this at [bennadel.com](http://www.bennadel.com/blog/177-Javascript-Short-Hand-IF-Within-Object-Notation.htm)
 
 
 \begin{codeblock}

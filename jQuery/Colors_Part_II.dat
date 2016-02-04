@@ -9,9 +9,7 @@ goog.require('goog.color.alpha')
 In the first part of this article series we have examined the `rgb` color space which takes three components red, green and blue. The alpha channel adds another component that of transparency. This is a much more useful set of routines in that in modern browsers and websites you are likely to encounter colors with transparency and for which the earlier routines might stand a chance of breaking and not responding the way you want them to be.
 
 
-<div  class="code-block console-wrap" title="Testing color strings containing Alpha channel values">
-<div class="code-block code">
-<code>
+\begin{codeblock}
 (function testIsValidRgbaColor() {
   var goodRgbaColors = ['rgba(255, 0, 0, 1)', 'rgba(255,127,0,1)', 'rgba(0,0,255,0.5)', '(255, 26, 75, 0.2)', 'RGBA(0, 55, 0, 0.6)', 'rgba(0, 200, 0, 0.123456789)'];
 
@@ -25,16 +23,7 @@ In the first part of this article series we have examined the `rgb` color space 
     assertEquals(0, goog.color.alpha.isValidRgbaColor_(badRgbaColors[i]).length, badRgbaColors[i]);
   }
 })();
-</code>
-</div>
-<div  id ="msg" class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<button id="light">Lightened</button>
-<button id="darken">darken</button>
-<ol class="results"></ol> 
-</div>
+\end{codeblock}
 
 <h3>Validation</h3>
 
@@ -67,24 +56,15 @@ The library has a number of useful methods for validating if a string is a valid
 
 <h3>Conversion of Colors from one type to anoher</h3>
 
-<div  class="code-block console-wrap">
-<div class="code-block code">
-<code>
+\begin{codeblock}
 for (var prop in goog.color){
      log(prop);
 }
+\end{codeblock}
 
-</code>
-</div>
-
-<div  id ="msg" class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
 
 <h3>Color Manipulations</h3>
+
 The only color manipulation methods available and of interest are __blend()__, __darken()__ and __highContrast__. The latter is interesting as it offers a way to determine if a color scheme would pass W3C guidelines for accessibility.
 
 The routine finds the "best" (highest-contrast) of the suggested colors for the prime
@@ -99,9 +79,9 @@ suggestions Array of colors, each a 3-element array
 It returns the Highest-contrast color represented by a 3-element
  array with red, green and blue values respectively, in the range
  [0, 255].
-<div  class="code-block console-wrap">
-<div class="code-block code">
-<code>
+ 
+ 
+\begin{codeblock}
 /**
  * This method runs unit tests against goog.color.highContrast().
  */
@@ -137,14 +117,7 @@ $('#msg6').css('color', s);
 
 var prime = 'rgb(' + prime.toString() + ')';
 $('#msg6').css('backgroundColor', prime);
-</code>
-</div>
-<div  id ="msg6" class="msg">Test
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
+\end{codeblock}
 
 
 <h3>The colors unit so far</h3>

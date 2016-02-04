@@ -1,0 +1,120 @@
+<link rel="stylesheet" href="/application-latest/assets/css/animatedModal.js/demo/css/normalize.min.css">
+<link rel="stylesheet" href="/application-latest/assets/css/animatedModal.js/demo/css/animate.min.css">
+
+\chapter{Write your title here}
+<!--Call your modal-->
+        <ul>
+            <li><a id="demo01" href="#animatedModal">DEMO01</a></li>
+            <li><a id="demo02" href="#modal-02">DEMO02</a></li>
+        </ul>
+
+
+<!--DEMO01-->
+<div id="animatedModal">
+
+<div  id="btn-close-modal" class="close-animatedModal"> 
+                CLOSE MODAL
+</div>
+                
+<div class="modal-content">
+<!-- Top table of contents menu -->
+
+<!-- Column No. 1 -->
+<div class="clearfix" style="background-color: black;
+    width: 1000px;
+    height: 430px;
+    opacity: 0.60;
+    -moz-opacity: 60%;
+    -webkit-opacity: 60%;
+    z-index: 2;">
+<div class="clearfix menu-column">
+    <h3 >France</h3>
+    <ol>
+        <li><a href="../germany/Introduction">Germany</a></li>
+        
+                <li><a href="../german-allied-zones/Introduction">German Allied Zones</a></li>
+                <li><a href="../german-colonies/Introduction">German Colonies</a></li>
+                <li><a href="../german-east-africa/Introduction">German East Africa</a></li>
+                <li><a href="../german-locals/Introduction">German Locals</a></li>
+                <li><a href="../german-post-offices-in-morocco/Introduction">German Morocco</a></li>
+                <li><a href="../german-new-guinea/Introduction">German New Guinea</a></li>
+                <li><a href="../german-occupations/Introduction">German Occupations</a></li>
+                <li><a href="../german-pos-abroad/Introduction">German POs Abroad</a></li>
+                <li><a href="../german-south-west-africa/Introduction">German South West Africa</a></li>
+                <li><a href="../german-states/Introduction">German States</a></li>
+                <li><a href="../german-post-offices-in-turkey/Introduction">German Post Offices in Turkey</a></li>
+                <li><a href="../east-germany/Introduction">Germany - East</a></li>
+                <li><a href="../german-wituland/Introduction">Wituland</a></li>
+                <li><a href="../germany-west/Introduction">Germany - West</a></li>
+            
+        </li>
+    </ol>
+</div> <!-- column 1-->
+<div class="clearfix menu-column"  >
+    <h3 >French Colonies</h3>
+    <ol>
+        <li><a href="../baden/Introduction">Baden</a></li>
+        <li><a href="../bavaria/Introduction">Bavaria</a></li>
+        <li><a href="../bergedorf/Introduction">Bergedorf</a></li>
+        <li><a href="../brunswick/Introduction">Brunswig</a></li>
+        <li><a href="../bremen/Introduction">Bremen</a></li>
+        <li><a href="../hamburg/Introduction">Hamburg</a></li>
+        <li><a href="../hanover/Introduction">Hannover</a></li>
+        <li><a href="../heligoland/Introduction">Heligoland</a></li>
+        <li><a href="../lubeck/Introduction">Lubeck</a></li>
+        <li><a href="../mecklenberg-schwerin/Introduction">Mecklenburg Schwerin</a></li>
+        <li><a href="../mecklenberg-strelitz/Introduction">Mecklenburg Strelitz</a></li>
+        <li><a href="../oldenburg/Introduction">Oldenburg</a></li>
+        <li><a href="../prussia/Introduction">Prussia</a></li>
+        <li><a href="../saxony/Introduction">Saxony</a></li>
+        <li><a href="../thurn-and-taxis/Introduction">Thurn and Taxis</a></li>
+        <li><a href="../wurttemberg/Introduction">Wurttemberg</a></li>
+    </ol>
+</div>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+
+<div id="modal-02">
+            <!--"THIS IS IMPORTANT! to close the modal, the class name has to match the name given on the ID-->
+            <div  id="btn-close-modal" class="close-modal-02"> 
+                CLOSE MODAL
+            </div>
+            
+            <div class="modal-content">
+                \lorem
+            </div>
+</div>
+
+
+<script src="/application-latest/assets/css/animatedModal.js/animatedModal.min.js"></script>
+
+<script>
+            //demo 01
+            $("#demo01").animatedModal();
+            //demo 02
+            $("#demo02").animatedModal({
+                modalTarget:'modal-02',
+                animatedIn:'lightSpeedIn',
+                animatedOut:'bounceOutDown',
+                color:'#3498db',
+                // Callbacks
+                beforeOpen: function() {
+                    console.log("The animation was called");
+                },           
+                afterOpen: function() {
+                    console.log("The animation is completed");
+                }, 
+                beforeClose: function() {
+                    console.log("The animation was called");
+                }, 
+                afterClose: function() {
+                    console.log("The animation is completed");
+                }
+            });
+</script>

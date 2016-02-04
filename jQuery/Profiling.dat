@@ -1,26 +1,14 @@
-<!--
-{{feature-image: /codeigniter/images/china/beauty_02.jpg}}
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
 
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
 
 <h2>Profiling</h2>
+
 When dealing with web applications the performance of your code is paramount, every millisecond counts, after all an application has so many lines of code to execute. One can build simple functions or Classes that can profile functions in order to de-bottleneck any problem areas. 
 
 One method provided by javaScript, which I could never understand the reason for it is the concat() method for strings, why provide a method when simply a + can do, would it provide better performance?
 
 Here is a small function that takes as is argument another function and times its execution.
 
-<div  class="code-block console-wrap">
-<div class="code-block code">
-<code>
-<pre>
+\begin{codeblock}
 function performance(str, fn) {
   var t1 = new Date();
   for (var i = 0; i < 10; i++) {
@@ -47,16 +35,8 @@ var t1 = performance("String Concatenation", function () {
 log('Using the concatenation operator (+) ', t, 'ms');
 log('using concat() ', t1, 'ms');
 log(' % performance difference :', ((t1 / t) * 100).toFixed(2), '% faster');
-</pre>
-</code>
-</div>
 
-<div  id ="msg" class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
+\end{codeblock}
 
 As you can observe the mystery deepens with the concat(). It makes sense that is slower as JavaScript has to make a function call whereas with the concatenation operator (+), it doesn't, but I am still scratching my head as why it was provided for String.
 

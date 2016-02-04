@@ -1,0 +1,22 @@
+# Approaches to Menus
+
+It was always my intention to offer the user, multiple ways of developing
+menus. In a CMS or blog like Wordpress or Drupal the user has the option to sort out menus, based on categories, or a timed based approach. They all work, but is a bit different here as we need to provide a more detailed choice.
+
+## What type of menus
+
+-  We have menus that list all the sections of a book for LaTeXing.
+-  We have sidemenus to help the user navigate the pages.
+-  We have the basic website navigation.
+-  We have drop downs to help categorize the content.
+-  We have footer menus.
+-  We can provide menus in the form of contents for a single page as Wikipedia does.
+-  Custom menus.
+
+There is a good discussion, how to automate and maintain menus at [css-tricks](https://css-tricks.com/dynamic-dropdowns/), there are many choices:
+
+\begin{itemize}
+\item Hard code them in the html. This is the best choice when there is no need to automate the process.
+\item Storing them in files, from simple text files, json or yaml.
+\item Storing them in a database. This is by far the most flexible method, especially if one has to use the information in other areas. 
+\end{itemize}

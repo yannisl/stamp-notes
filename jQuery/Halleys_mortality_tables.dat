@@ -1,23 +1,12 @@
 \chapter{Halley's Mortality Tables}
 
-\begin{comment}
- <!--
-{{feature: .. It were needless to advertise, that the great trouble of working so many Proportions will be very much alleviated by using Logarithms; Halley}}
-
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
 
 <script type="text/javascript"> 
 goog.require('goog.ui.TableSorter');
 goog.require('goog.ui.ServerChart');
 goog.require('goog.dom');
 </script>
-\end{comment}
+
 
 
 

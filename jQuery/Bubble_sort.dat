@@ -37,7 +37,7 @@ function bubbleSort(data) {
   }
 }
 var data = [];
-data = populateArrayRandom(10000);
+data = populateArrayRandom(30);
 //log(data);
 profiler.start();
 var d = bubbleSort(data);
@@ -64,7 +64,7 @@ In any case in  practical situations the best sort to use is the
 one provided by the standard (e.g., Python, Java, C, or C++)
 libraries. However, we study sorts because general sorts
 do not work in all situations and because sorting is a
-simple illustration of algorithmic techniques. JavaScript provides a built-in method for sorting arrays and you can find more about it in ['Sorting Arrays in Javascript'](http://127.0.0.1/CodeIgniter/index.php/Blogs/tutorials/jQuery/Array_sort).
+simple illustration of algorithmic techniques. JavaScript provides a built-in method for sorting arrays and you can find more about it in ['Sorting Arrays in Javascript'](../jquery/Array_sort).
 
 
 

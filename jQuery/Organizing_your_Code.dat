@@ -1,15 +1,7 @@
          
-<!--
-{{feature: "Omit needless words." Strunk and White, Elements of Style}}
 
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
 <h2>Organizing Your Code</h2>
+
 I just watched China's 60th Liberation Anniversary parade on TV and was impressed. 
 <img src ="http://localhost/codeigniter/images/china.jpg" style="display:block;float:none;margin:0 auto;" />
 
@@ -23,8 +15,7 @@ One technique that you can use to clean and simplify your code and at the same t
 Since in JavaScript all objects can have properties, which in turn contain other objects, you can create something that appears and works very similarly to the name spacing that you are used in other languages. Using this technique, you can create unique structures like the one shown below.
 
 
-<div  class="code-block console-wrap"><div class="code code-block">
-<code>
+\begin{codeblock}
 //  Create a default, global namespace
 var jQ = {};
 
@@ -58,16 +49,8 @@ var str;
  str = jQ.util.strings;
  str.toString('one more string');
 
-</code>
-</div>
+\end{codeblock}
 
-<div  id = "msg" class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-<img src="http://localhost/codeigniter/images/jquery.png" style="float:right; width:85px"/>
-</div>
 
 It is even better to automate namespacing through some library routine, in order to ensure that you are not overwriting any other variable in the global or local space with the same name. (see the [namespacing](/codeigniter/Blogs/tutorials/jQuery/namespacing) article for more details). Closure also offers a very good way of handling namespaces, you can read it at our article discussing the
 [Closure base](/codeigniter/Blogs/tutorials/jQuery/Closure_base).

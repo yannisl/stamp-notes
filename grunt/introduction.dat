@@ -1,0 +1,5 @@
+\chapter{Introduction}
+
+Over the years, the Web and its best practices have evolved as users expect a better experience over time. As a result, tools such as Grunt have become robust and are available to developers around the world, which allows them to build their web applications in an automated fashion. Grunt and its various plugins provide immense functionality for the realms of search engine optimization, page load time, and user experience design, which presents strong arguments for its tool chain.
+
+\ph[30%]{../grunt/splash-grunt.jpg}{}

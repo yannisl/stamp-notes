@@ -13,11 +13,8 @@ Whenever a matched element is clicked, the first specified function is fired, wh
 
 Use unbind("click") to remove the toggle event.
 
-{{plain:
+\begin{verbatim}
 toggle( fn, fn2, [fn3,fn4,...] )
-
-
-
 
 $("li").toggle(
       function () &#123;
@@ -31,6 +28,8 @@ $("li").toggle(
      &#125;
     );
 }}
+\end{verbatim}
+
 
 <div class="clearfix mother"  style="width:70%">
     <div class="first" style="border:1px solid blue;width:50px;height:150px;float:left">

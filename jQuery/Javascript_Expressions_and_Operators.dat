@@ -65,10 +65,13 @@ if (b<=a) alert ("true");
 
 
 
-##Use + to convert anything to a number
+## Use + to convert anything to a number
 
 The _+_ operator can be used to convert _anything_ to a number! This is more like a hidden feature in JavaScript.
-<div  class="code-block console-wrap"><div class="code code-block"><code>
+
+
+\begin{codeblock}
+
 // Quick hex to dec conversion:
 +"0xFF";              // -> 255
 
@@ -94,14 +97,19 @@ parseInt("010");      // -> 8, because of the octal literal prefix
 +"1e-4";              // -> 0.0001
 +"-12";               // -> -12
 
+
+\end{codeblock}
+
+
+
+
+
+
+
+
+
+
 assert(+true==1,'+true==1');
-</code>
-</div>
-<p class="msg" style="width:400px;font-size:24px;font-weight:bold;background:#fff">
-</p>
-<button class="eval">Run Code!</button>
-<ol class="results" style="margin-top:8px"></ol> 
-</div>
 
 
   

@@ -41,7 +41,7 @@ log(mean);
 <h3>Producing some tables and Graphs</h3>
 
 
-<div  class="code-block console-wrap"><div class="code code-block"><code>
+\begin{codeblock}
 var element = goog.dom.getElement;
 var i=0;
 for (i = 0; i < DATA.length; i++) {
@@ -56,15 +56,12 @@ for (i = 0; i < DATA.length; i++) {
     //chart.setMinValue(-50);
     chart.decorate(element('line_chart'));
 //log(DATA);
-</code>
-</div>
+\end{codeblock}
+
 <p class="msg" id='sortMe' style="width:400px;font-size:24px;font-weight:bold;background:#fff">
 </p>
 <p>Age Distribution Chart:</p> 
  <img id="line_chart">
-<button class="eval">Run Code!</button>
-<ol class="results" style="white-space:pre"></ol> 
-</div>
 
 <div id="test" style="width:200px;height:300px"></div>
 

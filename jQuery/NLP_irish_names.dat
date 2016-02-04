@@ -45,32 +45,32 @@ $('#test').load('/application-latest/strings/afrikaans-names.txt?', function(){
   var text = $('#test').text().split(" ");
    logPRE(text.length);
    (text.indexOf('Malone')>-1)?log('found'):log('not found');
-  var d = text.join(' ');
+   var d = text.join(' ');
    d=goog.string.truncate(d, 300);
    log(d);
 });
 \end{codeblock}
 
-
+<div id="test"></div>
 
 \begin{codeblock}
 var uri = ['greek-surnames'];
 
 for (i=0;i < uri.length;i++){
-$('#test').text('');
-$('#test').load('/application-latest/strings/greek-surnames.txt?', function(){
+$('#test2').text('');
+$('#test2').load('/application-latest/strings/greek-surnames.txt?', function(){
   var text = $('#test').text().split(",");
    logPRE(text.length);
    (text.indexOf('Lazarides')>-1)?log('found'):log('not found');
 });
 }
 
-$('#test').show();
+$('#test2').show();
 
 \end{codeblock}
 
 
-<p id="test" class="hidden"></p>
+<p id="test2">test 2</p>
 
 
 ## Personal Identification

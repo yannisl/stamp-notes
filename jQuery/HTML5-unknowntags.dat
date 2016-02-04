@@ -22,25 +22,14 @@ The tags in this case from the jo.js make much better sense. Another benefit of 
 
 You can try it for yourself below and see if your browser can find the tags. We simply use jQuery's selector engine to find the tag and display it in the logger below:
 
-<div  class="code-block console-wrap">
-<div class="code code-block">
-<code>
-   $(document).ready(function(){
-  var zz=$('jobutton1').text();
-  log(zz);
-});
-</code>
-</div>
-<div id = "chat_content">
-</div>
+<joebutton1>Test My Joe Button</joebutton1>
 
-<div  id="msg" class="msg" >
-<jobutton1>&lt;jobutton1>This is the Jobutton1&lt;/jobutton1></jobutton1>
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results" id="results"></ol> 
-</div>
+\begin{codeblock}
+ $(document).ready(function(){
+ var zz=$('jobutton1').text();
+ log(zz);
+});
+\end{codeblock}
 
 This is a good technique for not ending up with some problems associated with ids and classes on large developments. I am not sure though about accessibilty.
 

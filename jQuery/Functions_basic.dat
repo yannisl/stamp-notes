@@ -6,7 +6,7 @@ function sayGoodbye() {
 }
 </script>
 
-<h2>Functions 101</h2>
+## Functions 101
 
 
 <div id="element_to_change">Example</div>
@@ -24,6 +24,22 @@ function sayGoodbye() {
   }
 })()
 \end{codeblock}
+
+Another very strange way of self-executing function is to place a unary operator in front of it. [See stackoverflow.com](http://stackoverflow.com/questions/13341698/javascript-plus-sign-in-front-of-function-name).
+
+\begin{codeblock}
++function setElementBackground() {
+  var red = Math.floor(Math.random() * 256);
+  var green = Math.floor(Math.random() * 256);
+  var blue = Math.floor(Math.random() * 256);
+
+  var obj = document.getElementById('element_to_change');
+  if ( obj ) {
+    obj.style.background = 'rgb(' + red + ',' + green + ',' + blue + ')';
+  }
+}()
+\end{codeblock}
+
 
 
 There  numerous ways to create a function in JavaScript the simplest way, and the method which has been supported since its inception is as follows:

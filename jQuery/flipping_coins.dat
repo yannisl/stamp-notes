@@ -47,8 +47,7 @@ log(headsConsecutiveMax);
 ###More Trials
 
 
-<div  class="code-block console-wrap"><div class="code code-block">
-<code>
+\begin{codeblock}
 function random(x) {
   return Math.floor(Math.random() * x);
 }
@@ -90,20 +89,12 @@ while (i < trials + 1) {
 log(headsCount, ' ', tailsCount);
 log(headsCount / tailsCount);
 log(headsConsecutiveMax);
-</code>
-</div>
+\end{codeblock}
 
-<div  class="msg" class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>    
 
 You can get a 20 fairly easily, if you run the above code. With a slight modification we can also see, if more than one person managed it.
 
-<div  class="code-block console-wrap"><div class="code code-block">
-<code>
+\begin{codeblock}
 function random(x) {
   return Math.floor(Math.random() * x);
 }
@@ -148,15 +139,7 @@ log(headsCount, ' ', tailsCount);
 log(headsCount / tailsCount);
 log(headsConsecutiveMax);
 log(trialsAboveN);
-</code>
-</div>
-
-<div  class="msg" class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>   
+\end{codeblock}   
 
 ##Counting Frequencies
 
@@ -166,8 +149,7 @@ This will slightly complicate the code, which I tried to keep as simple as possi
 
 
 
-<div  class="code-block console-wrap"><div class="code code-block">
-<code>
+\begin{codeblock}
 function random(x) {
   return Math.floor(Math.random() * x);
 }
@@ -229,16 +211,7 @@ log(sum);
 assert(buckets.length == 20);
 log(s);
 
-
-</code>
-</div>
-
-<div  class="msg" class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div> 
+\end{codeblock}
 
 http://20bits.com/articles/graph-theory-part-i-introduction/
 

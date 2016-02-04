@@ -1,7 +1,0 @@
-\contentsline {section}{The Fifth Definitive Issue}{7}{section*.2}
-\contentsline {section}{Water mark cabled anchor}{7}{section*.3}
-\contentsline {section}{The Two Pence Halfpenny}{7}{section*.4}
-\contentsline {subsection}{The One Shilling}{7}{subsection*.5}
-\contentsline {subsection}{The Five Shilling}{8}{subsection*.6}
-\contentsline {subsection}{The Half Penny}{8}{subsection*.7}
-\contentsfinish 

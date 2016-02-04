@@ -1,0 +1,19 @@
+\chapter{ES6 Promises}
+
+The first example is from [sons of javascript](https://medium.com/sons-of-javascript/javascript-an-introduction-to-es6-1819d0d89a0f#.g80rh59zx) and illustrates the basic use of promises in ES6. In ES6 a Promise is an Object, which is normally returned from an asynchronous operation.
+
+\begin{codeblock}
+'use strict'
+var longFn = function() {
+  return new Promise(function(res, rej) {
+    setTimeout(res, 1000);
+  });
+};
+
+var coolFn = function() {
+  log('cool');
+};
+
+// logs cool after 1 second
+longFn().then(coolFn);
+\end{codeblock}

@@ -17,29 +17,20 @@ These are widely used in the tufte-book class. You can use it as you wish.
 
 \begin{marginfigure}
 
-  \[a/b=\frac{a}{b}\] 
-  
   \includegraphics[width=1.0\textwidth]{../beta/che.jpg}
   
   \caption{\protect\captionlorem}
  
 \end{marginfigure}
 
-Remember if you use any code in a `\caption` you will need to protect it using the command `\protect`.
+Remember if you use any code in a `\caption` you will need to protect it using the command `\protect`. In html this has no effect and the command is ignored. 
 
 
 \section{TODO}
 
 You can also change the way the `\margifigure` css class works and have it positioned fully as a real marginfigure in the tufte-class.
 
-<p style="position:absolute;right:3%;width:10%;border:1px solid;display:block">
-<img src="/application-latest/stamp-images/beta/che.jpg" style="display:block;width:99%"/>
-</p>
 
-<p style="position:absolute;left:3%;width:10%;border:1px solid;display:block">
-<img src="/application-latest/stamp-images/beta/lena-full.jpg" style="display:block;width:99%"/>
-</p>
-\lorem
 
 
 

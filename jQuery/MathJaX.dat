@@ -1,15 +1,6 @@
- <!--
-{{feature: Donald E Knuth  Random numbers should not be generated with a method chosen at random..}}
-{{feature-image:http://localhost/CodeIgniter/images/run_time_error.jpg}}
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: UI, jQuery, Visibility Filters, CSS Visibility }}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
-
-
+<script type="text/javascript"
+src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 <style>
 div#ex1 {cursor:pointer;   padding:5px;height:20px }
   .ex2{ background:#bebebe; font-weight:bold; cursor:pointer; 
@@ -20,9 +11,7 @@ a#cbutton,a#cbutton1,a#cbutton2,a#cbutton3,a#cbutton4,a#cbutton5{color:blue}
 p#rnumber,p#rnumber1,p#rnumber2,p#rnumber3,p#rnumber4,p#piout{font-size:42px;font-weight:bold}
  </style>
 
-<script type="text/javascript"
-  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
+
 
 
 <h2>
@@ -31,7 +20,7 @@ MathJaX is Here
 
 
 
-When \\(a \ne 0\\), there are two solutions to \\(ax^2 + bx + c = 0 \\) and they are
+When \\(a \bigcup 0 \\), there are two solutions to \\(ax^2 + bx + c = 0 \\) and they are
 
 $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
 
@@ -42,8 +31,7 @@ $$\sum = a_i+a^3+C_i $$
 
 If you are using Maths into your programs you have probably hit some of its limitations. It is perhaps the only build in Reference Object, that I would consider adding methods to it. One such method is to calculate logs at another base than base <it>e</it>. The method below uses a recursive base to calculate a log to any base. It is a brilliant way to actually extend the object. (originally found it at http://leaverou.me/tag/math/).
 
-<div  class="code-block console-wrap"><div class="code-block code">
-<code>
+\begin{codeblock}
 Math.log = (function() {
 	var log = Math.log;
 	return function(n, a) {
@@ -52,17 +40,8 @@ Math.log = (function() {
 })();
 
 log(Math.log(10,10));
+\end{codeblock}
 
-</code>
-</div>
-
-<div  class="msg" class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-<img src="http://localhost/codeigniter/images/jquery.png" style="float:right; width:85px"/>
-</div>
 
 
 If you remember, I know, I know you dont't  a {{wi: logarithm}} can be changed to any base simply by using the equation below. As logarithms at different bases are similar.

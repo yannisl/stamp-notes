@@ -13,16 +13,17 @@ So far you have been using jQuery plugins and now you have some great idea and w
 
 
 <div  style="padding:10px;width:600px;line-height:1.5">
-<div class="tip" style="background:url(http://localhost/CodeIgniter/images/code-bg.gif)">
-<img src="http://localhost/codeigniter/images/kate.jpg" style="display:block;float:left;margin-right:8px;width:100px" class="imgtip"/>
+<img src="http://localhost/application-latest/images/yannis.jpg" style="display:block;float:left;margin-right:8px;width:100px" />
 <p>
+
  I have so many hours of dreaming logged in at my parents gas station in Chugiak, Alaska. Ring up a customer- dream, stock the shelves-dream, mop the floors- dream, plow the snow-dream... I had spent my whole life in this precious little town doing the same things and it was kinda like "what am i gonna do with myself if i stay here?" so just as i was about to crack, i put it all on red...LA that is.
+ 
 I needed to see more of the world... I inherited the pioneer spirit from my Dutch/Welsh father who dropped out of 6th grade to survive the Great Depression by picking cotton for bowls of beans until he lied about his age to serve during the Korean War to support his parents... he was a self made man...he built our gas station with his own hands...he taught me to choose the day that i would wake up to...and my Filipino mother who left her parents to board in another town and walked miles in the rain with a banana leaf for an umbrella to go to school and sewed her own uniform and cooked her meals on a little fire as a child, who beleived in the american dream knowing that she could have a new life with greater possibilities for her children...she taught me that an understanding of what you are capable of combined with a healthy bit of resolve and improvisation can go a long way...
 with stories like these a part of me, it was not hard for me to save a lump of change and go to the city...did the Hollywood thing hittin the streets with the demo i made at my friends house...at the time those were the only songs i had written...I mean I had played piano and sang in church since I was yay high but this was a whole new game... I was learning as i was going...all by the seat of my pants, figuring out my sound as I wrote...then I ended up at this party where I met my future boss...Record Collection signed me within 6 mos of moving to LA...I've spent the last couple of years developing and recording the material on my album and...the dream is lookin pretty good so far, but we shall see. 
 </p>
- </div>
 </div>
-<hr/>
+</div>
+
 <div  style="padding:10px;width:600px;line-height:1.5">
 <div class="tip" style="background:url(http://localhost/CodeIgniter/images/code-bg.gif)">
 <img src="http://localhost/codeigniter/images/sarah.jpg" style="display:block;float:left;margin-right:8px;width:100px" class="imgtip"/>
@@ -89,6 +90,7 @@ I'm obsessed with love. It confuses me, it fascinates...
      );
 
      // set onclick event for more/less link
+     
      var moreLink = $('.truncate_more_link', obj);
      var moreContent = $('.truncate_more', obj);
      var image=$('img.imgtip',obj);
@@ -124,7 +126,7 @@ I'm obsessed with love. It confuses me, it fascinates...
     $('.tip').truncate();
   });
  </script>
-<hr/>
+
 One thing to remember is to pass to the jQuery object a reference for  <em>this</em>, if you want to capture a class for example only within the context of the current object. In the code below $(this) is assigned to the <strong>obj</strong>. 
 
 This catches me quite a bit often.
@@ -134,7 +136,9 @@ This catches me quite a bit often.
   obj = $(this);
   var moreContent = $('.truncate_more', obj);
 }}
+
 The root of the jQuery library is the jQuery function, defined as follows:
+
 {{plain: 
 var jQuery = window.jQuery = window.$ = function( selector, context ) 
 &#123;
@@ -163,12 +167,4 @@ The jQuery function (as well as its $ alias) performs some work on the provided 
 http://bililite.com/blog/understanding-jquery-ui-widgets-a-tutorial/
 
 http://msdn.microsoft.com/en-us/magazine/dd453033.aspx
-<script type="text/javascript">
-$(window).load(function() {
-  var pic = $('img.imgtip');
 
-  pic.removeAttr("width"); 
-  pic.removeAttr("height");
-
-  });
-</script>

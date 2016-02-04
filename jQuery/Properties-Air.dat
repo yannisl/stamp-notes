@@ -1,13 +1,4 @@
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
-{{feature-image: http://localhost/egypt/elliott-erwitt/EE-1150.jpg}}
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
 
--->
 <style type="text/css">
 label{font-weight:bold;
             width:25%}
@@ -59,7 +50,6 @@ This tool calculates thermophysical properties of air for 100K < T < 1600K.
 
 
 
-{{snippet:
 <table>
 
 <form>
@@ -80,7 +70,6 @@ Instructions
 </TD> 
 </TR> 
 </table> 
-}}
 
 Curve fits were obtained from <a href="http://users.wpi.edu/~ierardi/FireTools/air_prop.html">Fire Tools</a> the calculations are fairly accurate for the full range of Fire calculations
 

@@ -1,0 +1,46 @@
+# Setting up the HTML template file
+
+TeXIgniter's template files, follow recommended practices by the H5BP. Once fully assembled and rendered in the browser they follow a well organized structure. Let me tell you briefly some of the features:
+
+## The HTML doctype:
+
+```
+<!DOCTYPE html>
+```
+
+## The Meta
+
+```
+<meta charset="utf-8">
+```
+
+In place of links to a favicon or touch icon, you'll find a comment recommending that you simply place the icons in the site's root directory, where they will automatically be found by the users' browsers and devices.
+
+
+## Scripts
+
+The templates load scripts both at the head, as well as the end of the templates to optimize the rendering speed of the pages.
+
+Since we use jQuery for bootstrap components as well as other interactivity, we load it from the [googleapis](https://googleapis.com) CDN. This is followed by a link to a local fallback copy of jQuery.
+
+\begin{verbatim}
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+<script>
+window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')
+</script>
+\end{verbatim}
+
+Links to `plugins.js` and `application.js`, which are intended to hold the code for JavaScript plugins (in `plugins.js`) and your custom code (in `application.js`):
+
+\begin{verbatim}
+<script src="js/plugins.js"></script>
+<script src="js/main.js"></script>
+\end{verbatim}
+
+
+### Plugins we use
+
+We use [Jack Moore's](http://www.jacklmoore.com/colorbox/) colorbox to display images at a higher resolution or wider. We use very few of its features, and you can explore it more, if you want to display galleries and the like. For mobile only this will have to be disabled.
+
+We also use all the bootstrap plugins for maximum flexibility in page construction.

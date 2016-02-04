@@ -1,4 +1,50 @@
 # Some Notes on AWS
 
+AWS is a great set of services, but if you are not careful things will keep breaking.
+
+## What you will need before you start.
+
+\begin{enumerate}
+\item Create an account at AWS
+\item Get you ACCESS KEY and SECRET KEY and store them in a safe place.
+\item Download the AWS cli tool for windows.
+\end{enumerate}
+
+## Credentials
+
+Credentials best practice is to set them in an evironmental variable
+https://www.youtube.com/watch?v=bEroNNzqlF4 
+
+or for Windows 7
+
+https://www.youtube.com/watch?v=hlMo7OJP6AU
+
+## How to Syncronize a Local Directory with an AWS Bucket
+
+1.  Set up the CLI (even on windows easier to use rather than PowerScript)
+
+2.  Download latest [cli user guide](http://docs.aws.amazon.com/cli/latest/userguide/aws-cli.pdf)
+
+2.  Run some examples.
+
+3.  Navigate to the folder you want to `sync`. This is very important otherwise you will spend you life deleting objects from the AWS console. Made this mistake once and regretted it, as I had to spent the whole afternoon adjusting.
+
+4. Type AWS S3 sync . <bucket>  <ACL permissions> etc
+
+\begin{blockquote}[shade]
+
+`aws s3  sync . s3://my-bucket/sybbucket/  - -acl public-read  - -exclude *.pdf`
+
+\end{blockquote}
+
+Don't forget the (.)  which means all files. It might take a few minutes to fully sync a new bucket full of large image files, but it gets fairly fast if you run the command regularly. By syncing you also save on costs, in that only the new or changed files are affected. 
+
+
+
+
+## Learning Resources
 
 https://cloudcraft.co/
+
+
+http://codecanyon.net/pending_orders/8626156

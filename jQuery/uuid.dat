@@ -38,9 +38,11 @@ var t = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
 log(t);
 
 $('#UUID').text(t);
+
 \end{codeblock}
 
-<div id="UUID" style="font-size:small;text-align:right"></div>
+
+<par id="UUID" style="font-size:small;text-align:right">UUID</par>
 
 
 The nice compact function for creating rfc4122-compliant random UUIDs shown above was posted by broofa who has more on his [blog](http://www.broofa.com/2008/09/javascript-uuid-function/).

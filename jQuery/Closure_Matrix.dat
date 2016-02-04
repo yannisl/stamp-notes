@@ -1,14 +1,3 @@
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
-
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
-
 <script>goog.require('goog.math.Matrix');</script>
 
 
@@ -24,25 +13,15 @@ First, let us check that the file has loaded properly and create a new empty 3 x
 
 Try it out below:
 
-<div  class="code-block console-wrap">
-<div class="code-block code">
-<code>
+\begin{codeblock}
 googInfo();
 // creates a 3 x 3 matrix
 var m1 = new goog.math.Matrix(3,3);
 
 logPRE(m1.toString());
+\end{codeblock}
 
 
-</code>
-</div>
-
-<div  id ="msg" class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
 
 <h3>The Matrix constructor API</h3>
 

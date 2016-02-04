@@ -1,4 +1,0 @@
-\contentsline {chapter}{Patent and Proprietary Stamps}{7}{chapter*.2}
-\contentsline {subsection}{References}{8}{subsection*.3}
-\contentsline {chapter}{Bibliography}{9}{chapter*.4}
-\contentsfinish 

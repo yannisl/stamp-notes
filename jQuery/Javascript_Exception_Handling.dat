@@ -26,7 +26,7 @@ colours[2] = "red";
 
 }
 %}
-</div>
+
 
 The "catch" block sets up the exception handler, in the event that one is generated. This does the hard work of trapping the exception and suggesting how to handle it
 
@@ -39,10 +39,7 @@ $('$msg').html('&lt;img src = "http:/localhost/codeigniter/images/protest_03.jpg
 
 If an exception is generated, the "catch" segment of the code will be triggered, and JavaScript's default error handling mechanism will be overridden by the instructions in that code segment - in this case, displaying the text "Something bad happened".
 
-<div class="code-block console-wrap">
-<div class="code code-block">
-<pre>
-<code>
+\begin{codeblock}
 
 try {
   textColors[5] = "red";
@@ -55,13 +52,7 @@ for (var prop in Error) {
   logPRE(prop, Error[prop]);
 }
 
-</code>
-</pre>
-</div>
-<div class="msg"></div>
-<button class="eval">Run Code</button>
-<ol class="results" ></ol> 
-</div>
+\end{codeblock}
 
 
 

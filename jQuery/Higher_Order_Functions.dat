@@ -9,7 +9,7 @@ function greaterThan(n) {
   return function(m) { return m > n; };
 }
 var greaterThan10 = greaterThan(10);
-    log(greaterThan10(11));
+    assert(greaterThan10(11), '11 is greater than 10');
 \end{codeblock}
 
 Or functions that change other functions:

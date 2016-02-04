@@ -1,0 +1,89 @@
+
+
+\chapter{Running Angular Partially on a Page}
+
+Angular is a framework and it is much different than jQuery. It is used to build complicated one page applications, where there might be hundreds of interactions and too difficult to manage with just jQuery. 
+
+
+
+
+\begin{verbatim}
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+<div ng-app="myApp" ng-controller="customersCtrl"> 
+<table>
+  <tr ng-repeat="x in names">
+    <td>{{ x.Name }}</td>
+    <td>{{ x.Country }}</td>
+  </tr>
+</table>
+
+
+<p>My first expression: {{ 5 + 5 }}</p>
+
+
+
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('customersCtrl', function($scope, $http) {
+    $http.get("http://www.w3schools.com/angular/customers.php")
+    .then(function (response) {$scope.names = response.data.records;});
+});
+</script>
+\end{verbatim}
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+The result:
+
+<div ng-app="myApp" ng-controller="customersCtrl"> 
+<table>
+  <tr ng-repeat="x in names">
+    <td>{{ x.Name }}</td>
+    <td>{{ x.Country }}</td>
+  </tr>
+</table>
+
+<p>My first expression: {{ 5 + 5 }}</p>
+
+<p>My first include</p>
+
+
+<p>The rootScope's favorite color:</p>
+<h1>{{color}}</h1>
+
+<div ng-controller="myCtrl">
+    <p>The scope of the controller's favorite color:</p>
+    <h1>{{color}}</h1>
+</div>
+
+<p>The rootScope's favorite color is still:</p>
+<h1>{{color}}</h1>
+
+<div ng-include="'/application-latest/assets/js/countries_menu.html'"></div>
+
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('customersCtrl', function($scope, $http) {
+    $http.get("http://www.w3schools.com/angular/customers.php")
+    .then(function (response) {$scope.names = response.data.records;});
+});
+
+
+app.run(function($rootScope) {
+    $rootScope.color = 'blue';
+});
+
+app.controller('myCtrl', function($scope) {
+    $scope.color = "red";
+});
+</script>
+
+
+
+
+

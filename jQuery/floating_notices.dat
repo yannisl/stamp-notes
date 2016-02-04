@@ -1,17 +1,3 @@
-<!--
-{{feature-image:/egypt/amato-01/aa_107.jpg}}
-{{credit:/codeigniter/blogs/gallery/amato-01/1}}
-{{credit-source:Allan Amato}}
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
-
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
-
 
 <h2>Floating Notices</h2>
 
@@ -21,20 +7,11 @@ Users visiting a site can miss to read normally static notices. The human brain 
 
 
 
-<div  class="code-block console-wrap">
-<div class="code-block code">
-<code>
+\begin{codeblock}
 // click the run button a few times to
 // view the notices stack! Press with +- 1s interval
 UI.floatingNotices('The Good Parts! Thank You!');
-</code>
-</div>
-<div  id ="msg" class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
+\end{codeblock}
 
 
 These little page enhancements are a pain due to the difficulties in getting all browsers to behave in a consistent manner. They become an exercise in CSS mostly, rather than Javascript. When all browser vendors adapt fully the same standards, web designers will mark the day on their calendars and celebrate it for years to come!

@@ -1,22 +1,10 @@
-      
-<!--
- directives
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
 
-{{feature-image:/codeigniter/images/china/beauty_07.jpg}}
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
 
 <script type="text/javascript"> 
 goog.require('goog.ui.TableSorter');
 </script>
  
- <STYLE type="text/css"> 
+<STYLE type="text/css"> 
     /** Each application can choose how to show sorted state.
         This is a simple way, just toggling background colors. */
  
@@ -27,14 +15,16 @@ goog.require('goog.ui.TableSorter');
     th.goog-tablesorter-sorted-reverse {
       background-color: yellow;
     }
-  </STYLE> 
+</STYLE> 
+  
 <h2>A Table Sorter</h2>
+
 One useful component of Google's UI Classes is the Table sorter. 
 A table sorter allows for sorting of a table by column.  To use the  component, you first need to have the table in your page. The method then decorates the table with sorting
 features.
 
-{{bulb: The TABLE must have a THEAD containing TH elements for the table column
-headers.}}
+\bulb{The Table must have a `<thead> containing <th> elements for the table column
+headers.}
 
 We will the example table shown below. The Table lists months and the number of days in the month. Once we activate the routines, by running the code below in the notes area, we will then move the table to the side margin and decorate it with the sorting functions. You will then be able to sort the columns, by clicking at the labels in the head area of the table.
 
@@ -103,11 +93,9 @@ The TableSorter class can be found under the ui directory of the Closure files. 
   </div>
 
   
-<div  class="code-block console-wrap">
-<div class="code-block code">
-<code>
-//filesLoaded();
-//googInfo();
+\begin{codeblock}
+filesLoaded();
+googInfo();
 
 var component = new goog.ui.TableSorter();
 component.decorate(goog.dom.$('sortMe'));
@@ -120,16 +108,12 @@ $('#demo-area').append($table).css({
   paddingLeft: '10px'
 }).fadeOut('slow').fadeIn('slow');
 
-</code>
-</div>
-<div  id ="msg" class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
+\end{codeblock}
 
-I battled to get it going as the idgenerator file taht I downloaded was different from those of the examples, eventually sorted it out. There is a need to write the version number on top of the class, rather than rely on svg, as one will be using the examples.
+<div id="demo-area"></div>
+
+I battled to get it going as the id generator file that I downloaded was different from those of the examples, eventually sorted it out. There is a need to write the version number on top of the class, rather than rely on svg, as one will be using the examples.
+
 <h3>Sorting a Table</h3>
 
 The Table Sorting code, starts by using a constructor to create a __component__. 
@@ -141,6 +125,12 @@ var component = new goog.ui.TableSorter();
 </pre>
 
 The sorting methods are then specified by calling the __TableSorter__, method __setSortFunction()__. In our case we let column 0 default to an numeric sort. The month name is sorted alphabetically, whereas for the last column we provide a special callback that sorts the days in the month, in ascending or descending order.
+
+
+##jQuery Alternatives
+
+A fantastic plugin for tables by [wenzhixin](http://bootstrap-table.wenzhixin.net.cn/)
+
 
 <span id="chapter" class="hidden">11</span>
 ##Further Reading

@@ -3,15 +3,13 @@
 
 NEEDS CHECKING
 
-<div  class="code-block console-wrap">
-<div class="code-block code">
-<code>
+\begin{codeblock}
 function min(iterator, context) {
     iterator = iterator || Prototype.K;
     var result;
     this.each(function(value, index) {
       value = iterator.call(context, value, index);
-      if (result == null || value &lt; result)
+      if (result == null || value < result)
         result = value;
     });
     return result;
@@ -19,23 +17,15 @@ function min(iterator, context) {
 
 var a = [1,2,3,4,5,6,0];
 var min=min(a);
-</code>
-</div>
+\end{codeblock}
 
-<div  id ="msg" class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
 
 
 <h3>fill numeric</h3>
-The fillNumeric() method returns an array filled with numbers in ascending order.
 
-<div  class="code-block console-wrap">
-<div class="code-block code">
-<code>
+The `fillNumeric()` method returns an array filled with numbers in ascending order.
+
+\begin{codeblock}
 /**
  * Returns an array consisting of a list of  n numbers in ascending order from start to n.
  *
@@ -58,15 +48,9 @@ function fillNumeric(start, n) {
 
 log(fillNumeric(4, 12));
 log(fillNumeric(13));
-</code>
-</div>
+\end{codeblock}
 
-<div  id ="msg" class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
+
 
 
 <span id="chapter" class="hidden">11</span>

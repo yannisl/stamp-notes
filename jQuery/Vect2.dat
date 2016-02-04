@@ -1,19 +1,11 @@
- <!--
-{{feature: .. Simplicity the art of maximizing the amount of work not done. The Agile Manifesto}}
 
-{{keywords: CodeIgniter,PHP, CodeIgniter, File helper class}}
-{{author:Dr Y Lazarides}}
-{{date:8 September 2008}}
-{{category: PHP, MVC, Parsers}}
-{{snippet:using CodeIgniter's file_helper class}}
-
--->
 
 <script>goog.require('goog.math.Coordinate');
 goog.require('goog.math.Vec2');
 </script>
 
 <h2>The Vector manipulation Class</h2>
+
 This Google class simulates the behavior of a Java "long" integer, by
  representing a 64-bit two's-complement
  integer value.
@@ -24,10 +16,7 @@ Number Type the values  provided by JavaScript represent
 the double-precision 64-bit format IEEE 754 values including the special _Not-a-Number_ (NaN) values,
 positive infinity, and negative infinity.
 
-<div  class="code-block console-wrap">
-<div class="code-block code">
-<code>
-googInfo();
+\begin{codeblock}
 googInfo();
 
 var p1 = new goog.math.Coordinate(5, 5);
@@ -36,19 +25,11 @@ var d = goog.math.Coordinate.distance(p1, p2);
 var diff = goog.math.Coordinate.difference(p1, p2);
 var n = new goog.math.Vec2(5, 5)
 var n1 = new goog.math.Vec2.randomUnit();
-log(n.x,y.x);
+log(n.x, n.y);
 log(n1.x, n1.y);
+\end{codeblock}
 
 
-</code>
-</div>
-
-<div  id ="msg" class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
 
 
 

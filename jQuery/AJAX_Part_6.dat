@@ -1,5 +1,4 @@
 <style type="text/css">
-
 .sales1{color:red}
 ul.ex {font-size:13px;display:block}
 ul.ex {list-type:none;list-style-type:none}
@@ -24,72 +23,51 @@ In keeping with the spirit of <strong>progressive enhancement</strong>, however 
 <h3>Executing a script using $.getScript()</h3>
 
 
-<div  class="code-block console-wrap">
-<div class="code code-block">
+\begin{codeblock}
 
-<code>
 $('#ajax-button').click(function(){
-   $('&lt;div id="load"&gt; loading ....&lt;/div&gt;').prependTo('#msg1')
+   $('<div id="load"> loading ...</div>').prependTo('#msg1')
        .ajaxStart(function(){
          $(this).show();
        }).ajaxStop(function(){
            // $(this).hide();
         });
-     $('#msg1').load('/CodeIgniter/js/jquery_menu.html');
+        
+     $('#msg1').load('/application-latest/assets/js/countries_menu.html');
      return false;
 });
+\end{codeblock}
 
-</code>
+<div id="msg1"></div>
 
-</div>
-
-<div  id="msg1" class="msg">
- </div>
-<div class="console"></div>
-<hr/>
-<button class="eval">Run Code!</button>
 <button id="ajax-button">Load Data!</button>
 
-<ol class="results"></ol> 
-</div>
 
-<hr/>
 
 <h3>Small Enhancements, fading in the new content</h3>
 
 We can create a small enhancement here by making the loaded content fade into view rather than appear suddenly. The .load() can take a callback to be fired
 on completion:
 
-<div  class="code-block console-wrap">
-<div class="code">
-
-<code>
+\begin{codeblock}
 $('#ajax-button-01').click(function(){
-   $('&lt;div id="load"&gt; loading ....&lt;/div&gt;').prependTo('#msg2')
+   $('<div id="load2"> loading ...</div>').prependTo('#msg2')
        .ajaxStart(function(){
          $(this).show();
        }).ajaxStop(function(){
            // $(this).hide();
         });
-     $('#msg2').load('/CodeIgniter/js/a.html', function(){
+     $('#msg2').load('/application-latest/assets/js/countries_menu.html', function(){
             $(this).fadeOut('slow').fadeIn('slow');
       });
      return false;
 });
+\end{codeblock}
 
-</code>
-
-</div>
-
+<button id="ajax-button-01" class="btn btn-default btn-primary">Load Data!</button>
 <div  id="msg2" class="msg">
  </div>
-<div class="console"></div>
-<hr/>
-<button class="eval">Run Code!</button>
-<button id="ajax-button-01">Load Data!</button>
 
-<ol class="results"></ol> 
-</div>
 
 
   

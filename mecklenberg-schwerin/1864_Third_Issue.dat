@@ -18,7 +18,7 @@ were printed in sheets of 100 in ten
 rows of ten instead of 120 as formerly.
 The dates and quantities of the postage were given by Poole as:
 \begin{table}[htbp]
-\begin{tabular}{llll}
+\begin{tabular}{llrr}
 Date             &Sheets  &Value  &Stamps\\
 July 15,  1864.  &100     &5sch &10,000\\
 Aug. 10,  1864.  &4,000   &4/4sch &400,000\\

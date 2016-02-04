@@ -1,0 +1,54 @@
+# Themes
+
+Underlying the application is a `CodeIgniter 3` framework. `CodeIgniter` is a minimalistic framework and does not as a default use themes. In CodeIgniter templates are called \textit{views}.
+
+For convenience, I have extended the application to use \textit{themes} to bring it closer to what designers, understand of the concept.
+
+These are found under the `\application\view\\themes\` folder. They are `.php` files and are simply a collection of views and partials, that follow a convention. I have tried to emulate some of the conventions found in WordPress since it is likely that users are familiar with it. Please note that WordPress themes will not work in TeXIgniter, however, you can use them as a base, if you wish to copy `CSS` and `html` structure.
+
+## Convention over Configuration
+
+To minimize custom changes normally every Controller will require a respective view in the theme. As this application has mainly articles and blogs there should be respective templates or partials.
+
+\begin{itemize}
+
+\item  `basic`   The basic template is the default template that we use. 
+\item  `about`   An about description 
+\item `index`.   
+\end{itemize}
+
+There are also a lot of conventions in `\partials`. The use of partial declutters the main template and makes it easier to work with.  
+
+\begin{itemize}
+\item `partial\header.php`
+\item `partial\footer.php` 
+\end{itemize}
+
+Nice splash images http://www.hamboneart.com/gallery.php?id=56&p=1
+
+
+inc (folder)
+js (folder)
+languages (folder)
+layouts (folder)
+404.php
+archive.php
+comments.php
+content.php
+content-aside.php
+content-page.php
+content-single.php
+functions.php
+index.php
+no-results.php
+page.php
+search.php
+searchform.php
+sidebar.php
+single.php
+license.txt
+rtl.css
+style.css
+
+
+

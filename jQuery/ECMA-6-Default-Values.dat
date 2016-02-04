@@ -1,0 +1,17 @@
+\chapter{Default Values}
+
+This is a feature not fully suppported in all Browsers and Traceur or a similar transpiler should be used for cross-compatibility.
+
+\begin{codeblock}
+
+'use strict'
+function sayMsg(msg='This is a default message.') {
+  log(msg);
+}
+
+sayMsg(); // This is a default message.
+sayMsg('This is a different message!'); // This is a different message!
+
+
+
+\end{codeblock}

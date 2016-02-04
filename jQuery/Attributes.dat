@@ -52,9 +52,7 @@ The properties can be any valid string for element properties
 
 Comparing this with jQuery
 
-<div  class="code-block console-wrap" title="Setting the CSS style attribute">
-<div class="code-block code">
-<code>
+\begin{codeblock}
 (function testSetProperties() {
   var attrs = {
     'style': 'padding-left:15px;color: #fff;background:#dd0000;width:40%;line-height:1.5',
@@ -69,22 +67,14 @@ Comparing this with jQuery
     log(el.style.color);
   }
 })();
-</code>
-</div>
-<div class="sandbox"  ><p id ="testEl2"  >Test Area for id=testEl2</p>
-</div>
-<div   class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
+\end{codeblock}
 
 
 You can mix the two if you want, as I have shown in the example above. It is clear that jQuery provides much more flexibility and minimizes memory consumption -that is your own memory! The jQuery style is to provide flexibility. Both the .css() method  can be used to set or get a property. Closure is closer to the original Browser DOM methods which the wrap. 
 
 
-<span id="chapter" class="hidden">11</span>
+<span id="chapter" class="hidden">13</span>
+
 ###Further Reading
 
 

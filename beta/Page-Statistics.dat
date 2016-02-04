@@ -1,0 +1,32 @@
+# Page Statistics
+
+The module for Page Statistics, will return statistics for your writings. It also uses some readability indices to give you feedback as to the readability of your writing.
+
+## Smog Index 
+
+The SMOG grade is a measure of readability that estimates the years of education needed to understand a piece of writing. SMOG is the acronym derived from Simple Measure of Gobbledygook. It is widely used, particularly for checking health messages.\cite{hedman2008}\cite{ley1996} The SMOG grade yields a 0.985 correlation with a standard error of 1.5159 grades with the grades of readers who had 100% comprehension of test materials.[3]
+
+The formula for calculating the SMOG grade was developed by G. Harry McLaughlin as a more accurate and more easily calculated substitute for the Gunning fog index and published in 1969. To make calculating a text's readability as simple as possible an approximate formula was also given — count the words of three or more syllables in three 10-sentence samples, estimate the count's square root (from the nearest perfect square), and add 3.
+
+A 2010 study published in the Journal of the Royal College of Physicians of Edinburgh stated that "SMOG should be the preferred measure of readability when evaluating consumer-oriented healthcare material.” The study found that “The Flesch-Kincaid formula significantly underestimated reading difficulty compared with the gold standard SMOG formula."[4]
+
+Applying SMOG to other languages lacks statistical validity.[5]
+
+Read the [original paper](http://webpages.charter.net/ghal/SMOG_Readability_Formula_G._Harry_McLaughlin_(1969).pdf).
+
+## Fog Index
+
+The Gunning fog index measures the readability of English writing. The index estimates the years of formal education needed to understand the text on a first reading. A fog index of 12 requires the reading level of a U.S. high school senior (around 18 years old). The test was developed by Robert Gunning, an American businessman, in 1952.[1]
+
+The fog index is commonly used to confirm that text can be read easily by the intended audience. Texts for a wide audience generally need a fog index less than 12. Texts requiring near-universal understanding generally need an index less than 8.
+
+
+https://github.com/bigwhoop/sentence-breaker
+
+
+https://github.com/shameerc
+
+https://github.com/vanderlee/phpSyllable
+
+
+

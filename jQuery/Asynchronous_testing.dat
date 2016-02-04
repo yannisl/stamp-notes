@@ -15,10 +15,7 @@ To carry out the tests properly you will need to follow these steps:
 - Each test will need to be placed on the queue and will only run once all the previous tests have been completed.
 
 
-
-<div  class="code-block console-wrap">
-<div class="code-block code">
-<code>
+\begin{codeblock}
 function iterate(n) {
   for (var i = 0; i < n; i++) {
     var a = i;
@@ -72,16 +69,7 @@ test(function () {
   200);
 });
 
-
-</code>
-</div>
-
-<div  id ="msg" class="msg">
-</div>
-<div class="console"></div>
-<button class="eval">Run Code!</button>
-<ol class="results"></ol> 
-</div>
+\end{codeblock}
 
 The code needs some explanation. There are three publicly available methods,
 test(), pause() and delay();

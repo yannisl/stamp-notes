@@ -1,0 +1,92 @@
+
+# Itemized Lists
+
+## Using Markdown
+
+\begin{verbatim}
+* First Line.
+* Second Line.
+* Third Line.
+\end{verbatim}
+
+The markdown mark-up will produce a `ul` list with no classes. So this inherits the properties of the ul css. 
+
+\begin{verbatim}
+<ul>
+  <li>First Line.</li>
+  <li>Second Line.</li>
+  <li>Third Line.</li>
+</ul>
+\end{verbatim}
+
+
+This will render as,
+
+<ul>
+  <li>First Line.</li>
+  <li>Second Line.</li>
+  <li>Third Line.</li>
+</ul>
+
+
+
+## Using HTML
+
+Of course, you can type directly into the editor the html you want. This is safe even if you open the editor to the public, as w sanitize the content later on.
+
+\begin{verbatim}
+<ul class="bullet">
+  <li>Swollen joints</li>
+  <li>Pain in hands and knees</li>
+  <li>Redness around joints</li>
+  <li>Constant fatigue</li>
+  <li>Morning stiffness in joints</li>
+  <li>High fevers</li>
+  <li>Rheumatoid nodules, which develop around joints</li>
+</ul>
+\end{verbatim}
+
+This will render as follows,
+
+<ul class="bullet">
+  <li>Swollen joints</li>
+  <li>Pain in hands and knees</li>
+  <li>Redness around joints</li>
+  <li>Constant fatigue</li>
+  <li>Morning stiffness in joints</li>
+  <li>High fevers</li>
+  <li>Rheumatoid nodules, which develop around joints</li>
+</ul>
+
+
+## Using LaTeX mark-up
+
+If you plan to include a page, as part of `.pdf` output file, you can use the normal LaTeX mark-up
+
+\begin{verbatim}
+\begin{itemize}
+  \item The first line.
+  \item The second line.
+\end{itemize}
+\end{verbatim}
+
+This produces the following `html`
+
+\begin{verbatim}
+<ul class="itemize">
+  <li>The first line.</li> 
+  <li>The second line.</li> 
+</ul>
+\end{verbatim}
+
+and which will be rendered by the browser as follows:
+
+<ul class="itemize">
+  <li>The first line.</li> 
+  <li>The second line.</li> 
+</ul>
+
+\begin{loweralpha}
+  \item The first line.
+  \item The second line.
+\end{loweralpha}

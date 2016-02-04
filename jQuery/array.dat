@@ -11,6 +11,10 @@ This file contains utilities for arrays, with the  base object being \textbf{arr
 var a = [0, 10, 9, 8, 6, 5, 4, 3, 123, 3, 105, 211];
 var temp = goog.array.peek(a);
 log(temp);
+
+var [head, ...tail] = [1, 2, 3, 4];
+
+
 \end{codeblock}
 
 

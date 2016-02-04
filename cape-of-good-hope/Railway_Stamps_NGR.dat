@@ -1,5 +1,4 @@
-##Cape of Good Hope - Postal History - Ancillary marks
-##Railway Stamps of the Cape of Good Hope
+# Railway Stamps of the Cape of Good Hope
 
 \phc[35%]{../cape-of-good-hope/RailwayStamps/NGR 3d.jpg}{ }
 \phc[35%]{../cape-of-good-hope/RailwayStamps/NGR_2_d.jpg}{ }
@@ -13,11 +12,12 @@ Note that after 31 may 1910 the stamps of all the former South African colonies 
 
 Hagen and Naylor mention that originally it was thought that the sheets of stamps were folded in four before perforating. This would account for the appearance of the four variations in the perforations i.e, 'normal', 'reversed', 'inverted' and 'inverted reverse'. All variations should then have existed in equal numbers. However, the relative scarcity of the latter two variations points to the belief that the perforating process was carried out as follows:
 
--  Before perforating the sheets were folded in the middle of the pane. This would result in 'Normal' and 'Reverse' perforations.
--  It was suggested that 24 stamps were perforated at a time. viz. two groups of 4x3;
--  Some sheets were fed into the perforating machine the wrong way around after having been folded, resulting in 'inverted' and 'inverted reversed' perforations.
--  Too many other irregularities exist such as misplaced and double perforations. (see Hagen and Naylor, Railway Stamps of South Africa).
-
+\begin{itemize}
+\item  Before perforating the sheets were folded in the middle of the pane. This would result in 'Normal' and 'Reverse' perforations.
+\item  It was suggested that 24 stamps were perforated at a time. viz. two groups of 4x3;
+\item  Some sheets were fed into the perforating machine the wrong way around after having been folded, resulting in 'inverted' and 'inverted reversed' perforations.
+\item  Too many other irregularities exist such as misplaced and double perforations. (see Hagen and Naylor, Railway Stamps of South Africa).
+\end{itemize}
 
  
 <table align="center" border="1" width="421">

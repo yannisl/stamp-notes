@@ -1,0 +1,16 @@
+\chapter{Write your title here}
+
+
+\ph[50%]{../beta/che.jpg}{This is a short figure caption}
+
+\begin{codeblock}
+
+$( "figcaption" ).each( function () {
+    var fig = $(this);
+        figtext = fig.text() 
+        if (figtext.length <200)  {
+          fig.css({'textAlign' : 'center'});
+        }
+});
+
+\end{codeblock}
