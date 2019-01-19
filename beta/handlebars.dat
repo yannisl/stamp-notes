@@ -1,6 +1,6 @@
 \chapter{Handlebars}
 
-<script src="https://rawgit.com/janl/mustache.js/master/mustache.js">
+<script src="https://cdn.jsdelivr.net/gh/janl/mustache.js@master/mustache.js">
 
 
 
